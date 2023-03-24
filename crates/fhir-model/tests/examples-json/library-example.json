@@ -1,0 +1,64 @@
+{
+  "resourceType": "Library",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eId: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003eLibrary/example\u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eIdentifier: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003e\n                  \u003cb\u003evalue: \u003c/b\u003e\n                  \u003cspan\u003eChalmydiaScreening_Common\u003c/span\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eVersion: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003e2.0.0\u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eTitle: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003eChlamydia Screening Common Library\u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eType: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-right: 25px;\"\u003e\n                  \u003cspan\u003e\n                     \u003cspan\u003e\n                        \u003cspan style\u003d\"padding-left: 25px;\"\u003e\n                           \u003cb\u003ecode: \u003c/b\u003e\n                           \u003cspan\u003elogic-library\u003c/span\u003e\n                        \u003c/span\u003e\n                     \u003c/span\u003e\n                  \u003c/span\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eStatus: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003edraft\u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eDescription: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003eCommon Logic for adherence to Chlamydia Screening guidelines\u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eTopic: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-right: 25px;\"\u003e\n                  \u003cspan style\u003d\"padding-left: 25px;\"\u003e\n                     \u003cb\u003etext: \u003c/b\u003e\n                     \u003cspan\u003eChlamydia Screening\u003c/span\u003e\n                  \u003c/span\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003cp/\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eRelated: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr style\u003d\"vertical-align: top;\"\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003e\n                  \u003cp style\u003d\"margin-bottom: 5px;\"\u003e\n                     \u003cb\u003etype: \u003c/b\u003e\n                     \u003cspan\u003edepends-on\u003c/span\u003e\n                  \u003c/p\u003e\n                  \u003cp style\u003d\"margin-bottom: 5px;\"\u003e\n                     \u003cb\u003eResource: \u003c/b\u003e\n                     \u003cbr/\u003e\n                     \u003cspan\u003e\n                        \u003cspan style\u003d\"padding-left: 25px;\"\u003e\n                           \u003cb\u003ereference: \u003c/b\u003e\n                           \u003cspan\u003eLibrary/library-quick-model-definition\u003c/span\u003e\n                        \u003c/span\u003e\n                     \u003c/span\u003e\n                  \u003c/p\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eData Requirements: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003e\n                  \u003cdiv\u003e\n                     \u003cp style\u003d\"margin-bottom: 5px;\"\u003e\n                        \u003cb\u003etype: \u003c/b\u003e\n                        \u003cspan\u003eCondition\u003c/span\u003e\n                     \u003c/p\u003e\n                     \u003cp style\u003d\"margin-bottom: 5px;\"\u003e\n                        \u003cb\u003ecode filter:\u003c/b\u003e\n                        \u003cbr/\u003e\n                        \u003cspan style\u003d\"padding-left: 25px;\"\u003e\n                           \u003cb\u003epath: \u003c/b\u003e\n                           \u003cspan\u003ecode\u003c/span\u003e\n                        \u003c/span\u003e\n                        \u003cbr/\u003e\n                        \u003cspan style\u003d\"padding-left: 25px;\"\u003e\n                           \u003cb\u003evalueset: \u003c/b\u003e\n                           \u003cspan\u003eOther Female Reproductive Conditions\u003c/span\u003e\n                        \u003c/span\u003e\n                     \u003c/p\u003e\n                  \u003c/div\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n         \u003ctable class\u003d\"grid dict\"\u003e\n            \u003ctr\u003e\n               \u003ctd\u003e\n                  \u003cb\u003eContent: \u003c/b\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n            \u003ctr\u003e\n               \u003ctd style\u003d\"padding-left: 25px; padding-right: 25px;\"\u003e\n                  \u003cp style\u003d\"margin-bottom: 5px;\"\u003e\n                     \u003cb\u003etype: \u003c/b\u003e\n                     \u003cspan\u003etext/cql\u003c/span\u003e\n                  \u003c/p\u003e\n                  \u003cp style\u003d\"margin-bottom: 5px;\"\u003e\n                     \u003cb\u003eurl: \u003c/b\u003e\n                     \u003cspan\u003elibrary-example-content.cql\u003c/span\u003e\n                  \u003c/p\u003e\n               \u003c/td\u003e\n            \u003c/tr\u003e\n         \u003c/table\u003e\n      \u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "use": "official",
+      "value": "ChalmydiaScreening_Common"
+    }
+  ],
+  "version": "2.0.0",
+  "title": "Chlamydia Screening Common Library",
+  "status": "draft",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "code": "logic-library"
+      }
+    ]
+  },
+  "date": "2015-07-22",
+  "description": "Common Logic for adherence to Chlamydia Screening guidelines",
+  "topic": [
+    {
+      "text": "Chlamydia Screening"
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "depends-on",
+      "resource": "http://hl7.org/fhir/Library/library-quick-model-definition"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006"
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBDaGxhbXlkaWFTY3JlZW5pbmdfQ29tbW9uIHZlcnNpb24gJzInCgp1c2luZyBRVUlDSwoKdmFsdWVzZXQgIkZlbWFsZSBBZG1pbmlzdHJhdGl2ZSBTZXgiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy41NjAuMTAwLjInCnZhbHVlc2V0ICJPdGhlciBGZW1hbGUgUmVwcm9kdWN0aXZlIENvbmRpdGlvbnMiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTEuMTIuMTAwNicKdmFsdWVzZXQgIkdlbml0YWwgSGVycGVzIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEwLjEyLjEwNDknCnZhbHVlc2V0ICJHZW5vY29jY2FsIEluZmVjdGlvbnMgYW5kIFZlbmVyZWFsIERpc2Vhc2VzIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEyLjEyLjEwMDEnCnZhbHVlc2V0ICJJbmZsYW1tYXRvcnkgRGlzZWFzZXMgb2YgRmVtYWxlIFJlcHJvZHVjdGl2ZSBPcmdhbnMiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTIuMTIuMTAwNCcKdmFsdWVzZXQgIkNobGFteWRpYSI6ICcyLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMi4xMi4xMDAzJwp2YWx1ZXNldCAiSElWIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTIwLjEyLjEwMDMnCnZhbHVlc2V0ICJTeXBoaWxpcyI6ICcyLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMi4xMi4xMDAyJwp2YWx1ZXNldCAiQ29tcGxpY2F0aW9ucyBvZiBQcmVnbmFuY3ksIENoaWxkYmlydGggYW5kIHRoZSBQdWVycGVyaXVtIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMTInCnZhbHVlc2V0ICJQcmVnbmFuY3kgVGVzdCI6ICcyLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMS4xMi4xMDExJwp2YWx1ZXNldCAiUGFwIFRlc3QiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDguMTIuMTAxNycKdmFsdWVzZXQgIkxhYiBUZXN0cyBEdXJpbmcgUHJlZ25hbmN5IjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMDcnCnZhbHVlc2V0ICJMYWIgVGVzdHMgZm9yIFNleHVhbGx5IFRyYW5zbWl0dGVkIEluZmVjdGlvbnMiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTAuMTIuMTA1MScKdmFsdWVzZXQgIkNobGFteWRpYSBTY3JlZW5pbmciOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTAuMTIuMTA1MicKCmNvbnRleHQgUGF0aWVudAoKZGVmaW5lICJDb25kaXRpb25zIEluZGljYXRpbmcgU2V4dWFsIEFjdGl2aXR5IjoKCVsiQ29uZGl0aW9uIjogIk90aGVyIEZlbWFsZSBSZXByb2R1Y3RpdmUgQ29uZGl0aW9ucyJdCgl1bmlvbiBbIkNvbmRpdGlvbiI6ICJHZW5pdGFsIEhlcnBlcyJdCiAgICB1bmlvbiBbIkNvbmRpdGlvbiI6ICJHZW5vY29jY2FsIEluZmVjdGlvbnMgYW5kIFZlbmVyZWFsIERpc2Vhc2VzIl0KICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkluZmxhbW1hdG9yeSBEaXNlYXNlcyBvZiBGZW1hbGUgUmVwcm9kdWN0aXZlIE9yZ2FucyJdCiAgICB1bmlvbiBbIkNvbmRpdGlvbiI6ICJDaGxhbXlkaWEiXQogICAgdW5pb24gWyJDb25kaXRpb24iOiAiSElWIl0KICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIlN5cGhpbGlzIl0KICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkNvbXBsaWNhdGlvbnMgb2YgUHJlZ25hbmN5LCBDaGlsZGJpcnRoIGFuZCB0aGUgUHVlcnBlcml1bSJdCgpkZWZpbmUgIkxhYm9yYXRvcnkgVGVzdHMgSW5kaWNhdGluZyBTZXh1YWwgQWN0aXZpdHkiOgogICAgWyJEaWFnbm9zdGljT3JkZXIiOiAiUHJlZ25hbmN5IFRlc3QiXQogICAgdW5pb24gWyJEaWFnbm9zdGljT3JkZXIiOiAiUGFwIFRlc3QiXQogICAgdW5pb24gWyJEaWFnbm9zdGljT3JkZXIiOiAiTGFiIFRlc3RzIER1cmluZyBQcmVnbmFuY3kiXQoJdW5pb24gWyJEaWFnbm9zdGljT3JkZXIiOiAiTGFiIFRlc3RzIGZvciBTZXh1YWxseSBUcmFuc21pdHRlZCBJbmZlY3Rpb25zIl0KCmRlZmluZSAiVGVzdHMgUGVyZm9ybWVkIEZvciBDaGxhbXlkaWEiOgoJWyJEaWFnbm9zdGljUmVwb3J0IjogIkNobGFteWRpYSBTY3JlZW5pbmciXQoKZGVmaW5lICJSZXN1bHRzIFByZXNlbnQgRm9yIENobGFteWRpYSBTY3JlZW5pbmciOgogICAgWyJEaWFnbm9zdGljUmVwb3J0IjogIkNobGFteWRpYSBTY3JlZW5pbmciXSBSIHdoZXJlIFIuInJlc3VsdCIgaXMgbm90IG51bGwK"
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

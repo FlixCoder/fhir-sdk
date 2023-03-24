@@ -1,0 +1,75 @@
+{
+  "resourceType": "Patient",
+  "id": "infant-fetal",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eAnonymous Patient\u003c/b\u003e male, DoB Unknown ( Medical record number: MRN657865757378)\u003c/p\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+      "valueString": "Organa"
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "http://coruscanthealth.org/main-hospital/patient-identifier",
+      "value": "MRN657865757378"
+    }
+  ],
+  "gender": "male",
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "72705000",
+              "display": "Mother"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "N"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "MTH"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "use": "maiden",
+        "family": "Organa",
+        "given": [
+          "Leia"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+31201234567",
+          "use": "mobile"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

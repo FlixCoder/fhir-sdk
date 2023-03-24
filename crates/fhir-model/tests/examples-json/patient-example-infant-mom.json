@@ -1,0 +1,50 @@
+{
+  "resourceType": "Patient",
+  "id": "infant-mom",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eLeia Solo (OFFICIAL)\u003c/b\u003e female, DoB: 1995-10-12\u003c/p\u003e\u003c/div\u003e"
+  },
+  "name": [
+    {
+      "use": "official",
+      "family": "Solo",
+      "given": [
+        "Leia"
+      ]
+    },
+    {
+      "use": "maiden",
+      "family": "Organa",
+      "given": [
+        "Leia"
+      ]
+    }
+  ],
+  "gender": "female",
+  "birthDate": "1995-10-12",
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+        "code": "M",
+        "display": "Married"
+      }
+    ]
+  },
+  "generalPractitioner": [
+    {
+      "reference": "Practitioner/21B",
+      "display": "Too-Onebee"
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

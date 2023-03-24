@@ -1,0 +1,307 @@
+{
+  "resourceType": "List",
+  "id": "genetic",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ctable class\u003d\"clstu\"\u003e\u003ctr\u003e\u003ctd\u003eMode: snapshotStatus: currentCode: History of family member diseases\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eSubject: \u003ca href\u003d\"patient-example.html\"\u003ePatient/example: Peter Patient\u003c/a\u003e \u0026quot;Peter CHALMERS\u0026quot;\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr style\u003d\"backgound-color: #eeeeee\"\u003e\u003ctd\u003e\u003cb\u003eItems\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#1\"\u003e#1\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#2\"\u003e#2\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#3\"\u003e#3\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#4\"\u003e#4\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#5\"\u003e#5\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#6\"\u003e#6\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#7\"\u003e#7\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"#8\"\u003e#8\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"condition-family-history.html\"\u003eCondition/family-history: Family history of cancer of colon\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "contained": [
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "1",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent",
+          "extension": [
+            {
+              "url": "type",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "FTH",
+                    "display": "father"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "reference",
+              "valueReference": {
+                "reference": "#2",
+                "display": "maternal grandfather"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "name": "Dave",
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "FTH",
+            "display": "father"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "2",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "MGRFTH",
+            "display": "maternal grandfather"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "3",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent",
+          "extension": [
+            {
+              "url": "type",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "MTH",
+                    "display": "mother"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "reference",
+              "valueReference": {
+                "reference": "#2",
+                "display": "maternal grandfather"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "MTH",
+            "display": "mother"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "4",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "PGRMTH",
+            "display": "paternal grandmother"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "5",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "name": "Eve",
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "PAUNT",
+            "display": "paternal aunt"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "6",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "MUNCLE",
+            "display": "maternal uncle"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "7",
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "NSIS",
+            "display": "natural sister"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "FamilyMemberHistory",
+      "id": "8",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-parent",
+          "extension": [
+            {
+              "url": "type",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "MTH",
+                    "display": "mother"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "reference",
+              "valueReference": {
+                "reference": "#2",
+                "display": "maternal grandfather"
+              }
+            }
+          ]
+        }
+      ],
+      "status": "completed",
+      "patient": {
+        "reference": "Patient/example",
+        "display": "Peter Patient"
+      },
+      "name": "Alice",
+      "relationship": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+            "code": "MCOUSN",
+            "display": "maternal cousin"
+          }
+        ]
+      }
+    }
+  ],
+  "status": "current",
+  "mode": "snapshot",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8670-2",
+        "display": "History of family member diseases"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/example",
+    "display": "Peter Patient"
+  },
+  "entry": [
+    {
+      "item": {
+        "reference": "#1"
+      }
+    },
+    {
+      "item": {
+        "reference": "#2"
+      }
+    },
+    {
+      "item": {
+        "reference": "#3"
+      }
+    },
+    {
+      "item": {
+        "reference": "#4"
+      }
+    },
+    {
+      "item": {
+        "reference": "#5"
+      }
+    },
+    {
+      "item": {
+        "reference": "#6"
+      }
+    },
+    {
+      "item": {
+        "reference": "#7"
+      }
+    },
+    {
+      "item": {
+        "reference": "#8"
+      }
+    },
+    {
+      "item": {
+        "reference": "Condition/family-history",
+        "display": "Family history of cancer of colon"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

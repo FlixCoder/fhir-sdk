@@ -1,0 +1,28 @@
+[package]
+authors = ["Flix <felix.dommes@rwth-aachen.de>"]
+categories = ["data-structures", "parser-implementations", "web-programming"]
+description = "FHIR SDK Models."
+documentation = "https://docs.rs/fhir-sdk"
+edition = "2021"
+exclude = ["/tests/examples-json"]
+homepage = "https://github.com/FlixCoder/fhir-sdk"
+keywords = ["FHIR", "JSON", "types"]
+license = "MIT"
+name = "fhir-model"
+repository = "https://github.com/FlixCoder/fhir-sdk"
+version = "0.1.0"
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = ["r4b"]
+r4b = []
+
+[dependencies]
+serde = {version = "1.0.158", features = ["derive"]}
+typed-builder = "0.14.0"
+
+[dev-dependencies]
+assert-json-diff = "2.0.2"
+serde_json = "1.0.94"

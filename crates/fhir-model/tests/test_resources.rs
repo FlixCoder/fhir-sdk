@@ -9,7 +9,7 @@ use fhir_model::r4b::{
 		Basic, NamedResource, Patient, RequestGroup, RequestGroupAction, RequestGroupActionTiming,
 		Resource, WrongResourceType,
 	},
-	types::{CodeableConcept, Coding},
+	types::{CodeableConcept, Coding, Identifier},
 };
 use serde_json::Value;
 
@@ -90,4 +90,24 @@ fn resource_traits() {
 
 	patient.as_base_resource_mut().set_id(None);
 	assert!(patient.as_base_resource().id().is_none());
+}
+
+#[test]
+fn identifiable_resource() {
+	let patient: Resource = Patient::builder()
+		.identifier(vec![Some(
+			Identifier::builder().system("system".to_owned()).value("bla".to_owned()).build(),
+		)])
+		.build()
+		.into();
+	assert!(patient.as_identifiable_resource().is_some());
+
+	let identifier = patient
+		.as_identifiable_resource()
+		.expect("Patient has identifiers")
+		.identifier()
+		.first()
+		.and_then(Option::as_ref)
+		.expect("We set one identifier");
+	assert_eq!(identifier.system.as_deref(), Some("system"));
 }

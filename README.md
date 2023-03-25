@@ -17,7 +17,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 - [x] Serialization and deserialization to and from JSON
 - [x] Linked code-fields to respective enums
 - [x] Builders for types and resources
-- [ ] Allow to convert code enums to Coding and CodeableConcept
+- [x] Allow to convert code enums to Coding and CodeableConcept
 - [ ] Implementation of base traits
   - [ ] Resource, including FHIR version, resource type (const)
   - [ ] DomainResource
@@ -26,6 +26,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 - [ ] FHIRpath implementation
 - [ ] Resource validation using FHIRpath
 - [ ] Search parameters
+- [ ] GraphQL
 - [ ] XML
 
 ## Known Problems

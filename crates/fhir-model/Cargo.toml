@@ -9,6 +9,7 @@ homepage = "https://github.com/FlixCoder/fhir-sdk"
 keywords = ["FHIR", "JSON", "types"]
 license = "MIT"
 name = "fhir-model"
+readme = "README.md"
 repository = "https://github.com/FlixCoder/fhir-sdk"
 version = "0.1.0"
 

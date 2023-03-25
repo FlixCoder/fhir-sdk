@@ -50,8 +50,10 @@ pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {
 
 	let from_str_impl = from_str_impl(&ident, &code)?;
 	let as_ref_impl = as_ref_impl(&ident, &code)?;
+	let display_impl = display_impl(&ident, &code)?;
 	let deserialize_impl = deserialize_impl(&ident)?;
 	let serialize_impl = serialize_impl(&ident)?;
+	let convert_impls = convert_impls(&ident, &code)?;
 
 	Ok(quote! {
 		#[doc = #documentation]
@@ -64,8 +66,10 @@ pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {
 
 		#from_str_impl
 		#as_ref_impl
+		#display_impl
 		#deserialize_impl
 		#serialize_impl
+		#convert_impls
 	})
 }
 
@@ -122,6 +126,29 @@ fn as_ref_impl(ident: &Ident, code: &Code) -> Result<TokenStream> {
 	})
 }
 
+/// Generate Display implementation for the FHIR code.
+fn display_impl(ident: &Ident, code: &Code) -> Result<TokenStream> {
+	let variants = code.items.iter().map(|item| {
+		let variant = variant_ident(&item.code);
+		let display = item.display.as_ref().unwrap_or(&item.code);
+		quote!(Self::#variant => #display,)
+	});
+
+	let custom_branch = (!code.is_value_set).then_some(quote!(Self::_Custom(s) => s.as_str(),));
+
+	Ok(quote! {
+		impl ::std::fmt::Display for #ident {
+			fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+				let s = match self {
+					#(#variants)*
+					#custom_branch
+				};
+				write!(f, "{s}")
+			}
+		}
+	})
+}
+
 /// Generate Deserialize implementation for the FHIR code.
 fn deserialize_impl(ident: &Ident) -> Result<TokenStream> {
 	Ok(quote! {
@@ -145,6 +172,26 @@ fn serialize_impl(ident: &Ident) -> Result<TokenStream> {
 			where
 				S: serde::Serializer {
 				self.as_ref().serialize(serializer)
+			}
+		}
+	})
+}
+
+/// Convert implementations of the codes to Coding and CodeableConcept.
+fn convert_impls(ident: &Ident, code: &Code) -> Result<TokenStream> {
+	let system = &code.system;
+	Ok(quote! {
+		impl From<#ident> for Coding {
+			fn from(code: #ident) -> Self {
+				Coding::builder().system(#system.to_owned()).code(code.as_ref().to_owned()).display(format!("{code}")).build()
+			}
+		}
+
+		impl From<#ident> for CodeableConcept {
+			fn from(code: #ident) -> Self {
+				let text = format!("{code}");
+				let coding = Coding::from(code);
+				CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
 			}
 		}
 	})

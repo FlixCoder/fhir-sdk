@@ -37,6 +37,7 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, Vec<String>)
 		#![allow(clippy::too_many_lines)]
 
 		use serde::{Serialize, Deserialize};
+		use super::super::types::{Coding, CodeableConcept};
 
 		#(#codes)*
 	};

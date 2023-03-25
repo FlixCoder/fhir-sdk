@@ -23,8 +23,10 @@ pub struct Code {
 	/// Whether the codes are case sensitive.
 	pub case_sensitive: bool,
 	/// Whether this code is a value set (controls whether there are custom
-	/// value allowed I think?).
+	/// values allowed I think?).
 	pub is_value_set: bool,
+	/// Code system.
+	pub system: String,
 	/// Code items:
 	pub items: Vec<CodeItem>,
 }
@@ -44,6 +46,11 @@ impl From<CodeSystem> for Code {
 			code_system.experimental.and_then(|v| v.value).expect("CodeSystem.experimental");
 		let case_sensitive = code_system.case_sensitive.and_then(|v| v.value).unwrap_or(false);
 		let is_value_set = code_system.value_set.is_some();
+		let system = code_system
+			.value_set
+			.and_then(|v| v.value)
+			.or(code_system.url.and_then(|v| v.value))
+			.expect("CodeSystem.valueSet or CodeSystem.url");
 
 		let items = code_system
 			.concept
@@ -75,6 +82,7 @@ impl From<CodeSystem> for Code {
 			experimental,
 			case_sensitive,
 			is_value_set,
+			system,
 			items,
 		}
 	}

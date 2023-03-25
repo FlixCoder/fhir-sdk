@@ -1,6 +1,7 @@
 //! Generated code! Take a look at the generator-crate for changing this file!
 #![allow(clippy::too_many_lines)]
 use serde::{Serialize, Deserialize};
+use super::super::types::{Coding, CodeableConcept};
 /**FHIR Code `AbstractType`. A list of the base types defined by this version of the FHIR specification - types that are defined, but for which only specializations actually are created.
 
 FHIR version: 4.3.0.*/
@@ -37,6 +38,16 @@ impl AsRef<str> for AbstractType {
         }
     }
 }
+impl ::std::fmt::Display for AbstractType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Any => "Any",
+            Self::Type => "Type",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AbstractType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -53,6 +64,22 @@ impl Serialize for AbstractType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AbstractType> for Coding {
+    fn from(code: AbstractType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/abstract-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AbstractType> for CodeableConcept {
+    fn from(code: AbstractType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AccountStatus`. Indicates whether the account is available to be used.
@@ -107,6 +134,18 @@ impl AsRef<str> for AccountStatus {
         }
     }
 }
+impl ::std::fmt::Display for AccountStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in error",
+            Self::Inactive => "Inactive",
+            Self::OnHold => "On Hold",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AccountStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -123,6 +162,22 @@ impl Serialize for AccountStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AccountStatus> for Coding {
+    fn from(code: AccountStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/account-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AccountStatus> for CodeableConcept {
+    fn from(code: AccountStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionCardinalityBehavior`. Defines behavior for an action or a group for how many times that item may be repeated.
@@ -159,6 +214,15 @@ impl AsRef<str> for ActionCardinalityBehavior {
         }
     }
 }
+impl ::std::fmt::Display for ActionCardinalityBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Multiple => "Multiple",
+            Self::Single => "Single",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionCardinalityBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -175,6 +239,24 @@ impl Serialize for ActionCardinalityBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionCardinalityBehavior> for Coding {
+    fn from(code: ActionCardinalityBehavior) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/action-cardinality-behavior".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionCardinalityBehavior> for CodeableConcept {
+    fn from(code: ActionCardinalityBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionCode`. Provides examples of actions to be performed.
@@ -253,6 +335,22 @@ impl AsRef<str> for ActionCode {
         }
     }
 }
+impl ::std::fmt::Display for ActionCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CollectInformation => "Collect information",
+            Self::OrderService => "Order a service",
+            Self::PrescribeMedication => "Prescribe a medication",
+            Self::ProposeDiagnosis => "Propose a diagnosis",
+            Self::RecommendImmunization => "Recommend an immunization",
+            Self::RecordDetectedIssue => "Record a detected issue",
+            Self::RecordInference => "Record an inference",
+            Self::ReportFlag => "Report a flag",
+            Self::SendMessage => "Send a message",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -269,6 +367,22 @@ impl Serialize for ActionCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionCode> for Coding {
+    fn from(code: ActionCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionCode> for CodeableConcept {
+    fn from(code: ActionCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionConditionKind`. Defines the kinds of conditions that can appear on actions.
@@ -311,6 +425,16 @@ impl AsRef<str> for ActionConditionKind {
         }
     }
 }
+impl ::std::fmt::Display for ActionConditionKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Applicability => "Applicability",
+            Self::Start => "Start",
+            Self::Stop => "Stop",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionConditionKind {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -327,6 +451,22 @@ impl Serialize for ActionConditionKind {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionConditionKind> for Coding {
+    fn from(code: ActionConditionKind) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-condition-kind".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionConditionKind> for CodeableConcept {
+    fn from(code: ActionConditionKind) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionGroupingBehavior`. Defines organization behavior of a group.
@@ -369,6 +509,16 @@ impl AsRef<str> for ActionGroupingBehavior {
         }
     }
 }
+impl ::std::fmt::Display for ActionGroupingBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::LogicalGroup => "Logical Group",
+            Self::SentenceGroup => "Sentence Group",
+            Self::VisualGroup => "Visual Group",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionGroupingBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -385,6 +535,22 @@ impl Serialize for ActionGroupingBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionGroupingBehavior> for Coding {
+    fn from(code: ActionGroupingBehavior) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-grouping-behavior".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionGroupingBehavior> for CodeableConcept {
+    fn from(code: ActionGroupingBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionParticipantType`. The type of participant for the action.
@@ -433,6 +599,17 @@ impl AsRef<str> for ActionParticipantType {
         }
     }
 }
+impl ::std::fmt::Display for ActionParticipantType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Device => "Device",
+            Self::Patient => "Patient",
+            Self::Practitioner => "Practitioner",
+            Self::RelatedPerson => "Related Person",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionParticipantType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -449,6 +626,22 @@ impl Serialize for ActionParticipantType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionParticipantType> for Coding {
+    fn from(code: ActionParticipantType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-participant-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionParticipantType> for CodeableConcept {
+    fn from(code: ActionParticipantType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionPrecheckBehavior`. Defines selection frequency behavior for an action or group.
@@ -485,6 +678,15 @@ impl AsRef<str> for ActionPrecheckBehavior {
         }
     }
 }
+impl ::std::fmt::Display for ActionPrecheckBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::No => "No",
+            Self::Yes => "Yes",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionPrecheckBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -501,6 +703,22 @@ impl Serialize for ActionPrecheckBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionPrecheckBehavior> for Coding {
+    fn from(code: ActionPrecheckBehavior) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-precheck-behavior".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionPrecheckBehavior> for CodeableConcept {
+    fn from(code: ActionPrecheckBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionReasonCode`. Provides examples of reasons for actions to be performed.
@@ -555,6 +773,18 @@ impl AsRef<str> for ActionReasonCode {
         }
     }
 }
+impl ::std::fmt::Display for ActionReasonCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CareGap => "Care gap detected",
+            Self::DrugDrugInteraction => "Drug-drug interaction",
+            Self::OffPathway => "Off pathway",
+            Self::QualityMeasure => "Quality measure",
+            Self::RiskAssessment => "Risk assessment",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionReasonCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -571,6 +801,22 @@ impl Serialize for ActionReasonCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionReasonCode> for Coding {
+    fn from(code: ActionReasonCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-reason-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionReasonCode> for CodeableConcept {
+    fn from(code: ActionReasonCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionRelationshipType`. Defines the types of relationships between actions.
@@ -649,6 +895,22 @@ impl AsRef<str> for ActionRelationshipType {
         }
     }
 }
+impl ::std::fmt::Display for ActionRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::After => "After",
+            Self::AfterEnd => "After End",
+            Self::AfterStart => "After Start",
+            Self::Before => "Before",
+            Self::BeforeEnd => "Before End",
+            Self::BeforeStart => "Before Start",
+            Self::Concurrent => "Concurrent",
+            Self::ConcurrentWithEnd => "Concurrent With End",
+            Self::ConcurrentWithStart => "Concurrent With Start",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionRelationshipType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -665,6 +927,22 @@ impl Serialize for ActionRelationshipType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionRelationshipType> for Coding {
+    fn from(code: ActionRelationshipType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-relationship-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionRelationshipType> for CodeableConcept {
+    fn from(code: ActionRelationshipType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionRequiredBehavior`. Defines expectations around whether an action or action group is required.
@@ -707,6 +985,16 @@ impl AsRef<str> for ActionRequiredBehavior {
         }
     }
 }
+impl ::std::fmt::Display for ActionRequiredBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Could => "Could",
+            Self::Must => "Must",
+            Self::MustUnlessDocumented => "Must Unless Documented",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionRequiredBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -723,6 +1011,22 @@ impl Serialize for ActionRequiredBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionRequiredBehavior> for Coding {
+    fn from(code: ActionRequiredBehavior) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-required-behavior".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionRequiredBehavior> for CodeableConcept {
+    fn from(code: ActionRequiredBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionSelectionBehavior`. Defines selection behavior of a group.
@@ -783,6 +1087,19 @@ impl AsRef<str> for ActionSelectionBehavior {
         }
     }
 }
+impl ::std::fmt::Display for ActionSelectionBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::All => "All",
+            Self::AllOrNone => "All Or None",
+            Self::Any => "Any",
+            Self::AtMostOne => "At Most One",
+            Self::ExactlyOne => "Exactly One",
+            Self::OneOrMore => "One Or More",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionSelectionBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -799,6 +1116,22 @@ impl Serialize for ActionSelectionBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionSelectionBehavior> for Coding {
+    fn from(code: ActionSelectionBehavior) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-selection-behavior".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionSelectionBehavior> for CodeableConcept {
+    fn from(code: ActionSelectionBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ActionType`. The type of action to be performed.
@@ -847,6 +1180,17 @@ impl AsRef<str> for ActionType {
         }
     }
 }
+impl ::std::fmt::Display for ActionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Create => "Create",
+            Self::FireEvent => "Fire Event",
+            Self::Remove => "Remove",
+            Self::Update => "Update",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ActionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -863,6 +1207,22 @@ impl Serialize for ActionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ActionType> for Coding {
+    fn from(code: ActionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/action-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ActionType> for CodeableConcept {
+    fn from(code: ActionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdditionalMonitoring`. Extra monitoring defined for a Medicinal Product.
@@ -893,6 +1253,14 @@ impl AsRef<str> for AdditionalMonitoring {
         }
     }
 }
+impl ::std::fmt::Display for AdditionalMonitoring {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::BlackTriangleMonitoring => "Requirement for Black Triangle Monitoring",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdditionalMonitoring {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -909,6 +1277,25 @@ impl Serialize for AdditionalMonitoring {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdditionalMonitoring> for Coding {
+    fn from(code: AdditionalMonitoring) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdditionalMonitoring> for CodeableConcept {
+    fn from(code: AdditionalMonitoring) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AddressType`. The type of an address (physical / postal).
@@ -951,6 +1338,16 @@ impl AsRef<str> for AddressType {
         }
     }
 }
+impl ::std::fmt::Display for AddressType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Both => "Postal & Physical",
+            Self::Physical => "Physical",
+            Self::Postal => "Postal",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AddressType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -967,6 +1364,22 @@ impl Serialize for AddressType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AddressType> for Coding {
+    fn from(code: AddressType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/address-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AddressType> for CodeableConcept {
+    fn from(code: AddressType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AddressUse`. The use of an address.
@@ -1021,6 +1434,18 @@ impl AsRef<str> for AddressUse {
         }
     }
 }
+impl ::std::fmt::Display for AddressUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Billing => "Billing",
+            Self::Home => "Home",
+            Self::Old => "Old / Incorrect",
+            Self::Temp => "Temporary",
+            Self::Work => "Work",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AddressUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -1037,6 +1462,22 @@ impl Serialize for AddressUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AddressUse> for Coding {
+    fn from(code: AddressUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/address-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AddressUse> for CodeableConcept {
+    fn from(code: AddressUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdjudicationCodes`. This value set includes a smattering of Adjudication codes.
@@ -1111,6 +1552,22 @@ impl AsRef<str> for AdjudicationCodes {
         }
     }
 }
+impl ::std::fmt::Display for AdjudicationCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Benefit => "Benefit Amount",
+            Self::Copay => "CoPay",
+            Self::Deductible => "Deductible",
+            Self::Eligible => "Eligible Amount",
+            Self::Eligpercent => "Eligible %",
+            Self::Submitted => "Submitted Amount",
+            Self::Tax => "Tax",
+            Self::Unallocdeduct => "Unallocated Deductible",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdjudicationCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -1127,6 +1584,22 @@ impl Serialize for AdjudicationCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdjudicationCodes> for Coding {
+    fn from(code: AdjudicationCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/adjudication".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdjudicationCodes> for CodeableConcept {
+    fn from(code: AdjudicationCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdjudicationReasonCodes`. This value set includes smattering of Adjudication Reason codes.
@@ -1165,6 +1638,16 @@ impl AsRef<str> for AdjudicationReasonCodes {
         }
     }
 }
+impl ::std::fmt::Display for AdjudicationReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ar001 => "Not covered",
+            Self::Ar002 => "Plan Limit Reached",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdjudicationReasonCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -1181,6 +1664,24 @@ impl Serialize for AdjudicationReasonCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdjudicationReasonCodes> for Coding {
+    fn from(code: AdjudicationReasonCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/adjudication-reason".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdjudicationReasonCodes> for CodeableConcept {
+    fn from(code: AdjudicationReasonCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdministrableDoseForm`. Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary.
@@ -2411,6 +2912,214 @@ impl AsRef<str> for AdministrableDoseForm {
         }
     }
 }
+impl ::std::fmt::Display for AdministrableDoseForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000073362 => "Oral suspension",
+            Self::N100000073363 => "Oral gel",
+            Self::N100000073364 => "Powder for oral solution",
+            Self::N100000073365 => "Granules for oral solution",
+            Self::N100000073367 => "Lyophilisate for suspension",
+            Self::N100000073368 => "Powder for syrup",
+            Self::N100000073369 => "Soluble tablet",
+            Self::N100000073370 => "Herbal tea",
+            Self::N100000073371 => "Instant herbal tea",
+            Self::N100000073372 => "Granules",
+            Self::N100000073373 => "Gastro-resistant granules",
+            Self::N100000073374 => "Modified-release granules",
+            Self::N100000073375 => "Capsule, hard",
+            Self::N100000073376 => "Gastro-resistant capsule, hard",
+            Self::N100000073377 => "Chewable capsule, soft",
+            Self::N100000073378 => "Prolonged-release capsule, soft",
+            Self::N100000073379 => "Modified-release capsule, soft",
+            Self::N100000073380 => "Coated tablet",
+            Self::N100000073642 => "Oral drops, solution",
+            Self::N100000073643 => "Oral drops, suspension",
+            Self::N100000073644 => "Oral drops, emulsion",
+            Self::N100000073645 => "Oral liquid",
+            Self::N100000073646 => "Oral solution",
+            Self::N100000073647 => "Oral emulsion",
+            Self::N100000073648 => "Oral paste",
+            Self::N100000073649 => "Powder for oral suspension",
+            Self::N100000073650 => "Granules for oral suspension",
+            Self::N100000073652 => "Syrup",
+            Self::N100000073653 => "Granules for syrup",
+            Self::N100000073654 => "Dispersible tablet",
+            Self::N100000073655 => "Oral powder",
+            Self::N100000073656 => "Effervescent powder",
+            Self::N100000073657 => "Effervescent granules",
+            Self::N100000073658 => "Prolonged-release granules",
+            Self::N100000073659 => "Cachet",
+            Self::N100000073660 => "Capsule, soft",
+            Self::N100000073661 => "Gastro-resistant capsule, soft",
+            Self::N100000073662 => "Prolonged-release capsule, hard",
+            Self::N100000073663 => "Modified-release capsule, hard",
+            Self::N100000073664 => "Tablet",
+            Self::N100000073665 => "Film-coated tablet",
+            Self::N100000073666 => "Orodispersible tablet",
+            Self::N100000073667 => "Gastro-resistant tablet",
+            Self::N100000073668 => "Modified-release tablet",
+            Self::N100000073669 => "Medicated chewing-gum",
+            Self::N100000073670 => "Pillules",
+            Self::N100000073671 => "Pulsatile-release intraruminal device",
+            Self::N100000073672 => "Premix for medicated feeding stuff",
+            Self::N100000073673 => "Gargle",
+            Self::N100000073674 => "Gargle, powder for solution",
+            Self::N100000073675 => "Oromucosal suspension",
+            Self::N100000073676 => "Oromucosal spray",
+            Self::N100000073677 => "Mouthwash",
+            Self::N100000073678 => "Gingival solution",
+            Self::N100000073679 => "Oromucosal paste",
+            Self::N100000073680 => "Gingival gel",
+            Self::N100000073681 => "Effervescent tablet",
+            Self::N100000073682 => "Oral lyophilisate",
+            Self::N100000073683 => "Prolonged-release tablet",
+            Self::N100000073684 => "Chewable tablet",
+            Self::N100000073685 => "Oral gum",
+            Self::N100000073686 => "Continuous-release intraruminal device",
+            Self::N100000073687 => "Lick block",
+            Self::N100000073688 => "Medicated pellets",
+            Self::N100000073689 => "Concentrate for gargle",
+            Self::N100000073690 => "Gargle, tablet for solution",
+            Self::N100000073691 => "Oromucosal solution",
+            Self::N100000073692 => "Oromucosal drops",
+            Self::N100000073693 => "Sublingual spray",
+            Self::N100000073694 => "Mouthwash, tablet for solution",
+            Self::N100000073695 => "Oromucosal gel",
+            Self::N100000073696 => "Oromucosal cream",
+            Self::N100000073697 => "Gingival paste",
+            Self::N100000073698 => "Sublingual tablet",
+            Self::N100000073699 => "Buccal tablet",
+            Self::N100000073700 => "Compressed lozenge",
+            Self::N100000073701 => "Oromucosal capsule",
+            Self::N100000073702 => "Muco-adhesive buccal tablet",
+            Self::N100000073703 => "Lozenge",
+            Self::N100000073704 => "Pastille",
+            Self::N100000073705 => "Dental gel",
+            Self::N100000073706 => "Dental insert",
+            Self::N100000073707 => "Dental powder",
+            Self::N100000073708 => "Dental suspension",
+            Self::N100000073709 => "Toothpaste",
+            Self::N100000073710 => "Periodontal gel",
+            Self::N100000073711 => "Bath additive",
+            Self::N100000073712 => "Cream",
+            Self::N100000073713 => "Ointment",
+            Self::N100000073714 => "Medicated plaster",
+            Self::N100000073715 => "Shampoo",
+            Self::N100000073716 => "Cutaneous spray, suspension",
+            Self::N100000073717 => "Cutaneous liquid",
+            Self::N100000073718 => "Concentrate for cutaneous solution",
+            Self::N100000073719 => "Cutaneous emulsion",
+            Self::N100000073720 => "Cutaneous patch",
+            Self::N100000073721 => "Periodontal powder",
+            Self::N100000073722 => "Dental stick",
+            Self::N100000073723 => "Dental solution",
+            Self::N100000073724 => "Dental emulsion",
+            Self::N100000073725 => "Periodontal insert",
+            Self::N100000073726 => "Gel",
+            Self::N100000073727 => "Cutaneous paste",
+            Self::N100000073728 => "Cutaneous foam",
+            Self::N100000073729 => "Cutaneous spray, solution",
+            Self::N100000073730 => "Cutaneous spray, powder",
+            Self::N100000073731 => "Cutaneous solution",
+            Self::N100000073732 => "Cutaneous suspension",
+            Self::N100000073733 => "Cutaneous powder",
+            Self::N100000073734 => "Solution for iontophoresis",
+            Self::N100000073735 => "Collodion",
+            Self::N100000073736 => "Poultice",
+            Self::N100000073737 => "Cutaneous sponge",
+            Self::N100000073738 => "Collar",
+            Self::N100000073739 => "Ear tag",
+            Self::N100000073740 => "Dip suspension",
+            Self::N100000073741 => "Transdermal patch",
+            Self::N100000073742 => "Medicated nail lacquer",
+            Self::N100000073743 => "Cutaneous stick",
+            Self::N100000073744 => "Impregnated dressing",
+            Self::N100000073745 => "Medicated pendant",
+            Self::N100000073746 => "Dip solution",
+            Self::N100000073747 => "Dip emulsion",
+            Self::N100000073748 => "Concentrate for dip suspension",
+            Self::N100000073749 => "Powder for dip solution",
+            Self::N100000073750 => "Powder for suspension for fish treatment",
+            Self::N100000073751 => "Pour-on suspension",
+            Self::N100000073752 => "Spot-on solution",
+            Self::N100000073753 => "Spot-on emulsion",
+            Self::N100000073754 => "Teat dip suspension",
+            Self::N100000073755 => "Teat spray solution",
+            Self::N100000073756 => "Solution for skin-prick test",
+            Self::N100000073757 => "Plaster for provocation test",
+            Self::N100000073758 => "Eye gel",
+            Self::N100000073759 => "Eye drops, solution",
+            Self::N100000073760 => "Eye drops, suspension",
+            Self::N100000073761 => "Concentrate for dip solution",
+            Self::N100000073762 => "Concentrate for dip emulsion",
+            Self::N100000073763 => "Concentrate for solution for fish treatment",
+            Self::N100000073764 => "Pour-on solution",
+            Self::N100000073765 => "Pour-on emulsion",
+            Self::N100000073766 => "Spot-on suspension",
+            Self::N100000073767 => "Teat dip solution",
+            Self::N100000073768 => "Teat dip emulsion",
+            Self::N100000073769 => "Transdermal system",
+            Self::N100000073770 => "Solution for skin-scratch test",
+            Self::N100000073771 => "Eye cream",
+            Self::N100000073772 => "Eye ointment",
+            Self::N100000073773 => "Eye drops, emulsion",
+            Self::N100000073775 => "Eye drops, solvent for reconstitution",
+            Self::N100000073776 => "Eye lotion",
+            Self::N100000073777 => "Ophthalmic insert",
+            Self::N100000073778 => "Ear cream",
+            Self::N100000073779 => "Ear ointment",
+            Self::N100000073780 => "Ear drops, suspension",
+            Self::N100000073782 => "Eye drops, prolonged-release",
+            Self::N100000073783 => "Eye lotion, solvent for reconstitution",
+            Self::N100000073784 => "Ophthalmic strip",
+            Self::N100000073785 => "Ear gel",
+            Self::N100000073786 => "Ear drops, solution",
+            Self::N100000073787 => "Ear drops, emulsion",
+            Self::N100000073788 => "Ear powder",
+            Self::N100000073789 => "Ear spray, suspension",
+            Self::N100000073790 => "Ear wash, solution",
+            Self::N100000073791 => "Ear tampon",
+            Self::N100000073792 => "Nasal cream",
+            Self::N100000073793 => "Nasal gel",
+            Self::N100000073794 => "Nasal drops, solution",
+            Self::N100000073795 => "Nasal drops, emulsion",
+            Self::N100000073796 => "Nasal spray, solution",
+            Self::N100000073797 => "Nasal spray, emulsion",
+            Self::N100000073798 => "Nasal stick",
+            Self::N100000073799 => "Vaginal gel",
+            Self::N100000073800 => "Vaginal foam",
+            Self::N100000073802 => "Ear spray, solution",
+            Self::N100000073803 => "Ear spray, emulsion",
+            Self::N100000073804 => "Ear wash, emulsion",
+            Self::N100000073805 => "Ear stick",
+            Self::N100000073806 => "Nasal ointment",
+            Self::N100000073807 => "Nasal drops, suspension",
+            Self::N100000073808 => "Nasal powder",
+            Self::N100000073809 => "Nasal spray, suspension",
+            Self::N100000073810 => "Nasal wash",
+            Self::N100000073811 => "Vaginal cream",
+            Self::N100000073812 => "Vaginal ointment",
+            Self::N100000073813 => "Vaginal solution",
+            Self::N100000073814 => "Vaginal emulsion",
+            Self::N100000073815 => "Pessary",
+            Self::N100000073816 => "Vaginal capsule, soft",
+            Self::N100000073817 => "Effervescent vaginal tablet",
+            Self::N100000073818 => "Vaginal delivery system",
+            Self::N100000073819 => "Rectal cream",
+            Self::N100000073820 => "Rectal foam",
+            Self::N100000073821 => "Vaginal suspension",
+            Self::N100000073822 => "Tablet for vaginal solution",
+            Self::N100000073823 => "Vaginal capsule, hard",
+            Self::N100000073824 => "Vaginal tablet",
+            Self::N100000073825 => "Medicated vaginal tampon",
+            Self::N100000073826 => "Vaginal sponge",
+            Self::N100000073827 => "Rectal gel",
+            Self::N100000073863 => "Solution for injection",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdministrableDoseForm {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2427,6 +3136,22 @@ impl Serialize for AdministrableDoseForm {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdministrableDoseForm> for Coding {
+    fn from(code: AdministrableDoseForm) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/administrable-dose-form".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdministrableDoseForm> for CodeableConcept {
+    fn from(code: AdministrableDoseForm) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdministrativeGender`. The gender of a person used for administrative purposes.
@@ -2475,6 +3200,17 @@ impl AsRef<str> for AdministrativeGender {
         }
     }
 }
+impl ::std::fmt::Display for AdministrativeGender {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Female => "Female",
+            Self::Male => "Male",
+            Self::Other => "Other",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdministrativeGender {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2491,6 +3227,22 @@ impl Serialize for AdministrativeGender {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdministrativeGender> for Coding {
+    fn from(code: AdministrativeGender) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/administrative-gender".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdministrativeGender> for CodeableConcept {
+    fn from(code: AdministrativeGender) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdmitSource`. This codesystem defines a set of codes that can be used to indicate from where the patient came in.
@@ -2577,6 +3329,24 @@ impl AsRef<str> for AdmitSource {
         }
     }
 }
+impl ::std::fmt::Display for AdmitSource {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Born => "Born in hospital",
+            Self::Emd => "From accident/emergency department",
+            Self::Gp => "General Practitioner referral",
+            Self::HospTrans => "Transferred from other hospital",
+            Self::Mp => "Medical Practitioner/physician referral",
+            Self::Nursing => "From nursing home",
+            Self::Other => "Other",
+            Self::Outp => "From outpatient department",
+            Self::Psych => "From psychiatric hospital",
+            Self::Rehab => "From rehabilitation facility",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdmitSource {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2593,6 +3363,22 @@ impl Serialize for AdmitSource {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdmitSource> for Coding {
+    fn from(code: AdmitSource) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/admit-source".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdmitSource> for CodeableConcept {
+    fn from(code: AdmitSource) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventActuality`. Overall nature of the adverse event, e.g. real or potential.
@@ -2629,6 +3415,15 @@ impl AsRef<str> for AdverseEventActuality {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventActuality {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Actual => "Adverse Event",
+            Self::Potential => "Potential Adverse Event",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventActuality {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2645,6 +3440,22 @@ impl Serialize for AdverseEventActuality {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventActuality> for Coding {
+    fn from(code: AdverseEventActuality) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/adverse-event-actuality".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventActuality> for CodeableConcept {
+    fn from(code: AdverseEventActuality) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventCategory`. Overall categorization of the event, e.g. product-related or situational.
@@ -2755,6 +3566,29 @@ impl AsRef<str> for AdverseEventCategory {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ExpiredDrug => "Expired Drug",
+            Self::IncorrectPrescribingInformation => "Incorrect Prescribing Information",
+            Self::MedicalDeviceUseError => "Medical Device Use Error",
+            Self::ProblemDifferentManufacturer => {
+                "Problem with Different Manufacturer of Same Medicine"
+            }
+            Self::ProductProblem => "Product Problem",
+            Self::ProductQuality => "Product Quality",
+            Self::ProductUseError => "Product Use Error",
+            Self::UnsafePhysicalEnvironment => "Unsafe Physical Environment",
+            Self::WrongDose => "Wrong Dose",
+            Self::WrongDuration => "Wrong Duration",
+            Self::WrongRate => "Wrong Rate",
+            Self::WrongRouteOfAdministration => "Wrong Route of Administration",
+            Self::WrongTechnique => "Wrong Technique",
+            Self::WrongTime => "Wrong Time",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2771,6 +3605,22 @@ impl Serialize for AdverseEventCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventCategory> for Coding {
+    fn from(code: AdverseEventCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/adverse-event-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventCategory> for CodeableConcept {
+    fn from(code: AdverseEventCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventCausalityAssessment`. Codes for the assessment of whether the entity caused the event.
@@ -2831,6 +3681,19 @@ impl AsRef<str> for AdverseEventCausalityAssessment {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventCausalityAssessment {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Certain => "Certain",
+            Self::ConditionalClassified => "Conditional/Classified",
+            Self::Possible => "Possible",
+            Self::ProbablyLikely => "Probably/Likely",
+            Self::UnassessableUnclassifiable => "Unassessable/Unclassifiable",
+            Self::Unlikely => "Unlikely",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventCausalityAssessment {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2847,6 +3710,24 @@ impl Serialize for AdverseEventCausalityAssessment {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventCausalityAssessment> for Coding {
+    fn from(code: AdverseEventCausalityAssessment) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/adverse-event-causality-assess".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventCausalityAssessment> for CodeableConcept {
+    fn from(code: AdverseEventCausalityAssessment) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventCausalityMethod`. TODO.
@@ -2889,6 +3770,16 @@ impl AsRef<str> for AdverseEventCausalityMethod {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventCausalityMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Bayesian => "Bayesian",
+            Self::Checklist => "Checklist",
+            Self::ProbabilityScale => "Probability Scale",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventCausalityMethod {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2905,6 +3796,24 @@ impl Serialize for AdverseEventCausalityMethod {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventCausalityMethod> for Coding {
+    fn from(code: AdverseEventCausalityMethod) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/adverse-event-causality-method".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventCausalityMethod> for CodeableConcept {
+    fn from(code: AdverseEventCausalityMethod) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventOutcome`. TODO (and should this be required?).
@@ -2965,6 +3874,19 @@ impl AsRef<str> for AdverseEventOutcome {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventOutcome {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Fatal => "Fatal",
+            Self::Ongoing => "Ongoing",
+            Self::Recovering => "Recovering",
+            Self::Resolved => "Resolved",
+            Self::ResolvedWithSequelae => "Resolved with Sequelae",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventOutcome {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -2981,6 +3903,22 @@ impl Serialize for AdverseEventOutcome {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventOutcome> for Coding {
+    fn from(code: AdverseEventOutcome) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/adverse-event-outcome".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventOutcome> for CodeableConcept {
+    fn from(code: AdverseEventOutcome) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventSeriousness`. Overall seriousness of this event for the patient.
@@ -3057,6 +3995,27 @@ impl AsRef<str> for AdverseEventSeriousness {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventSeriousness {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::NonSerious => "Non-serious",
+            Self::Serious => "Serious",
+            Self::SeriousIsBirthDefect => "Is a congenital anomaly/birth defect",
+            Self::SeriousIsLifeThreatening => "Is Life-threatening",
+            Self::SeriousRequiresPreventImpairment => {
+                "Requires intervention to prevent permanent impairment"
+            }
+            Self::SeriousResultsInDeath => "Results in death",
+            Self::SeriousResultsInDisability => {
+                "Results in persistent or significant disability/incapacity"
+            }
+            Self::SeriousResultsInHospitalization => {
+                "Requires or prolongs inpatient hospitalization"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventSeriousness {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3073,6 +4032,22 @@ impl Serialize for AdverseEventSeriousness {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventSeriousness> for Coding {
+    fn from(code: AdverseEventSeriousness) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/adverse-event-seriousness".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventSeriousness> for CodeableConcept {
+    fn from(code: AdverseEventSeriousness) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AdverseEventSeverity`. The severity of the adverse event itself, in direct relation to the subject.
@@ -3115,6 +4090,16 @@ impl AsRef<str> for AdverseEventSeverity {
         }
     }
 }
+impl ::std::fmt::Display for AdverseEventSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Mild => "Mild",
+            Self::Moderate => "Moderate",
+            Self::Severe => "Severe",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AdverseEventSeverity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3131,6 +4116,22 @@ impl Serialize for AdverseEventSeverity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AdverseEventSeverity> for Coding {
+    fn from(code: AdverseEventSeverity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/adverse-event-severity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AdverseEventSeverity> for CodeableConcept {
+    fn from(code: AdverseEventSeverity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AggregationMode`. How resource references can be aggregated.
@@ -3173,6 +4174,16 @@ impl AsRef<str> for AggregationMode {
         }
     }
 }
+impl ::std::fmt::Display for AggregationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Bundled => "Bundled",
+            Self::Contained => "Contained",
+            Self::Referenced => "Referenced",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AggregationMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3189,6 +4200,22 @@ impl Serialize for AggregationMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AggregationMode> for Coding {
+    fn from(code: AggregationMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/resource-aggregation-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AggregationMode> for CodeableConcept {
+    fn from(code: AggregationMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceCategory`. Category of an identified substance associated with allergies or intolerances.
@@ -3237,6 +4264,17 @@ impl AsRef<str> for AllergyIntoleranceCategory {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Biologic => "Biologic",
+            Self::Environment => "Environment",
+            Self::Food => "Food",
+            Self::Medication => "Medication",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3253,6 +4291,24 @@ impl Serialize for AllergyIntoleranceCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceCategory> for Coding {
+    fn from(code: AllergyIntoleranceCategory) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/allergy-intolerance-category".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceCategory> for CodeableConcept {
+    fn from(code: AllergyIntoleranceCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceCertainty`. Statement about the degree of clinical certainty that a specific substance was the cause    of the manifestation in a reaction event.
@@ -3301,6 +4357,17 @@ impl AsRef<str> for AllergyIntoleranceCertainty {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceCertainty {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Confirmed => "Confirmed",
+            Self::Likely => "Likely",
+            Self::Unknown => "Unknown",
+            Self::Unlikely => "Unlikely",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceCertainty {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3317,6 +4384,22 @@ impl Serialize for AllergyIntoleranceCertainty {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceCertainty> for Coding {
+    fn from(code: AllergyIntoleranceCertainty) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/reaction-event-certainty".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceCertainty> for CodeableConcept {
+    fn from(code: AllergyIntoleranceCertainty) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceClinicalStatusCodes`. Preferred value set for AllergyIntolerance Clinical Status.
@@ -3359,6 +4442,16 @@ impl AsRef<str> for AllergyIntoleranceClinicalStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceClinicalStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Inactive => "Inactive",
+            Self::Resolved => "Resolved",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceClinicalStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3375,6 +4468,24 @@ impl Serialize for AllergyIntoleranceClinicalStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceClinicalStatusCodes> for Coding {
+    fn from(code: AllergyIntoleranceClinicalStatusCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/allergyintolerance-clinical".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceClinicalStatusCodes> for CodeableConcept {
+    fn from(code: AllergyIntoleranceClinicalStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceCriticality`. Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.
@@ -3417,6 +4528,16 @@ impl AsRef<str> for AllergyIntoleranceCriticality {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceCriticality {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::High => "High Risk",
+            Self::Low => "Low Risk",
+            Self::UnableToAssess => "Unable to Assess Risk",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceCriticality {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3433,6 +4554,24 @@ impl Serialize for AllergyIntoleranceCriticality {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceCriticality> for Coding {
+    fn from(code: AllergyIntoleranceCriticality) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceCriticality> for CodeableConcept {
+    fn from(code: AllergyIntoleranceCriticality) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceSeverity`. Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
@@ -3475,6 +4614,16 @@ impl AsRef<str> for AllergyIntoleranceSeverity {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Mild => "Mild",
+            Self::Moderate => "Moderate",
+            Self::Severe => "Severe",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceSeverity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3491,6 +4640,22 @@ impl Serialize for AllergyIntoleranceSeverity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceSeverity> for Coding {
+    fn from(code: AllergyIntoleranceSeverity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/reaction-event-severity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceSeverity> for CodeableConcept {
+    fn from(code: AllergyIntoleranceSeverity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceType`. Identification of the underlying physiological mechanism for a Reaction Risk.
@@ -3527,6 +4692,15 @@ impl AsRef<str> for AllergyIntoleranceType {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Allergy => "Allergy",
+            Self::Intolerance => "Intolerance",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3543,6 +4717,22 @@ impl Serialize for AllergyIntoleranceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceType> for Coding {
+    fn from(code: AllergyIntoleranceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/allergy-intolerance-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceType> for CodeableConcept {
+    fn from(code: AllergyIntoleranceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AllergyIntoleranceVerificationStatusCodes`. Preferred value set for AllergyIntolerance Verification Status.
@@ -3591,6 +4781,17 @@ impl AsRef<str> for AllergyIntoleranceVerificationStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for AllergyIntoleranceVerificationStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Confirmed => "Confirmed",
+            Self::EnteredInError => "Entered in Error",
+            Self::Refuted => "Refuted",
+            Self::Unconfirmed => "Unconfirmed",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AllergyIntoleranceVerificationStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3607,6 +4808,24 @@ impl Serialize for AllergyIntoleranceVerificationStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AllergyIntoleranceVerificationStatusCodes> for Coding {
+    fn from(code: AllergyIntoleranceVerificationStatusCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/allergyintolerance-verification".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AllergyIntoleranceVerificationStatusCodes> for CodeableConcept {
+    fn from(code: AllergyIntoleranceVerificationStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AnimalSpecies`. This example value set defines a set of codes that can be used to indicate species of animal patients.
@@ -3651,6 +4870,17 @@ impl AsRef<str> for AnimalSpecies {
         }
     }
 }
+impl ::std::fmt::Display for AnimalSpecies {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Canislf => "Dog",
+            Self::Ovisa => "Sheep",
+            Self::Serinuscd => "Domestic Canary",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AnimalSpecies {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -3667,6 +4897,22 @@ impl Serialize for AnimalSpecies {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AnimalSpecies> for Coding {
+    fn from(code: AnimalSpecies) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/animal-species".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AnimalSpecies> for CodeableConcept {
+    fn from(code: AnimalSpecies) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AnimalTissueType`. A tissue type of an animal.
@@ -4825,6 +6071,202 @@ impl AsRef<str> for AnimalTissueType {
         }
     }
 }
+impl ::std::fmt::Display for AnimalTissueType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000072091 => "All relevant tissues",
+            Self::N100000072092 => "Fat",
+            Self::N100000072093 => "Honey",
+            Self::N100000072094 => "Liver",
+            Self::N100000072095 => "Fresh Milk",
+            Self::N100000072096 => "Muscle and skin in natural proportions",
+            Self::N100000072104 => "Eggs",
+            Self::N100000072105 => "Skin and fat",
+            Self::N100000072106 => "Kidney",
+            Self::N100000072107 => "Meat and offal",
+            Self::N100000072108 => "Muscle",
+            Self::N100000072109 => "Unspecified",
+            Self::N100000111053 => "Adipose tissue",
+            Self::N100000111054 => "Adrenal",
+            Self::N100000111055 => "Blood vessels",
+            Self::N100000111056 => "Bone",
+            Self::N100000111057 => "Bone marrow",
+            Self::N100000111058 => "Brain",
+            Self::N100000111059 => "Connective tissue",
+            Self::N100000111060 => "Cornea",
+            Self::N100000111061 => "Dental pulp",
+            Self::N100000111062 => "Duodenum",
+            Self::N100000111063 => "Dura mater",
+            Self::N100000111064 => "Egg, embryonated",
+            Self::N100000111065 => "Egg",
+            Self::N100000111066 => "Egg white",
+            Self::N100000111067 => "Egg yolk",
+            Self::N100000111068 => "Embryos",
+            Self::N100000111069 => "Enteric plexuses",
+            Self::N100000111070 => "Esophagus",
+            Self::N100000111071 => "Feathers",
+            Self::N100000111072 => "Foetus",
+            Self::N100000111073 => "Fore-stomach (ruminants only)",
+            Self::N100000111074 => "Gingival tissue",
+            Self::N100000111075 => "Hair",
+            Self::N100000111076 => "Heart/pericardium",
+            Self::N100000111077 => "Hide",
+            Self::N100000111078 => "Hooves",
+            Self::N100000111079 => "Ileum",
+            Self::N100000111080 => "Jejunum",
+            Self::N100000111081 => "Kidney",
+            Self::N100000111082 => "Lard/lard oil",
+            Self::N100000111083 => "Large intestine",
+            Self::N100000111084 => "Liver",
+            Self::N100000111085 => "Lung",
+            Self::N100000111086 => "Lymph nodes",
+            Self::N100000111087 => "Mammary gland",
+            Self::N100000111088 => "Udder",
+            Self::N100000111089 => "Mammary tumour",
+            Self::N100000111090 => "Meat extract",
+            Self::N100000111091 => "Nasopharyngeal",
+            Self::N100000111092 => "Nictitating membrane",
+            Self::N100000111093 => "Nasal mucosa",
+            Self::N100000111094 => "Ovary",
+            Self::N100000111095 => "Pancreas",
+            Self::N100000111096 => "Peripheral nerves",
+            Self::N100000111097 => "Pituitary gland",
+            Self::N100000111098 => "Placenta",
+            Self::N100000111099 => "Prostate",
+            Self::N100000111100 => "Epididymis",
+            Self::N100000111101 => "Seminal vesicle",
+            Self::N100000111102 => "Rennet, calf",
+            Self::N100000111103 => "Retina",
+            Self::N100000111104 => "Optic nerve",
+            Self::N100000111105 => "Salivary gland",
+            Self::N100000111106 => "Shank",
+            Self::N100000111107 => "Skeletal muscle",
+            Self::N100000111108 => "Skin",
+            Self::N100000111109 => "Spinal ganglia",
+            Self::N100000111110 => "Spinal cord",
+            Self::N100000111111 => "Spleen",
+            Self::N100000111112 => "Stomach",
+            Self::N100000111113 => "Abomasum",
+            Self::N100000111114 => "Submaxillary glands",
+            Self::N100000111115 => "Tallow",
+            Self::N100000111116 => "Tendon",
+            Self::N100000111117 => "Testis",
+            Self::N100000111118 => "Thymus",
+            Self::N100000111119 => "Thyroid gland",
+            Self::N100000111120 => "Tongue",
+            Self::N100000111121 => "Tonsil",
+            Self::N100000111122 => "Trachea",
+            Self::N100000111123 => "Trigeminal ganglia",
+            Self::N100000111124 => "Tripe",
+            Self::N100000111125 => "Uterus (Non-gravid)",
+            Self::N100000111126 => "Wool",
+            Self::N100000111127 => "Ascites fluid",
+            Self::N100000111128 => "Bile",
+            Self::N100000111129 => "Blood1",
+            Self::N100000111130 => "Blood, foetal",
+            Self::N100000111131 => "Colostrum",
+            Self::N100000111132 => "Cord blood",
+            Self::N100000111133 => "CSF",
+            Self::N100000111134 => "Faeces",
+            Self::N100000111135 => "Milk",
+            Self::N100000111136 => "Nasal mucus",
+            Self::N100000111137 => "Placenta fluids",
+            Self::N100000111138 => "Plasma",
+            Self::N100000111139 => "Saliva",
+            Self::N100000111140 => "Secretion from bees",
+            Self::N100000111141 => "Semen",
+            Self::N100000111142 => "Serum, calf",
+            Self::N100000111143 => "Serum, donor adult bovine",
+            Self::N100000111144 => "Serum, donor calf",
+            Self::N100000111145 => "Serum, foetal bovine",
+            Self::N100000111146 => "Serum, newborn calf",
+            Self::N100000111147 => "Serum/plasma derivate, adult bovine",
+            Self::N100000111148 => "Serum/plasma, adult bovine",
+            Self::N100000111149 => "Sweat",
+            Self::N100000111150 => "Tears",
+            Self::N100000111151 => "Urine",
+            Self::N100000111152 => "Venom",
+            Self::N100000111153 => "Whey",
+            Self::N100000111154 => "Casein",
+            Self::N100000111155 => "Fermentation products",
+            Self::N100000111156 => "Gelatin",
+            Self::N100000111157 => "Lactose",
+            Self::N100000111158 => "Protein",
+            Self::N100000111159 => "Insulin",
+            Self::N100000111160 => "Collagen",
+            Self::N100000111161 => "Animal Charcoal",
+            Self::N100000111162 => "Peptones",
+            Self::N100000111163 => "Fatty acids",
+            Self::N100000111164 => "Glycerol",
+            Self::N100000125717 => "Not applicable",
+            Self::N100000136180 => "Meat and offal, milk",
+            Self::N100000136181 => "Agar blood",
+            Self::N100000136182 => "Casamino acid",
+            Self::N100000136183 => "Casein, hydrolysate",
+            Self::N100000136184 => "Casein, pancreatic digest",
+            Self::N100000136185 => "Casein, peptides N3",
+            Self::N100000136186 => "Cells",
+            Self::N100000136187 => "Cells, BHK21",
+            Self::N100000136188 => "Cells, CHO",
+            Self::N100000136189 => "Cells, CRFK",
+            Self::N100000136190 => "Cells, embryo SPF",
+            Self::N100000136191 => "Cells, IRC5",
+            Self::N100000136192 => "Cells, kidney",
+            Self::N100000136193 => "Cells, MDCK",
+            Self::N100000136194 => "Cells, red blood",
+            Self::N100000136195 => "Collagen, hydrolysate",
+            Self::N100000136196 => "Cholesterol",
+            Self::N100000136197 => "Egg, SPF embryonated",
+            Self::N100000136198 => "Enzyme",
+            Self::N100000136199 => "Enzyme, pancreatic enzymes",
+            Self::N100000136200 => "Enzyme, pancreatin 6NF",
+            Self::N100000136201 => "Enzyme, pepsin",
+            Self::N100000136202 => "Enzyme, pronase",
+            Self::N100000136203 => "Enzyme, trypsin",
+            Self::N100000136204 => "Heart, digest",
+            Self::N100000136205 => "Heart, extract",
+            Self::N100000136206 => "Intestinal mucosae",
+            Self::N100000136207 => "Lactalbumin hydrolysate",
+            Self::N100000136208 => "Liver, digest",
+            Self::N100000136209 => "Lymphocytes",
+            Self::N100000136210 => "Meat",
+            Self::N100000136211 => "Meat, enzymic hydrolysate",
+            Self::N100000136212 => "Medium, cooked meat",
+            Self::N100000136213 => "Medium, F10-199 medium",
+            Self::N100000136214 => "Medium, FMD culture medium",
+            Self::N100000136215 => "Medium, Glasgow MEM culture",
+            Self::N100000136216 => "Medium, LB Agar Lennox",
+            Self::N100000136217 => "Medium, LB Broth Lennox",
+            Self::N100000136218 => "Medium, modified thioglycolate medium",
+            Self::N100000136219 => "Medium, trypticase soy broth",
+            Self::N100000136220 => "Medium, tryptose phosphate broth",
+            Self::N100000136221 => "Milk, skimmed",
+            Self::N100000136222 => "Pancreas, extract",
+            Self::N100000136223 => "Peptones, casein hydrochloric peptone",
+            Self::N100000136224 => "Peptones, casein tryptic peptone",
+            Self::N100000136225 => "Pituitary extract",
+            Self::N100000136226 => "Rennet",
+            Self::N100000136227 => "Medium, nutrient broth",
+            Self::N100000136228 => "Medium, NZ-Amine",
+            Self::N100000136229 => "Medium, thioglycolate medium",
+            Self::N100000136230 => "Peptones, proteose peptone",
+            Self::N100000136231 => "Serum",
+            Self::N100000136232 => "Serum, albumin",
+            Self::N100000136233 => "Serum, Iron fortified calf",
+            Self::N100000136234 => "Skin, connective tissue and bone",
+            Self::N100000136235 => "Sperm",
+            Self::N100000136236 => "Tryptone",
+            Self::N100000136237 => "Meat, extract desiccated",
+            Self::N100000136247 => "Stomach mucosa",
+            Self::N100000136248 => "Transferin",
+            Self::N100000136554 => "Non-neural",
+            Self::N100000136555 => "Not specified",
+            Self::N100000136556 => "Organ tissue",
+            Self::N100000142485 => "Skin and fat in natural proportions",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AnimalTissueType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -4841,6 +6283,22 @@ impl Serialize for AnimalTissueType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AnimalTissueType> for Coding {
+    fn from(code: AnimalTissueType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/animal-tissue-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AnimalTissueType> for CodeableConcept {
+    fn from(code: AnimalTissueType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AppointmentStatus`. The free/busy status of an appointment.
@@ -4926,6 +6384,23 @@ impl AsRef<str> for AppointmentStatus {
         }
     }
 }
+impl ::std::fmt::Display for AppointmentStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Arrived => "Arrived",
+            Self::Booked => "Booked",
+            Self::Cancelled => "Cancelled",
+            Self::CheckedIn => "Checked In",
+            Self::EnteredInError => "Entered in error",
+            Self::Fulfilled => "Fulfilled",
+            Self::Noshow => "No Show",
+            Self::Pending => "Pending",
+            Self::Proposed => "Proposed",
+            Self::Waitlist => "Waitlisted",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AppointmentStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -4942,6 +6417,22 @@ impl Serialize for AppointmentStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AppointmentStatus> for Coding {
+    fn from(code: AppointmentStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/appointmentstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AppointmentStatus> for CodeableConcept {
+    fn from(code: AppointmentStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ArticleUrlType`. Code the reason for different URLs, eg abstract and full-text.
@@ -5062,6 +6553,29 @@ impl AsRef<str> for ArticleUrlType {
         }
     }
 }
+impl ::std::fmt::Display for ArticleUrlType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Abstract => "Abstract",
+            Self::AbstractVersion => "Abstract Version",
+            Self::CompressedFile => "Compressed file",
+            Self::DoiBased => "DOI Based",
+            Self::FullText => "Full-Text",
+            Self::FullTextVersion => "Full-Text Version",
+            Self::Json => "JSON",
+            Self::JsonVersion => "JSON Version",
+            Self::NotSpecified => "Not Specified",
+            Self::Pdf => "PDF",
+            Self::PdfVersion => "PDF Version",
+            Self::Supplement => "Supplement",
+            Self::SupplementaryFileDirectory => "Supplementary file directory",
+            Self::Webpage => "Webpage",
+            Self::Xml => "XML",
+            Self::XmlVersion => "XML",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ArticleUrlType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5078,6 +6592,22 @@ impl Serialize for ArticleUrlType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ArticleUrlType> for Coding {
+    fn from(code: ArticleUrlType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/article-url-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ArticleUrlType> for CodeableConcept {
+    fn from(code: ArticleUrlType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ArtifactContributionInstanceType`. Artifact Contribution Instance Type
@@ -5120,6 +6650,16 @@ impl AsRef<str> for ArtifactContributionInstanceType {
         }
     }
 }
+impl ::std::fmt::Display for ArtifactContributionInstanceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Approved => "Approved",
+            Self::Edited => "Edited",
+            Self::Reviewed => "Reviewed",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ArtifactContributionInstanceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5136,6 +6676,25 @@ impl Serialize for ArtifactContributionInstanceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ArtifactContributionInstanceType> for Coding {
+    fn from(code: ArtifactContributionInstanceType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ArtifactContributionInstanceType> for CodeableConcept {
+    fn from(code: ArtifactContributionInstanceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ArtifactContributionType`. Citation contribution.
@@ -5244,6 +6803,27 @@ impl AsRef<str> for ArtifactContributionType {
         }
     }
 }
+impl ::std::fmt::Display for ArtifactContributionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Conceptualization => "Conceptualization",
+            Self::DataCuration => "Data curation",
+            Self::FormalAnalysis => "Formal analysis",
+            Self::FundingAcquisition => "Funding acquisition",
+            Self::Investigation => "Investigation",
+            Self::Methodology => "Methodology",
+            Self::ProjectAdministration => "Project administration",
+            Self::Resources => "Resources",
+            Self::Software => "Software",
+            Self::Supervision => "Supervision",
+            Self::Validation => "Validation",
+            Self::Visualization => "Visualization",
+            Self::WritingOriginalDraft => "Writing - original draft",
+            Self::WritingReviewEditing => "Writing - review & editing",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ArtifactContributionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5260,6 +6840,22 @@ impl Serialize for ArtifactContributionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ArtifactContributionType> for Coding {
+    fn from(code: ArtifactContributionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/artifact-contribution-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ArtifactContributionType> for CodeableConcept {
+    fn from(code: ArtifactContributionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ArtifactRelationshipType`. Artifact Relationship Type
@@ -5428,6 +7024,37 @@ impl AsRef<str> for ArtifactRelationshipType {
         }
     }
 }
+impl ::std::fmt::Display for ArtifactRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AmendedWith => "Amended with",
+            Self::Amends => "Amends",
+            Self::AppendedWith => "Appended with",
+            Self::Appends => "Appends",
+            Self::CitedBy => "Cited by",
+            Self::Cites => "Cites",
+            Self::CommentIn => "Comment In",
+            Self::CommentsOn => "Comments On",
+            Self::ComposedOf => "Composed of",
+            Self::CorrectionIn => "Correction In",
+            Self::Corrects => "Corrects",
+            Self::DependsOn => "Depends on",
+            Self::DerivedFrom => "Derived from",
+            Self::PartOf => "Part of",
+            Self::ReplacedWith => "Replaced with",
+            Self::Replaces => "Replaces",
+            Self::RetractedBy => "Retracted by",
+            Self::Retracts => "Retracts",
+            Self::SimilarTo => "Similar to",
+            Self::SupportedWith => "Supported with",
+            Self::Supports => "Supports",
+            Self::TransformedInto => "Transformed into",
+            Self::TransformedWith => "Transformed with",
+            Self::Transforms => "Transforms",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ArtifactRelationshipType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5444,6 +7071,22 @@ impl Serialize for ArtifactRelationshipType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ArtifactRelationshipType> for Coding {
+    fn from(code: ArtifactRelationshipType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/artifact-relationship-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ArtifactRelationshipType> for CodeableConcept {
+    fn from(code: ArtifactRelationshipType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AssertionDirectionType`. The type of direction to use for assertion.
@@ -5480,6 +7123,15 @@ impl AsRef<str> for AssertionDirectionType {
         }
     }
 }
+impl ::std::fmt::Display for AssertionDirectionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Request => "request",
+            Self::Response => "response",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AssertionDirectionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5496,6 +7148,22 @@ impl Serialize for AssertionDirectionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AssertionDirectionType> for Coding {
+    fn from(code: AssertionDirectionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/assert-direction-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AssertionDirectionType> for CodeableConcept {
+    fn from(code: AssertionDirectionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AssertionOperatorType`. The type of operator to use for assertion.
@@ -5586,6 +7254,24 @@ impl AsRef<str> for AssertionOperatorType {
         }
     }
 }
+impl ::std::fmt::Display for AssertionOperatorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Contains => "contains",
+            Self::Empty => "empty",
+            Self::Equals => "equals",
+            Self::Eval => "evaluate",
+            Self::GreaterThan => "greaterThan",
+            Self::In => "in",
+            Self::LessThan => "lessThan",
+            Self::NotContains => "notContains",
+            Self::NotEmpty => "notEmpty",
+            Self::NotEquals => "notEquals",
+            Self::NotIn => "notIn",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AssertionOperatorType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5602,6 +7288,22 @@ impl Serialize for AssertionOperatorType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AssertionOperatorType> for Coding {
+    fn from(code: AssertionOperatorType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/assert-operator-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AssertionOperatorType> for CodeableConcept {
+    fn from(code: AssertionOperatorType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AssertionResponseTypes`. The type of response code to use for assertion.
@@ -5698,6 +7400,25 @@ impl AsRef<str> for AssertionResponseTypes {
         }
     }
 }
+impl ::std::fmt::Display for AssertionResponseTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Bad => "bad",
+            Self::Conflict => "conflict",
+            Self::Created => "created",
+            Self::Forbidden => "forbidden",
+            Self::Gone => "gone",
+            Self::MethodNotAllowed => "methodNotAllowed",
+            Self::NoContent => "noContent",
+            Self::NotFound => "notFound",
+            Self::NotModified => "notModified",
+            Self::Okay => "okay",
+            Self::PreconditionFailed => "preconditionFailed",
+            Self::Unprocessable => "unprocessable",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AssertionResponseTypes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5714,6 +7435,22 @@ impl Serialize for AssertionResponseTypes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AssertionResponseTypes> for Coding {
+    fn from(code: AssertionResponseTypes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/assert-response-code-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AssertionResponseTypes> for CodeableConcept {
+    fn from(code: AssertionResponseTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AttributeEstimateType`. A statistic about a statistic, e.g.  Confidence interval or p-value
@@ -5804,6 +7541,24 @@ impl AsRef<str> for AttributeEstimateType {
         }
     }
 }
+impl ::std::fmt::Display for AttributeEstimateType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0000037 => "Standard error of the mean",
+            Self::N0000419 => "Cochran's Q statistic",
+            Self::N0000420 => "I-squared",
+            Self::N0000421 => "Tau squared",
+            Self::N0000455 => "Credible interval",
+            Self::C38013 => "Range",
+            Self::C44185 => "P-value",
+            Self::C48918 => "Variance",
+            Self::C53245 => "Interquartile range",
+            Self::C53322 => "Standard deviation",
+            Self::C53324 => "Confidence interval",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AttributeEstimateType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5820,6 +7575,22 @@ impl Serialize for AttributeEstimateType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AttributeEstimateType> for Coding {
+    fn from(code: AttributeEstimateType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/attribute-estimate-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AttributeEstimateType> for CodeableConcept {
+    fn from(code: AttributeEstimateType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventAction`. Indicator for type of action performed during the event that generated the event.
@@ -5874,6 +7645,18 @@ impl AsRef<str> for AuditEventAction {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventAction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::C => "Create",
+            Self::D => "Delete",
+            Self::E => "Execute",
+            Self::R => "Read/View/Print",
+            Self::U => "Update",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventAction {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5890,6 +7673,22 @@ impl Serialize for AuditEventAction {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventAction> for Coding {
+    fn from(code: AuditEventAction) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/audit-event-action".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventAction> for CodeableConcept {
+    fn from(code: AuditEventAction) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventAgentNetworkType`. The type of network access point of this agent in the audit event.
@@ -5944,6 +7743,18 @@ impl AsRef<str> for AuditEventAgentNetworkType {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventAgentNetworkType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Machine Name",
+            Self::N2 => "IP Address",
+            Self::N3 => "Telephone Number",
+            Self::N4 => "Email address",
+            Self::N5 => "URI",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventAgentNetworkType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -5960,6 +7771,22 @@ impl Serialize for AuditEventAgentNetworkType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventAgentNetworkType> for Coding {
+    fn from(code: AuditEventAgentNetworkType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/network-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventAgentNetworkType> for CodeableConcept {
+    fn from(code: AuditEventAgentNetworkType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventEntityRole`. Code representing the role the entity played in the audit event.
@@ -6128,6 +7955,37 @@ impl AsRef<str> for AuditEventEntityRole {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventEntityRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Patient",
+            Self::N10 => "Guarantor",
+            Self::N11 => "Security User Entity",
+            Self::N12 => "Security User Group",
+            Self::N13 => "Security Resource",
+            Self::N14 => "Security Granularity Definition",
+            Self::N15 => "Practitioner",
+            Self::N16 => "Data Destination",
+            Self::N17 => "Data Repository",
+            Self::N18 => "Schedule",
+            Self::N19 => "Customer",
+            Self::N2 => "Location",
+            Self::N20 => "Job",
+            Self::N21 => "Job Stream",
+            Self::N22 => "Table",
+            Self::N23 => "Routing Criteria",
+            Self::N24 => "Query",
+            Self::N3 => "Report",
+            Self::N4 => "Domain Resource",
+            Self::N5 => "Master file",
+            Self::N6 => "User",
+            Self::N7 => "List",
+            Self::N8 => "Doctor",
+            Self::N9 => "Subscriber",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventEntityRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6144,6 +8002,22 @@ impl Serialize for AuditEventEntityRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventEntityRole> for Coding {
+    fn from(code: AuditEventEntityRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/object-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventEntityRole> for CodeableConcept {
+    fn from(code: AuditEventEntityRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventEntityType`. Code for the entity type involved in the audit event (derived from ATNA).
@@ -6194,6 +8068,18 @@ impl AsRef<str> for AuditEventEntityType {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventEntityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Person",
+            Self::N2 => "System Object",
+            Self::N3 => "Organization",
+            Self::N4 => "Other",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventEntityType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6210,6 +8096,22 @@ impl Serialize for AuditEventEntityType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventEntityType> for Coding {
+    fn from(code: AuditEventEntityType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/audit-entity-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventEntityType> for CodeableConcept {
+    fn from(code: AuditEventEntityType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventID`. Event Types for Audit Events - defined by DICOM with some FHIR specific additions.
@@ -6242,6 +8144,15 @@ impl AsRef<str> for AuditEventID {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventID {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Rest => "RESTful Operation",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventID {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6258,6 +8169,22 @@ impl Serialize for AuditEventID {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventID> for Coding {
+    fn from(code: AuditEventID) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/audit-event-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventID> for CodeableConcept {
+    fn from(code: AuditEventID) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventOutcome`. Indicates whether the event succeeded or failed.
@@ -6306,6 +8233,17 @@ impl AsRef<str> for AuditEventOutcome {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventOutcome {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0 => "Success",
+            Self::N12 => "Major failure",
+            Self::N4 => "Minor failure",
+            Self::N8 => "Serious failure",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventOutcome {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6322,6 +8260,22 @@ impl Serialize for AuditEventOutcome {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventOutcome> for Coding {
+    fn from(code: AuditEventOutcome) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/audit-event-outcome".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventOutcome> for CodeableConcept {
+    fn from(code: AuditEventOutcome) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `AuditEventSourceType`. The type of process where the audit event originated from.
@@ -6402,6 +8356,23 @@ impl AsRef<str> for AuditEventSourceType {
         }
     }
 }
+impl ::std::fmt::Display for AuditEventSourceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "User Device",
+            Self::N2 => "Data Interface",
+            Self::N3 => "Web Server",
+            Self::N4 => "Application Server",
+            Self::N5 => "Database Server",
+            Self::N6 => "Security Server",
+            Self::N7 => "Network Device",
+            Self::N8 => "Network Router",
+            Self::N9 => "Other",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for AuditEventSourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6418,6 +8389,24 @@ impl Serialize for AuditEventSourceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<AuditEventSourceType> for Coding {
+    fn from(code: AuditEventSourceType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/security-source-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<AuditEventSourceType> for CodeableConcept {
+    fn from(code: AuditEventSourceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BasicResourceTypes`. This value set defines codes for resources not yet supported by (or which will never be supported by) FHIR.  Many of the codes listed here will eventually be turned into official resources.  However, there is no guarantee that any particular resource will be created nor that the scope will be exactly as defined by the codes presented here.  Codes in this set will be deprecated if/when formal resources are defined that encompass these concepts.
@@ -6540,6 +8529,30 @@ impl AsRef<str> for BasicResourceTypes {
         }
     }
 }
+impl ::std::fmt::Display for BasicResourceTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Account => "Account",
+            Self::Adjudicat => "Invoice Adjudication",
+            Self::Adminact => "Administrative Activity",
+            Self::Advevent => "Adverse Event",
+            Self::Aptmtreq => "Appointment Request",
+            Self::Consent => "Consent",
+            Self::Diet => "Diet",
+            Self::Exposure => "Exposure",
+            Self::Investigation => "Investigation",
+            Self::Invoice => "Invoice",
+            Self::Predetermine => "Predetermination",
+            Self::Predetreq => "Pre-determination Request",
+            Self::Protocol => "Protocol",
+            Self::Referral => "Referral",
+            Self::Study => "Study",
+            Self::Transfer => "Transfer",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BasicResourceTypes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6556,6 +8569,24 @@ impl Serialize for BasicResourceTypes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BasicResourceTypes> for Coding {
+    fn from(code: BasicResourceTypes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/basic-resource-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BasicResourceTypes> for CodeableConcept {
+    fn from(code: BasicResourceTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BenefitCategoryCodes`. This value set includes a smattering of Benefit SubCategory codes.
@@ -6750,6 +8781,42 @@ impl AsRef<str> for BenefitCategoryCodes {
         }
     }
 }
+impl ::std::fmt::Display for BenefitCategoryCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Medical Care",
+            Self::N14 => "Renal Supplies",
+            Self::N2 => "Surgical",
+            Self::N23 => "Diagnostic Dental",
+            Self::N24 => "Periodontics",
+            Self::N25 => "Restorative",
+            Self::N26 => "Endodontics",
+            Self::N27 => "Maxillofacial Prosthetics",
+            Self::N28 => "Adjunctive Dental Services",
+            Self::N3 => "Consultation",
+            Self::N30 => "Health Benefit Plan Coverage",
+            Self::N35 => "Dental Care",
+            Self::N36 => "Dental Crowns",
+            Self::N37 => "Dental Accident",
+            Self::N4 => "Diagnostic XRay",
+            Self::N49 => "Hospital Room and Board",
+            Self::N5 => "Diagnostic Lab",
+            Self::N55 => "Major Medical",
+            Self::N56 => "Medically Related Transportation",
+            Self::N61 => "In-vitro Fertilization",
+            Self::N62 => "MRI Scan",
+            Self::N63 => "Donor Procedures",
+            Self::N69 => "Maternity",
+            Self::N76 => "Renal Dialysis",
+            Self::F1 => "Medical Coverage",
+            Self::F3 => "Dental Coverage",
+            Self::F4 => "Hearing Coverage",
+            Self::F6 => "Vision Coverage",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BenefitCategoryCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6766,6 +8833,24 @@ impl Serialize for BenefitCategoryCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BenefitCategoryCodes> for Coding {
+    fn from(code: BenefitCategoryCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-benefitcategory".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BenefitCategoryCodes> for CodeableConcept {
+    fn from(code: BenefitCategoryCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BenefitCostApplicability`. Whether the cost applies to in-network or out-of-network providers.
@@ -6808,6 +8893,16 @@ impl AsRef<str> for BenefitCostApplicability {
         }
     }
 }
+impl ::std::fmt::Display for BenefitCostApplicability {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::InNetwork => "In Network",
+            Self::Other => "Other",
+            Self::OutOfNetwork => "Out of Network",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BenefitCostApplicability {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6824,6 +8919,22 @@ impl Serialize for BenefitCostApplicability {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BenefitCostApplicability> for Coding {
+    fn from(code: BenefitCostApplicability) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/applicability".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BenefitCostApplicability> for CodeableConcept {
+    fn from(code: BenefitCostApplicability) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BenefitTermCodes`. This value set includes a smattering of Benefit Term codes.
@@ -6868,6 +8979,17 @@ impl AsRef<str> for BenefitTermCodes {
         }
     }
 }
+impl ::std::fmt::Display for BenefitTermCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Annual => "Annual",
+            Self::Day => "Day",
+            Self::Lifetime => "Lifetime",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BenefitTermCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6884,6 +9006,22 @@ impl Serialize for BenefitTermCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BenefitTermCodes> for Coding {
+    fn from(code: BenefitTermCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/benefit-term".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BenefitTermCodes> for CodeableConcept {
+    fn from(code: BenefitTermCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BenefitTypeCodes`. This value set includes a smattering of Benefit type codes.
@@ -6982,6 +9120,26 @@ impl AsRef<str> for BenefitTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for BenefitTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Benefit => "Benefit",
+            Self::Copay => "Copayment per service",
+            Self::CopayMaximum => "Copayment maximum per service",
+            Self::CopayPercent => "Copayment Percent per service",
+            Self::Deductible => "Deductible",
+            Self::MedicalPrimarycare => "Medical Primary Health Coverage",
+            Self::PharmacyDispense => "Pharmacy Dispense Coverage",
+            Self::Room => "Room",
+            Self::VisionContacts => "Vision Contacts Coverage",
+            Self::VisionExam => "Vision Exam",
+            Self::VisionGlasses => "Vision Glasses",
+            Self::Visit => "Visit",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BenefitTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -6998,6 +9156,22 @@ impl Serialize for BenefitTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BenefitTypeCodes> for Coding {
+    fn from(code: BenefitTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/benefit-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BenefitTypeCodes> for CodeableConcept {
+    fn from(code: BenefitTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BindingStrength`. Indication of the degree of conformance expectations associated with a binding.
@@ -7046,6 +9220,17 @@ impl AsRef<str> for BindingStrength {
         }
     }
 }
+impl ::std::fmt::Display for BindingStrength {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Example => "Example",
+            Self::Extensible => "Extensible",
+            Self::Preferred => "Preferred",
+            Self::Required => "Required",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BindingStrength {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7062,6 +9247,22 @@ impl Serialize for BindingStrength {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BindingStrength> for Coding {
+    fn from(code: BindingStrength) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/binding-strength".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BindingStrength> for CodeableConcept {
+    fn from(code: BindingStrength) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BiologicallyDerivedProductCategory`. Biologically Derived Product Category.
@@ -7116,6 +9317,18 @@ impl AsRef<str> for BiologicallyDerivedProductCategory {
         }
     }
 }
+impl ::std::fmt::Display for BiologicallyDerivedProductCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::BiologicalAgent => "BiologicalAgent",
+            Self::Cells => "Cells",
+            Self::Fluid => "Fluid",
+            Self::Organ => "Organ",
+            Self::Tissue => "Tissue",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7132,6 +9345,22 @@ impl Serialize for BiologicallyDerivedProductCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BiologicallyDerivedProductCategory> for Coding {
+    fn from(code: BiologicallyDerivedProductCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/product-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BiologicallyDerivedProductCategory> for CodeableConcept {
+    fn from(code: BiologicallyDerivedProductCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BiologicallyDerivedProductStatus`. Biologically Derived Product Status.
@@ -7168,6 +9397,15 @@ impl AsRef<str> for BiologicallyDerivedProductStatus {
         }
     }
 }
+impl ::std::fmt::Display for BiologicallyDerivedProductStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Available => "Available",
+            Self::Unavailable => "Unavailable",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7184,6 +9422,22 @@ impl Serialize for BiologicallyDerivedProductStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BiologicallyDerivedProductStatus> for Coding {
+    fn from(code: BiologicallyDerivedProductStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/product-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BiologicallyDerivedProductStatus> for CodeableConcept {
+    fn from(code: BiologicallyDerivedProductStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BiologicallyDerivedProductStorageScale`. BiologicallyDerived Product Storage Scale.
@@ -7226,6 +9480,16 @@ impl AsRef<str> for BiologicallyDerivedProductStorageScale {
         }
     }
 }
+impl ::std::fmt::Display for BiologicallyDerivedProductStorageScale {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Celsius => "Celsius",
+            Self::Farenheit => "Fahrenheit",
+            Self::Kelvin => "Kelvin",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductStorageScale {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7242,6 +9506,22 @@ impl Serialize for BiologicallyDerivedProductStorageScale {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BiologicallyDerivedProductStorageScale> for Coding {
+    fn from(code: BiologicallyDerivedProductStorageScale) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/product-storage-scale".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BiologicallyDerivedProductStorageScale> for CodeableConcept {
+    fn from(code: BiologicallyDerivedProductStorageScale) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `BundleType`. Indicates the purpose of a bundle - how it is intended to be used.
@@ -7320,6 +9600,22 @@ impl AsRef<str> for BundleType {
         }
     }
 }
+impl ::std::fmt::Display for BundleType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Batch => "Batch",
+            Self::BatchResponse => "Batch Response",
+            Self::Collection => "Collection",
+            Self::Document => "Document",
+            Self::History => "History List",
+            Self::Message => "Message",
+            Self::Searchset => "Search Results",
+            Self::Transaction => "Transaction",
+            Self::TransactionResponse => "Transaction Response",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for BundleType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7336,6 +9632,22 @@ impl Serialize for BundleType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<BundleType> for Coding {
+    fn from(code: BundleType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/bundle-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<BundleType> for CodeableConcept {
+    fn from(code: BundleType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CapabilityStatementKind`. How a capability statement is intended to be used.
@@ -7378,6 +9690,16 @@ impl AsRef<str> for CapabilityStatementKind {
         }
     }
 }
+impl ::std::fmt::Display for CapabilityStatementKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Capability => "Capability",
+            Self::Instance => "Instance",
+            Self::Requirements => "Requirements",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CapabilityStatementKind {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7394,6 +9716,22 @@ impl Serialize for CapabilityStatementKind {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CapabilityStatementKind> for Coding {
+    fn from(code: CapabilityStatementKind) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/capability-statement-kind".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CapabilityStatementKind> for CodeableConcept {
+    fn from(code: CapabilityStatementKind) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CarePlanActivityStatus`. Codes that reflect the current state of a care plan activity within its overall life cycle.
@@ -7472,6 +9810,22 @@ impl AsRef<str> for CarePlanActivityStatus {
         }
     }
 }
+impl ::std::fmt::Display for CarePlanActivityStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cancelled => "Cancelled",
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered in Error",
+            Self::InProgress => "In Progress",
+            Self::NotStarted => "Not Started",
+            Self::OnHold => "On Hold",
+            Self::Scheduled => "Scheduled",
+            Self::Stopped => "Stopped",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CarePlanActivityStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7488,6 +9842,22 @@ impl Serialize for CarePlanActivityStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CarePlanActivityStatus> for Coding {
+    fn from(code: CarePlanActivityStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/care-plan-activity-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CarePlanActivityStatus> for CodeableConcept {
+    fn from(code: CarePlanActivityStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CareTeamStatus`. Indicates the status of the care team.
@@ -7542,6 +9912,18 @@ impl AsRef<str> for CareTeamStatus {
         }
     }
 }
+impl ::std::fmt::Display for CareTeamStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+            Self::Proposed => "Proposed",
+            Self::Suspended => "Suspended",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CareTeamStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7558,6 +9940,22 @@ impl Serialize for CareTeamStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CareTeamStatus> for Coding {
+    fn from(code: CareTeamStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/care-team-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CareTeamStatus> for CodeableConcept {
+    fn from(code: CareTeamStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CatalogEntryRelationType`. The type of relations between entries.
@@ -7594,6 +9992,15 @@ impl AsRef<str> for CatalogEntryRelationType {
         }
     }
 }
+impl ::std::fmt::Display for CatalogEntryRelationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::IsReplacedBy => "Replaced By",
+            Self::Triggers => "Triggers",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CatalogEntryRelationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7610,6 +10017,22 @@ impl Serialize for CatalogEntryRelationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CatalogEntryRelationType> for Coding {
+    fn from(code: CatalogEntryRelationType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/relation-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CatalogEntryRelationType> for CodeableConcept {
+    fn from(code: CatalogEntryRelationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CatalogType`.
@@ -7654,6 +10077,17 @@ impl AsRef<str> for CatalogType {
         }
     }
 }
+impl ::std::fmt::Display for CatalogType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Device => "Device Catalog",
+            Self::Medication => "Medication Catalog",
+            Self::Protocol => "Protocol List",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CatalogType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7670,6 +10104,22 @@ impl Serialize for CatalogType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CatalogType> for Coding {
+    fn from(code: CatalogType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/catalogType".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CatalogType> for CodeableConcept {
+    fn from(code: CatalogType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CharacteristicCombination`. Logical grouping of characteristics.
@@ -7706,6 +10156,15 @@ impl AsRef<str> for CharacteristicCombination {
         }
     }
 }
+impl ::std::fmt::Display for CharacteristicCombination {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Intersection => "intersection",
+            Self::Union => "union",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CharacteristicCombination {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7722,6 +10181,22 @@ impl Serialize for CharacteristicCombination {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CharacteristicCombination> for Coding {
+    fn from(code: CharacteristicCombination) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/characteristic-combination".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CharacteristicCombination> for CodeableConcept {
+    fn from(code: CharacteristicCombination) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CharacteristicMethod`. The method used to determine the characteristic(s) of the variable.
@@ -7752,6 +10227,14 @@ impl AsRef<str> for CharacteristicMethod {
         }
     }
 }
+impl ::std::fmt::Display for CharacteristicMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Default => "Default",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CharacteristicMethod {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7768,6 +10251,22 @@ impl Serialize for CharacteristicMethod {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CharacteristicMethod> for Coding {
+    fn from(code: CharacteristicMethod) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/characteristic-method".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CharacteristicMethod> for CodeableConcept {
+    fn from(code: CharacteristicMethod) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ChargeItemCode`. Example set of codes that can be used for billing purposes.
@@ -7813,6 +10312,16 @@ impl AsRef<str> for ChargeItemCode {
         }
     }
 }
+impl ::std::fmt::Display for ChargeItemCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1100 => "Unvorhergesehene Inanspruchnahme",
+            Self::N1210 => "Notfallpauschale",
+            Self::N1320 => "Grundpauschale",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ChargeItemCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7829,6 +10338,22 @@ impl Serialize for ChargeItemCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ChargeItemCode> for Coding {
+    fn from(code: ChargeItemCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/chargeitem-billingcodes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ChargeItemCode> for CodeableConcept {
+    fn from(code: ChargeItemCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ChargeItemStatus`. Codes identifying the lifecycle stage of a ChargeItem.
@@ -7895,6 +10420,20 @@ impl AsRef<str> for ChargeItemStatus {
         }
     }
 }
+impl ::std::fmt::Display for ChargeItemStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Aborted => "Aborted",
+            Self::Billable => "Billable",
+            Self::Billed => "Billed",
+            Self::EnteredInError => "Entered in Error",
+            Self::NotBillable => "Not billable",
+            Self::Planned => "Planned",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ChargeItemStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7911,6 +10450,22 @@ impl Serialize for ChargeItemStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ChargeItemStatus> for Coding {
+    fn from(code: ChargeItemStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/chargeitem-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ChargeItemStatus> for CodeableConcept {
+    fn from(code: ChargeItemStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CholCodeLegacyStatus`.
@@ -7955,6 +10510,17 @@ impl AsRef<str> for CholCodeLegacyStatus {
         }
     }
 }
+impl ::std::fmt::Display for CholCodeLegacyStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Chol => "chol",
+            Self::CholMass => "chol-mass",
+            Self::CholMmol => "chol-mmol",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CholCodeLegacyStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -7971,6 +10537,22 @@ impl Serialize for CholCodeLegacyStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CholCodeLegacyStatus> for Coding {
+    fn from(code: CholCodeLegacyStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/CodeSystem/example-supplement".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CholCodeLegacyStatus> for CodeableConcept {
+    fn from(code: CholCodeLegacyStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitationArtifactClassifier`. Citation artifact classifier
@@ -8139,6 +10721,37 @@ impl AsRef<str> for CitationArtifactClassifier {
         }
     }
 }
+impl ::std::fmt::Display for CitationArtifactClassifier {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N68059040 => "Video-Audio Media",
+            Self::D000076942 => "Preprint",
+            Self::D001877 => "Book",
+            Self::D016420 => "Comment",
+            Self::D016422 => "Letter",
+            Self::D016425 => "Published Erratum",
+            Self::D016428 => "Journal Article",
+            Self::D019991 => "Database",
+            Self::D064886 => "Dataset",
+            Self::Electronic => "Electronic",
+            Self::ElectronicPrint => "Electronic-Print",
+            Self::ElectronicECollection => "Electronic-eCollection",
+            Self::Print => "Print",
+            Self::PrintElectronic => "Print Electronic",
+            Self::Audio => "Audio file",
+            Self::CommonShare => "Common Share",
+            Self::ExecutableApp => "Executable app",
+            Self::FhirResource => "FHIR Resource",
+            Self::Image => "Image file",
+            Self::MachineCode => "Machine code",
+            Self::MedlineBase => "Medline Base",
+            Self::ProjectSpecific => "Project Specific",
+            Self::Protocol => "Protocol",
+            Self::Webpage => "Webpage",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitationArtifactClassifier {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8155,6 +10768,24 @@ impl Serialize for CitationArtifactClassifier {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitationArtifactClassifier> for Coding {
+    fn from(code: CitationArtifactClassifier) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/citation-artifact-classifier".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitationArtifactClassifier> for CodeableConcept {
+    fn from(code: CitationArtifactClassifier) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitationClassificationType`. Citation classification type
@@ -8197,6 +10828,16 @@ impl AsRef<str> for CitationClassificationType {
         }
     }
 }
+impl ::std::fmt::Display for CitationClassificationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CitationSource => "Citation Source",
+            Self::FevirPlatformUse => "FEvIR Platform Use",
+            Self::MedlineOwner => "MEDLINE Citation Owner",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitationClassificationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8213,6 +10854,24 @@ impl Serialize for CitationClassificationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitationClassificationType> for Coding {
+    fn from(code: CitationClassificationType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/citation-classification-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitationClassificationType> for CodeableConcept {
+    fn from(code: CitationClassificationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitationStatusType`. Citation status type
@@ -8407,6 +11066,48 @@ impl AsRef<str> for CitationStatusType {
         }
     }
 }
+impl ::std::fmt::Display for CitationStatusType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::MedlineCompleted => "Medline Citation Status of Completed",
+            Self::MedlineInDataReview => "Medline Citation Status of In-Data-Review",
+            Self::MedlineInProcess => "Medline Citation Status of In-Process",
+            Self::MedlineMedline => "Medline Citation Status of MEDLINE",
+            Self::MedlineOldmedline => "Medline Citation Status of OLDMEDLINE",
+            Self::MedlinePublisher => "Medline Citation Status of Publisher",
+            Self::MedlinePubmedNotMedline => {
+                "Medline Citation Status of PubMed-not-MEDLINE"
+            }
+            Self::PubmedPublicationStatusAheadofprint => {
+                "PubMed PublicationStatus of aheadofprint"
+            }
+            Self::PubmedPublicationStatusEpublish => {
+                "PubMed PublicationStatus of epublish"
+            }
+            Self::PubmedPublicationStatusPpublish => {
+                "PubMed PublicationStatus of ppublish"
+            }
+            Self::PubmedPubstatusAccepted => "PubMed Pubstatus of Accepted",
+            Self::PubmedPubstatusAheadofprint => "PubMed Pubstatus of aheadofprint",
+            Self::PubmedPubstatusEcollection => "PubMed Pubstatus of Ecollection",
+            Self::PubmedPubstatusEntrez => "PubMed Pubstatus of Entrez",
+            Self::PubmedPubstatusEpublish => "PubMed Pubstatus of Epublish",
+            Self::PubmedPubstatusMedline => "PubMed Pubstatus of Medline",
+            Self::PubmedPubstatusMedliner => "PubMed Pubstatus of Medliner",
+            Self::PubmedPubstatusPmc => "PubMed Pubstatus of PMC",
+            Self::PubmedPubstatusPmcRelease => "PubMed Pubstatus of PMC release",
+            Self::PubmedPubstatusPmcr => "PubMed Pubstatus of PMCr",
+            Self::PubmedPubstatusPpublish => "PubMed Pubstatus of Ppublish",
+            Self::PubmedPubstatusPremedline => "PubMed Pubstatus of Premedline",
+            Self::PubmedPubstatusPubmed => "PubMed Pubstatus of PubMed",
+            Self::PubmedPubstatusPubmedr => "PubMed Pubstatus of PubMedr",
+            Self::PubmedPubstatusReceived => "PubMed Pubstatus of Received",
+            Self::PubmedPubstatusRetracted => "PubMed Pubstatus of Retracted",
+            Self::PubmedPubstatusRevised => "PubMed Pubstatus of Revised",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitationStatusType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8423,6 +11124,22 @@ impl Serialize for CitationStatusType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitationStatusType> for Coding {
+    fn from(code: CitationStatusType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/citation-status-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitationStatusType> for CodeableConcept {
+    fn from(code: CitationStatusType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitationSummaryStyle`. The format for display of the citation.
@@ -8531,6 +11248,27 @@ impl AsRef<str> for CitationSummaryStyle {
         }
     }
 }
+impl ::std::fmt::Display for CitationSummaryStyle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Acs => "American Chemical Society",
+            Self::Ama11 => "American Medical Association 11th edition",
+            Self::Apa6 => "American Psychological Association 6th edition",
+            Self::Apa7 => "American Psychological Association 7th edition",
+            Self::Asa6 => "American Sociological Association 6th edition",
+            Self::ChicagoA17 => "Chicago Style Version 17 Author Date",
+            Self::ChicagoB17 => "Chicago Style Version 17 Full note",
+            Self::Cochrane => "Cochrane Style",
+            Self::Comppub => "Computable Publishing",
+            Self::ElsevierHarvard => "Elsevier-Harvard Style",
+            Self::Ieee => "Institute of Electrical and Electronics Engineers",
+            Self::Mla8 => "Modern Language Association 8th edition",
+            Self::Nature => "Nature Referencing style",
+            Self::Vancouver => "Vancouver style",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitationSummaryStyle {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8547,6 +11285,22 @@ impl Serialize for CitationSummaryStyle {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitationSummaryStyle> for Coding {
+    fn from(code: CitationSummaryStyle) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/citation-summary-style".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitationSummaryStyle> for CodeableConcept {
+    fn from(code: CitationSummaryStyle) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitedArtifactAbstractType`. Used to express the reason and specific aspect for the variant abstract, such as language and specific language
@@ -8637,6 +11391,24 @@ impl AsRef<str> for CitedArtifactAbstractType {
         }
     }
 }
+impl ::std::fmt::Display for CitedArtifactAbstractType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Autotranslated => "Different language derived from autotranslation",
+            Self::DifferentPublisher => "Different publisher for abstract",
+            Self::DuplicatePmid => "Different text in additional Medline entry",
+            Self::EarlierAbstract => "Different text in an earlier version",
+            Self::Language => "Different language",
+            Self::LongAbstract => "Long abstract",
+            Self::PlainLanguage => "Plain language",
+            Self::PrimaryHumanUse => "Primary human use",
+            Self::PrimaryMachineUse => "Primary machine use",
+            Self::ShortAbstract => "Short abstract",
+            Self::Truncated => "Truncated",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitedArtifactAbstractType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8653,6 +11425,24 @@ impl Serialize for CitedArtifactAbstractType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitedArtifactAbstractType> for Coding {
+    fn from(code: CitedArtifactAbstractType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitedArtifactAbstractType> for CodeableConcept {
+    fn from(code: CitedArtifactAbstractType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitedArtifactClassificationType`. Cited Artifact Classification Type
@@ -8743,6 +11533,24 @@ impl AsRef<str> for CitedArtifactClassificationType {
         }
     }
 }
+impl ::std::fmt::Display for CitedArtifactClassificationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Chemical => "Chemical",
+            Self::CitationSubset => "Citation subset",
+            Self::Coverage => "Coverage",
+            Self::Keyword => "Keyword",
+            Self::KnowledgeArtifactType => "Knowledge Artifact Type",
+            Self::MeshHeading => "MeSH heading",
+            Self::PublicationType => "Publication type",
+            Self::PublishingModel => "Publishing Model",
+            Self::SupplementalMeshDisease => "Supplemental MeSH for Disease",
+            Self::SupplementalMeshOrganism => "Supplemental MeSH for Organism",
+            Self::SupplementalMeshProtocol => "Supplemental MeSH for Protocol",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitedArtifactClassificationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8759,6 +11567,25 @@ impl Serialize for CitedArtifactClassificationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitedArtifactClassificationType> for Coding {
+    fn from(code: CitedArtifactClassificationType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitedArtifactClassificationType> for CodeableConcept {
+    fn from(code: CitedArtifactClassificationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitedArtifactPartType`. To describe the reason for the variant citation, such as version number or subpart specification.
@@ -8837,6 +11664,22 @@ impl AsRef<str> for CitedArtifactPartType {
         }
     }
 }
+impl ::std::fmt::Display for CitedArtifactPartType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ArticleSet => "Part of an article set",
+            Self::Figures => "figures",
+            Self::Lines => "lines",
+            Self::Pages => "pages",
+            Self::Paragraphs => "paragraphs",
+            Self::Sections => "sections",
+            Self::Supplement => "Supplement or Appendix",
+            Self::SupplementSubpart => "Supplement or Appendix Subpart",
+            Self::Tables => "tables",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitedArtifactPartType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8853,6 +11696,22 @@ impl Serialize for CitedArtifactPartType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitedArtifactPartType> for Coding {
+    fn from(code: CitedArtifactPartType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/cited-artifact-part-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitedArtifactPartType> for CodeableConcept {
+    fn from(code: CitedArtifactPartType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitedArtifactStatusType`. Cited Artifact Status Type
@@ -8967,6 +11826,28 @@ impl AsRef<str> for CitedArtifactStatusType {
         }
     }
 }
+impl ::std::fmt::Display for CitedArtifactStatusType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Accepted => "Accepted",
+            Self::Active => "Active",
+            Self::Approved => "Approved",
+            Self::Archived => "Archived",
+            Self::Created => "Created",
+            Self::Draft => "Draft",
+            Self::PostReviewPrePublished => "Post review pre published",
+            Self::PreReview => "Pre review",
+            Self::PublishedEarlyForm => "Published early form",
+            Self::PublishedFinalForm => "Published final form",
+            Self::Rejected => "Rejected",
+            Self::Retracted => "Retracted",
+            Self::Submitted => "Submitted",
+            Self::UnderReview => "Under review",
+            Self::Withdrawn => "Withdrawn",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitedArtifactStatusType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -8983,6 +11864,22 @@ impl Serialize for CitedArtifactStatusType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitedArtifactStatusType> for Coding {
+    fn from(code: CitedArtifactStatusType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/cited-artifact-status-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitedArtifactStatusType> for CodeableConcept {
+    fn from(code: CitedArtifactStatusType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CitedMedium`. NLM codes Internet or Print.
@@ -9047,6 +11944,21 @@ impl AsRef<str> for CitedMedium {
         }
     }
 }
+impl ::std::fmt::Display for CitedMedium {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Internet => "Internet",
+            Self::InternetWithoutIssue => "Internet without issue",
+            Self::OfflineDigitalStorage => "Offline Digital Storage",
+            Self::OfflineDigitalStorageWithoutIssue => {
+                "Offline Digital Storage without issue"
+            }
+            Self::Print => "Print",
+            Self::PrintWithoutIssue => "Print without issue",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CitedMedium {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9063,6 +11975,22 @@ impl Serialize for CitedMedium {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CitedMedium> for Coding {
+    fn from(code: CitedMedium) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/cited-medium".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CitedMedium> for CodeableConcept {
+    fn from(code: CitedMedium) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ClaimCareTeamRoleCodes`. This value set includes sample Claim Care Team Role codes.
@@ -9113,6 +12041,18 @@ impl AsRef<str> for ClaimCareTeamRoleCodes {
         }
     }
 }
+impl ::std::fmt::Display for ClaimCareTeamRoleCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Assist => "Assisting Provider",
+            Self::Other => "Other",
+            Self::Primary => "Primary provider",
+            Self::Supervisor => "Supervising Provider",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ClaimCareTeamRoleCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9129,6 +12069,22 @@ impl Serialize for ClaimCareTeamRoleCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ClaimCareTeamRoleCodes> for Coding {
+    fn from(code: ClaimCareTeamRoleCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/claimcareteamrole".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ClaimCareTeamRoleCodes> for CodeableConcept {
+    fn from(code: ClaimCareTeamRoleCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ClaimInformationCategoryCodes`. This value set includes sample Information Category codes.
@@ -9239,6 +12195,28 @@ impl AsRef<str> for ClaimInformationCategoryCodes {
         }
     }
 }
+impl ::std::fmt::Display for ClaimInformationCategoryCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Attachment => "Attachment",
+            Self::Discharge => "Discharge",
+            Self::Employmentimpacted => "EmploymentImpacted",
+            Self::Exception => "Exception",
+            Self::Externalcause => "External Caause",
+            Self::Hospitalized => "Hospitalized",
+            Self::Info => "Information",
+            Self::Material => "Materials Forwarded",
+            Self::Missingtooth => "Missing Tooth",
+            Self::Onset => "Onset",
+            Self::Other => "Other",
+            Self::Patientreasonforvisit => "Patient Reason for Visit",
+            Self::Prosthesis => "Prosthesis",
+            Self::Related => "Related Services",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ClaimInformationCategoryCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9255,6 +12233,25 @@ impl Serialize for ClaimInformationCategoryCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ClaimInformationCategoryCodes> for Coding {
+    fn from(code: ClaimInformationCategoryCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/claiminformationcategory"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ClaimInformationCategoryCodes> for CodeableConcept {
+    fn from(code: ClaimInformationCategoryCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ClaimTypeCodes`. This value set includes Claim Type codes.
@@ -9311,6 +12308,19 @@ impl AsRef<str> for ClaimTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ClaimTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Institutional => "Institutional",
+            Self::Oral => "Oral",
+            Self::Pharmacy => "Pharmacy",
+            Self::Professional => "Professional",
+            Self::Vision => "Vision",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ClaimTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9327,6 +12337,22 @@ impl Serialize for ClaimTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ClaimTypeCodes> for Coding {
+    fn from(code: ClaimTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/claim-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ClaimTypeCodes> for CodeableConcept {
+    fn from(code: ClaimTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ClinicalUseDefinitionCategory`.
@@ -9369,6 +12395,16 @@ impl AsRef<str> for ClinicalUseDefinitionCategory {
         }
     }
 }
+impl ::std::fmt::Display for ClinicalUseDefinitionCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DriveAndMachines => "Effects on Ability to Drive and Use Machines",
+            Self::Overdose => "Overdose",
+            Self::Pregnancy => "Pregnancy and Lactation",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ClinicalUseDefinitionCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9385,6 +12421,25 @@ impl Serialize for ClinicalUseDefinitionCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ClinicalUseDefinitionCategory> for Coding {
+    fn from(code: ClinicalUseDefinitionCategory) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/clinical-use-definition-category"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ClinicalUseDefinitionCategory> for CodeableConcept {
+    fn from(code: ClinicalUseDefinitionCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ClinicalUseDefinitionType`. Overall defining type of this clinical use definition.
@@ -9439,6 +12494,18 @@ impl AsRef<str> for ClinicalUseDefinitionType {
         }
     }
 }
+impl ::std::fmt::Display for ClinicalUseDefinitionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Contraindication => "Contraindication",
+            Self::Indication => "Indication",
+            Self::Interaction => "Interaction",
+            Self::UndesirableEffect => "Undesirable Effect",
+            Self::Warning => "Warning",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ClinicalUseDefinitionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9455,6 +12522,24 @@ impl Serialize for ClinicalUseDefinitionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ClinicalUseDefinitionType> for Coding {
+    fn from(code: ClinicalUseDefinitionType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/clinical-use-definition-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ClinicalUseDefinitionType> for CodeableConcept {
+    fn from(code: ClinicalUseDefinitionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CodeSearchSupport`. The degree to which the server supports the code search parameter on ValueSet, if it is supported.
@@ -9491,6 +12576,15 @@ impl AsRef<str> for CodeSearchSupport {
         }
     }
 }
+impl ::std::fmt::Display for CodeSearchSupport {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::All => "Implicit Codes",
+            Self::Explicit => "Explicit Codes",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CodeSearchSupport {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9507,6 +12601,22 @@ impl Serialize for CodeSearchSupport {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CodeSearchSupport> for Coding {
+    fn from(code: CodeSearchSupport) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/code-search-support".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CodeSearchSupport> for CodeableConcept {
+    fn from(code: CodeSearchSupport) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CodeSystemContentMode`. The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.
@@ -9561,6 +12671,18 @@ impl AsRef<str> for CodeSystemContentMode {
         }
     }
 }
+impl ::std::fmt::Display for CodeSystemContentMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Complete => "Complete",
+            Self::Example => "Example",
+            Self::Fragment => "Fragment",
+            Self::NotPresent => "Not Present",
+            Self::Supplement => "Supplement",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CodeSystemContentMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9577,6 +12699,22 @@ impl Serialize for CodeSystemContentMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CodeSystemContentMode> for Coding {
+    fn from(code: CodeSystemContentMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/codesystem-content-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CodeSystemContentMode> for CodeableConcept {
+    fn from(code: CodeSystemContentMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CodeSystemHierarchyMeaning`. The meaning of the hierarchy of concepts in a code system.
@@ -9625,6 +12763,17 @@ impl AsRef<str> for CodeSystemHierarchyMeaning {
         }
     }
 }
+impl ::std::fmt::Display for CodeSystemHierarchyMeaning {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ClassifiedWith => "Classified With",
+            Self::GroupedBy => "Grouped By",
+            Self::IsA => "Is-A",
+            Self::PartOf => "Part Of",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CodeSystemHierarchyMeaning {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -9641,6 +12790,24 @@ impl Serialize for CodeSystemHierarchyMeaning {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CodeSystemHierarchyMeaning> for Coding {
+    fn from(code: CodeSystemHierarchyMeaning) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CodeSystemHierarchyMeaning> for CodeableConcept {
+    fn from(code: CodeSystemHierarchyMeaning) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CombinedDoseForm`. Dose forms for a product as a whole, considering all individual parts, but before any mixing
@@ -10127,6 +13294,128 @@ impl AsRef<str> for CombinedDoseForm {
         }
     }
 }
+impl ::std::fmt::Display for CombinedDoseForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000073366 => "Powder and solvent for oral solution",
+            Self::N100000073651 => "Powder and solvent for oral suspension",
+            Self::N100000073774 => "Eye drops, powder and solvent for solution",
+            Self::N100000073781 => "Eye drops, powder and solvent for suspension",
+            Self::N100000073801 => "Ear drops, powder and solvent for suspension",
+            Self::N100000073860 => "Powder and solvent for solution for infusion",
+            Self::N100000073868 => "Powder and solvent for solution for injection",
+            Self::N100000073869 => "Powder and solvent for suspension for injection",
+            Self::N100000073884 => "Powder and solvent for implantation paste",
+            Self::N100000073891 => {
+                "Endotracheopulmonary instillation, powder and solvent for solution"
+            }
+            Self::N100000073892 => "Powder and solvent for endocervical gel",
+            Self::N100000073941 => "Powder and solvent for sealant",
+            Self::N100000073972 => {
+                "Concentrate and solvent for concentrate for solution for infusion"
+            }
+            Self::N100000073973 => "Concentrate and solvent for cutaneous use",
+            Self::N100000073974 => "Concentrate and solvent for injection",
+            Self::N100000073975 => "Concentrate and solvent for solution for infusion",
+            Self::N100000073987 => "Concentrate and diluent for solution for infusion",
+            Self::N100000073988 => "Concentrate and solvent for cutaneous solution",
+            Self::N100000073989 => "Concentrate and solvent for solution for injection",
+            Self::N100000073990 => "Concentrate and solvent for suspension for injection",
+            Self::N100000073999 => "Granules and solvent for suspension for injection",
+            Self::N100000074015 => {
+                "Powder and solvent for concentrate for solution for infusion"
+            }
+            Self::N100000074016 => "Powder and solvent for cutaneous solution",
+            Self::N100000074017 => "Powder and solvent for gingival gel",
+            Self::N100000074018 => {
+                "Powder and solvent for prolonged-release suspension for injection"
+            }
+            Self::N100000074030 => "Powder and solvent for endosinusial solution",
+            Self::N100000074031 => {
+                "Powder and solvent for intraocular instillation solution"
+            }
+            Self::N100000074032 => "Powder and suspension for suspension for injection",
+            Self::N100000074048 => {
+                "Suspension and effervescent granules for oral suspension"
+            }
+            Self::N100000074051 => "Tablet and solvent for rectal suspension",
+            Self::N100000074053 => "Powder and solvent for dental gel",
+            Self::N100000074056 => {
+                "Gas and solvent for dispersion for injection/infusion"
+            }
+            Self::N100000074057 => {
+                "Powder and solvent for solution for injection/infusion"
+            }
+            Self::N100000074061 => "Suspension and solution for spray",
+            Self::N100000074064 => "Tablet and powder for oral solution",
+            Self::N100000075580 => "Emulsion and suspension for emulsion for injection",
+            Self::N100000075584 => "Powder and solvent for dispersion for injection",
+            Self::N100000075587 => "Powder for mouth wash",
+            Self::N100000116137 => "Lyophilisate and solvent for solution for injection",
+            Self::N100000116141 => "Fibrin sealant-powder and solvent for fibrin sealant",
+            Self::N100000116155 => "Granules and solvent for oral suspension",
+            Self::N100000116160 => {
+                "Lyophilisate and solvent for suspension for injection"
+            }
+            Self::N100000116172 => "Powder and gel for gel",
+            Self::N100000116173 => "Powder and solution for solution for injection",
+            Self::N100000116174 => "Powder and solvent for epilesional solution",
+            Self::N100000116175 => "Powder and solvent for intravesical solution",
+            Self::N100000116176 => "Powder and solvent for intravesical suspension",
+            Self::N100000116177 => "Powder and solvent for nebuliser solution",
+            Self::N100000116179 => {
+                "Powder, dispersion and solvent for concentrate for dispersion for infusion"
+            }
+            Self::N100000125746 => "Powder and solvent for emulsion for injection",
+            Self::N100000125747 => "Nasal drops, powder and solvent for solution",
+            Self::N100000125777 => "Suspension and solvent for suspension for injection",
+            Self::N100000136318 => {
+                "Concentrate and solvent for solution for injection/infusion"
+            }
+            Self::N100000136325 => {
+                "Powder and solvent for solution for injection/skin-prick test"
+            }
+            Self::N100000136558 => {
+                "Lyophilisate and solvent for suspension for nasal administration"
+            }
+            Self::N100000136560 => "Powder and solvent for solution for sealant",
+            Self::N100000136907 => "Solution for dispersion for injection/infusion",
+            Self::N100000143502 => "Powder and solution for dental cement",
+            Self::N100000143546 => {
+                "Endotracheopulmonary instillation, powder and solvent for suspension"
+            }
+            Self::N100000143552 => "Powder, solvent and matrix for implantation matrix",
+            Self::N100000156068 => "Nasal drops, lyophilisate and solvent for suspension",
+            Self::N100000157796 => {
+                "Lyophilisate and suspension for suspension for injection"
+            }
+            Self::N100000164467 => {
+                "Powder for concentrate and solution for solution for infusion"
+            }
+            Self::N100000169997 => "Powder and solution for bee-hive solution",
+            Self::N100000170588 => "Suspension and solvent for oral spray",
+            Self::N100000171127 => "Lyophilisate and solvent for oral suspension",
+            Self::N100000171193 => {
+                "Concentrate and solvent for concentrate for oral spray, suspension"
+            }
+            Self::N100000171238 => "Lyophilisate and solvent for oculonasal suspension",
+            Self::N100000171935 => {
+                "Emulsion and lyophilisate for suspension for injection"
+            }
+            Self::N100000174065 => "Powder and solvent for syrup",
+            Self::N200000002161 => "Nasal spray, lyophilisate and solvent for suspension",
+            Self::N200000002287 => "Powder and solution for bee-hive dispersion",
+            Self::N200000004201 => "Solution and dispersion for nebuliser dispersion",
+            Self::N200000004819 => "Effervescent powder and powder for oral suspension",
+            Self::N200000004820 => "Lyophilisate and solvent for emulsion for injection",
+            Self::N200000005547 => "Powder and solution for suspension for injection",
+            Self::N200000010382 => {
+                "Lyophilisate and solvent for suspension for nasal spray or injection"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CombinedDoseForm {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10143,6 +13432,22 @@ impl Serialize for CombinedDoseForm {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CombinedDoseForm> for Coding {
+    fn from(code: CombinedDoseForm) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/combined-dose-form".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CombinedDoseForm> for CodeableConcept {
+    fn from(code: CombinedDoseForm) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CommonTags`. Common Tag Codes defined by FHIR project
@@ -10173,6 +13478,14 @@ impl AsRef<str> for CommonTags {
         }
     }
 }
+impl ::std::fmt::Display for CommonTags {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Actionable => "Actionable",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CommonTags {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10189,6 +13502,22 @@ impl Serialize for CommonTags {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CommonTags> for Coding {
+    fn from(code: CommonTags) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/common-tags".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CommonTags> for CodeableConcept {
+    fn from(code: CommonTags) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CommunicationCategory`. Codes for general categories of communications such as alerts, instructions, etc.
@@ -10237,6 +13566,17 @@ impl AsRef<str> for CommunicationCategory {
         }
     }
 }
+impl ::std::fmt::Display for CommunicationCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Alert => "Alert",
+            Self::Instruction => "Instruction",
+            Self::Notification => "Notification",
+            Self::Reminder => "Reminder",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CommunicationCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10253,6 +13593,22 @@ impl Serialize for CommunicationCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CommunicationCategory> for Coding {
+    fn from(code: CommunicationCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/communication-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CommunicationCategory> for CodeableConcept {
+    fn from(code: CommunicationCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CommunicationNotDoneReason`. Codes for the reason why a communication did not happen.
@@ -10313,6 +13669,19 @@ impl AsRef<str> for CommunicationNotDoneReason {
         }
     }
 }
+impl ::std::fmt::Display for CommunicationNotDoneReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::FamilyObjection => "Family Objection",
+            Self::InvalidPhoneNumber => "Invalid Phone Number",
+            Self::PatientObjection => "Patient Objection",
+            Self::RecipientUnavailable => "Recipient Unavailable",
+            Self::SystemError => "System Error",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CommunicationNotDoneReason {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10329,6 +13698,24 @@ impl Serialize for CommunicationNotDoneReason {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CommunicationNotDoneReason> for Coding {
+    fn from(code: CommunicationNotDoneReason) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/communication-not-done-reason".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CommunicationNotDoneReason> for CodeableConcept {
+    fn from(code: CommunicationNotDoneReason) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CommunicationTopic`. Codes describing the purpose or content of the communication.
@@ -10389,6 +13776,19 @@ impl AsRef<str> for CommunicationTopic {
         }
     }
 }
+impl ::std::fmt::Display for CommunicationTopic {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AppointmentReminder => "Appointment Reminder",
+            Self::PhoneConsult => "Phone Consult",
+            Self::PrescriptionRefillRequest => "Prescription Refill Request",
+            Self::ProgressUpdate => "Progress Update",
+            Self::ReportLabs => "Report Labs",
+            Self::SummaryReport => "Summary Report",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CommunicationTopic {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10405,6 +13805,22 @@ impl Serialize for CommunicationTopic {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CommunicationTopic> for Coding {
+    fn from(code: CommunicationTopic) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/communication-topic".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CommunicationTopic> for CodeableConcept {
+    fn from(code: CommunicationTopic) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CompartmentType`. Which type a compartment definition describes.
@@ -10459,6 +13875,18 @@ impl AsRef<str> for CompartmentType {
         }
     }
 }
+impl ::std::fmt::Display for CompartmentType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Device => "Device",
+            Self::Encounter => "Encounter",
+            Self::Patient => "Patient",
+            Self::Practitioner => "Practitioner",
+            Self::RelatedPerson => "RelatedPerson",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CompartmentType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10475,6 +13903,22 @@ impl Serialize for CompartmentType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CompartmentType> for Coding {
+    fn from(code: CompartmentType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/compartment-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CompartmentType> for CodeableConcept {
+    fn from(code: CompartmentType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CompositeMeasureScoring`. The composite scoring method of the measure.
@@ -10523,6 +13967,17 @@ impl AsRef<str> for CompositeMeasureScoring {
         }
     }
 }
+impl ::std::fmt::Display for CompositeMeasureScoring {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AllOrNothing => "All-or-nothing",
+            Self::Linear => "Linear",
+            Self::Opportunity => "Opportunity",
+            Self::Weighted => "Weighted",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CompositeMeasureScoring {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10539,6 +13994,22 @@ impl Serialize for CompositeMeasureScoring {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CompositeMeasureScoring> for Coding {
+    fn from(code: CompositeMeasureScoring) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/composite-measure-scoring".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CompositeMeasureScoring> for CodeableConcept {
+    fn from(code: CompositeMeasureScoring) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CompositionAttestationMode`. The way in which a person authenticated a composition.
@@ -10587,6 +14058,17 @@ impl AsRef<str> for CompositionAttestationMode {
         }
     }
 }
+impl ::std::fmt::Display for CompositionAttestationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Legal => "Legal",
+            Self::Official => "Official",
+            Self::Personal => "Personal",
+            Self::Professional => "Professional",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CompositionAttestationMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10603,6 +14085,24 @@ impl Serialize for CompositionAttestationMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CompositionAttestationMode> for Coding {
+    fn from(code: CompositionAttestationMode) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/composition-attestation-mode".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CompositionAttestationMode> for CodeableConcept {
+    fn from(code: CompositionAttestationMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CompositionStatus`. The workflow/clinical status of the composition.
@@ -10651,6 +14151,17 @@ impl AsRef<str> for CompositionStatus {
         }
     }
 }
+impl ::std::fmt::Display for CompositionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::EnteredInError => "Entered in Error",
+            Self::Final => "Final",
+            Self::Preliminary => "Preliminary",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CompositionStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10667,6 +14178,22 @@ impl Serialize for CompositionStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CompositionStatus> for Coding {
+    fn from(code: CompositionStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/composition-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CompositionStatus> for CodeableConcept {
+    fn from(code: CompositionStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConceptMapEquivalence`. The degree of equivalence between concepts.
@@ -10751,6 +14278,23 @@ impl AsRef<str> for ConceptMapEquivalence {
         }
     }
 }
+impl ::std::fmt::Display for ConceptMapEquivalence {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Disjoint => "Disjoint",
+            Self::Equal => "Equal",
+            Self::Equivalent => "Equivalent",
+            Self::Inexact => "Inexact",
+            Self::Narrower => "Narrower",
+            Self::Relatedto => "Related To",
+            Self::Specializes => "Specializes",
+            Self::Subsumes => "Subsumes",
+            Self::Unmatched => "Unmatched",
+            Self::Wider => "Wider",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConceptMapEquivalence {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10767,6 +14311,22 @@ impl Serialize for ConceptMapEquivalence {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConceptMapEquivalence> for Coding {
+    fn from(code: ConceptMapEquivalence) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/concept-map-equivalence".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConceptMapEquivalence> for CodeableConcept {
+    fn from(code: ConceptMapEquivalence) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConceptMapGroupUnmappedMode`. Defines which action to take if there is no match in the group.
@@ -10809,6 +14369,16 @@ impl AsRef<str> for ConceptMapGroupUnmappedMode {
         }
     }
 }
+impl ::std::fmt::Display for ConceptMapGroupUnmappedMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Fixed => "Fixed Code",
+            Self::OtherMap => "Other Map",
+            Self::Provided => "Provided Code",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConceptMapGroupUnmappedMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10825,6 +14395,22 @@ impl Serialize for ConceptMapGroupUnmappedMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConceptMapGroupUnmappedMode> for Coding {
+    fn from(code: ConceptMapGroupUnmappedMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConceptMapGroupUnmappedMode> for CodeableConcept {
+    fn from(code: ConceptMapGroupUnmappedMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConceptSubsumptionOutcome`. Codes indicating the results of a subsumption check between codes
@@ -10875,6 +14461,18 @@ impl AsRef<str> for ConceptSubsumptionOutcome {
         }
     }
 }
+impl ::std::fmt::Display for ConceptSubsumptionOutcome {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Equivalent => "Equivalent",
+            Self::NotSubsumed => "Not-Subsumed",
+            Self::SubsumedBy => "Subsumed-By",
+            Self::Subsumes => "Subsumes",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConceptSubsumptionOutcome {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10891,6 +14489,22 @@ impl Serialize for ConceptSubsumptionOutcome {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConceptSubsumptionOutcome> for Coding {
+    fn from(code: ConceptSubsumptionOutcome) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/concept-subsumption-outcome".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConceptSubsumptionOutcome> for CodeableConcept {
+    fn from(code: ConceptSubsumptionOutcome) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConditionCategoryCodes`. Example value set for Condition Categories.
@@ -10927,6 +14541,15 @@ impl AsRef<str> for ConditionCategoryCodes {
         }
     }
 }
+impl ::std::fmt::Display for ConditionCategoryCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::EncounterDiagnosis => "Encounter Diagnosis",
+            Self::ProblemListItem => "Problem List Item",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConditionCategoryCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -10943,6 +14566,22 @@ impl Serialize for ConditionCategoryCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConditionCategoryCodes> for Coding {
+    fn from(code: ConditionCategoryCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/condition-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConditionCategoryCodes> for CodeableConcept {
+    fn from(code: ConditionCategoryCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConditionClinicalStatusCodes`. Preferred value set for Condition Clinical Status.
@@ -11003,6 +14642,19 @@ impl AsRef<str> for ConditionClinicalStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for ConditionClinicalStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Inactive => "Inactive",
+            Self::Recurrence => "Recurrence",
+            Self::Relapse => "Relapse",
+            Self::Remission => "Remission",
+            Self::Resolved => "Resolved",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConditionClinicalStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11019,6 +14671,22 @@ impl Serialize for ConditionClinicalStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConditionClinicalStatusCodes> for Coding {
+    fn from(code: ConditionClinicalStatusCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/condition-clinical".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConditionClinicalStatusCodes> for CodeableConcept {
+    fn from(code: ConditionClinicalStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConditionVerificationStatus`. The verification status to support or decline the clinical status of the condition or diagnosis.
@@ -11079,6 +14747,19 @@ impl AsRef<str> for ConditionVerificationStatus {
         }
     }
 }
+impl ::std::fmt::Display for ConditionVerificationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Confirmed => "Confirmed",
+            Self::Differential => "Differential",
+            Self::EnteredInError => "Entered in Error",
+            Self::Provisional => "Provisional",
+            Self::Refuted => "Refuted",
+            Self::Unconfirmed => "Unconfirmed",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConditionVerificationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11095,6 +14776,22 @@ impl Serialize for ConditionVerificationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConditionVerificationStatus> for Coding {
+    fn from(code: ConditionVerificationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/condition-ver-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConditionVerificationStatus> for CodeableConcept {
+    fn from(code: ConditionVerificationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConditionalDeleteStatus`. A code that indicates how the server supports conditional delete.
@@ -11137,6 +14834,16 @@ impl AsRef<str> for ConditionalDeleteStatus {
         }
     }
 }
+impl ::std::fmt::Display for ConditionalDeleteStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Multiple => "Multiple Deletes Supported",
+            Self::NotSupported => "Not Supported",
+            Self::Single => "Single Deletes Supported",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConditionalDeleteStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11153,6 +14860,22 @@ impl Serialize for ConditionalDeleteStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConditionalDeleteStatus> for Coding {
+    fn from(code: ConditionalDeleteStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/conditional-delete-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConditionalDeleteStatus> for CodeableConcept {
+    fn from(code: ConditionalDeleteStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConditionalReadStatus`. A code that indicates how the server supports conditional read.
@@ -11201,6 +14924,17 @@ impl AsRef<str> for ConditionalReadStatus {
         }
     }
 }
+impl ::std::fmt::Display for ConditionalReadStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::FullSupport => "Full Support",
+            Self::ModifiedSince => "If-Modified-Since",
+            Self::NotMatch => "If-None-Match",
+            Self::NotSupported => "Not Supported",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConditionalReadStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11217,6 +14951,22 @@ impl Serialize for ConditionalReadStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConditionalReadStatus> for Coding {
+    fn from(code: ConditionalReadStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/conditional-read-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConditionalReadStatus> for CodeableConcept {
+    fn from(code: ConditionalReadStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConsentActionCodes`. This value set includes example Consent Action codes.
@@ -11273,6 +15023,19 @@ impl AsRef<str> for ConsentActionCodes {
         }
     }
 }
+impl ::std::fmt::Display for ConsentActionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Access => "Access",
+            Self::Collect => "Collect",
+            Self::Correct => "Access and Correct",
+            Self::Disclose => "Disclose",
+            Self::Use => "Use",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConsentActionCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11289,6 +15052,22 @@ impl Serialize for ConsentActionCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConsentActionCodes> for Coding {
+    fn from(code: ConsentActionCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/consentaction".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConsentActionCodes> for CodeableConcept {
+    fn from(code: ConsentActionCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConsentCategoryCodes`. FHIR Specific Example codes for Consent Category
@@ -11369,6 +15148,23 @@ impl AsRef<str> for ConsentCategoryCodes {
         }
     }
 }
+impl ::std::fmt::Display for ConsentCategoryCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Acd => "Advance Directive",
+            Self::Dnr => "Do Not Resuscitate",
+            Self::Emrgonly => "Emergency Only",
+            Self::Hcd => "Health Care Directive",
+            Self::Npp => "Notice of Privacy Practices",
+            Self::Polst => "POLST",
+            Self::Research => "Research Information Access",
+            Self::Rsdid => "De-identified Information Access",
+            Self::Rsreid => "Re-identifiable Information Access",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConsentCategoryCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11385,6 +15181,24 @@ impl Serialize for ConsentCategoryCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConsentCategoryCodes> for Coding {
+    fn from(code: ConsentCategoryCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/consentcategorycodes".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConsentCategoryCodes> for CodeableConcept {
+    fn from(code: ConsentCategoryCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConsentDataMeaning`. How a resource reference is interpreted when testing consent restrictions.
@@ -11433,6 +15247,17 @@ impl AsRef<str> for ConsentDataMeaning {
         }
     }
 }
+impl ::std::fmt::Display for ConsentDataMeaning {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Authoredby => "AuthoredBy",
+            Self::Dependents => "Dependents",
+            Self::Instance => "Instance",
+            Self::Related => "Related",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConsentDataMeaning {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11449,6 +15274,22 @@ impl Serialize for ConsentDataMeaning {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConsentDataMeaning> for Coding {
+    fn from(code: ConsentDataMeaning) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/consent-data-meaning".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConsentDataMeaning> for CodeableConcept {
+    fn from(code: ConsentDataMeaning) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConsentProvisionType`. How a rule statement is applied, such as adding additional consent or removing consent.
@@ -11485,6 +15326,15 @@ impl AsRef<str> for ConsentProvisionType {
         }
     }
 }
+impl ::std::fmt::Display for ConsentProvisionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Deny => "Opt Out",
+            Self::Permit => "Opt In",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConsentProvisionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11501,6 +15351,22 @@ impl Serialize for ConsentProvisionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConsentProvisionType> for Coding {
+    fn from(code: ConsentProvisionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/consent-provision-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConsentProvisionType> for CodeableConcept {
+    fn from(code: ConsentProvisionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConsentScopeCodes`. This value set includes the current scopes for the Consent resources.
@@ -11551,6 +15417,18 @@ impl AsRef<str> for ConsentScopeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ConsentScopeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Adr => "Advanced Care Directive",
+            Self::PatientPrivacy => "Privacy Consent",
+            Self::Research => "Research",
+            Self::Treatment => "Treatment",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConsentScopeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11567,6 +15445,22 @@ impl Serialize for ConsentScopeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConsentScopeCodes> for Coding {
+    fn from(code: ConsentScopeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/consentscope".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConsentScopeCodes> for CodeableConcept {
+    fn from(code: ConsentScopeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConsentState`. Indicates the state of the consent.
@@ -11627,6 +15521,19 @@ impl AsRef<str> for ConsentState {
         }
     }
 }
+impl ::std::fmt::Display for ConsentState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Draft => "Pending",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+            Self::Proposed => "Proposed",
+            Self::Rejected => "Rejected",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConsentState {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11643,6 +15550,22 @@ impl Serialize for ConsentState {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConsentState> for Coding {
+    fn from(code: ConsentState) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/consent-state-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConsentState> for CodeableConcept {
+    fn from(code: ConsentState) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ConstraintSeverity`. SHALL applications comply with this constraint?
@@ -11679,6 +15602,15 @@ impl AsRef<str> for ConstraintSeverity {
         }
     }
 }
+impl ::std::fmt::Display for ConstraintSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Error => "Error",
+            Self::Warning => "Warning",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ConstraintSeverity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11695,6 +15627,22 @@ impl Serialize for ConstraintSeverity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ConstraintSeverity> for Coding {
+    fn from(code: ConstraintSeverity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/constraint-severity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ConstraintSeverity> for CodeableConcept {
+    fn from(code: ConstraintSeverity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContactEntityType`. This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party.
@@ -11757,6 +15705,20 @@ impl AsRef<str> for ContactEntityType {
         }
     }
 }
+impl ::std::fmt::Display for ContactEntityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Admin => "Administrative",
+            Self::Bill => "Billing",
+            Self::Hr => "Human Resource",
+            Self::Patinf => "Patient",
+            Self::Payor => "Payor",
+            Self::Press => "Press",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContactEntityType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11773,6 +15735,24 @@ impl Serialize for ContactEntityType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContactEntityType> for Coding {
+    fn from(code: ContactEntityType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/contactentity-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContactEntityType> for CodeableConcept {
+    fn from(code: ContactEntityType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContactPointSystem`. Telecommunications form for contact point.
@@ -11839,6 +15819,20 @@ impl AsRef<str> for ContactPointSystem {
         }
     }
 }
+impl ::std::fmt::Display for ContactPointSystem {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Email => "Email",
+            Self::Fax => "Fax",
+            Self::Other => "Other",
+            Self::Pager => "Pager",
+            Self::Phone => "Phone",
+            Self::Sms => "SMS",
+            Self::Url => "URL",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContactPointSystem {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11855,6 +15849,22 @@ impl Serialize for ContactPointSystem {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContactPointSystem> for Coding {
+    fn from(code: ContactPointSystem) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contact-point-system".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContactPointSystem> for CodeableConcept {
+    fn from(code: ContactPointSystem) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContactPointUse`. Use of contact point.
@@ -11909,6 +15919,18 @@ impl AsRef<str> for ContactPointUse {
         }
     }
 }
+impl ::std::fmt::Display for ContactPointUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Home => "Home",
+            Self::Mobile => "Mobile",
+            Self::Old => "Old",
+            Self::Temp => "Temp",
+            Self::Work => "Work",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContactPointUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -11925,6 +15947,22 @@ impl Serialize for ContactPointUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContactPointUse> for Coding {
+    fn from(code: ContactPointUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contact-point-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContactPointUse> for CodeableConcept {
+    fn from(code: ContactPointUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContainerCap`. Color of the container cap.
@@ -12021,6 +16059,25 @@ impl AsRef<str> for ContainerCap {
         }
     }
 }
+impl ::std::fmt::Display for ContainerCap {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Black => "black cap",
+            Self::Brown => "brown cap",
+            Self::DarkYellow => "dark yellow cap",
+            Self::Green => "green cap",
+            Self::Grey => "grey cap",
+            Self::Lavender => "lavender cap",
+            Self::LightBlue => "light blue cap",
+            Self::LightGreen => "light green cap",
+            Self::Pink => "pink cap",
+            Self::Red => "red cap",
+            Self::White => "white cap",
+            Self::Yellow => "yellow cap",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContainerCap {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12037,6 +16094,22 @@ impl Serialize for ContainerCap {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContainerCap> for Coding {
+    fn from(code: ContainerCap) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/container-cap".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContainerCap> for CodeableConcept {
+    fn from(code: ContainerCap) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractActionCodes`. This value set includes sample Contract Action codes.
@@ -12075,6 +16148,16 @@ impl AsRef<str> for ContractActionCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractActionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ActionA => "Action A",
+            Self::ActionB => "Action B",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractActionCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12091,6 +16174,22 @@ impl Serialize for ContractActionCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractActionCodes> for Coding {
+    fn from(code: ContractActionCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-action".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractActionCodes> for CodeableConcept {
+    fn from(code: ContractActionCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractActionStatus`. This CodeSystem contains FHIR-defined contract action status types.
@@ -12123,6 +16222,15 @@ impl AsRef<str> for ContractActionStatus {
         }
     }
 }
+impl ::std::fmt::Display for ContractActionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Complete => "Complete",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractActionStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12139,6 +16247,22 @@ impl Serialize for ContractActionStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractActionStatus> for Coding {
+    fn from(code: ContractActionStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-actionstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractActionStatus> for CodeableConcept {
+    fn from(code: ContractActionStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractActorRoleCodes`. This value set includes sample Contract Actor Role codes.
@@ -12177,6 +16301,16 @@ impl AsRef<str> for ContractActorRoleCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractActorRoleCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Patient => "Patient",
+            Self::Practitioner => "Practitioner",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractActorRoleCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12193,6 +16327,22 @@ impl Serialize for ContractActorRoleCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractActorRoleCodes> for Coding {
+    fn from(code: ContractActorRoleCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-actorrole".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractActorRoleCodes> for CodeableConcept {
+    fn from(code: ContractActorRoleCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractAssetAvailability`. This CodeSystem contains FHIR-defined contract asset availability types.
@@ -12225,6 +16375,15 @@ impl AsRef<str> for ContractAssetAvailability {
         }
     }
 }
+impl ::std::fmt::Display for ContractAssetAvailability {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Lease => "Lease",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractAssetAvailability {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12241,6 +16400,22 @@ impl Serialize for ContractAssetAvailability {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractAssetAvailability> for Coding {
+    fn from(code: ContractAssetAvailability) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/asset-availability".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractAssetAvailability> for CodeableConcept {
+    fn from(code: ContractAssetAvailability) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractAssetContext`. This CodeSystem contains FHIR-defined contract asset context types.
@@ -12273,6 +16448,15 @@ impl AsRef<str> for ContractAssetContext {
         }
     }
 }
+impl ::std::fmt::Display for ContractAssetContext {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Custodian => "Custodian",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractAssetContext {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12289,6 +16473,22 @@ impl Serialize for ContractAssetContext {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractAssetContext> for Coding {
+    fn from(code: ContractAssetContext) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-assetcontext".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractAssetContext> for CodeableConcept {
+    fn from(code: ContractAssetContext) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractAssetScope`. This CodeSystem contains FHIR-defined contract asset scope types.
@@ -12321,6 +16521,15 @@ impl AsRef<str> for ContractAssetScope {
         }
     }
 }
+impl ::std::fmt::Display for ContractAssetScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Thing => "Thing",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractAssetScope {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12337,6 +16546,22 @@ impl Serialize for ContractAssetScope {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractAssetScope> for Coding {
+    fn from(code: ContractAssetScope) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-assetscope".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractAssetScope> for CodeableConcept {
+    fn from(code: ContractAssetScope) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractAssetSubtype`. This CodeSystem contains FHIR-defined contract asset type sub-types.
@@ -12369,6 +16594,15 @@ impl AsRef<str> for ContractAssetSubtype {
         }
     }
 }
+impl ::std::fmt::Display for ContractAssetSubtype {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Participation => "Participation",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractAssetSubtype {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12385,6 +16619,22 @@ impl Serialize for ContractAssetSubtype {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractAssetSubtype> for Coding {
+    fn from(code: ContractAssetSubtype) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-assetsubtype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractAssetSubtype> for CodeableConcept {
+    fn from(code: ContractAssetSubtype) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractAssetType`. This CodeSystem contains FHIR-defined contract asset type types.
@@ -12417,6 +16667,15 @@ impl AsRef<str> for ContractAssetType {
         }
     }
 }
+impl ::std::fmt::Display for ContractAssetType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Participation => "Participation",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractAssetType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12433,6 +16692,22 @@ impl Serialize for ContractAssetType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractAssetType> for Coding {
+    fn from(code: ContractAssetType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-assettype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractAssetType> for CodeableConcept {
+    fn from(code: ContractAssetType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractContentDerivative`. This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source at a specific stage in its lifecycle, which is sufficient to manage that source information, for example, in a repository, registry, processes and workflows, for making access control decisions, and providing query responses.
@@ -12483,6 +16758,18 @@ impl AsRef<str> for ContractContentDerivative {
         }
     }
 }
+impl ::std::fmt::Display for ContractContentDerivative {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Registration => "Content Registration",
+            Self::Retrieval => "Content Retrieval",
+            Self::Shareable => "Shareable Content",
+            Self::Statement => "Content Statement",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractContentDerivative {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12499,6 +16786,22 @@ impl Serialize for ContractContentDerivative {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractContentDerivative> for Coding {
+    fn from(code: ContractContentDerivative) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-content-derivative".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractContentDerivative> for CodeableConcept {
+    fn from(code: ContractContentDerivative) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractDecisionMode`. This CodeSystem contains FHIR-defined contract decision mode types.
@@ -12531,6 +16834,15 @@ impl AsRef<str> for ContractDecisionMode {
         }
     }
 }
+impl ::std::fmt::Display for ContractDecisionMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Policy => "Policy",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractDecisionMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12547,6 +16859,22 @@ impl Serialize for ContractDecisionMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractDecisionMode> for Coding {
+    fn from(code: ContractDecisionMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-decision-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractDecisionMode> for CodeableConcept {
+    fn from(code: ContractDecisionMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractDefinitionSubtype`. This CodeSystem contains FHIR-defined contract definition subtypes.
@@ -12579,6 +16907,15 @@ impl AsRef<str> for ContractDefinitionSubtype {
         }
     }
 }
+impl ::std::fmt::Display for ContractDefinitionSubtype {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Temp => "Temporary Value",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractDefinitionSubtype {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12595,6 +16932,22 @@ impl Serialize for ContractDefinitionSubtype {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractDefinitionSubtype> for Coding {
+    fn from(code: ContractDefinitionSubtype) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-definition-subtype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractDefinitionSubtype> for CodeableConcept {
+    fn from(code: ContractDefinitionSubtype) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractDefinitionType`. This CodeSystem contains FHIR-defined contract definition types.
@@ -12627,6 +16980,15 @@ impl AsRef<str> for ContractDefinitionType {
         }
     }
 }
+impl ::std::fmt::Display for ContractDefinitionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Temp => "Temporary Value",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractDefinitionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12643,6 +17005,22 @@ impl Serialize for ContractDefinitionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractDefinitionType> for Coding {
+    fn from(code: ContractDefinitionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-definition-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractDefinitionType> for CodeableConcept {
+    fn from(code: ContractDefinitionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractExpirationType`. This CodeSystem contains FHIR-defined contract Expiration types.
@@ -12675,6 +17053,15 @@ impl AsRef<str> for ContractExpirationType {
         }
     }
 }
+impl ::std::fmt::Display for ContractExpirationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Breach => "Breach",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractExpirationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12691,6 +17078,22 @@ impl Serialize for ContractExpirationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractExpirationType> for Coding {
+    fn from(code: ContractExpirationType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-expiration-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractExpirationType> for CodeableConcept {
+    fn from(code: ContractExpirationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractLegalState`. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR at http://build.fhir.org/sc.html.
@@ -12807,6 +17210,29 @@ impl AsRef<str> for ContractLegalState {
         }
     }
 }
+impl ::std::fmt::Display for ContractLegalState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::Appended => "Appended",
+            Self::Cancelled => "Cancelled",
+            Self::Disputed => "Disputed",
+            Self::EnteredInError => "Entered in Error",
+            Self::Executable => "Executable",
+            Self::Executed => "Executed",
+            Self::Negotiable => "Negotiable",
+            Self::Offered => "Offered",
+            Self::Policy => "Policy",
+            Self::Rejected => "Rejected",
+            Self::Renewed => "Renewed",
+            Self::Resolved => "Resolved",
+            Self::Revoked => "Revoked",
+            Self::Terminated => "Terminated",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractLegalState {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12823,6 +17249,22 @@ impl Serialize for ContractLegalState {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractLegalState> for Coding {
+    fn from(code: ContractLegalState) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-legalstate".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractLegalState> for CodeableConcept {
+    fn from(code: ContractLegalState) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractPartyRole`. This CodeSystem contains FHIR-defined contract party role types.
@@ -12855,6 +17297,15 @@ impl AsRef<str> for ContractPartyRole {
         }
     }
 }
+impl ::std::fmt::Display for ContractPartyRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Flunky => "FLunky",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractPartyRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -12871,6 +17322,22 @@ impl Serialize for ContractPartyRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractPartyRole> for Coding {
+    fn from(code: ContractPartyRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-party-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractPartyRole> for CodeableConcept {
+    fn from(code: ContractPartyRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractPublicationStatus`. This CodeSystem contains FHIR-defined contract publication status types. Each definition includes usage notes explaining the precedence order in contract publication lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic.
@@ -12987,6 +17454,29 @@ impl AsRef<str> for ContractPublicationStatus {
         }
     }
 }
+impl ::std::fmt::Display for ContractPublicationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::Appended => "Appended",
+            Self::Cancelled => "Cancelled",
+            Self::Disputed => "Disputed",
+            Self::EnteredInError => "Entered in Error",
+            Self::Executable => "Executable",
+            Self::Executed => "Executed",
+            Self::Negotiable => "Negotiable",
+            Self::Offered => "Offered",
+            Self::Policy => "Policy",
+            Self::Rejected => "Rejected",
+            Self::Renewed => "Renewed",
+            Self::Resolved => "Resolved",
+            Self::Revoked => "Revoked",
+            Self::Terminated => "Terminated",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractPublicationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13003,6 +17493,22 @@ impl Serialize for ContractPublicationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractPublicationStatus> for Coding {
+    fn from(code: ContractPublicationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-publicationstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractPublicationStatus> for CodeableConcept {
+    fn from(code: ContractPublicationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractScope`. This CodeSystem contains FHIR-defined contract Expiration types.
@@ -13035,6 +17541,15 @@ impl AsRef<str> for ContractScope {
         }
     }
 }
+impl ::std::fmt::Display for ContractScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Policy => "Policy",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractScope {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13051,6 +17566,22 @@ impl Serialize for ContractScope {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractScope> for Coding {
+    fn from(code: ContractScope) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-scope".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractScope> for CodeableConcept {
+    fn from(code: ContractScope) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractSecurityCategory`. This CodeSystem contains FHIR-defined contract security category types.
@@ -13083,6 +17614,15 @@ impl AsRef<str> for ContractSecurityCategory {
         }
     }
 }
+impl ::std::fmt::Display for ContractSecurityCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Policy => "Policy",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractSecurityCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13099,6 +17639,22 @@ impl Serialize for ContractSecurityCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractSecurityCategory> for Coding {
+    fn from(code: ContractSecurityCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-security-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractSecurityCategory> for CodeableConcept {
+    fn from(code: ContractSecurityCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractSecurityClassification`. This CodeSystem contains FHIR-defined contract security classification types.
@@ -13131,6 +17687,15 @@ impl AsRef<str> for ContractSecurityClassification {
         }
     }
 }
+impl ::std::fmt::Display for ContractSecurityClassification {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Policy => "Policy",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractSecurityClassification {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13147,6 +17712,22 @@ impl Serialize for ContractSecurityClassification {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractSecurityClassification> for Coding {
+    fn from(code: ContractSecurityClassification) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-security-classification".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractSecurityClassification> for CodeableConcept {
+    fn from(code: ContractSecurityClassification) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractSecurityControl`. This CodeSystem contains FHIR-defined contract security control types.
@@ -13179,6 +17760,15 @@ impl AsRef<str> for ContractSecurityControl {
         }
     }
 }
+impl ::std::fmt::Display for ContractSecurityControl {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Policy => "Policy",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractSecurityControl {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13195,6 +17785,22 @@ impl Serialize for ContractSecurityControl {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractSecurityControl> for Coding {
+    fn from(code: ContractSecurityControl) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-security-control".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractSecurityControl> for CodeableConcept {
+    fn from(code: ContractSecurityControl) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractSignerTypeCodes`. This value set includes sample Contract Signer Type codes.
@@ -13509,6 +18115,62 @@ impl AsRef<str> for ContractSignerTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractSignerTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Affl => "Affiliate",
+            Self::Agnt => "Agent",
+            Self::Amender => "Amender",
+            Self::Assigned => "Assigned Entity",
+            Self::Aut => "Author",
+            Self::Authn => "Authenticator",
+            Self::Cit => "Citizen",
+            Self::Claimant => "Claimant",
+            Self::Coauth => "Co-Author",
+            Self::Consenter => "Consenter",
+            Self::Conswit => "Consent Witness",
+            Self::Cont => "Contact",
+            Self::Copart => "Co-Participant",
+            Self::Covpty => "Covered Party",
+            Self::Delegatee => "Delegatee",
+            Self::Depend => "Dependent",
+            Self::Dpowatt => "Durable Power of Attorney",
+            Self::Emgcon => "Emergency Contact",
+            Self::Evtwit => "Event Witness",
+            Self::Excest => "Executor of Estate",
+            Self::Grantee => "Grantee",
+            Self::Grantor => "Grantor",
+            Self::Guadltm => "Guardian ad lidem",
+            Self::Guar => "Guarantor",
+            Self::Guard => "Guardian",
+            Self::Hpowatt => "Healthcare Power of Attorney",
+            Self::Hprov => "Healthcare Provider",
+            Self::Inf => "Informant",
+            Self::Insbj => "Investigation Subject",
+            Self::Intprt => "Interpreter",
+            Self::Legauthn => "Legal Authenticator",
+            Self::Nmdins => "Named Insured",
+            Self::Nok => "Next of Kin",
+            Self::Notary => "Notary",
+            Self::Pat => "Patient",
+            Self::Powatt => "Power of Attorney",
+            Self::Primauth => "Primary Author",
+            Self::Prirecip => "Primary Responsible Party",
+            Self::Recip => "Recipient",
+            Self::Resprsn => "Responsible Party",
+            Self::Reviewer => "Reviewer",
+            Self::Source => "Source",
+            Self::Spowatt => "Special Power of Attorney",
+            Self::Trans => "Transcriber",
+            Self::Valid => "Validator",
+            Self::Verf => "Verifier",
+            Self::Wit => "Witness",
+            Self::Delegator => "Delegator",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractSignerTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13525,6 +18187,22 @@ impl Serialize for ContractSignerTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractSignerTypeCodes> for Coding {
+    fn from(code: ContractSignerTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-signer-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractSignerTypeCodes> for CodeableConcept {
+    fn from(code: ContractSignerTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractStatus`. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR at http://build.fhir.org/sc.html.
@@ -13641,6 +18319,29 @@ impl AsRef<str> for ContractStatus {
         }
     }
 }
+impl ::std::fmt::Display for ContractStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::Appended => "Appended",
+            Self::Cancelled => "Cancelled",
+            Self::Disputed => "Disputed",
+            Self::EnteredInError => "Entered in Error",
+            Self::Executable => "Executable",
+            Self::Executed => "Executed",
+            Self::Negotiable => "Negotiable",
+            Self::Offered => "Offered",
+            Self::Policy => "Policy",
+            Self::Rejected => "Rejected",
+            Self::Renewed => "Renewed",
+            Self::Resolved => "Resolved",
+            Self::Revoked => "Revoked",
+            Self::Terminated => "Terminated",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13657,6 +18358,22 @@ impl Serialize for ContractStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractStatus> for Coding {
+    fn from(code: ContractStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractStatus> for CodeableConcept {
+    fn from(code: ContractStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractSubtypeCodes`. This value set includes sample Contract Subtype codes.
@@ -13695,6 +18412,16 @@ impl AsRef<str> for ContractSubtypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractSubtypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DisclosureCa => "Disclosure-CA",
+            Self::DisclosureUs => "Disclosure-US",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractSubtypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13711,6 +18438,22 @@ impl Serialize for ContractSubtypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractSubtypeCodes> for Coding {
+    fn from(code: ContractSubtypeCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-subtype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractSubtypeCodes> for CodeableConcept {
+    fn from(code: ContractSubtypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractTermSubtypeCodes`. This value set includes sample Contract Term SubType codes.
@@ -13755,6 +18498,17 @@ impl AsRef<str> for ContractTermSubtypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractTermSubtypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Condition => "Condition",
+            Self::Innominate => "Innominate",
+            Self::Warranty => "Warranty",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractTermSubtypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13771,6 +18525,22 @@ impl Serialize for ContractTermSubtypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractTermSubtypeCodes> for Coding {
+    fn from(code: ContractTermSubtypeCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-term-subtype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractTermSubtypeCodes> for CodeableConcept {
+    fn from(code: ContractTermSubtypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractTermTypeCodes`. This value set includes sample Contract Term Type codes.
@@ -13809,6 +18579,16 @@ impl AsRef<str> for ContractTermTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractTermTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Statutory => "Statutory",
+            Self::SubjectTo => "Subject To",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractTermTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13825,6 +18605,22 @@ impl Serialize for ContractTermTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractTermTypeCodes> for Coding {
+    fn from(code: ContractTermTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-term-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractTermTypeCodes> for CodeableConcept {
+    fn from(code: ContractTermTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContractTypeCodes`. This value set includes sample Contract Type codes.
@@ -13881,6 +18677,19 @@ impl AsRef<str> for ContractTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ContractTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Consent => "Consent",
+            Self::Disclosure => "Disclosure",
+            Self::Healthinsurance => "Health Insurance",
+            Self::Privacy => "Privacy",
+            Self::Supply => "Supply Contract",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContractTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13897,6 +18706,22 @@ impl Serialize for ContractTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContractTypeCodes> for Coding {
+    fn from(code: ContractTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/contract-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContractTypeCodes> for CodeableConcept {
+    fn from(code: ContractTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContributorRole`. Used to code the format of the display string.
@@ -13963,6 +18788,20 @@ impl AsRef<str> for ContributorRole {
         }
     }
 }
+impl ::std::fmt::Display for ContributorRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Author => "Author/Creator",
+            Self::Editor => "Editor",
+            Self::Endorser => "Endorser",
+            Self::Funder => "Funder",
+            Self::Informant => "Informant",
+            Self::Publisher => "Publisher",
+            Self::Reviewer => "Reviewer",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContributorRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -13979,6 +18818,22 @@ impl Serialize for ContributorRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContributorRole> for Coding {
+    fn from(code: ContributorRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contributor-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContributorRole> for CodeableConcept {
+    fn from(code: ContributorRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContributorSummarySource`. Used to code the producer or rule for creating the display string.
@@ -14027,6 +18882,17 @@ impl AsRef<str> for ContributorSummarySource {
         }
     }
 }
+impl ::std::fmt::Display for ContributorSummarySource {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ArticleCopy => "Copied from article",
+            Self::CitationManager => "Reported by citation manager",
+            Self::Custom => "custom format",
+            Self::PublisherData => "Publisher provided",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContributorSummarySource {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14043,6 +18909,22 @@ impl Serialize for ContributorSummarySource {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContributorSummarySource> for Coding {
+    fn from(code: ContributorSummarySource) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contributor-summary-source".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContributorSummarySource> for CodeableConcept {
+    fn from(code: ContributorSummarySource) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContributorSummaryStyle`. Used to code the format of the display string.
@@ -14163,6 +19045,45 @@ impl AsRef<str> for ContributorSummaryStyle {
         }
     }
 }
+impl ::std::fmt::Display for ContributorSummaryStyle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::A1Full => "First author (full name) et al",
+            Self::A1Init => "First author (last name first initials) et al",
+            Self::A3Full => "First 3 authors (full name) et al",
+            Self::A3Init => "First 3 authors (last name first initials) et al",
+            Self::A6Full => "First 6 authors (full name) et al",
+            Self::A6Init => "First 6 authors (last name first initials) et al",
+            Self::Aallfull => "All authors (full name)",
+            Self::Aallfullwithampersand => {
+                "All authors (full name) with an ampersand before last author"
+            }
+            Self::Aallfullwithand => {
+                "All authors (full name) with and before last author"
+            }
+            Self::Aallinit => "All authors (last name first initials)",
+            Self::Aallinitwithampersand => {
+                "All authors (last name first initials) with an ampersand before last author"
+            }
+            Self::Aallinitwithand => {
+                "All authors (last name first initials) with and before last author"
+            }
+            Self::ContrFullByContr => {
+                "Contributorship statement listed by contribution with full names"
+            }
+            Self::ContrFullByPerson => {
+                "Contributorship statement listed by person with full names"
+            }
+            Self::ContrInitByContr => {
+                "Contributorship statement listed by contribution with initials"
+            }
+            Self::ContrInitByPerson => {
+                "Contributorship statement listed by person with initials"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContributorSummaryStyle {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14179,6 +19100,22 @@ impl Serialize for ContributorSummaryStyle {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContributorSummaryStyle> for Coding {
+    fn from(code: ContributorSummaryStyle) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contributor-summary-style".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContributorSummaryStyle> for CodeableConcept {
+    fn from(code: ContributorSummaryStyle) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContributorSummaryType`. Used to code author list statement, contributorship statement, and such.
@@ -14245,6 +19182,20 @@ impl AsRef<str> for ContributorSummaryType {
         }
     }
 }
+impl ::std::fmt::Display for ContributorSummaryType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AcknowledgementList => "Acknowledgment list",
+            Self::AcknowledgmentStatement => "Acknowledgment statement",
+            Self::AuthorString => "Author string",
+            Self::CompetingInterestsStatement => "Competing interests statement",
+            Self::ContributorshipList => "Contributorship list",
+            Self::ContributorshipStatement => "Contributorship statement",
+            Self::FundingStatement => "Funding statement",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContributorSummaryType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14261,6 +19212,22 @@ impl Serialize for ContributorSummaryType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContributorSummaryType> for Coding {
+    fn from(code: ContributorSummaryType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contributor-summary-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContributorSummaryType> for CodeableConcept {
+    fn from(code: ContributorSummaryType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ContributorType`. The type of contributor.
@@ -14309,6 +19276,17 @@ impl AsRef<str> for ContributorType {
         }
     }
 }
+impl ::std::fmt::Display for ContributorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Author => "Author",
+            Self::Editor => "Editor",
+            Self::Endorser => "Endorser",
+            Self::Reviewer => "Reviewer",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ContributorType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14325,6 +19303,22 @@ impl Serialize for ContributorType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ContributorType> for Coding {
+    fn from(code: ContributorType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/contributor-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ContributorType> for CodeableConcept {
+    fn from(code: ContributorType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CoverageClassCodes`. This value set includes Coverage Class codes.
@@ -14417,6 +19411,25 @@ impl AsRef<str> for CoverageClassCodes {
         }
     }
 }
+impl ::std::fmt::Display for CoverageClassCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Class => "Class",
+            Self::Group => "Group",
+            Self::Plan => "Plan",
+            Self::Rxbin => "RX BIN",
+            Self::Rxgroup => "RX Group",
+            Self::Rxid => "RX Id",
+            Self::Rxpcn => "RX PCN",
+            Self::Sequence => "Sequence",
+            Self::Subclass => "SubClass",
+            Self::Subgroup => "SubGroup",
+            Self::Subplan => "SubPlan",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CoverageClassCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14433,6 +19446,22 @@ impl Serialize for CoverageClassCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CoverageClassCodes> for Coding {
+    fn from(code: CoverageClassCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/coverage-class".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CoverageClassCodes> for CodeableConcept {
+    fn from(code: CoverageClassCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CoverageCoPayTypeCodes`. This codeset includes Coverage Copayment Type codes.
@@ -14519,6 +19548,24 @@ impl AsRef<str> for CoverageCoPayTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for CoverageCoPayTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Copay => "Copay Amount",
+            Self::Copaypct => "Copay Percentage",
+            Self::Deductible => "Deductible",
+            Self::Emergency => "Emergency",
+            Self::Gpvisit => "GP Office Visit",
+            Self::Inpthosp => "Inpatient Hospital",
+            Self::Maxoutofpocket => "Maximum out of pocket",
+            Self::Spvisit => "Specialist Office Visit",
+            Self::Televisit => "Tele-visit",
+            Self::Urgentcare => "Urgent Care",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CoverageCoPayTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14535,6 +19582,24 @@ impl Serialize for CoverageCoPayTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CoverageCoPayTypeCodes> for Coding {
+    fn from(code: CoverageCoPayTypeCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/coverage-copay-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CoverageCoPayTypeCodes> for CodeableConcept {
+    fn from(code: CoverageCoPayTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CoverageEligibilityResponseAuthSupportCodes`. This value set includes CoverageEligibilityResponse Auth Support codes.
@@ -14609,6 +19674,22 @@ impl AsRef<str> for CoverageEligibilityResponseAuthSupportCodes {
         }
     }
 }
+impl ::std::fmt::Display for CoverageEligibilityResponseAuthSupportCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Accidentreport => "Accident Report",
+            Self::Diagnosticimageorder => "Diagnostic Image Order",
+            Self::Diagnosticimagereport => "Diagnostic Image Report",
+            Self::Laborder => "Lab Order",
+            Self::Labreport => "Lab Report",
+            Self::Model => "Model",
+            Self::Picture => "Picture",
+            Self::Professionalreport => "Professional Report",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CoverageEligibilityResponseAuthSupportCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14625,6 +19706,25 @@ impl Serialize for CoverageEligibilityResponseAuthSupportCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CoverageEligibilityResponseAuthSupportCodes> for Coding {
+    fn from(code: CoverageEligibilityResponseAuthSupportCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/coverageeligibilityresponse-ex-auth-support"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CoverageEligibilityResponseAuthSupportCodes> for CodeableConcept {
+    fn from(code: CoverageEligibilityResponseAuthSupportCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `CriteriaNotExistsBehavior`. Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).
@@ -14661,6 +19761,15 @@ impl AsRef<str> for CriteriaNotExistsBehavior {
         }
     }
 }
+impl ::std::fmt::Display for CriteriaNotExistsBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::TestFails => "test fails",
+            Self::TestPasses => "test passes",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for CriteriaNotExistsBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14677,6 +19786,24 @@ impl Serialize for CriteriaNotExistsBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<CriteriaNotExistsBehavior> for Coding {
+    fn from(code: CriteriaNotExistsBehavior) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/subscriptiontopic-cr-behavior".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<CriteriaNotExistsBehavior> for CodeableConcept {
+    fn from(code: CriteriaNotExistsBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DataAbsentReason`. Used to specify why the normally expected content of the data element is missing.
@@ -14791,6 +19918,28 @@ impl AsRef<str> for DataAbsentReason {
         }
     }
 }
+impl ::std::fmt::Display for DataAbsentReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AsText => "As Text",
+            Self::AskedDeclined => "Asked But Declined",
+            Self::AskedUnknown => "Asked But Unknown",
+            Self::Error => "Error",
+            Self::Masked => "Masked",
+            Self::NegativeInfinity => "Negative Infinity (NINF)",
+            Self::NotANumber => "Not a Number (NaN)",
+            Self::NotApplicable => "Not Applicable",
+            Self::NotAsked => "Not Asked",
+            Self::NotPerformed => "Not Performed",
+            Self::NotPermitted => "Not Permitted",
+            Self::PositiveInfinity => "Positive Infinity (PINF)",
+            Self::TempUnknown => "Temporarily Unknown",
+            Self::Unknown => "Unknown",
+            Self::Unsupported => "Unsupported",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DataAbsentReason {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -14807,6 +19956,22 @@ impl Serialize for DataAbsentReason {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DataAbsentReason> for Coding {
+    fn from(code: DataAbsentReason) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/data-absent-reason".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DataAbsentReason> for CodeableConcept {
+    fn from(code: DataAbsentReason) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DataType`. A version specific list of the data types defined by the FHIR specification for use as an element  type (any of the FHIR defined data types).
@@ -15217,6 +20382,78 @@ impl AsRef<str> for DataType {
         }
     }
 }
+impl ::std::fmt::Display for DataType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Address => "Address",
+            Self::Age => "Age",
+            Self::Annotation => "Annotation",
+            Self::Attachment => "Attachment",
+            Self::BackboneElement => "BackboneElement",
+            Self::CodeableConcept => "CodeableConcept",
+            Self::CodeableReference => "CodeableReference",
+            Self::Coding => "Coding",
+            Self::ContactDetail => "ContactDetail",
+            Self::ContactPoint => "ContactPoint",
+            Self::Contributor => "Contributor",
+            Self::Count => "Count",
+            Self::DataRequirement => "DataRequirement",
+            Self::Distance => "Distance",
+            Self::Dosage => "Dosage",
+            Self::Duration => "Duration",
+            Self::Element => "Element",
+            Self::ElementDefinition => "ElementDefinition",
+            Self::Expression => "Expression",
+            Self::Extension => "Extension",
+            Self::HumanName => "HumanName",
+            Self::Identifier => "Identifier",
+            Self::MarketingStatus => "MarketingStatus",
+            Self::Meta => "Meta",
+            Self::Money => "Money",
+            Self::MoneyQuantity => "MoneyQuantity",
+            Self::Narrative => "Narrative",
+            Self::ParameterDefinition => "ParameterDefinition",
+            Self::Period => "Period",
+            Self::Population => "Population",
+            Self::ProdCharacteristic => "ProdCharacteristic",
+            Self::ProductShelfLife => "ProductShelfLife",
+            Self::Quantity => "Quantity",
+            Self::Range => "Range",
+            Self::Ratio => "Ratio",
+            Self::RatioRange => "RatioRange",
+            Self::Reference => "Reference",
+            Self::RelatedArtifact => "RelatedArtifact",
+            Self::SampledData => "SampledData",
+            Self::Signature => "Signature",
+            Self::SimpleQuantity => "SimpleQuantity",
+            Self::Timing => "Timing",
+            Self::TriggerDefinition => "TriggerDefinition",
+            Self::UsageContext => "UsageContext",
+            Self::Base64Binary => "base64Binary",
+            Self::Boolean => "boolean",
+            Self::Canonical => "canonical",
+            Self::Code => "code",
+            Self::Date => "date",
+            Self::DateTime => "dateTime",
+            Self::Decimal => "decimal",
+            Self::Id => "id",
+            Self::Instant => "instant",
+            Self::Integer => "integer",
+            Self::Markdown => "markdown",
+            Self::Oid => "oid",
+            Self::PositiveInt => "positiveInt",
+            Self::String => "string",
+            Self::Time => "time",
+            Self::UnsignedInt => "unsignedInt",
+            Self::Uri => "uri",
+            Self::Url => "url",
+            Self::Uuid => "uuid",
+            Self::Xhtml => "XHTML",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DataType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15233,6 +20470,22 @@ impl Serialize for DataType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DataType> for Coding {
+    fn from(code: DataType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/data-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DataType> for CodeableConcept {
+    fn from(code: DataType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DaysOfWeek`. The days of the week.
@@ -15299,6 +20552,20 @@ impl AsRef<str> for DaysOfWeek {
         }
     }
 }
+impl ::std::fmt::Display for DaysOfWeek {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Fri => "Friday",
+            Self::Mon => "Monday",
+            Self::Sat => "Saturday",
+            Self::Sun => "Sunday",
+            Self::Thu => "Thursday",
+            Self::Tue => "Tuesday",
+            Self::Wed => "Wednesday",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DaysOfWeek {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15315,6 +20582,22 @@ impl Serialize for DaysOfWeek {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DaysOfWeek> for Coding {
+    fn from(code: DaysOfWeek) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/days-of-week".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DaysOfWeek> for CodeableConcept {
+    fn from(code: DaysOfWeek) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DefinitionResourceType`. A list of all the definition resource types defined in this version of the FHIR specification.
@@ -15375,6 +20658,19 @@ impl AsRef<str> for DefinitionResourceType {
         }
     }
 }
+impl ::std::fmt::Display for DefinitionResourceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ActivityDefinition => "ActivityDefinition",
+            Self::EventDefinition => "EventDefinition",
+            Self::Measure => "Measure",
+            Self::OperationDefinition => "OperationDefinition",
+            Self::PlanDefinition => "PlanDefinition",
+            Self::Questionnaire => "Questionnaire",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DefinitionResourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15391,6 +20687,22 @@ impl Serialize for DefinitionResourceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DefinitionResourceType> for Coding {
+    fn from(code: DefinitionResourceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/definition-resource-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DefinitionResourceType> for CodeableConcept {
+    fn from(code: DefinitionResourceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DefinitionStatus`. Codes identifying the lifecycle stage of a definition.
@@ -15439,6 +20751,17 @@ impl AsRef<str> for DefinitionStatus {
         }
     }
 }
+impl ::std::fmt::Display for DefinitionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Draft => "Draft",
+            Self::Unknown => "Unknown",
+            Self::Withdrawn => "Withdrawn",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DefinitionStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15455,6 +20778,22 @@ impl Serialize for DefinitionStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DefinitionStatus> for Coding {
+    fn from(code: DefinitionStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/definition-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DefinitionStatus> for CodeableConcept {
+    fn from(code: DefinitionStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DefinitionTopic`. High-level categorization of the definition, used for searching, sorting, and filtering.
@@ -15497,6 +20836,16 @@ impl AsRef<str> for DefinitionTopic {
         }
     }
 }
+impl ::std::fmt::Display for DefinitionTopic {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Assessment => "Assessment",
+            Self::Education => "Education",
+            Self::Treatment => "Treatment",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DefinitionTopic {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15513,6 +20862,22 @@ impl Serialize for DefinitionTopic {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DefinitionTopic> for Coding {
+    fn from(code: DefinitionTopic) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/definition-topic".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DefinitionTopic> for CodeableConcept {
+    fn from(code: DefinitionTopic) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DefinitionUseCodes`. Structure Definition Use Codes / Keywords
@@ -15573,6 +20938,19 @@ impl AsRef<str> for DefinitionUseCodes {
         }
     }
 }
+impl ::std::fmt::Display for DefinitionUseCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Archetype => "Domain Analysis Model",
+            Self::CustomResource => "Custom Resource",
+            Self::Dam => "Domain Analysis Model",
+            Self::FhirStructure => "FHIR Structure",
+            Self::Template => "Template",
+            Self::WireFormat => "Wire Format",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DefinitionUseCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15589,6 +20967,22 @@ impl Serialize for DefinitionUseCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DefinitionUseCodes> for Coding {
+    fn from(code: DefinitionUseCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/definition-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DefinitionUseCodes> for CodeableConcept {
+    fn from(code: DefinitionUseCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DetectedIssueSeverity`. Indicates the potential degree of impact of the identified issue on the patient.
@@ -15631,6 +21025,16 @@ impl AsRef<str> for DetectedIssueSeverity {
         }
     }
 }
+impl ::std::fmt::Display for DetectedIssueSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::High => "High",
+            Self::Low => "Low",
+            Self::Moderate => "Moderate",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DetectedIssueSeverity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15647,6 +21051,22 @@ impl Serialize for DetectedIssueSeverity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DetectedIssueSeverity> for Coding {
+    fn from(code: DetectedIssueSeverity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/detectedissue-severity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DetectedIssueSeverity> for CodeableConcept {
+    fn from(code: DetectedIssueSeverity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceMetricCalibrationState`. Describes the state of a metric calibration.
@@ -15695,6 +21115,17 @@ impl AsRef<str> for DeviceMetricCalibrationState {
         }
     }
 }
+impl ::std::fmt::Display for DeviceMetricCalibrationState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Calibrated => "Calibrated",
+            Self::CalibrationRequired => "Calibration Required",
+            Self::NotCalibrated => "Not Calibrated",
+            Self::Unspecified => "Unspecified",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceMetricCalibrationState {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15711,6 +21142,22 @@ impl Serialize for DeviceMetricCalibrationState {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceMetricCalibrationState> for Coding {
+    fn from(code: DeviceMetricCalibrationState) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/metric-calibration-state".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceMetricCalibrationState> for CodeableConcept {
+    fn from(code: DeviceMetricCalibrationState) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceMetricCalibrationType`. Describes the type of a metric calibration.
@@ -15759,6 +21206,17 @@ impl AsRef<str> for DeviceMetricCalibrationType {
         }
     }
 }
+impl ::std::fmt::Display for DeviceMetricCalibrationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Gain => "Gain",
+            Self::Offset => "Offset",
+            Self::TwoPoint => "Two Point",
+            Self::Unspecified => "Unspecified",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceMetricCalibrationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15775,6 +21233,22 @@ impl Serialize for DeviceMetricCalibrationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceMetricCalibrationType> for Coding {
+    fn from(code: DeviceMetricCalibrationType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/metric-calibration-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceMetricCalibrationType> for CodeableConcept {
+    fn from(code: DeviceMetricCalibrationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceMetricCategory`. Describes the category of the metric.
@@ -15823,6 +21297,17 @@ impl AsRef<str> for DeviceMetricCategory {
         }
     }
 }
+impl ::std::fmt::Display for DeviceMetricCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Calculation => "Calculation",
+            Self::Measurement => "Measurement",
+            Self::Setting => "Setting",
+            Self::Unspecified => "Unspecified",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceMetricCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15839,6 +21324,22 @@ impl Serialize for DeviceMetricCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceMetricCategory> for Coding {
+    fn from(code: DeviceMetricCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/metric-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceMetricCategory> for CodeableConcept {
+    fn from(code: DeviceMetricCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceMetricColor`. Describes the typical color of representation.
@@ -15911,6 +21412,21 @@ impl AsRef<str> for DeviceMetricColor {
         }
     }
 }
+impl ::std::fmt::Display for DeviceMetricColor {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Black => "Color Black",
+            Self::Blue => "Color Blue",
+            Self::Cyan => "Color Cyan",
+            Self::Green => "Color Green",
+            Self::Magenta => "Color Magenta",
+            Self::Red => "Color Red",
+            Self::White => "Color White",
+            Self::Yellow => "Color Yellow",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceMetricColor {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15927,6 +21443,22 @@ impl Serialize for DeviceMetricColor {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceMetricColor> for Coding {
+    fn from(code: DeviceMetricColor) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/metric-color".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceMetricColor> for CodeableConcept {
+    fn from(code: DeviceMetricColor) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceMetricOperationalStatus`. Describes the operational status of the DeviceMetric.
@@ -15975,6 +21507,17 @@ impl AsRef<str> for DeviceMetricOperationalStatus {
         }
     }
 }
+impl ::std::fmt::Display for DeviceMetricOperationalStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::EnteredInError => "Entered In Error",
+            Self::Off => "Off",
+            Self::On => "On",
+            Self::Standby => "Standby",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceMetricOperationalStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -15991,6 +21534,22 @@ impl Serialize for DeviceMetricOperationalStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceMetricOperationalStatus> for Coding {
+    fn from(code: DeviceMetricOperationalStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/metric-operational-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceMetricOperationalStatus> for CodeableConcept {
+    fn from(code: DeviceMetricOperationalStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceNameType`. The type of name the device is referred by.
@@ -16051,6 +21610,19 @@ impl AsRef<str> for DeviceNameType {
         }
     }
 }
+impl ::std::fmt::Display for DeviceNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ManufacturerName => "Manufacturer name",
+            Self::ModelName => "Model name",
+            Self::Other => "other",
+            Self::PatientReportedName => "Patient Reported name",
+            Self::UdiLabelName => "UDI Label name",
+            Self::UserFriendlyName => "User Friendly name",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceNameType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16067,6 +21639,22 @@ impl Serialize for DeviceNameType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceNameType> for Coding {
+    fn from(code: DeviceNameType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/device-nametype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceNameType> for CodeableConcept {
+    fn from(code: DeviceNameType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DeviceUseStatementStatus`. A coded concept indicating the current status of the Device Usage.
@@ -16127,6 +21715,19 @@ impl AsRef<str> for DeviceUseStatementStatus {
         }
     }
 }
+impl ::std::fmt::Display for DeviceUseStatementStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered in Error",
+            Self::Intended => "Intended",
+            Self::OnHold => "On Hold",
+            Self::Stopped => "Stopped",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DeviceUseStatementStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16143,6 +21744,22 @@ impl Serialize for DeviceUseStatementStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DeviceUseStatementStatus> for Coding {
+    fn from(code: DeviceUseStatementStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/device-statement-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DeviceUseStatementStatus> for CodeableConcept {
+    fn from(code: DeviceUseStatementStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DiagnosisRole`. This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record.
@@ -16209,6 +21826,20 @@ impl AsRef<str> for DiagnosisRole {
         }
     }
 }
+impl ::std::fmt::Display for DiagnosisRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ad => "Admission diagnosis",
+            Self::Cc => "Chief complaint",
+            Self::Cm => "Comorbidity diagnosis",
+            Self::Dd => "Discharge diagnosis",
+            Self::Billing => "Billing",
+            Self::PostOp => "post-op diagnosis",
+            Self::PreOp => "pre-op diagnosis",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DiagnosisRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16225,6 +21856,22 @@ impl Serialize for DiagnosisRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DiagnosisRole> for Coding {
+    fn from(code: DiagnosisRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/diagnosis-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DiagnosisRole> for CodeableConcept {
+    fn from(code: DiagnosisRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DiagnosticReportStatus`. The status of the diagnostic report.
@@ -16309,6 +21956,23 @@ impl AsRef<str> for DiagnosticReportStatus {
         }
     }
 }
+impl ::std::fmt::Display for DiagnosticReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::Appended => "Appended",
+            Self::Cancelled => "Cancelled",
+            Self::Corrected => "Corrected",
+            Self::EnteredInError => "Entered in Error",
+            Self::Final => "Final",
+            Self::Partial => "Partial",
+            Self::Preliminary => "Preliminary",
+            Self::Registered => "Registered",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DiagnosticReportStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16325,6 +21989,22 @@ impl Serialize for DiagnosticReportStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DiagnosticReportStatus> for Coding {
+    fn from(code: DiagnosticReportStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/diagnostic-report-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DiagnosticReportStatus> for CodeableConcept {
+    fn from(code: DiagnosticReportStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `Diet`. This codesystem defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have.
@@ -16393,6 +22073,21 @@ impl AsRef<str> for Diet {
         }
     }
 }
+impl ::std::fmt::Display for Diet {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DairyFree => "Dairy Free",
+            Self::GlutenFree => "Gluten Free",
+            Self::Halal => "Halal",
+            Self::Kosher => "Kosher",
+            Self::NutFree => "Nut Free",
+            Self::Vegan => "Vegan",
+            Self::Vegetarian => "Vegetarian",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for Diet {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16409,6 +22104,22 @@ impl Serialize for Diet {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<Diet> for Coding {
+    fn from(code: Diet) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/diet".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<Diet> for CodeableConcept {
+    fn from(code: Diet) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DigitalMediaType`. Codes for high level media types - whether the media is an image, video, or audio.
@@ -16451,6 +22162,16 @@ impl AsRef<str> for DigitalMediaType {
         }
     }
 }
+impl ::std::fmt::Display for DigitalMediaType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Audio => "Audio",
+            Self::Image => "Image",
+            Self::Video => "Video",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DigitalMediaType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16467,6 +22188,22 @@ impl Serialize for DigitalMediaType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DigitalMediaType> for Coding {
+    fn from(code: DigitalMediaType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/media-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DigitalMediaType> for CodeableConcept {
+    fn from(code: DigitalMediaType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DischargeDisposition`. This codesystem defines a set of codes that can be used to where the patient left the hospital.
@@ -16559,6 +22296,25 @@ impl AsRef<str> for DischargeDisposition {
         }
     }
 }
+impl ::std::fmt::Display for DischargeDisposition {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Aadvice => "Left against advice",
+            Self::AltHome => "Alternative home",
+            Self::Exp => "Expired",
+            Self::Home => "Home",
+            Self::Hosp => "Hospice",
+            Self::Long => "Long-term care",
+            Self::Oth => "Other",
+            Self::OtherHcf => "Other healthcare facility",
+            Self::Psy => "Psychiatric hospital",
+            Self::Rehab => "Rehabilitation",
+            Self::Snf => "Skilled nursing facility",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DischargeDisposition {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16575,6 +22331,24 @@ impl Serialize for DischargeDisposition {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DischargeDisposition> for Coding {
+    fn from(code: DischargeDisposition) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/discharge-disposition".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DischargeDisposition> for CodeableConcept {
+    fn from(code: DischargeDisposition) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DiscriminatorType`. How an element value is interpreted when discrimination is evaluated.
@@ -16629,6 +22403,18 @@ impl AsRef<str> for DiscriminatorType {
         }
     }
 }
+impl ::std::fmt::Display for DiscriminatorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Exists => "Exists",
+            Self::Pattern => "Pattern",
+            Self::Profile => "Profile",
+            Self::Type => "Type",
+            Self::Value => "Value",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DiscriminatorType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16645,6 +22431,22 @@ impl Serialize for DiscriminatorType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DiscriminatorType> for Coding {
+    fn from(code: DiscriminatorType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/discriminator-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DiscriminatorType> for CodeableConcept {
+    fn from(code: DiscriminatorType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DocumentMode`. Whether the application produces or consumes documents.
@@ -16681,6 +22483,15 @@ impl AsRef<str> for DocumentMode {
         }
     }
 }
+impl ::std::fmt::Display for DocumentMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Consumer => "Consumer",
+            Self::Producer => "Producer",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DocumentMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16697,6 +22508,22 @@ impl Serialize for DocumentMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DocumentMode> for Coding {
+    fn from(code: DocumentMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/document-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DocumentMode> for CodeableConcept {
+    fn from(code: DocumentMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DocumentReferenceStatus`. The status of the document reference.
@@ -16739,6 +22566,16 @@ impl AsRef<str> for DocumentReferenceStatus {
         }
     }
 }
+impl ::std::fmt::Display for DocumentReferenceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Current => "Current",
+            Self::EnteredInError => "Entered in Error",
+            Self::Superseded => "Superseded",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DocumentReferenceStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16755,6 +22592,22 @@ impl Serialize for DocumentReferenceStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DocumentReferenceStatus> for Coding {
+    fn from(code: DocumentReferenceStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/document-reference-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DocumentReferenceStatus> for CodeableConcept {
+    fn from(code: DocumentReferenceStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DocumentRelationshipType`. The type of relationship between documents.
@@ -16803,6 +22656,17 @@ impl AsRef<str> for DocumentRelationshipType {
         }
     }
 }
+impl ::std::fmt::Display for DocumentRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Appends => "Appends",
+            Self::Replaces => "Replaces",
+            Self::Signs => "Signs",
+            Self::Transforms => "Transforms",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DocumentRelationshipType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16819,6 +22683,22 @@ impl Serialize for DocumentRelationshipType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DocumentRelationshipType> for Coding {
+    fn from(code: DocumentRelationshipType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/document-relationship-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DocumentRelationshipType> for CodeableConcept {
+    fn from(code: DocumentRelationshipType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `DoseAndRateType`. The kind of dose or rate specified.
@@ -16855,6 +22735,15 @@ impl AsRef<str> for DoseAndRateType {
         }
     }
 }
+impl ::std::fmt::Display for DoseAndRateType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Calculated => "Calculated",
+            Self::Ordered => "Ordered",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for DoseAndRateType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16871,6 +22760,22 @@ impl Serialize for DoseAndRateType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<DoseAndRateType> for Coding {
+    fn from(code: DoseAndRateType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/dose-rate-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<DoseAndRateType> for CodeableConcept {
+    fn from(code: DoseAndRateType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EligibilityRequestPurpose`. A code specifying the types of information being requested.
@@ -16919,6 +22824,17 @@ impl AsRef<str> for EligibilityRequestPurpose {
         }
     }
 }
+impl ::std::fmt::Display for EligibilityRequestPurpose {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AuthRequirements => "Coverage auth-requirements",
+            Self::Benefits => "Coverage benefits",
+            Self::Discovery => "Coverage Discovery",
+            Self::Validation => "Coverage Validation",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EligibilityRequestPurpose {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16935,6 +22851,22 @@ impl Serialize for EligibilityRequestPurpose {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EligibilityRequestPurpose> for Coding {
+    fn from(code: EligibilityRequestPurpose) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EligibilityRequestPurpose> for CodeableConcept {
+    fn from(code: EligibilityRequestPurpose) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EligibilityResponsePurpose`. A code specifying the types of information being requested.
@@ -16983,6 +22915,17 @@ impl AsRef<str> for EligibilityResponsePurpose {
         }
     }
 }
+impl ::std::fmt::Display for EligibilityResponsePurpose {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AuthRequirements => "Coverage auth-requirements",
+            Self::Benefits => "Coverage benefits",
+            Self::Discovery => "Coverage Discovery",
+            Self::Validation => "Coverage Validation",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EligibilityResponsePurpose {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -16999,6 +22942,24 @@ impl Serialize for EligibilityResponsePurpose {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EligibilityResponsePurpose> for Coding {
+    fn from(code: EligibilityResponsePurpose) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EligibilityResponsePurpose> for CodeableConcept {
+    fn from(code: EligibilityResponsePurpose) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EnableWhenBehavior`. Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
@@ -17035,6 +22996,15 @@ impl AsRef<str> for EnableWhenBehavior {
         }
     }
 }
+impl ::std::fmt::Display for EnableWhenBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::All => "All",
+            Self::Any => "Any",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EnableWhenBehavior {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17051,6 +23021,24 @@ impl Serialize for EnableWhenBehavior {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EnableWhenBehavior> for Coding {
+    fn from(code: EnableWhenBehavior) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EnableWhenBehavior> for CodeableConcept {
+    fn from(code: EnableWhenBehavior) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EncounterLocationStatus`. The status of the location.
@@ -17103,6 +23091,17 @@ impl AsRef<str> for EncounterLocationStatus {
         }
     }
 }
+impl ::std::fmt::Display for EncounterLocationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Completed => "Completed",
+            Self::Planned => "Planned",
+            Self::Reserved => "Reserved",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EncounterLocationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17119,6 +23118,22 @@ impl Serialize for EncounterLocationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EncounterLocationStatus> for Coding {
+    fn from(code: EncounterLocationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/encounter-location-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EncounterLocationStatus> for CodeableConcept {
+    fn from(code: EncounterLocationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EncounterStatus`. Current state of the encounter.
@@ -17197,6 +23212,22 @@ impl AsRef<str> for EncounterStatus {
         }
     }
 }
+impl ::std::fmt::Display for EncounterStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Arrived => "Arrived",
+            Self::Cancelled => "Cancelled",
+            Self::EnteredInError => "Entered in Error",
+            Self::Finished => "Finished",
+            Self::InProgress => "In Progress",
+            Self::Onleave => "On Leave",
+            Self::Planned => "Planned",
+            Self::Triaged => "Triaged",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EncounterStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17213,6 +23244,22 @@ impl Serialize for EncounterStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EncounterStatus> for Coding {
+    fn from(code: EncounterStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/encounter-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EncounterStatus> for CodeableConcept {
+    fn from(code: EncounterStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EncounterType`. This example codesystem defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided.
@@ -17263,6 +23310,18 @@ impl AsRef<str> for EncounterType {
         }
     }
 }
+impl ::std::fmt::Display for EncounterType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Adms => "Annual diabetes mellitus screening",
+            Self::BdBmClin => "Bone drilling/bone marrow punction in clinic",
+            Self::Ccs60 => "Infant colon screening - 60 minutes",
+            Self::Oki => "Outpatient Kenacort injection",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EncounterType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17279,6 +23338,22 @@ impl Serialize for EncounterType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EncounterType> for Coding {
+    fn from(code: EncounterType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/encounter-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EncounterType> for CodeableConcept {
+    fn from(code: EncounterType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EndpointConnectionType`. This is an example codesystem defined by the FHIR project, that could be used to represent possible connection type profile values.
@@ -17389,6 +23464,28 @@ impl AsRef<str> for EndpointConnectionType {
         }
     }
 }
+impl ::std::fmt::Display for EndpointConnectionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DicomQidoRs => "DICOM QIDO-RS",
+            Self::DicomStowRs => "DICOM STOW-RS",
+            Self::DicomWadoRs => "DICOM WADO-RS",
+            Self::DicomWadoUri => "DICOM WADO-URI",
+            Self::DirectProject => "Direct Project",
+            Self::Hl7FhirMsg => "HL7 FHIR Messaging",
+            Self::Hl7FhirRest => "HL7 FHIR",
+            Self::Hl7V2Mllp => "HL7 v2 MLLP",
+            Self::IheIid => "IHE IID",
+            Self::IheXca => "IHE XCA",
+            Self::IheXcpd => "IHE XCPD",
+            Self::IheXdr => "IHE XDR",
+            Self::IheXds => "IHE XDS",
+            Self::SecureEmail => "Secure email",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EndpointConnectionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17405,6 +23502,25 @@ impl Serialize for EndpointConnectionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EndpointConnectionType> for Coding {
+    fn from(code: EndpointConnectionType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/endpoint-connection-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EndpointConnectionType> for CodeableConcept {
+    fn from(code: EndpointConnectionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EndpointPayloadType`. This is an example codesystem defined by the FHIR project, it represents global concepts for no content, or any unrestricted content.
@@ -17443,6 +23559,16 @@ impl AsRef<str> for EndpointPayloadType {
         }
     }
 }
+impl ::std::fmt::Display for EndpointPayloadType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Any => "Any",
+            Self::None => "None",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EndpointPayloadType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17459,6 +23585,24 @@ impl Serialize for EndpointPayloadType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EndpointPayloadType> for Coding {
+    fn from(code: EndpointPayloadType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/endpoint-payload-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EndpointPayloadType> for CodeableConcept {
+    fn from(code: EndpointPayloadType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EndpointStatus`. The status of the endpoint.
@@ -17519,6 +23663,19 @@ impl AsRef<str> for EndpointStatus {
         }
     }
 }
+impl ::std::fmt::Display for EndpointStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in error",
+            Self::Error => "Error",
+            Self::Off => "Off",
+            Self::Suspended => "Suspended",
+            Self::Test => "Test",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EndpointStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17535,6 +23692,22 @@ impl Serialize for EndpointStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EndpointStatus> for Coding {
+    fn from(code: EndpointStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/endpoint-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EndpointStatus> for CodeableConcept {
+    fn from(code: EndpointStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EnteralFormulaAdditiveTypeCode`. EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example.
@@ -17591,6 +23764,19 @@ impl AsRef<str> for EnteralFormulaAdditiveTypeCode {
         }
     }
 }
+impl ::std::fmt::Display for EnteralFormulaAdditiveTypeCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Carbohydrate => "Carbohydrate",
+            Self::Fiber => "Fiber",
+            Self::Lipid => "Lipid",
+            Self::Protein => "Protein",
+            Self::Water => "Water",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EnteralFormulaAdditiveTypeCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17607,6 +23793,24 @@ impl Serialize for EnteralFormulaAdditiveTypeCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EnteralFormulaAdditiveTypeCode> for Coding {
+    fn from(code: EnteralFormulaAdditiveTypeCode) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/entformula-additive".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EnteralFormulaAdditiveTypeCode> for CodeableConcept {
+    fn from(code: EnteralFormulaAdditiveTypeCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EpisodeOfCareStatus`. The status of the episode of care.
@@ -17673,6 +23877,20 @@ impl AsRef<str> for EpisodeOfCareStatus {
         }
     }
 }
+impl ::std::fmt::Display for EpisodeOfCareStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Cancelled => "Cancelled",
+            Self::EnteredInError => "Entered in Error",
+            Self::Finished => "Finished",
+            Self::Onhold => "On Hold",
+            Self::Planned => "Planned",
+            Self::Waitlist => "Waitlist",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EpisodeOfCareStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17689,6 +23907,22 @@ impl Serialize for EpisodeOfCareStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EpisodeOfCareStatus> for Coding {
+    fn from(code: EpisodeOfCareStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/episode-of-care-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EpisodeOfCareStatus> for CodeableConcept {
+    fn from(code: EpisodeOfCareStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EpisodeOfCareType`. This incomplete example codesystem defines a set of codes that can be used to express the usage type of an EpisodeOfCare record.
@@ -17745,6 +23979,19 @@ impl AsRef<str> for EpisodeOfCareType {
         }
     }
 }
+impl ::std::fmt::Display for EpisodeOfCareType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cacp => "Community-based aged care",
+            Self::Da => "Drug and alcohol rehabilitation",
+            Self::Diab => "Post coordinated diabetes program",
+            Self::Hacc => "Home and Community Care",
+            Self::Pac => "Post Acute Care",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EpisodeOfCareType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17761,6 +24008,24 @@ impl Serialize for EpisodeOfCareType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EpisodeOfCareType> for Coding {
+    fn from(code: EpisodeOfCareType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/episodeofcare-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EpisodeOfCareType> for CodeableConcept {
+    fn from(code: EpisodeOfCareType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EventCapabilityMode`. The mode of a message capability statement.
@@ -17797,6 +24062,15 @@ impl AsRef<str> for EventCapabilityMode {
         }
     }
 }
+impl ::std::fmt::Display for EventCapabilityMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Receiver => "Receiver",
+            Self::Sender => "Sender",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EventCapabilityMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -17813,6 +24087,22 @@ impl Serialize for EventCapabilityMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EventCapabilityMode> for Coding {
+    fn from(code: EventCapabilityMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/event-capability-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EventCapabilityMode> for CodeableConcept {
+    fn from(code: EventCapabilityMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EventResourceType`. A list of all the event resource types defined in this version of the FHIR specification.
@@ -18041,6 +24331,47 @@ impl AsRef<str> for EventResourceType {
         }
     }
 }
+impl ::std::fmt::Display for EventResourceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ChargeItem => "ChargeItem",
+            Self::ClaimResponse => "ClaimResponse",
+            Self::ClinicalImpression => "ClinicalImpression",
+            Self::Communication => "Communication",
+            Self::Composition => "Composition",
+            Self::Condition => "Condition",
+            Self::Consent => "Consent",
+            Self::Coverage => "Coverage",
+            Self::DeviceUseStatement => "DeviceUseStatement",
+            Self::DiagnosticReport => "DiagnosticReport",
+            Self::DocumentManifest => "DocumentManifest",
+            Self::DocumentReference => "DocumentReference",
+            Self::Encounter => "Encounter",
+            Self::EnrollmentResponse => "EnrollmentResponse",
+            Self::EpisodeOfCare => "EpisodeOfCare",
+            Self::ExplanationOfBenefit => "ExplanationOfBenefit",
+            Self::FamilyMemberHistory => "FamilyMemberHistory",
+            Self::GuidanceResponse => "GuidanceResponse",
+            Self::ImagingStudy => "ImagingStudy",
+            Self::Immunization => "Immunization",
+            Self::MeasureReport => "MeasureReport",
+            Self::Media => "Media",
+            Self::MedicationAdministration => "MedicationAdministration",
+            Self::MedicationDispense => "MedicationDispense",
+            Self::MedicationStatement => "MedicationStatement",
+            Self::Observation => "Observation",
+            Self::PaymentNotice => "PaymentNotice",
+            Self::PaymentReconciliation => "PaymentReconciliation",
+            Self::Procedure => "Procedure",
+            Self::ProcessResponse => "ProcessResponse",
+            Self::QuestionnaireResponse => "QuestionnaireResponse",
+            Self::RiskAssessment => "RiskAssessment",
+            Self::SupplyDelivery => "SupplyDelivery",
+            Self::Task => "Task",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EventResourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18057,6 +24388,22 @@ impl Serialize for EventResourceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EventResourceType> for Coding {
+    fn from(code: EventResourceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/event-resource-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EventResourceType> for CodeableConcept {
+    fn from(code: EventResourceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EventStatus`. Codes identifying the lifecycle stage of an event.
@@ -18129,6 +24476,21 @@ impl AsRef<str> for EventStatus {
         }
     }
 }
+impl ::std::fmt::Display for EventStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered in Error",
+            Self::InProgress => "In Progress",
+            Self::NotDone => "Not Done",
+            Self::OnHold => "On Hold",
+            Self::Preparation => "Preparation",
+            Self::Stopped => "Stopped",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EventStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18145,6 +24507,22 @@ impl Serialize for EventStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EventStatus> for Coding {
+    fn from(code: EventStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/event-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EventStatus> for CodeableConcept {
+    fn from(code: EventStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EventTiming`. Real world event relating to the schedule.
@@ -18243,6 +24621,26 @@ impl AsRef<str> for EventTiming {
         }
     }
 }
+impl ::std::fmt::Display for EventTiming {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Aft => "Afternoon",
+            Self::AftEarly => "Early Afternoon",
+            Self::AftLate => "Late Afternoon",
+            Self::Eve => "Evening",
+            Self::EveEarly => "Early Evening",
+            Self::EveLate => "Late Evening",
+            Self::Morn => "Morning",
+            Self::MornEarly => "Early Morning",
+            Self::MornLate => "Late Morning",
+            Self::Night => "Night",
+            Self::Noon => "Noon",
+            Self::Phs => "After Sleep",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EventTiming {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18259,6 +24657,22 @@ impl Serialize for EventTiming {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EventTiming> for Coding {
+    fn from(code: EventTiming) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/event-timing".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EventTiming> for CodeableConcept {
+    fn from(code: EventTiming) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceCertaintyRating`. The assessment of quality, confidence, or certainty.
@@ -18379,6 +24793,29 @@ impl AsRef<str> for EvidenceCertaintyRating {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceCertaintyRating {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Absent => "absent",
+            Self::Downcode1 => "reduce rating: -1",
+            Self::Downcode2 => "reduce rating: -2",
+            Self::Downcode3 => "reduce rating: -3",
+            Self::ExtremelySeriousConcern => "extremely serious concern",
+            Self::High => "High quality",
+            Self::Low => "Low quality",
+            Self::Moderate => "Moderate quality",
+            Self::NoChange => "no change to rating",
+            Self::NoConcern => "no serious concern",
+            Self::Present => "present",
+            Self::SeriousConcern => "serious concern",
+            Self::Upcode1 => "increase rating: +1",
+            Self::Upcode2 => "increase rating: +2",
+            Self::VeryLow => "Very low quality",
+            Self::VerySeriousConcern => "very serious concern",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceCertaintyRating {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18395,6 +24832,22 @@ impl Serialize for EvidenceCertaintyRating {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceCertaintyRating> for Coding {
+    fn from(code: EvidenceCertaintyRating) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/certainty-rating".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceCertaintyRating> for CodeableConcept {
+    fn from(code: EvidenceCertaintyRating) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceCertaintyType`. The aspect of quality, confidence, or certainty.
@@ -18473,6 +24926,22 @@ impl AsRef<str> for EvidenceCertaintyType {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceCertaintyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DoseResponseGradient => "Dose response gradient",
+            Self::Imprecision => "Imprecision",
+            Self::Inconsistency => "Inconsistency",
+            Self::Indirectness => "Indirectness",
+            Self::LargeEffect => "Large effect",
+            Self::Overall => "Overall certainty",
+            Self::PlausibleConfounding => "Plausible confounding",
+            Self::PublicationBias => "Publication bias",
+            Self::RiskOfBias => "Risk of bias",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceCertaintyType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18489,6 +24958,22 @@ impl Serialize for EvidenceCertaintyType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceCertaintyType> for Coding {
+    fn from(code: EvidenceCertaintyType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/certainty-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceCertaintyType> for CodeableConcept {
+    fn from(code: EvidenceCertaintyType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceClassifier`. Commonly used classifiers for evidence sets.
@@ -18699,6 +25184,56 @@ impl AsRef<str> for EvidenceClassifier {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceClassifier {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AllocConcealNotStated => "Allocation concealment not stated",
+            Self::BaselineImbalance => "Baseline imbalances",
+            Self::Covid19HumanResearch => {
+                "COVID-19 human data in population, exposure, or outcome"
+            }
+            Self::Covid19Relevant => "COVID-19 relevant (but not specific) article",
+            Self::Covid19Specific => "COVID-19 specific article",
+            Self::Diagnosis => "Article about diagnosis",
+            Self::EarlyTrialTermination => "Early trial termination",
+            Self::Guideline => "Article includes guideline",
+            Self::NoBlinding => "No blinding",
+            Self::NoITT => "No intention-to-treat analysis",
+            Self::NotAssessed => "Not rated, not assessed",
+            Self::NotResearchNotGuideline => "Article is neither research nor guideline",
+            Self::OriginalResearch => "Article includes original research",
+            Self::PreliminaryAnalysis => "Preliminary analysis",
+            Self::Preprint => "Preprint (not final publication)",
+            Self::PreventionAndControl => "Article about prevention and control",
+            Self::PrognosisPrediction => "Article about prognosis or prediction",
+            Self::RatedAsCaseControl => "classified as case-control study",
+            Self::RatedAsComparativeCohort => {
+                "classified as comparative cohort study (observational)"
+            }
+            Self::RatedAsControlledTrial => {
+                "classified as nonrandomized controlled trial (experimental)"
+            }
+            Self::RatedAsMixedMethods => "classified as mixed-methods study",
+            Self::RatedAsNo => "Rated as no, negative, absent, or exclude",
+            Self::RatedAsOther => {
+                "classified as other concept (not elsewhere classified)"
+            }
+            Self::RatedAsRCT => "classified as randomized controlled trial",
+            Self::RatedAsUncontrolledSeries => {
+                "classified as uncontrolled cohort (case series)"
+            }
+            Self::RatedAsYes => {
+                "Rated as yes, affirmative, positive, present, or include"
+            }
+            Self::ResearchProtocol => "Article provides protocol without results",
+            Self::ResearchSynthesis => "Article includes synthesis of research",
+            Self::RiskOfBias => "Risk of bias assessment",
+            Self::SubgroupAnalysis => "Subgroup analysis",
+            Self::Treatment => "Article about treatment",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceClassifier {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18715,6 +25250,22 @@ impl Serialize for EvidenceClassifier {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceClassifier> for Coding {
+    fn from(code: EvidenceClassifier) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/evidence-classifier-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceClassifier> for CodeableConcept {
+    fn from(code: EvidenceClassifier) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceDirectness`. The quality of how direct the match is.
@@ -18763,6 +25314,19 @@ impl AsRef<str> for EvidenceDirectness {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceDirectness {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Exact => "Exact match between observed and intended variable",
+            Self::High => "High quality match between observed and intended variable",
+            Self::Low => "Low quality match between observed and intended variable",
+            Self::Moderate => {
+                "Moderate quality match between observed and intended variable"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceDirectness {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18779,6 +25343,22 @@ impl Serialize for EvidenceDirectness {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceDirectness> for Coding {
+    fn from(code: EvidenceDirectness) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/directness".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceDirectness> for CodeableConcept {
+    fn from(code: EvidenceDirectness) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceReportType`. The kind of report, such as grouping of classifiers, search results, or human-compiled expression.
@@ -18827,6 +25407,17 @@ impl AsRef<str> for EvidenceReportType {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceReportType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Classification => "Classification",
+            Self::ResourcesCompiled => "Resource Compilation",
+            Self::SearchResults => "Search Results",
+            Self::TextStructured => "Structured Text",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceReportType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18843,6 +25434,22 @@ impl Serialize for EvidenceReportType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceReportType> for Coding {
+    fn from(code: EvidenceReportType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/evidence-report-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceReportType> for CodeableConcept {
+    fn from(code: EvidenceReportType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceVariableHandling`. The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
@@ -18891,6 +25498,17 @@ impl AsRef<str> for EvidenceVariableHandling {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceVariableHandling {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Continuous => "continuous variable",
+            Self::Dichotomous => "dichotomous variable",
+            Self::Ordinal => "ordinal variable",
+            Self::Polychotomous => "polychotomous variable",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceVariableHandling {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18907,6 +25525,22 @@ impl Serialize for EvidenceVariableHandling {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceVariableHandling> for Coding {
+    fn from(code: EvidenceVariableHandling) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/variable-handling".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceVariableHandling> for CodeableConcept {
+    fn from(code: EvidenceVariableHandling) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceVariableRole`. The role that the assertion variable plays.
@@ -18967,6 +25601,19 @@ impl AsRef<str> for EvidenceVariableRole {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceVariableRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Confounder => "confounder",
+            Self::Exposure => "exposure",
+            Self::MeasuredVariable => "measured variable",
+            Self::Population => "population",
+            Self::ReferenceExposure => "reference exposure",
+            Self::Subpopulation => "subpopulation",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceVariableRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -18983,6 +25630,22 @@ impl Serialize for EvidenceVariableRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceVariableRole> for Coding {
+    fn from(code: EvidenceVariableRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/variable-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceVariableRole> for CodeableConcept {
+    fn from(code: EvidenceVariableRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `EvidenceVariableType`. The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
@@ -19025,6 +25688,16 @@ impl AsRef<str> for EvidenceVariableType {
         }
     }
 }
+impl ::std::fmt::Display for EvidenceVariableType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Continuous => "Continuous",
+            Self::Descriptive => "Descriptive",
+            Self::Dichotomous => "Dichotomous",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for EvidenceVariableType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19041,6 +25714,22 @@ impl Serialize for EvidenceVariableType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<EvidenceVariableType> for Coding {
+    fn from(code: EvidenceVariableType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/variable-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<EvidenceVariableType> for CodeableConcept {
+    fn from(code: EvidenceVariableType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleClaimSubTypeCodes`. This value set includes sample Claim SubType codes.
@@ -19079,6 +25768,16 @@ impl AsRef<str> for ExampleClaimSubTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleClaimSubTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Emergency => "Emergency Claim",
+            Self::Ortho => "Orthodontic Claim",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleClaimSubTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19095,6 +25794,22 @@ impl Serialize for ExampleClaimSubTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleClaimSubTypeCodes> for Coding {
+    fn from(code: ExampleClaimSubTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-claimsubtype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleClaimSubTypeCodes> for CodeableConcept {
+    fn from(code: ExampleClaimSubTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleCoverageFinancialExceptionsCode`. This codeset includes Example Coverage Financial Exceptions Code.
@@ -19133,6 +25848,16 @@ impl AsRef<str> for ExampleCoverageFinancialExceptionsCode {
         }
     }
 }
+impl ::std::fmt::Display for ExampleCoverageFinancialExceptionsCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Foster => "Foster child",
+            Self::Retired => "Retired",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleCoverageFinancialExceptionsCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19149,6 +25874,25 @@ impl Serialize for ExampleCoverageFinancialExceptionsCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleCoverageFinancialExceptionsCode> for Coding {
+    fn from(code: ExampleCoverageFinancialExceptionsCode) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleCoverageFinancialExceptionsCode> for CodeableConcept {
+    fn from(code: ExampleCoverageFinancialExceptionsCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleDiagnosisOnAdmissionCodes`. This value set includes example Diagnosis on admission codes.
@@ -19199,6 +25943,18 @@ impl AsRef<str> for ExampleDiagnosisOnAdmissionCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleDiagnosisOnAdmissionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N => "No",
+            Self::U => "Unknown",
+            Self::W => "Undetermined",
+            Self::Y => "Yes",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleDiagnosisOnAdmissionCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19215,6 +25971,25 @@ impl Serialize for ExampleDiagnosisOnAdmissionCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleDiagnosisOnAdmissionCodes> for Coding {
+    fn from(code: ExampleDiagnosisOnAdmissionCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleDiagnosisOnAdmissionCodes> for CodeableConcept {
+    fn from(code: ExampleDiagnosisOnAdmissionCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleDiagnosisRelatedGroupCodes`. This value set includes sample Diagnosis Related Group codes.
@@ -19265,6 +26040,18 @@ impl AsRef<str> for ExampleDiagnosisRelatedGroupCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleDiagnosisRelatedGroupCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100 => "Normal Vaginal Delivery",
+            Self::N101 => "Appendectomy - uncomplicated",
+            Self::N300 => "Tooth abscess",
+            Self::N400 => "Head trauma - concussion",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleDiagnosisRelatedGroupCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19281,6 +26068,25 @@ impl Serialize for ExampleDiagnosisRelatedGroupCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleDiagnosisRelatedGroupCodes> for Coding {
+    fn from(code: ExampleDiagnosisRelatedGroupCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleDiagnosisRelatedGroupCodes> for CodeableConcept {
+    fn from(code: ExampleDiagnosisRelatedGroupCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleDiagnosisTypeCodes`. This value set includes example Diagnosis Type codes.
@@ -19379,6 +26185,26 @@ impl AsRef<str> for ExampleDiagnosisTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleDiagnosisTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Admitting => "Admitting Diagnosis",
+            Self::Clinical => "Clinical Diagnosis",
+            Self::Differential => "Differential Diagnosis",
+            Self::Discharge => "Discharge Diagnosis",
+            Self::Laboratory => "Laboratory Diagnosis",
+            Self::Nursing => "Nursing Diagnosis",
+            Self::Prenatal => "Prenatal Diagnosis",
+            Self::Principal => "Principal Diagnosis",
+            Self::Radiology => "Radiology Diagnosis",
+            Self::Remote => "Remote Diagnosis",
+            Self::Retrospective => "Retrospective Diagnosis",
+            Self::_Self => "Self Diagnosis",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleDiagnosisTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19395,6 +26221,22 @@ impl Serialize for ExampleDiagnosisTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleDiagnosisTypeCodes> for Coding {
+    fn from(code: ExampleDiagnosisTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-diagnosistype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleDiagnosisTypeCodes> for CodeableConcept {
+    fn from(code: ExampleDiagnosisTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleMessageReasonCodes`. Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update.
@@ -19457,6 +26299,20 @@ impl AsRef<str> for ExampleMessageReasonCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleMessageReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Absent => "Absent",
+            Self::Admit => "Admit",
+            Self::Discharge => "Discharge",
+            Self::Edit => "Edit",
+            Self::Moved => "Moved",
+            Self::Return => "Returned",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleMessageReasonCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19473,6 +26329,25 @@ impl Serialize for ExampleMessageReasonCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleMessageReasonCodes> for Coding {
+    fn from(code: ExampleMessageReasonCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/message-reasons-encounter"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleMessageReasonCodes> for CodeableConcept {
+    fn from(code: ExampleMessageReasonCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleProcedureTypeCodes`. This value set includes example Procedure Type codes.
@@ -19511,6 +26386,16 @@ impl AsRef<str> for ExampleProcedureTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleProcedureTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Primary => "Primary procedure",
+            Self::Secondary => "Secondary procedure",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleProcedureTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19527,6 +26412,22 @@ impl Serialize for ExampleProcedureTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleProcedureTypeCodes> for Coding {
+    fn from(code: ExampleProcedureTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-procedure-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleProcedureTypeCodes> for CodeableConcept {
+    fn from(code: ExampleProcedureTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleProgramCodes`. This value set includes sample Program reason codes.
@@ -19577,6 +26478,18 @@ impl AsRef<str> for ExampleProgramCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleProgramCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::As => "Child Asthma",
+            Self::Auscr => "Autism Screening",
+            Self::Hd => "Hemodialysis",
+            Self::None => "None",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleProgramCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19593,6 +26506,22 @@ impl Serialize for ExampleProgramCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleProgramCodes> for Coding {
+    fn from(code: ExampleProgramCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-programcode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleProgramCodes> for CodeableConcept {
+    fn from(code: ExampleProgramCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleProviderQualificationCodes`. This value set includes sample Provider Qualification codes.
@@ -19637,6 +26566,17 @@ impl AsRef<str> for ExampleProviderQualificationCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleProviderQualificationCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N311405 => "Dentist",
+            Self::N604210 => "Optometrist",
+            Self::N604215 => "Ophthalmologist",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleProviderQualificationCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19653,6 +26593,25 @@ impl Serialize for ExampleProviderQualificationCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleProviderQualificationCodes> for Coding {
+    fn from(code: ExampleProviderQualificationCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-providerqualification"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleProviderQualificationCodes> for CodeableConcept {
+    fn from(code: ExampleProviderQualificationCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleRelatedClaimRelationshipCodes`. This value set includes sample Related Claim Relationship codes.
@@ -19691,6 +26650,16 @@ impl AsRef<str> for ExampleRelatedClaimRelationshipCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleRelatedClaimRelationshipCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Associated => "Associated Claim",
+            Self::Prior => "Prior Claim",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleRelatedClaimRelationshipCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19707,6 +26676,25 @@ impl Serialize for ExampleRelatedClaimRelationshipCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleRelatedClaimRelationshipCodes> for Coding {
+    fn from(code: ExampleRelatedClaimRelationshipCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleRelatedClaimRelationshipCodes> for CodeableConcept {
+    fn from(code: ExampleRelatedClaimRelationshipCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleRevenueCenterCodes`. This value set includes sample Revenue Center codes.
@@ -19787,6 +26775,23 @@ impl AsRef<str> for ExampleRevenueCenterCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleRevenueCenterCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0010 => "Vision Clinic",
+            Self::N0370 => "Anaesthesia",
+            Self::N0420 => "Physical Therapy",
+            Self::N0421 => "Physical Therapy -",
+            Self::N0440 => "Speech-Language Pathology",
+            Self::N0441 => "Speech-Language Pathology - Visit",
+            Self::N0450 => "Emergency Room",
+            Self::N0451 => "Emergency Room - EM/EMTALA",
+            Self::N0452 => "Emergency Room - beyond EMTALA",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleRevenueCenterCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19803,6 +26808,22 @@ impl Serialize for ExampleRevenueCenterCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleRevenueCenterCodes> for Coding {
+    fn from(code: ExampleRevenueCenterCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-revenue-center".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleRevenueCenterCodes> for CodeableConcept {
+    fn from(code: ExampleRevenueCenterCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleScenarioActorType`. The type of actor - system or human.
@@ -19839,6 +26860,15 @@ impl AsRef<str> for ExampleScenarioActorType {
         }
     }
 }
+impl ::std::fmt::Display for ExampleScenarioActorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Entity => "System",
+            Self::Person => "Person",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleScenarioActorType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19855,6 +26885,22 @@ impl Serialize for ExampleScenarioActorType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleScenarioActorType> for Coding {
+    fn from(code: ExampleScenarioActorType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/examplescenario-actor-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleScenarioActorType> for CodeableConcept {
+    fn from(code: ExampleScenarioActorType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleServicePlaceCodes`. This value set includes a smattering of Service Place codes.
@@ -19983,6 +27029,31 @@ impl AsRef<str> for ExampleServicePlaceCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleServicePlaceCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N01 => "Pharmacy",
+            Self::N03 => "School",
+            Self::N04 => "Homeless Shelter",
+            Self::N05 => "Indian Health Service Free-standing Facility",
+            Self::N06 => "Indian Health Service Provider-based Facility",
+            Self::N07 => "Tribal 638 Free-Standing Facility",
+            Self::N08 => "Tribal 638 Provider-Based Facility",
+            Self::N09 => "Prison/Correctional Facility",
+            Self::N11 => "Office",
+            Self::N12 => "Home",
+            Self::N13 => "Assisted Living Fa",
+            Self::N14 => "Group Home",
+            Self::N15 => "Mobile Unit",
+            Self::N19 => "Off Campus-Outpatient Hospital",
+            Self::N20 => "Urgent Care Facility",
+            Self::N21 => "Inpatient Hospital",
+            Self::N41 => "Ambulance—Land",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleServicePlaceCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -19999,6 +27070,22 @@ impl Serialize for ExampleServicePlaceCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleServicePlaceCodes> for Coding {
+    fn from(code: ExampleServicePlaceCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-serviceplace".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleServicePlaceCodes> for CodeableConcept {
+    fn from(code: ExampleServicePlaceCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleUseCodesForList`. Example use codes for the List resource - typical kinds of use.
@@ -20079,6 +27166,23 @@ impl AsRef<str> for ExampleUseCodesForList {
         }
     }
 }
+impl ::std::fmt::Display for ExampleUseCodesForList {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Adverserxns => "Adverse Reactions",
+            Self::Alerts => "Alerts",
+            Self::Allergies => "Allergies",
+            Self::Medications => "Medication List",
+            Self::Plans => "Care Plans",
+            Self::Problems => "Problem List",
+            Self::Protocols => "Protocols",
+            Self::Waiting => "Waiting List",
+            Self::Worklist => "Worklist",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleUseCodesForList {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20095,6 +27199,24 @@ impl Serialize for ExampleUseCodesForList {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleUseCodesForList> for Coding {
+    fn from(code: ExampleUseCodesForList) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/list-example-use-codes".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleUseCodesForList> for CodeableConcept {
+    fn from(code: ExampleUseCodesForList) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExampleVisionPrescriptionProductCodes`. This value set includes a smattering of Prescription Product codes.
@@ -20133,6 +27255,16 @@ impl AsRef<str> for ExampleVisionPrescriptionProductCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExampleVisionPrescriptionProductCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Contact => "Contact Lens",
+            Self::Lens => "Lens",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExampleVisionPrescriptionProductCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20149,6 +27281,25 @@ impl Serialize for ExampleVisionPrescriptionProductCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExampleVisionPrescriptionProductCodes> for Coding {
+    fn from(code: ExampleVisionPrescriptionProductCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExampleVisionPrescriptionProductCodes> for CodeableConcept {
+    fn from(code: ExampleVisionPrescriptionProductCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExceptionCodes`. This value set includes sample Exception codes.
@@ -20187,6 +27338,16 @@ impl AsRef<str> for ExceptionCodes {
         }
     }
 }
+impl ::std::fmt::Display for ExceptionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Disabled => "Disabled",
+            Self::Student => "Student (Fulltime)",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExceptionCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20203,6 +27364,22 @@ impl Serialize for ExceptionCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExceptionCodes> for Coding {
+    fn from(code: ExceptionCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/claim-exception".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExceptionCodes> for CodeableConcept {
+    fn from(code: ExceptionCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExplanationOfBenefitStatus`. A code specifying the state of the resource instance.
@@ -20251,6 +27428,17 @@ impl AsRef<str> for ExplanationOfBenefitStatus {
         }
     }
 }
+impl ::std::fmt::Display for ExplanationOfBenefitStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Cancelled => "Cancelled",
+            Self::Draft => "Draft",
+            Self::EnteredInError => "Entered In Error",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExplanationOfBenefitStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20267,6 +27455,24 @@ impl Serialize for ExplanationOfBenefitStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExplanationOfBenefitStatus> for Coding {
+    fn from(code: ExplanationOfBenefitStatus) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/explanationofbenefit-status".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExplanationOfBenefitStatus> for CodeableConcept {
+    fn from(code: ExplanationOfBenefitStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExpressionLanguage`. The media type of the expression language.
@@ -20321,6 +27527,18 @@ impl AsRef<str> for ExpressionLanguage {
         }
     }
 }
+impl ::std::fmt::Display for ExpressionLanguage {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ApplicationXFhirQuery => "FHIR Query",
+            Self::TextCql => "CQL",
+            Self::TextCqlExpression => "CQL Expression",
+            Self::TextCqlIdentifier => "CQL Identifier",
+            Self::TextFhirpath => "FHIRPath",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExpressionLanguage {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20337,6 +27555,22 @@ impl Serialize for ExpressionLanguage {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExpressionLanguage> for Coding {
+    fn from(code: ExpressionLanguage) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/expression-language".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExpressionLanguage> for CodeableConcept {
+    fn from(code: ExpressionLanguage) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExtensionContextType`. How an extension context is interpreted.
@@ -20379,6 +27613,16 @@ impl AsRef<str> for ExtensionContextType {
         }
     }
 }
+impl ::std::fmt::Display for ExtensionContextType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Element => "Element ID",
+            Self::Extension => "Extension URL",
+            Self::Fhirpath => "FHIRPath",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExtensionContextType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20395,6 +27639,22 @@ impl Serialize for ExtensionContextType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExtensionContextType> for Coding {
+    fn from(code: ExtensionContextType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/extension-context-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExtensionContextType> for CodeableConcept {
+    fn from(code: ExtensionContextType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ExtraActivityType`. This value set includes coded concepts not well covered in any of the included valuesets.
@@ -20439,6 +27699,17 @@ impl AsRef<str> for ExtraActivityType {
         }
     }
 }
+impl ::std::fmt::Display for ExtraActivityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Aggregate => "aggregate",
+            Self::Compose => "compose",
+            Self::Label => "label",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ExtraActivityType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20455,6 +27726,22 @@ impl Serialize for ExtraActivityType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ExtraActivityType> for Coding {
+    fn from(code: ExtraActivityType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/extra-activity-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ExtraActivityType> for CodeableConcept {
+    fn from(code: ExtraActivityType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FamilyHistoryAbsentReason`. Codes describing the reason why a family member's history is not available.
@@ -20503,6 +27790,17 @@ impl AsRef<str> for FamilyHistoryAbsentReason {
         }
     }
 }
+impl ::std::fmt::Display for FamilyHistoryAbsentReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Deferred => "Deferred",
+            Self::SubjectUnknown => "Subject Unknown",
+            Self::UnableToObtain => "Unable To Obtain",
+            Self::Withheld => "Information Withheld",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FamilyHistoryAbsentReason {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20519,6 +27817,22 @@ impl Serialize for FamilyHistoryAbsentReason {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FamilyHistoryAbsentReason> for Coding {
+    fn from(code: FamilyHistoryAbsentReason) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/history-absent-reason".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FamilyHistoryAbsentReason> for CodeableConcept {
+    fn from(code: FamilyHistoryAbsentReason) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FamilyHistoryStatus`. A code that identifies the status of the family history record.
@@ -20567,6 +27881,17 @@ impl AsRef<str> for FamilyHistoryStatus {
         }
     }
 }
+impl ::std::fmt::Display for FamilyHistoryStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered in Error",
+            Self::HealthUnknown => "Health Unknown",
+            Self::Partial => "Partial",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FamilyHistoryStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20583,6 +27908,22 @@ impl Serialize for FamilyHistoryStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FamilyHistoryStatus> for Coding {
+    fn from(code: FamilyHistoryStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/history-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FamilyHistoryStatus> for CodeableConcept {
+    fn from(code: FamilyHistoryStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FeedingDeviceCodes`. Materials used or needed to feed the patient. These values are provided as a suggestive example.
@@ -20741,6 +28082,36 @@ impl AsRef<str> for FeedingDeviceCodes {
         }
     }
 }
+impl ::std::fmt::Display for FeedingDeviceCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AngledUtensil => "Angled utensils",
+            Self::AutofeedingDevice => "Automated feeding devices",
+            Self::BigcutNipple => "Enlarged, cross-cut nipple",
+            Self::FoamHandle => "Foam handle utensils",
+            Self::GlassLid => "Glass with lid/sippy cup",
+            Self::HabermanBottle => "Haberman bottle",
+            Self::HandholdCup => "Double handhold on glass/cup",
+            Self::MidfloNipple => "Middle flow nipple",
+            Self::NoseCup => "Nose cup",
+            Self::OrthoNipple => "Orthodontic nipple",
+            Self::PreemieNipple => "Preemie nipple",
+            Self::ProvaleCup => "Provale Cup",
+            Self::RockerKnife => "Rocker knife",
+            Self::RubberMat => "Rubber matting under tray",
+            Self::ScoopPlate => "Scoop plate",
+            Self::SippyNoValve => "Sippy cup without valve",
+            Self::SippyValve => "Sippy cup with valve",
+            Self::SlofloNipple => "Slow flow nipple",
+            Self::SpoutCup => "Spout cup",
+            Self::StandardNipple => "Standard nipple",
+            Self::Straw => "Straw",
+            Self::UtensilHolder => "Hand wrap utensil holder",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FeedingDeviceCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20757,6 +28128,22 @@ impl Serialize for FeedingDeviceCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FeedingDeviceCodes> for Coding {
+    fn from(code: FeedingDeviceCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/feeding-device".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FeedingDeviceCodes> for CodeableConcept {
+    fn from(code: FeedingDeviceCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FilterOperator`. The kind of operation to perform as a part of a property based filter.
@@ -20835,6 +28222,22 @@ impl AsRef<str> for FilterOperator {
         }
     }
 }
+impl ::std::fmt::Display for FilterOperator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Equal => "Equals",
+            Self::DescendentOf => "Descendent Of (by subsumption)",
+            Self::Exists => "Exists",
+            Self::Generalizes => "Generalizes (by Subsumption)",
+            Self::In => "In Set",
+            Self::IsA => "Is A (by subsumption)",
+            Self::IsNotA => "Not (Is A) (by subsumption)",
+            Self::NotIn => "Not in Set",
+            Self::Regex => "Regular Expression",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FilterOperator {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20851,6 +28254,22 @@ impl Serialize for FilterOperator {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FilterOperator> for Coding {
+    fn from(code: FilterOperator) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/filter-operator".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FilterOperator> for CodeableConcept {
+    fn from(code: FilterOperator) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FinancialResourceStatusCodes`. This value set includes Status codes.
@@ -20901,6 +28320,18 @@ impl AsRef<str> for FinancialResourceStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for FinancialResourceStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Cancelled => "Cancelled",
+            Self::Draft => "Draft",
+            Self::EnteredInError => "Entered in Error",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FinancialResourceStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -20917,6 +28348,22 @@ impl Serialize for FinancialResourceStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FinancialResourceStatusCodes> for Coding {
+    fn from(code: FinancialResourceStatusCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/fm-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FinancialResourceStatusCodes> for CodeableConcept {
+    fn from(code: FinancialResourceStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FlagCategory`. Example list of detail codes for flagged issues. (Not complete or necessarily appropriate.)
@@ -21001,6 +28448,23 @@ impl AsRef<str> for FlagCategory {
         }
     }
 }
+impl ::std::fmt::Display for FlagCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Admin => "Administrative",
+            Self::AdvanceDirective => "Advance Directive",
+            Self::Behavioral => "Behavioral",
+            Self::Clinical => "Clinical",
+            Self::Contact => "Subject Contact",
+            Self::Diet => "Diet",
+            Self::Drug => "Drug",
+            Self::Lab => "Lab",
+            Self::Research => "Research",
+            Self::Safety => "Safety",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FlagCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21017,6 +28481,22 @@ impl Serialize for FlagCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FlagCategory> for Coding {
+    fn from(code: FlagCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/flag-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FlagCategory> for CodeableConcept {
+    fn from(code: FlagCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FlagPriorityCodes`. This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal Flags, Alert Priority.
@@ -21067,6 +28547,18 @@ impl AsRef<str> for FlagPriorityCodes {
         }
     }
 }
+impl ::std::fmt::Display for FlagPriorityCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ph => "High priority",
+            Self::Pl => "Low priority",
+            Self::Pm => "Medium priority",
+            Self::Pn => "No alarm",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FlagPriorityCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21083,6 +28575,22 @@ impl Serialize for FlagPriorityCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FlagPriorityCodes> for Coding {
+    fn from(code: FlagPriorityCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/flag-priority-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FlagPriorityCodes> for CodeableConcept {
+    fn from(code: FlagPriorityCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FlagStatus`. Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.
@@ -21125,6 +28633,16 @@ impl AsRef<str> for FlagStatus {
         }
     }
 }
+impl ::std::fmt::Display for FlagStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FlagStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21141,6 +28659,22 @@ impl Serialize for FlagStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FlagStatus> for Coding {
+    fn from(code: FlagStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/flag-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FlagStatus> for CodeableConcept {
+    fn from(code: FlagStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `FocusCharacteristicCode`. Evidence focus characteristic code.
@@ -21213,6 +28747,21 @@ impl AsRef<str> for FocusCharacteristicCode {
         }
     }
 }
+impl ::std::fmt::Display for FocusCharacteristicCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Citation => "Citation",
+            Self::ClinicalOutcomesObserved => "Observed outcomes are clinical outcomes",
+            Self::Comparator => "Comparator",
+            Self::Exposure => "Exposure",
+            Self::MedicationExposures => "Medication exposures",
+            Self::Outcome => "Outcome",
+            Self::Population => "Population",
+            Self::StudyType => "Study type",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for FocusCharacteristicCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21229,6 +28778,22 @@ impl Serialize for FocusCharacteristicCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<FocusCharacteristicCode> for Coding {
+    fn from(code: FocusCharacteristicCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/focus-characteristic-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<FocusCharacteristicCode> for CodeableConcept {
+    fn from(code: FocusCharacteristicCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GenderIdentity`. This example code System defines a set of codes that can be used to indicate a patient's gender identity.
@@ -21297,6 +28862,21 @@ impl AsRef<str> for GenderIdentity {
         }
     }
 }
+impl ::std::fmt::Display for GenderIdentity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Female => "female",
+            Self::Male => "male",
+            Self::NonBinary => "non-binary",
+            Self::NonDisclose => "does not wish to disclose",
+            Self::Other => "other",
+            Self::TransgenderFemale => "transgender female",
+            Self::TransgenderMale => "transgender male",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GenderIdentity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21313,6 +28893,22 @@ impl Serialize for GenderIdentity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GenderIdentity> for Coding {
+    fn from(code: GenderIdentity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/gender-identity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GenderIdentity> for CodeableConcept {
+    fn from(code: GenderIdentity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GenderStatus`. This example value set defines a set of codes that can be used to indicate the current state of the animal's reproductive organs.
@@ -21357,6 +28953,17 @@ impl AsRef<str> for GenderStatus {
         }
     }
 }
+impl ::std::fmt::Display for GenderStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Intact => "Intact",
+            Self::Neutered => "Neutered",
+            Self::Unknown => "Unknown",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GenderStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21373,6 +28980,22 @@ impl Serialize for GenderStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GenderStatus> for Coding {
+    fn from(code: GenderStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/animal-genderstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GenderStatus> for CodeableConcept {
+    fn from(code: GenderStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GeneticObservationSecondaryFindings`. Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding.
@@ -21409,6 +29032,15 @@ impl AsRef<str> for GeneticObservationSecondaryFindings {
         }
     }
 }
+impl ::std::fmt::Display for GeneticObservationSecondaryFindings {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AcmgVersion1 => "ACMG Version 1",
+            Self::AcmgVersion2 => "ACMG Version 2",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GeneticObservationSecondaryFindings {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21425,6 +29057,22 @@ impl Serialize for GeneticObservationSecondaryFindings {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GeneticObservationSecondaryFindings> for Coding {
+    fn from(code: GeneticObservationSecondaryFindings) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/secondary-finding".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GeneticObservationSecondaryFindings> for CodeableConcept {
+    fn from(code: GeneticObservationSecondaryFindings) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GoalAchievementStatus`. Describes the progression, or lack thereof, towards the goal against the target.
@@ -21503,6 +29151,22 @@ impl AsRef<str> for GoalAchievementStatus {
         }
     }
 }
+impl ::std::fmt::Display for GoalAchievementStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Achieved => "Achieved",
+            Self::Improving => "Improving",
+            Self::InProgress => "In Progress",
+            Self::NoChange => "No Change",
+            Self::NoProgress => "No Progress",
+            Self::NotAchieved => "Not Achieved",
+            Self::NotAttainable => "Not Attainable",
+            Self::Sustaining => "Sustaining",
+            Self::Worsening => "Worsening",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GoalAchievementStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21519,6 +29183,22 @@ impl Serialize for GoalAchievementStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GoalAchievementStatus> for Coding {
+    fn from(code: GoalAchievementStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/goal-achievement".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GoalAchievementStatus> for CodeableConcept {
+    fn from(code: GoalAchievementStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GoalCategory`. Example codes for grouping goals to use for filtering or presentation.
@@ -21575,6 +29255,19 @@ impl AsRef<str> for GoalCategory {
         }
     }
 }
+impl ::std::fmt::Display for GoalCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Behavioral => "Behavioral",
+            Self::Dietary => "Dietary",
+            Self::Nursing => "Nursing",
+            Self::Physiotherapy => "Physiotherapy",
+            Self::Safety => "Safety",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GoalCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21591,6 +29284,22 @@ impl Serialize for GoalCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GoalCategory> for Coding {
+    fn from(code: GoalCategory) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/goal-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GoalCategory> for CodeableConcept {
+    fn from(code: GoalCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GoalLifecycleStatus`. Codes that reflect the current state of a goal and whether the goal is still being targeted.
@@ -21669,6 +29378,22 @@ impl AsRef<str> for GoalLifecycleStatus {
         }
     }
 }
+impl ::std::fmt::Display for GoalLifecycleStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Accepted => "Accepted",
+            Self::Active => "Active",
+            Self::Cancelled => "Cancelled",
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered in Error",
+            Self::OnHold => "On Hold",
+            Self::Planned => "Planned",
+            Self::Proposed => "Proposed",
+            Self::Rejected => "Rejected",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GoalLifecycleStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21685,6 +29410,22 @@ impl Serialize for GoalLifecycleStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GoalLifecycleStatus> for Coding {
+    fn from(code: GoalLifecycleStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/goal-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GoalLifecycleStatus> for CodeableConcept {
+    fn from(code: GoalLifecycleStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GoalPriority`. Indicates the level of importance associated with reaching or sustaining a goal.
@@ -21727,6 +29468,16 @@ impl AsRef<str> for GoalPriority {
         }
     }
 }
+impl ::std::fmt::Display for GoalPriority {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::HighPriority => "High Priority",
+            Self::LowPriority => "Low Priority",
+            Self::MediumPriority => "Medium Priority",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GoalPriority {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21743,6 +29494,22 @@ impl Serialize for GoalPriority {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GoalPriority> for Coding {
+    fn from(code: GoalPriority) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/goal-priority".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GoalPriority> for CodeableConcept {
+    fn from(code: GoalPriority) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GraphCompartmentRule`. How a compartment must be linked.
@@ -21791,6 +29558,17 @@ impl AsRef<str> for GraphCompartmentRule {
         }
     }
 }
+impl ::std::fmt::Display for GraphCompartmentRule {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Custom => "Custom",
+            Self::Different => "Different",
+            Self::Identical => "Identical",
+            Self::Matching => "Matching",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GraphCompartmentRule {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21807,6 +29585,22 @@ impl Serialize for GraphCompartmentRule {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GraphCompartmentRule> for Coding {
+    fn from(code: GraphCompartmentRule) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/graph-compartment-rule".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GraphCompartmentRule> for CodeableConcept {
+    fn from(code: GraphCompartmentRule) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GraphCompartmentUse`. Defines how a compartment rule is used.
@@ -21843,6 +29637,15 @@ impl AsRef<str> for GraphCompartmentUse {
         }
     }
 }
+impl ::std::fmt::Display for GraphCompartmentUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Condition => "Condition",
+            Self::Requirement => "Requirement",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GraphCompartmentUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21859,6 +29662,22 @@ impl Serialize for GraphCompartmentUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GraphCompartmentUse> for Coding {
+    fn from(code: GraphCompartmentUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/graph-compartment-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GraphCompartmentUse> for CodeableConcept {
+    fn from(code: GraphCompartmentUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GroupMeasure`. Possible group measure aggregates (E.g. Mean, Median).
@@ -21919,6 +29738,19 @@ impl AsRef<str> for GroupMeasure {
         }
     }
 }
+impl ::std::fmt::Display for GroupMeasure {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Mean => "Mean",
+            Self::MeanOfMean => "Mean of Study Means",
+            Self::MeanOfMedian => "Mean of Study Medins",
+            Self::Median => "Median",
+            Self::MedianOfMean => "Median of Study Means",
+            Self::MedianOfMedian => "Median of Study Medians",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GroupMeasure {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -21935,6 +29767,22 @@ impl Serialize for GroupMeasure {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GroupMeasure> for Coding {
+    fn from(code: GroupMeasure) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/group-measure".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GroupMeasure> for CodeableConcept {
+    fn from(code: GroupMeasure) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GroupType`. Types of resources that are part of group.
@@ -21995,6 +29843,19 @@ impl AsRef<str> for GroupType {
         }
     }
 }
+impl ::std::fmt::Display for GroupType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Animal => "Animal",
+            Self::Device => "Device",
+            Self::Medication => "Medication",
+            Self::Person => "Person",
+            Self::Practitioner => "Practitioner",
+            Self::Substance => "Substance",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GroupType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22011,6 +29872,22 @@ impl Serialize for GroupType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GroupType> for Coding {
+    fn from(code: GroupType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/group-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GroupType> for CodeableConcept {
+    fn from(code: GroupType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GuidanceResponseStatus`. The status of a guidance response.
@@ -22071,6 +29948,19 @@ impl AsRef<str> for GuidanceResponseStatus {
         }
     }
 }
+impl ::std::fmt::Display for GuidanceResponseStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DataRequested => "Data Requested",
+            Self::DataRequired => "Data Required",
+            Self::EnteredInError => "Entered In Error",
+            Self::Failure => "Failure",
+            Self::InProgress => "In Progress",
+            Self::Success => "Success",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GuidanceResponseStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22087,6 +29977,22 @@ impl Serialize for GuidanceResponseStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GuidanceResponseStatus> for Coding {
+    fn from(code: GuidanceResponseStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/guidance-response-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GuidanceResponseStatus> for CodeableConcept {
+    fn from(code: GuidanceResponseStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GuidePageGeneration`. A code that indicates how the page is generated.
@@ -22135,6 +30041,17 @@ impl AsRef<str> for GuidePageGeneration {
         }
     }
 }
+impl ::std::fmt::Display for GuidePageGeneration {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Generated => "Generated",
+            Self::Html => "HTML",
+            Self::Markdown => "Markdown",
+            Self::Xml => "XML",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GuidePageGeneration {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22151,6 +30068,22 @@ impl Serialize for GuidePageGeneration {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GuidePageGeneration> for Coding {
+    fn from(code: GuidePageGeneration) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/guide-page-generation".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GuidePageGeneration> for CodeableConcept {
+    fn from(code: GuidePageGeneration) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `GuideParameterCode`. Code of parameter that is input to the guide.
@@ -22235,6 +30168,23 @@ impl AsRef<str> for GuideParameterCode {
         }
     }
 }
+impl ::std::fmt::Display for GuideParameterCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Apply => "Apply Metadata Value",
+            Self::ExpansionParameter => "Expansion Profile",
+            Self::GenerateJson => "Generate JSON",
+            Self::GenerateTurtle => "Generate Turtle",
+            Self::GenerateXml => "Generate XML",
+            Self::HtmlTemplate => "HTML Template",
+            Self::PathPages => "Pages Path",
+            Self::PathResource => "Resource Path",
+            Self::PathTxCache => "Terminology Cache Path",
+            Self::RuleBrokenLinks => "Broken Links Rule",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for GuideParameterCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22251,6 +30201,22 @@ impl Serialize for GuideParameterCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<GuideParameterCode> for Coding {
+    fn from(code: GuideParameterCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/guide-parameter-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<GuideParameterCode> for CodeableConcept {
+    fn from(code: GuideParameterCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `HandlingConditionSet`. Set of handling instructions prior testing of the specimen.
@@ -22293,6 +30259,16 @@ impl AsRef<str> for HandlingConditionSet {
         }
     }
 }
+impl ::std::fmt::Display for HandlingConditionSet {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Frozen => "frozen",
+            Self::Refrigerated => "refrigerated",
+            Self::Room => "room temperature",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for HandlingConditionSet {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22309,6 +30285,22 @@ impl Serialize for HandlingConditionSet {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<HandlingConditionSet> for Coding {
+    fn from(code: HandlingConditionSet) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/handling-condition".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<HandlingConditionSet> for CodeableConcept {
+    fn from(code: HandlingConditionSet) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `HumanNameAssemblyOrder`. A code that represents the preferred display order of the components of a human name.
@@ -22359,6 +30351,18 @@ impl AsRef<str> for HumanNameAssemblyOrder {
         }
     }
 }
+impl ::std::fmt::Display for HumanNameAssemblyOrder {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Nl1 => "Own Name",
+            Self::Nl2 => "Partner Name",
+            Self::Nl3 => "Partner Name followed by Maiden Name",
+            Self::Nl4 => "Own Name followed by Partner Name",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for HumanNameAssemblyOrder {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22375,6 +30379,24 @@ impl Serialize for HumanNameAssemblyOrder {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<HumanNameAssemblyOrder> for Coding {
+    fn from(code: HumanNameAssemblyOrder) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/name-assembly-order".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<HumanNameAssemblyOrder> for CodeableConcept {
+    fn from(code: HumanNameAssemblyOrder) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IdentifierUse`. Identifies the purpose for this identifier, if known .
@@ -22429,6 +30451,18 @@ impl AsRef<str> for IdentifierUse {
         }
     }
 }
+impl ::std::fmt::Display for IdentifierUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Official => "Official",
+            Self::Old => "Old",
+            Self::Secondary => "Secondary",
+            Self::Temp => "Temp",
+            Self::Usual => "Usual",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IdentifierUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22445,6 +30479,22 @@ impl Serialize for IdentifierUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IdentifierUse> for Coding {
+    fn from(code: IdentifierUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/identifier-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IdentifierUse> for CodeableConcept {
+    fn from(code: IdentifierUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IdentityAssuranceLevel`. The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
@@ -22493,6 +30543,17 @@ impl AsRef<str> for IdentityAssuranceLevel {
         }
     }
 }
+impl ::std::fmt::Display for IdentityAssuranceLevel {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Level1 => "Level 1",
+            Self::Level2 => "Level 2",
+            Self::Level3 => "Level 3",
+            Self::Level4 => "Level 4",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IdentityAssuranceLevel {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22509,6 +30570,22 @@ impl Serialize for IdentityAssuranceLevel {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IdentityAssuranceLevel> for Coding {
+    fn from(code: IdentityAssuranceLevel) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/identity-assuranceLevel".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IdentityAssuranceLevel> for CodeableConcept {
+    fn from(code: IdentityAssuranceLevel) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImagingStudyStatus`. The status of the ImagingStudy.
@@ -22563,6 +30640,18 @@ impl AsRef<str> for ImagingStudyStatus {
         }
     }
 }
+impl ::std::fmt::Display for ImagingStudyStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Available => "Available",
+            Self::Cancelled => "Cancelled",
+            Self::EnteredInError => "Entered in Error",
+            Self::Registered => "Registered",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImagingStudyStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22579,6 +30668,22 @@ impl Serialize for ImagingStudyStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImagingStudyStatus> for Coding {
+    fn from(code: ImagingStudyStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/imagingstudy-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImagingStudyStatus> for CodeableConcept {
+    fn from(code: ImagingStudyStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationEvaluationDoseStatusCodes`. This code system supports describing the validity of a dose relative to a particular recommended schedule.
@@ -22617,6 +30722,16 @@ impl AsRef<str> for ImmunizationEvaluationDoseStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationEvaluationDoseStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Notvalid => "Not valid",
+            Self::Valid => "Valid",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationEvaluationDoseStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22633,6 +30748,25 @@ impl Serialize for ImmunizationEvaluationDoseStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationEvaluationDoseStatusCodes> for Coding {
+    fn from(code: ImmunizationEvaluationDoseStatusCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationEvaluationDoseStatusCodes> for CodeableConcept {
+    fn from(code: ImmunizationEvaluationDoseStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationEvaluationDoseStatusReasonCodes`. This code system supports describing the reason why an administered dose has been assigned a particular status. Often, this reason describes why a dose is considered invalid.
@@ -22689,6 +30823,19 @@ impl AsRef<str> for ImmunizationEvaluationDoseStatusReasonCodes {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationEvaluationDoseStatusReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Advstorage => "Adverse storage condition",
+            Self::Coldchbrk => "Cold chain break",
+            Self::Explot => "Expired lot",
+            Self::Outsidesched => "Administered outside recommended schedule",
+            Self::Prodrecall => "Product recall",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationEvaluationDoseStatusReasonCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22705,6 +30852,25 @@ impl Serialize for ImmunizationEvaluationDoseStatusReasonCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationEvaluationDoseStatusReasonCodes> for Coding {
+    fn from(code: ImmunizationEvaluationDoseStatusReasonCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationEvaluationDoseStatusReasonCodes> for CodeableConcept {
+    fn from(code: ImmunizationEvaluationDoseStatusReasonCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationEventFundingSource`. This code system supports describing the source of the vaccine actually administered. This may be different than the patient eligbility (e.g. the patient may be eligibile for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).
@@ -22743,6 +30909,16 @@ impl AsRef<str> for ImmunizationEventFundingSource {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationEventFundingSource {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Private => "Private",
+            Self::Public => "Public",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationEventFundingSource {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22759,6 +30935,25 @@ impl Serialize for ImmunizationEventFundingSource {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationEventFundingSource> for Coding {
+    fn from(code: ImmunizationEventFundingSource) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-funding-source"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationEventFundingSource> for CodeableConcept {
+    fn from(code: ImmunizationEventFundingSource) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationEventOrigin`. This code system supports describing the source of the data when the report of the immunization event is not based on information from the person, entity or organization who administered the vaccine.
@@ -22815,6 +31010,19 @@ impl AsRef<str> for ImmunizationEventOrigin {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationEventOrigin {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Jurisdiction => "Jurisdictional IIS",
+            Self::Provider => "Other Provider",
+            Self::Recall => "Parent/Guardian/Patient Recall",
+            Self::Record => "Written Record",
+            Self::School => "School Record",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationEventOrigin {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22831,6 +31039,24 @@ impl Serialize for ImmunizationEventOrigin {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationEventOrigin> for Coding {
+    fn from(code: ImmunizationEventOrigin) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-origin".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationEventOrigin> for CodeableConcept {
+    fn from(code: ImmunizationEventOrigin) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationEventProgramEligibility`. This code system supports describing the source of the patient's eligibility for a vaccination program.
@@ -22869,6 +31095,16 @@ impl AsRef<str> for ImmunizationEventProgramEligibility {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationEventProgramEligibility {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ineligible => "Not Eligible",
+            Self::Uninsured => "Uninsured",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationEventProgramEligibility {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22885,6 +31121,25 @@ impl Serialize for ImmunizationEventProgramEligibility {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationEventProgramEligibility> for Coding {
+    fn from(code: ImmunizationEventProgramEligibility) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationEventProgramEligibility> for CodeableConcept {
+    fn from(code: ImmunizationEventProgramEligibility) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationEventSubpotentReason`. This code system supports describing the reason why a dose is considered to be subpotent.
@@ -22929,6 +31184,17 @@ impl AsRef<str> for ImmunizationEventSubpotentReason {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationEventSubpotentReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Coldchainbreak => "Cold Chain Break",
+            Self::Partial => "Partial Dose",
+            Self::Recall => "Manufacturer Recall",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationEventSubpotentReason {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -22945,6 +31211,25 @@ impl Serialize for ImmunizationEventSubpotentReason {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationEventSubpotentReason> for Coding {
+    fn from(code: ImmunizationEventSubpotentReason) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationEventSubpotentReason> for CodeableConcept {
+    fn from(code: ImmunizationEventSubpotentReason) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ImmunizationRecommendationStatusCodes`. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the status of the patient relative to a recommended dose. This value set is provided as a suggestive example.
@@ -23001,6 +31286,19 @@ impl AsRef<str> for ImmunizationRecommendationStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for ImmunizationRecommendationStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Complete => "Complete",
+            Self::Contraindicated => "Contraindicated",
+            Self::Due => "Due",
+            Self::Immune => "Immune",
+            Self::Overdue => "Overdue",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ImmunizationRecommendationStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23017,6 +31315,25 @@ impl Serialize for ImmunizationRecommendationStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ImmunizationRecommendationStatusCodes> for Coding {
+    fn from(code: ImmunizationRecommendationStatusCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/immunization-recommendation-status"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ImmunizationRecommendationStatusCodes> for CodeableConcept {
+    fn from(code: ImmunizationRecommendationStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `Indicator`. This value set captures the set of indicator codes defined by the CDS Hooks specification.
@@ -23059,6 +31376,18 @@ impl AsRef<str> for Indicator {
         }
     }
 }
+impl ::std::fmt::Display for Indicator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Critical => {
+                "The response is critical and indicates the workflow should not be allowed to proceed"
+            }
+            Self::Info => "The response is informational",
+            Self::Warning => "The response is a warning",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for Indicator {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23075,6 +31404,22 @@ impl Serialize for Indicator {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<Indicator> for Coding {
+    fn from(code: Indicator) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/cdshooks-indicator".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<Indicator> for CodeableConcept {
+    fn from(code: Indicator) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IngredientFunction`. A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive).
@@ -23111,6 +31456,15 @@ impl AsRef<str> for IngredientFunction {
         }
     }
 }
+impl ::std::fmt::Display for IngredientFunction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AlkalizingAgent => "Alkalizing Agent",
+            Self::Antioxidant => "Antioxidant",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IngredientFunction {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23127,6 +31481,22 @@ impl Serialize for IngredientFunction {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IngredientFunction> for Coding {
+    fn from(code: IngredientFunction) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/ingredient-function".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IngredientFunction> for CodeableConcept {
+    fn from(code: IngredientFunction) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IngredientManufacturerRole`. The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role
@@ -23169,6 +31539,16 @@ impl AsRef<str> for IngredientManufacturerRole {
         }
     }
 }
+impl ::std::fmt::Display for IngredientManufacturerRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Actual => "Manufacturer actually makes this particular ingredient",
+            Self::Allowed => "Manufacturer is specifically allowed for this ingredient",
+            Self::Possible => "Manufacturer is known to make this ingredient in general",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IngredientManufacturerRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23185,6 +31565,24 @@ impl Serialize for IngredientManufacturerRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IngredientManufacturerRole> for Coding {
+    fn from(code: IngredientManufacturerRole) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IngredientManufacturerRole> for CodeableConcept {
+    fn from(code: IngredientManufacturerRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IngredientRole`. A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.
@@ -23263,6 +31661,22 @@ impl AsRef<str> for IngredientRole {
         }
     }
 }
+impl ::std::fmt::Display for IngredientRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000072072 => "Active",
+            Self::N100000072073 => "Adjuvant",
+            Self::N100000072082 => "Excipient",
+            Self::N100000136065 => "Starting material for excipient",
+            Self::N100000136066 => "Solvent / Diluent",
+            Self::N100000136178 => "Raw materials used in the manufacture of the product",
+            Self::N100000136179 => "Starting material for active substance",
+            Self::N100000136561 => "Overage",
+            Self::N200000003427 => "bioenhancer",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IngredientRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23279,6 +31693,22 @@ impl Serialize for IngredientRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IngredientRole> for Coding {
+    fn from(code: IngredientRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/ingredient-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IngredientRole> for CodeableConcept {
+    fn from(code: IngredientRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `InsurancePlanType`. This example value set defines a set of codes that can be used to indicate a type of product plan.
@@ -23365,6 +31795,24 @@ impl AsRef<str> for InsurancePlanType {
         }
     }
 }
+impl ::std::fmt::Display for InsurancePlanType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Drug => "Drug",
+            Self::Dental => "Dental",
+            Self::Home => "Home Health",
+            Self::Hospice => "Hospice",
+            Self::LongTerm => "Long Term Care",
+            Self::Medical => "Medical",
+            Self::Mental => "Mental Health",
+            Self::ShortTerm => "Short Term",
+            Self::SubstAb => "Substance Abuse",
+            Self::Vision => "Vision",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for InsurancePlanType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23381,6 +31829,22 @@ impl Serialize for InsurancePlanType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<InsurancePlanType> for Coding {
+    fn from(code: InsurancePlanType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/insuranceplan-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<InsurancePlanType> for CodeableConcept {
+    fn from(code: InsurancePlanType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `InteractionIncidence`. A categorisation for a frequency of occurence of an undesirable effect.
@@ -23417,6 +31881,15 @@ impl AsRef<str> for InteractionIncidence {
         }
     }
 }
+impl ::std::fmt::Display for InteractionIncidence {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Observed => "Observed",
+            Self::Theoretical => "Theoretical",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for InteractionIncidence {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23433,6 +31906,22 @@ impl Serialize for InteractionIncidence {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<InteractionIncidence> for Coding {
+    fn from(code: InteractionIncidence) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/interaction-incidence".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<InteractionIncidence> for CodeableConcept {
+    fn from(code: InteractionIncidence) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `InteractionType`. A categorisation for an interaction between two substances.
@@ -23481,6 +31970,17 @@ impl AsRef<str> for InteractionType {
         }
     }
 }
+impl ::std::fmt::Display for InteractionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DrugDrug => "drug to drug interaction",
+            Self::DrugFood => "drug to food interaction",
+            Self::DrugTest => "drug to laboratory test interaction",
+            Self::Other => "other interaction",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for InteractionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23497,6 +31997,22 @@ impl Serialize for InteractionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<InteractionType> for Coding {
+    fn from(code: InteractionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/interaction-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<InteractionType> for CodeableConcept {
+    fn from(code: InteractionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `InvoicePriceComponentType`. Codes indicating the kind of the price component.
@@ -23557,6 +32073,19 @@ impl AsRef<str> for InvoicePriceComponentType {
         }
     }
 }
+impl ::std::fmt::Display for InvoicePriceComponentType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Base => "base price",
+            Self::Deduction => "deduction",
+            Self::Discount => "discount",
+            Self::Informational => "informational",
+            Self::Surcharge => "surcharge",
+            Self::Tax => "tax",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for InvoicePriceComponentType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23573,6 +32102,22 @@ impl Serialize for InvoicePriceComponentType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<InvoicePriceComponentType> for Coding {
+    fn from(code: InvoicePriceComponentType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/invoice-priceComponentType".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<InvoicePriceComponentType> for CodeableConcept {
+    fn from(code: InvoicePriceComponentType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `InvoiceStatus`. Codes identifying the lifecycle stage of an Invoice.
@@ -23627,6 +32172,18 @@ impl AsRef<str> for InvoiceStatus {
         }
     }
 }
+impl ::std::fmt::Display for InvoiceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Balanced => "balanced",
+            Self::Cancelled => "cancelled",
+            Self::Draft => "draft",
+            Self::EnteredInError => "entered in error",
+            Self::Issued => "issued",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for InvoiceStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23643,6 +32200,22 @@ impl Serialize for InvoiceStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<InvoiceStatus> for Coding {
+    fn from(code: InvoiceStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/invoice-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<InvoiceStatus> for CodeableConcept {
+    fn from(code: InvoiceStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IssueSeverity`. How the issue affects the success of the action.
@@ -23691,6 +32264,17 @@ impl AsRef<str> for IssueSeverity {
         }
     }
 }
+impl ::std::fmt::Display for IssueSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Error => "Error",
+            Self::Fatal => "Fatal",
+            Self::Information => "Information",
+            Self::Warning => "Warning",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IssueSeverity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23707,6 +32291,22 @@ impl Serialize for IssueSeverity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IssueSeverity> for Coding {
+    fn from(code: IssueSeverity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/issue-severity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IssueSeverity> for CodeableConcept {
+    fn from(code: IssueSeverity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `IssueType`. A code that describes the type of issue.
@@ -23917,6 +32517,44 @@ impl AsRef<str> for IssueType {
         }
     }
 }
+impl ::std::fmt::Display for IssueType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::BusinessRule => "Business Rule Violation",
+            Self::CodeInvalid => "Invalid Code",
+            Self::Conflict => "Edit Version Conflict",
+            Self::Deleted => "Deleted",
+            Self::Duplicate => "Duplicate",
+            Self::Exception => "Exception",
+            Self::Expired => "Session Expired",
+            Self::Extension => "Unacceptable Extension",
+            Self::Forbidden => "Forbidden",
+            Self::Incomplete => "Incomplete Results",
+            Self::Informational => "Informational Note",
+            Self::Invalid => "Invalid Content",
+            Self::Invariant => "Validation rule failed",
+            Self::LockError => "Lock Error",
+            Self::Login => "Login Required",
+            Self::MultipleMatches => "Multiple Matches",
+            Self::NoStore => "No Store Available",
+            Self::NotFound => "Not Found",
+            Self::NotSupported => "Content not supported",
+            Self::Processing => "Processing Failure",
+            Self::Required => "Required element missing",
+            Self::Security => "Security Problem",
+            Self::Structure => "Structural Issue",
+            Self::Suppressed => "Information  Suppressed",
+            Self::Throttled => "Throttled",
+            Self::Timeout => "Timeout",
+            Self::TooCostly => "Operation Too Costly",
+            Self::TooLong => "Content Too Long",
+            Self::Transient => "Transient Issue",
+            Self::Unknown => "Unknown User",
+            Self::Value => "Element value invalid",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for IssueType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -23933,6 +32571,22 @@ impl Serialize for IssueType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<IssueType> for Coding {
+    fn from(code: IssueType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/issue-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<IssueType> for CodeableConcept {
+    fn from(code: IssueType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `KnowledgeResourceType`. A list of all the knowledge resource types defined in this version of the FHIR specification.
@@ -24011,6 +32665,22 @@ impl AsRef<str> for KnowledgeResourceType {
         }
     }
 }
+impl ::std::fmt::Display for KnowledgeResourceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ActivityDefinition => "ActivityDefinition",
+            Self::CodeSystem => "CodeSystem",
+            Self::ConceptMap => "ConceptMap",
+            Self::Library => "Library",
+            Self::Measure => "Measure",
+            Self::PlanDefinition => "PlanDefinition",
+            Self::StructureDefinition => "StructureDefinition",
+            Self::StructureMap => "StructureMap",
+            Self::ValueSet => "ValueSet",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for KnowledgeResourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24027,6 +32697,22 @@ impl Serialize for KnowledgeResourceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<KnowledgeResourceType> for Coding {
+    fn from(code: KnowledgeResourceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/knowledge-resource-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<KnowledgeResourceType> for CodeableConcept {
+    fn from(code: KnowledgeResourceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LanguagePreferenceType`. This code system defines a defines the set of codes for describing the type or mode of the patient's preferred language.
@@ -24065,6 +32751,16 @@ impl AsRef<str> for LanguagePreferenceType {
         }
     }
 }
+impl ::std::fmt::Display for LanguagePreferenceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Verbal => "verbal",
+            Self::Written => "written",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LanguagePreferenceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24081,6 +32777,22 @@ impl Serialize for LanguagePreferenceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LanguagePreferenceType> for Coding {
+    fn from(code: LanguagePreferenceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/language-preference-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LanguagePreferenceType> for CodeableConcept {
+    fn from(code: LanguagePreferenceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LegalStatusOfSupply`. The prescription supply types appropriate to a medicinal product
@@ -24153,6 +32865,35 @@ impl AsRef<str> for LegalStatusOfSupply {
         }
     }
 }
+impl ::std::fmt::Display for LegalStatusOfSupply {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000072076 => {
+                "Medicinal product not subject to medical prescription"
+            }
+            Self::N100000072077 => {
+                "Medicinal product on medical prescription for renewable or non-renewable delivery"
+            }
+            Self::N100000072078 => {
+                "Medicinal product subject to restricted medical prescription"
+            }
+            Self::N100000072079 => {
+                "Medicinal product on medical prescription for non-renewable delivery"
+            }
+            Self::N100000072084 => "Medicinal product subject to medical prescription",
+            Self::N100000072085 => {
+                "Medicinal product subject to special medical prescription"
+            }
+            Self::N100000072086 => {
+                "Medicinal product on medical prescription for renewable delivery"
+            }
+            Self::N100000157313 => {
+                "Medicinal product subject to special and restricted medical prescription"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LegalStatusOfSupply {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24169,6 +32910,22 @@ impl Serialize for LegalStatusOfSupply {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LegalStatusOfSupply> for Coding {
+    fn from(code: LegalStatusOfSupply) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/legal-status-of-supply".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LegalStatusOfSupply> for CodeableConcept {
+    fn from(code: LegalStatusOfSupply) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LibraryType`. The type of knowledge asset this library contains.
@@ -24217,6 +32974,17 @@ impl AsRef<str> for LibraryType {
         }
     }
 }
+impl ::std::fmt::Display for LibraryType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AssetCollection => "Asset Collection",
+            Self::LogicLibrary => "Logic Library",
+            Self::ModelDefinition => "Model Definition",
+            Self::ModuleDefinition => "Module Definition",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LibraryType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24233,6 +33001,22 @@ impl Serialize for LibraryType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LibraryType> for Coding {
+    fn from(code: LibraryType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/library-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LibraryType> for CodeableConcept {
+    fn from(code: LibraryType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LinkType`. The type of link between this patient resource and another patient resource.
@@ -24281,6 +33065,17 @@ impl AsRef<str> for LinkType {
         }
     }
 }
+impl ::std::fmt::Display for LinkType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Refer => "Refer",
+            Self::ReplacedBy => "Replaced-by",
+            Self::Replaces => "Replaces",
+            Self::Seealso => "See also",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LinkType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24297,6 +33092,22 @@ impl Serialize for LinkType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LinkType> for Coding {
+    fn from(code: LinkType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/link-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LinkType> for CodeableConcept {
+    fn from(code: LinkType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LinkageType`. Used to distinguish different roles a resource can play within a set of linked resources.
@@ -24339,6 +33150,16 @@ impl AsRef<str> for LinkageType {
         }
     }
 }
+impl ::std::fmt::Display for LinkageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Alternate => "Alternate Record",
+            Self::Historical => "Historical/Obsolete Record",
+            Self::Source => "Source of Truth",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LinkageType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24355,6 +33176,22 @@ impl Serialize for LinkageType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LinkageType> for Coding {
+    fn from(code: LinkageType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/linkage-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LinkageType> for CodeableConcept {
+    fn from(code: LinkageType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ListEmptyReasons`. General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list).
@@ -24417,6 +33254,20 @@ impl AsRef<str> for ListEmptyReasons {
         }
     }
 }
+impl ::std::fmt::Display for ListEmptyReasons {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Closed => "Closed",
+            Self::Nilknown => "Nil Known",
+            Self::Notasked => "Not Asked",
+            Self::Notstarted => "Not Started",
+            Self::Unavailable => "Unavailable",
+            Self::Withheld => "Information Withheld",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ListEmptyReasons {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24433,6 +33284,22 @@ impl Serialize for ListEmptyReasons {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ListEmptyReasons> for Coding {
+    fn from(code: ListEmptyReasons) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/list-empty-reason".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ListEmptyReasons> for CodeableConcept {
+    fn from(code: ListEmptyReasons) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ListMode`. The processing mode that applies to this list.
@@ -24475,6 +33342,16 @@ impl AsRef<str> for ListMode {
         }
     }
 }
+impl ::std::fmt::Display for ListMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Changes => "Change List",
+            Self::Snapshot => "Snapshot List",
+            Self::Working => "Working List",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ListMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24491,6 +33368,22 @@ impl Serialize for ListMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ListMode> for Coding {
+    fn from(code: ListMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/list-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ListMode> for CodeableConcept {
+    fn from(code: ListMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ListOrderCodes`. Base values for the order of the items in a list resource.
@@ -24565,6 +33458,22 @@ impl AsRef<str> for ListOrderCodes {
         }
     }
 }
+impl ::std::fmt::Display for ListOrderCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Alphabetic => "Sorted Alphabetically",
+            Self::Category => "Sorted by Category",
+            Self::EntryDate => "Sorted by Item Date",
+            Self::EventDate => "Sorted by Event Date",
+            Self::Patient => "Sorted by Patient",
+            Self::Priority => "Sorted by Priority",
+            Self::System => "Sorted by System",
+            Self::User => "Sorted by User",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ListOrderCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24581,6 +33490,22 @@ impl Serialize for ListOrderCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ListOrderCodes> for Coding {
+    fn from(code: ListOrderCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/list-order".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ListOrderCodes> for CodeableConcept {
+    fn from(code: ListOrderCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ListStatus`. The current state of the list.
@@ -24623,6 +33548,16 @@ impl AsRef<str> for ListStatus {
         }
     }
 }
+impl ::std::fmt::Display for ListStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Current => "Current",
+            Self::EnteredInError => "Entered In Error",
+            Self::Retired => "Retired",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ListStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24639,6 +33574,22 @@ impl Serialize for ListStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ListStatus> for Coding {
+    fn from(code: ListStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/list-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ListStatus> for CodeableConcept {
+    fn from(code: ListStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LocationMode`. Indicates whether a resource instance represents a specific location or a class of locations.
@@ -24675,6 +33626,15 @@ impl AsRef<str> for LocationMode {
         }
     }
 }
+impl ::std::fmt::Display for LocationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Instance => "Instance",
+            Self::Kind => "Kind",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LocationMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24691,6 +33651,22 @@ impl Serialize for LocationMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LocationMode> for Coding {
+    fn from(code: LocationMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/location-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LocationMode> for CodeableConcept {
+    fn from(code: LocationMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LocationStatus`. Indicates whether the location is still in use.
@@ -24733,6 +33709,16 @@ impl AsRef<str> for LocationStatus {
         }
     }
 }
+impl ::std::fmt::Display for LocationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Inactive => "Inactive",
+            Self::Suspended => "Suspended",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LocationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24749,6 +33735,22 @@ impl Serialize for LocationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LocationStatus> for Coding {
+    fn from(code: LocationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/location-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LocationStatus> for CodeableConcept {
+    fn from(code: LocationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `LocationType`. This example value set defines a set of codes that can be used to indicate the physical form of the Location.
@@ -24859,6 +33861,28 @@ impl AsRef<str> for LocationType {
         }
     }
 }
+impl ::std::fmt::Display for LocationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Area => "Area",
+            Self::Bd => "Bed",
+            Self::Bu => "Building",
+            Self::Ca => "Cabinet",
+            Self::Co => "Corridor",
+            Self::Ho => "House",
+            Self::Jdn => "Jurisdiction",
+            Self::Lvl => "Level",
+            Self::Rd => "Road",
+            Self::Ro => "Room",
+            Self::Si => "Site",
+            Self::Ve => "Vehicle",
+            Self::Wa => "Ward",
+            Self::Wi => "Wing",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for LocationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -24875,6 +33899,24 @@ impl Serialize for LocationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<LocationType> for Coding {
+    fn from(code: LocationType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/location-physical-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<LocationType> for CodeableConcept {
+    fn from(code: LocationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ManufacturedDoseForm`. Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient.
@@ -26105,6 +35147,214 @@ impl AsRef<str> for ManufacturedDoseForm {
         }
     }
 }
+impl ::std::fmt::Display for ManufacturedDoseForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000073362 => "Oral suspension",
+            Self::N100000073363 => "Oral gel",
+            Self::N100000073364 => "Powder for oral solution",
+            Self::N100000073365 => "Granules for oral solution",
+            Self::N100000073367 => "Lyophilisate for suspension",
+            Self::N100000073368 => "Powder for syrup",
+            Self::N100000073369 => "Soluble tablet",
+            Self::N100000073370 => "Herbal tea",
+            Self::N100000073371 => "Instant herbal tea",
+            Self::N100000073372 => "Granules",
+            Self::N100000073373 => "Gastro-resistant granules",
+            Self::N100000073374 => "Modified-release granules",
+            Self::N100000073375 => "Capsule, hard",
+            Self::N100000073376 => "Gastro-resistant capsule, hard",
+            Self::N100000073377 => "Chewable capsule, soft",
+            Self::N100000073378 => "Prolonged-release capsule, soft",
+            Self::N100000073379 => "Modified-release capsule, soft",
+            Self::N100000073380 => "Coated tablet",
+            Self::N100000073642 => "Oral drops, solution",
+            Self::N100000073643 => "Oral drops, suspension",
+            Self::N100000073644 => "Oral drops, emulsion",
+            Self::N100000073645 => "Oral liquid",
+            Self::N100000073646 => "Oral solution",
+            Self::N100000073647 => "Oral emulsion",
+            Self::N100000073648 => "Oral paste",
+            Self::N100000073649 => "Powder for oral suspension",
+            Self::N100000073650 => "Granules for oral suspension",
+            Self::N100000073652 => "Syrup",
+            Self::N100000073653 => "Granules for syrup",
+            Self::N100000073654 => "Dispersible tablet",
+            Self::N100000073655 => "Oral powder",
+            Self::N100000073656 => "Effervescent powder",
+            Self::N100000073657 => "Effervescent granules",
+            Self::N100000073658 => "Prolonged-release granules",
+            Self::N100000073659 => "Cachet",
+            Self::N100000073660 => "Capsule, soft",
+            Self::N100000073661 => "Gastro-resistant capsule, soft",
+            Self::N100000073662 => "Prolonged-release capsule, hard",
+            Self::N100000073663 => "Modified-release capsule, hard",
+            Self::N100000073664 => "Tablet",
+            Self::N100000073665 => "Film-coated tablet",
+            Self::N100000073666 => "Orodispersible tablet",
+            Self::N100000073667 => "Gastro-resistant tablet",
+            Self::N100000073668 => "Modified-release tablet",
+            Self::N100000073669 => "Medicated chewing-gum",
+            Self::N100000073670 => "Pillules",
+            Self::N100000073671 => "Pulsatile-release intraruminal device",
+            Self::N100000073672 => "Premix for medicated feeding stuff",
+            Self::N100000073673 => "Gargle",
+            Self::N100000073674 => "Gargle, powder for solution",
+            Self::N100000073675 => "Oromucosal suspension",
+            Self::N100000073676 => "Oromucosal spray",
+            Self::N100000073677 => "Mouthwash",
+            Self::N100000073678 => "Gingival solution",
+            Self::N100000073679 => "Oromucosal paste",
+            Self::N100000073680 => "Gingival gel",
+            Self::N100000073681 => "Effervescent tablet",
+            Self::N100000073682 => "Oral lyophilisate",
+            Self::N100000073683 => "Prolonged-release tablet",
+            Self::N100000073684 => "Chewable tablet",
+            Self::N100000073685 => "Oral gum",
+            Self::N100000073686 => "Continuous-release intraruminal device",
+            Self::N100000073687 => "Lick block",
+            Self::N100000073688 => "Medicated pellets",
+            Self::N100000073689 => "Concentrate for gargle",
+            Self::N100000073690 => "Gargle, tablet for solution",
+            Self::N100000073691 => "Oromucosal solution",
+            Self::N100000073692 => "Oromucosal drops",
+            Self::N100000073693 => "Sublingual spray",
+            Self::N100000073694 => "Mouthwash, tablet for solution",
+            Self::N100000073695 => "Oromucosal gel",
+            Self::N100000073696 => "Oromucosal cream",
+            Self::N100000073697 => "Gingival paste",
+            Self::N100000073698 => "Sublingual tablet",
+            Self::N100000073699 => "Buccal tablet",
+            Self::N100000073700 => "Compressed lozenge",
+            Self::N100000073701 => "Oromucosal capsule",
+            Self::N100000073702 => "Muco-adhesive buccal tablet",
+            Self::N100000073703 => "Lozenge",
+            Self::N100000073704 => "Pastille",
+            Self::N100000073705 => "Dental gel",
+            Self::N100000073706 => "Dental insert",
+            Self::N100000073707 => "Dental powder",
+            Self::N100000073708 => "Dental suspension",
+            Self::N100000073709 => "Toothpaste",
+            Self::N100000073710 => "Periodontal gel",
+            Self::N100000073711 => "Bath additive",
+            Self::N100000073712 => "Cream",
+            Self::N100000073713 => "Ointment",
+            Self::N100000073714 => "Medicated plaster",
+            Self::N100000073715 => "Shampoo",
+            Self::N100000073716 => "Cutaneous spray, suspension",
+            Self::N100000073717 => "Cutaneous liquid",
+            Self::N100000073718 => "Concentrate for cutaneous solution",
+            Self::N100000073719 => "Cutaneous emulsion",
+            Self::N100000073720 => "Cutaneous patch",
+            Self::N100000073721 => "Periodontal powder",
+            Self::N100000073722 => "Dental stick",
+            Self::N100000073723 => "Dental solution",
+            Self::N100000073724 => "Dental emulsion",
+            Self::N100000073725 => "Periodontal insert",
+            Self::N100000073726 => "Gel",
+            Self::N100000073727 => "Cutaneous paste",
+            Self::N100000073728 => "Cutaneous foam",
+            Self::N100000073729 => "Cutaneous spray, solution",
+            Self::N100000073730 => "Cutaneous spray, powder",
+            Self::N100000073731 => "Cutaneous solution",
+            Self::N100000073732 => "Cutaneous suspension",
+            Self::N100000073733 => "Cutaneous powder",
+            Self::N100000073734 => "Solution for iontophoresis",
+            Self::N100000073735 => "Collodion",
+            Self::N100000073736 => "Poultice",
+            Self::N100000073737 => "Cutaneous sponge",
+            Self::N100000073738 => "Collar",
+            Self::N100000073739 => "Ear tag",
+            Self::N100000073740 => "Dip suspension",
+            Self::N100000073741 => "Transdermal patch",
+            Self::N100000073742 => "Medicated nail lacquer",
+            Self::N100000073743 => "Cutaneous stick",
+            Self::N100000073744 => "Impregnated dressing",
+            Self::N100000073745 => "Medicated pendant",
+            Self::N100000073746 => "Dip solution",
+            Self::N100000073747 => "Dip emulsion",
+            Self::N100000073748 => "Concentrate for dip suspension",
+            Self::N100000073749 => "Powder for dip solution",
+            Self::N100000073750 => "Powder for suspension for fish treatment",
+            Self::N100000073751 => "Pour-on suspension",
+            Self::N100000073752 => "Spot-on solution",
+            Self::N100000073753 => "Spot-on emulsion",
+            Self::N100000073754 => "Teat dip suspension",
+            Self::N100000073755 => "Teat spray solution",
+            Self::N100000073756 => "Solution for skin-prick test",
+            Self::N100000073757 => "Plaster for provocation test",
+            Self::N100000073758 => "Eye gel",
+            Self::N100000073759 => "Eye drops, solution",
+            Self::N100000073760 => "Eye drops, suspension",
+            Self::N100000073761 => "Concentrate for dip solution",
+            Self::N100000073762 => "Concentrate for dip emulsion",
+            Self::N100000073763 => "Concentrate for solution for fish treatment",
+            Self::N100000073764 => "Pour-on solution",
+            Self::N100000073765 => "Pour-on emulsion",
+            Self::N100000073766 => "Spot-on suspension",
+            Self::N100000073767 => "Teat dip solution",
+            Self::N100000073768 => "Teat dip emulsion",
+            Self::N100000073769 => "Transdermal system",
+            Self::N100000073770 => "Solution for skin-scratch test",
+            Self::N100000073771 => "Eye cream",
+            Self::N100000073772 => "Eye ointment",
+            Self::N100000073773 => "Eye drops, emulsion",
+            Self::N100000073775 => "Eye drops, solvent for reconstitution",
+            Self::N100000073776 => "Eye lotion",
+            Self::N100000073777 => "Ophthalmic insert",
+            Self::N100000073778 => "Ear cream",
+            Self::N100000073779 => "Ear ointment",
+            Self::N100000073780 => "Ear drops, suspension",
+            Self::N100000073782 => "Eye drops, prolonged-release",
+            Self::N100000073783 => "Eye lotion, solvent for reconstitution",
+            Self::N100000073784 => "Ophthalmic strip",
+            Self::N100000073785 => "Ear gel",
+            Self::N100000073786 => "Ear drops, solution",
+            Self::N100000073787 => "Ear drops, emulsion",
+            Self::N100000073788 => "Ear powder",
+            Self::N100000073789 => "Ear spray, suspension",
+            Self::N100000073790 => "Ear wash, solution",
+            Self::N100000073791 => "Ear tampon",
+            Self::N100000073792 => "Nasal cream",
+            Self::N100000073793 => "Nasal gel",
+            Self::N100000073794 => "Nasal drops, solution",
+            Self::N100000073795 => "Nasal drops, emulsion",
+            Self::N100000073796 => "Nasal spray, solution",
+            Self::N100000073797 => "Nasal spray, emulsion",
+            Self::N100000073798 => "Nasal stick",
+            Self::N100000073799 => "Vaginal gel",
+            Self::N100000073800 => "Vaginal foam",
+            Self::N100000073802 => "Ear spray, solution",
+            Self::N100000073803 => "Ear spray, emulsion",
+            Self::N100000073804 => "Ear wash, emulsion",
+            Self::N100000073805 => "Ear stick",
+            Self::N100000073806 => "Nasal ointment",
+            Self::N100000073807 => "Nasal drops, suspension",
+            Self::N100000073808 => "Nasal powder",
+            Self::N100000073809 => "Nasal spray, suspension",
+            Self::N100000073810 => "Nasal wash",
+            Self::N100000073811 => "Vaginal cream",
+            Self::N100000073812 => "Vaginal ointment",
+            Self::N100000073813 => "Vaginal solution",
+            Self::N100000073814 => "Vaginal emulsion",
+            Self::N100000073815 => "Pessary",
+            Self::N100000073816 => "Vaginal capsule, soft",
+            Self::N100000073817 => "Effervescent vaginal tablet",
+            Self::N100000073818 => "Vaginal delivery system",
+            Self::N100000073819 => "Rectal cream",
+            Self::N100000073820 => "Rectal foam",
+            Self::N100000073821 => "Vaginal suspension",
+            Self::N100000073822 => "Tablet for vaginal solution",
+            Self::N100000073823 => "Vaginal capsule, hard",
+            Self::N100000073824 => "Vaginal tablet",
+            Self::N100000073825 => "Medicated vaginal tampon",
+            Self::N100000073826 => "Vaginal sponge",
+            Self::N100000073827 => "Rectal gel",
+            Self::N100000073863 => "Solution for injection",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ManufacturedDoseForm {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26121,6 +35371,22 @@ impl Serialize for ManufacturedDoseForm {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ManufacturedDoseForm> for Coding {
+    fn from(code: ManufacturedDoseForm) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/manufactured-dose-form".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ManufacturedDoseForm> for CodeableConcept {
+    fn from(code: ManufacturedDoseForm) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureDataUsage`. The intended usage for supplemental data elements in the measure.
@@ -26157,6 +35423,15 @@ impl AsRef<str> for MeasureDataUsage {
         }
     }
 }
+impl ::std::fmt::Display for MeasureDataUsage {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::RiskAdjustmentFactor => "Risk Adjustment Factor",
+            Self::SupplementalData => "Supplemental Data",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureDataUsage {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26173,6 +35448,22 @@ impl Serialize for MeasureDataUsage {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureDataUsage> for Coding {
+    fn from(code: MeasureDataUsage) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-data-usage".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureDataUsage> for CodeableConcept {
+    fn from(code: MeasureDataUsage) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureGroupExample`. Example Measure Groups for the Measure Resource.
@@ -26209,6 +35500,15 @@ impl AsRef<str> for MeasureGroupExample {
         }
     }
 }
+impl ::std::fmt::Display for MeasureGroupExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::PrimaryRate => "Primary Rate",
+            Self::SecondaryRate => "Secondary Rate",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureGroupExample {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26225,6 +35525,22 @@ impl Serialize for MeasureGroupExample {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureGroupExample> for Coding {
+    fn from(code: MeasureGroupExample) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-group-example".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureGroupExample> for CodeableConcept {
+    fn from(code: MeasureGroupExample) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureImprovementNotation`. Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue.
@@ -26261,6 +35577,15 @@ impl AsRef<str> for MeasureImprovementNotation {
         }
     }
 }
+impl ::std::fmt::Display for MeasureImprovementNotation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Decrease => "Decreased score indicates improvement",
+            Self::Increase => "Increased score indicates improvement",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureImprovementNotation {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26277,6 +35602,24 @@ impl Serialize for MeasureImprovementNotation {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureImprovementNotation> for Coding {
+    fn from(code: MeasureImprovementNotation) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/measure-improvement-notation".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureImprovementNotation> for CodeableConcept {
+    fn from(code: MeasureImprovementNotation) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasurePopulationType`. The type of population.
@@ -26355,6 +35698,22 @@ impl AsRef<str> for MeasurePopulationType {
         }
     }
 }
+impl ::std::fmt::Display for MeasurePopulationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Denominator => "Denominator",
+            Self::DenominatorException => "Denominator Exception",
+            Self::DenominatorExclusion => "Denominator Exclusion",
+            Self::InitialPopulation => "Initial Population",
+            Self::MeasureObservation => "Measure Observation",
+            Self::MeasurePopulation => "Measure Population",
+            Self::MeasurePopulationExclusion => "Measure Population Exclusion",
+            Self::Numerator => "Numerator",
+            Self::NumeratorExclusion => "Numerator Exclusion",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasurePopulationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26371,6 +35730,22 @@ impl Serialize for MeasurePopulationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasurePopulationType> for Coding {
+    fn from(code: MeasurePopulationType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-population".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasurePopulationType> for CodeableConcept {
+    fn from(code: MeasurePopulationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureReportStatus`. The status of the measure report.
@@ -26413,6 +35788,16 @@ impl AsRef<str> for MeasureReportStatus {
         }
     }
 }
+impl ::std::fmt::Display for MeasureReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Complete => "Complete",
+            Self::Error => "Error",
+            Self::Pending => "Pending",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureReportStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26429,6 +35814,22 @@ impl Serialize for MeasureReportStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureReportStatus> for Coding {
+    fn from(code: MeasureReportStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-report-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureReportStatus> for CodeableConcept {
+    fn from(code: MeasureReportStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureReportStratifierValueExample`. Example Region Value Measure Groups for the Measure Resource.
@@ -26477,6 +35878,17 @@ impl AsRef<str> for MeasureReportStratifierValueExample {
         }
     }
 }
+impl ::std::fmt::Display for MeasureReportStratifierValueExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Northeast => "Northeast",
+            Self::Northwest => "Northwest",
+            Self::Southeast => "Southeast",
+            Self::Southwest => "Soutwest",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureReportStratifierValueExample {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26493,6 +35905,25 @@ impl Serialize for MeasureReportStratifierValueExample {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureReportStratifierValueExample> for Coding {
+    fn from(code: MeasureReportStratifierValueExample) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureReportStratifierValueExample> for CodeableConcept {
+    fn from(code: MeasureReportStratifierValueExample) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureReportType`. The type of the measure report.
@@ -26541,6 +35972,17 @@ impl AsRef<str> for MeasureReportType {
         }
     }
 }
+impl ::std::fmt::Display for MeasureReportType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DataCollection => "Data Collection",
+            Self::Individual => "Individual",
+            Self::SubjectList => "Subject List",
+            Self::Summary => "Summary",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureReportType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26557,6 +35999,22 @@ impl Serialize for MeasureReportType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureReportType> for Coding {
+    fn from(code: MeasureReportType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-report-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureReportType> for CodeableConcept {
+    fn from(code: MeasureReportType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureScoring`. The scoring type of the measure.
@@ -26605,6 +36063,17 @@ impl AsRef<str> for MeasureScoring {
         }
     }
 }
+impl ::std::fmt::Display for MeasureScoring {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cohort => "Cohort",
+            Self::ContinuousVariable => "Continuous Variable",
+            Self::Proportion => "Proportion",
+            Self::Ratio => "Ratio",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureScoring {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26621,6 +36090,22 @@ impl Serialize for MeasureScoring {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureScoring> for Coding {
+    fn from(code: MeasureScoring) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-scoring".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureScoring> for CodeableConcept {
+    fn from(code: MeasureScoring) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureStratifierExample`. Identifier subgroups in a population for measuring purposes.
@@ -26663,6 +36148,16 @@ impl AsRef<str> for MeasureStratifierExample {
         }
     }
 }
+impl ::std::fmt::Display for MeasureStratifierExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Age => "Age",
+            Self::Gender => "Gender",
+            Self::Region => "Region",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureStratifierExample {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26679,6 +36174,22 @@ impl Serialize for MeasureStratifierExample {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureStratifierExample> for Coding {
+    fn from(code: MeasureStratifierExample) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-stratifier-example".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureStratifierExample> for CodeableConcept {
+    fn from(code: MeasureStratifierExample) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureSupplementalDataExample`. Identifier supplemental data in a population for measuring purposes.
@@ -26727,6 +36238,17 @@ impl AsRef<str> for MeasureSupplementalDataExample {
         }
     }
 }
+impl ::std::fmt::Display for MeasureSupplementalDataExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Age => "Age",
+            Self::Ethnicity => "Ethnicity",
+            Self::Gender => "Gender",
+            Self::Payer => "Payer",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureSupplementalDataExample {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26743,6 +36265,25 @@ impl Serialize for MeasureSupplementalDataExample {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureSupplementalDataExample> for Coding {
+    fn from(code: MeasureSupplementalDataExample) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureSupplementalDataExample> for CodeableConcept {
+    fn from(code: MeasureSupplementalDataExample) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MeasureType`. The type of measure (includes codes from 2.16.840.1.113883.1.11.20368).
@@ -26797,6 +36338,18 @@ impl AsRef<str> for MeasureType {
         }
     }
 }
+impl ::std::fmt::Display for MeasureType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Composite => "Composite",
+            Self::Outcome => "Outcome",
+            Self::PatientReportedOutcome => "Patient Reported Outcome",
+            Self::Process => "Process",
+            Self::Structure => "Structure",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MeasureType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26813,6 +36366,22 @@ impl Serialize for MeasureType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MeasureType> for Coding {
+    fn from(code: MeasureType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/measure-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MeasureType> for CodeableConcept {
+    fn from(code: MeasureType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MediaSubType`. Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it.
@@ -26887,6 +36456,22 @@ impl AsRef<str> for MediaSubType {
         }
     }
 }
+impl ::std::fmt::Display for MediaSubType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Diagram => "Diagram",
+            Self::Face => "Face Scan",
+            Self::Fax => "Fax",
+            Self::Fingerprint => "Fingerprint",
+            Self::Iris => "Iris Scan",
+            Self::Palm => "Palm Scan",
+            Self::Retina => "Retina Scan",
+            Self::Scan => "Scanned Document",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MediaSubType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26903,6 +36488,22 @@ impl Serialize for MediaSubType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MediaSubType> for Coding {
+    fn from(code: MediaSubType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/media-modality".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MediaSubType> for CodeableConcept {
+    fn from(code: MediaSubType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MedicinalProductDomain`. Applicable domain for this product (e.g. human, veterinary).
@@ -26945,6 +36546,16 @@ impl AsRef<str> for MedicinalProductDomain {
         }
     }
 }
+impl ::std::fmt::Display for MedicinalProductDomain {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Human => "Human use",
+            Self::HumanAndVeterinary => "Human and Veterinary use",
+            Self::Veterinary => "Veterinary use",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MedicinalProductDomain {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -26961,6 +36572,22 @@ impl Serialize for MedicinalProductDomain {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MedicinalProductDomain> for Coding {
+    fn from(code: MedicinalProductDomain) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/medicinal-product-domain".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MedicinalProductDomain> for CodeableConcept {
+    fn from(code: MedicinalProductDomain) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MedicinalProductPackageType`. Types of medicinal product packs
@@ -27057,6 +36684,25 @@ impl AsRef<str> for MedicinalProductPackageType {
         }
     }
 }
+impl ::std::fmt::Display for MedicinalProductPackageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000073490 => "Ampoule",
+            Self::N100000073491 => "Applicator",
+            Self::N100000073492 => "Automatic injection device",
+            Self::N100000073493 => "Bag",
+            Self::N100000073494 => "Balling gun",
+            Self::N100000073495 => "Barrel",
+            Self::N100000073496 => "Blister",
+            Self::N100000073497 => "Bottle",
+            Self::N100000073498 => "Box",
+            Self::N100000073547 => "Sachet",
+            Self::N100000073563 => "Vial",
+            Self::N100000143555 => "Pack",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MedicinalProductPackageType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27073,6 +36719,24 @@ impl Serialize for MedicinalProductPackageType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MedicinalProductPackageType> for Coding {
+    fn from(code: MedicinalProductPackageType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-package-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MedicinalProductPackageType> for CodeableConcept {
+    fn from(code: MedicinalProductPackageType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MedicinalProductType`. Overall defining type of this Medicinal Product.
@@ -27109,6 +36773,15 @@ impl AsRef<str> for MedicinalProductType {
         }
     }
 }
+impl ::std::fmt::Display for MedicinalProductType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::InvestigationalProduct => "Investigational Medicinal Product",
+            Self::MedicinalProduct => "Medicinal Product",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MedicinalProductType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27125,6 +36798,22 @@ impl Serialize for MedicinalProductType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MedicinalProductType> for Coding {
+    fn from(code: MedicinalProductType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/medicinal-product-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MedicinalProductType> for CodeableConcept {
+    fn from(code: MedicinalProductType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MessageEvent`. One of the message events defined as part of this version of FHIR.
@@ -27151,6 +36840,14 @@ impl AsRef<str> for MessageEvent {
         }
     }
 }
+impl ::std::fmt::Display for MessageEvent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MessageEvent {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27167,6 +36864,22 @@ impl Serialize for MessageEvent {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MessageEvent> for Coding {
+    fn from(code: MessageEvent) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/message-events".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MessageEvent> for CodeableConcept {
+    fn from(code: MessageEvent) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MessageSignificanceCategory`. The impact of the content of a message.
@@ -27209,6 +36922,16 @@ impl AsRef<str> for MessageSignificanceCategory {
         }
     }
 }
+impl ::std::fmt::Display for MessageSignificanceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Consequence => "Consequence",
+            Self::Currency => "Currency",
+            Self::Notification => "Notification",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MessageSignificanceCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27225,6 +36948,24 @@ impl Serialize for MessageSignificanceCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MessageSignificanceCategory> for Coding {
+    fn from(code: MessageSignificanceCategory) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/message-significance-category".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MessageSignificanceCategory> for CodeableConcept {
+    fn from(code: MessageSignificanceCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MessageTransport`. The protocol used for message transport.
@@ -27267,6 +37008,16 @@ impl AsRef<str> for MessageTransport {
         }
     }
 }
+impl ::std::fmt::Display for MessageTransport {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ftp => "FTP",
+            Self::Http => "HTTP",
+            Self::Mllp => "MLLP",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MessageTransport {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27283,6 +37034,22 @@ impl Serialize for MessageTransport {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MessageTransport> for Coding {
+    fn from(code: MessageTransport) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/message-transport".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MessageTransport> for CodeableConcept {
+    fn from(code: MessageTransport) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `MissingToothReasonCodes`. This value set includes sample Missing Tooth Reason codes.
@@ -27333,6 +37100,18 @@ impl AsRef<str> for MissingToothReasonCodes {
         }
     }
 }
+impl ::std::fmt::Display for MissingToothReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::C => "C",
+            Self::E => "E",
+            Self::O => "O",
+            Self::U => "U",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for MissingToothReasonCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27349,6 +37128,24 @@ impl Serialize for MissingToothReasonCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<MissingToothReasonCodes> for Coding {
+    fn from(code: MissingToothReasonCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/missingtoothreason".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<MissingToothReasonCodes> for CodeableConcept {
+    fn from(code: MissingToothReasonCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ModifierTypeCodes`. This value set includes sample Modifier type codes.
@@ -27411,6 +37208,20 @@ impl AsRef<str> for ModifierTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for ModifierTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::A => "Repair of prior service or installation",
+            Self::B => "Temporary service or installation",
+            Self::C => "TMJ treatment",
+            Self::E => "Implant or associated with an implant",
+            Self::Rooh => "Rush or Outside of office hours",
+            Self::X => "None",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ModifierTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27427,6 +37238,22 @@ impl Serialize for ModifierTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ModifierTypeCodes> for Coding {
+    fn from(code: ModifierTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/modifiers".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ModifierTypeCodes> for CodeableConcept {
+    fn from(code: ModifierTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NameUse`. The use of a human name.
@@ -27493,6 +37320,20 @@ impl AsRef<str> for NameUse {
         }
     }
 }
+impl ::std::fmt::Display for NameUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Anonymous => "Anonymous",
+            Self::Maiden => "Name changed for Marriage",
+            Self::Nickname => "Nickname",
+            Self::Official => "Official",
+            Self::Old => "Old",
+            Self::Temp => "Temp",
+            Self::Usual => "Usual",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NameUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27509,6 +37350,22 @@ impl Serialize for NameUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NameUse> for Coding {
+    fn from(code: NameUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/name-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NameUse> for CodeableConcept {
+    fn from(code: NameUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NamingSystemIdentifierType`. Identifies the style of unique identifier used to identify a namespace.
@@ -27557,6 +37414,17 @@ impl AsRef<str> for NamingSystemIdentifierType {
         }
     }
 }
+impl ::std::fmt::Display for NamingSystemIdentifierType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Oid => "OID",
+            Self::Other => "Other",
+            Self::Uri => "URI",
+            Self::Uuid => "UUID",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NamingSystemIdentifierType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27573,6 +37441,24 @@ impl Serialize for NamingSystemIdentifierType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NamingSystemIdentifierType> for Coding {
+    fn from(code: NamingSystemIdentifierType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NamingSystemIdentifierType> for CodeableConcept {
+    fn from(code: NamingSystemIdentifierType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NamingSystemType`. Identifies the purpose of the naming system.
@@ -27615,6 +37501,16 @@ impl AsRef<str> for NamingSystemType {
         }
     }
 }
+impl ::std::fmt::Display for NamingSystemType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Codesystem => "Code System",
+            Self::Identifier => "Identifier",
+            Self::Root => "Root",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NamingSystemType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27631,6 +37527,22 @@ impl Serialize for NamingSystemType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NamingSystemType> for Coding {
+    fn from(code: NamingSystemType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/namingsystem-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NamingSystemType> for CodeableConcept {
+    fn from(code: NamingSystemType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NarrativeStatus`. The status of a resource narrative.
@@ -27679,6 +37591,17 @@ impl AsRef<str> for NarrativeStatus {
         }
     }
 }
+impl ::std::fmt::Display for NarrativeStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Additional => "Additional",
+            Self::Empty => "Empty",
+            Self::Extensions => "Extensions",
+            Self::Generated => "Generated",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NarrativeStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27695,6 +37618,22 @@ impl Serialize for NarrativeStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NarrativeStatus> for Coding {
+    fn from(code: NarrativeStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/narrative-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NarrativeStatus> for CodeableConcept {
+    fn from(code: NarrativeStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NetworkTypeCodes`. This value set includes a smattering of Network type codes.
@@ -27733,6 +37672,16 @@ impl AsRef<str> for NetworkTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for NetworkTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::In => "In Network",
+            Self::Out => "Out of Network",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NetworkTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27749,6 +37698,22 @@ impl Serialize for NetworkTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NetworkTypeCodes> for Coding {
+    fn from(code: NetworkTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/benefit-network".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NetworkTypeCodes> for CodeableConcept {
+    fn from(code: NetworkTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NoteType`. The presentation types of notes.
@@ -27791,6 +37756,16 @@ impl AsRef<str> for NoteType {
         }
     }
 }
+impl ::std::fmt::Display for NoteType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Display => "Display",
+            Self::Print => "Print (Form)",
+            Self::Printoper => "Print (Operator)",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NoteType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27807,6 +37782,22 @@ impl Serialize for NoteType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NoteType> for Coding {
+    fn from(code: NoteType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/note-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NoteType> for CodeableConcept {
+    fn from(code: NoteType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `NutritionProductStatus`. Codes identifying the lifecycle stage of a product.
@@ -27849,6 +37840,16 @@ impl AsRef<str> for NutritionProductStatus {
         }
     }
 }
+impl ::std::fmt::Display for NutritionProductStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for NutritionProductStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27865,6 +37866,22 @@ impl Serialize for NutritionProductStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<NutritionProductStatus> for Coding {
+    fn from(code: NutritionProductStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/nutritionproduct-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<NutritionProductStatus> for CodeableConcept {
+    fn from(code: NutritionProductStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ObservationCategoryCodes`. Observation Category codes.
@@ -27943,6 +37960,22 @@ impl AsRef<str> for ObservationCategoryCodes {
         }
     }
 }
+impl ::std::fmt::Display for ObservationCategoryCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Activity => "Activity",
+            Self::Exam => "Exam",
+            Self::Imaging => "Imaging",
+            Self::Laboratory => "Laboratory",
+            Self::Procedure => "Procedure",
+            Self::SocialHistory => "Social History",
+            Self::Survey => "Survey",
+            Self::Therapy => "Therapy",
+            Self::VitalSigns => "Vital Signs",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ObservationCategoryCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -27959,6 +37992,22 @@ impl Serialize for ObservationCategoryCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ObservationCategoryCodes> for Coding {
+    fn from(code: ObservationCategoryCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/observation-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ObservationCategoryCodes> for CodeableConcept {
+    fn from(code: ObservationCategoryCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ObservationDataType`. Permitted data type for observation value.
@@ -28049,6 +38098,24 @@ impl AsRef<str> for ObservationDataType {
         }
     }
 }
+impl ::std::fmt::Display for ObservationDataType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CodeableConcept => "CodeableConcept",
+            Self::Period => "Period",
+            Self::Quantity => "Quantity",
+            Self::Range => "Range",
+            Self::Ratio => "Ratio",
+            Self::SampledData => "SampledData",
+            Self::Boolean => "boolean",
+            Self::DateTime => "dateTime",
+            Self::Integer => "integer",
+            Self::String => "string",
+            Self::Time => "time",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ObservationDataType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28065,6 +38132,22 @@ impl Serialize for ObservationDataType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ObservationDataType> for Coding {
+    fn from(code: ObservationDataType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/permitted-data-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ObservationDataType> for CodeableConcept {
+    fn from(code: ObservationDataType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ObservationRangeCategory`. Codes identifying the category of observation range.
@@ -28107,6 +38190,16 @@ impl AsRef<str> for ObservationRangeCategory {
         }
     }
 }
+impl ::std::fmt::Display for ObservationRangeCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Absolute => "absolute range",
+            Self::Critical => "critical range",
+            Self::Reference => "reference range",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ObservationRangeCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28123,6 +38216,22 @@ impl Serialize for ObservationRangeCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ObservationRangeCategory> for Coding {
+    fn from(code: ObservationRangeCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/observation-range-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ObservationRangeCategory> for CodeableConcept {
+    fn from(code: ObservationRangeCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ObservationReferenceRangeMeaningCodes`. This value set defines a set of codes that can be used to indicate the meaning/use of a reference range.
@@ -28227,6 +38336,27 @@ impl AsRef<str> for ObservationReferenceRangeMeaningCodes {
         }
     }
 }
+impl ::std::fmt::Display for ObservationReferenceRangeMeaningCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Endocrine => "Endocrine",
+            Self::Follicular => "Follicular Stage",
+            Self::Luteal => "Luteal",
+            Self::Midcycle => "MidCycle",
+            Self::Normal => "Normal Range",
+            Self::Post => "Post Therapeutic Desired Level",
+            Self::Postmenopausal => "Post-Menopause",
+            Self::Pre => "Pre Therapeutic Desired Level",
+            Self::PrePuberty => "Pre-Puberty",
+            Self::Recommended => "Recommended Range",
+            Self::Therapeutic => "Therapeutic Desired Level",
+            Self::Treatment => "Treatment Range",
+            Self::Type => "Type",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ObservationReferenceRangeMeaningCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28243,6 +38373,24 @@ impl Serialize for ObservationReferenceRangeMeaningCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ObservationReferenceRangeMeaningCodes> for Coding {
+    fn from(code: ObservationReferenceRangeMeaningCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/referencerange-meaning".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ObservationReferenceRangeMeaningCodes> for CodeableConcept {
+    fn from(code: ObservationReferenceRangeMeaningCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ObservationStatus`. Codes providing the status of an observation.
@@ -28315,6 +38463,21 @@ impl AsRef<str> for ObservationStatus {
         }
     }
 }
+impl ::std::fmt::Display for ObservationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::Cancelled => "Cancelled",
+            Self::Corrected => "Corrected",
+            Self::EnteredInError => "Entered in Error",
+            Self::Final => "Final",
+            Self::Preliminary => "Preliminary",
+            Self::Registered => "Registered",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ObservationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28331,6 +38494,22 @@ impl Serialize for ObservationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ObservationStatus> for Coding {
+    fn from(code: ObservationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/observation-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ObservationStatus> for CodeableConcept {
+    fn from(code: ObservationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `OperationKind`. Whether an operation is a normal operation or a query.
@@ -28367,6 +38546,15 @@ impl AsRef<str> for OperationKind {
         }
     }
 }
+impl ::std::fmt::Display for OperationKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Operation => "Operation",
+            Self::Query => "Query",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for OperationKind {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28383,6 +38571,22 @@ impl Serialize for OperationKind {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<OperationKind> for Coding {
+    fn from(code: OperationKind) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/operation-kind".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<OperationKind> for CodeableConcept {
+    fn from(code: OperationKind) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `OperationParameterUse`. Whether an operation parameter is an input or an output parameter.
@@ -28419,6 +38623,15 @@ impl AsRef<str> for OperationParameterUse {
         }
     }
 }
+impl ::std::fmt::Display for OperationParameterUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::In => "In",
+            Self::Out => "Out",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for OperationParameterUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28435,6 +38648,22 @@ impl Serialize for OperationParameterUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<OperationParameterUse> for Coding {
+    fn from(code: OperationParameterUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/operation-parameter-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<OperationParameterUse> for CodeableConcept {
+    fn from(code: OperationParameterUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `OralSiteCodes`. This value set includes a smattering of FDI oral site codes.
@@ -28707,6 +38936,55 @@ impl AsRef<str> for OralSiteCodes {
         }
     }
 }
+impl ::std::fmt::Display for OralSiteCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0 => "Oral cavity",
+            Self::N1 => "1",
+            Self::N11 => "11",
+            Self::N12 => "12",
+            Self::N13 => "13",
+            Self::N14 => "14",
+            Self::N15 => "15",
+            Self::N16 => "16",
+            Self::N17 => "17",
+            Self::N18 => "18",
+            Self::N2 => "2",
+            Self::N21 => "21",
+            Self::N22 => "22",
+            Self::N23 => "23",
+            Self::N24 => "24",
+            Self::N25 => "25",
+            Self::N26 => "26",
+            Self::N27 => "27",
+            Self::N28 => "28",
+            Self::N3 => "3",
+            Self::N31 => "31",
+            Self::N32 => "32",
+            Self::N33 => "33",
+            Self::N34 => "34",
+            Self::N35 => "35",
+            Self::N36 => "36",
+            Self::N37 => "37",
+            Self::N38 => "38",
+            Self::N4 => "4",
+            Self::N41 => "41",
+            Self::N42 => "42",
+            Self::N43 => "43",
+            Self::N44 => "44",
+            Self::N45 => "45",
+            Self::N46 => "46",
+            Self::N47 => "47",
+            Self::N48 => "48",
+            Self::N5 => "5",
+            Self::N6 => "6",
+            Self::N7 => "7",
+            Self::N8 => "8",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for OralSiteCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28723,6 +39001,22 @@ impl Serialize for OralSiteCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<OralSiteCodes> for Coding {
+    fn from(code: OralSiteCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-tooth".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<OralSiteCodes> for CodeableConcept {
+    fn from(code: OralSiteCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `OrganizationAffiliationRole`. This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another.
@@ -28797,6 +39091,22 @@ impl AsRef<str> for OrganizationAffiliationRole {
         }
     }
 }
+impl ::std::fmt::Display for OrganizationAffiliationRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::HieHio => "HIE/HIO",
+            Self::Agency => "Agency",
+            Self::Diagnostics => "Diagnostics",
+            Self::Member => "Member",
+            Self::Payer => "Payer",
+            Self::Provider => "Provider",
+            Self::Research => "Research",
+            Self::Supplier => "Supplier",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for OrganizationAffiliationRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28813,6 +39123,22 @@ impl Serialize for OrganizationAffiliationRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<OrganizationAffiliationRole> for Coding {
+    fn from(code: OrganizationAffiliationRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/organization-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<OrganizationAffiliationRole> for CodeableConcept {
+    fn from(code: OrganizationAffiliationRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `OrganizationType`. This example value set defines a set of codes that can be used to indicate a type of organization.
@@ -28911,6 +39237,26 @@ impl AsRef<str> for OrganizationType {
         }
     }
 }
+impl ::std::fmt::Display for OrganizationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Bus => "Non-Healthcare Business or Corporation",
+            Self::Cg => "Community Group",
+            Self::Crs => "Clinical Research Sponsor",
+            Self::Dept => "Hospital Department",
+            Self::Edu => "Educational Institute",
+            Self::Govt => "Government",
+            Self::Ins => "Insurance Company",
+            Self::Other => "Other",
+            Self::Pay => "Payer",
+            Self::Prov => "Healthcare Provider",
+            Self::Reli => "Religious Institution",
+            Self::Team => "Organizational team",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for OrganizationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28927,6 +39273,22 @@ impl Serialize for OrganizationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<OrganizationType> for Coding {
+    fn from(code: OrganizationType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/organization-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<OrganizationType> for CodeableConcept {
+    fn from(code: OrganizationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PackageCharacteristic`. A characteristic of a package.
@@ -28969,6 +39331,16 @@ impl AsRef<str> for PackageCharacteristic {
         }
     }
 }
+impl ::std::fmt::Display for PackageCharacteristic {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CalendarPack => "Calendar pack",
+            Self::HospitalPack => "Hospital pack",
+            Self::NursePrescribable => "Nurse prescribable",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PackageCharacteristic {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -28985,6 +39357,22 @@ impl Serialize for PackageCharacteristic {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PackageCharacteristic> for Coding {
+    fn from(code: PackageCharacteristic) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/package-characteristic".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PackageCharacteristic> for CodeableConcept {
+    fn from(code: PackageCharacteristic) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PackageMaterial`. A material used in the construction of packages and their components.
@@ -29267,6 +39655,58 @@ impl AsRef<str> for PackageMaterial {
         }
     }
 }
+impl ::std::fmt::Display for PackageMaterial {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N200000003200 => "Aluminium",
+            Self::N200000003201 => "Cyclic Olefin Copolymer",
+            Self::N200000003202 => "Epoxyphenol",
+            Self::N200000003203 => "Glass",
+            Self::N200000003204 => "Glass type I",
+            Self::N200000003205 => "Glass type II",
+            Self::N200000003206 => "Glass type III",
+            Self::N200000003207 => "Paper",
+            Self::N200000003208 => "Plastic",
+            Self::N200000003209 => "PolyAmide",
+            Self::N200000003210 => "Orientated PolyAmide",
+            Self::N200000003211 => "PolyCarbonate",
+            Self::N200000003212 => "PolyChloroTriFluoroEthylene",
+            Self::N200000003213 => "Polyester",
+            Self::N200000003214 => "PolyEthylene",
+            Self::N200000003215 => "High Density PolyEthylene",
+            Self::N200000003216 => "Low Density PolyEthylene",
+            Self::N200000003217 => "PolyEthylene TerePhthalate",
+            Self::N200000003218 => "Polyolefin",
+            Self::N200000003219 => "PolyPropylene",
+            Self::N200000003220 => "PolyStyrene",
+            Self::N200000003221 => "PolyVinyl Acetate",
+            Self::N200000003222 => "PolyVinyl Chloride",
+            Self::N200000003223 => "Plasticised PolyVinyl Chloride",
+            Self::N200000003224 => {
+                "Non-plasticised PolyVinyl Chloride / Unplasticised PolyVinyl Chloride"
+            }
+            Self::N200000003225 => "PolyVinylidene Chloride",
+            Self::N200000003226 => "Rubber",
+            Self::N200000003227 => "Silicone oil",
+            Self::N200000003228 => "Silicone elastomer",
+            Self::N200000003229 => "Steel",
+            Self::N200000003529 => "Cardboard",
+            Self::N200000012514 => "PolyAcryloNitrile",
+            Self::N200000012515 => "Ethylene acrylic acid copolymer",
+            Self::N200000012521 => "Ethylene meta-acrylic acid",
+            Self::N200000012522 => "Ethylene-Vinyl Alcohol copolymer",
+            Self::N200000012523 => "PolyVinylidene Fluoride",
+            Self::N200000012524 => "Medium Density PolyEthylene",
+            Self::N200000012538 => "Syndiotactic Polypropylene",
+            Self::N200000015521 => "PolyEthylene copolymer",
+            Self::N200000023330 => "Expanded Polyethylene",
+            Self::N200000023332 => "Cyclic Olefin Polymer",
+            Self::N200000025255 => "Silica gel",
+            Self::N200000025257 => "Linear Low Density PolyEthylene",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PackageMaterial {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -29283,6 +39723,22 @@ impl Serialize for PackageMaterial {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PackageMaterial> for Coding {
+    fn from(code: PackageMaterial) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/package-material".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PackageMaterial> for CodeableConcept {
+    fn from(code: PackageMaterial) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PackageType`. A high level categorisation of a package.
@@ -29325,6 +39781,16 @@ impl AsRef<str> for PackageType {
         }
     }
 }
+impl ::std::fmt::Display for PackageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::MedicinalProductPack => "Medicinal product pack",
+            Self::RawMaterialPackage => "Raw material package",
+            Self::ShippingTransportContainer => "Shipping or transport container",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PackageType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -29341,6 +39807,22 @@ impl Serialize for PackageType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PackageType> for Coding {
+    fn from(code: PackageType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/package-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PackageType> for CodeableConcept {
+    fn from(code: PackageType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PackagingType`. A type of packaging.
@@ -29977,6 +40459,115 @@ impl AsRef<str> for PackagingType {
         }
     }
 }
+impl ::std::fmt::Display for PackagingType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000073490 => "Ampoule",
+            Self::N100000073491 => "Applicator",
+            Self::N100000073492 => "Automatic injection device",
+            Self::N100000073493 => "Bag",
+            Self::N100000073494 => "Balling gun",
+            Self::N100000073495 => "Barrel",
+            Self::N100000073496 => "Blister",
+            Self::N100000073497 => "Bottle",
+            Self::N100000073498 => "Box",
+            Self::N100000073499 => "Brush",
+            Self::N100000073500 => "Brush applicator",
+            Self::N100000073501 => "Cannula",
+            Self::N100000073502 => "Cap",
+            Self::N100000073503 => "Cartridge",
+            Self::N100000073504 => "Child-resistant closure",
+            Self::N100000073505 => "Cup",
+            Self::N100000073506 => "Dabbing applicator",
+            Self::N100000073507 => "Dart",
+            Self::N100000073508 => "Dredging applicator",
+            Self::N100000073509 => "Dredging container",
+            Self::N100000073510 => "Drench gun",
+            Self::N100000073511 => "Dropper applicator",
+            Self::N100000073512 => "Dropper container",
+            Self::N100000073513 => "Fixed cryogenic vessel",
+            Self::N100000073514 => "Gas cylinder",
+            Self::N100000073515 => "High pressure transdermal delivery device",
+            Self::N100000073516 => "Implanter",
+            Self::N100000073517 => "Inhaler",
+            Self::N100000073518 => "In-ovo injection device",
+            Self::N100000073519 => "Injection needle",
+            Self::N100000073520 => "Injection syringe",
+            Self::N100000073521 => "Internal graduated calibration chamber",
+            Self::N100000073522 => "Intramammary syringe",
+            Self::N100000073523 => "Jar",
+            Self::N100000073524 => "Measuring device",
+            Self::N100000073525 => "Measuring spoon",
+            Self::N100000073526 => "Metering pump",
+            Self::N100000073527 => "Metering valve",
+            Self::N100000073528 => "Mobile cryogenic vessel",
+            Self::N100000073529 => "Mouthpiece",
+            Self::N100000073530 => "Multidose container",
+            Self::N100000073531 => "Multidose container with airless pump",
+            Self::N100000073532 => "Multipuncturer",
+            Self::N100000073533 => "Nasal applicator",
+            Self::N100000073534 => "Nebuliser",
+            Self::N100000073535 => "Needle applicator",
+            Self::N100000073536 => "Nozzle",
+            Self::N100000073537 => "Oral syringe",
+            Self::N100000073538 => "Pipette",
+            Self::N100000073539 => "Pipette applicator",
+            Self::N100000073540 => "Pouch",
+            Self::N100000073541 => "Pour-on container",
+            Self::N100000073542 => "Pre-filled gastroenteral tube",
+            Self::N100000073543 => "Pre-filled pen",
+            Self::N100000073544 => "Pre-filled syringe",
+            Self::N100000073545 => "Pressurised container",
+            Self::N100000073546 => "Prick test applicator",
+            Self::N100000073547 => "Sachet",
+            Self::N100000073548 => "Scarifier",
+            Self::N100000073549 => "Screw cap",
+            Self::N100000073550 => "Single-dose container",
+            Self::N100000073551 => "Spatula",
+            Self::N100000073552 => "Spot-on applicator",
+            Self::N100000073553 => "Spray container",
+            Self::N100000073554 => "Spray pump",
+            Self::N100000073555 => "Spray valve",
+            Self::N100000073556 => "Stab vaccinator",
+            Self::N100000073557 => "Stopper",
+            Self::N100000073558 => "Straw",
+            Self::N100000073559 => "Strip",
+            Self::N100000073560 => "Tablet container",
+            Self::N100000073561 => "Tube",
+            Self::N100000073562 => "Vaginal sponge applicator",
+            Self::N100000073563 => "Vial",
+            Self::N100000075664 => "Administration system",
+            Self::N100000116195 => "Calendar package",
+            Self::N100000116196 => "Needle-free injector",
+            Self::N100000116197 => "Roll-on container",
+            Self::N100000125779 => "Multidose container with pump",
+            Self::N100000137702 => "Container",
+            Self::N100000137703 => "Oral applicator",
+            Self::N100000143554 => "Multidose container with metering pump",
+            Self::N100000143555 => "Pack",
+            Self::N100000163233 => "disk",
+            Self::N100000163234 => "plunger",
+            Self::N100000164143 => "infusion port",
+            Self::N100000166980 => "Valve",
+            Self::N100000169899 => "Jerrycan",
+            Self::N100000173982 => "Oral applicator",
+            Self::N100000173983 => "Dose dispenser",
+            Self::N100000174066 => "Unit-dose blister",
+            Self::N100000174067 => "Pre-filled injector",
+            Self::N100000174068 => "Pre-filled oral syringe",
+            Self::N100000174069 => "Pre-filled oral applicator",
+            Self::N100000174070 => "Dose-dispenser cartridge",
+            Self::N200000005068 => "Pen",
+            Self::N200000005585 => "Wrapper",
+            Self::N200000010647 => "Lid",
+            Self::N200000011726 => "Capsule for opening",
+            Self::N200000012539 => "Child-resistant sachet",
+            Self::N200000013191 => "Tamper-evident closure",
+            Self::N200000024874 => "Tablet tube",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PackagingType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -29993,6 +40584,22 @@ impl Serialize for PackagingType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PackagingType> for Coding {
+    fn from(code: PackagingType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/packaging-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PackagingType> for CodeableConcept {
+    fn from(code: PackagingType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ParticipantRequired`. Is the Participant required to attend the appointment.
@@ -30035,6 +40642,16 @@ impl AsRef<str> for ParticipantRequired {
         }
     }
 }
+impl ::std::fmt::Display for ParticipantRequired {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::InformationOnly => "Information Only",
+            Self::Optional => "Optional",
+            Self::Required => "Required",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ParticipantRequired {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30051,6 +40668,22 @@ impl Serialize for ParticipantRequired {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ParticipantRequired> for Coding {
+    fn from(code: ParticipantRequired) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/participantrequired".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ParticipantRequired> for CodeableConcept {
+    fn from(code: ParticipantRequired) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ParticipantType`. This codesystem defines a set of codes that can be used to indicate how an individual participates in an encounter.
@@ -30089,6 +40722,16 @@ impl AsRef<str> for ParticipantType {
         }
     }
 }
+impl ::std::fmt::Display for ParticipantType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Emergency => "Emergency",
+            Self::Translator => "Translator",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ParticipantType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30105,6 +40748,22 @@ impl Serialize for ParticipantType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ParticipantType> for Coding {
+    fn from(code: ParticipantType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/participant-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ParticipantType> for CodeableConcept {
+    fn from(code: ParticipantType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ParticipationStatus`. The Participation status of an appointment.
@@ -30153,6 +40812,17 @@ impl AsRef<str> for ParticipationStatus {
         }
     }
 }
+impl ::std::fmt::Display for ParticipationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Accepted => "Accepted",
+            Self::Declined => "Declined",
+            Self::NeedsAction => "Needs Action",
+            Self::Tentative => "Tentative",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ParticipationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30169,6 +40839,22 @@ impl Serialize for ParticipationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ParticipationStatus> for Coding {
+    fn from(code: ParticipationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/participationstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ParticipationStatus> for CodeableConcept {
+    fn from(code: ParticipationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PatientMedicineChangeTypes`. Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation.
@@ -30229,6 +40915,19 @@ impl AsRef<str> for PatientMedicineChangeTypes {
         }
     }
 }
+impl ::std::fmt::Display for PatientMedicineChangeTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N01 => "Unchanged",
+            Self::N02 => "Changed",
+            Self::N03 => "Cancelled",
+            Self::N04 => "Prescribed",
+            Self::N05 => "Ceased",
+            Self::N06 => "Suspended",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PatientMedicineChangeTypes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30245,6 +40944,22 @@ impl Serialize for PatientMedicineChangeTypes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PatientMedicineChangeTypes> for Coding {
+    fn from(code: PatientMedicineChangeTypes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/list-item-flag".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PatientMedicineChangeTypes> for CodeableConcept {
+    fn from(code: PatientMedicineChangeTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PaymentAdjustmentReasonCodes`. This value set includes smattering of Payment Adjustment Reason codes.
@@ -30283,6 +40998,16 @@ impl AsRef<str> for PaymentAdjustmentReasonCodes {
         }
     }
 }
+impl ::std::fmt::Display for PaymentAdjustmentReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::A001 => "Prior Payment Reversal",
+            Self::A002 => "Prior Overpayment",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PaymentAdjustmentReasonCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30299,6 +41024,25 @@ impl Serialize for PaymentAdjustmentReasonCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PaymentAdjustmentReasonCodes> for Coding {
+    fn from(code: PaymentAdjustmentReasonCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/payment-adjustment-reason"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PaymentAdjustmentReasonCodes> for CodeableConcept {
+    fn from(code: PaymentAdjustmentReasonCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PaymentStatusCodes`. This value set includes a sample set of Payment Status codes.
@@ -30337,6 +41081,16 @@ impl AsRef<str> for PaymentStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for PaymentStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cleared => "Cleared",
+            Self::Paid => "Paid",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PaymentStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30353,6 +41107,22 @@ impl Serialize for PaymentStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PaymentStatusCodes> for Coding {
+    fn from(code: PaymentStatusCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/paymentstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PaymentStatusCodes> for CodeableConcept {
+    fn from(code: PaymentStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PaymentTypeCodes`. This value set includes a smattering of Payment Type codes.
@@ -30391,6 +41161,16 @@ impl AsRef<str> for PaymentTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for PaymentTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Complete => "Complete",
+            Self::Partial => "Partial",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PaymentTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30407,6 +41187,22 @@ impl Serialize for PaymentTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PaymentTypeCodes> for Coding {
+    fn from(code: PaymentTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/ex-paymenttype".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PaymentTypeCodes> for CodeableConcept {
+    fn from(code: PaymentTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PediatricUse`. Suitability for age groups, in particular children.
@@ -30515,6 +41311,29 @@ impl AsRef<str> for PediatricUse {
         }
     }
 }
+impl ::std::fmt::Display for PediatricUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Adolescents => "Adolescents (12 to < 18 years)",
+            Self::Adults => "Adults (18 to < 65 years)",
+            Self::AdultsAndElderly => "Adult and elderly population (> 18 years)",
+            Self::All => "All",
+            Self::Children => "Children (2 to < 12 years)",
+            Self::Elderly => "Elderly (≥ 65 years)",
+            Self::InUtero => "In utero",
+            Self::Infants => "Infants and toddlers (28 days – 23 months)",
+            Self::Neonate => "Neonate",
+            Self::PediatricPopulation => "Pediatric Population (< 18 years)",
+            Self::Prepubertal => "Prepubertal children (2 years to onset of puberty)",
+            Self::PretermNewborn => "Preterm newborn infants (0 – 27 days)",
+            Self::PubertalAndPostpubertal => {
+                "Pubertal and postpubertal adolescents (onset of puberty to < 18 years)"
+            }
+            Self::TermNewborn => "Term newborn infants (0 – 27 days)",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PediatricUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30531,6 +41350,24 @@ impl Serialize for PediatricUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PediatricUse> for Coding {
+    fn from(code: PediatricUse) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PediatricUse> for CodeableConcept {
+    fn from(code: PediatricUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PlanDefinitionType`. The type of PlanDefinition.
@@ -30579,6 +41416,17 @@ impl AsRef<str> for PlanDefinitionType {
         }
     }
 }
+impl ::std::fmt::Display for PlanDefinitionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ClinicalProtocol => "Clinical Protocol",
+            Self::EcaRule => "ECA Rule",
+            Self::OrderSet => "Order Set",
+            Self::WorkflowDefinition => "Workflow Definition",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PlanDefinitionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30595,6 +41443,22 @@ impl Serialize for PlanDefinitionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PlanDefinitionType> for Coding {
+    fn from(code: PlanDefinitionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/plan-definition-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PlanDefinitionType> for CodeableConcept {
+    fn from(code: PlanDefinitionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PolicyCodes`. FHIR Specific Example codes for Consent Policy
@@ -30777,6 +41641,46 @@ impl AsRef<str> for PolicyCodes {
         }
     }
 }
+impl ::std::fmt::Display for PolicyCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AtElga => "AT ELGA Opt-in Consent",
+            Self::Cric => "Common Rule Informed Consent",
+            Self::Dch3927 => "Michigan behavior and mental health consent",
+            Self::Ga4Gh => "Population origins and ancestry research consent",
+            Self::HipaaAuth => "HIPAA Authorization",
+            Self::HipaaNpp => "HIPAA Notice of Privacy Practices",
+            Self::HipaaResearch => "HIPAA Research Authorization",
+            Self::HipaaRestrictions => "HIPAA Restrictions",
+            Self::HipaaSelfPay => "HIPAA Self-Pay Restriction",
+            Self::IllinoisMinorProcedure => {
+                "Illinois Consent by Minors to Medical Procedures"
+            }
+            Self::Mdhhs5515 => {
+                "Michigan MDHHS-5515 Consent to Share Behavioral Health Information for Care Coordination Purposes"
+            }
+            Self::Nci => "NCI Cancer Clinical Trial consent",
+            Self::Nih527 => "NIH Authorization for the Release of Medical Information",
+            Self::NihGrdr => {
+                "NIH Global Rare Disease Patient Registry and Data Repository consent"
+            }
+            Self::NihHipaa => "HHS NIH HIPAA Research Authorization",
+            Self::NlLsp => "NL LSP Permission",
+            Self::Nyssipp => "New York State Surgical and Invasive Procedure Protocol",
+            Self::Squaxin => "Squaxin Indian behavioral health and HIPAA consent",
+            Self::Ssa827 => "SSA Authorization to Disclose",
+            Self::Va100484 => "VA Form 10-0484",
+            Self::Va100485 => "VA Form 10-0485",
+            Self::Va1010116 => "VA Form 10-10-10116",
+            Self::Va105345 => "VA Form 10-5345",
+            Self::Va105345A => "VA Form 10-5345a",
+            Self::Va105345AMhv => "VA Form 10-5345a-MHV",
+            Self::Va214142 => "VA Form 21-4142",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PolicyCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30793,6 +41697,24 @@ impl Serialize for PolicyCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PolicyCodes> for Coding {
+    fn from(code: PolicyCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/consentpolicycodes".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PolicyCodes> for CodeableConcept {
+    fn from(code: PolicyCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PriorityCodes`. This value set includes the financial processing priority codes.
@@ -30837,6 +41759,17 @@ impl AsRef<str> for PriorityCodes {
         }
     }
 }
+impl ::std::fmt::Display for PriorityCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Deferred => "Deferred",
+            Self::Normal => "Normal",
+            Self::Stat => "Immediate",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PriorityCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30853,6 +41786,22 @@ impl Serialize for PriorityCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PriorityCodes> for Coding {
+    fn from(code: PriorityCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/processpriority".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PriorityCodes> for CodeableConcept {
+    fn from(code: PriorityCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProcedureDeviceActionCodes`. Example value set for Procedure Device Action code (what happened to a device during a procedure.
@@ -30897,6 +41846,17 @@ impl AsRef<str> for ProcedureDeviceActionCodes {
         }
     }
 }
+impl ::std::fmt::Display for ProcedureDeviceActionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Explanted => "Explanted",
+            Self::Implanted => "Implanted",
+            Self::Manipulated => "Manipulated",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProcedureDeviceActionCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30913,6 +41873,22 @@ impl Serialize for ProcedureDeviceActionCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProcedureDeviceActionCodes> for Coding {
+    fn from(code: ProcedureDeviceActionCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/device-action".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProcedureDeviceActionCodes> for CodeableConcept {
+    fn from(code: ProcedureDeviceActionCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProcedureProgressStatusCodes`. This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the procedure performance process.
@@ -30975,6 +41951,20 @@ impl AsRef<str> for ProcedureProgressStatusCodes {
         }
     }
 }
+impl ::std::fmt::Display for ProcedureProgressStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AnesthesiaInduced => "Anesthesia Induced",
+            Self::ClosedIncision => "Closed Incision",
+            Self::InOperatingRoom => "In Operating Room",
+            Self::InRecoveryRoom => "In Recovery Room",
+            Self::OpenIncision => "Open Incision",
+            Self::Prepared => "Prepared",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProcedureProgressStatusCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -30991,6 +41981,22 @@ impl Serialize for ProcedureProgressStatusCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProcedureProgressStatusCodes> for Coding {
+    fn from(code: ProcedureProgressStatusCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/procedure-progress-status-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProcedureProgressStatusCodes> for CodeableConcept {
+    fn from(code: ProcedureProgressStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProductConfidentiality`. Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product.
@@ -31027,6 +42033,15 @@ impl AsRef<str> for ProductConfidentiality {
         }
     }
 }
+impl ::std::fmt::Display for ProductConfidentiality {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CommerciallySensitive => "Commercially Sensitive",
+            Self::NotCommerciallySensitive => "Not Commercially Sensitive",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProductConfidentiality {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31043,6 +42058,25 @@ impl Serialize for ProductConfidentiality {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProductConfidentiality> for Coding {
+    fn from(code: ProductConfidentiality) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProductConfidentiality> for CodeableConcept {
+    fn from(code: ProductConfidentiality) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProductContactType`. Contact type for a Medicinal Product.
@@ -31097,6 +42131,22 @@ impl AsRef<str> for ProductContactType {
         }
     }
 }
+impl ::std::fmt::Display for ProductContactType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Pvenquiries => "Pharmacovigilance Enquiry Information",
+            Self::ProcedureContactAfter => {
+                "Person/Company authorised for Communication after procedure"
+            }
+            Self::ProcedureContactDuring => {
+                "Person/Company authorised for Communication during procedure"
+            }
+            Self::ProposedMAH => "Proposed Marketing Authorisation Holder/Person",
+            Self::Qppv => "Qualified Person Responsible for Pharmacovigilance",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProductContactType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31113,6 +42163,24 @@ impl Serialize for ProductContactType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProductContactType> for Coding {
+    fn from(code: ProductContactType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-contact-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProductContactType> for CodeableConcept {
+    fn from(code: ProductContactType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProductCrossReferenceType`. Relationship to another Medicinal Product.
@@ -31173,6 +42241,19 @@ impl AsRef<str> for ProductCrossReferenceType {
         }
     }
 }
+impl ::std::fmt::Display for ProductCrossReferenceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ActualProduct => "Link Virtual to Actual Product",
+            Self::BrandedProduct => "Link Generic to Branded Product",
+            Self::GenericProduct => "Link Branded to Generic Product",
+            Self::InvestigationalProduct => "Link to Investigational Product",
+            Self::Parallel => "Link to Parallel Import Product",
+            Self::VirtualProduct => "Link Actual to Virtual Product",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProductCrossReferenceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31189,6 +42270,25 @@ impl Serialize for ProductCrossReferenceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProductCrossReferenceType> for Coding {
+    fn from(code: ProductCrossReferenceType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProductCrossReferenceType> for CodeableConcept {
+    fn from(code: ProductCrossReferenceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProductIntendedUse`.
@@ -31243,6 +42343,18 @@ impl AsRef<str> for ProductIntendedUse {
         }
     }
 }
+impl ::std::fmt::Display for ProductIntendedUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Alleviation => "Alleviation",
+            Self::Diagnosis => "Diagnosis",
+            Self::Monitoring => "Monitoring",
+            Self::Prevention => "Prevention",
+            Self::Treatment => "Treatment",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProductIntendedUse {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31259,6 +42371,22 @@ impl Serialize for ProductIntendedUse {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProductIntendedUse> for Coding {
+    fn from(code: ProductIntendedUse) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/product-intended-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProductIntendedUse> for CodeableConcept {
+    fn from(code: ProductIntendedUse) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProductNamePartType`. Type of part of a name for a Medicinal Product.
@@ -31379,6 +42507,29 @@ impl AsRef<str> for ProductNamePartType {
         }
     }
 }
+impl ::std::fmt::Display for ProductNamePartType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ContainerPart => "Container or pack part",
+            Self::DelimiterPart => "Delimiter part",
+            Self::DevicePart => "Device part",
+            Self::DoseFormPart => "Pharmaceutical dose form part",
+            Self::FlavorPart => "Flavor part",
+            Self::FormulationPart => "Formulation part",
+            Self::FullName => "Full name",
+            Self::IntendedUsePart => "Intended use part",
+            Self::InventedNamePart => "Invented name part",
+            Self::LegacyNamePart => "Legacy name",
+            Self::PopulationPart => "Target population part",
+            Self::ScientificNamePart => "Scientific name part",
+            Self::SpeciesNamePart => "Target species name part",
+            Self::StrengthPart => "Strength part",
+            Self::TimeOrPeriodPart => "Time/Period part",
+            Self::TrademarkOrCompanyPart => "Trademark or company name part",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProductNamePartType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31395,6 +42546,25 @@ impl Serialize for ProductNamePartType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProductNamePartType> for Coding {
+    fn from(code: ProductNamePartType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProductNamePartType> for CodeableConcept {
+    fn from(code: ProductNamePartType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProductNameType`. Type of a name for a Medicinal Product.
@@ -31449,6 +42619,18 @@ impl AsRef<str> for ProductNameType {
         }
     }
 }
+impl ::std::fmt::Display for ProductNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ban => "British Approved Name",
+            Self::Inn => "International Non-Proprietary Name",
+            Self::Innm => "Modified International Non-Proprietary Name",
+            Self::Pinn => "Proposed International Non-Proprietary Name",
+            Self::Rinn => "Recommended International Non-Proprietary Name",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProductNameType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31465,6 +42647,24 @@ impl Serialize for ProductNameType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProductNameType> for Coding {
+    fn from(code: ProductNameType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-name-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProductNameType> for CodeableConcept {
+    fn from(code: ProductNameType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `Program`. This value set defines an example set of codes for health program names that could exist for various jurisdictions.
@@ -31761,6 +42961,59 @@ impl AsRef<str> for Program {
         }
     }
 }
+impl ::std::fmt::Display for Program {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Acquired Brain Injury (ABI) Program\u{a0}",
+            Self::N10 => "Cognitive Dementia Memory Service (CDAMS)",
+            Self::N11 => "ChildFIRST",
+            Self::N12 => "Children's Contact Services",
+            Self::N13 => "Community Visitors Scheme",
+            Self::N14 => "CPP (Community Partners Program)",
+            Self::N15 => "Closing the Gap (CTG)",
+            Self::N16 => "Coordinated Veterans' Care (CVC) Program",
+            Self::N17 => "Day Program",
+            Self::N18 => "Drop In Program",
+            Self::N19 => "Early Years Program",
+            Self::N2 => "ABI Slow To Recover (ABI STR) Program",
+            Self::N20 => "Employee Assistance Program",
+            Self::N21 => "Home And Community Care (HACC)",
+            Self::N22 => "Hospital Admission Risk Program (HARP)",
+            Self::N23 => "Hospital in the Home (HITH) Program",
+            Self::N24 => "ICTP (Intensive Community Treatment Program)",
+            Self::N25 => "IFSS (Intensive Family Support Program)",
+            Self::N26 => "JPET (Job Placement, Education and Training)",
+            Self::N27 => "Koori Juvenile Justice Program",
+            Self::N28 => "Language Literacy and Numeracy Program",
+            Self::N29 => "Life Skills Program",
+            Self::N3 => "Access Programs",
+            Self::N30 => "LMP (Lifestyle Modification Program)",
+            Self::N31 => "MedsCheck Program",
+            Self::N32 => "Methadone/Buprenorphine Program",
+            Self::N33 => "National Disabilities Insurance Scheme (NDIS)",
+            Self::N34 => "National Diabetes Services Scheme (NDSS)",
+            Self::N35 => "Needle/Syringe Program",
+            Self::N36 => "nPEP Program",
+            Self::N37 => "Personal Support Program",
+            Self::N38 => "Partners in Recovery (PIR) Program",
+            Self::N39 => "Pre-employment Program",
+            Self::N4 => "Adult and Further Education (ACFE) Program",
+            Self::N40 => "Reconnect Program",
+            Self::N41 => "Sexual Abuse Counselling and Prevention Program (SACPP)",
+            Self::N42 => "Social Support Programs",
+            Self::N43 => "Supported Residential Service (SRS)",
+            Self::N44 => "Tasmanian Aboriginal Centre (TAC)",
+            Self::N45 => "Victim's Assistance Program",
+            Self::N5 => "Adult Day Activity and Support Services (ADASS) Program",
+            Self::N6 => "Adult Day Care Program",
+            Self::N7 => "ATSS (Adult Training Support Service)",
+            Self::N8 => "Community Aged Care Packages (CACP)",
+            Self::N9 => "Care Coordination & Supplementary Services (CCSS)",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for Program {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31777,6 +43030,22 @@ impl Serialize for Program {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<Program> for Coding {
+    fn from(code: Program) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/program".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<Program> for CodeableConcept {
+    fn from(code: Program) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PropertyRepresentation`. How a property is represented when serialized.
@@ -31831,6 +43100,18 @@ impl AsRef<str> for PropertyRepresentation {
         }
     }
 }
+impl ::std::fmt::Display for PropertyRepresentation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CdaText => "CDA Text Format",
+            Self::TypeAttr => "Type Attribute",
+            Self::Xhtml => "XHTML",
+            Self::XmlAttr => "XML Attribute",
+            Self::XmlText => "XML Text",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PropertyRepresentation {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31847,6 +43128,22 @@ impl Serialize for PropertyRepresentation {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PropertyRepresentation> for Coding {
+    fn from(code: PropertyRepresentation) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/property-representation".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PropertyRepresentation> for CodeableConcept {
+    fn from(code: PropertyRepresentation) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PropertyType`. The type of a property value.
@@ -31913,6 +43210,20 @@ impl AsRef<str> for PropertyType {
         }
     }
 }
+impl ::std::fmt::Display for PropertyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Coding => "Coding (external reference)",
+            Self::Boolean => "boolean",
+            Self::Code => "code (internal reference)",
+            Self::DateTime => "dateTime",
+            Self::Decimal => "decimal",
+            Self::Integer => "integer",
+            Self::String => "string",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PropertyType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31929,6 +43240,22 @@ impl Serialize for PropertyType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PropertyType> for Coding {
+    fn from(code: PropertyType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/concept-property-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PropertyType> for CodeableConcept {
+    fn from(code: PropertyType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProvenanceEntityRole`. How an entity was used in an activity.
@@ -31983,6 +43310,18 @@ impl AsRef<str> for ProvenanceEntityRole {
         }
     }
 }
+impl ::std::fmt::Display for ProvenanceEntityRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Derivation => "Derivation",
+            Self::Quotation => "Quotation",
+            Self::Removal => "Removal",
+            Self::Revision => "Revision",
+            Self::Source => "Source",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProvenanceEntityRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -31999,6 +43338,22 @@ impl Serialize for ProvenanceEntityRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProvenanceEntityRole> for Coding {
+    fn from(code: ProvenanceEntityRole) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/provenance-entity-role".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProvenanceEntityRole> for CodeableConcept {
+    fn from(code: ProvenanceEntityRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProvenanceParticipantRole`. The role that a provenance participant played
@@ -32083,6 +43438,23 @@ impl AsRef<str> for ProvenanceParticipantRole {
         }
     }
 }
+impl ::std::fmt::Display for ProvenanceParticipantRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Assembler => "Assembler",
+            Self::Attester => "Attester",
+            Self::Author => "Author",
+            Self::Composer => "Composer",
+            Self::Custodian => "Custodian",
+            Self::Enterer => "Enterer",
+            Self::Informant => "Informant",
+            Self::Legal => "Legal Authenticator",
+            Self::Performer => "Performer",
+            Self::Verifier => "Verifier",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProvenanceParticipantRole {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32099,6 +43471,24 @@ impl Serialize for ProvenanceParticipantRole {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProvenanceParticipantRole> for Coding {
+    fn from(code: ProvenanceParticipantRole) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/provenance-participant-role".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProvenanceParticipantRole> for CodeableConcept {
+    fn from(code: ProvenanceParticipantRole) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ProvenanceParticipantType`. The type of participation that a provenance agent (participant) played
@@ -32183,6 +43573,23 @@ impl AsRef<str> for ProvenanceParticipantType {
         }
     }
 }
+impl ::std::fmt::Display for ProvenanceParticipantType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Assembler => "Assembler",
+            Self::Attester => "Attester",
+            Self::Author => "Author",
+            Self::Composer => "Composer",
+            Self::Custodian => "Custodian",
+            Self::Enterer => "Enterer",
+            Self::Informant => "Informant",
+            Self::Legal => "Legal Authenticator",
+            Self::Performer => "Performer",
+            Self::Verifier => "Verifier",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ProvenanceParticipantType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32199,6 +43606,24 @@ impl Serialize for ProvenanceParticipantType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ProvenanceParticipantType> for Coding {
+    fn from(code: ProvenanceParticipantType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/provenance-participant-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ProvenanceParticipantType> for CodeableConcept {
+    fn from(code: ProvenanceParticipantType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PublicationStatus`. The lifecycle status of an artifact.
@@ -32247,6 +43672,17 @@ impl AsRef<str> for PublicationStatus {
         }
     }
 }
+impl ::std::fmt::Display for PublicationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Draft => "Draft",
+            Self::Retired => "Retired",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PublicationStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32263,6 +43699,22 @@ impl Serialize for PublicationStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PublicationStatus> for Coding {
+    fn from(code: PublicationStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/publication-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PublicationStatus> for CodeableConcept {
+    fn from(code: PublicationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `PublishedInType`. The type of publication such as book, database, or journal.
@@ -32311,6 +43763,17 @@ impl AsRef<str> for PublishedInType {
         }
     }
 }
+impl ::std::fmt::Display for PublishedInType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::D001877 => "Book",
+            Self::D019991 => "Database",
+            Self::D020492 => "Periodical",
+            Self::D064886 => "Dataset",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for PublishedInType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32327,6 +43790,22 @@ impl Serialize for PublishedInType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<PublishedInType> for Coding {
+    fn from(code: PublishedInType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/published-in-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<PublishedInType> for CodeableConcept {
+    fn from(code: PublishedInType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QualityOfEvidenceRating`. A rating system that describes the quality of evidence such as the GRADE, DynaMed, or Oxford CEBM systems.
@@ -32375,6 +43854,17 @@ impl AsRef<str> for QualityOfEvidenceRating {
         }
     }
 }
+impl ::std::fmt::Display for QualityOfEvidenceRating {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::High => "High quality",
+            Self::Low => "Low quality",
+            Self::Moderate => "Moderate quality",
+            Self::VeryLow => "Very low quality",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QualityOfEvidenceRating {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32391,6 +43881,22 @@ impl Serialize for QualityOfEvidenceRating {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QualityOfEvidenceRating> for Coding {
+    fn from(code: QualityOfEvidenceRating) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/evidence-quality".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QualityOfEvidenceRating> for CodeableConcept {
+    fn from(code: QualityOfEvidenceRating) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QuantityComparator`. How the Quantity should be understood and represented.
@@ -32439,6 +43945,17 @@ impl AsRef<str> for QuantityComparator {
         }
     }
 }
+impl ::std::fmt::Display for QuantityComparator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Less => "Less than",
+            Self::LessOrEqual => "Less or Equal to",
+            Self::Greater => "Greater than",
+            Self::GreaterOrEqual => "Greater or Equal to",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QuantityComparator {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32455,6 +43972,22 @@ impl Serialize for QuantityComparator {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QuantityComparator> for Coding {
+    fn from(code: QuantityComparator) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/quantity-comparator".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QuantityComparator> for CodeableConcept {
+    fn from(code: QuantityComparator) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QuestionnaireItemOperator`. The criteria by which a question is enabled.
@@ -32521,6 +44054,20 @@ impl AsRef<str> for QuestionnaireItemOperator {
         }
     }
 }
+impl ::std::fmt::Display for QuestionnaireItemOperator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::NotEqual => "Not Equals",
+            Self::Less => "Less Than",
+            Self::LessOrEqual => "Less or Equals",
+            Self::Equal => "Equals",
+            Self::Greater => "Greater Than",
+            Self::GreaterOrEqual => "Greater or Equals",
+            Self::Exists => "Exists",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QuestionnaireItemOperator {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32537,6 +44084,24 @@ impl Serialize for QuestionnaireItemOperator {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QuestionnaireItemOperator> for Coding {
+    fn from(code: QuestionnaireItemOperator) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/questionnaire-enable-operator".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QuestionnaireItemOperator> for CodeableConcept {
+    fn from(code: QuestionnaireItemOperator) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QuestionnaireItemType`. Distinguishes groups from questions and display text and indicates data type for questions.
@@ -32663,6 +44228,30 @@ impl AsRef<str> for QuestionnaireItemType {
         }
     }
 }
+impl ::std::fmt::Display for QuestionnaireItemType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Attachment => "Attachment",
+            Self::Boolean => "Boolean",
+            Self::Choice => "Choice",
+            Self::Date => "Date",
+            Self::DateTime => "Date Time",
+            Self::Decimal => "Decimal",
+            Self::Display => "Display",
+            Self::Group => "Group",
+            Self::Integer => "Integer",
+            Self::OpenChoice => "Open Choice",
+            Self::Quantity => "Quantity",
+            Self::Question => "Question",
+            Self::Reference => "Reference",
+            Self::String => "String",
+            Self::Text => "Text",
+            Self::Time => "Time",
+            Self::Url => "Url",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QuestionnaireItemType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32679,6 +44268,22 @@ impl Serialize for QuestionnaireItemType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QuestionnaireItemType> for Coding {
+    fn from(code: QuestionnaireItemType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/item-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QuestionnaireItemType> for CodeableConcept {
+    fn from(code: QuestionnaireItemType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QuestionnaireItemUIControlCodes`. Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire.
@@ -32853,6 +44458,38 @@ impl AsRef<str> for QuestionnaireItemUIControlCodes {
         }
     }
 }
+impl ::std::fmt::Display for QuestionnaireItemUIControlCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Atable => "Answer Table",
+            Self::Autocomplete => "Auto-complete",
+            Self::CheckBox => "Check-box",
+            Self::DropDown => "Drop down",
+            Self::Flyover => "Fly-over",
+            Self::Footer => "Footer",
+            Self::Group => "group",
+            Self::Gtable => "Group Table",
+            Self::Header => "Header",
+            Self::Help => "Help-Button",
+            Self::Htable => "Horizontal Answer Table",
+            Self::Inline => "In-line",
+            Self::List => "List",
+            Self::Lookup => "Lookup",
+            Self::Lower => "Lower-bound",
+            Self::Prompt => "Prompt",
+            Self::Question => "question",
+            Self::RadioButton => "Radio Button",
+            Self::Slider => "Slider",
+            Self::Spinner => "Spinner",
+            Self::Table => "Vertical Answer Table",
+            Self::Text => "text",
+            Self::TextBox => "Text Box",
+            Self::Unit => "Unit",
+            Self::Upper => "Upper-bound",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QuestionnaireItemUIControlCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32869,6 +44506,22 @@ impl Serialize for QuestionnaireItemUIControlCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QuestionnaireItemUIControlCodes> for Coding {
+    fn from(code: QuestionnaireItemUIControlCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/questionnaire-item-control".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QuestionnaireItemUIControlCodes> for CodeableConcept {
+    fn from(code: QuestionnaireItemUIControlCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QuestionnaireResponseStatus`. Lifecycle status of the questionnaire response.
@@ -32923,6 +44576,18 @@ impl AsRef<str> for QuestionnaireResponseStatus {
         }
     }
 }
+impl ::std::fmt::Display for QuestionnaireResponseStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Amended => "Amended",
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered in Error",
+            Self::InProgress => "In Progress",
+            Self::Stopped => "Stopped",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QuestionnaireResponseStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32939,6 +44604,24 @@ impl Serialize for QuestionnaireResponseStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QuestionnaireResponseStatus> for Coding {
+    fn from(code: QuestionnaireResponseStatus) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/questionnaire-answers-status".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QuestionnaireResponseStatus> for CodeableConcept {
+    fn from(code: QuestionnaireResponseStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `QuestionnaireTextCategories`. Codes defining the purpose of a Questionnaire item of type 'text'.
@@ -32981,6 +44664,16 @@ impl AsRef<str> for QuestionnaireTextCategories {
         }
     }
 }
+impl ::std::fmt::Display for QuestionnaireTextCategories {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Help => "Help",
+            Self::Instructions => "Instructions",
+            Self::Security => "Security",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for QuestionnaireTextCategories {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -32997,6 +44690,24 @@ impl Serialize for QuestionnaireTextCategories {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<QuestionnaireTextCategories> for Coding {
+    fn from(code: QuestionnaireTextCategories) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/questionnaire-display-category".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<QuestionnaireTextCategories> for CodeableConcept {
+    fn from(code: QuestionnaireTextCategories) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReasonMedicationGivenCodes`. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.
@@ -33041,6 +44752,17 @@ impl AsRef<str> for ReasonMedicationGivenCodes {
         }
     }
 }
+impl ::std::fmt::Display for ReasonMedicationGivenCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::A => "None",
+            Self::B => "Given as Ordered",
+            Self::C => "Emergency",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReasonMedicationGivenCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33057,6 +44779,25 @@ impl Serialize for ReasonMedicationGivenCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReasonMedicationGivenCodes> for Coding {
+    fn from(code: ReasonMedicationGivenCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/reason-medication-given"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReasonMedicationGivenCodes> for CodeableConcept {
+    fn from(code: ReasonMedicationGivenCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReasonMedicationNotGivenCodes`. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.
@@ -33107,6 +44848,18 @@ impl AsRef<str> for ReasonMedicationNotGivenCodes {
         }
     }
 }
+impl ::std::fmt::Display for ReasonMedicationNotGivenCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::A => "None",
+            Self::B => "Away",
+            Self::C => "Asleep",
+            Self::D => "Vomit",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReasonMedicationNotGivenCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33123,6 +44876,22 @@ impl Serialize for ReasonMedicationNotGivenCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReasonMedicationNotGivenCodes> for Coding {
+    fn from(code: ReasonMedicationNotGivenCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/reason-medication-not-given".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReasonMedicationNotGivenCodes> for CodeableConcept {
+    fn from(code: ReasonMedicationNotGivenCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReferenceHandlingPolicy`. A set of flags that defines how references are supported.
@@ -33177,6 +44946,18 @@ impl AsRef<str> for ReferenceHandlingPolicy {
         }
     }
 }
+impl ::std::fmt::Display for ReferenceHandlingPolicy {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Enforced => "Reference Integrity Enforced",
+            Self::Literal => "Literal References",
+            Self::Local => "Local References Only",
+            Self::Logical => "Logical References",
+            Self::Resolves => "Resolves References",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReferenceHandlingPolicy {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33193,6 +44974,22 @@ impl Serialize for ReferenceHandlingPolicy {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReferenceHandlingPolicy> for Coding {
+    fn from(code: ReferenceHandlingPolicy) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/reference-handling-policy".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReferenceHandlingPolicy> for CodeableConcept {
+    fn from(code: ReferenceHandlingPolicy) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReferenceVersionRules`. Whether a reference needs to be version specific or version independent, or whether either can be used.
@@ -33235,6 +45032,16 @@ impl AsRef<str> for ReferenceVersionRules {
         }
     }
 }
+impl ::std::fmt::Display for ReferenceVersionRules {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Either => "Either Specific or independent",
+            Self::Independent => "Version independent",
+            Self::Specific => "Version Specific",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReferenceVersionRules {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33251,6 +45058,22 @@ impl Serialize for ReferenceVersionRules {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReferenceVersionRules> for Coding {
+    fn from(code: ReferenceVersionRules) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/reference-version-rules".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReferenceVersionRules> for CodeableConcept {
+    fn from(code: ReferenceVersionRules) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReferralMethod`. The methods of referral can be used when referring to a specific HealthCareService resource.
@@ -33305,6 +45128,18 @@ impl AsRef<str> for ReferralMethod {
         }
     }
 }
+impl ::std::fmt::Display for ReferralMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Elec => "Secure Messaging",
+            Self::Fax => "Fax",
+            Self::Mail => "Mail",
+            Self::Phone => "Phone",
+            Self::Semail => "Secure Email",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReferralMethod {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33321,6 +45156,22 @@ impl Serialize for ReferralMethod {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReferralMethod> for Coding {
+    fn from(code: ReferralMethod) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/service-referral-method".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReferralMethod> for CodeableConcept {
+    fn from(code: ReferralMethod) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RegulatedAuthorizationBasis`.
@@ -33405,6 +45256,27 @@ impl AsRef<str> for RegulatedAuthorizationBasis {
         }
     }
 }
+impl ::std::fmt::Display for RegulatedAuthorizationBasis {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Bibliographical => "Bibliographical application (stand-alone)",
+            Self::Full => "Full application",
+            Self::KnownHumanBlood => {
+                "Known human blood/plasma derived ancillary medicinal substance"
+            }
+            Self::KnownSubstance => "Known active substance",
+            Self::NewSubstance => "New active substance",
+            Self::ParallelTrade => "Parallel traded products",
+            Self::SimilarBiological => "Similar biological application",
+            Self::TemporaryUse => "Authorisations for temporary use",
+            Self::TraditionalUse => {
+                "Traditional use registration for herbal medicinal product application"
+            }
+            Self::WellEstablishedUse => "Well-established use application",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RegulatedAuthorizationBasis {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33421,6 +45293,24 @@ impl Serialize for RegulatedAuthorizationBasis {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RegulatedAuthorizationBasis> for Coding {
+    fn from(code: RegulatedAuthorizationBasis) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/regulated-authorization-basis".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RegulatedAuthorizationBasis> for CodeableConcept {
+    fn from(code: RegulatedAuthorizationBasis) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RegulatedAuthorizationCaseType`.
@@ -33577,6 +45467,35 @@ impl AsRef<str> for RegulatedAuthorizationCaseType {
         }
     }
 }
+impl ::std::fmt::Display for RegulatedAuthorizationCaseType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000155699 => "Specific Obligation",
+            Self::AnnualReassessment => "Annual Reassessment",
+            Self::Flu => "FLU STRAIN UPDATE",
+            Self::FollowUp => "Follow-up Measure",
+            Self::InitialMAA => "Initial Marketing Authorisation Application",
+            Self::LiftingSuspension => "Lifting of a Suspension",
+            Self::LineExtension => "Line Extension",
+            Self::Orphan => "Orphan Designation Application",
+            Self::Pandemic => "PANDEMIC UPDATE",
+            Self::Psur => "Periodic Safety Update Report",
+            Self::PaediatricSubmission => "Paediatric Submission",
+            Self::Rmp => "Risk Management Plan",
+            Self::Reformatting => "Reformatting",
+            Self::Renewal => "Renewal",
+            Self::RepeatUse => "Repeat Use Procedure",
+            Self::ReviewSuspension => "Review of a Suspension of MA",
+            Self::SignalDetection => "Signal detection",
+            Self::SupplementalInformation => "Supplemental Information",
+            Self::TransferMA => "Transfer of a marketing authorisation",
+            Self::UrgentSafetyRestriction => "Urgent Safety Restriction",
+            Self::Variation => "Variation",
+            Self::Withdrawal => "Withdrawal",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RegulatedAuthorizationCaseType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33593,6 +45512,25 @@ impl Serialize for RegulatedAuthorizationCaseType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RegulatedAuthorizationCaseType> for Coding {
+    fn from(code: RegulatedAuthorizationCaseType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/regulated-authorization-case-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RegulatedAuthorizationCaseType> for CodeableConcept {
+    fn from(code: RegulatedAuthorizationCaseType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RegulatedAuthorizationType`.
@@ -33635,6 +45573,16 @@ impl AsRef<str> for RegulatedAuthorizationType {
         }
     }
 }
+impl ::std::fmt::Display for RegulatedAuthorizationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::MarketingAuth => "Marketing Authorization",
+            Self::Orphan => "Orphan Drug Authorization",
+            Self::Pediatric => "Pediatric Use Drug Authorization",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RegulatedAuthorizationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33651,6 +45599,24 @@ impl Serialize for RegulatedAuthorizationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RegulatedAuthorizationType> for Coding {
+    fn from(code: RegulatedAuthorizationType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/regulated-authorization-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RegulatedAuthorizationType> for CodeableConcept {
+    fn from(code: RegulatedAuthorizationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RejectionCriterion`. Criterion for rejection of the specimen by laboratory.
@@ -33705,6 +45671,18 @@ impl AsRef<str> for RejectionCriterion {
         }
     }
 }
+impl ::std::fmt::Display for RejectionCriterion {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Broken => "broken specimen container",
+            Self::Clotted => "specimen clotted",
+            Self::Hemolized => "hemolized specimen",
+            Self::Insufficient => "insufficient specimen volume",
+            Self::WrongTemperature => "specimen temperature inappropriate",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RejectionCriterion {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33721,6 +45699,22 @@ impl Serialize for RejectionCriterion {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RejectionCriterion> for Coding {
+    fn from(code: RejectionCriterion) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/rejection-criteria".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RejectionCriterion> for CodeableConcept {
+    fn from(code: RejectionCriterion) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RelatedArtifactType`. The type of relationship to the related artifact.
@@ -33793,6 +45787,21 @@ impl AsRef<str> for RelatedArtifactType {
         }
     }
 }
+impl ::std::fmt::Display for RelatedArtifactType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Citation => "Citation",
+            Self::ComposedOf => "Composed Of",
+            Self::DependsOn => "Depends On",
+            Self::DerivedFrom => "Derived From",
+            Self::Documentation => "Documentation",
+            Self::Justification => "Justification",
+            Self::Predecessor => "Predecessor",
+            Self::Successor => "Successor",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RelatedArtifactType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33809,6 +45818,22 @@ impl Serialize for RelatedArtifactType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RelatedArtifactType> for Coding {
+    fn from(code: RelatedArtifactType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/related-artifact-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RelatedArtifactType> for CodeableConcept {
+    fn from(code: RelatedArtifactType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RemittanceOutcome`. The outcome of the processing.
@@ -33857,6 +45882,17 @@ impl AsRef<str> for RemittanceOutcome {
         }
     }
 }
+impl ::std::fmt::Display for RemittanceOutcome {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Complete => "Complete",
+            Self::Error => "Error",
+            Self::Partial => "Partial",
+            Self::Queued => "Queued",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RemittanceOutcome {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33873,6 +45909,22 @@ impl Serialize for RemittanceOutcome {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RemittanceOutcome> for Coding {
+    fn from(code: RemittanceOutcome) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/remittance-outcome".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RemittanceOutcome> for CodeableConcept {
+    fn from(code: RemittanceOutcome) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReportRelationshipType`. The type of relationship between reports.
@@ -33945,6 +45997,21 @@ impl AsRef<str> for ReportRelationshipType {
         }
     }
 }
+impl ::std::fmt::Display for ReportRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AmendedWith => "Amended With",
+            Self::Amends => "Amends",
+            Self::AppendedWith => "Appended With",
+            Self::Appends => "Appends",
+            Self::ReplacedWith => "Replaced With",
+            Self::Replaces => "Replaces",
+            Self::TransformedWith => "Transformed With",
+            Self::Transforms => "Transforms",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReportRelationshipType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -33961,6 +46028,22 @@ impl Serialize for ReportRelationshipType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReportRelationshipType> for Coding {
+    fn from(code: ReportRelationshipType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/report-relation-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReportRelationshipType> for CodeableConcept {
+    fn from(code: ReportRelationshipType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ReportSectionType`. Evidence Report Section Type.
@@ -34159,6 +46242,59 @@ impl AsRef<str> for ReportSectionType {
         }
     }
 }
+impl ::std::fmt::Display for ReportSectionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Assertion => "Assertion",
+            Self::CertaintyOfEvidence => "Certainty of Evidence",
+            Self::ColumnHeader => "Column Header",
+            Self::ColumnHeaders => "Column Headers",
+            Self::ControlGroupAloneEvidence => {
+                "Evidence Results for the control exposure only"
+            }
+            Self::EfficacyOutcomes => "Efficacy-outcomes",
+            Self::Evidence => "Evidence Results",
+            Self::EvidenceClassifier => "Evidence Classifier section",
+            Self::EvidenceVariable => "Evidence Variables used",
+            Self::EvidenceVariableExposure => {
+                "Evidence Variable in variable role Exposure"
+            }
+            Self::EvidenceVariableIntended => {
+                "Evidence Variables intended for interpretation"
+            }
+            Self::EvidenceVariableObserved => "Evidence Variables actually observed",
+            Self::EvidenceVariableOutcome => {
+                "Evidence Variable in variable role Outcome (MeasuredVariable)"
+            }
+            Self::EvidenceVariablePopulation => {
+                "Evidence Variable in variable role Population"
+            }
+            Self::HarmsOutcomes => "Harms outcomes",
+            Self::Header => "Header",
+            Self::InterventionGroupAloneEvidence => {
+                "Evidence Results for the intervention exposure only"
+            }
+            Self::InterventionVsControlEvidence => {
+                "Evidence Results for comparison of Intervention and Control"
+            }
+            Self::Reasons => "Reasons",
+            Self::References => "References",
+            Self::RowHeaders => "Row Headers",
+            Self::SampleSize => "Sample Size",
+            Self::SummaryOfBodyOfEvidenceFindings => {
+                "Summary of Body of Evidence Findings"
+            }
+            Self::SummaryOfIndividualStudyFindings => {
+                "Summary of Individual Study Findings"
+            }
+            Self::Table => "Table",
+            Self::Tables => "Tables",
+            Self::TextSummary => "Text Summary",
+            Self::Warnings => "Warnings",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ReportSectionType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34175,6 +46311,22 @@ impl Serialize for ReportSectionType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ReportSectionType> for Coding {
+    fn from(code: ReportSectionType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/evidence-report-section".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ReportSectionType> for CodeableConcept {
+    fn from(code: ReportSectionType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RequestIntent`. Codes indicating the degree of authority/intentionality associated with a request.
@@ -34253,6 +46405,22 @@ impl AsRef<str> for RequestIntent {
         }
     }
 }
+impl ::std::fmt::Display for RequestIntent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Directive => "Directive",
+            Self::FillerOrder => "Filler Order",
+            Self::InstanceOrder => "Instance Order",
+            Self::Option => "Option",
+            Self::Order => "Order",
+            Self::OriginalOrder => "Original Order",
+            Self::Plan => "Plan",
+            Self::Proposal => "Proposal",
+            Self::ReflexOrder => "Reflex Order",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RequestIntent {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34269,6 +46437,22 @@ impl Serialize for RequestIntent {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RequestIntent> for Coding {
+    fn from(code: RequestIntent) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/request-intent".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RequestIntent> for CodeableConcept {
+    fn from(code: RequestIntent) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RequestPriority`. Identifies the level of importance to be assigned to actioning the request.
@@ -34317,6 +46501,17 @@ impl AsRef<str> for RequestPriority {
         }
     }
 }
+impl ::std::fmt::Display for RequestPriority {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Asap => "ASAP",
+            Self::Routine => "Routine",
+            Self::Stat => "STAT",
+            Self::Urgent => "Urgent",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RequestPriority {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34333,6 +46528,22 @@ impl Serialize for RequestPriority {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RequestPriority> for Coding {
+    fn from(code: RequestPriority) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/request-priority".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RequestPriority> for CodeableConcept {
+    fn from(code: RequestPriority) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RequestResourceType`. A list of all the request resource types defined in this version of the FHIR specification.
@@ -34447,6 +46658,28 @@ impl AsRef<str> for RequestResourceType {
         }
     }
 }
+impl ::std::fmt::Display for RequestResourceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Appointment => "Appointment",
+            Self::AppointmentResponse => "AppointmentResponse",
+            Self::CarePlan => "CarePlan",
+            Self::Claim => "Claim",
+            Self::CommunicationRequest => "CommunicationRequest",
+            Self::Contract => "Contract",
+            Self::DeviceRequest => "DeviceRequest",
+            Self::EnrollmentRequest => "EnrollmentRequest",
+            Self::ImmunizationRecommendation => "ImmunizationRecommendation",
+            Self::MedicationRequest => "MedicationRequest",
+            Self::NutritionOrder => "NutritionOrder",
+            Self::ServiceRequest => "ServiceRequest",
+            Self::SupplyRequest => "SupplyRequest",
+            Self::Task => "Task",
+            Self::VisionPrescription => "VisionPrescription",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RequestResourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34463,6 +46696,22 @@ impl Serialize for RequestResourceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RequestResourceType> for Coding {
+    fn from(code: RequestResourceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/request-resource-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RequestResourceType> for CodeableConcept {
+    fn from(code: RequestResourceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RequestStatus`. Codes identifying the lifecycle stage of a request.
@@ -34529,6 +46778,20 @@ impl AsRef<str> for RequestStatus {
         }
     }
 }
+impl ::std::fmt::Display for RequestStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Completed => "Completed",
+            Self::Draft => "Draft",
+            Self::EnteredInError => "Entered in Error",
+            Self::OnHold => "On Hold",
+            Self::Revoked => "Revoked",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RequestStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34545,6 +46808,22 @@ impl Serialize for RequestStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RequestStatus> for Coding {
+    fn from(code: RequestStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/request-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RequestStatus> for CodeableConcept {
+    fn from(code: RequestStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchElementType`. The possible types of research elements (E.g. Population, Exposure, Outcome).
@@ -34587,6 +46866,16 @@ impl AsRef<str> for ResearchElementType {
         }
     }
 }
+impl ::std::fmt::Display for ResearchElementType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Exposure => "Exposure",
+            Self::Outcome => "Outcome",
+            Self::Population => "Population",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchElementType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34603,6 +46892,22 @@ impl Serialize for ResearchElementType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchElementType> for Coding {
+    fn from(code: ResearchElementType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/research-element-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchElementType> for CodeableConcept {
+    fn from(code: ResearchElementType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchStudyObjectiveType`. Codes for the kind of study objective.
@@ -34645,6 +46950,16 @@ impl AsRef<str> for ResearchStudyObjectiveType {
         }
     }
 }
+impl ::std::fmt::Display for ResearchStudyObjectiveType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Exploratory => "Exploratory",
+            Self::Primary => "Primary",
+            Self::Secondary => "Secondary",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchStudyObjectiveType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34661,6 +46976,24 @@ impl Serialize for ResearchStudyObjectiveType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchStudyObjectiveType> for Coding {
+    fn from(code: ResearchStudyObjectiveType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/research-study-objective-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchStudyObjectiveType> for CodeableConcept {
+    fn from(code: ResearchStudyObjectiveType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchStudyPhase`. Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.
@@ -34733,6 +47066,21 @@ impl AsRef<str> for ResearchStudyPhase {
         }
     }
 }
+impl ::std::fmt::Display for ResearchStudyPhase {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::EarlyPhase1 => "Early Phase 1",
+            Self::NA => "N/A",
+            Self::Phase1 => "Phase 1",
+            Self::Phase1Phase2 => "Phase 1/Phase 2",
+            Self::Phase2 => "Phase 2",
+            Self::Phase2Phase3 => "Phase 2/Phase 3",
+            Self::Phase3 => "Phase 3",
+            Self::Phase4 => "Phase 4",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchStudyPhase {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34749,6 +47097,22 @@ impl Serialize for ResearchStudyPhase {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchStudyPhase> for Coding {
+    fn from(code: ResearchStudyPhase) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/research-study-phase".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchStudyPhase> for CodeableConcept {
+    fn from(code: ResearchStudyPhase) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchStudyPrimaryPurposeType`. Codes for the main intent of the study.
@@ -34821,6 +47185,21 @@ impl AsRef<str> for ResearchStudyPrimaryPurposeType {
         }
     }
 }
+impl ::std::fmt::Display for ResearchStudyPrimaryPurposeType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::BasicScience => "Basic Science",
+            Self::DeviceFeasibility => "Device Feasibility",
+            Self::Diagnostic => "Diagnostic",
+            Self::HealthServicesResearch => "Health Services Research",
+            Self::Prevention => "Prevention",
+            Self::Screening => "Screening",
+            Self::SupportiveCare => "Supportive Care",
+            Self::Treatment => "Treatment",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchStudyPrimaryPurposeType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34837,6 +47216,24 @@ impl Serialize for ResearchStudyPrimaryPurposeType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchStudyPrimaryPurposeType> for Coding {
+    fn from(code: ResearchStudyPrimaryPurposeType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/research-study-prim-purp-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchStudyPrimaryPurposeType> for CodeableConcept {
+    fn from(code: ResearchStudyPrimaryPurposeType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchStudyReasonStopped`. Codes for why the study ended prematurely.
@@ -34893,6 +47290,21 @@ impl AsRef<str> for ResearchStudyReasonStopped {
         }
     }
 }
+impl ::std::fmt::Display for ResearchStudyReasonStopped {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AccrualGoalMet => "Accrual Goal Met",
+            Self::ClosedDueToLackOfStudyProgress => {
+                "Closed due to lack of study progress"
+            }
+            Self::ClosedDueToToxicity => "Closed due to toxicity",
+            Self::TemporarilyClosedPerStudyDesign => {
+                "Temporarily closed per study design"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchStudyReasonStopped {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -34909,6 +47321,24 @@ impl Serialize for ResearchStudyReasonStopped {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchStudyReasonStopped> for Coding {
+    fn from(code: ResearchStudyReasonStopped) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/research-study-reason-stopped".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchStudyReasonStopped> for CodeableConcept {
+    fn from(code: ResearchStudyReasonStopped) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchStudyStatus`. Codes that convey the current status of the research study.
@@ -35006,6 +47436,26 @@ impl AsRef<str> for ResearchStudyStatus {
         }
     }
 }
+impl ::std::fmt::Display for ResearchStudyStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::AdministrativelyCompleted => "Administratively Completed",
+            Self::Approved => "Approved",
+            Self::ClosedToAccrual => "Closed to Accrual",
+            Self::ClosedToAccrualAndIntervention => "Closed to Accrual and Intervention",
+            Self::Completed => "Completed",
+            Self::Disapproved => "Disapproved",
+            Self::InReview => "In Review",
+            Self::TemporarilyClosedToAccrual => "Temporarily Closed to Accrual",
+            Self::TemporarilyClosedToAccrualAndIntervention => {
+                "Temporarily Closed to Accrual and Intervention"
+            }
+            Self::Withdrawn => "Withdrawn",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchStudyStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -35022,6 +47472,22 @@ impl Serialize for ResearchStudyStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchStudyStatus> for Coding {
+    fn from(code: ResearchStudyStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/research-study-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchStudyStatus> for CodeableConcept {
+    fn from(code: ResearchStudyStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResearchSubjectStatus`. Indicates the progression of a study subject through a study.
@@ -35126,6 +47592,26 @@ impl AsRef<str> for ResearchSubjectStatus {
         }
     }
 }
+impl ::std::fmt::Display for ResearchSubjectStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Candidate => "Candidate",
+            Self::Eligible => "Eligible",
+            Self::FollowUp => "Follow-up",
+            Self::Ineligible => "Ineligible",
+            Self::NotRegistered => "Not Registered",
+            Self::OffStudy => "Off-study",
+            Self::OnStudy => "On-study",
+            Self::OnStudyIntervention => "On-study-intervention",
+            Self::OnStudyObservation => "On-study-observation",
+            Self::PendingOnStudy => "Pending on-study",
+            Self::PotentialCandidate => "Potential Candidate",
+            Self::Screening => "Screening",
+            Self::Withdrawn => "Withdrawn",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResearchSubjectStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -35142,6 +47628,22 @@ impl Serialize for ResearchSubjectStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResearchSubjectStatus> for Coding {
+    fn from(code: ResearchSubjectStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/research-subject-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResearchSubjectStatus> for CodeableConcept {
+    fn from(code: ResearchSubjectStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResourceSecurityCategory`. Codes indicating how resources behave from a security perspective
@@ -35198,6 +47700,19 @@ impl AsRef<str> for ResourceSecurityCategory {
         }
     }
 }
+impl ::std::fmt::Display for ResourceSecurityCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Anonymous => "Anonymous READ Access Resource",
+            Self::Business => "Business Sensitive Resource",
+            Self::Individual => "Individual Sensitive Resource",
+            Self::NotClassified => "Not classified",
+            Self::Patient => "Patient Sensitive",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResourceSecurityCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -35214,6 +47729,22 @@ impl Serialize for ResourceSecurityCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResourceSecurityCategory> for Coding {
+    fn from(code: ResourceSecurityCategory) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/resource-security-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResourceSecurityCategory> for CodeableConcept {
+    fn from(code: ResourceSecurityCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResourceType`. One of the resource types defined as part of this version of FHIR.
@@ -36101,6 +48632,157 @@ impl AsRef<str> for ResourceType {
         }
     }
 }
+impl ::std::fmt::Display for ResourceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Account => "Account",
+            Self::ActivityDefinition => "ActivityDefinition",
+            Self::AdministrableProductDefinition => "AdministrableProductDefinition",
+            Self::AdverseEvent => "AdverseEvent",
+            Self::AllergyIntolerance => "AllergyIntolerance",
+            Self::Appointment => "Appointment",
+            Self::AppointmentResponse => "AppointmentResponse",
+            Self::AuditEvent => "AuditEvent",
+            Self::Basic => "Basic",
+            Self::Binary => "Binary",
+            Self::BiologicallyDerivedProduct => "BiologicallyDerivedProduct",
+            Self::BodyStructure => "BodyStructure",
+            Self::Bundle => "Bundle",
+            Self::CapabilityStatement => "CapabilityStatement",
+            Self::CarePlan => "CarePlan",
+            Self::CareTeam => "CareTeam",
+            Self::CatalogEntry => "CatalogEntry",
+            Self::ChargeItem => "ChargeItem",
+            Self::ChargeItemDefinition => "ChargeItemDefinition",
+            Self::Citation => "Citation",
+            Self::Claim => "Claim",
+            Self::ClaimResponse => "ClaimResponse",
+            Self::ClinicalImpression => "ClinicalImpression",
+            Self::ClinicalUseDefinition => "ClinicalUseDefinition",
+            Self::CodeSystem => "CodeSystem",
+            Self::Communication => "Communication",
+            Self::CommunicationRequest => "CommunicationRequest",
+            Self::CompartmentDefinition => "CompartmentDefinition",
+            Self::Composition => "Composition",
+            Self::ConceptMap => "ConceptMap",
+            Self::Condition => "Condition",
+            Self::Consent => "Consent",
+            Self::Contract => "Contract",
+            Self::Coverage => "Coverage",
+            Self::CoverageEligibilityRequest => "CoverageEligibilityRequest",
+            Self::CoverageEligibilityResponse => "CoverageEligibilityResponse",
+            Self::DetectedIssue => "DetectedIssue",
+            Self::Device => "Device",
+            Self::DeviceDefinition => "DeviceDefinition",
+            Self::DeviceMetric => "DeviceMetric",
+            Self::DeviceRequest => "DeviceRequest",
+            Self::DeviceUseStatement => "DeviceUseStatement",
+            Self::DiagnosticReport => "DiagnosticReport",
+            Self::DocumentManifest => "DocumentManifest",
+            Self::DocumentReference => "DocumentReference",
+            Self::DomainResource => "DomainResource",
+            Self::Encounter => "Encounter",
+            Self::Endpoint => "Endpoint",
+            Self::EnrollmentRequest => "EnrollmentRequest",
+            Self::EnrollmentResponse => "EnrollmentResponse",
+            Self::EpisodeOfCare => "EpisodeOfCare",
+            Self::EventDefinition => "EventDefinition",
+            Self::Evidence => "Evidence",
+            Self::EvidenceReport => "EvidenceReport",
+            Self::EvidenceVariable => "EvidenceVariable",
+            Self::ExampleScenario => "ExampleScenario",
+            Self::ExplanationOfBenefit => "ExplanationOfBenefit",
+            Self::FamilyMemberHistory => "FamilyMemberHistory",
+            Self::Flag => "Flag",
+            Self::Goal => "Goal",
+            Self::GraphDefinition => "GraphDefinition",
+            Self::Group => "Group",
+            Self::GuidanceResponse => "GuidanceResponse",
+            Self::HealthcareService => "HealthcareService",
+            Self::ImagingStudy => "ImagingStudy",
+            Self::Immunization => "Immunization",
+            Self::ImmunizationEvaluation => "ImmunizationEvaluation",
+            Self::ImmunizationRecommendation => "ImmunizationRecommendation",
+            Self::ImplementationGuide => "ImplementationGuide",
+            Self::Ingredient => "Ingredient",
+            Self::InsurancePlan => "InsurancePlan",
+            Self::Invoice => "Invoice",
+            Self::Library => "Library",
+            Self::Linkage => "Linkage",
+            Self::List => "List",
+            Self::Location => "Location",
+            Self::ManufacturedItemDefinition => "ManufacturedItemDefinition",
+            Self::Measure => "Measure",
+            Self::MeasureReport => "MeasureReport",
+            Self::Media => "Media",
+            Self::Medication => "Medication",
+            Self::MedicationAdministration => "MedicationAdministration",
+            Self::MedicationDispense => "MedicationDispense",
+            Self::MedicationKnowledge => "MedicationKnowledge",
+            Self::MedicationRequest => "MedicationRequest",
+            Self::MedicationStatement => "MedicationStatement",
+            Self::MedicinalProductDefinition => "MedicinalProductDefinition",
+            Self::MessageDefinition => "MessageDefinition",
+            Self::MessageHeader => "MessageHeader",
+            Self::MolecularSequence => "MolecularSequence",
+            Self::NamingSystem => "NamingSystem",
+            Self::NutritionOrder => "NutritionOrder",
+            Self::NutritionProduct => "NutritionProduct",
+            Self::Observation => "Observation",
+            Self::ObservationDefinition => "ObservationDefinition",
+            Self::OperationDefinition => "OperationDefinition",
+            Self::OperationOutcome => "OperationOutcome",
+            Self::Organization => "Organization",
+            Self::OrganizationAffiliation => "OrganizationAffiliation",
+            Self::PackagedProductDefinition => "PackagedProductDefinition",
+            Self::Parameters => "Parameters",
+            Self::Patient => "Patient",
+            Self::PaymentNotice => "PaymentNotice",
+            Self::PaymentReconciliation => "PaymentReconciliation",
+            Self::Person => "Person",
+            Self::PlanDefinition => "PlanDefinition",
+            Self::Practitioner => "Practitioner",
+            Self::PractitionerRole => "PractitionerRole",
+            Self::Procedure => "Procedure",
+            Self::Provenance => "Provenance",
+            Self::Questionnaire => "Questionnaire",
+            Self::QuestionnaireResponse => "QuestionnaireResponse",
+            Self::RegulatedAuthorization => "RegulatedAuthorization",
+            Self::RelatedPerson => "RelatedPerson",
+            Self::RequestGroup => "RequestGroup",
+            Self::ResearchDefinition => "ResearchDefinition",
+            Self::ResearchElementDefinition => "ResearchElementDefinition",
+            Self::ResearchStudy => "ResearchStudy",
+            Self::ResearchSubject => "ResearchSubject",
+            Self::Resource => "Resource",
+            Self::RiskAssessment => "RiskAssessment",
+            Self::Schedule => "Schedule",
+            Self::SearchParameter => "SearchParameter",
+            Self::ServiceRequest => "ServiceRequest",
+            Self::Slot => "Slot",
+            Self::Specimen => "Specimen",
+            Self::SpecimenDefinition => "SpecimenDefinition",
+            Self::StructureDefinition => "StructureDefinition",
+            Self::StructureMap => "StructureMap",
+            Self::Subscription => "Subscription",
+            Self::SubscriptionStatus => "SubscriptionStatus",
+            Self::SubscriptionTopic => "SubscriptionTopic",
+            Self::Substance => "Substance",
+            Self::SubstanceDefinition => "SubstanceDefinition",
+            Self::SupplyDelivery => "SupplyDelivery",
+            Self::SupplyRequest => "SupplyRequest",
+            Self::Task => "Task",
+            Self::TerminologyCapabilities => "TerminologyCapabilities",
+            Self::TestReport => "TestReport",
+            Self::TestScript => "TestScript",
+            Self::ValueSet => "ValueSet",
+            Self::VerificationResult => "VerificationResult",
+            Self::VisionPrescription => "VisionPrescription",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResourceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36117,6 +48799,22 @@ impl Serialize for ResourceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResourceType> for Coding {
+    fn from(code: ResourceType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/resource-types".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResourceType> for CodeableConcept {
+    fn from(code: ResourceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResourceValidationMode`.
@@ -36167,6 +48865,18 @@ impl AsRef<str> for ResourceValidationMode {
         }
     }
 }
+impl ::std::fmt::Display for ResourceValidationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Create => "Validate for Create",
+            Self::Delete => "Validate for Delete",
+            Self::Profile => "Validate Against a Profile",
+            Self::Update => "Validate for Update",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResourceValidationMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36183,6 +48893,22 @@ impl Serialize for ResourceValidationMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResourceValidationMode> for Coding {
+    fn from(code: ResourceValidationMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/resource-validation-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResourceValidationMode> for CodeableConcept {
+    fn from(code: ResourceValidationMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResourceVersionPolicy`. How the system supports versioning for a resource.
@@ -36225,6 +48951,16 @@ impl AsRef<str> for ResourceVersionPolicy {
         }
     }
 }
+impl ::std::fmt::Display for ResourceVersionPolicy {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::NoVersion => "No VersionId Support",
+            Self::Versioned => "Versioned",
+            Self::VersionedUpdate => "VersionId tracked fully",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResourceVersionPolicy {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36241,6 +48977,22 @@ impl Serialize for ResourceVersionPolicy {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResourceVersionPolicy> for Coding {
+    fn from(code: ResourceVersionPolicy) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/versioning-policy".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResourceVersionPolicy> for CodeableConcept {
+    fn from(code: ResourceVersionPolicy) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ResponseType`. The kind of response to a message.
@@ -36283,6 +49035,16 @@ impl AsRef<str> for ResponseType {
         }
     }
 }
+impl ::std::fmt::Display for ResponseType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::FatalError => "Fatal Error",
+            Self::Ok => "OK",
+            Self::TransientError => "Transient Error",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ResponseType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36299,6 +49061,22 @@ impl Serialize for ResponseType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ResponseType> for Coding {
+    fn from(code: ResponseType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/response-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ResponseType> for CodeableConcept {
+    fn from(code: ResponseType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RestfulCapabilityMode`. The mode of a RESTful capability statement.
@@ -36335,6 +49113,15 @@ impl AsRef<str> for RestfulCapabilityMode {
         }
     }
 }
+impl ::std::fmt::Display for RestfulCapabilityMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Client => "Client",
+            Self::Server => "Server",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RestfulCapabilityMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36351,6 +49138,22 @@ impl Serialize for RestfulCapabilityMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RestfulCapabilityMode> for Coding {
+    fn from(code: RestfulCapabilityMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/restful-capability-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RestfulCapabilityMode> for CodeableConcept {
+    fn from(code: RestfulCapabilityMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RestfulSecurityService`. Types of security services used with FHIR.
@@ -36411,6 +49214,19 @@ impl AsRef<str> for RestfulSecurityService {
         }
     }
 }
+impl ::std::fmt::Display for RestfulSecurityService {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Basic => "Basic",
+            Self::Certificates => "Certificates",
+            Self::Kerberos => "Kerberos",
+            Self::Ntlm => "NTLM",
+            Self::Oauth => "OAuth",
+            Self::SmartOnFHIR => "SMART-on-FHIR",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RestfulSecurityService {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36427,6 +49243,22 @@ impl Serialize for RestfulSecurityService {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RestfulSecurityService> for Coding {
+    fn from(code: RestfulSecurityService) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/restful-security-service".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RestfulSecurityService> for CodeableConcept {
+    fn from(code: RestfulSecurityService) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `RiskProbability`. Codes representing the likelihood of a particular outcome in a risk assessment.
@@ -36483,6 +49315,19 @@ impl AsRef<str> for RiskProbability {
         }
     }
 }
+impl ::std::fmt::Display for RiskProbability {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Certain => "Certain",
+            Self::High => "High likelihood",
+            Self::Low => "Low likelihood",
+            Self::Moderate => "Moderate likelihood",
+            Self::Negligible => "Negligible likelihood",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for RiskProbability {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36499,6 +49344,22 @@ impl Serialize for RiskProbability {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<RiskProbability> for Coding {
+    fn from(code: RiskProbability) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/risk-probability".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<RiskProbability> for CodeableConcept {
+    fn from(code: RiskProbability) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SearchComparator`. What Search Comparator Codes are supported in search.
@@ -36577,6 +49438,22 @@ impl AsRef<str> for SearchComparator {
         }
     }
 }
+impl ::std::fmt::Display for SearchComparator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ap => "Approximately",
+            Self::Eb => "Ends Before",
+            Self::Eq => "Equals",
+            Self::Ge => "Greater or Equals",
+            Self::Gt => "Greater Than",
+            Self::Le => "Less of Equal",
+            Self::Lt => "Less Than",
+            Self::Ne => "Not Equals",
+            Self::Sa => "Starts After",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SearchComparator {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36593,6 +49470,22 @@ impl Serialize for SearchComparator {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SearchComparator> for Coding {
+    fn from(code: SearchComparator) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/search-comparator".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SearchComparator> for CodeableConcept {
+    fn from(code: SearchComparator) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SearchEntryMode`. Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
@@ -36635,6 +49528,16 @@ impl AsRef<str> for SearchEntryMode {
         }
     }
 }
+impl ::std::fmt::Display for SearchEntryMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Include => "Include",
+            Self::Match => "Match",
+            Self::Outcome => "Outcome",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SearchEntryMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36651,6 +49554,22 @@ impl Serialize for SearchEntryMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SearchEntryMode> for Coding {
+    fn from(code: SearchEntryMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/search-entry-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SearchEntryMode> for CodeableConcept {
+    fn from(code: SearchEntryMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SearchModifierCode`. A supported modifier for a search parameter.
@@ -36747,6 +49666,25 @@ impl AsRef<str> for SearchModifierCode {
         }
     }
 }
+impl ::std::fmt::Display for SearchModifierCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Above => "Above",
+            Self::Below => "Below",
+            Self::Contains => "Contains",
+            Self::Exact => "Exact",
+            Self::Identifier => "Identifier",
+            Self::In => "In",
+            Self::Missing => "Missing",
+            Self::Not => "Not",
+            Self::NotIn => "Not In",
+            Self::OfType => "Of Type",
+            Self::Text => "Text",
+            Self::Type => "Type",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SearchModifierCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36763,6 +49701,22 @@ impl Serialize for SearchModifierCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SearchModifierCode> for Coding {
+    fn from(code: SearchModifierCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/search-modifier-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SearchModifierCode> for CodeableConcept {
+    fn from(code: SearchModifierCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SearchParamType`. Data types allowed to be used for search parameters.
@@ -36841,6 +49795,22 @@ impl AsRef<str> for SearchParamType {
         }
     }
 }
+impl ::std::fmt::Display for SearchParamType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Composite => "Composite",
+            Self::Date => "Date/DateTime",
+            Self::Number => "Number",
+            Self::Quantity => "Quantity",
+            Self::Reference => "Reference",
+            Self::Special => "Special",
+            Self::String => "String",
+            Self::Token => "Token",
+            Self::Uri => "URI",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SearchParamType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36857,6 +49827,22 @@ impl Serialize for SearchParamType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SearchParamType> for Coding {
+    fn from(code: SearchParamType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/search-param-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SearchParamType> for CodeableConcept {
+    fn from(code: SearchParamType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SecurityRoleType`. This CodeSystem contains Additional FHIR-defined Security Role types not defined elsewhere
@@ -36913,6 +49899,19 @@ impl AsRef<str> for SecurityRoleType {
         }
     }
 }
+impl ::std::fmt::Display for SecurityRoleType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Authserver => "authorization server",
+            Self::Datacollector => "data collector",
+            Self::Dataprocessor => "data processor",
+            Self::Datasubject => "data subject",
+            Self::Humanuser => "human user",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SecurityRoleType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -36929,6 +49928,25 @@ impl Serialize for SecurityRoleType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SecurityRoleType> for Coding {
+    fn from(code: SecurityRoleType) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/extra-security-role-type"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SecurityRoleType> for CodeableConcept {
+    fn from(code: SecurityRoleType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ServiceCategory`. This value set defines an example set of codes that can be used to classify groupings of service-types/specialties.
@@ -37183,6 +50201,52 @@ impl AsRef<str> for ServiceCategory {
         }
     }
 }
+impl ::std::fmt::Display for ServiceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Adoption",
+            Self::N10 => "Dental",
+            Self::N11 => "Disability Support",
+            Self::N12 => "Drug/Alcohol",
+            Self::N13 => "Education & Learning",
+            Self::N14 => "Emergency Department",
+            Self::N15 => "Employment",
+            Self::N16 => "Financial & Material Aid",
+            Self::N17 => "General Practice",
+            Self::N18 => "Housing/Homelessness",
+            Self::N19 => "Interpreting",
+            Self::N2 => "Aged Care",
+            Self::N20 => "Justice",
+            Self::N21 => "Legal",
+            Self::N22 => "Mental Health",
+            Self::N23 => "Physical Activity & Recreation",
+            Self::N24 => "Regulation",
+            Self::N25 => "Respite/Carer Support",
+            Self::N26 => "Specialist Clinical Pathology",
+            Self::N27 => "Specialist Medical",
+            Self::N28 => "Specialist Obstetrics & Gynecology",
+            Self::N29 => "Specialist Paediatric",
+            Self::N3 => "Alternative/Complementary Therapies",
+            Self::N30 => "Specialist Radiology/Imaging",
+            Self::N31 => "Specialist Surgical",
+            Self::N32 => "Support Group/s",
+            Self::N33 => "Transport",
+            Self::N34 => "Allied Health",
+            Self::N35 => "Hospital",
+            Self::N36 => "Crisis Line (GPAH use only)",
+            Self::N37 => "Test Message (HSD admin)",
+            Self::N38 => "NDIA",
+            Self::N4 => "Child Care /Kindergarten",
+            Self::N5 => "Child Development",
+            Self::N6 => "Child Protection & Family Services",
+            Self::N7 => "Community Health Care",
+            Self::N8 => "Counselling",
+            Self::N9 => "Death Services",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ServiceCategory {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -37199,6 +50263,22 @@ impl Serialize for ServiceCategory {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ServiceCategory> for Coding {
+    fn from(code: ServiceCategory) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/service-category".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ServiceCategory> for CodeableConcept {
+    fn from(code: ServiceCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ServiceProvisionConditions`. The code(s) that detail the conditions under which the healthcare service is available/offered.
@@ -37241,6 +50321,16 @@ impl AsRef<str> for ServiceProvisionConditions {
         }
     }
 }
+impl ::std::fmt::Display for ServiceProvisionConditions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cost => "Fees apply",
+            Self::Disc => "Discounts Available",
+            Self::Free => "Free",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ServiceProvisionConditions {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -37257,6 +50347,24 @@ impl Serialize for ServiceProvisionConditions {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ServiceProvisionConditions> for Coding {
+    fn from(code: ServiceProvisionConditions) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/service-provision-conditions".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ServiceProvisionConditions> for CodeableConcept {
+    fn from(code: ServiceProvisionConditions) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `ServiceType`. This value set defines an example set of codes that can be used to classify groupings of service-types/specialties.
@@ -40859,6 +53967,610 @@ impl AsRef<str> for ServiceType {
         }
     }
 }
+impl ::std::fmt::Display for ServiceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1 => "Adoption/Permanent Care Info/Support",
+            Self::N10 => "Personal Alarms/Alerts",
+            Self::N100 => "Disability Information/Referral",
+            Self::N101 => "Disability Support Packages",
+            Self::N102 => "Disability Supported Accommodation",
+            Self::N103 => "Early Childhood Intervention",
+            Self::N104 => "Hearing Aids & Equipment",
+            Self::N105 => "Drug and/or Alcohol Counselling",
+            Self::N106 => "Drug/Alcohol Information/Referral",
+            Self::N107 => "Needle & Syringe Exchange",
+            Self::N108 => "Non-resid. Alcohol/Drug Treatment",
+            Self::N109 => "Pharmacotherapy",
+            Self::N11 => "Personal Care for Older Persons",
+            Self::N110 => "Quit Program",
+            Self::N111 => "Residential Alcohol/Drug Treatment",
+            Self::N112 => "Adult/Community Education",
+            Self::N113 => "Higher Education",
+            Self::N114 => "Primary Education",
+            Self::N115 => "Secondary Education",
+            Self::N116 => "Training & Vocational Education",
+            Self::N117 => "Emergency Medical",
+            Self::N118 => "Employment Placement and/or Support",
+            Self::N119 => "Vocational Rehabilitation",
+            Self::N12 => "Planned Activity Groups",
+            Self::N120 => "Work Safety/Accident Prevention",
+            Self::N121 => "Financial Assistance",
+            Self::N122 => "Financial Information/Advice",
+            Self::N123 => "Material Aid",
+            Self::N124 => "General Practice",
+            Self::N125 => "Accommodation Placement/Support",
+            Self::N126 => "Crisis/Emergency Accommodation",
+            Self::N127 => "Homelessness Support",
+            Self::N128 => "Housing Information/Referral",
+            Self::N129 => "Public Rental Housing",
+            Self::N13 => "Acupuncture",
+            Self::N130 => "Interpreting/Multilingual Service",
+            Self::N131 => "Juvenile Justice",
+            Self::N132 => "Legal Advocacy",
+            Self::N133 => "Legal Information/Advice/Referral",
+            Self::N134 => "Mental Health Advocacy",
+            Self::N135 => "Mental Health Assess/Triage/Crisis Response",
+            Self::N136 => "Mental Health Case Management",
+            Self::N137 => "Mental Health Information/Referral",
+            Self::N138 => "Mental Health Inpatient Services",
+            Self::N139 => "Mental Health Non-residential Rehab",
+            Self::N14 => "Alexander Technique Therapy",
+            Self::N140 => "Mental Health Residential Rehab/CCU",
+            Self::N141 => "Psychiatry (Requires Referral)",
+            Self::N142 => "Psychology",
+            Self::N143 => "Martial Arts",
+            Self::N144 => "Personal Fitness Training",
+            Self::N145 => "Physical Activity Group",
+            Self::N146 => "Physical Activity Programs",
+            Self::N147 => "Physical Fitness Testing",
+            Self::N148 => "Pilates",
+            Self::N149 => "Self-Defence",
+            Self::N15 => "Aromatherapy",
+            Self::N150 => "Sporting Club",
+            Self::N151 => "Yoga",
+            Self::N152 => "Food Safety",
+            Self::N153 => "Health Regulatory /Inspection /Cert.",
+            Self::N154 => "Work Health/Safety Inspection/Cert.",
+            Self::N155 => "Carer Support",
+            Self::N156 => "Respite Care",
+            Self::N157 => "Anatomical Pathology",
+            Self::N158 => "Pathology - Clinical Chemistry",
+            Self::N159 => "Pathology - General",
+            Self::N16 => "Biorhythm Services",
+            Self::N160 => "Pathology - Genetics",
+            Self::N161 => "Pathology - Haematology",
+            Self::N162 => "Pathology - Immunology",
+            Self::N163 => "Pathology - Microbiology",
+            Self::N164 => "Anaesthesiology - Pain Medicine",
+            Self::N165 => "Cardiology",
+            Self::N166 => "Clinical Genetics",
+            Self::N167 => "Clinical Pharmacology",
+            Self::N168 => "Dermatology",
+            Self::N169 => "Endocrinology",
+            Self::N17 => "Bowen Therapy",
+            Self::N170 => "Gastroenterology & Hepatology",
+            Self::N171 => "Geriatric Medicine",
+            Self::N172 => "Immunology & Allergy",
+            Self::N173 => "Infectious Diseases",
+            Self::N174 => "Intensive Care Medicine",
+            Self::N175 => "Medical Oncology",
+            Self::N176 => "Nephrology",
+            Self::N177 => "Neurology",
+            Self::N178 => "Occupational Medicine",
+            Self::N179 => "Palliative Medicine",
+            Self::N18 => "Chinese Herbal Medicine",
+            Self::N180 => "Public Health Medicine",
+            Self::N181 => "Rehabilitation Medicine",
+            Self::N182 => "Rheumatology",
+            Self::N183 => "Sleep Medicine",
+            Self::N184 => "Thoracic Medicine",
+            Self::N185 => "Gynaecological Oncology",
+            Self::N186 => "Obstetrics & Gynaecology",
+            Self::N187 => "Reproductive Endocrinology/Infertility",
+            Self::N188 => "Urogynaecology",
+            Self::N189 => "Neonatology & Perinatology",
+            Self::N19 => "Feldenkrais",
+            Self::N190 => "Paediatric Cardiology",
+            Self::N191 => "Paediatric Clinical Genetics",
+            Self::N192 => "Paediatric Clinical Pharmacology",
+            Self::N193 => "Paediatric Endocrinology",
+            Self::N194 => "Paed. Gastroenterology/Hepatology",
+            Self::N195 => "Paediatric Haematology",
+            Self::N196 => "Paediatric Immunology & Allergy",
+            Self::N197 => "Paediatric Infectious Diseases",
+            Self::N198 => "Paediatric Intensive Care Medicine",
+            Self::N199 => "Paediatric Medical Oncology",
+            Self::N2 => "Aged Care Assessment",
+            Self::N20 => "Homoeopathy",
+            Self::N200 => "Paediatric Medicine",
+            Self::N201 => "Paediatric Nephrology",
+            Self::N202 => "Paediatric Neurology",
+            Self::N203 => "Paediatric Nuclear Medicine",
+            Self::N204 => "Paediatric Rehabilitation Medicine",
+            Self::N205 => "Paediatric Rheumatology",
+            Self::N206 => "Paediatric Sleep Medicine",
+            Self::N207 => "Paediatric Surgery",
+            Self::N208 => "Paediatric Thoracic Medicine",
+            Self::N209 => "Diag. Radiology /Xray /CT /Fluoroscopy",
+            Self::N21 => "Hydrotherapy",
+            Self::N210 => "Diagnostic Ultrasound",
+            Self::N211 => "Magnetic Resonance Imaging (MRI)",
+            Self::N212 => "Nuclear Medicine",
+            Self::N213 => "Obstetric/Gynaecological Ultrasound",
+            Self::N214 => "Radiation Oncology",
+            Self::N215 => "Cardiothoracic Surgery",
+            Self::N216 => "Neurosurgery",
+            Self::N217 => "Ophthalmology",
+            Self::N218 => "Orthopaedic Surgery",
+            Self::N219 => "Otolaryngology/Head & Neck Surgery",
+            Self::N22 => "Hypnotherapy",
+            Self::N220 => "Plastic & Reconstructive Surgery",
+            Self::N221 => "Surgery - General",
+            Self::N222 => "Urology",
+            Self::N223 => "Vascular Surgery",
+            Self::N224 => "Support Groups",
+            Self::N225 => "Air ambulance",
+            Self::N226 => "Ambulance",
+            Self::N227 => "Blood Transport",
+            Self::N228 => "Community Bus",
+            Self::N229 => "Flying Doctor Service",
+            Self::N23 => "Kinesiology",
+            Self::N230 => "Patient Transport",
+            Self::N231 => "A&E",
+            Self::N232 => "A&EP",
+            Self::N233 => "Abuse",
+            Self::N234 => "ACAS",
+            Self::N235 => "Access",
+            Self::N236 => "Accident",
+            Self::N237 => "Acute Inpatient Serv",
+            Self::N238 => "Adult Day Programs",
+            Self::N239 => "Adult Mental Health Services",
+            Self::N24 => "Magnetic Therapy",
+            Self::N240 => "Advice",
+            Self::N241 => "Advocacy",
+            Self::N242 => "Aged Persons Mental",
+            Self::N243 => "Aged Persons Mental",
+            Self::N244 => "Aged Persons Mental",
+            Self::N245 => "Aids",
+            Self::N246 => "Al-Anon",
+            Self::N247 => "Alcohol",
+            Self::N248 => "Al-Teen",
+            Self::N249 => "Antenatal",
+            Self::N25 => "Massage Therapy",
+            Self::N250 => "Anxiety",
+            Self::N251 => "Arthritis",
+            Self::N252 => "Assessment",
+            Self::N253 => "Assistance",
+            Self::N254 => "Asthma",
+            Self::N255 => "ATSS",
+            Self::N256 => "Attendant Care",
+            Self::N257 => "Babies",
+            Self::N258 => "Bathroom Modificatio",
+            Self::N259 => "Behavior",
+            Self::N26 => "Meditation",
+            Self::N260 => "Behavior Interventi",
+            Self::N261 => "Bereavement",
+            Self::N262 => "Bipolar",
+            Self::N263 => "Birth",
+            Self::N264 => "Birth Control",
+            Self::N265 => "Birthing Options",
+            Self::N266 => "BIST",
+            Self::N267 => "Blood",
+            Self::N268 => "Bone",
+            Self::N269 => "Bowel",
+            Self::N27 => "Myotherapy",
+            Self::N270 => "Brain",
+            Self::N271 => "Breast Feeding",
+            Self::N272 => "Breast Screen",
+            Self::N273 => "Brokerage",
+            Self::N274 => "Cancer",
+            Self::N275 => "Cancer Support",
+            Self::N276 => "Cardiovascular Disea",
+            Self::N277 => "Care Packages",
+            Self::N278 => "Carer",
+            Self::N279 => "Case Management",
+            Self::N28 => "Naturopathy",
+            Self::N280 => "Casualty",
+            Self::N281 => "Centrelink",
+            Self::N282 => "Chemists",
+            Self::N283 => "Child And Adolescent",
+            Self::N284 => "Child Care",
+            Self::N285 => "Child Services",
+            Self::N286 => "Children",
+            Self::N287 => "Children's Services",
+            Self::N288 => "Cholesterol",
+            Self::N289 => "Clothing",
+            Self::N29 => "Reflexology",
+            Self::N290 => "Community Based Acco",
+            Self::N291 => "Community Care Unit",
+            Self::N292 => "Community Child And",
+            Self::N293 => "Community Health",
+            Self::N294 => "Community Residentia",
+            Self::N295 => "Community Transport",
+            Self::N296 => "Companion Visiting",
+            Self::N297 => "Companionship",
+            Self::N298 => "Consumer Advice",
+            Self::N299 => "Consumer Issues",
+            Self::N3 => "Aged Care Information/Referral",
+            Self::N30 => "Reiki",
+            Self::N300 => "Continuing Care Serv",
+            Self::N301 => "Contraception Inform",
+            Self::N302 => "Coordinating Bodies",
+            Self::N303 => "Correctional Service",
+            Self::N304 => "Council Environmenta",
+            Self::N305 => "Counselling",
+            Self::N306 => "Criminal",
+            Self::N307 => "Crises",
+            Self::N308 => "Crisis Assessment An",
+            Self::N309 => "Crisis Assistance",
+            Self::N31 => "Relaxation Therapy",
+            Self::N310 => "Crisis Refuge",
+            Self::N311 => "Day Program",
+            Self::N312 => "Deaf",
+            Self::N313 => "Dental Hygiene",
+            Self::N314 => "Dentistry",
+            Self::N315 => "Dentures",
+            Self::N316 => "Depression",
+            Self::N317 => "Detoxification",
+            Self::N318 => "Diabetes",
+            Self::N319 => "Diaphragm Fitting",
+            Self::N32 => "Shiatsu",
+            Self::N320 => "Dieticians",
+            Self::N321 => "Disabled Parking",
+            Self::N322 => "District Nursing",
+            Self::N323 => "Divorce",
+            Self::N324 => "Doctors",
+            Self::N325 => "Drink-Drive",
+            Self::N326 => "Dual Diagnosis Servi",
+            Self::N327 => "Early Choice",
+            Self::N328 => "Eating Disorder",
+            Self::N33 => "Western Herbal Medicine",
+            Self::N330 => "Emergency Relief",
+            Self::N331 => "Employment And Train",
+            Self::N332 => "Environment",
+            Self::N333 => "Equipment",
+            Self::N334 => "Exercise",
+            Self::N335 => "Facility",
+            Self::N336 => "Family Choice",
+            Self::N337 => "Family Law",
+            Self::N338 => "Family Options",
+            Self::N339 => "Family Services",
+            Self::N34 => "Family Day care",
+            Self::N340 => "FFYA",
+            Self::N341 => "Financial Aid",
+            Self::N342 => "Fitness",
+            Self::N343 => "Flexible Care Packag",
+            Self::N344 => "Food",
+            Self::N345 => "Food Vouchers",
+            Self::N346 => "Forensic Mental Heal",
+            Self::N347 => "Futures",
+            Self::N348 => "Futures For Young Ad",
+            Self::N349 => "General Practitioner",
+            Self::N35 => "Holiday Programs",
+            Self::N350 => "Grants",
+            Self::N351 => "Grief",
+            Self::N352 => "Grief Counselling",
+            Self::N353 => "HACC",
+            Self::N354 => "Heart Disease",
+            Self::N355 => "Help",
+            Self::N356 => "High Blood Pressure",
+            Self::N357 => "Home Help",
+            Self::N358 => "Home Nursing",
+            Self::N359 => "Homefirst",
+            Self::N36 => "Kindergarten Inclusion Support",
+            Self::N360 => "Hospice Care",
+            Self::N361 => "Hospital Services",
+            Self::N362 => "Hospital To Home",
+            Self::N364 => "Hostel",
+            Self::N365 => "Hostel Accommodation",
+            Self::N366 => "Household Items",
+            Self::N367 => "Hypertension",
+            Self::N368 => "Illness",
+            Self::N369 => "Independent Living",
+            Self::N37 => "Kindergarten/Preschool",
+            Self::N370 => "Information",
+            Self::N371 => "Injury",
+            Self::N372 => "Intake",
+            Self::N373 => "Intensive Mobile You",
+            Self::N374 => "Intervention",
+            Self::N375 => "Job Searching",
+            Self::N376 => "Justice",
+            Self::N377 => "Leisure",
+            Self::N378 => "Loans",
+            Self::N379 => "Low Income Earners",
+            Self::N38 => "Long Day Child Care",
+            Self::N380 => "Lung",
+            Self::N381 => "Making A Difference",
+            Self::N382 => "Medical Services",
+            Self::N383 => "Medical Specialists",
+            Self::N384 => "Medication Administr",
+            Self::N385 => "Menstrual Informatio",
+            Self::N386 => "Methadone",
+            Self::N387 => "Mobile Support And T",
+            Self::N388 => "Motor Neurone",
+            Self::N389 => "Multiple Sclerosis",
+            Self::N39 => "Occasional Child Care",
+            Self::N390 => "Neighbourhood House",
+            Self::N391 => "Nursing Home",
+            Self::N392 => "Nursing Mothers",
+            Self::N393 => "Obesity",
+            Self::N394 => "Occupational Health",
+            Self::N395 => "Optometrist",
+            Self::N396 => "Oral Hygiene",
+            Self::N397 => "Outpatients",
+            Self::N398 => "Outreach Service",
+            Self::N399 => "PADP",
+            Self::N4 => "Aged Residential Care",
+            Self::N40 => "Outside School Hours Care",
+            Self::N400 => "Pain",
+            Self::N401 => "Pap Smear",
+            Self::N402 => "Parenting",
+            Self::N403 => "Peak Organizations",
+            Self::N404 => "Personal Care",
+            Self::N405 => "Pharmacies",
+            Self::N406 => "Phobias",
+            Self::N407 => "Physical",
+            Self::N408 => "Physical Activity",
+            Self::N409 => "Postnatal",
+            Self::N41 => "Children's Play Programs",
+            Self::N410 => "Pregnancy",
+            Self::N411 => "Pregnancy Tests",
+            Self::N412 => "Preschool",
+            Self::N413 => "Prescriptions",
+            Self::N414 => "Primary Mental Healt",
+            Self::N415 => "Property Maintenance",
+            Self::N416 => "Prostate",
+            Self::N417 => "Psychiatric",
+            Self::N418 => "Psychiatric Disabili",
+            Self::N419 => "Psychiatric Disabili",
+            Self::N42 => "Parenting/Family Support/Education",
+            Self::N420 => "Psychiatric Disabili",
+            Self::N421 => "Psychiatric Disabili",
+            Self::N422 => "Psychiatric Disabili",
+            Self::N423 => "Psychiatric Support",
+            Self::N424 => "Recreation",
+            Self::N425 => "Referral",
+            Self::N426 => "Refuge",
+            Self::N427 => "Rent Assistance",
+            Self::N428 => "Residential Faciliti",
+            Self::N429 => "Residential Respite",
+            Self::N43 => "Playgroup",
+            Self::N430 => "Respiratory",
+            Self::N431 => "Response",
+            Self::N432 => "Rooming Houses",
+            Self::N433 => "Safe Sex",
+            Self::N434 => "Secure Extended Care",
+            Self::N435 => "Self Help",
+            Self::N436 => "Separation",
+            Self::N437 => "Services",
+            Self::N438 => "Sex Education",
+            Self::N439 => "Sexual Abuse",
+            Self::N44 => "School Nursing",
+            Self::N440 => "Sexual Issues",
+            Self::N441 => "Sexually Transmitted",
+            Self::N442 => "SIDS",
+            Self::N443 => "Social Support",
+            Self::N444 => "Socialisation",
+            Self::N445 => "Special Needs",
+            Self::N446 => "Speech Therapist",
+            Self::N447 => "Splinting",
+            Self::N448 => "Sport",
+            Self::N449 => "Statewide And Specia",
+            Self::N45 => "Toy Library",
+            Self::N450 => "STD",
+            Self::N451 => "STI",
+            Self::N452 => "Stillbirth",
+            Self::N453 => "Stomal Care",
+            Self::N454 => "Stroke",
+            Self::N455 => "Substance Abuse",
+            Self::N456 => "Support",
+            Self::N457 => "Syringes",
+            Self::N458 => "Teeth",
+            Self::N459 => "Tenancy Advice",
+            Self::N46 => "Child Protection/Child Abuse Report",
+            Self::N460 => "Terminal Illness",
+            Self::N461 => "Therapy",
+            Self::N462 => "Transcription",
+            Self::N463 => "Translating Services",
+            Self::N464 => "Translator",
+            Self::N465 => "Transport",
+            Self::N466 => "Vertebrae",
+            Self::N467 => "Violence",
+            Self::N468 => "Vocational Guidance",
+            Self::N469 => "Weight",
+            Self::N47 => "Foster Care",
+            Self::N470 => "Welfare Assistance",
+            Self::N471 => "Welfare Counselling",
+            Self::N472 => "Wheelchairs",
+            Self::N473 => "Wound Management",
+            Self::N474 => "Young People At Risk",
+            Self::N475 => "Further Desc. - Community Health Care",
+            Self::N476 => "Library",
+            Self::N477 => "Community Hours",
+            Self::N478 => "Further Desc. - Specialist Medical",
+            Self::N479 => "Hepatology",
+            Self::N48 => "Residential/Out-of-Home Care",
+            Self::N480 => "Gastroenterology",
+            Self::N481 => "Gynaecology",
+            Self::N482 => "Obstetrics",
+            Self::N483 => "Further Desc. - Specialist Surgical",
+            Self::N484 => "Placement Protection",
+            Self::N485 => "Family Violence",
+            Self::N486 => "Integrated Family Services",
+            Self::N488 => "Diabetes Educator",
+            Self::N489 => "Kinship Care",
+            Self::N49 => "Support - Young People Leaving Care",
+            Self::N490 => "General Mental Health Services",
+            Self::N491 => "Exercise Physiology",
+            Self::N492 => "Medical Research",
+            Self::N493 => "Youth",
+            Self::N494 => "Youth Services",
+            Self::N495 => "Youth Health",
+            Self::N496 => "Child and Family Ser",
+            Self::N497 => "Home Visits",
+            Self::N498 => "Mobile Services",
+            Self::N5 => "Case Management for Older Persons",
+            Self::N50 => "Audiology",
+            Self::N500 => "Before and/or After",
+            Self::N501 => "Cancer Services",
+            Self::N502 => "Integrated Cancer Se",
+            Self::N503 => "Multidisciplinary Se",
+            Self::N504 => "Multidisciplinary Ca",
+            Self::N505 => "Meetings",
+            Self::N506 => "Blood pressure monit",
+            Self::N507 => "Dose administration",
+            Self::N508 => "Medical Equipment Hi",
+            Self::N509 => "Parenting/Family Support/Education",
+            Self::N51 => "Blood Donation",
+            Self::N510 => "Deputising Service",
+            Self::N513 => "Cancer Support Groups",
+            Self::N514 => "Community Cancer Services",
+            Self::N52 => "Chiropractic",
+            Self::N53 => "Dietetics",
+            Self::N530 => "Disability Care Transport",
+            Self::N531 => "Aged Care Transport",
+            Self::N532 => "Diabetes Education s",
+            Self::N533 => "Cardiac Rehabilitati",
+            Self::N534 => "Young Adult Diabetes",
+            Self::N535 => "Pulmonary Rehabilita",
+            Self::N536 => "Art therapy",
+            Self::N537 => "Medication Reviews",
+            Self::N538 => "Telephone Counselling",
+            Self::N539 => "Telephone Help Line",
+            Self::N54 => "Family Planning",
+            Self::N540 => "Online Service",
+            Self::N541 => "Crisis - Mental Health",
+            Self::N542 => "Youth Crisis",
+            Self::N543 => "Sexual Assault",
+            Self::N544 => "GPAH Other",
+            Self::N545 => "Paediatric Dermatology",
+            Self::N546 => "Veterans Services",
+            Self::N547 => "Veterans",
+            Self::N548 => "Food Relief/Food/Meals",
+            Self::N55 => "Health Advocacy/Liaison Service",
+            Self::N550 => "Dementia Care",
+            Self::N551 => "Alzheimer",
+            Self::N552 => "Drug and/or Alcohol Support Groups",
+            Self::N553 => "1-on-1 Support /Mentoring /Coaching",
+            Self::N554 => "Chronic Disease Management",
+            Self::N555 => "Liaison Services",
+            Self::N556 => "Walk-in Centre /Non-Emergency",
+            Self::N557 => "Inpatients",
+            Self::N558 => "Spiritual Counselling",
+            Self::N559 => "Women's Health",
+            Self::N56 => "Health Information/Referral",
+            Self::N560 => "Men's Health",
+            Self::N561 => "Health Education/Awareness Program",
+            Self::N562 => "Test Message",
+            Self::N563 => "Remedial Massage",
+            Self::N564 => "Adolescent Mental Health Services",
+            Self::N565 => "Youth Drop In/Assistance/Support",
+            Self::N566 => "Aboriginal Health Worker",
+            Self::N567 => "Women's Health Clinic",
+            Self::N568 => "Men's Health Clinic",
+            Self::N569 => "Migrant Health Clinic",
+            Self::N57 => "Immunization",
+            Self::N570 => "Refugee Health Clinic",
+            Self::N571 => "Aboriginal Health Clinic",
+            Self::N572 => "Nurse Practitioner Lead Clinic/s",
+            Self::N573 => "Nurse Lead Clinic/s",
+            Self::N574 => "Culturally Tailored Support Groups",
+            Self::N575 => "Culturally Tailored Health Promotion",
+            Self::N576 => "Rehabilitation",
+            Self::N577 => "Education Information/Referral",
+            Self::N58 => "Maternal & Child Health",
+            Self::N580 => "Social Work",
+            Self::N581 => "Haematology",
+            Self::N582 => "Maternity Shared Car",
+            Self::N583 => "Rehabilitation Servi",
+            Self::N584 => "Cranio-sacral Therapy",
+            Self::N585 => "Prosthetics & Orthotics",
+            Self::N589 => "Home Medicine Review",
+            Self::N59 => "Nursing",
+            Self::N590 => "GPAH - Medical",
+            Self::N591 => "Music Therapy",
+            Self::N593 => "Falls Prevention",
+            Self::N599 => "Accommodation/Tenancy",
+            Self::N6 => "Delivered Meals (Meals On Wheels)",
+            Self::N60 => "Nutrition",
+            Self::N600 => "Assess-Skill, Ability, Needs",
+            Self::N601 => "Assist Access/Maintain Employ",
+            Self::N602 => "Assist Prod-Pers Care/Safety",
+            Self::N603 => "Assist-Integrate School/Ed",
+            Self::N604 => "Assist-Life Stage, Transition",
+            Self::N605 => "Assist-Personal Activities",
+            Self::N606 => "Assist-Travel/Transport",
+            Self::N607 => "Assistive Equip-General Tasks",
+            Self::N608 => "Assistive Equip-Recreation",
+            Self::N609 => "Assistive Prod-Household Task",
+            Self::N61 => "Occupational Therapy",
+            Self::N610 => "Behavior Support",
+            Self::N611 => "Comms & Info Equipment",
+            Self::N612 => "Community Nursing Care",
+            Self::N613 => "Daily Tasks/Shared Living",
+            Self::N614 => "Development-Life Skills",
+            Self::N615 => "Early Childhood Supports",
+            Self::N616 => "Equipment Special Assess Setup",
+            Self::N617 => "Hearing Equipment",
+            Self::N618 => "Home Modification",
+            Self::N619 => "Household Tasks",
+            Self::N62 => "Optometry",
+            Self::N620 => "Interpret/Translate",
+            Self::N621 => "Other Innovative Supports",
+            Self::N622 => "Participate Community",
+            Self::N623 => "Personal Mobility Equipment",
+            Self::N624 => "Physical Wellbeing",
+            Self::N625 => "Plan Management",
+            Self::N626 => "Therapeutic Supports",
+            Self::N627 => "Training-Travel Independence",
+            Self::N628 => "Vehicle modifications",
+            Self::N629 => "Vision Equipment",
+            Self::N63 => "Osteopathy",
+            Self::N64 => "Pharmacy",
+            Self::N65 => "Physiotherapy",
+            Self::N66 => "Podiatry",
+            Self::N67 => "Sexual Health",
+            Self::N68 => "Speech Pathology/Therapy",
+            Self::N69 => "Bereavement Counselling",
+            Self::N7 => "Friendly Visiting",
+            Self::N70 => "Crisis Counselling",
+            Self::N71 => "Family Counselling/Therapy",
+            Self::N72 => "Family Violence Counselling",
+            Self::N73 => "Financial Counselling",
+            Self::N74 => "Generalist Counselling",
+            Self::N75 => "Genetic Counselling",
+            Self::N76 => "Health Counselling",
+            Self::N77 => "Mediation",
+            Self::N78 => "Problem Gambling Counselling",
+            Self::N79 => "Relationship Counselling",
+            Self::N8 => "Home Care/Housekeeping Assistance",
+            Self::N80 => "Sexual Assault Counselling",
+            Self::N81 => "Trauma Counselling",
+            Self::N82 => "Victims of Crime Counselling",
+            Self::N83 => "Cemetery Operation",
+            Self::N84 => "Cremation",
+            Self::N85 => "Death Service Information",
+            Self::N86 => "Funeral Services",
+            Self::N87 => "Endodontic",
+            Self::N88 => "General Dental",
+            Self::N89 => "Oral Medicine",
+            Self::N9 => "Home Maintenance and Repair",
+            Self::N90 => "Oral Surgery",
+            Self::N91 => "Orthodontic",
+            Self::N92 => "Paediatric Dentistry",
+            Self::N93 => "Periodontic",
+            Self::N94 => "Prosthodontic",
+            Self::N95 => "Acquired Brain Injury Info/Referral",
+            Self::N96 => "Disability Advocacy",
+            Self::N97 => "Disability Aids & Equipment",
+            Self::N98 => "Disability Case Management",
+            Self::N99 => "Disability Day Programs/Activities",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for ServiceType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -40875,6 +54587,22 @@ impl Serialize for ServiceType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<ServiceType> for Coding {
+    fn from(code: ServiceType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/service-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<ServiceType> for CodeableConcept {
+    fn from(code: ServiceType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SignatureTypeCodes`. The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness.
@@ -41007,6 +54735,31 @@ impl AsRef<str> for SignatureTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for SignatureTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N128401006511211 => "Author's Signature",
+            Self::N1284010065112110 => "Identity Witness Signature",
+            Self::N1284010065112111 => "Consent Witness Signature",
+            Self::N1284010065112112 => "Interpreter Signature",
+            Self::N1284010065112113 => "Review Signature",
+            Self::N1284010065112114 => "Source Signature",
+            Self::N1284010065112115 => "Addendum Signature",
+            Self::N1284010065112116 => "Modification Signature",
+            Self::N1284010065112117 => "Administrative (Error/Edit) Signature",
+            Self::N1284010065112118 => "Timestamp Signature",
+            Self::N128401006511212 => "Coauthor's Signature",
+            Self::N128401006511213 => "Co-participant's Signature",
+            Self::N128401006511214 => "Transcriptionist/Recorder Signature",
+            Self::N128401006511215 => "Verification Signature",
+            Self::N128401006511216 => "Validation Signature",
+            Self::N128401006511217 => "Consent Signature",
+            Self::N128401006511218 => "Signature Witness Signature",
+            Self::N128401006511219 => "Event Witness Signature",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SignatureTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41023,6 +54776,22 @@ impl Serialize for SignatureTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SignatureTypeCodes> for Coding {
+    fn from(code: SignatureTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/signature-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SignatureTypeCodes> for CodeableConcept {
+    fn from(code: SignatureTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SlicingRules`. How slices are interpreted when evaluating an instance.
@@ -41065,6 +54834,16 @@ impl AsRef<str> for SlicingRules {
         }
     }
 }
+impl ::std::fmt::Display for SlicingRules {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Closed => "Closed",
+            Self::Open => "Open",
+            Self::OpenAtEnd => "Open at End",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SlicingRules {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41081,6 +54860,22 @@ impl Serialize for SlicingRules {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SlicingRules> for Coding {
+    fn from(code: SlicingRules) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/resource-slicing-rules".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SlicingRules> for CodeableConcept {
+    fn from(code: SlicingRules) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SlotStatus`. The free/busy status of the slot.
@@ -41135,6 +54930,18 @@ impl AsRef<str> for SlotStatus {
         }
     }
 }
+impl ::std::fmt::Display for SlotStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Busy => "Busy",
+            Self::BusyTentative => "Busy (Tentative)",
+            Self::BusyUnavailable => "Busy (Unavailable)",
+            Self::EnteredInError => "Entered in error",
+            Self::Free => "Free",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SlotStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41151,6 +54958,22 @@ impl Serialize for SlotStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SlotStatus> for Coding {
+    fn from(code: SlotStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/slotstatus".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SlotStatus> for CodeableConcept {
+    fn from(code: SlotStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SmartCapabilities`. Codes that define what the server is capable of.
@@ -41259,6 +55082,33 @@ impl AsRef<str> for SmartCapabilities {
         }
     }
 }
+impl ::std::fmt::Display for SmartCapabilities {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ClientConfidentialSymmetric => "Confidential Client Profile",
+            Self::ClientPublic => "Public Client Profile",
+            Self::ContextEhrEncounter => {
+                "Allows \"Encounter Level Launch Context (EHR)\""
+            }
+            Self::ContextEhrPatient => "Allows \"Patient Level Launch Context (EHR)\"",
+            Self::ContextPassthroughBanner => "Allows \"Need Patient Banner\"",
+            Self::ContextPassthroughStyle => "Allows \"Smart Style Style\"",
+            Self::ContextStandaloneEncounter => {
+                "Allows \"Encounter Level Launch Context (STANDALONE)\""
+            }
+            Self::ContextStandalonePatient => {
+                "Allows \"Patient Level Launch Context (STANDALONE)\""
+            }
+            Self::LaunchEhr => "EHR Launch Mode",
+            Self::LaunchStandalone => "Standalone Launch Mode",
+            Self::PermissionOffline => "Supports Refresh Token",
+            Self::PermissionPatient => "Supports Patient Level Scopes",
+            Self::PermissionUser => "Supports User Level Scopes",
+            Self::SsoOpenidConnect => "Supports OpenID Connect",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SmartCapabilities {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41275,6 +55125,22 @@ impl Serialize for SmartCapabilities {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SmartCapabilities> for Coding {
+    fn from(code: SmartCapabilities) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/smart-capabilities".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SmartCapabilities> for CodeableConcept {
+    fn from(code: SmartCapabilities) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SortDirection`. The possible sort directions, ascending or descending.
@@ -41311,6 +55177,15 @@ impl AsRef<str> for SortDirection {
         }
     }
 }
+impl ::std::fmt::Display for SortDirection {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ascending => "Ascending",
+            Self::Descending => "Descending",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SortDirection {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41327,6 +55202,22 @@ impl Serialize for SortDirection {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SortDirection> for Coding {
+    fn from(code: SortDirection) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/sort-direction".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SortDirection> for CodeableConcept {
+    fn from(code: SortDirection) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SpecialArrangements`. This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patient's visit.
@@ -41383,6 +55274,19 @@ impl AsRef<str> for SpecialArrangements {
         }
     }
 }
+impl ::std::fmt::Display for SpecialArrangements {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::AddBed => "Additional bedding",
+            Self::Att => "Attendant",
+            Self::Dog => "Guide dog",
+            Self::Int => "Interpreter",
+            Self::Wheel => "Wheelchair",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SpecialArrangements {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41399,6 +55303,25 @@ impl Serialize for SpecialArrangements {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SpecialArrangements> for Coding {
+    fn from(code: SpecialArrangements) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/encounter-special-arrangements"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SpecialArrangements> for CodeableConcept {
+    fn from(code: SpecialArrangements) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SpecialMeasures`. Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorisation studies.
@@ -41429,6 +55352,16 @@ impl AsRef<str> for SpecialMeasures {
         }
     }
 }
+impl ::std::fmt::Display for SpecialMeasures {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::PostAuthorisationStudies => {
+                "Requirement to conduct post-authorisation studies"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SpecialMeasures {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41445,6 +55378,25 @@ impl Serialize for SpecialMeasures {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SpecialMeasures> for Coding {
+    fn from(code: SpecialMeasures) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SpecialMeasures> for CodeableConcept {
+    fn from(code: SpecialMeasures) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SpecialValues`. A set of generally useful codes defined so they can be included in value sets.
@@ -41505,6 +55457,19 @@ impl AsRef<str> for SpecialValues {
         }
     }
 }
+impl ::std::fmt::Display for SpecialValues {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::False => "false",
+            Self::NilKnown => "Nil Known",
+            Self::Sufficient => "Sufficient Quantity",
+            Self::Trace => "Trace Amount Detected",
+            Self::True => "true",
+            Self::Withdrawn => "Value Withdrawn",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SpecialValues {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41521,6 +55486,22 @@ impl Serialize for SpecialValues {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SpecialValues> for Coding {
+    fn from(code: SpecialValues) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/special-values".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SpecialValues> for CodeableConcept {
+    fn from(code: SpecialValues) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SpecimenContainedPreference`. Degree of preference of a type of conditioned specimen.
@@ -41557,6 +55538,15 @@ impl AsRef<str> for SpecimenContainedPreference {
         }
     }
 }
+impl ::std::fmt::Display for SpecimenContainedPreference {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Alternate => "Alternate",
+            Self::Preferred => "Preferred",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SpecimenContainedPreference {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41573,6 +55563,24 @@ impl Serialize for SpecimenContainedPreference {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SpecimenContainedPreference> for Coding {
+    fn from(code: SpecimenContainedPreference) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/specimen-contained-preference".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SpecimenContainedPreference> for CodeableConcept {
+    fn from(code: SpecimenContainedPreference) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SpecimenStatus`. Codes providing the status/availability of a specimen.
@@ -41621,6 +55629,17 @@ impl AsRef<str> for SpecimenStatus {
         }
     }
 }
+impl ::std::fmt::Display for SpecimenStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Available => "Available",
+            Self::EnteredInError => "Entered in Error",
+            Self::Unavailable => "Unavailable",
+            Self::Unsatisfactory => "Unsatisfactory",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SpecimenStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41637,6 +55656,22 @@ impl Serialize for SpecimenStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SpecimenStatus> for Coding {
+    fn from(code: SpecimenStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/specimen-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SpecimenStatus> for CodeableConcept {
+    fn from(code: SpecimenStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StandardsStatus`. Status codes indicating the 'standards' level of an artifact
@@ -41701,6 +55736,20 @@ impl AsRef<str> for StandardsStatus {
         }
     }
 }
+impl ::std::fmt::Display for StandardsStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Deprecated => "Deprecated",
+            Self::Draft => "Draft",
+            Self::External => "External",
+            Self::Informative => "Informative",
+            Self::Normative => "Normative",
+            Self::TrialUse => "Trial-Use",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StandardsStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -41717,6 +55766,22 @@ impl Serialize for StandardsStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StandardsStatus> for Coding {
+    fn from(code: StandardsStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/standards-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StandardsStatus> for CodeableConcept {
+    fn from(code: StandardsStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StatisticModelCode`. The role that the assertion variable plays.
@@ -42221,6 +56286,102 @@ impl AsRef<str> for StatisticModelCode {
         }
     }
 }
+impl ::std::fmt::Display for StatisticModelCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Adjusted => "Adjusted analysis",
+            Self::Anova => "ANOVA (ANalysis Of VAriance)",
+            Self::AnovaOneWay => "one-way ANOVA",
+            Self::AnovaThreeWay => "3-way ANOVA",
+            Self::AnovaTwoWay => "2-way ANOVA without replication",
+            Self::AnovaTwoWayReplication => "2-way ANOVA with replication",
+            Self::BinomialDistributionRegression => {
+                "Binomial Distribution for Regression"
+            }
+            Self::ChiSquareTest => "Chi-square test",
+            Self::ChiSquareTestHomogeneity => "Chi-square test for homogeneity",
+            Self::ChiSquareTestTrend => "Chi-square test for trend",
+            Self::CoxProportionalHazards => "Cox Proportional Hazards",
+            Self::DersimonianLairdMethod => "Dersimonian-Laird method",
+            Self::EffectsFixed => "Fixed-effects",
+            Self::EffectsRandom => "Random-effects",
+            Self::EmpiricalBayes => "Empirical Bayes method",
+            Self::FishersExactTest => "Fisher’s exact test",
+            Self::FriedmanTest => "Friedman test",
+            Self::Glm => "GLM (Generalized Linear Model)",
+            Self::GlmGeneralizedLogit => "GLM with generalized logit link",
+            Self::GlmIdentity => "GLM with identity link",
+            Self::GlmLog => "GLM with log link",
+            Self::GlmLogit => "GLM with logit link",
+            Self::GlmProbit => "GLM with probit link",
+            Self::Glmm => "Generalized linear mixed model (GLMM)",
+            Self::GlmmGeneralizedLogit => "GLMM with generalized logit link",
+            Self::GlmmIdentity => "GLMM with identity link",
+            Self::GlmmLog => "GLMM with log link",
+            Self::GlmmLogit => "GLMM with logit link",
+            Self::GlmmProbit => "GLMM with probit link",
+            Self::GoodmanKruskasGamma => "Goodman Kruska’s Gamma",
+            Self::HartungKnapp => "Hartung-Knapp adjustment",
+            Self::HedgesMethod => "Hedges method",
+            Self::HunterSchmidt => "Hunter-Schmidt method",
+            Self::InteractionTerm => "Interaction term",
+            Self::InverseVariance => "Inverse variance method",
+            Self::KendallCorrelation => "Kendall correlation",
+            Self::KruskalWallisTest => "Kruskal Wallis test",
+            Self::LinearRegression => "Linear Regression",
+            Self::LogisticRegression => "Logistic Regression",
+            Self::MannWhitneyUTest => "Mann-Whitney U test",
+            Self::Manova => "multivariate ANOVA (MANOVA)",
+            Self::ManteHaenszelMethod => "Mantel-Haenszel method",
+            Self::MaximumLikelihood => "Maximum Likelihood method",
+            Self::McnemarsTest => "McNemar’s test",
+            Self::MetaAnalysis => "Meta-analysis",
+            Self::ModifiedHartungKnapp => "Modified Hartung-Knapp adjustment",
+            Self::MultinomialDistributionRegression => {
+                "Multinomial Distribution for Regression"
+            }
+            Self::NegativeBinomialRegression => "Negative Binomial Regression",
+            Self::OneSampleTTest => "1-sample t-test",
+            Self::OneTailedTest => "one-tailed test (1 threshold)",
+            Self::PairedTTest => "paired t-test",
+            Self::PauleMandelMethod => "Paule-Mandel method",
+            Self::PearsonCorrelation => "Pearson correlation",
+            Self::PetoMethod => "Peto method",
+            Self::PoissonRegression => "Poisson Regression",
+            Self::PolynomialRegression => "Polynomial Regression",
+            Self::PoolGeneralizedLinearMixedModel => {
+                "Generalized linear mixed model (GLMM)"
+            }
+            Self::PoolInverseVariance => "Inverse variance method",
+            Self::PoolMantelHaenzsel => "Mantel-Haenszel method",
+            Self::PoolPeto => "Peto method",
+            Self::RestrictedLikelihood => "Restricted Maximum Likelihood method",
+            Self::SidikJonkman => "Sidik-Jonkman method",
+            Self::SignTest => "sign test",
+            Self::SpearmanCorrelation => "Spearman correlation",
+            Self::TauDersimonianLaird => "Dersimonian-Laird method",
+            Self::TauEmpiricalBayes => "Empirical Bayes method",
+            Self::TauHedges => "Hedges method",
+            Self::TauHunterSchmidt => "Hunter-Schmidt method",
+            Self::TauMaximumLikelihood => "Maximum Likelihood method",
+            Self::TauPauleMandel => "Paule-Mandel method",
+            Self::TauRestrictedMaximumLikelihood => {
+                "Restricted Maximum Likelihood method"
+            }
+            Self::TauSidikJonkman => "Sidik-Jonkman method",
+            Self::TwoSampleTTest => "2-sample t-test",
+            Self::TwoTailedTest => "two-tailed test (2 thresholds)",
+            Self::WilcoxonRankSumTest => "Wilcoxon rank-sum test",
+            Self::WilcoxonSignedRankTest => "Wilcoxon signed-rank test",
+            Self::Ztest => "z-test",
+            Self::ZeroCellConstant => "Zero-cell adjustment with constant",
+            Self::ZeroCellContinuityCorrection => {
+                "Zero-cell adjustment with continuity correction"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StatisticModelCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42237,6 +56398,22 @@ impl Serialize for StatisticModelCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StatisticModelCode> for Coding {
+    fn from(code: StatisticModelCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/statistic-model-code".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StatisticModelCode> for CodeableConcept {
+    fn from(code: StatisticModelCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StatisticType`. The role that the assertion variable plays.
@@ -42393,6 +56570,35 @@ impl AsRef<str> for StatisticType {
         }
     }
 }
+impl ::std::fmt::Display for StatisticType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0000100 => "Standardized Mean Difference",
+            Self::N0000301 => "Covariance",
+            Self::N0000424 => "Risk Difference",
+            Self::N0000457 => "Mean Difference",
+            Self::N0000565 => "Regression Coefficient",
+            Self::C16726 => "Incidence",
+            Self::C16932 => "Odds Ratio",
+            Self::C17010 => "Prevalence",
+            Self::C25463 => "Count",
+            Self::C25564 => "Maximum",
+            Self::C25570 => "Minimum",
+            Self::C28007 => "Median",
+            Self::C44256 => "Proportion",
+            Self::C53319 => "Mean",
+            Self::C65171 => "Spearman Rank-Order Correlation\u{a0}",
+            Self::C65172 => "Pearson Correlation Coefficient",
+            Self::C93150 => "Hazard Ratio",
+            Self::C93152 => "Relative Risk",
+            Self::AbsoluteMedianDiff => "Absolute Median Difference",
+            Self::Descriptive => "Descriptive",
+            Self::PredictedRisk => "Predicted Risk",
+            Self::RateRatio => "Incidence Rate Ratio",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StatisticType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42409,6 +56615,22 @@ impl Serialize for StatisticType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StatisticType> for Coding {
+    fn from(code: StatisticType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/statistic-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StatisticType> for CodeableConcept {
+    fn from(code: StatisticType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StatisticsCode`.
@@ -42561,6 +56783,35 @@ impl AsRef<str> for StatisticsCode {
         }
     }
 }
+impl ::std::fmt::Display for StatisticsCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N20Percent => "20th Percentile",
+            Self::N4Dev => "Quartile Deviation",
+            Self::N4Lower => "Lower Quartile",
+            Self::N4Upper => "Upper Quartile",
+            Self::N51 => "1st Quintile",
+            Self::N52 => "2nd Quintile",
+            Self::N53 => "3rd Quintile",
+            Self::N54 => "4th Quintile",
+            Self::N80Percent => "80th Percentile",
+            Self::Average => "Average",
+            Self::Count => "Count",
+            Self::Kurtosis => "Kurtosis",
+            Self::Maximum => "Maximum",
+            Self::Median => "Median",
+            Self::Minimum => "Minimum",
+            Self::Regression => "Regression",
+            Self::Skew => "Skew",
+            Self::StdDev => "Standard Deviation",
+            Self::Sum => "Sum",
+            Self::TotalCount => "Total Count",
+            Self::Variance => "Variance",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StatisticsCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42577,6 +56828,22 @@ impl Serialize for StatisticsCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StatisticsCode> for Coding {
+    fn from(code: StatisticsCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/observation-statistics".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StatisticsCode> for CodeableConcept {
+    fn from(code: StatisticsCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StrengthOfRecommendationRating`. A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or HGPS systems.
@@ -42613,6 +56880,15 @@ impl AsRef<str> for StrengthOfRecommendationRating {
         }
     }
 }
+impl ::std::fmt::Display for StrengthOfRecommendationRating {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Strong => "Strong",
+            Self::Weak => "Weak",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StrengthOfRecommendationRating {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42629,6 +56905,22 @@ impl Serialize for StrengthOfRecommendationRating {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StrengthOfRecommendationRating> for Coding {
+    fn from(code: StrengthOfRecommendationRating) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/recommendation-strength".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StrengthOfRecommendationRating> for CodeableConcept {
+    fn from(code: StrengthOfRecommendationRating) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureDefinitionKind`. Defines the type of structure that a definition is describing.
@@ -42677,6 +56969,17 @@ impl AsRef<str> for StructureDefinitionKind {
         }
     }
 }
+impl ::std::fmt::Display for StructureDefinitionKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ComplexType => "Complex Data Type",
+            Self::Logical => "Logical",
+            Self::PrimitiveType => "Primitive Data Type",
+            Self::Resource => "Resource",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureDefinitionKind {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42693,6 +56996,22 @@ impl Serialize for StructureDefinitionKind {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureDefinitionKind> for Coding {
+    fn from(code: StructureDefinitionKind) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/structure-definition-kind".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureDefinitionKind> for CodeableConcept {
+    fn from(code: StructureDefinitionKind) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapContextType`. How to interpret the context.
@@ -42729,6 +57048,15 @@ impl AsRef<str> for StructureMapContextType {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapContextType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Type => "Type",
+            Self::Variable => "Variable",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapContextType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42745,6 +57073,22 @@ impl Serialize for StructureMapContextType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapContextType> for Coding {
+    fn from(code: StructureMapContextType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-context-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapContextType> for CodeableConcept {
+    fn from(code: StructureMapContextType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapGroupTypeMode`. If this is the default rule set to apply for the source type, or this combination of types.
@@ -42787,6 +57131,16 @@ impl AsRef<str> for StructureMapGroupTypeMode {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapGroupTypeMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::None => "Not a Default",
+            Self::TypeAndTypes => "Default for type + combination",
+            Self::Types => "Default for Type Combination",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapGroupTypeMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42803,6 +57157,22 @@ impl Serialize for StructureMapGroupTypeMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapGroupTypeMode> for Coding {
+    fn from(code: StructureMapGroupTypeMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-group-type-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapGroupTypeMode> for CodeableConcept {
+    fn from(code: StructureMapGroupTypeMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapInputMode`. Mode for this instance of data.
@@ -42839,6 +57209,15 @@ impl AsRef<str> for StructureMapInputMode {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapInputMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Source => "Source Instance",
+            Self::Target => "Target Instance",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapInputMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42855,6 +57234,22 @@ impl Serialize for StructureMapInputMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapInputMode> for Coding {
+    fn from(code: StructureMapInputMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-input-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapInputMode> for CodeableConcept {
+    fn from(code: StructureMapInputMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapModelMode`. How the referenced structure is used in this mapping.
@@ -42903,6 +57298,17 @@ impl AsRef<str> for StructureMapModelMode {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapModelMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Produced => "Produced Structure Definition",
+            Self::Queried => "Queried Structure Definition",
+            Self::Source => "Source Structure Definition",
+            Self::Target => "Target Structure Definition",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapModelMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42919,6 +57325,22 @@ impl Serialize for StructureMapModelMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapModelMode> for Coding {
+    fn from(code: StructureMapModelMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-model-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapModelMode> for CodeableConcept {
+    fn from(code: StructureMapModelMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapSourceListMode`. If field is a list, how to manage the source.
@@ -42973,6 +57395,18 @@ impl AsRef<str> for StructureMapSourceListMode {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapSourceListMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::First => "First",
+            Self::Last => "Last",
+            Self::NotFirst => "All but the first",
+            Self::NotLast => "All but the last",
+            Self::OnlyOne => "Enforce only one",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapSourceListMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -42989,6 +57423,22 @@ impl Serialize for StructureMapSourceListMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapSourceListMode> for Coding {
+    fn from(code: StructureMapSourceListMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-source-list-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapSourceListMode> for CodeableConcept {
+    fn from(code: StructureMapSourceListMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapTargetListMode`. If field is a list, how to manage the production.
@@ -43037,6 +57487,17 @@ impl AsRef<str> for StructureMapTargetListMode {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapTargetListMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Collate => "Collate",
+            Self::First => "First",
+            Self::Last => "Last",
+            Self::Share => "Share",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapTargetListMode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43053,6 +57514,22 @@ impl Serialize for StructureMapTargetListMode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapTargetListMode> for Coding {
+    fn from(code: StructureMapTargetListMode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-target-list-mode".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapTargetListMode> for CodeableConcept {
+    fn from(code: StructureMapTargetListMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StructureMapTransform`. How data is copied/created.
@@ -43179,6 +57656,30 @@ impl AsRef<str> for StructureMapTransform {
         }
     }
 }
+impl ::std::fmt::Display for StructureMapTransform {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Append => "append",
+            Self::C => "c",
+            Self::Cast => "cast",
+            Self::Cc => "cc",
+            Self::Copy => "copy",
+            Self::Cp => "cp",
+            Self::Create => "create",
+            Self::DateOp => "dateOp",
+            Self::Escape => "escape",
+            Self::Evaluate => "evaluate",
+            Self::Id => "id",
+            Self::Pointer => "pointer",
+            Self::Qty => "qty",
+            Self::Reference => "reference",
+            Self::Translate => "translate",
+            Self::Truncate => "truncate",
+            Self::Uuid => "uuid",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StructureMapTransform {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43195,6 +57696,22 @@ impl Serialize for StructureMapTransform {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StructureMapTransform> for Coding {
+    fn from(code: StructureMapTransform) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/map-transform".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StructureMapTransform> for CodeableConcept {
+    fn from(code: StructureMapTransform) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `StudyType`. The type of study the evidence was derived from.
@@ -43261,6 +57778,20 @@ impl AsRef<str> for StudyType {
         }
     }
 }
+impl ::std::fmt::Display for StudyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cct => "controlled trial (non-randomized)",
+            Self::Rct => "randomized trial",
+            Self::CaseControl => "case-control study",
+            Self::CaseReport => "case report",
+            Self::Cohort => "comparative cohort study",
+            Self::Mixed => "mixed methods",
+            Self::Series => "uncontrolled cohort or case series",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for StudyType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43277,6 +57808,22 @@ impl Serialize for StudyType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<StudyType> for Coding {
+    fn from(code: StudyType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/study-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<StudyType> for CodeableConcept {
+    fn from(code: StudyType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubscriberRelationshipCodes`. This value set includes codes for the relationship between the Subscriber and the Beneficiary (insured/covered party/patient).
@@ -43345,6 +57892,21 @@ impl AsRef<str> for SubscriberRelationshipCodes {
         }
     }
 }
+impl ::std::fmt::Display for SubscriberRelationshipCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Child => "Child",
+            Self::Common => "Common Law Spouse",
+            Self::Injured => "Injured Party",
+            Self::Other => "Other",
+            Self::Parent => "Parent",
+            Self::_Self => "Self",
+            Self::Spouse => "Spouse",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubscriberRelationshipCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43361,6 +57923,25 @@ impl Serialize for SubscriberRelationshipCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubscriberRelationshipCodes> for Coding {
+    fn from(code: SubscriberRelationshipCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/subscriber-relationship"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubscriberRelationshipCodes> for CodeableConcept {
+    fn from(code: SubscriberRelationshipCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubscriptionChannelType`. The type of method used to execute a subscription.
@@ -43415,6 +57996,18 @@ impl AsRef<str> for SubscriptionChannelType {
         }
     }
 }
+impl ::std::fmt::Display for SubscriptionChannelType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Email => "Email",
+            Self::Message => "Message",
+            Self::RestHook => "Rest Hook",
+            Self::Sms => "SMS",
+            Self::Websocket => "Websocket",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubscriptionChannelType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43431,6 +58024,22 @@ impl Serialize for SubscriptionChannelType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubscriptionChannelType> for Coding {
+    fn from(code: SubscriptionChannelType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/subscription-channel-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubscriptionChannelType> for CodeableConcept {
+    fn from(code: SubscriptionChannelType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubscriptionNotificationType`. The type of notification represented by the status message.
@@ -43485,6 +58094,18 @@ impl AsRef<str> for SubscriptionNotificationType {
         }
     }
 }
+impl ::std::fmt::Display for SubscriptionNotificationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::EventNotification => "Event Notification",
+            Self::Handshake => "Handshake",
+            Self::Heartbeat => "Heartbeat",
+            Self::QueryEvent => "Query Event",
+            Self::QueryStatus => "Query Status",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubscriptionNotificationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43501,6 +58122,24 @@ impl Serialize for SubscriptionNotificationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubscriptionNotificationType> for Coding {
+    fn from(code: SubscriptionNotificationType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/subscription-notification-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubscriptionNotificationType> for CodeableConcept {
+    fn from(code: SubscriptionNotificationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubscriptionSearchModifer`. This codesystem defines a set of codes that can be used to filter Subscription triggers.
@@ -43617,6 +58256,29 @@ impl AsRef<str> for SubscriptionSearchModifer {
         }
     }
 }
+impl ::std::fmt::Display for SubscriptionSearchModifer {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Equal => "=",
+            Self::Above => "Above",
+            Self::Ap => "Approximately",
+            Self::Below => "Below",
+            Self::Eb => "Ends Before",
+            Self::Eq => "Equal",
+            Self::Ge => "Greater Than or Equal",
+            Self::Gt => "Greater Than",
+            Self::In => "In",
+            Self::Le => "Less Than or Equal",
+            Self::Lt => "Less Than",
+            Self::Ne => "Not Equal",
+            Self::NotIn => "Not In",
+            Self::OfType => "Of Type",
+            Self::Sa => "Starts After",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubscriptionSearchModifer {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43633,6 +58295,25 @@ impl Serialize for SubscriptionSearchModifer {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubscriptionSearchModifer> for Coding {
+    fn from(code: SubscriptionSearchModifer) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/subscription-search-modifier"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubscriptionSearchModifer> for CodeableConcept {
+    fn from(code: SubscriptionSearchModifer) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubscriptionStatus`. The status of a subscription.
@@ -43681,6 +58362,17 @@ impl AsRef<str> for SubscriptionStatus {
         }
     }
 }
+impl ::std::fmt::Display for SubscriptionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Error => "Error",
+            Self::Off => "Off",
+            Self::Requested => "Requested",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubscriptionStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43697,6 +58389,22 @@ impl Serialize for SubscriptionStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubscriptionStatus> for Coding {
+    fn from(code: SubscriptionStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/subscription-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubscriptionStatus> for CodeableConcept {
+    fn from(code: SubscriptionStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceAmountType`. The type of a numeric quantity measurement.
@@ -43745,6 +58453,17 @@ impl AsRef<str> for SubstanceAmountType {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceAmountType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Approximately => "Approximately",
+            Self::Average => "Average",
+            Self::LessThan => "Less Than",
+            Self::MoreThan => "More Than",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceAmountType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43761,6 +58480,22 @@ impl Serialize for SubstanceAmountType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceAmountType> for Coding {
+    fn from(code: SubstanceAmountType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-amount-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceAmountType> for CodeableConcept {
+    fn from(code: SubstanceAmountType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceGrade`.
@@ -43815,6 +58550,20 @@ impl AsRef<str> for SubstanceGrade {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceGrade {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Bp => "British Pharmacopoeia",
+            Self::CompanyStandard => "Company Standard",
+            Self::Jp => "Japanese Pharmacopoeia",
+            Self::PhEur => "European Pharmacopoeia",
+            Self::UspNf => {
+                "USP/NF United States Pharmacopeia (USP) and the National Formulary (NF)"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceGrade {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43831,6 +58580,22 @@ impl Serialize for SubstanceGrade {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceGrade> for Coding {
+    fn from(code: SubstanceGrade) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-grade".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceGrade> for CodeableConcept {
+    fn from(code: SubstanceGrade) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceNameAuthority`.
@@ -43945,6 +58710,28 @@ impl AsRef<str> for SubstanceNameAuthority {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceNameAuthority {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ban => "BAN",
+            Self::Cosing => "COSING",
+            Self::Fcc => "FCC",
+            Self::Hab => "HAB",
+            Self::Inci => "INCI",
+            Self::Inn => "INN",
+            Self::Iuis => "IUIS",
+            Self::Jan => "JAN",
+            Self::Jecfa => "JECFA",
+            Self::Martindale => "MARTINDALE",
+            Self::Phf => "PHF",
+            Self::PhEur => "Ph.Eur.",
+            Self::PhF => "PhF (Pharmacopée française)",
+            Self::Usan => "USAN",
+            Self::Usp => "USP",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceNameAuthority {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -43961,6 +58748,22 @@ impl Serialize for SubstanceNameAuthority {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceNameAuthority> for Coding {
+    fn from(code: SubstanceNameAuthority) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-name-authority".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceNameAuthority> for CodeableConcept {
+    fn from(code: SubstanceNameAuthority) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceNameDomain`.
@@ -43997,6 +58800,15 @@ impl AsRef<str> for SubstanceNameDomain {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceNameDomain {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ActiveIngredient => "Active Ingredient",
+            Self::FoodColorAdditive => "Food Color Additive",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceNameDomain {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44013,6 +58825,22 @@ impl Serialize for SubstanceNameDomain {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceNameDomain> for Coding {
+    fn from(code: SubstanceNameDomain) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-name-domain".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceNameDomain> for CodeableConcept {
+    fn from(code: SubstanceNameDomain) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceNameType`.
@@ -44055,6 +58883,16 @@ impl AsRef<str> for SubstanceNameType {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Brand => "brand",
+            Self::Scientific => "scientific",
+            Self::Systematic => "systematic",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceNameType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44071,6 +58909,22 @@ impl Serialize for SubstanceNameType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceNameType> for Coding {
+    fn from(code: SubstanceNameType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-name-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceNameType> for CodeableConcept {
+    fn from(code: SubstanceNameType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceOpticalActivity`. The optical rotation type of a substance.
@@ -44107,6 +58961,15 @@ impl AsRef<str> for SubstanceOpticalActivity {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceOpticalActivity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Plus => "dextrorotary",
+            Self::Minus => "levorotary",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceOpticalActivity {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44123,6 +58986,22 @@ impl Serialize for SubstanceOpticalActivity {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceOpticalActivity> for Coding {
+    fn from(code: SubstanceOpticalActivity) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-optical-activity".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceOpticalActivity> for CodeableConcept {
+    fn from(code: SubstanceOpticalActivity) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceRelationshipType`. The relationship between two substance types.
@@ -44177,6 +59056,18 @@ impl AsRef<str> for SubstanceRelationshipType {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ActiveMoiety => "Active moiety",
+            Self::Impurity => "Impurity of",
+            Self::Polymorph => "Polymorph of",
+            Self::Salt => "Salt to parent",
+            Self::StartingMaterial => "Starting material for",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceRelationshipType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44193,6 +59084,24 @@ impl Serialize for SubstanceRelationshipType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceRelationshipType> for Coding {
+    fn from(code: SubstanceRelationshipType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-relationship-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceRelationshipType> for CodeableConcept {
+    fn from(code: SubstanceRelationshipType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceRepresentationFormat`.
@@ -44259,6 +59168,20 @@ impl AsRef<str> for SubstanceRepresentationFormat {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceRepresentationFormat {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Cdx => "CDX",
+            Self::InChI => "InChI",
+            Self::Molfile => "MOLFILE",
+            Self::Pdb => "PDB",
+            Self::Sdf => "SDF",
+            Self::Smiles => "SMILES",
+            Self::MmCIF => "mmCIF",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceRepresentationFormat {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44275,6 +59198,24 @@ impl Serialize for SubstanceRepresentationFormat {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceRepresentationFormat> for Coding {
+    fn from(code: SubstanceRepresentationFormat) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-representation-format".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceRepresentationFormat> for CodeableConcept {
+    fn from(code: SubstanceRepresentationFormat) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceRepresentationType`.
@@ -44317,6 +59258,16 @@ impl AsRef<str> for SubstanceRepresentationType {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceRepresentationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Brand => "brand",
+            Self::Scientific => "scientific",
+            Self::Systematic => "systematic",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceRepresentationType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44333,6 +59284,24 @@ impl Serialize for SubstanceRepresentationType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceRepresentationType> for Coding {
+    fn from(code: SubstanceRepresentationType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-representation-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceRepresentationType> for CodeableConcept {
+    fn from(code: SubstanceRepresentationType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceSourceMaterialGenus`.
@@ -44375,6 +59344,16 @@ impl AsRef<str> for SubstanceSourceMaterialGenus {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceSourceMaterialGenus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Ginkgo => "Ginkgo",
+            Self::InfluenzavirusA => "Influenza A virus",
+            Self::Mycobacterium => "Mycobacterium",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialGenus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44391,6 +59370,24 @@ impl Serialize for SubstanceSourceMaterialGenus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceSourceMaterialGenus> for Coding {
+    fn from(code: SubstanceSourceMaterialGenus) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-source-material-genus".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceSourceMaterialGenus> for CodeableConcept {
+    fn from(code: SubstanceSourceMaterialGenus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceSourceMaterialPart`.
@@ -44433,6 +59430,16 @@ impl AsRef<str> for SubstanceSourceMaterialPart {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceSourceMaterialPart {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Animal => "animal",
+            Self::Mineral => "mineral",
+            Self::Plant => "plant",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialPart {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44449,6 +59456,24 @@ impl Serialize for SubstanceSourceMaterialPart {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceSourceMaterialPart> for Coding {
+    fn from(code: SubstanceSourceMaterialPart) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-source-material-part".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceSourceMaterialPart> for CodeableConcept {
+    fn from(code: SubstanceSourceMaterialPart) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceSourceMaterialSpecies`.
@@ -44485,6 +59510,15 @@ impl AsRef<str> for SubstanceSourceMaterialSpecies {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceSourceMaterialSpecies {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::GinkgoBiloba => "Ginkgo biloba",
+            Self::OleaEuropaea => "Olea europaea",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialSpecies {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44501,6 +59535,25 @@ impl Serialize for SubstanceSourceMaterialSpecies {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceSourceMaterialSpecies> for Coding {
+    fn from(code: SubstanceSourceMaterialSpecies) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-source-material-species"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceSourceMaterialSpecies> for CodeableConcept {
+    fn from(code: SubstanceSourceMaterialSpecies) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceSourceMaterialType`.
@@ -44543,6 +59596,16 @@ impl AsRef<str> for SubstanceSourceMaterialType {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceSourceMaterialType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Animal => "animal",
+            Self::Mineral => "mineral",
+            Self::Plant => "plant",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44559,6 +59622,24 @@ impl Serialize for SubstanceSourceMaterialType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceSourceMaterialType> for Coding {
+    fn from(code: SubstanceSourceMaterialType) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-source-material-type".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceSourceMaterialType> for CodeableConcept {
+    fn from(code: SubstanceSourceMaterialType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceStereochemistry`. The stereochemistry type of a substance.
@@ -44601,6 +59682,16 @@ impl AsRef<str> for SubstanceStereochemistry {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceStereochemistry {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ConstitutionalIsomer => "constitutional isomer",
+            Self::Enantiomer => "enantiomer",
+            Self::Stereoisomer => "stereoisomer",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceStereochemistry {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44617,6 +59708,22 @@ impl Serialize for SubstanceStereochemistry {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceStereochemistry> for Coding {
+    fn from(code: SubstanceStereochemistry) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-stereochemistry".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceStereochemistry> for CodeableConcept {
+    fn from(code: SubstanceStereochemistry) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceStructureTechnique`.
@@ -44671,6 +59778,18 @@ impl AsRef<str> for SubstanceStructureTechnique {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceStructureTechnique {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Hplc => "HPLC",
+            Self::LigandBindingAssay => "Ligand binding assay",
+            Self::Nmr => "NMR",
+            Self::PeptideMapping => "Peptide mapping",
+            Self::XRay => "X-ray",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceStructureTechnique {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44687,6 +59806,24 @@ impl Serialize for SubstanceStructureTechnique {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceStructureTechnique> for Coding {
+    fn from(code: SubstanceStructureTechnique) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/substance-structure-technique".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceStructureTechnique> for CodeableConcept {
+    fn from(code: SubstanceStructureTechnique) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceWeightMethod`.
@@ -44759,6 +59896,23 @@ impl AsRef<str> for SubstanceWeightMethod {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceWeightMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Calculated => "calculated",
+            Self::EndGroupAnalysis => "End-group analysis",
+            Self::EndGroupTitration => "End-group titration",
+            Self::GelPermeationCentrifugation => "gel permeation centrifugation",
+            Self::LighScattering => "light scattering",
+            Self::SdsPage => {
+                "SDS-PAGE (sodium dodecyl sulfate-polyacrylamide gel electrophoresis)"
+            }
+            Self::SizeExclusionChromatography => "Size-exclusion chromatography",
+            Self::Viscosity => "viscosity",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceWeightMethod {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44775,6 +59929,22 @@ impl Serialize for SubstanceWeightMethod {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceWeightMethod> for Coding {
+    fn from(code: SubstanceWeightMethod) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-weight-method".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceWeightMethod> for CodeableConcept {
+    fn from(code: SubstanceWeightMethod) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SubstanceWeightType`.
@@ -44817,6 +59987,16 @@ impl AsRef<str> for SubstanceWeightType {
         }
     }
 }
+impl ::std::fmt::Display for SubstanceWeightType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Average => "number average",
+            Self::Exact => "exact",
+            Self::WeightAverage => "weight average",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SubstanceWeightType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44833,6 +60013,22 @@ impl Serialize for SubstanceWeightType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SubstanceWeightType> for Coding {
+    fn from(code: SubstanceWeightType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/substance-weight-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SubstanceWeightType> for CodeableConcept {
+    fn from(code: SubstanceWeightType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SupplyDeliveryStatus`. Status of the supply delivery.
@@ -44881,6 +60077,17 @@ impl AsRef<str> for SupplyDeliveryStatus {
         }
     }
 }
+impl ::std::fmt::Display for SupplyDeliveryStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Abandoned => "Abandoned",
+            Self::Completed => "Delivered",
+            Self::EnteredInError => "Entered In Error",
+            Self::InProgress => "In Progress",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SupplyDeliveryStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44897,6 +60104,22 @@ impl Serialize for SupplyDeliveryStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SupplyDeliveryStatus> for Coding {
+    fn from(code: SupplyDeliveryStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/supplydelivery-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SupplyDeliveryStatus> for CodeableConcept {
+    fn from(code: SupplyDeliveryStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SupplyItemType`. This value sets refers to a specific supply item.
@@ -44935,6 +60158,16 @@ impl AsRef<str> for SupplyItemType {
         }
     }
 }
+impl ::std::fmt::Display for SupplyItemType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Device => "Device",
+            Self::Medication => "Medication",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SupplyItemType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -44951,6 +60184,22 @@ impl Serialize for SupplyItemType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SupplyItemType> for Coding {
+    fn from(code: SupplyItemType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/supply-item-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SupplyItemType> for CodeableConcept {
+    fn from(code: SupplyItemType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SupplyRequestReason`. The reason why the supply item was requested.
@@ -44987,6 +60236,15 @@ impl AsRef<str> for SupplyRequestReason {
         }
     }
 }
+impl ::std::fmt::Display for SupplyRequestReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::PatientCare => "Patient Care",
+            Self::WardStock => "Ward Stock",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SupplyRequestReason {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -45003,6 +60261,22 @@ impl Serialize for SupplyRequestReason {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SupplyRequestReason> for Coding {
+    fn from(code: SupplyRequestReason) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/supplyrequest-reason".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SupplyRequestReason> for CodeableConcept {
+    fn from(code: SupplyRequestReason) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SupplyRequestStatus`. Status of the supply request.
@@ -45069,6 +60343,20 @@ impl AsRef<str> for SupplyRequestStatus {
         }
     }
 }
+impl ::std::fmt::Display for SupplyRequestStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Cancelled => "Cancelled",
+            Self::Completed => "Completed",
+            Self::Draft => "Draft",
+            Self::EnteredInError => "Entered in Error",
+            Self::Suspended => "Suspended",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SupplyRequestStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -45085,6 +60373,22 @@ impl Serialize for SupplyRequestStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SupplyRequestStatus> for Coding {
+    fn from(code: SupplyRequestStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/supplyrequest-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SupplyRequestStatus> for CodeableConcept {
+    fn from(code: SupplyRequestStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SupplyType`. This value sets refers to a Category of supply.
@@ -45123,6 +60427,16 @@ impl AsRef<str> for SupplyType {
         }
     }
 }
+impl ::std::fmt::Display for SupplyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Central => "Central Supply",
+            Self::Nonstock => "Non-Stock",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SupplyType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -45139,6 +60453,22 @@ impl Serialize for SupplyType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SupplyType> for Coding {
+    fn from(code: SupplyType) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/supply-kind".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SupplyType> for CodeableConcept {
+    fn from(code: SupplyType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SurfaceCodes`. This value set includes a smattering of FDI tooth surface codes.
@@ -45231,6 +60561,25 @@ impl AsRef<str> for SurfaceCodes {
         }
     }
 }
+impl ::std::fmt::Display for SurfaceCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::B => "Buccal",
+            Self::D => "Distal",
+            Self::Di => "Distoincisal",
+            Self::Do => "Distoclusal",
+            Self::I => "Incisal",
+            Self::L => "Lingual",
+            Self::M => "Mesial",
+            Self::Mo => "Mesioclusal",
+            Self::Mod => "Mesioclusodistal",
+            Self::O => "Occlusal",
+            Self::V => "Ventral",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SurfaceCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -45247,6 +60596,22 @@ impl Serialize for SurfaceCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SurfaceCodes> for Coding {
+    fn from(code: SurfaceCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/FDI-surface".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SurfaceCodes> for CodeableConcept {
+    fn from(code: SurfaceCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `SynthesisType`. Types of combining results from a body of evidence (eg. summary data meta-analysis).
@@ -45313,6 +60678,20 @@ impl AsRef<str> for SynthesisType {
         }
     }
 }
+impl ::std::fmt::Display for SynthesisType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::IpdMa => "individual patient data meta-analysis",
+            Self::NotApplicable => "not applicable",
+            Self::Classification => "classifcation of results",
+            Self::CombinedNMA => "combined direct plus indirect network meta-analysis",
+            Self::IndirectNMA => "indirect network meta-analysis",
+            Self::Range => "range of results",
+            Self::StdMA => "summary data meta-analysis",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for SynthesisType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -45329,6 +60708,22 @@ impl Serialize for SynthesisType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<SynthesisType> for Coding {
+    fn from(code: SynthesisType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/synthesis-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<SynthesisType> for CodeableConcept {
+    fn from(code: SynthesisType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TargetSpecies`. A species for which a medicinal product is intended.
@@ -46553,6 +61948,213 @@ impl AsRef<str> for TargetSpecies {
         }
     }
 }
+impl ::std::fmt::Display for TargetSpecies {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N100000108874 => "Dove",
+            Self::N100000108875 => "Quail",
+            Self::N100000108876 => "Snipe",
+            Self::N100000108877 => "Sparrow",
+            Self::N100000108878 => "Starling",
+            Self::N100000108879 => "Swan",
+            Self::N100000108880 => "Turkey hen",
+            Self::N100000108881 => "Turkey cock",
+            Self::N100000108882 => "Turkeys",
+            Self::N100000108883 => "Turkey for reproduction",
+            Self::N100000108884 => "Poult",
+            Self::N100000108885 => "Turtle dove",
+            Self::N100000108886 => "Bison",
+            Self::N100000108887 => "Buffalo",
+            Self::N100000108888 => "Cows",
+            Self::N100000108889 => "Cow for reproduction",
+            Self::N100000108890 => "Bull for reproduction",
+            Self::N100000108891 => "Ox",
+            Self::N100000108892 => "Bullock",
+            Self::N100000108893 => "Cattle",
+            Self::N100000108894 => "Beef cattle",
+            Self::N100000108895 => "Dairy cattle",
+            Self::N100000108896 => "Dry cow",
+            Self::N100000108897 => "Bull",
+            Self::N100000108898 => "Lactating cow",
+            Self::N100000108899 => "All other food producing species",
+            Self::N100000108900 => "All non-food producing species",
+            Self::N100000108901 => "All species \u{a0}",
+            Self::N100000108902 => "Carnivores",
+            Self::N100000108903 => "Domestic animals",
+            Self::N100000108904 => "Fur animals",
+            Self::N100000108905 => "Game animals",
+            Self::N100000108906 => "Laboratory animals",
+            Self::N100000108907 => "Major species",
+            Self::N100000108908 => "Minor species",
+            Self::N100000108909 => "Ruminant",
+            Self::N100000108910 => "Ruminant and porcine",
+            Self::N100000108911 => "Small animals",
+            Self::N100000108912 => "Crocodile",
+            Self::N100000108913 => "Frog",
+            Self::N100000108914 => "Iguana",
+            Self::N100000108915 => "Lizard",
+            Self::N100000108916 => "Amphibians",
+            Self::N100000108917 => "Reptiles",
+            Self::N100000108918 => "Reptiles for production",
+            Self::N100000108919 => "Snake",
+            Self::N100000108920 => "Tortoise",
+            Self::N100000108921 => "Turtle",
+            Self::N100000108922 => "Honey bees",
+            Self::N100000108923 => "Crustacean",
+            Self::N100000108924 => "Spider",
+            Self::N100000108925 => "Indian hen",
+            Self::N100000108926 => "African Goshawk",
+            Self::N100000108927 => "Black Kite",
+            Self::N100000108928 => "Budgerigar",
+            Self::N100000108929 => "Bustard",
+            Self::N100000108930 => "Buzzard",
+            Self::N100000108931 => "Hen",
+            Self::N100000108932 => "Layer hen",
+            Self::N100000108933 => "Cock",
+            Self::N100000108934 => "Broiler",
+            Self::N100000108935 => "Chickens",
+            Self::N100000108936 => "Chicken embryonated eggs",
+            Self::N100000108937 => "Chicken for reproduction",
+            Self::N100000108938 => "Replacement chick",
+            Self::N100000108939 => "Chick",
+            Self::N100000108940 => "Pullet",
+            Self::N100000108941 => "Cockatiel",
+            Self::N100000108942 => "Cockatoo",
+            Self::N100000108943 => "Common canary",
+            Self::N100000108944 => "Crow",
+            Self::N100000108945 => "Duck",
+            Self::N100000108946 => "Duck broiler",
+            Self::N100000108947 => "Duckling",
+            Self::N100000108948 => "Eagle",
+            Self::N100000108949 => "Emu",
+            Self::N100000108950 => "Goose",
+            Self::N100000108951 => "Guinea fowl",
+            Self::N100000108952 => "Kestrel",
+            Self::N100000108953 => "Kite",
+            Self::N100000108954 => "Macaw",
+            Self::N100000108955 => "Ostrich",
+            Self::N100000108956 => "Birds",
+            Self::N100000108957 => "Fowls",
+            Self::N100000108958 => "Finch",
+            Self::N100000108959 => "Galliformes",
+            Self::N100000108960 => "Game birds",
+            Self::N100000108961 => "Pekin duck",
+            Self::N100000108962 => "Ornamental birds",
+            Self::N100000108963 => "Poultry",
+            Self::N100000108964 => "Owl",
+            Self::N100000108965 => "Parakeet",
+            Self::N100000108966 => "Parrot",
+            Self::N100000108967 => "Partridge",
+            Self::N100000108968 => "Peregrine Falcon",
+            Self::N100000108969 => "Pheasants",
+            Self::N100000108970 => "Carrier pigeon",
+            Self::N100000108971 => "Newborn calves",
+            Self::N100000108972 => "Pregnant cow",
+            Self::N100000108973 => "Pregnant heifer",
+            Self::N100000108974 => "Pre-ruminant cattle",
+            Self::N100000108975 => "Ruminant cattle",
+            Self::N100000108976 => "Wild cattle",
+            Self::N100000108977 => "Calf",
+            Self::N100000108978 => "Heifers",
+            Self::N100000108979 => "Other Bovids",
+            Self::N100000108980 => "Alpaca",
+            Self::N100000108981 => "Camel",
+            Self::N100000108982 => "Llama",
+            Self::N100000108983 => "Other Camelids",
+            Self::N100000108984 => "Bitch",
+            Self::N100000108985 => "Bitch for reproduction",
+            Self::N100000108986 => "Adult male dog",
+            Self::N100000108987 => "Adult male dog for reproduction",
+            Self::N100000108988 => "Dogs",
+            Self::N100000108989 => "Lactating bitch",
+            Self::N100000108990 => "Large dog",
+            Self::N100000108991 => "Medium dog",
+            Self::N100000108992 => "Pregnant bitch",
+            Self::N100000108993 => "Small dog",
+            Self::N100000108994 => "Very large dog",
+            Self::N100000108995 => "Very small dog",
+            Self::N100000108996 => "Puppy",
+            Self::N100000108997 => "Foxes",
+            Self::N100000108998 => "Jackal",
+            Self::N100000108999 => "Other Canids",
+            Self::N100000109000 => "Raccoon dogs",
+            Self::N100000109001 => "Wolf",
+            Self::N100000109002 => "Chamois",
+            Self::N100000109003 => "Other Caprines",
+            Self::N100000109004 => "Adult female goat",
+            Self::N100000109005 => "Adult male goat",
+            Self::N100000109006 => "Dry adult female goat",
+            Self::N100000109007 => "Goats",
+            Self::N100000109008 => "Lactating adult female goat",
+            Self::N100000109009 => "Pregnant adult female goat",
+            Self::N100000109010 => "Pre-ruminant goat",
+            Self::N100000109011 => "Ruminant goat",
+            Self::N100000109012 => "Wild goat",
+            Self::N100000109013 => "Kid",
+            Self::N100000109014 => "Other Ovids",
+            Self::N100000109015 => "Ewe",
+            Self::N100000109016 => "Ram",
+            Self::N100000109017 => "Dry ewe",
+            Self::N100000109018 => "Lactating ewe",
+            Self::N100000109019 => "Pregnant ewe",
+            Self::N100000109020 => "Pre-ruminant sheep",
+            Self::N100000109021 => "Ruminant sheep",
+            Self::N100000109022 => "Sheep",
+            Self::N100000109023 => "Sheep for meat production",
+            Self::N100000109024 => "Dairy sheep",
+            Self::N100000109025 => "Wild sheep",
+            Self::N100000109026 => "Lamb",
+            Self::N100000109027 => "Elk",
+            Self::N100000109028 => "Fallow deer",
+            Self::N100000109029 => "Moose",
+            Self::N100000109030 => "Antelope",
+            Self::N100000109031 => "Cervid",
+            Self::N100000109032 => "Deer",
+            Self::N100000109033 => "Other Deer",
+            Self::N100000109034 => "Red deer",
+            Self::N100000109035 => "Reindeer",
+            Self::N100000109036 => "Roe deer",
+            Self::N100000109037 => "Donkey",
+            Self::N100000109038 => "Mare",
+            Self::N100000109039 => "Gelding",
+            Self::N100000109040 => "Horses",
+            Self::N100000109041 => "Stallion",
+            Self::N100000109042 => "Pony",
+            Self::N100000109043 => "Pregnant mare",
+            Self::N100000109044 => "Non food-producing horse",
+            Self::N100000109045 => "Suckling colt",
+            Self::N100000109046 => "Colt",
+            Self::N100000109047 => "Mule",
+            Self::N100000109048 => "Equid",
+            Self::N100000109049 => "Female equid",
+            Self::N100000109050 => "Other Equids",
+            Self::N100000109051 => "Zebra",
+            Self::N100000109052 => "Bobcat",
+            Self::N100000109053 => "Adult female cat",
+            Self::N100000109054 => "Adult female cat for reproduction",
+            Self::N100000109055 => "Adult male cat",
+            Self::N100000109056 => "Cats",
+            Self::N100000109057 => "Lactating cat",
+            Self::N100000109058 => "Large cat",
+            Self::N100000109059 => "Medium cat",
+            Self::N100000109060 => "Pregnant cat",
+            Self::N100000109061 => "Small cat",
+            Self::N100000109062 => "Kitten",
+            Self::N100000109063 => "Cougar",
+            Self::N100000109064 => "Jaguar",
+            Self::N100000109065 => "Leopard",
+            Self::N100000109066 => "Lion",
+            Self::N100000109067 => "Lynx",
+            Self::N100000109068 => "Other Felids",
+            Self::N100000109069 => "Tiger",
+            Self::N100000109070 => "Tsushima wild cat",
+            Self::N100000109071 => "Other Leporids",
+            Self::N100000109072 => "Hare",
+            Self::N100000109073 => "Female rabbit for reproduction",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TargetSpecies {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -46569,6 +62171,22 @@ impl Serialize for TargetSpecies {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TargetSpecies> for Coding {
+    fn from(code: TargetSpecies) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/target-species".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TargetSpecies> for CodeableConcept {
+    fn from(code: TargetSpecies) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TaskCode`. Codes indicating the type of action that is expected to be performed
@@ -46635,6 +62253,20 @@ impl AsRef<str> for TaskCode {
         }
     }
 }
+impl ::std::fmt::Display for TaskCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Abort => "Mark the focal resource as no longer active",
+            Self::Approve => "Activate/approve the focal resource",
+            Self::Change => "Change the focal resource",
+            Self::Fulfill => "Fulfill the focal request",
+            Self::Replace => "Replace the focal resource with the input resource",
+            Self::Resume => "Re-activate the focal resource",
+            Self::Suspend => "Suspend the focal resource",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TaskCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -46651,6 +62283,22 @@ impl Serialize for TaskCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TaskCode> for Coding {
+    fn from(code: TaskCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/task-code.html".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TaskCode> for CodeableConcept {
+    fn from(code: TaskCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TaskIntent`. Distinguishes whether the task is a proposal, plan or full order.
@@ -46683,6 +62331,15 @@ impl AsRef<str> for TaskIntent {
         }
     }
 }
+impl ::std::fmt::Display for TaskIntent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Unknown => "Unknown",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TaskIntent {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -46699,6 +62356,22 @@ impl Serialize for TaskIntent {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TaskIntent> for Coding {
+    fn from(code: TaskIntent) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/task-intent".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TaskIntent> for CodeableConcept {
+    fn from(code: TaskIntent) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TaskStatus`. The current status of the task.
@@ -46795,6 +62468,25 @@ impl AsRef<str> for TaskStatus {
         }
     }
 }
+impl ::std::fmt::Display for TaskStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Accepted => "Accepted",
+            Self::Cancelled => "Cancelled",
+            Self::Completed => "Completed",
+            Self::Draft => "Draft",
+            Self::EnteredInError => "Entered in Error",
+            Self::Failed => "Failed",
+            Self::InProgress => "In Progress",
+            Self::OnHold => "On Hold",
+            Self::Ready => "Ready",
+            Self::Received => "Received",
+            Self::Rejected => "Rejected",
+            Self::Requested => "Requested",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TaskStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -46811,6 +62503,22 @@ impl Serialize for TaskStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TaskStatus> for Coding {
+    fn from(code: TaskStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/task-status".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TaskStatus> for CodeableConcept {
+    fn from(code: TaskStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TemplateStatusCodeLifeCycle`. Life cycle of the Status Code of a Template Design (Version)
@@ -46883,6 +62591,21 @@ impl AsRef<str> for TemplateStatusCodeLifeCycle {
         }
     }
 }
+impl ::std::fmt::Display for TemplateStatusCodeLifeCycle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "active",
+            Self::Cancelled => "Cancelled",
+            Self::Draft => "Draft",
+            Self::Pending => "Under pre-publication review",
+            Self::Rejected => "Rejected",
+            Self::Retired => "retired",
+            Self::Review => "In Review",
+            Self::Terminated => "Terminated",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TemplateStatusCodeLifeCycle {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -46899,6 +62622,22 @@ impl Serialize for TemplateStatusCodeLifeCycle {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TemplateStatusCodeLifeCycle> for Coding {
+    fn from(code: TemplateStatusCodeLifeCycle) -> Self {
+        Coding::builder()
+            .system("urn:oid:2.16.840.1.113883.3.1937.98.11.8".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TemplateStatusCodeLifeCycle> for CodeableConcept {
+    fn from(code: TemplateStatusCodeLifeCycle) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestReportActionResult`. The results of executing an action.
@@ -46953,6 +62692,18 @@ impl AsRef<str> for TestReportActionResult {
         }
     }
 }
+impl ::std::fmt::Display for TestReportActionResult {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Error => "Error",
+            Self::Fail => "Fail",
+            Self::Pass => "Pass",
+            Self::Skip => "Skip",
+            Self::Warning => "Warning",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestReportActionResult {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -46969,6 +62720,22 @@ impl Serialize for TestReportActionResult {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestReportActionResult> for Coding {
+    fn from(code: TestReportActionResult) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/report-action-result-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestReportActionResult> for CodeableConcept {
+    fn from(code: TestReportActionResult) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestReportParticipantType`. The type of participant.
@@ -47011,6 +62778,16 @@ impl AsRef<str> for TestReportParticipantType {
         }
     }
 }
+impl ::std::fmt::Display for TestReportParticipantType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Client => "Client",
+            Self::Server => "Server",
+            Self::TestEngine => "Test Engine",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestReportParticipantType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47027,6 +62804,22 @@ impl Serialize for TestReportParticipantType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestReportParticipantType> for Coding {
+    fn from(code: TestReportParticipantType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/report-participant-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestReportParticipantType> for CodeableConcept {
+    fn from(code: TestReportParticipantType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestReportResult`. The reported execution result.
@@ -47069,6 +62862,16 @@ impl AsRef<str> for TestReportResult {
         }
     }
 }
+impl ::std::fmt::Display for TestReportResult {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Fail => "Fail",
+            Self::Pass => "Pass",
+            Self::Pending => "Pending",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestReportResult {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47085,6 +62888,22 @@ impl Serialize for TestReportResult {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestReportResult> for Coding {
+    fn from(code: TestReportResult) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/report-result-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestReportResult> for CodeableConcept {
+    fn from(code: TestReportResult) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestReportStatus`. The current status of the test report.
@@ -47139,6 +62958,18 @@ impl AsRef<str> for TestReportStatus {
         }
     }
 }
+impl ::std::fmt::Display for TestReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Completed => "Completed",
+            Self::EnteredInError => "Entered In Error",
+            Self::InProgress => "In Progress",
+            Self::Stopped => "Stopped",
+            Self::Waiting => "Waiting",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestReportStatus {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47155,6 +62986,22 @@ impl Serialize for TestReportStatus {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestReportStatus> for Coding {
+    fn from(code: TestReportStatus) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/report-status-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestReportStatus> for CodeableConcept {
+    fn from(code: TestReportStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestScriptOperationCodes`. This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool.
@@ -47451,6 +63298,59 @@ impl AsRef<str> for TestScriptOperationCodes {
         }
     }
 }
+impl ::std::fmt::Display for TestScriptOperationCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Apply => "$apply",
+            Self::Batch => "Batch",
+            Self::Capabilities => "Capabilities",
+            Self::Closure => "$closure",
+            Self::Conforms => "$conforms",
+            Self::Create => "Create",
+            Self::DataRequirements => "$data-requirements",
+            Self::Delete => "Delete",
+            Self::DeleteCondMultiple => "Conditional Delete Multiple",
+            Self::DeleteCondSingle => "Conditional Delete Single",
+            Self::Document => "$document",
+            Self::Evaluate => "$evaluate",
+            Self::EvaluateMeasure => "$evaluate-measure",
+            Self::Everything => "$everything",
+            Self::Expand => "$expand",
+            Self::Find => "$find",
+            Self::FindMatches => "$find-matches",
+            Self::Graphql => "$graphql",
+            Self::History => "History",
+            Self::Implements => "$implements",
+            Self::Lastn => "$lastn",
+            Self::Lookup => "$lookup",
+            Self::Match => "$match",
+            Self::Meta => "$meta",
+            Self::MetaAdd => "$meta-add",
+            Self::MetaDelete => "$meta-delete",
+            Self::Patch => "Patch",
+            Self::Populate => "$populate",
+            Self::Populatehtml => "$populatehtml",
+            Self::Populatelink => "$populatelink",
+            Self::ProcessMessage => "$process-message",
+            Self::Questionnaire => "$questionnaire",
+            Self::Read => "Read",
+            Self::Search => "Search",
+            Self::Stats => "$stats",
+            Self::Subset => "$subset",
+            Self::Subsumes => "$subsumes",
+            Self::Transaction => "Transaction",
+            Self::Transform => "$transform",
+            Self::Translate => "$translate",
+            Self::Update => "Update",
+            Self::UpdateCreate => "Create using Update",
+            Self::Validate => "$validate",
+            Self::ValidateCode => "$validate-code",
+            Self::Vread => "Version Read",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestScriptOperationCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47467,6 +63367,25 @@ impl Serialize for TestScriptOperationCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestScriptOperationCodes> for Coding {
+    fn from(code: TestScriptOperationCodes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/testscript-operation-codes"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestScriptOperationCodes> for CodeableConcept {
+    fn from(code: TestScriptOperationCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestScriptProfileDestinationTypes`. This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the destination within a TestScript.
@@ -47517,6 +63436,18 @@ impl AsRef<str> for TestScriptProfileDestinationTypes {
         }
     }
 }
+impl ::std::fmt::Display for TestScriptProfileDestinationTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::FhirSdcFormManager => "FHIR SDC FormManager",
+            Self::FhirSdcFormProcessor => "FHIR SDC FormProcessor",
+            Self::FhirSdcFormReceiver => "FHIR SDC FormReceiver",
+            Self::FhirServer => "FHIR Server",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestScriptProfileDestinationTypes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47533,6 +63464,25 @@ impl Serialize for TestScriptProfileDestinationTypes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestScriptProfileDestinationTypes> for Coding {
+    fn from(code: TestScriptProfileDestinationTypes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestScriptProfileDestinationTypes> for CodeableConcept {
+    fn from(code: TestScriptProfileDestinationTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestScriptProfileOriginTypes`. This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the origin within a TestScript.
@@ -47571,6 +63521,16 @@ impl AsRef<str> for TestScriptProfileOriginTypes {
         }
     }
 }
+impl ::std::fmt::Display for TestScriptProfileOriginTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::FhirClient => "FHIR Client",
+            Self::FhirSdcFormFiller => "FHIR SDC FormFiller",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestScriptProfileOriginTypes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47587,6 +63547,25 @@ impl Serialize for TestScriptProfileOriginTypes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestScriptProfileOriginTypes> for Coding {
+    fn from(code: TestScriptProfileOriginTypes) -> Self {
+        Coding::builder()
+            .system(
+                "http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types"
+                    .to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestScriptProfileOriginTypes> for CodeableConcept {
+    fn from(code: TestScriptProfileOriginTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TestScriptRequestMethodCode`. The allowable request method or HTTP operation codes.
@@ -47653,6 +63632,20 @@ impl AsRef<str> for TestScriptRequestMethodCode {
         }
     }
 }
+impl ::std::fmt::Display for TestScriptRequestMethodCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Delete => "DELETE",
+            Self::Get => "GET",
+            Self::Head => "HEAD",
+            Self::Options => "OPTIONS",
+            Self::Patch => "PATCH",
+            Self::Post => "POST",
+            Self::Put => "PUT",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TestScriptRequestMethodCode {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47669,6 +63662,22 @@ impl Serialize for TestScriptRequestMethodCode {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TestScriptRequestMethodCode> for Coding {
+    fn from(code: TestScriptRequestMethodCode) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/http-operations".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TestScriptRequestMethodCode> for CodeableConcept {
+    fn from(code: TestScriptRequestMethodCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TherapyRelationshipType`. Classification of relationship between a therapy and a contraindication or an indication.
@@ -47759,6 +63768,38 @@ impl AsRef<str> for TherapyRelationshipType {
         }
     }
 }
+impl ::std::fmt::Display for TherapyRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ContraindicatedExceptWith => {
+                "Contraindicated unless the other therapy is given"
+            }
+            Self::ContraindicatedOnlyWith => {
+                "Only contraindicated if the other therapy is given"
+            }
+            Self::IndicatedExceptWith => {
+                "Indicated except when the other therapy is given"
+            }
+            Self::IndicatedOnlyBefore => {
+                "Indicated only if the other therapy is planned to be given afterwards (prep)"
+            }
+            Self::IndicatedOnlyWith => {
+                "Indicated only when the other therapy is given (co-occurrent)"
+            }
+            Self::ReplaceOtherTherapy => "Indicated to replace the other therapy",
+            Self::ReplaceOtherTherapyContraindicated => {
+                "Indicated to replace the other contraindicated therapy"
+            }
+            Self::ReplaceOtherTherapyNotEffective => {
+                "Indicated to replace the other therapy not effective on patient"
+            }
+            Self::ReplaceOtherTherapyNotTolerated => {
+                "Indicated to replace the other therapy not well tolerated by patient"
+            }
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TherapyRelationshipType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47775,6 +63816,22 @@ impl Serialize for TherapyRelationshipType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TherapyRelationshipType> for Coding {
+    fn from(code: TherapyRelationshipType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/therapy-relationship-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TherapyRelationshipType> for CodeableConcept {
+    fn from(code: TherapyRelationshipType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TitleType`. Used to express the reason and specific aspect for the variant title, such as language and specific language.
@@ -47877,6 +63934,28 @@ impl AsRef<str> for TitleType {
         }
     }
 }
+impl ::std::fmt::Display for TitleType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Acronym => "Acronym",
+            Self::Autotranslated => "Different language derived from autotranslation",
+            Self::DuplicateUid => {
+                "Different text for the same object with a different identifier"
+            }
+            Self::EarlierTitle => "Different text in an earlier version",
+            Self::HumanUse => "Human use",
+            Self::Language => "Different language",
+            Self::MachineUse => "Machine use",
+            Self::Official => "Official title",
+            Self::PlainLanguage => "Plain language title",
+            Self::Primary => "Primary title",
+            Self::Scientific => "Scientific title",
+            Self::ShortTitle => "Short title",
+            Self::Subtitle => "Subtitle",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TitleType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47893,6 +63972,22 @@ impl Serialize for TitleType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TitleType> for Coding {
+    fn from(code: TitleType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/title-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TitleType> for CodeableConcept {
+    fn from(code: TitleType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TriggerType`. The type of trigger.
@@ -47965,6 +64060,21 @@ impl AsRef<str> for TriggerType {
         }
     }
 }
+impl ::std::fmt::Display for TriggerType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::DataAccessEnded => "Data Access Ended",
+            Self::DataAccessed => "Data Accessed",
+            Self::DataAdded => "Data Added",
+            Self::DataChanged => "Data Changed",
+            Self::DataModified => "Data Updated",
+            Self::DataRemoved => "Data Removed",
+            Self::NamedEvent => "Named Event",
+            Self::Periodic => "Periodic",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TriggerType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -47981,6 +64091,22 @@ impl Serialize for TriggerType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TriggerType> for Coding {
+    fn from(code: TriggerType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/trigger-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TriggerType> for CodeableConcept {
+    fn from(code: TriggerType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `TypeDerivationRule`. How a type relates to its baseDefinition.
@@ -48017,6 +64143,15 @@ impl AsRef<str> for TypeDerivationRule {
         }
     }
 }
+impl ::std::fmt::Display for TypeDerivationRule {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Constraint => "Constraint",
+            Self::Specialization => "Specialization",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for TypeDerivationRule {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48033,6 +64168,22 @@ impl Serialize for TypeDerivationRule {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<TypeDerivationRule> for Coding {
+    fn from(code: TypeDerivationRule) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/type-derivation-rule".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<TypeDerivationRule> for CodeableConcept {
+    fn from(code: TypeDerivationRule) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `UndesirablEffectFrequency`. A categorisation for a frequency of occurence of an undesirable effect.
@@ -48075,6 +64226,16 @@ impl AsRef<str> for UndesirablEffectFrequency {
         }
     }
 }
+impl ::std::fmt::Display for UndesirablEffectFrequency {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Common => "Common",
+            Self::Rare => "Rare",
+            Self::Uncommon => "Uncommon",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for UndesirablEffectFrequency {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48091,6 +64252,24 @@ impl Serialize for UndesirablEffectFrequency {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<UndesirablEffectFrequency> for Coding {
+    fn from(code: UndesirablEffectFrequency) -> Self {
+        Coding::builder()
+            .system(
+                "http://hl7.org/fhir/ValueSet/undesirable-effect-frequency".to_owned(),
+            )
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<UndesirablEffectFrequency> for CodeableConcept {
+    fn from(code: UndesirablEffectFrequency) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `UnitOfPresentation`. The presentation type in which an administrable medicinal product is given to a patient.
@@ -48451,6 +64630,69 @@ impl AsRef<str> for UnitOfPresentation {
         }
     }
 }
+impl ::std::fmt::Display for UnitOfPresentation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N200000002108 => "Barrel",
+            Self::N200000002109 => "Blister",
+            Self::N200000002110 => "Block",
+            Self::N200000002111 => "Bottle",
+            Self::N200000002112 => "Cachet",
+            Self::N200000002113 => "Capsule",
+            Self::N200000002114 => "Cartridge",
+            Self::N200000002115 => "Collar",
+            Self::N200000002116 => "Container",
+            Self::N200000002117 => "Cup",
+            Self::N200000002118 => "Cylinder",
+            Self::N200000002119 => "Dart",
+            Self::N200000002120 => "Dressing",
+            Self::N200000002121 => "Drop",
+            Self::N200000002122 => "Film",
+            Self::N200000002123 => "Chewing gum",
+            Self::N200000002124 => "Implant",
+            Self::N200000002125 => "Inhaler",
+            Self::N200000002126 => "Insert",
+            Self::N200000002127 => "Jar",
+            Self::N200000002128 => "Lozenge",
+            Self::N200000002129 => "Lyophilisate",
+            Self::N200000002130 => "Matrix",
+            Self::N200000002131 => "Pad",
+            Self::N200000002132 => "Paper",
+            Self::N200000002133 => "Pastille",
+            Self::N200000002134 => "Patch",
+            Self::N200000002135 => "Pen",
+            Self::N200000002136 => "Pendant",
+            Self::N200000002137 => "Pessary",
+            Self::N200000002138 => "Pillule",
+            Self::N200000002139 => "Pipette",
+            Self::N200000002140 => "Plaster",
+            Self::N200000002141 => "Plug",
+            Self::N200000002142 => "Pouch",
+            Self::N200000002143 => "Sachet",
+            Self::N200000002144 => "Sponge",
+            Self::N200000002145 => "Spoonful",
+            Self::N200000002146 => "Stick",
+            Self::N200000002147 => "Straw",
+            Self::N200000002148 => "Strip",
+            Self::N200000002149 => "Suppository",
+            Self::N200000002150 => "Syringe",
+            Self::N200000002151 => "System",
+            Self::N200000002152 => "Tablet",
+            Self::N200000002153 => "Tag",
+            Self::N200000002154 => "Tampon",
+            Self::N200000002155 => "Thread",
+            Self::N200000002156 => "Tube",
+            Self::N200000002157 => "Vessel",
+            Self::N200000002158 => "Vial",
+            Self::N200000002159 => "Puff",
+            Self::N200000002163 => "Actuation",
+            Self::N200000002164 => "Ampoule",
+            Self::N200000002165 => "Applicator",
+            Self::N200000002166 => "Bag",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for UnitOfPresentation {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48467,6 +64709,22 @@ impl Serialize for UnitOfPresentation {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<UnitOfPresentation> for Coding {
+    fn from(code: UnitOfPresentation) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/unit-of-presentation".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<UnitOfPresentation> for CodeableConcept {
+    fn from(code: UnitOfPresentation) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `UnitTypeCodes`. This value set includes a smattering of Unit type codes.
@@ -48505,6 +64763,16 @@ impl AsRef<str> for UnitTypeCodes {
         }
     }
 }
+impl ::std::fmt::Display for UnitTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Family => "Family",
+            Self::Individual => "Individual",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for UnitTypeCodes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48521,6 +64789,22 @@ impl Serialize for UnitTypeCodes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<UnitTypeCodes> for Coding {
+    fn from(code: UnitTypeCodes) -> Self {
+        Coding::builder()
+            .system("http://terminology.hl7.org/CodeSystem/benefit-unit".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<UnitTypeCodes> for CodeableConcept {
+    fn from(code: UnitTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `UsageContextType`. A code that specifies a type of context being specified by a usage context.
@@ -48599,6 +64883,22 @@ impl AsRef<str> for UsageContextType {
         }
     }
 }
+impl ::std::fmt::Display for UsageContextType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Age => "Age Range",
+            Self::Focus => "Clinical Focus",
+            Self::Gender => "Gender",
+            Self::Program => "Program",
+            Self::Species => "Species",
+            Self::Task => "Workflow Task",
+            Self::User => "User Type",
+            Self::Venue => "Clinical Venue",
+            Self::Workflow => "Workflow Setting",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for UsageContextType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48615,6 +64915,22 @@ impl Serialize for UsageContextType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<UsageContextType> for Coding {
+    fn from(code: UsageContextType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/usage-context-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<UsageContextType> for CodeableConcept {
+    fn from(code: UsageContextType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `Use`. The purpose of the Claim: predetermination, preauthorization, claim.
@@ -48657,6 +64973,16 @@ impl AsRef<str> for Use {
         }
     }
 }
+impl ::std::fmt::Display for Use {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Claim => "Claim",
+            Self::Preauthorization => "Preauthorization",
+            Self::Predetermination => "Predetermination",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for Use {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48673,6 +64999,22 @@ impl Serialize for Use {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<Use> for Coding {
+    fn from(code: Use) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/claim-use".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<Use> for CodeableConcept {
+    fn from(code: Use) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `VisionBase`. A coded concept listing the base codes.
@@ -48721,6 +65063,17 @@ impl AsRef<str> for VisionBase {
         }
     }
 }
+impl ::std::fmt::Display for VisionBase {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Down => "Down",
+            Self::In => "In",
+            Self::Out => "Out",
+            Self::Up => "Up",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for VisionBase {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48737,6 +65090,22 @@ impl Serialize for VisionBase {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<VisionBase> for Coding {
+    fn from(code: VisionBase) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/vision-base-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<VisionBase> for CodeableConcept {
+    fn from(code: VisionBase) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `VisionEyes`. A coded concept listing the eye codes.
@@ -48773,6 +65142,15 @@ impl AsRef<str> for VisionEyes {
         }
     }
 }
+impl ::std::fmt::Display for VisionEyes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Left => "Left Eye",
+            Self::Right => "Right Eye",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for VisionEyes {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48789,6 +65167,22 @@ impl Serialize for VisionEyes {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<VisionEyes> for Coding {
+    fn from(code: VisionEyes) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/vision-eye-codes".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<VisionEyes> for CodeableConcept {
+    fn from(code: VisionEyes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
 /**FHIR Code `WarningType`. Classification of warning type.
@@ -48873,6 +65267,23 @@ impl AsRef<str> for WarningType {
         }
     }
 }
+impl ::std::fmt::Display for WarningType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::P313 => "Get medical advice/attention.",
+            Self::P314 => "Get medical advice/attention if you feel unwell.",
+            Self::P315 => "Get immediate medical advice/attention.",
+            Self::P320 => "Specific treatment is urgent (see ... on this label).",
+            Self::P321 => "Specific treatment (see ... on this label).",
+            Self::P322 => "Specific measures (see ... on this label).",
+            Self::P330 => "Rinse mouth.",
+            Self::P331 => "Do NOT induce vomiting.",
+            Self::P361 => "Remove/Take off immediately all contaminated clothing.",
+            Self::P363 => "Wash contaminated clothing before reuse..",
+        };
+        write!(f, "{s}")
+    }
+}
 impl<'de> Deserialize<'de> for WarningType {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
@@ -48889,5 +65300,21 @@ impl Serialize for WarningType {
         S: serde::Serializer,
     {
         self.as_ref().serialize(serializer)
+    }
+}
+impl From<WarningType> for Coding {
+    fn from(code: WarningType) -> Self {
+        Coding::builder()
+            .system("http://hl7.org/fhir/ValueSet/warning-type".to_owned())
+            .code(code.as_ref().to_owned())
+            .display(format!("{code}"))
+            .build()
+    }
+}
+impl From<WarningType> for CodeableConcept {
+    fn from(code: WarningType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }

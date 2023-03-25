@@ -4,7 +4,7 @@ use std::fs;
 
 use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
 use fhir_model::r4b::{
-	codes::{RequestIntent, RequestStatus},
+	codes::{RequestIntent, RequestStatus, RiskProbability},
 	resources::{
 		Basic, Patient, RequestGroup, RequestGroupAction, RequestGroupActionTiming, Resource,
 		WrongResourceType,
@@ -43,7 +43,13 @@ fn builder_works() {
 				.timing(RequestGroupActionTiming::DateTime("2023".to_owned()))
 				.code(vec![Some(
 					CodeableConcept::builder()
-						.coding(vec![Some(Coding::builder().code("code".to_owned()).build())])
+						.coding(vec![Some(
+							Coding::builder()
+								.system("system".to_owned())
+								.code("code".to_owned())
+								.display("display".to_owned())
+								.build(),
+						)])
 						.build(),
 				)])
 				.build(),
@@ -60,4 +66,15 @@ fn resource_conversion() {
 	let _patient: &Patient = (&resource).try_into().expect("It is a Patient resource");
 	let result: Result<Basic, WrongResourceType> = resource.try_into();
 	assert!(result.is_err());
+}
+
+#[test]
+fn coding_concepts() {
+	let code = RiskProbability::_Custom("Test".to_owned());
+	let coding = Coding::from(code.clone());
+	assert!(coding.code.is_some());
+	assert!(coding.system.is_some());
+	let concept = CodeableConcept::from(code);
+	assert_eq!(concept.coding.len(), 1);
+	assert!(concept.text.is_some());
 }

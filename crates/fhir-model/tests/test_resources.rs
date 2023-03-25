@@ -6,8 +6,8 @@ use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
 use fhir_model::r4b::{
 	codes::{RequestIntent, RequestStatus, RiskProbability},
 	resources::{
-		Basic, Patient, RequestGroup, RequestGroupAction, RequestGroupActionTiming, Resource,
-		WrongResourceType,
+		Basic, NamedResource, Patient, RequestGroup, RequestGroupAction, RequestGroupActionTiming,
+		Resource, WrongResourceType,
 	},
 	types::{CodeableConcept, Coding},
 };
@@ -77,4 +77,17 @@ fn coding_concepts() {
 	let concept = CodeableConcept::from(code);
 	assert_eq!(concept.coding.len(), 1);
 	assert!(concept.text.is_some());
+}
+
+#[test]
+fn resource_traits() {
+	let ty = Patient::TYPE;
+	let mut patient: Resource = Patient::builder().id("1".to_owned()).build().into();
+	assert_eq!(patient.resource_type(), ty);
+
+	assert!(patient.as_base_resource().id().is_some());
+	assert!(patient.as_domain_resource().is_some());
+
+	patient.as_base_resource_mut().set_id(None);
+	assert!(patient.as_base_resource().id().is_none());
 }

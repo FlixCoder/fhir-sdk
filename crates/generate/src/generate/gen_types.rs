@@ -134,17 +134,7 @@ fn generate_field(
 
 	let name = field.name().replace("[x]", "");
 	let ident = map_field_ident(&name);
-	let ty = if field.is_array() {
-		if field.is_base_field() {
-			quote!(Vec<#field_type>)
-		} else {
-			quote!(Vec<Option<#field_type>>)
-		}
-	} else if field.optional() {
-		quote!(Option<#field_type>)
-	} else {
-		quote!(#field_type)
-	};
+	let ty = construct_field_type(field, field_type);
 
 	let serde_attr = field.optional().then(|| {
 		if field.is_array() {
@@ -226,14 +216,7 @@ fn generate_code_field(
 		doc_comment.push(' ');
 	}
 
-	let mapped_type = if field.r#type.as_str() == "code" && implemented_codes.contains(&field.code)
-	{
-		let ty = format_ident!("{}", field.code);
-		quote!(codes::#ty)
-	} else {
-		let mapped_type = map_type(&field.r#type);
-		quote!(#mapped_type)
-	};
+	let mapped_type = code_field_type_name(field, implemented_codes);
 
 	(doc_comment, mapped_type, quote!())
 }
@@ -331,4 +314,30 @@ fn generate_object_field(
 		})
 		.expect("Cannot fail");
 	(doc_comment, quote!(#struct_type), structs)
+}
+
+/// Construct the type of a field.
+pub fn construct_field_type(field: &Field, field_type: TokenStream) -> TokenStream {
+	if field.is_array() {
+		if field.is_base_field() {
+			quote!(Vec<#field_type>)
+		} else {
+			quote!(Vec<Option<#field_type>>)
+		}
+	} else if field.optional() {
+		quote!(Option<#field_type>)
+	} else {
+		quote!(#field_type)
+	}
+}
+
+/// Compute the type name of a CodeField.
+pub fn code_field_type_name(field: &CodeField, implemented_codes: &[String]) -> TokenStream {
+	if field.r#type.as_str() == "code" && implemented_codes.contains(&field.code) {
+		let ty = format_ident!("{}", field.code);
+		quote!(codes::#ty)
+	} else {
+		let mapped_type = map_type(&field.r#type);
+		quote!(#mapped_type)
+	}
 }

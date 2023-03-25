@@ -122,7 +122,7 @@ impl FromStr for TypeKind {
 }
 
 /// Generic field.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Field {
 	/// Object that contains sub fields.
 	Object(ObjectField),
@@ -197,6 +197,16 @@ impl Field {
 			Self::Object(f) => f.is_base_field,
 		}
 	}
+
+	/// Set the field to be a base field.
+	pub fn set_base_field(&mut self) {
+		match self {
+			Self::Standard(f) => f.is_base_field = true,
+			Self::Code(f) => f.is_base_field = true,
+			Self::Choice(f) => f.is_base_field = true,
+			Self::Object(f) => f.is_base_field = true,
+		}
+	}
 }
 
 impl From<ElementDefinition> for Field {
@@ -222,7 +232,7 @@ impl From<ElementDefinition> for Field {
 }
 
 /// Object that contains sub-fields.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct ObjectField {
 	/// Field name.
 	pub name: String,
@@ -411,7 +421,7 @@ impl From<ElementDefinition> for ObjectField {
 }
 
 /// Definition of a normal field.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct StandardField {
 	/// Field name.
 	pub name: String,
@@ -480,7 +490,7 @@ impl From<ElementDefinition> for StandardField {
 }
 
 /// Definition of a code field.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct CodeField {
 	/// Field name.
 	pub name: String,
@@ -557,7 +567,7 @@ impl From<ElementDefinition> for CodeField {
 }
 
 /// Definition of a choice field.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct ChoiceField {
 	/// Field name.
 	pub name: String,

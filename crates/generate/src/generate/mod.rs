@@ -1,6 +1,7 @@
 //! Code generation functionality.
 
 mod gen_codes;
+mod gen_traits;
 mod gen_types;
 
 use anyhow::Result;
@@ -45,7 +46,7 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, Vec<String>)
 }
 
 /// Generate the Rust code for the FHIR types.
-pub fn generate_types(types: Vec<Type>, generated_codes: &[String]) -> Result<TokenStream> {
+pub fn generate_types(types: Vec<Type>, implemented_codes: &[String]) -> Result<TokenStream> {
 	// Set generation variables.
 	let module_doc = " Generated code! Take a look at the generator-crate for changing this file!";
 
@@ -53,7 +54,7 @@ pub fn generate_types(types: Vec<Type>, generated_codes: &[String]) -> Result<To
 		.iter()
 		.filter(|ty| !ty.r#abstract)
 		.filter(|ty| ty.kind == TypeKind::ComplexType)
-		.map(|ty| gen_types::generate_type_struct(ty, generated_codes))
+		.map(|ty| gen_types::generate_type_struct(ty, implemented_codes))
 		.collect::<Result<_, _>>()?;
 
 	// Generate the code.
@@ -86,7 +87,10 @@ pub fn generate_types(types: Vec<Type>, generated_codes: &[String]) -> Result<To
 }
 
 /// Generate the Rust code for the FHIR resources.
-pub fn generate_resources(resources: Vec<Type>, generated_codes: &[String]) -> Result<TokenStream> {
+pub fn generate_resources(
+	resources: Vec<Type>,
+	implemented_codes: &[String],
+) -> Result<TokenStream> {
 	// Set generation variables.
 	let module_doc = " Generated code! Take a look at the generator-crate for changing this file!";
 
@@ -94,8 +98,9 @@ pub fn generate_resources(resources: Vec<Type>, generated_codes: &[String]) -> R
 		.iter()
 		.filter(|ty| !ty.r#abstract)
 		.filter(|ty| ty.kind == TypeKind::Resource)
-		.map(|ty| gen_types::generate_type_struct(ty, generated_codes))
+		.map(|ty| gen_types::generate_type_struct(ty, implemented_codes))
 		.collect::<Result<_, _>>()?;
+
 	let resource_names: Vec<_> = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
@@ -104,6 +109,12 @@ pub fn generate_resources(resources: Vec<Type>, generated_codes: &[String]) -> R
 		.map(|name| format_ident!("{name}"))
 		.collect();
 	let resource_conversions = resource_conversion_impls(&resource_names);
+	let resource_impls = resource_impls(&resource_names);
+
+	let base_resource_impls = gen_traits::generate_base_resource(&resources, implemented_codes)?;
+	let domain_resource_impls =
+		gen_traits::generate_domain_resource(&resources, implemented_codes)?;
+	let named_resource_impls = gen_traits::generate_named_resource(&resources)?;
 
 	// Generate the code.
 	Ok(quote! {
@@ -148,6 +159,11 @@ pub fn generate_resources(resources: Vec<Type>, generated_codes: &[String]) -> R
 		impl ::std::error::Error for WrongResourceType {}
 
 		#resource_conversions
+		#resource_impls
+
+		#base_resource_impls
+		#domain_resource_impls
+		#named_resource_impls
 	})
 }
 
@@ -194,6 +210,23 @@ fn resource_conversion_impls(names: &[Ident]) -> TokenStream {
 				}
 			}
 		)*
+	}
+}
+
+/// Implementations for the Resource enum.
+fn resource_impls(names: &[Ident]) -> TokenStream {
+	quote! {
+		impl Resource {
+			/// Get the resource type of the resource.
+			#[must_use]
+			pub fn resource_type(&self) -> ResourceType {
+				match self {
+					#(
+						Self::#names(_) => ResourceType::#names,
+					)*
+				}
+			}
+		}
 	}
 }
 

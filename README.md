@@ -19,8 +19,9 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 - [x] Builders for types and resources
 - [x] Allow to convert code enums to Coding and CodeableConcept
 - [ ] Implementation of base traits
-  - [ ] Resource, including FHIR version, resource type (const)
-  - [ ] DomainResource
+  - [x] (Base)Resource
+  - [x] NamedResource
+  - [x] DomainResource
   - [ ] IdentifiableResource
 - [ ] FHIR client implmentation
 - [ ] FHIRpath implementation

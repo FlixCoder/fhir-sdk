@@ -44,6 +44,7 @@ pub fn generate_base_resource(
 		impl Resource {
 			/// Return the resource as base resource.
 			#[must_use]
+			#[inline]
 			pub fn as_base_resource(&self) -> &dyn #ident {
 				match self {
 					#(
@@ -54,6 +55,7 @@ pub fn generate_base_resource(
 
 			/// Return the resource as mutable base resource.
 			#[must_use]
+			#[inline]
 			pub fn as_base_resource_mut(&mut self) -> &mut dyn #ident {
 				match self {
 					#(
@@ -107,6 +109,7 @@ pub fn generate_domain_resource(
 		impl Resource {
 			/// Return the resource as domain resource.
 			#[must_use]
+			#[inline]
 			pub fn as_domain_resource(&self) -> Option<&dyn #ident> {
 				match self {
 					#(
@@ -118,6 +121,7 @@ pub fn generate_domain_resource(
 
 			/// Return the resource as mutable domain resource.
 			#[must_use]
+			#[inline]
 			pub fn as_domain_resource_mut(&mut self) -> Option<&mut dyn #ident> {
 				match self {
 					#(
@@ -250,14 +254,17 @@ fn make_trait_implementation(
 	quote! {
 		impl #ident for #name {
 			#(
+				#[inline]
 				fn #field_names(&self) -> & #field_types {
 					&self.#field_names
 				}
 
+				#[inline]
 				fn #mut_getters(&mut self) -> &mut #field_types {
 					&mut self.#field_names
 				}
 
+				#[inline]
 				fn #setters(&mut self, value: #field_types) {
 					self.#field_names = value;
 				}

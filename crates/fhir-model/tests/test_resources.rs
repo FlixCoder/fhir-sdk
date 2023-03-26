@@ -6,8 +6,8 @@ use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
 use fhir_model::r4b::{
 	codes::{RequestIntent, RequestStatus, RiskProbability},
 	resources::{
-		Basic, NamedResource, Patient, RequestGroup, RequestGroupAction, RequestGroupActionTiming,
-		Resource, WrongResourceType,
+		Basic, IdentifiableResource, NamedResource, Patient, RequestGroup, RequestGroupAction,
+		RequestGroupActionTiming, Resource, WrongResourceType,
 	},
 	types::{CodeableConcept, Coding, Identifier},
 };
@@ -110,4 +110,33 @@ fn identifiable_resource() {
 		.and_then(Option::as_ref)
 		.expect("We set one identifier");
 	assert_eq!(identifier.system.as_deref(), Some("system"));
+}
+
+#[test]
+fn identifier_search() {
+	let patient = Patient::builder()
+		.identifier(vec![
+			Some(
+				Identifier::builder().system("system1".to_owned()).value("bla1".to_owned()).build(),
+			),
+			Some(
+				Identifier::builder()
+					.r#type(
+						CodeableConcept::builder()
+							.coding(vec![Some(
+								Coding::builder()
+									.system("system2".to_owned())
+									.code("code2".to_owned())
+									.build(),
+							)])
+							.build(),
+					)
+					.value("bla2".to_owned())
+					.build(),
+			),
+		])
+		.build();
+
+	assert_eq!(patient.identifier_with_system("system1").map(String::as_str), Some("bla1"));
+	assert_eq!(patient.identifier_with_type("system2", "code2").map(String::as_str), Some("bla2"));
 }

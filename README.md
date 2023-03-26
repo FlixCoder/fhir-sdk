@@ -23,12 +23,11 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] NamedResource
   - [x] DomainResource
   - [x] IdentifiableResource
-- [ ] Extension traits (e.g. more convenience on identifier access)
-- [ ] FHIR client implementation
+- [ ] REST client implementation
+- [ ] Search parameters
 - [ ] FHIRpath implementation
 - [ ] Resource validation using FHIRpath
-- [ ] Search parameters
-- [ ] GraphQL
+- [ ] GraphQL client
 - [ ] XML
 
 ## Known Problems

@@ -1,3 +1,4 @@
+#![cfg(feature = "r5")]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
 use std::fs;

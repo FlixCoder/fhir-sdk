@@ -718,7 +718,7 @@ pub struct AttachmentInner {
         )
     )]
     #[serde(rename = "size")]
-    pub size: Option<i64>,
+    pub size: Option<String>,
     /// Extension field.
     #[serde(rename = "_size", default, skip_serializing_if = "Option::is_none")]
     #[builder(default, setter(doc = "Field extension."))]
@@ -4792,7 +4792,7 @@ pub enum ElementDefinitionDefaultValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "defaultValueInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the Markdown type.
     #[serde(rename = "defaultValueMarkdown")]
     Markdown(String),
@@ -4959,7 +4959,7 @@ pub enum ElementDefinitionFixed {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "fixedInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the Markdown type.
     #[serde(rename = "fixedMarkdown")]
     Markdown(String),
@@ -5126,7 +5126,7 @@ pub enum ElementDefinitionPattern {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "patternInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the Markdown type.
     #[serde(rename = "patternMarkdown")]
     Markdown(String),
@@ -5349,7 +5349,7 @@ pub enum ElementDefinitionExampleValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "valueInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the Markdown type.
     #[serde(rename = "valueMarkdown")]
     Markdown(String),
@@ -5504,7 +5504,7 @@ pub enum ElementDefinitionMinValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "minValueInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the PositiveInt type.
     #[serde(rename = "minValuePositiveInt")]
     PositiveInt(NonZeroU32),
@@ -5539,7 +5539,7 @@ pub enum ElementDefinitionMaxValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "maxValueInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the PositiveInt type.
     #[serde(rename = "maxValuePositiveInt")]
     PositiveInt(NonZeroU32),
@@ -6522,7 +6522,7 @@ pub enum ExtensionValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "valueInteger64")]
-    Integer64(i64),
+    Integer64(String),
     /// Variant accepting the Markdown type.
     #[serde(rename = "valueMarkdown")]
     Markdown(String),

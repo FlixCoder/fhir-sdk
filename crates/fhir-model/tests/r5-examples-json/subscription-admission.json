@@ -1,0 +1,43 @@
+{
+  "resourceType": "Subscription",
+  "id": "admission",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Subscription\u003c/b\u003e\u003ca name\u003d\"admission\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Subscription \u0026quot;admission\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: AdmissionExample\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003etopic\u003c/b\u003e: \u003ca href\u003d\"http://example.org/R5/SubscriptionTopic/admission\"\u003ehttp://example.org/R5/SubscriptionTopic/admission\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eend\u003c/b\u003e: 7 Aug 2019, 9:15:18 pm\u003c/p\u003e\u003cp\u003e\u003cb\u003ereason\u003c/b\u003e: subscription for beginning of a clinical encounter for patient 123\u003c/p\u003e\u003ch3\u003eFilterBies\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eFilterParameter\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003epatient\u003c/td\u003e\u003ctd\u003ePatient/123\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003echannelType\u003c/b\u003e: rest-hook (Details: [not stated] code rest-hook \u003d \u0027rest-hook\u0027, stated as \u0027null\u0027)\u003c/p\u003e\u003cp\u003e\u003cb\u003eendpoint\u003c/b\u003e: \u003ca href\u003d\"https://example.org/Endpoints/P123\"\u003ehttps://example.org/Endpoints/P123\u003c/a\u003e\u003c/p\u003e\u003ch3\u003eParameters\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eName\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eAuthorization\u003c/td\u003e\u003ctd\u003eBearer secret-token-abc-123\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eheartbeatPeriod\u003c/b\u003e: 60\u003c/p\u003e\u003cp\u003e\u003cb\u003etimeout\u003c/b\u003e: 5\u003c/p\u003e\u003cp\u003e\u003cb\u003econtentType\u003c/b\u003e: application/fhir+json\u003c/p\u003e\u003cp\u003e\u003cb\u003econtent\u003c/b\u003e: id-only\u003c/p\u003e\u003cp\u003e\u003cb\u003emaxCount\u003c/b\u003e: 100\u003c/p\u003e\u003c/div\u003e"
+  },
+  "name": "AdmissionExample",
+  "status": "active",
+  "topic": "http://example.org/R5/SubscriptionTopic/admission",
+  "end": "2019-08-07T11:15:18Z",
+  "reason": "subscription for beginning of a clinical encounter for patient 123",
+  "filterBy": [
+    {
+      "filterParameter": "patient",
+      "value": "Patient/123"
+    }
+  ],
+  "channelType": {
+    "code": "rest-hook"
+  },
+  "endpoint": "https://example.org/Endpoints/P123",
+  "parameter": [
+    {
+      "name": "Authorization",
+      "value": "Bearer secret-token-abc-123"
+    }
+  ],
+  "heartbeatPeriod": 60,
+  "timeout": 5,
+  "contentType": "application/fhir+json",
+  "content": "id-only",
+  "maxCount": 100,
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

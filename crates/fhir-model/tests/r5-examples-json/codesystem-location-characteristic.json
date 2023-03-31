@@ -1,0 +1,89 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "location-characteristic",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/location-characteristic\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewheelchair\u003ca name\u003d\"location-characteristic-wheelchair\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWheelchair accessible\u003c/td\u003e\u003ctd\u003eThe location is accessible to thosre requiring wheelchair access\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehas-translation\u003ca name\u003d\"location-characteristic-has-translation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003etranslation services available\u003c/td\u003e\u003ctd\u003eThe location has translation services available\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehas-oxy-nitro\u003ca name\u003d\"location-characteristic-has-oxy-nitro\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eoxygen/nitrogen available\u003c/td\u003e\u003ctd\u003eThe location has oxygen and nitrogen services available\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehas-neg-press\u003ca name\u003d\"location-characteristic-has-neg-press\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003enegative pressure rooms available\u003c/td\u003e\u003ctd\u003eThe location has negative pressure rooms available\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehas-iso-ward\u003ca name\u003d\"location-characteristic-has-iso-ward\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eisolation ward\u003c/td\u003e\u003ctd\u003eThe location is or has an isolation ward\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehas-icu\u003ca name\u003d\"location-characteristic-has-icu\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ehas ICU\u003c/td\u003e\u003ctd\u003eThe location is or has an intensive care unit\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    }
+  ],
+  "url": "http://hl7.org/fhir/location-characteristic",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1970"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "LocationCharacteristic",
+  "title": "Location Characteristic",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "Example Set of Location Characteristics.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/location-characteristic",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "wheelchair",
+      "display": "Wheelchair accessible",
+      "definition": "The location is accessible to thosre requiring wheelchair access"
+    },
+    {
+      "code": "has-translation",
+      "display": "translation services available",
+      "definition": "The location has translation services available"
+    },
+    {
+      "code": "has-oxy-nitro",
+      "display": "oxygen/nitrogen available",
+      "definition": "The location has oxygen and nitrogen services available"
+    },
+    {
+      "code": "has-neg-press",
+      "display": "negative pressure rooms available",
+      "definition": "The location has negative pressure rooms available"
+    },
+    {
+      "code": "has-iso-ward",
+      "display": "isolation ward",
+      "definition": "The location is or has an isolation ward"
+    },
+    {
+      "code": "has-icu",
+      "display": "has ICU",
+      "definition": "The location is or has an intensive care unit"
+    }
+  ]
+}

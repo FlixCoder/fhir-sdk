@@ -1,0 +1,142 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "sc-appointmentstatus",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ch2\u003eAppointmentStatusCanonicalMap (http://hl7.org/fhir/ConceptMap/sc-appointmentstatus)\u003c/h2\u003e\u003cp\u003eMapping from \u003ca href\u003d\"valueset-appointmentstatus.html\"\u003eAppointment Status\u003c/a\u003e to \u003ca href\u003d\"valueset-resource-status.html\"\u003eCanonical Status Codes for FHIR Resources\u003c/a\u003e\u003c/p\u003e\u003cp\u003eDRAFT. Published on 2020-12-28T16:55:11+11:00 by HL7 (FHIR Project) (\u003ca href\u003d\"http://hl7.org/fhir\"\u003ehttp://hl7.org/fhir\u003c/a\u003e, \u003ca href\u003d\"mailto:fhir@lists.hl7.org\"\u003efhir@lists.hl7.org\u003c/a\u003e). \u003c/p\u003e\u003cdiv\u003e\u003cp\u003eCanonical Mapping for \u0026quot;The free/busy status of an appointment.\u0026quot;\u003c/p\u003e\n\u003c/div\u003e\u003cbr/\u003e\u003cp\u003e\u003cb\u003eGroup 1\u003c/b\u003eMapping from \u003ca href\u003d\"codesystem-appointmentstatus.html\"\u003eAppointment Status\u003c/a\u003e to \u003ca href\u003d\"codesystem-resource-status.html\"\u003eCanonical Status Codes for FHIR Resources\u003c/a\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eSource Code\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRelationship\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eTarget Code\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eentered-in-error\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eerror\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eproposed\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eproposed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ewaitlist (Waitlisted)\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eproposed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003epending\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003edraft\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ebooked\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eaccepted\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003earrived\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003earrived\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003enoshow\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003esuspended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003efulfilled\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecomplete\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ecancelled\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eabandoned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003echecked-in\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003epartial\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/sc-appointmentstatus",
+  "version": "5.0.0",
+  "name": "AppointmentStatusCanonicalMap",
+  "title": "Canonical Mapping for \"Appointment Status\"",
+  "status": "draft",
+  "experimental": false,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Canonical Mapping for \"The free/busy status of an appointment.\"",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "sourceScopeCanonical": "http://hl7.org/fhir/ValueSet/appointmentstatus",
+  "targetScopeCanonical": "http://hl7.org/fhir/ValueSet/resource-status",
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/appointmentstatus",
+      "target": "http://hl7.org/fhir/resource-status",
+      "element": [
+        {
+          "code": "entered-in-error",
+          "target": [
+            {
+              "code": "error",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "proposed",
+          "target": [
+            {
+              "code": "proposed",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "waitlist",
+          "target": [
+            {
+              "code": "proposed",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "pending",
+          "target": [
+            {
+              "code": "draft",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "booked",
+          "target": [
+            {
+              "code": "accepted",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "arrived",
+          "target": [
+            {
+              "code": "arrived",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "noshow",
+          "target": [
+            {
+              "code": "suspended",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "fulfilled",
+          "target": [
+            {
+              "code": "complete",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "cancelled",
+          "target": [
+            {
+              "code": "abandoned",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "checked-in",
+          "target": [
+            {
+              "code": "partial",
+              "relationship": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

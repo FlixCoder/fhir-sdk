@@ -1,0 +1,59 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "questionnaire-disabled-display",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/questionnaire-disabled-display\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehidden\u003ca name\u003d\"questionnaire-disabled-display-hidden\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHidden\u003c/td\u003e\u003ctd\u003eThe item (and its children) should not be visible to the user at all.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprotected\u003ca name\u003d\"questionnaire-disabled-display-protected\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProtected\u003c/td\u003e\u003ctd\u003eThe item (and possibly its children) should not be selectable or editable but should still be visible - to allow the user to see what questions *could* have been completed had other answers caused the item to be enabled.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/questionnaire-disabled-display",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2016"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "QuestionnaireItemDisabledDisplay",
+  "title": "Questionnaire Item Disabled Display",
+  "status": "active",
+  "experimental": true,
+  "publisher": "HL7 International",
+  "description": "QuestionnaireItemDisabledDisplay",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "hidden",
+      "display": "Hidden",
+      "definition": "The item (and its children) should not be visible to the user at all."
+    },
+    {
+      "code": "protected",
+      "display": "Protected",
+      "definition": "The item (and possibly its children) should not be selectable or editable but should still be visible - to allow the user to see what questions *could* have been completed had other answers caused the item to be enabled."
+    }
+  ]
+}

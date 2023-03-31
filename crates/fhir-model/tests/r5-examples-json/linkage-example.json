@@ -1,0 +1,36 @@
+{
+  "resourceType": "Linkage",
+  "id": "example",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n  \u003cp\u003e\n     Links\n      defined by \u003ca href\u003d\"practitioner-example-f201-ab.html\"\u003ePractitioner/f201\u003c/a\u003e \u0026quot;Dokter Bronsig\u0026quot; \n     :\n  \u003c/p\u003e\n  \u003cul\u003e\n    \n    \u003cli\u003esource: \u003ca href\u003d\"condition-example.html\"\u003eCondition/example: Severe burn of left ear (Date: 24-May 2012)\u003c/a\u003e \u003c/li\u003e\n    \n    \u003cli\u003ealternate: \u003ca href\u003d\"condition-example-linkage.html\"\u003eCondition/example-linkage: Severe burn of left ear (Date: 24-May 2012)\u003c/a\u003e \u003c/li\u003e\n    \n  \u003c/ul\u003e\n\u003c/div\u003e"
+  },
+  "author": {
+    "reference": "Practitioner/f201"
+  },
+  "item": [
+    {
+      "type": "source",
+      "resource": {
+        "reference": "Condition/example",
+        "display": "Severe burn of left ear (Date: 24-May 2012)"
+      }
+    },
+    {
+      "type": "alternate",
+      "resource": {
+        "reference": "Condition/example-linkage",
+        "display": "Severe burn of left ear (Date: 24-May 2012)"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

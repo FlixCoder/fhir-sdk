@@ -1,0 +1,70 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "claim-decision",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/claim-decision\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edenied\u003ca name\u003d\"claim-decision-denied\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDenied\u003c/td\u003e\u003ctd\u003eThe claim, or individual services, are not approved for any payment. This may also be known as \u0027rejected\u0027.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eapproved\u003ca name\u003d\"claim-decision-approved\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eApproved\u003c/td\u003e\u003ctd\u003eThe claim, or individual services, are approved as submitted.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epartial\u003ca name\u003d\"claim-decision-partial\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePartial\u003c/td\u003e\u003ctd\u003eThe claim, or individual services, are approved at an amount less than as submitted.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epending\u003ca name\u003d\"claim-decision-pending\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePending\u003c/td\u003e\u003ctd\u003eThe adjudication processing is not complete. This may be due to requiring manual review or receipt of additional information.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/claim-decision",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1896"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ClaimAdjudicationDecisionCodes",
+  "title": "Claim Adjudication Decision Codes",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "This value set provides Claim Adjudication Decision codes.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "HL7 Inc.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "denied",
+      "display": "Denied",
+      "definition": "The claim, or individual services, are not approved for any payment. This may also be known as \u0027rejected\u0027."
+    },
+    {
+      "code": "approved",
+      "display": "Approved",
+      "definition": "The claim, or individual services, are approved as submitted."
+    },
+    {
+      "code": "partial",
+      "display": "Partial",
+      "definition": "The claim, or individual services, are approved at an amount less than as submitted."
+    },
+    {
+      "code": "pending",
+      "display": "Pending",
+      "definition": "The adjudication processing is not complete. This may be due to requiring manual review or receipt of additional information."
+    }
+  ]
+}

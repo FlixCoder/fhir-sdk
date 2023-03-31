@@ -1,0 +1,70 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medication-intended-performer-role",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/medication-intended-performer-role\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eregisterednurse\u003ca name\u003d\"medication-intended-performer-role-registerednurse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRegistered Nurse\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoncologynurse\u003ca name\u003d\"medication-intended-performer-role-oncologynurse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOncology Nurse\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epaincontrolnurse\u003ca name\u003d\"medication-intended-performer-role-paincontrolnurse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePain Control Nurse\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ephysician\u003ca name\u003d\"medication-intended-performer-role-physician\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePhysician\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epharmacist\u003ca name\u003d\"medication-intended-performer-role-pharmacist\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePharmacist\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/medication-intended-performer-role",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2074"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "MedicationIntendedPerformerRole",
+  "title": "Medication Intended Performer Role",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "Medication Intended Performer Role",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medication-intended-performer-role",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "registerednurse",
+      "display": "Registered Nurse"
+    },
+    {
+      "code": "oncologynurse",
+      "display": "Oncology Nurse"
+    },
+    {
+      "code": "paincontrolnurse",
+      "display": "Pain Control Nurse"
+    },
+    {
+      "code": "physician",
+      "display": "Physician"
+    },
+    {
+      "code": "pharmacist",
+      "display": "Pharmacist"
+    }
+  ]
+}

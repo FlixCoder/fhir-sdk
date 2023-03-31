@@ -1,0 +1,133 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "genomicstudy-type",
+  "meta": {
+    "lastUpdated": "2023-03-25T23:21:02.749-05:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/genomicstudy-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ealt-splc\u003ca name\u003d\"genomicstudy-type-alt-splc\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAlternative splicing detection\u003c/td\u003e\u003ctd\u003eIdentification of multiple different processed mRNA transcripts from the same DNA template\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echromatin\u003ca name\u003d\"genomicstudy-type-chromatin\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChromatin conformation\u003c/td\u003e\u003ctd\u003eAnalysis of the spacial organization of chromatin within a cell\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecnv\u003ca name\u003d\"genomicstudy-type-cnv\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCNV detection\u003c/td\u003e\u003ctd\u003eDetection of a change in the number of copies of a defined region of genomic DNA sequence resulting in structural variation when compared to the reference sequence\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eepi-alt-hist\u003ca name\u003d\"genomicstudy-type-epi-alt-hist\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEpigenetic Alterations - histone modifications\u003c/td\u003e\u003ctd\u003eDetection of biochemical modifications covalently bound to the N-terminal tail of a histone protein. These modifications may alter chromatin compaction and gene expression\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eepi-alt-dna\u003ca name\u003d\"genomicstudy-type-epi-alt-dna\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEpigenetic Alterations -DNA methylation\u003c/td\u003e\u003ctd\u003eDetection of the presence of an additional methyl group on a DNA nucleobase, which may alter gene transcription\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efam-var-segr\u003ca name\u003d\"genomicstudy-type-fam-var-segr\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFamilial variant segregation\u003c/td\u003e\u003ctd\u003eDetermining if a variant identified in an individual is present in other family members\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efunc-var\u003ca name\u003d\"genomicstudy-type-func-var\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFunctional variation detection\u003c/td\u003e\u003ctd\u003eDetection of sequence variants which may alter gene expression or gene product function when compared to the reference sequence\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egene-expression\u003ca name\u003d\"genomicstudy-type-gene-expression\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGene expression profiling\u003c/td\u003e\u003ctd\u003eMeasurement and characterization of activity from all gene products\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epost-trans-mod\u003ca name\u003d\"genomicstudy-type-post-trans-mod\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePost-translational Modification Identification\u003c/td\u003e\u003ctd\u003eDetection of biochemical modifications covalently bound to the amino acid monomers of a processed protein\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esnp\u003ca name\u003d\"genomicstudy-type-snp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSNP Detection\u003c/td\u003e\u003ctd\u003eDetermination of which nucleotide is base present at a known variable location of the genomic sequence\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estr\u003ca name\u003d\"genomicstudy-type-str\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSTR count\u003c/td\u003e\u003ctd\u003eQuantification of the number of sequential microsatellite units in a repetitive sequence region\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estruc-var\u003ca name\u003d\"genomicstudy-type-struc-var\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eStructural variation detection\u003c/td\u003e\u003ctd\u003eDetection of deletions, insertions, or rearrangements of DNA segments compared to the reference sequence\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cg"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/genomicstudy-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1975"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "GenomicStudyType",
+  "title": "Genomic Study Type",
+  "status": "active",
+  "experimental": true,
+  "date": "2022-08-17T16:19:24-05:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The type relevant to GenomicStudy.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/genomicstudy-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "alt-splc",
+      "display": "Alternative splicing detection",
+      "definition": "Identification of multiple different processed mRNA transcripts from the same DNA template"
+    },
+    {
+      "code": "chromatin",
+      "display": "Chromatin conformation",
+      "definition": "Analysis of the spacial organization of chromatin within a cell"
+    },
+    {
+      "code": "cnv",
+      "display": "CNV detection",
+      "definition": "Detection of a change in the number of copies of a defined region of genomic DNA sequence resulting in structural variation when compared to the reference sequence"
+    },
+    {
+      "code": "epi-alt-hist",
+      "display": "Epigenetic Alterations - histone modifications",
+      "definition": "Detection of biochemical modifications covalently bound to the N-terminal tail of a histone protein. These modifications may alter chromatin compaction and gene expression"
+    },
+    {
+      "code": "epi-alt-dna",
+      "display": "Epigenetic Alterations -DNA methylation",
+      "definition": "Detection of the presence of an additional methyl group on a DNA nucleobase, which may alter gene transcription"
+    },
+    {
+      "code": "fam-var-segr",
+      "display": "Familial variant segregation",
+      "definition": "Determining if a variant identified in an individual is present in other family members"
+    },
+    {
+      "code": "func-var",
+      "display": "Functional variation detection",
+      "definition": "Detection of sequence variants which may alter gene expression or gene product function when compared to the reference sequence"
+    },
+    {
+      "code": "gene-expression",
+      "display": "Gene expression profiling",
+      "definition": "Measurement and characterization of activity from all gene products"
+    },
+    {
+      "code": "post-trans-mod",
+      "display": "Post-translational Modification Identification",
+      "definition": "Detection of biochemical modifications covalently bound to the amino acid monomers of a processed protein"
+    },
+    {
+      "code": "snp",
+      "display": "SNP Detection",
+      "definition": "Determination of which nucleotide is base present at a known variable location of the genomic sequence"
+    },
+    {
+      "code": "str",
+      "display": "STR count",
+      "definition": "Quantification of the number of sequential microsatellite units in a repetitive sequence region"
+    },
+    {
+      "code": "struc-var",
+      "display": "Structural variation detection",
+      "definition": "Detection of deletions, insertions, or rearrangements of DNA segments compared to the reference sequence"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "resourceType": "Observation",
+  "id": "krcore-observation-labresult-example-01",
+  "meta": {
+    "profile": [
+      "https://example.org/fhir/krcore/StructureDefinition/krcore-observation-labresult"
+    ],
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Observation\u003c/b\u003e\u003ca name\u003d\"krcore-observation-labresult-example-01\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Observation \u0026quot;krcore-observation-labresult-example-01\u0026quot; \u003c/p\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eProfile: \u003ccode\u003ehttps://example.org/fhir/krcore/StructureDefinition/krcore-observation-labresult\u003c/code\u003e\u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: final\u003c/p\u003e\u003cp\u003e\u003cb\u003ecategory\u003c/b\u003e: Laboratory \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-observation-category.html\"\u003eObservation Category Codes\u003c/a\u003e#laboratory)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: 연속혈당측정검사 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (lab-result-code#FZ811)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca href\u003d\"patient-example-chinese.html\"\u003ePatient/ch-example\u003c/a\u003e \u0026quot;张无忌\u0026quot;\u003c/p\u003e\u003cp\u003e\u003cb\u003eeffective\u003c/b\u003e: 2021-01-01\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 76.0 mg/dL\u003c/p\u003e\u003ch3\u003eReferenceRanges\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eLow\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eHigh\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e40.0 mg/dL\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mg/dL \u003d \u0027mg/dL\u0027)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e109.0 mg/dL\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mg/dL \u003d \u0027mg/dL\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://hira.or.kr/CodeSystem/lab-result-code",
+        "code": "FZ811",
+        "display": "연속혈당측정검사"
+      }
+    ],
+    "text": "연속혈당측정검사"
+  },
+  "subject": {
+    "reference": "Patient/ch-example"
+  },
+  "effectiveDateTime": "2021-01-01",
+  "valueQuantity": {
+    "value": 76.0,
+    "unit": "mg/dL",
+    "system": "http://unitsofmeasure.org"
+  },
+  "referenceRange": [
+    {
+      "low": {
+        "value": 40.0,
+        "unit": "mg/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg/dL"
+      },
+      "high": {
+        "value": 109.0,
+        "unit": "mg/dL",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg/dL"
+      }
+    }
+  ]
+}

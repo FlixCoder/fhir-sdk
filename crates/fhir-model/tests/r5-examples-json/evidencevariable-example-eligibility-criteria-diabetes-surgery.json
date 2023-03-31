@@ -1,0 +1,773 @@
+{
+  "resourceType": "EvidenceVariable",
+  "id": "example-eligibility-criteria-diabetes-surgery",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: EvidenceVariable\u003c/b\u003e\u003ca name\u003d\"example-eligibility-criteria-diabetes-surgery\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource EvidenceVariable \u0026quot;example-eligibility-criteria-diabetes-surgery\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: FEvIR Object Identifier: 32120\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: StudyEligibilityCriteriaEligibilityCriteriaForBariatricSurgeryRandomizedTrialDiabetesSurgeryStudy\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study)\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003epublisher\u003c/b\u003e: Computable Publishing LLC\u003c/p\u003e\u003cp\u003e\u003cb\u003econtact\u003c/b\u003e: \u003ca href\u003d\"mailto:support@computablepublishing.com\"\u003esupport@computablepublishing.com\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Inclusion Criteria:    Age 30 to 67 years at eligibility visit.    Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.    Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.    Willingness to accept random assignment to either treatment group.    Expect to live or work within approximately one hour\u0027s traveling time from the study clinic for the duration of the two-year trial.    Willingness to comply with the follow-up protocol and successful completion of the run-in.    Written informed consent. ///// Exclusion Criteria:   Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.    Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.    Cardiac stress test indicating that surgery or IMM would not be safe.    Pulmonary embolus or thrombophlebitis in the past six months.    Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.    Significant anemia (hemoglobin 1.0 g or more below normal range) or history of coagulopathy.    Serum creatinine ≥ 1.5 mg/dl.    HbA1c \u0026gt; 14.0%.\u003c/p\u003e\u003cp\u003e\u003cb\u003ecopyright\u003c/b\u003e: https://creativecommons.org/licenses/by-nc-sa/4.0/\u003c/p\u003e\u003cp\u003e\u003cb\u003eeffectivePeriod\u003c/b\u003e: 2008-02 --\u0026gt; 2016-12\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: Brian S. Alper: \u003c/p\u003e\u003cp\u003e\u003cb\u003eactual\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Age 30 to 67 years at eligibility visit.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eAge \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#397669002)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e30-67 years\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ch3\u003eTimeFromEvents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEvent[x]\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eQuantity\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eat eligibility visit\u003c/td\u003e\u003ctd\u003eEligibilityVisit\u003c/td\u003e\u003ctd\u003e0\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByCombination\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: all-of\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Diagnosed with T2DM at least 6 months prior to enrollment\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003etimeFromEvent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: under the active care of a doctor for at least the six months prior to enrollment\u003c/p\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: assumption that active care means active care of type 2 diabetes mellitus\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003cp\u003e\u003cb\u003edefinitionCodeableConcept\u003c/b\u003e: under the active care of a doctor \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#305450004 \u0026quot;Under care of doctor (finding)\u0026quot;)\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003etimeFromEvent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: HbA1c ≥ 8.0%\u003c/p\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: assumption that this is the last recorded HbA1c before the enrollment visit, but not explicitly stated in the short-phrase Eligibility Criteria\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eBody mass index (BMI) [Ratio] \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://loinc.org/\"\u003eLOINC\u003c/a\u003e#39156-5)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e30-39.9 kg/m2\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ch3\u003eTimeFromEvents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEvent[x]\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eQuantity\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eat eligibility visit\u003c/td\u003e\u003ctd\u003eEligibilityVisit\u003c/td\u003e\u003ctd\u003e0\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Willingness to accept random assignment to either treatment group.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Expect to live or work within approximately one hour\u0027s traveling time from the study clinic for the duration of the two-year trial.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Willingness to comply with the follow-up protocol and successful completion of the run-in.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003elinkId\u003c/b\u003e: EligibilityVisit\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Written informed consent.\u003c/p\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: The example used here acknowledges attainment of the written informed consent at the eligibility visit (which is also the time of enrollment) so is referencing this characteristic with the linkId EligibilityVisit to be used as a reference point from timeFromEvent in the specification of other characteristics.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003ch3\u003eTimeFromEvents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEvent[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eAssessment of eligibility for clinical trial (procedure) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#450332002)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByCombination\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: any-of\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: myocardial infarction\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: acute coronary syndrome\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: coronary artery angioplasty or bypass\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: stroke\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003ch3\u003eTimeFromEvents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eNote\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEvent[x]\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRange\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003ein the past six months\u003c/td\u003e\u003ctd\u003eoccurrence within the range is equivalent to \u0027in the past six months\u0027\u003c/td\u003e\u003ctd\u003eEligibilityVisit\u003c/td\u003e\u003ctd\u003e-6-0 months\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.\u003c/p\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: This may be possible to encode as presence of Disease(disorder) without \u0027in remission\u0027\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Cardiac stress test indicating that surgery or IMM would not be safe.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Pulmonary embolus in the past six months.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eDisease (disorder) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#64572001; resource-types#Condition \u0026quot;Condition\u0026quot;)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003ePulmonary embolism (disorder) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#59282003)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ch3\u003eTimeFromEvents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eNote\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEvent[x]\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRange\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003ein the past six months\u003c/td\u003e\u003ctd\u003eoccurrence within the range is equivalent to \u0027in the past six months\u0027\u003c/td\u003e\u003ctd\u003eEligibilityVisit\u003c/td\u003e\u003ctd\u003e-6-0 months\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Thrombophlebitis in the past six months.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eDisease (disorder) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#64572001; resource-types#Condition \u0026quot;Condition\u0026quot;)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003eThrombophlebitis (disorder) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#64156001)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ch3\u003eTimeFromEvents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eNote\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEvent[x]\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRange\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003ein the past six months\u003c/td\u003e\u003ctd\u003eoccurrence within the range is equivalent to \u0027in the past six months\u0027\u003c/td\u003e\u003ctd\u003eEligibilityVisit\u003c/td\u003e\u003ctd\u003e-6-0 months\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByCombination\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: all-of\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Cancer of any kind\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: (except basal cell skin cancer)\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: (except cancer in situ)\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edefinitionByTypeAndValue\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: unless documented to be disease-free for five years\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003cp\u003e\u003cb\u003edefinitionCodeableConcept\u003c/b\u003e: No evidence of cancer found (situation) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#395100000)\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003etimeFromEvent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: History of coagulopathy\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Significant anemia (hemoglobin 1.0 g or more below normal range)\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eOffset\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eHemoglobin [Mass/volume] in Blood \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://loinc.org/\"\u003eLOINC\u003c/a\u003e#718-7)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u0026lt;\u003d-1 g/dL\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code g/dL \u003d \u0027g/dL\u0027)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003eLower Normal Limit \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-characteristic-offset.html\"\u003eCharacteristic Offset\u003c/a\u003e#LNL)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Serum creatinine ≥ 1.5 mg/dl\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eCreatinine [Mass/volume] in Serum or Plasma \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://loinc.org/\"\u003eLOINC\u003c/a\u003e#2160-0)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u0026gt;\u003d1.5 mg/dl\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mg/dL \u003d \u0027mg/dL\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: HbA1c ≥ 14.0%\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: true\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eHemoglobin A1c/Hemoglobin.total in Blood \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://loinc.org/\"\u003eLOINC\u003c/a\u003e#59261-8)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u0026gt;\u003d14 %\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code % \u003d \u0027%\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "text": "FEvIR Object Identifier"
+      },
+      "system": "https://fevir.net",
+      "value": "32120",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    }
+  ],
+  "name": "StudyEligibilityCriteriaEligibilityCriteriaForBariatricSurgeryRandomizedTrialDiabetesSurgeryStudy",
+  "title": "StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study)",
+  "status": "active",
+  "publisher": "Computable Publishing LLC",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "support@computablepublishing.com"
+        }
+      ]
+    }
+  ],
+  "description": "Inclusion Criteria:    Age 30 to 67 years at eligibility visit.    Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.    Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.    Willingness to accept random assignment to either treatment group.    Expect to live or work within approximately one hour\u0027s traveling time from the study clinic for the duration of the two-year trial.    Willingness to comply with the follow-up protocol and successful completion of the run-in.    Written informed consent. ///// Exclusion Criteria:   Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.    Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.    Cardiac stress test indicating that surgery or IMM would not be safe.    Pulmonary embolus or thrombophlebitis in the past six months.    Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.    Significant anemia (hemoglobin 1.0 g or more below normal range) or history of coagulopathy.    Serum creatinine ≥ 1.5 mg/dl.    HbA1c \u003e 14.0%.",
+  "copyright": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "effectivePeriod": {
+    "start": "2008-02",
+    "end": "2016-12"
+  },
+  "author": [
+    {
+      "name": "Brian S. Alper"
+    }
+  ],
+  "actual": true,
+  "characteristic": [
+    {
+      "description": "Age 30 to 67 years at eligibility visit.",
+      "exclude": false,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "397669002",
+              "display": "Age"
+            }
+          ]
+        },
+        "valueRange": {
+          "low": {
+            "value": 30,
+            "unit": "years",
+            "system": "http://unitsofmeasure.org",
+            "code": "a"
+          },
+          "high": {
+            "value": 67,
+            "unit": "years",
+            "system": "http://unitsofmeasure.org",
+            "code": "a"
+          }
+        }
+      },
+      "timeFromEvent": [
+        {
+          "description": "at eligibility visit",
+          "eventId": "EligibilityVisit",
+          "quantity": {
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.",
+      "exclude": false,
+      "definitionByCombination": {
+        "code": "all-of",
+        "characteristic": [
+          {
+            "description": "Diagnosed with T2DM at least 6 months prior to enrollment",
+            "exclude": false,
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "44054006",
+                    "display": "Diabetes mellitus type 2 (disorder)"
+                  }
+                ]
+              }
+            },
+            "timeFromEvent": [
+              {
+                "description": "at least 6 months prior to enrollment",
+                "eventId": "EligibilityVisit",
+                "quantity": {
+                  "value": -6,
+                  "comparator": "\u003c\u003d",
+                  "unit": "months",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mo"
+                }
+              }
+            ]
+          },
+          {
+            "description": "under the active care of a doctor for at least the six months prior to enrollment",
+            "note": [
+              {
+                "text": "assumption that active care means active care of type 2 diabetes mellitus"
+              }
+            ],
+            "exclude": false,
+            "definitionCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "305450004",
+                  "display": "Under care of doctor (finding)"
+                }
+              ],
+              "text": "under the active care of a doctor"
+            },
+            "timeFromEvent": [
+              {
+                "description": "for at least the six months prior to enrollment",
+                "note": [
+                  {
+                    "text": "presence throughout the range is equivalent to \u0027for at least the six months prior to\u0027"
+                  }
+                ],
+                "eventCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "450332002",
+                      "display": "Assessment of eligibility for clinical trial"
+                    }
+                  ]
+                },
+                "range": {
+                  "low": {
+                    "value": -6,
+                    "unit": "months",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mo"
+                  },
+                  "high": {
+                    "value": 0,
+                    "unit": "months",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "mo"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "description": "HbA1c ≥ 8.0%",
+            "note": [
+              {
+                "text": "assumption that this is the last recorded HbA1c before the enrollment visit, but not explicitly stated in the short-phrase Eligibility Criteria"
+              }
+            ],
+            "exclude": false,
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://loinc.org",
+                    "code": "59261-8",
+                    "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+                  }
+                ]
+              },
+              "valueQuantity": {
+                "value": 8,
+                "comparator": "\u003e\u003d",
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.",
+      "exclude": false,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index (BMI) [Ratio]"
+            }
+          ]
+        },
+        "valueRange": {
+          "low": {
+            "value": 30,
+            "unit": "kg/m2",
+            "system": "http://unitsofmeasure.org",
+            "code": "kg/m2"
+          },
+          "high": {
+            "value": 39.9,
+            "unit": "kg/m2",
+            "system": "http://unitsofmeasure.org",
+            "code": "kg/m2"
+          }
+        }
+      },
+      "timeFromEvent": [
+        {
+          "description": "at eligibility visit",
+          "eventId": "EligibilityVisit",
+          "quantity": {
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "Willingness to accept random assignment to either treatment group.",
+      "exclude": false
+    },
+    {
+      "description": "Expect to live or work within approximately one hour\u0027s traveling time from the study clinic for the duration of the two-year trial.",
+      "exclude": false
+    },
+    {
+      "description": "Willingness to comply with the follow-up protocol and successful completion of the run-in.",
+      "exclude": false
+    },
+    {
+      "linkId": "EligibilityVisit",
+      "description": "Written informed consent.",
+      "note": [
+        {
+          "text": "The example used here acknowledges attainment of the written informed consent at the eligibility visit (which is also the time of enrollment) so is referencing this characteristic with the linkId EligibilityVisit to be used as a reference point from timeFromEvent in the specification of other characteristics."
+        }
+      ],
+      "exclude": false,
+      "timeFromEvent": [
+        {
+          "eventCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "450332002",
+                "display": "Assessment of eligibility for clinical trial (procedure)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.",
+      "exclude": true,
+      "definitionByCombination": {
+        "code": "any-of",
+        "characteristic": [
+          {
+            "description": "myocardial infarction",
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "22298006",
+                    "display": "Myocardial infarction (disorder)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": "acute coronary syndrome",
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "394659003",
+                    "display": "Acute coronary syndrome (disorder)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": "coronary artery angioplasty or bypass",
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "71388002",
+                    "display": "Procedure (procedure)"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "81266008",
+                    "display": "Heart revascularization (procedure)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": "stroke",
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "230690007",
+                    "display": "Cerebrovascular accident (disorder)"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "timeFromEvent": [
+        {
+          "description": "in the past six months",
+          "note": [
+            {
+              "text": "occurrence within the range is equivalent to \u0027in the past six months\u0027"
+            }
+          ],
+          "eventId": "EligibilityVisit",
+          "range": {
+            "low": {
+              "value": -6,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 0,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.",
+      "note": [
+        {
+          "text": "This may be possible to encode as presence of Disease(disorder) without \u0027in remission\u0027"
+        }
+      ],
+      "exclude": true
+    },
+    {
+      "description": "Cardiac stress test indicating that surgery or IMM would not be safe.",
+      "exclude": true
+    },
+    {
+      "description": "Pulmonary embolus in the past six months.",
+      "exclude": true,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "64572001",
+              "display": "Disease (disorder)"
+            },
+            {
+              "system": "http://hl7.org/fhir/resource-types",
+              "code": "Condition",
+              "display": "Condition"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59282003",
+              "display": "Pulmonary embolism (disorder)"
+            }
+          ]
+        }
+      },
+      "timeFromEvent": [
+        {
+          "description": "in the past six months",
+          "note": [
+            {
+              "text": "occurrence within the range is equivalent to \u0027in the past six months\u0027"
+            }
+          ],
+          "eventId": "EligibilityVisit",
+          "range": {
+            "low": {
+              "value": -6,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 0,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Thrombophlebitis in the past six months.",
+      "exclude": true,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "64572001",
+              "display": "Disease (disorder)"
+            },
+            {
+              "system": "http://hl7.org/fhir/resource-types",
+              "code": "Condition",
+              "display": "Condition"
+            }
+          ]
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "64156001",
+              "display": "Thrombophlebitis (disorder)"
+            }
+          ]
+        }
+      },
+      "timeFromEvent": [
+        {
+          "description": "in the past six months",
+          "note": [
+            {
+              "text": "occurrence within the range is equivalent to \u0027in the past six months\u0027"
+            }
+          ],
+          "eventId": "EligibilityVisit",
+          "range": {
+            "low": {
+              "value": -6,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            },
+            "high": {
+              "value": 0,
+              "unit": "months",
+              "system": "http://unitsofmeasure.org",
+              "code": "mo"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "description": "Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.",
+      "exclude": true,
+      "definitionByCombination": {
+        "code": "all-of",
+        "characteristic": [
+          {
+            "description": "Cancer of any kind",
+            "exclude": false,
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "363346000",
+                    "display": "Malignant neoplastic disease (disorder)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": "(except basal cell skin cancer)",
+            "exclude": true,
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "254701007",
+                    "display": "Basal cell carcinoma of skin (disorder)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": "(except cancer in situ)",
+            "exclude": true,
+            "definitionByTypeAndValue": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "64572001",
+                    "display": "Disease (disorder)"
+                  },
+                  {
+                    "system": "http://hl7.org/fhir/resource-types",
+                    "code": "Condition",
+                    "display": "Condition"
+                  }
+                ]
+              },
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "109355002",
+                    "display": "Carcinoma in situ (disorder)"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "description": "unless documented to be disease-free for five years",
+            "exclude": true,
+            "definitionCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "395100000",
+                  "display": "No evidence of cancer found (situation)"
+                }
+              ]
+            },
+            "timeFromEvent": [
+              {
+                "description": "for five years",
+                "note": [
+                  {
+                    "text": "presence throughout the range is equivalent to \u0027for five years"
+                  }
+                ],
+                "eventId": "EligibilityVisit",
+                "range": {
+                  "low": {
+                    "value": -5,
+                    "unit": "years",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "a"
+                  },
+                  "high": {
+                    "value": 0,
+                    "unit": "years",
+                    "system": "http://unitsofmeasure.org",
+                    "code": "a"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "description": "History of coagulopathy",
+      "exclude": true
+    },
+    {
+      "description": "Significant anemia (hemoglobin 1.0 g or more below normal range)",
+      "exclude": true,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hemoglobin [Mass/volume] in Blood"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": -1,
+          "comparator": "\u003c\u003d",
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "g/dL"
+        },
+        "offset": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/characteristic-offset",
+              "code": "LNL",
+              "display": "Lower Normal Limit"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "description": "Serum creatinine ≥ 1.5 mg/dl",
+      "exclude": true,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2160-0",
+              "display": "Creatinine [Mass/volume] in Serum or Plasma"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 1.5,
+          "comparator": "\u003e\u003d",
+          "unit": "mg/dl",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        }
+      }
+    },
+    {
+      "description": "HbA1c ≥ 14.0%",
+      "exclude": true,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "59261-8",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 14,
+          "comparator": "\u003e\u003d",
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

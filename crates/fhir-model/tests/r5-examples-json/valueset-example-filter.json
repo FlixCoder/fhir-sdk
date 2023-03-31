@@ -1,0 +1,51 @@
+{
+  "resourceType": "ValueSet",
+  "id": "example-filter",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cul\u003e\n        \u003cli\u003eInclude codes from \n          \u003ca href\u003d\"codesystem-example.html\"\u003e\n            \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/example\u003c/code\u003e\n          \u003c/a\u003e where acme-plasma  \u003d  true\n        \u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/example-filter",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3148"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ACMECholCodesPlasma",
+  "title": "ACME Codes for Cholesterol: Plasma only",
+  "status": "draft",
+  "experimental": true,
+  "date": "2018-11-01",
+  "publisher": "HL7 International",
+  "contact": [
+    {
+      "name": "FHIR project team",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "ACME Codes for Cholesterol: Plasma only - demonstrating the use of a filter defined in a CodeSystem",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/example",
+        "filter": [
+          {
+            "property": "acme-plasma",
+            "op": "\u003d",
+            "value": "true"
+          }
+        ]
+      }
+    ],
+    "property": [
+      "status"
+    ]
+  }
+}

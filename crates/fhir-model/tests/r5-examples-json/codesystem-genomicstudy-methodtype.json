@@ -1,0 +1,397 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "genomicstudy-methodtype",
+  "meta": {
+    "lastUpdated": "2023-03-25T23:21:02-05:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/genomicstudy-methodtype\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebiochemical-genetics\u003ca name\u003d\"genomicstudy-methodtype-biochemical-genetics\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBiochemical Genetics\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecytogenetics\u003ca name\u003d\"genomicstudy-methodtype-cytogenetics\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCytogenetics\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emolecular-genetics\u003ca name\u003d\"genomicstudy-methodtype-molecular-genetics\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMolecular Genetics\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eanalyte\u003ca name\u003d\"genomicstudy-methodtype-analyte\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAnalyte\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echromosome-breakage-studies\u003ca name\u003d\"genomicstudy-methodtype-chromosome-breakage-studies\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChromosome breakage studies\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeletion-duplication-analysis\u003ca name\u003d\"genomicstudy-methodtype-deletion-duplication-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDeletion/duplication analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edetection-of-homozygosity\u003ca name\u003d\"genomicstudy-methodtype-detection-of-homozygosity\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDetection of homozygosity\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eenzyme-assay\u003ca name\u003d\"genomicstudy-methodtype-enzyme-assay\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEnzyme assay\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efish-interphase\u003ca name\u003d\"genomicstudy-methodtype-fish-interphase\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFISH-interphase\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efish-metaphase\u003ca name\u003d\"genomicstudy-methodtype-fish-metaphase\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFISH-metaphase\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eflow-cytometry\u003ca name\u003d\"genomicstudy-methodtype-flow-cytometry\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFlow cytometry\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efish\u003ca name\u003d\"genomicstudy-methodtype-fish\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFluorescence in situ hybridization (FISH)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eimmunohistochemistry\u003ca name\u003d\"genomicstudy-methodtype-immunohistochemistry\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eImmunohistochemistry\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ekaryotyping\u003ca name\u003d\"genomicstudy-methodtype-karyotyping\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eKaryotyping\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elinkage-analysis\u003ca name\u003d\"genomicstudy-methodtype-linkage-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLinkage analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emethylation-analysis\u003ca name\u003d\"genomicstudy-methodtype-methylation-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMethylation analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emsi\u003ca name\u003d\"genomicstudy-methodtype-msi\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMicrosatellite instability testing (MSI)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003em-fish\u003ca name\u003d\"genomicstudy-methodtype-m-fish\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMulticolor FISH (M-FISH)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emutation-scanning-of-select-exons\u003ca name\u003d\"genomicstudy-methodtype-mutation-scanning-of-select-exons\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMutation scanning of select exons\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emutation-scanning-of-the-entire-coding-region\u003ca name\u003d\"genomicstudy-methodtype-mutation-scanning-of-the-entire-coding-region\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMutation scanning of the entire coding region\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprotein-analysis\u003ca name\u003d\"genomicstudy-methodtype-protein-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProtein analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprotein-expression\u003ca name\u003d\"genomicstudy-methodtype-protein-expression\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProtein expression\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erna-analysis\u003ca name\u003d\"genomicstudy-methodtype-rna-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRNA analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esequence-analysis-of-select-exons\u003ca name\u003d\"genomicstudy-methodtype-sequence-analysis-of-select-exons\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSequence analysis of select exons\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esequence-analysis-of-the-entire-coding-region\u003ca name\u003d\"genomicstudy-methodtype-sequence-analysis-of-the-entire-coding-region\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSequence analysis of the entire coding region\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esister-chromatid-exchange\u003ca name\u003d\"genomicstudy-methodtype-sister-chromatid-exchange\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSister chromatid exchange\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etargeted-variant-analysis\u003ca name\u003d\"genomicstudy-methodtype-targeted-variant-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTargeted variant analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eudp\u003ca name\u003d\"genomicstudy-methodtype-udp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUniparental disomy study (UPD)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003easpe\u003ca name\u003d\"genomicstudy-methodtype-aspe\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAllele-specific primer extension (ASPE)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ealternative-splicing-detection\u003ca name\u003d\"genomicstudy-methodtype-alternative-splicing-detection\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAlternative splicing detection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebi-directional-sanger-sequence-analysis\u003ca name\u003d\"genomicstudy-methodtype-bi-directional-sanger-sequence-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBi-directional Sanger Sequence Analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ec-banding\u003ca name\u003d\"genomicstudy-methodtype-c-banding\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eC-banding\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecia\u003ca name\u003d\"genomicstudy-methodtype-cia\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChemiluminescent Immunoassay (CIA)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echromatin-immunoprecipitation-on-chip\u003ca name\u003d\"genomicstudy-methodtype-chromatin-immunoprecipitation-on-chip\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChromatin Immunoprecipitation on ChIP\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecomparative-genomic-hybridization\u003ca name\u003d\"genomicstudy-methodtype-comparative-genomic-hybridization\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eComparative Genomic Hybridization\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edamid\u003ca name\u003d\"genomicstudy-methodtype-damid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDamID\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edigital-virtual-karyotyping\u003ca name\u003d\"genomicstudy-methodtype-digital-virtual-karyotyping\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDigital / Virtual karyotyping\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edigital-microfluidic-microspheres\u003ca name\u003d\"genomicstudy-methodtype-digital-microfluidic-microspheres\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDigital microfluidic microspheres\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eenzymatic-levels\u003ca name\u003d\"genomicstudy-methodtype-enzymatic-levels\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEnzymatic levels\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eenzyme-activity\u003ca name\u003d\"genomicstudy-methodtype-enzyme-activity\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEnzyme activity\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eelisa\u003ca name\u003d\"genomicstudy-methodtype-elisa\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEnzyme-Linked Immunosorbent Assays (ELISA)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efluorometry\u003ca name\u003d\"genomicstudy-methodtype-fluorometry\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFluorometry\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efusion-genes-microarrays\u003ca name\u003d\"genomicstudy-methodtype-fusion-genes-microarrays\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFusion genes microarrays\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eg-banding\u003ca name\u003d\"genomicstudy-methodtype-g-banding\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eG-banding\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egc-ms\u003ca name\u003d\"genomicstudy-methodtype-gc-ms\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGas chromatographyâ€“mass spectrometry (GC-MS)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egene-expression-profiling\u003ca name\u003d\"genomicstudy-methodtype-gene-expression-profiling\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGene expression profiling\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egene-id\u003ca name\u003d\"genomicstudy-methodtype-gene-id\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGeneID\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egold-nanoparticle-probe-technology\u003ca name\u003d\"genomicstudy-methodtype-gold-nanoparticle-probe-technology\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGold nanoparticle probe technology\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehplc\u003ca name\u003d\"genomicstudy-methodtype-hplc\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHigh-performance liquid chromatography (HPLC)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elc-ms\u003ca name\u003d\"genomicstudy-methodtype-lc-ms\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLiquid chromatography mass spectrometry (LC-MS)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elc-ms-ms\u003ca name\u003d\"genomicstudy-methodtype-lc-ms-ms\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLiquid chromatography-tandem mass spectrometry (LC-MS/MS)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emetabolite-levels\u003ca name\u003d\"genomicstudy-methodtype-metabolite-levels\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMetabolite levels\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emethylation-specific-pcr\u003ca name\u003d\"genomicstudy-methodtype-methylation-specific-pcr\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMethylation-specific PCR\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emicroarray\u003ca name\u003d\"genomicstudy-methodtype-microarray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMicroarray\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emlpa\u003ca name\u003d\"genomicstudy-methodtype-mlpa\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMultiplex Ligation-dependent Probe Amplification (MLPA)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003engs-mps\u003ca name\u003d\"genomicstudy-methodtype-ngs-mps\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNext-Generation (NGS)/Massively parallel sequencing (MPS)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eola\u003ca name\u003d\"genomicstudy-methodtype-ola\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOligonucleotide Ligation Assay (OLA)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoligonucleotide-hybridization-based-dna-sequencing\u003ca name\u003d\"genomicstudy-methodtype-oligonucleotide-hybridization-based-dna-sequencing\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOligonucleotide hybridization-based DNA sequencing\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eother\u003ca name\u003d\"genomicstudy-methodtype-other\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOther\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epcr\u003ca name\u003d\"genomicstudy-methodtype-pcr\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePCR\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epcr-with-allele-specific-hybridization\u003ca name\u003d\"genomicstudy-methodtype-pcr-with-allele-specific-hybridization\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePCR with allele specific hybridization\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epcr-rflp-with-southern-hybridization\u003ca name\u003d\"genomicstudy-methodtype-pcr-rflp-with-southern-hybridization\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePCR-RFLP with Southern hybridization\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprotein-truncation-test\u003ca name\u003d\"genomicstudy-methodtype-protein-truncation-test\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProtein truncation test\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epyrosequencing\u003ca name\u003d\"genomicstudy-methodtype-pyrosequencing\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePyrosequencing\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eq-banding\u003ca name\u003d\"genomicstudy-methodtype-q-banding\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eQ-banding\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eqpcr\u003ca name\u003d\"genomicstudy-methodtype-qpcr\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eQuantitative PCR (qPCR)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003er-banding\u003ca name\u003d\"genomicstudy-methodtype-r-banding\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR-banding\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erflp\u003ca name\u003d\"genomicstudy-methodtype-rflp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRFLP\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ert-lamp\u003ca name\u003d\"genomicstudy-methodtype-rt-lamp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRT-LAMP\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ert-pcr\u003ca name\u003d\"genomicstudy-methodtype-rt-pcr\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRT-PCR\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ert-pcr-with-gel-analysis\u003ca name\u003d\"genomicstudy-methodtype-rt-pcr-with-gel-analysis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRT-PCR with gel analysis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ert-qpcr\u003ca name\u003d\"genomicstudy-methodtype-rt-qpcr\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRT-qPCR\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esnp-detection\u003ca name\u003d\"genomicstudy-methodtype-snp-detection\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSNP Detection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esilver-staining\u003ca name\u003d\"genomicstudy-methodtype-silver-staining\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSilver staining\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esky\u003ca name\u003d\"genomicstudy-methodtype-sky\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSpectral karyotyping (SKY)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003et-banding\u003ca name\u003d\"genomicstudy-methodtype-t-banding\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eT-banding\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ems-ms\u003ca name\u003d\"genomicstudy-methodtype-ms-ms\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTandem mass spectrometry (MS/MS)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etetra-nucleotide-repeat-by-pcr-or-southern-blot\u003ca name\u003d\"genomicstudy-methodtype-tetra-nucleotide-repeat-by-pcr-or-southern-blot\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTetra-nucleotide repeat by PCR or Southern Blot\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etiling-arrays\u003ca name\u003d\"genomicstudy-methodtype-tiling-arrays\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTiling Arrays\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etrinucleotide-repeat-by-pcr-or-southern-blot\u003ca name\u003d\"genomicstudy-methodtype-trinucleotide-repeat-by-pcr-or-southern-blot\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTrinucleotide repeat by PCR or Southern Blot\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003euni-directional-sanger-sequencing\u003ca name\u003d\"genomicstudy-methodtype-uni-directional-sanger-sequencing\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUni-directional Sanger sequencing\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cg"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/genomicstudy-methodtype",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1979"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "GenomicStudyMethodType",
+  "title": "Genomic Study Method Type",
+  "status": "active",
+  "experimental": true,
+  "date": "2022-08-16T16:49:24-05:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The method type of the GenomicStudy analysis. These method types and relevant codes were pulled from [National Library of Medicine-Genetic Testing Registry](https://www.ncbi.nlm.nih.gov/gtr/) (NCBI-GTR) values of describing different testing methods on various levels: [major method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt), [method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt), and [primary methodology](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/genomicstudy-methodtype",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "biochemical-genetics",
+      "display": "Biochemical Genetics"
+    },
+    {
+      "code": "cytogenetics",
+      "display": "Cytogenetics"
+    },
+    {
+      "code": "molecular-genetics",
+      "display": "Molecular Genetics"
+    },
+    {
+      "code": "analyte",
+      "display": "Analyte"
+    },
+    {
+      "code": "chromosome-breakage-studies",
+      "display": "Chromosome breakage studies"
+    },
+    {
+      "code": "deletion-duplication-analysis",
+      "display": "Deletion/duplication analysis"
+    },
+    {
+      "code": "detection-of-homozygosity",
+      "display": "Detection of homozygosity"
+    },
+    {
+      "code": "enzyme-assay",
+      "display": "Enzyme assay"
+    },
+    {
+      "code": "fish-interphase",
+      "display": "FISH-interphase"
+    },
+    {
+      "code": "fish-metaphase",
+      "display": "FISH-metaphase"
+    },
+    {
+      "code": "flow-cytometry",
+      "display": "Flow cytometry"
+    },
+    {
+      "code": "fish",
+      "display": "Fluorescence in situ hybridization (FISH)"
+    },
+    {
+      "code": "immunohistochemistry",
+      "display": "Immunohistochemistry"
+    },
+    {
+      "code": "karyotyping",
+      "display": "Karyotyping"
+    },
+    {
+      "code": "linkage-analysis",
+      "display": "Linkage analysis"
+    },
+    {
+      "code": "methylation-analysis",
+      "display": "Methylation analysis"
+    },
+    {
+      "code": "msi",
+      "display": "Microsatellite instability testing (MSI)"
+    },
+    {
+      "code": "m-fish",
+      "display": "Multicolor FISH (M-FISH)"
+    },
+    {
+      "code": "mutation-scanning-of-select-exons",
+      "display": "Mutation scanning of select exons"
+    },
+    {
+      "code": "mutation-scanning-of-the-entire-coding-region",
+      "display": "Mutation scanning of the entire coding region"
+    },
+    {
+      "code": "protein-analysis",
+      "display": "Protein analysis"
+    },
+    {
+      "code": "protein-expression",
+      "display": "Protein expression"
+    },
+    {
+      "code": "rna-analysis",
+      "display": "RNA analysis"
+    },
+    {
+      "code": "sequence-analysis-of-select-exons",
+      "display": "Sequence analysis of select exons"
+    },
+    {
+      "code": "sequence-analysis-of-the-entire-coding-region",
+      "display": "Sequence analysis of the entire coding region"
+    },
+    {
+      "code": "sister-chromatid-exchange",
+      "display": "Sister chromatid exchange"
+    },
+    {
+      "code": "targeted-variant-analysis",
+      "display": "Targeted variant analysis"
+    },
+    {
+      "code": "udp",
+      "display": "Uniparental disomy study (UPD)"
+    },
+    {
+      "code": "aspe",
+      "display": "Allele-specific primer extension (ASPE)"
+    },
+    {
+      "code": "alternative-splicing-detection",
+      "display": "Alternative splicing detection"
+    },
+    {
+      "code": "bi-directional-sanger-sequence-analysis",
+      "display": "Bi-directional Sanger Sequence Analysis"
+    },
+    {
+      "code": "c-banding",
+      "display": "C-banding"
+    },
+    {
+      "code": "cia",
+      "display": "Chemiluminescent Immunoassay (CIA)"
+    },
+    {
+      "code": "chromatin-immunoprecipitation-on-chip",
+      "display": "Chromatin Immunoprecipitation on ChIP"
+    },
+    {
+      "code": "comparative-genomic-hybridization",
+      "display": "Comparative Genomic Hybridization"
+    },
+    {
+      "code": "damid",
+      "display": "DamID"
+    },
+    {
+      "code": "digital-virtual-karyotyping",
+      "display": "Digital / Virtual karyotyping"
+    },
+    {
+      "code": "digital-microfluidic-microspheres",
+      "display": "Digital microfluidic microspheres"
+    },
+    {
+      "code": "enzymatic-levels",
+      "display": "Enzymatic levels"
+    },
+    {
+      "code": "enzyme-activity",
+      "display": "Enzyme activity"
+    },
+    {
+      "code": "elisa",
+      "display": "Enzyme-Linked Immunosorbent Assays (ELISA)"
+    },
+    {
+      "code": "fluorometry",
+      "display": "Fluorometry"
+    },
+    {
+      "code": "fusion-genes-microarrays",
+      "display": "Fusion genes microarrays"
+    },
+    {
+      "code": "g-banding",
+      "display": "G-banding"
+    },
+    {
+      "code": "gc-ms",
+      "display": "Gas chromatographyâ€“mass spectrometry (GC-MS)"
+    },
+    {
+      "code": "gene-expression-profiling",
+      "display": "Gene expression profiling"
+    },
+    {
+      "code": "gene-id",
+      "display": "GeneID"
+    },
+    {
+      "code": "gold-nanoparticle-probe-technology",
+      "display": "Gold nanoparticle probe technology"
+    },
+    {
+      "code": "hplc",
+      "display": "High-performance liquid chromatography (HPLC)"
+    },
+    {
+      "code": "lc-ms",
+      "display": "Liquid chromatography mass spectrometry (LC-MS)"
+    },
+    {
+      "code": "lc-ms-ms",
+      "display": "Liquid chromatography-tandem mass spectrometry (LC-MS/MS)"
+    },
+    {
+      "code": "metabolite-levels",
+      "display": "Metabolite levels"
+    },
+    {
+      "code": "methylation-specific-pcr",
+      "display": "Methylation-specific PCR"
+    },
+    {
+      "code": "microarray",
+      "display": "Microarray"
+    },
+    {
+      "code": "mlpa",
+      "display": "Multiplex Ligation-dependent Probe Amplification (MLPA)"
+    },
+    {
+      "code": "ngs-mps",
+      "display": "Next-Generation (NGS)/Massively parallel sequencing (MPS)"
+    },
+    {
+      "code": "ola",
+      "display": "Oligonucleotide Ligation Assay (OLA)"
+    },
+    {
+      "code": "oligonucleotide-hybridization-based-dna-sequencing",
+      "display": "Oligonucleotide hybridization-based DNA sequencing"
+    },
+    {
+      "code": "other",
+      "display": "Other"
+    },
+    {
+      "code": "pcr",
+      "display": "PCR"
+    },
+    {
+      "code": "pcr-with-allele-specific-hybridization",
+      "display": "PCR with allele specific hybridization"
+    },
+    {
+      "code": "pcr-rflp-with-southern-hybridization",
+      "display": "PCR-RFLP with Southern hybridization"
+    },
+    {
+      "code": "protein-truncation-test",
+      "display": "Protein truncation test"
+    },
+    {
+      "code": "pyrosequencing",
+      "display": "Pyrosequencing"
+    },
+    {
+      "code": "q-banding",
+      "display": "Q-banding"
+    },
+    {
+      "code": "qpcr",
+      "display": "Quantitative PCR (qPCR)"
+    },
+    {
+      "code": "r-banding",
+      "display": "R-banding"
+    },
+    {
+      "code": "rflp",
+      "display": "RFLP"
+    },
+    {
+      "code": "rt-lamp",
+      "display": "RT-LAMP"
+    },
+    {
+      "code": "rt-pcr",
+      "display": "RT-PCR"
+    },
+    {
+      "code": "rt-pcr-with-gel-analysis",
+      "display": "RT-PCR with gel analysis"
+    },
+    {
+      "code": "rt-qpcr",
+      "display": "RT-qPCR"
+    },
+    {
+      "code": "snp-detection",
+      "display": "SNP Detection"
+    },
+    {
+      "code": "silver-staining",
+      "display": "Silver staining"
+    },
+    {
+      "code": "sky",
+      "display": "Spectral karyotyping (SKY)"
+    },
+    {
+      "code": "t-banding",
+      "display": "T-banding"
+    },
+    {
+      "code": "ms-ms",
+      "display": "Tandem mass spectrometry (MS/MS)"
+    },
+    {
+      "code": "tetra-nucleotide-repeat-by-pcr-or-southern-blot",
+      "display": "Tetra-nucleotide repeat by PCR or Southern Blot"
+    },
+    {
+      "code": "tiling-arrays",
+      "display": "Tiling Arrays"
+    },
+    {
+      "code": "trinucleotide-repeat-by-pcr-or-southern-blot",
+      "display": "Trinucleotide repeat by PCR or Southern Blot"
+    },
+    {
+      "code": "uni-directional-sanger-sequencing",
+      "display": "Uni-directional Sanger sequencing"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "action-participant-function",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/action-participant-function\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eperformer\u003ca name\u003d\"action-participant-function-performer\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePerformer\u003c/td\u003e\u003ctd\u003eThe participant is the performer of the action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eauthor\u003ca name\u003d\"action-participant-function-author\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAuthor\u003c/td\u003e\u003ctd\u003eThe participant is the author of the result of the action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereviewer\u003ca name\u003d\"action-participant-function-reviewer\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReviewer\u003c/td\u003e\u003ctd\u003eThe participant is reviewing the result of the action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewitness\u003ca name\u003d\"action-participant-function-witness\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWitness\u003c/td\u003e\u003ctd\u003eThe participant is a witness to the action being performed.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    }
+  ],
+  "url": "http://hl7.org/fhir/action-participant-function",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1946"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ActionParticipantFunction",
+  "title": "Action Participant Function",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The function performed by the participant for the action.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/action-participant-function",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "performer",
+      "display": "Performer",
+      "definition": "The participant is the performer of the action."
+    },
+    {
+      "code": "author",
+      "display": "Author",
+      "definition": "The participant is the author of the result of the action."
+    },
+    {
+      "code": "reviewer",
+      "display": "Reviewer",
+      "definition": "The participant is reviewing the result of the action."
+    },
+    {
+      "code": "witness",
+      "display": "Witness",
+      "definition": "The participant is a witness to the action being performed."
+    }
+  ]
+}

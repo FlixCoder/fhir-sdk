@@ -1,0 +1,108 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "contributor-role",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/contributor-role\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epublisher\u003ca name\u003d\"contributor-role-publisher\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePublisher\u003c/td\u003e\u003ctd\u003eEntity that makes the content available for public use\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eauthor\u003ca name\u003d\"contributor-role-author\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAuthor/Creator\u003c/td\u003e\u003ctd\u003eAn entity primarily responsible for making the resource, often called author or creator\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereviewer\u003ca name\u003d\"contributor-role-reviewer\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReviewer\u003c/td\u003e\u003ctd\u003eEntity that examines the content, formally or informally, and suggests revisions or comments\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eendorser\u003ca name\u003d\"contributor-role-endorser\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEndorser\u003c/td\u003e\u003ctd\u003eEntity that supports, approves, or advocates for the content\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eeditor\u003ca name\u003d\"contributor-role-editor\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEditor\u003c/td\u003e\u003ctd\u003eEntity that revises or has authority to control the content\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003einformant\u003ca name\u003d\"contributor-role-informant\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInformant\u003c/td\u003e\u003ctd\u003eEntity that supplies information\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efunder\u003ca name\u003d\"contributor-role-funder\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFunder\u003c/td\u003e\u003ctd\u003eEntity that supplies financial support\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/contributor-role",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1880"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ContributorRole",
+  "title": "Contributor Role",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-03-11T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Used to code the format of the display string.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/contributor-role",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "publisher",
+      "display": "Publisher",
+      "definition": "Entity that makes the content available for public use"
+    },
+    {
+      "code": "author",
+      "display": "Author/Creator",
+      "definition": "An entity primarily responsible for making the resource, often called author or creator"
+    },
+    {
+      "code": "reviewer",
+      "display": "Reviewer",
+      "definition": "Entity that examines the content, formally or informally, and suggests revisions or comments"
+    },
+    {
+      "code": "endorser",
+      "display": "Endorser",
+      "definition": "Entity that supports, approves, or advocates for the content"
+    },
+    {
+      "code": "editor",
+      "display": "Editor",
+      "definition": "Entity that revises or has authority to control the content"
+    },
+    {
+      "code": "informant",
+      "display": "Informant",
+      "definition": "Entity that supplies information"
+    },
+    {
+      "code": "funder",
+      "display": "Funder",
+      "definition": "Entity that supplies financial support"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "concept-properties",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eProperties\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eThis code system  defines the following properties for its concepts\u003c/b\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eURI\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003estatus\u003c/td\u003e\u003ctd\u003ehttp://hl7.org/fhir/concept-properties#status\u003c/td\u003e\u003ctd\u003ecode\u003c/td\u003e\u003ctd\u003eA code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eConcepts\u003c/b\u003e\u003c/p\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/concept-properties\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eStatus\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estatus\u003ca name\u003d\"concept-properties-status\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eStatus\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eA code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003einactive\u003ca name\u003d\"concept-properties-inactive\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInactive\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eTrue if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false. Note that the status property may also be used to indicate that a concept is inactive\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eeffectiveDate\u003ca name\u003d\"concept-properties-effectiveDate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eeffectiveDate\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe date at which the concept status was last changed\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr style\u003d\"background-color: #ffeeee\"\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeprecated\u003ca name\u003d\"concept-properties-deprecated\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDeprecated\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd\u003edeprecated\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeprecationDate\u003ca name\u003d\"concept-properties-deprecationDate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDeprecation Date\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eretirementDate\u003ca name\u003d\"concept-properties-retirementDate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRetirement Date\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe date at which a concept was retired\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enotSelectable\u003ca name\u003d\"concept-properties-notSelectable\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot Selectable\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe concept is not intended to be chosen by the user - only intended to be used as a selector for other concepts. Note, though, that the interpretation of this is highly contextual; all concepts are selectable in some context. Property type is boolean\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eparent\u003ca name\u003d\"concept-properties-parent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eParent\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe concept identified in this property is a parent of the concept on which it is a property. The property type will be \u0027code\u0027. The meaning of \u0027parent\u0027 is defined by the hierarchyMeaning attribute\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echild\u003ca name\u003d\"concept-properties-child\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChild\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe concept identified in this property is a child of the concept on which it is a property. The property type will be \u0027code\u0027. The meaning of \u0027child\u0027 is defined by the hierarchyMeaning attribute\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epartOf\u003ca name\u003d\"concept-properties-partOf\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePart Of\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe concept identified in this property (by its code) contains this concept as a component (i.e. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esynonym\u003ca name\u003d\"concept-properties-synonym\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSynonym\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThis property contains an alternative code that may be used to identify this concept instead of the primary code\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecomment\u003ca name\u003d\"concept-properties-comment\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eComment\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eA string that provides additional detail pertinent to the use or understanding of the concept\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eitemWeight\u003ca name\u003d\"concept-properties-itemWeight\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eitemWeight\u003c/td\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eA numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores. In questionnaires, the item weight may be represented using the \u003ca href\u003d\"http://hl7.org/fhir/extensions/StructureDefinition-itemWeight.html\"\u003ehttp://hl7.org/fhir/StructureDefinition/itemWeight\u003c/a\u003e extension\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "vocab"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 4
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/codesystem-use-markdown",
+      "valueBoolean": true
+    }
+  ],
+  "url": "http://hl7.org/fhir/concept-properties",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1826"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ConceptProperties",
+  "title": "FHIR Defined Concept Properties",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project",
+  "description": "A set of common concept properties for use on coded systems throughout the FHIR eco-system.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/concept-properties",
+  "content": "complete",
+  "property": [
+    {
+      "code": "status",
+      "uri": "http://hl7.org/fhir/concept-properties#status",
+      "description": "A code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired",
+      "type": "code"
+    }
+  ],
+  "concept": [
+    {
+      "code": "status",
+      "display": "Status",
+      "definition": "A code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired"
+    },
+    {
+      "id": "t1",
+      "code": "inactive",
+      "display": "Inactive",
+      "definition": "True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false. Note that the status property may also be used to indicate that a concept is inactive"
+    },
+    {
+      "code": "effectiveDate",
+      "display": "effectiveDate",
+      "definition": "The date at which the concept status was last changed"
+    },
+    {
+      "code": "deprecated",
+      "display": "Deprecated",
+      "definition": "The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "deprecated"
+        }
+      ]
+    },
+    {
+      "code": "deprecationDate",
+      "display": "Deprecation Date",
+      "definition": "The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated"
+    },
+    {
+      "code": "retirementDate",
+      "display": "Retirement Date",
+      "definition": "The date at which a concept was retired"
+    },
+    {
+      "code": "notSelectable",
+      "display": "Not Selectable",
+      "definition": "The concept is not intended to be chosen by the user - only intended to be used as a selector for other concepts. Note, though, that the interpretation of this is highly contextual; all concepts are selectable in some context. Property type is boolean"
+    },
+    {
+      "code": "parent",
+      "display": "Parent",
+      "definition": "The concept identified in this property is a parent of the concept on which it is a property. The property type will be \u0027code\u0027. The meaning of \u0027parent\u0027 is defined by the hierarchyMeaning attribute"
+    },
+    {
+      "code": "child",
+      "display": "Child",
+      "definition": "The concept identified in this property is a child of the concept on which it is a property. The property type will be \u0027code\u0027. The meaning of \u0027child\u0027 is defined by the hierarchyMeaning attribute"
+    },
+    {
+      "code": "partOf",
+      "display": "Part Of",
+      "definition": "The concept identified in this property (by its code) contains this concept as a component (i.e. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm"
+    },
+    {
+      "code": "synonym",
+      "display": "Synonym",
+      "definition": "This property contains an alternative code that may be used to identify this concept instead of the primary code"
+    },
+    {
+      "code": "comment",
+      "display": "Comment",
+      "definition": "A string that provides additional detail pertinent to the use or understanding of the concept"
+    },
+    {
+      "code": "itemWeight",
+      "display": "itemWeight",
+      "definition": "A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores. In questionnaires, the item weight may be represented using the [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]] extension"
+    }
+  ]
+}

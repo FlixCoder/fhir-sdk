@@ -1,0 +1,233 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "genomicstudy-dataformat",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/genomicstudy-dataformat\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebam\u003ca name\u003d\"genomicstudy-dataformat-bam\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBAM\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebed\u003ca name\u003d\"genomicstudy-dataformat-bed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBED\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebedpe\u003ca name\u003d\"genomicstudy-dataformat-bedpe\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBEDPE\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebedgraph\u003ca name\u003d\"genomicstudy-dataformat-bedgraph\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBedGraph\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebigbed\u003ca name\u003d\"genomicstudy-dataformat-bigbed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ebigBed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebigWig\u003ca name\u003d\"genomicstudy-dataformat-bigWig\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ebigWig\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebirdsuite-files\u003ca name\u003d\"genomicstudy-dataformat-birdsuite-files\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBirdsuite-Files\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebroadpeak\u003ca name\u003d\"genomicstudy-dataformat-broadpeak\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ebroadPeak\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecbs\u003ca name\u003d\"genomicstudy-dataformat-cbs\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCBS\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echemical-reactivity-probing-profiles\u003ca name\u003d\"genomicstudy-dataformat-chemical-reactivity-probing-profiles\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChemical-Reactivity-Probing-Profiles\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echrom-sizes\u003ca name\u003d\"genomicstudy-dataformat-chrom-sizes\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003echrom-sizes\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecn\u003ca name\u003d\"genomicstudy-dataformat-cn\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCN\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecustom-file-formats\u003ca name\u003d\"genomicstudy-dataformat-custom-file-formats\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCustom-File-Formats\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecytoband\u003ca name\u003d\"genomicstudy-dataformat-cytoband\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCytoband\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efasta\u003ca name\u003d\"genomicstudy-dataformat-fasta\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFASTA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egct\u003ca name\u003d\"genomicstudy-dataformat-gct\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGCT\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecram\u003ca name\u003d\"genomicstudy-dataformat-cram\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCRAM\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egenepred\u003ca name\u003d\"genomicstudy-dataformat-genepred\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003egenePred\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egff-gtf\u003ca name\u003d\"genomicstudy-dataformat-gff-gtf\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGFF/GTF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egistic\u003ca name\u003d\"genomicstudy-dataformat-gistic\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGISTIC\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egoby\u003ca name\u003d\"genomicstudy-dataformat-goby\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGoby\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egwas\u003ca name\u003d\"genomicstudy-dataformat-gwas\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGWAS\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eigv\u003ca name\u003d\"genomicstudy-dataformat-igv\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIGV\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eloh\u003ca name\u003d\"genomicstudy-dataformat-loh\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLOH\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emaf-multiple-alignment-format\u003ca name\u003d\"genomicstudy-dataformat-maf-multiple-alignment-format\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMAF-Multiple Alignment Format\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emaf-mutation-annotation-format\u003ca name\u003d\"genomicstudy-dataformat-maf-mutation-annotation-format\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMAF-Mutation-Annotation-Format\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emerged-bam-file\u003ca name\u003d\"genomicstudy-dataformat-merged-bam-file\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMerged BAM File\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emut\u003ca name\u003d\"genomicstudy-dataformat-mut\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMUT\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enarrowpeak\u003ca name\u003d\"genomicstudy-dataformat-narrowpeak\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003enarrowPeak\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epsl\u003ca name\u003d\"genomicstudy-dataformat-psl\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePSL\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eres\u003ca name\u003d\"genomicstudy-dataformat-res\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRES\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erna-secondary-structure-formats\u003ca name\u003d\"genomicstudy-dataformat-rna-secondary-structure-formats\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRNA-Secondary-Structure-Formats\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esam\u003ca name\u003d\"genomicstudy-dataformat-sam\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSAM\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esample-info-attributes-file\u003ca name\u003d\"genomicstudy-dataformat-sample-info-attributes-file\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSample-Info-Attributes-file\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eseg\u003ca name\u003d\"genomicstudy-dataformat-seg\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSEG\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etdf\u003ca name\u003d\"genomicstudy-dataformat-tdf\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTDF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etrack-line\u003ca name\u003d\"genomicstudy-dataformat-track-line\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTrack Line\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etype-line\u003ca name\u003d\"genomicstudy-dataformat-type-line\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eType Line\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003evcf\u003ca name\u003d\"genomicstudy-dataformat-vcf\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eVCF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewig\u003ca name\u003d\"genomicstudy-dataformat-wig\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWIG\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cg"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/genomicstudy-dataformat",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1978"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "GenomicStudyDataFormat",
+  "title": "Genomic Study Data Format",
+  "status": "active",
+  "experimental": true,
+  "date": "2022-08-17T14:49:24-05:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/genomicstudy-dataformat",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "bam",
+      "display": "BAM"
+    },
+    {
+      "code": "bed",
+      "display": "BED"
+    },
+    {
+      "code": "bedpe",
+      "display": "BEDPE"
+    },
+    {
+      "code": "bedgraph",
+      "display": "BedGraph"
+    },
+    {
+      "code": "bigbed",
+      "display": "bigBed"
+    },
+    {
+      "code": "bigWig",
+      "display": "bigWig"
+    },
+    {
+      "code": "birdsuite-files",
+      "display": "Birdsuite-Files"
+    },
+    {
+      "code": "broadpeak",
+      "display": "broadPeak"
+    },
+    {
+      "code": "cbs",
+      "display": "CBS"
+    },
+    {
+      "code": "chemical-reactivity-probing-profiles",
+      "display": "Chemical-Reactivity-Probing-Profiles"
+    },
+    {
+      "code": "chrom-sizes",
+      "display": "chrom-sizes"
+    },
+    {
+      "code": "cn",
+      "display": "CN"
+    },
+    {
+      "code": "custom-file-formats",
+      "display": "Custom-File-Formats"
+    },
+    {
+      "code": "cytoband",
+      "display": "Cytoband"
+    },
+    {
+      "code": "fasta",
+      "display": "FASTA"
+    },
+    {
+      "code": "gct",
+      "display": "GCT"
+    },
+    {
+      "code": "cram",
+      "display": "CRAM"
+    },
+    {
+      "code": "genepred",
+      "display": "genePred"
+    },
+    {
+      "code": "gff-gtf",
+      "display": "GFF/GTF"
+    },
+    {
+      "code": "gistic",
+      "display": "GISTIC"
+    },
+    {
+      "code": "goby",
+      "display": "Goby"
+    },
+    {
+      "code": "gwas",
+      "display": "GWAS"
+    },
+    {
+      "code": "igv",
+      "display": "IGV"
+    },
+    {
+      "code": "loh",
+      "display": "LOH"
+    },
+    {
+      "code": "maf-multiple-alignment-format",
+      "display": "MAF-Multiple Alignment Format"
+    },
+    {
+      "code": "maf-mutation-annotation-format",
+      "display": "MAF-Mutation-Annotation-Format"
+    },
+    {
+      "code": "merged-bam-file",
+      "display": "Merged BAM File"
+    },
+    {
+      "code": "mut",
+      "display": "MUT"
+    },
+    {
+      "code": "narrowpeak",
+      "display": "narrowPeak"
+    },
+    {
+      "code": "psl",
+      "display": "PSL"
+    },
+    {
+      "code": "res",
+      "display": "RES"
+    },
+    {
+      "code": "rna-secondary-structure-formats",
+      "display": "RNA-Secondary-Structure-Formats"
+    },
+    {
+      "code": "sam",
+      "display": "SAM"
+    },
+    {
+      "code": "sample-info-attributes-file",
+      "display": "Sample-Info-Attributes-file"
+    },
+    {
+      "code": "seg",
+      "display": "SEG"
+    },
+    {
+      "code": "tdf",
+      "display": "TDF"
+    },
+    {
+      "code": "track-line",
+      "display": "Track Line"
+    },
+    {
+      "code": "type-line",
+      "display": "Type Line"
+    },
+    {
+      "code": "vcf",
+      "display": "VCF"
+    },
+    {
+      "code": "wig",
+      "display": "WIG"
+    }
+  ]
+}

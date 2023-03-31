@@ -1,0 +1,98 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medicationrequest-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/medicationrequest-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eactive\u003ca name\u003d\"medicationrequest-status-active\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eActive\u003c/td\u003e\u003ctd\u003eThe request is \u0027actionable\u0027, but not all actions that are implied by it have occurred yet.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eon-hold\u003ca name\u003d\"medicationrequest-status-on-hold\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOn Hold\u003c/td\u003e\u003ctd\u003eActions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called \u0027suspended\u0027.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eended\u003ca name\u003d\"medicationrequest-status-ended\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEnded\u003c/td\u003e\u003ctd\u003eThe request is no longer active and the subject should no longer be taking the medication.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  stopped\u003ca name\u003d\"medicationrequest-status-stopped\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eStopped\u003c/td\u003e\u003ctd\u003eActions implied by the request are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  completed\u003ca name\u003d\"medicationrequest-status-completed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCompleted\u003c/td\u003e\u003ctd\u003eAll actions that are implied by the request have occurred.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  cancelled\u003ca name\u003d\"medicationrequest-status-cancelled\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCancelled\u003c/td\u003e\u003ctd\u003eThe request has been withdrawn before any administrations have occurred\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eentered-in-error\u003ca name\u003d\"medicationrequest-status-entered-in-error\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEntered in Error\u003c/td\u003e\u003ctd\u003eThe request was recorded against the wrong patient or for some reason should not have been recorded (e.g. wrong medication, wrong dose, etc.). Some of the actions that are implied by the medication request may have occurred. For example, the medication may have been dispensed and the patient may have taken some of the medication.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edraft\u003ca name\u003d\"medicationrequest-status-draft\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDraft\u003c/td\u003e\u003ctd\u003eThe request is not yet \u0027actionable\u0027, e.g. it is a work in progress, requires sign-off, verification or needs to be run through decision support process.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunknown\u003ca name\u003d\"medicationrequest-status-unknown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnknown\u003c/td\u003e\u003ctd\u003eThe authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \u0027other\u0027 - one of the listed statuses is presumed to apply, but the authoring/source system does not know which.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/medicationrequest-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1377"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "MedicationRequestStatusCodes",
+  "title": "MedicationRequest Status Codes",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "MedicationRequest Status Codes",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medicationrequest-status",
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "active",
+      "display": "Active",
+      "definition": "The request is \u0027actionable\u0027, but not all actions that are implied by it have occurred yet."
+    },
+    {
+      "code": "on-hold",
+      "display": "On Hold",
+      "definition": "Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called \u0027suspended\u0027."
+    },
+    {
+      "code": "ended",
+      "display": "Ended",
+      "definition": "The request is no longer active and the subject should no longer be taking the medication.",
+      "concept": [
+        {
+          "code": "stopped",
+          "display": "Stopped",
+          "definition": "Actions implied by the request are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error"
+        },
+        {
+          "code": "completed",
+          "display": "Completed",
+          "definition": "All actions that are implied by the request have occurred."
+        },
+        {
+          "code": "cancelled",
+          "display": "Cancelled",
+          "definition": "The request has been withdrawn before any administrations have occurred"
+        }
+      ]
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The request was recorded against the wrong patient or for some reason should not have been recorded (e.g. wrong medication, wrong dose, etc.). Some of the actions that are implied by the medication request may have occurred. For example, the medication may have been dispensed and the patient may have taken some of the medication."
+    },
+    {
+      "code": "draft",
+      "display": "Draft",
+      "definition": "The request is not yet \u0027actionable\u0027, e.g. it is a work in progress, requires sign-off, verification or needs to be run through decision support process."
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \u0027other\u0027 - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."
+    }
+  ]
+}

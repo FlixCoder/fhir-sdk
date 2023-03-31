@@ -1,0 +1,53 @@
+{
+  "resourceType": "ValueSet",
+  "id": "all-time-units",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://unitsofmeasure.org\"\u003e\u003ccode\u003ehttp://unitsofmeasure.org\u003c/code\u003e\u003c/a\u003e where canonical  \u003d  a\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/all-time-units",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3304"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AllUCUMExpressionForTime",
+  "title": "All UCUM Expression for Time",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Unified Code for Units of Measure (UCUM). This value set includes all possible UCUM codes used for time measures (Age, Duration etc.) - that it is, all units which have the same canonical unit as \u0027a\u0027 (year)",
+  "copyright": "The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://unitsofmeasure.org",
+        "filter": [
+          {
+            "property": "canonical",
+            "op": "\u003d",
+            "value": "a"
+          }
+        ]
+      }
+    ]
+  }
+}

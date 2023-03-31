@@ -1,0 +1,108 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "device-specification-category",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/device-specification-category\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecommunication\u003ca name\u003d\"device-specification-category-communication\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCommunication\u003c/td\u003e\u003ctd\u003eA communication standard.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eperformance\u003ca name\u003d\"device-specification-category-performance\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePerformance\u003c/td\u003e\u003ctd\u003eA performance standard.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emeasurement\u003ca name\u003d\"device-specification-category-measurement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMeasurement\u003c/td\u003e\u003ctd\u003eA measurement standard.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erisk-class\u003ca name\u003d\"device-specification-category-risk-class\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRisk Class\u003c/td\u003e\u003ctd\u003eClass or catefory of risk.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eelectrical\u003ca name\u003d\"device-specification-category-electrical\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eElectrical\u003c/td\u003e\u003ctd\u003eElectrical classification.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ematerial\u003ca name\u003d\"device-specification-category-material\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMaterial\u003c/td\u003e\u003ctd\u003eClassification related to materials.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eexchange\u003ca name\u003d\"device-specification-category-exchange\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eExchange\u003c/td\u003e\u003ctd\u003eExchange category.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/device-specification-category",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2054"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "FHIRDeviceSpecializationCategory",
+  "title": "FHIR Device Specialization Category",
+  "status": "active",
+  "experimental": false,
+  "date": "2022-03-28T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The kind of standards used by the device.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/device-specification-category",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "communication",
+      "display": "Communication",
+      "definition": "A communication standard."
+    },
+    {
+      "code": "performance",
+      "display": "Performance",
+      "definition": "A performance standard."
+    },
+    {
+      "code": "measurement",
+      "display": "Measurement",
+      "definition": "A measurement standard."
+    },
+    {
+      "code": "risk-class",
+      "display": "Risk Class",
+      "definition": "Class or catefory of risk."
+    },
+    {
+      "code": "electrical",
+      "display": "Electrical",
+      "definition": "Electrical classification."
+    },
+    {
+      "code": "material",
+      "display": "Material",
+      "definition": "Classification related to materials."
+    },
+    {
+      "code": "exchange",
+      "display": "Exchange",
+      "definition": "Exchange category."
+    }
+  ]
+}

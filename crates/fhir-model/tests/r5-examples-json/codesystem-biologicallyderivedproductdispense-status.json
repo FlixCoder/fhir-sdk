@@ -1,0 +1,84 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "biologicallyderivedproductdispense-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/biologicallyderivedproductdispense-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epreparation\u003ca name\u003d\"biologicallyderivedproductdispense-status-preparation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePreparation\u003c/td\u003e\u003ctd\u003eThe dispense process has started but not yet completed.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ein-progress\u003ca name\u003d\"biologicallyderivedproductdispense-status-in-progress\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIn Progress\u003c/td\u003e\u003ctd\u003eThe dispense process is in progress.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eallocated\u003ca name\u003d\"biologicallyderivedproductdispense-status-allocated\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAllocated\u003c/td\u003e\u003ctd\u003eThe requested product has been allocated and is ready for transport.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eissued\u003ca name\u003d\"biologicallyderivedproductdispense-status-issued\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIssued\u003c/td\u003e\u003ctd\u003eThe dispensed product has been picked up.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunfulfilled\u003ca name\u003d\"biologicallyderivedproductdispense-status-unfulfilled\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnfulfilled\u003c/td\u003e\u003ctd\u003eThe dispense could not be completed.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereturned\u003ca name\u003d\"biologicallyderivedproductdispense-status-returned\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReturned\u003c/td\u003e\u003ctd\u003eThe dispensed product was returned.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eentered-in-error\u003ca name\u003d\"biologicallyderivedproductdispense-status-entered-in-error\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEntered in Error\u003c/td\u003e\u003ctd\u003eThe dispense was entered in error and therefore nullified.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunknown\u003ca name\u003d\"biologicallyderivedproductdispense-status-unknown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnknown\u003c/td\u003e\u003ctd\u003eThe authoring system does not know which of the status values applies for this dispense. Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it\u0027s just not known which one.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/biologicallyderivedproductdispense-status",
+  "version": "5.0.0",
+  "name": "BiologicallyDerivedProductDispense",
+  "title": "BiologicallyDerivedProductDispense Status Codes",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "BiologicallyDerivedProductDispense Status Codes",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "preparation",
+      "display": "Preparation",
+      "definition": "The dispense process has started but not yet completed."
+    },
+    {
+      "code": "in-progress",
+      "display": "In Progress",
+      "definition": "The dispense process is in progress."
+    },
+    {
+      "code": "allocated",
+      "display": "Allocated",
+      "definition": "The requested product has been allocated and is ready for transport."
+    },
+    {
+      "code": "issued",
+      "display": "Issued",
+      "definition": "The dispensed product has been picked up."
+    },
+    {
+      "code": "unfulfilled",
+      "display": "Unfulfilled",
+      "definition": "The dispense could not be completed."
+    },
+    {
+      "code": "returned",
+      "display": "Returned",
+      "definition": "The dispensed product was returned."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The dispense was entered in error and therefore nullified."
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The authoring system does not know which of the status values applies for this dispense. Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it\u0027s just not known which one."
+    }
+  ]
+}

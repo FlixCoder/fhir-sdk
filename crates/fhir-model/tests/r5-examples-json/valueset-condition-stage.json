@@ -1,0 +1,204 @@
+{
+  "resourceType": "ValueSet",
+  "id": "condition-stage",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  385356007 (Tumour stage finding)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  431855005 (Chronic kidney disease stage 1)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  431856006 (Chronic kidney disease stage 2)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  433144002 (Chronic kidney disease stage 3)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  431857002 (Chronic kidney disease stage 4)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  433146000 (Chronic kidney disease stage 5)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  408847006 (Retinopathy of prematurity stage 1 - demarcation line)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  408848001 (Retinopathy of prematurity stage 2 - intraretinal ridge)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  408849009 (Retinopathy of prematurity stage 3 - ridge with extraretinal fibrovascular proliferation)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  408850009 (Retinopathy of prematurity stage 4 - subtotal retinal detachment)\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  408851008 (Retinopathy of prematurity stage 5 - total retinal detachment)\u003c/li\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/416780008\"\u003e416780008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePrimary degenerative dementia of the Alzheimer type, presenile onset (disorder)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/715345007\"\u003e715345007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eYoung onset Parkinson disease (disorder)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pc"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/condition-stage",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.170"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.161"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.408"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ConditionStage",
+  "title": "Condition Stage",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7 International - Patient Care WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/patientcare/"
+        }
+      ]
+    }
+  ],
+  "description": "Value set for stages of cancer and other conditions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "385356007"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "431855005"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "431856006"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "433144002"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "431857002"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "433146000"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "408847006"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "408848001"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "408849009"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "408850009"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "408851008"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "416780008"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "715345007"
+          }
+        ]
+      }
+    ]
+  }
+}

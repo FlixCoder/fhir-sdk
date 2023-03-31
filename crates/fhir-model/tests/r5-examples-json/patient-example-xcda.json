@@ -1,0 +1,47 @@
+{
+  "resourceType": "Patient",
+  "id": "xcda",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp style\u003d\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\"\u003e\u003cb\u003eHenry Levin \u003c/b\u003e male, DoB: 1932-09-24 ( Medical record number: 12345 (use: USUAL))\u003c/p\u003e\u003chr/\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd style\u003d\"background-color: #f3f5da\" title\u003d\"Record is active\"\u003eActive:\u003c/td\u003e\u003ctd colspan\u003d\"3\"\u003etrue\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"background-color: #f3f5da\" title\u003d\"Patient Links\"\u003eLinks:\u003c/td\u003e\u003ctd colspan\u003d\"3\"\u003e\u003cul\u003e\u003cli\u003eManaging Organization: \u003ca href\u003d\"organization-example-good-health-care.html\"\u003eOrganization/2.16.840.1.113883.19.5: Good Health Clinic\u003c/a\u003e \u0026quot;Good Health Clinic\u0026quot;\u003c/li\u003e\u003c/ul\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:2.16.840.1.113883.19.5",
+      "value": "12345"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Levin",
+      "given": [
+        "Henry"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1932-09-24",
+  "managingOrganization": {
+    "reference": "Organization/2.16.840.1.113883.19.5",
+    "display": "Good Health Clinic"
+  },
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

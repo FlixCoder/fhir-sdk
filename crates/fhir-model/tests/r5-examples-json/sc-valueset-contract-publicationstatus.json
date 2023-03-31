@@ -1,0 +1,182 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "sc-contract-publicationstatus",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ch2\u003eContractResourcePublicationStatusCodesCanonicalMap (http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus)\u003c/h2\u003e\u003cp\u003eMapping from \u003ca href\u003d\"valueset-contract-publicationstatus.html\"\u003eContract Resource Publication Status codes\u003c/a\u003e to \u003ca href\u003d\"valueset-resource-status.html\"\u003eCanonical Status Codes for FHIR Resources\u003c/a\u003e\u003c/p\u003e\u003cp\u003eDRAFT. Published on ?ngen-10? by Financial Management (\u003ca href\u003d\"http://hl7.org/fhir\"\u003ehttp://hl7.org/fhir\u003c/a\u003e). \u003c/p\u003e\u003cdiv\u003e\u003cp\u003eCanonical Mapping for \u0026quot;This value set contract specific codes for status.\u0026quot;\u003c/p\u003e\n\u003c/div\u003e\u003cbr/\u003e\u003cp\u003e\u003cb\u003eGroup 1\u003c/b\u003eMapping from \u003ca href\u003d\"codesystem-contract-publicationstatus.html\"\u003eContract Publication Status\u003c/a\u003e to \u003ca href\u003d\"codesystem-resource-status.html\"\u003eCanonical Status Codes for FHIR Resources\u003c/a\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eSource Code\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRelationship\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eTarget Code\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eentered-in-error\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eerror\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eoffered\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eproposed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003enegotiable\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003edraft\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003epolicy\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003edraft\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eexecutable\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eactive\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eresolved\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eactive\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003edisputed\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003esuspended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003erevoked\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003efailed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eamended\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ereplaced\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eappended\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ereplaced\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003erenewed\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ereplaced\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eexecuted\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecomplete\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ecancelled\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eabandoned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003erejected\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eabandoned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eterminated\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eabandoned\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/sc-contract-publicationstatus",
+  "version": "5.0.0",
+  "name": "ContractResourcePublicationStatusCodesCanonicalMap",
+  "title": "Canonical Mapping for \"Contract Resource Publication Status codes\"",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Canonical Mapping for \"This value set contract specific codes for status.\"",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "sourceScopeCanonical": "http://hl7.org/fhir/ValueSet/contract-publicationstatus",
+  "targetScopeCanonical": "http://hl7.org/fhir/ValueSet/resource-status",
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/contract-publicationstatus",
+      "target": "http://hl7.org/fhir/resource-status",
+      "element": [
+        {
+          "code": "entered-in-error",
+          "target": [
+            {
+              "code": "error",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "offered",
+          "target": [
+            {
+              "code": "proposed",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "negotiable",
+          "target": [
+            {
+              "code": "draft",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "policy",
+          "target": [
+            {
+              "code": "draft",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "executable",
+          "target": [
+            {
+              "code": "active",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "resolved",
+          "target": [
+            {
+              "code": "active",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "disputed",
+          "target": [
+            {
+              "code": "suspended",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "revoked",
+          "target": [
+            {
+              "code": "failed",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "amended",
+          "target": [
+            {
+              "code": "replaced",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "appended",
+          "target": [
+            {
+              "code": "replaced",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "renewed",
+          "target": [
+            {
+              "code": "replaced",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "executed",
+          "target": [
+            {
+              "code": "complete",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "cancelled",
+          "target": [
+            {
+              "code": "abandoned",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "rejected",
+          "target": [
+            {
+              "code": "abandoned",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "terminated",
+          "target": [
+            {
+              "code": "abandoned",
+              "relationship": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1547 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "color-names",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eProperties\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eThis code system  defines the following properties for its concepts\u003c/b\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ergb\u003c/td\u003e\u003ctd\u003estring\u003c/td\u003e\u003ctd\u003eThe RGB color that matches the named color (as defined in CSS4 specification)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eConcepts\u003c/b\u003e\u003c/p\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/color-names\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003ergb\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ealiceblue\u003ca name\u003d\"color-names-aliceblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F0F8FF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eantiquewhite\u003ca name\u003d\"color-names-antiquewhite\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FAEBD7\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eaqua\u003ca name\u003d\"color-names-aqua\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00FFFF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eaquamarine\u003ca name\u003d\"color-names-aquamarine\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#7FFFD4\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eazure\u003ca name\u003d\"color-names-azure\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F0FFFF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebeige\u003ca name\u003d\"color-names-beige\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F5F5DC\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebisque\u003ca name\u003d\"color-names-bisque\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFE4C4\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eblack\u003ca name\u003d\"color-names-black\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#000000\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eblanchedalmond\u003ca name\u003d\"color-names-blanchedalmond\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFEBCD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eblue\u003ca name\u003d\"color-names-blue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#0000FF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eblueviolet\u003ca name\u003d\"color-names-blueviolet\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#8A2BE2\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebrown\u003ca name\u003d\"color-names-brown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#A52A2A\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eburlywood\u003ca name\u003d\"color-names-burlywood\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DEB887\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecadetblue\u003ca name\u003d\"color-names-cadetblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#5F9EA0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echartreuse\u003ca name\u003d\"color-names-chartreuse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#7FFF00\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echocolate\u003ca name\u003d\"color-names-chocolate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#D2691E\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecoral\u003ca name\u003d\"color-names-coral\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF7F50\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecornflowerblue\u003ca name\u003d\"color-names-cornflowerblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#6495ED\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecornsilk\u003ca name\u003d\"color-names-cornsilk\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFF8DC\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecrimson\u003ca name\u003d\"color-names-crimson\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DC143C\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecyan\u003ca name\u003d\"color-names-cyan\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00FFFF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkblue\u003ca name\u003d\"color-names-darkblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00008B\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkcyan\u003ca name\u003d\"color-names-darkcyan\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#008B8B\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkgoldenrod\u003ca name\u003d\"color-names-darkgoldenrod\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#B8860B\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkgray\u003ca name\u003d\"color-names-darkgray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#A9A9A9\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkgreen\u003ca name\u003d\"color-names-darkgreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#006400\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkgrey\u003ca name\u003d\"color-names-darkgrey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#A9A9A9\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkkhaki\u003ca name\u003d\"color-names-darkkhaki\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#BDB76B\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkmagenta\u003ca name\u003d\"color-names-darkmagenta\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#8B008B\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkolivegreen\u003ca name\u003d\"color-names-darkolivegreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#556B2F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkorange\u003ca name\u003d\"color-names-darkorange\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF8C00\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkorchid\u003ca name\u003d\"color-names-darkorchid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#9932CC\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkred\u003ca name\u003d\"color-names-darkred\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#8B0000\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarksalmon\u003ca name\u003d\"color-names-darksalmon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#E9967A\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkseagreen\u003ca name\u003d\"color-names-darkseagreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#8FBC8F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkslateblue\u003ca name\u003d\"color-names-darkslateblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#483D8B\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkslategray\u003ca name\u003d\"color-names-darkslategray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#2F4F4F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkslategrey\u003ca name\u003d\"color-names-darkslategrey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#2F4F4F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkturquoise\u003ca name\u003d\"color-names-darkturquoise\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00CED1\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edarkviolet\u003ca name\u003d\"color-names-darkviolet\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#9400D3\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeeppink\u003ca name\u003d\"color-names-deeppink\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF1493\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeepskyblue\u003ca name\u003d\"color-names-deepskyblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00BFFF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edimgray\u003ca name\u003d\"color-names-dimgray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#696969\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edimgrey\u003ca name\u003d\"color-names-dimgrey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#696969\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edodgerblue\u003ca name\u003d\"color-names-dodgerblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#1E90FF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efirebrick\u003ca name\u003d\"color-names-firebrick\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#B22222\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efloralwhite\u003ca name\u003d\"color-names-floralwhite\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFAF0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eforestgreen\u003ca name\u003d\"color-names-forestgreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#228B22\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efuchsia\u003ca name\u003d\"color-names-fuchsia\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF00FF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egainsboro\u003ca name\u003d\"color-names-gainsboro\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DCDCDC\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eghostwhite\u003ca name\u003d\"color-names-ghostwhite\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F8F8FF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egold\u003ca name\u003d\"color-names-gold\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFD700\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egoldenrod\u003ca name\u003d\"color-names-goldenrod\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DAA520\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egray\u003ca name\u003d\"color-names-gray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#808080\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egreen\u003ca name\u003d\"color-names-green\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#008000\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egreenyellow\u003ca name\u003d\"color-names-greenyellow\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#ADFF2F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egrey\u003ca name\u003d\"color-names-grey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#808080\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehoneydew\u003ca name\u003d\"color-names-honeydew\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F0FFF0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehotpink\u003ca name\u003d\"color-names-hotpink\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF69B4\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eindianred\u003ca name\u003d\"color-names-indianred\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#CD5C5C\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eindigo\u003ca name\u003d\"color-names-indigo\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#4B0082\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eivory\u003ca name\u003d\"color-names-ivory\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFFF0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ekhaki\u003ca name\u003d\"color-names-khaki\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F0E68C\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elavender\u003ca name\u003d\"color-names-lavender\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#E6E6FA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elavenderblush\u003ca name\u003d\"color-names-lavenderblush\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFF0F5\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elawngreen\u003ca name\u003d\"color-names-lawngreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#7CFC00\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elemonchiffon\u003ca name\u003d\"color-names-lemonchiffon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFACD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightblue\u003ca name\u003d\"color-names-lightblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#ADD8E6\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightcoral\u003ca name\u003d\"color-names-lightcoral\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F08080\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightcyan\u003ca name\u003d\"color-names-lightcyan\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#E0FFFF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightgoldenrodyellow\u003ca name\u003d\"color-names-lightgoldenrodyellow\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FAFAD2\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightgray\u003ca name\u003d\"color-names-lightgray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#D3D3D3\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightgreen\u003ca name\u003d\"color-names-lightgreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#90EE90\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightgrey\u003ca name\u003d\"color-names-lightgrey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#D3D3D3\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightpink\u003ca name\u003d\"color-names-lightpink\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFB6C1\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightsalmon\u003ca name\u003d\"color-names-lightsalmon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFA07A\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightseagreen\u003ca name\u003d\"color-names-lightseagreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#20B2AA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightskyblue\u003ca name\u003d\"color-names-lightskyblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#87CEFA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightslategray\u003ca name\u003d\"color-names-lightslategray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#778899\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightslategrey\u003ca name\u003d\"color-names-lightslategrey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#778899\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightsteelblue\u003ca name\u003d\"color-names-lightsteelblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#B0C4DE\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elightyellow\u003ca name\u003d\"color-names-lightyellow\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFFE0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elime\u003ca name\u003d\"color-names-lime\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00FF00\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elimegreen\u003ca name\u003d\"color-names-limegreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#32CD32\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elinen\u003ca name\u003d\"color-names-linen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FAF0E6\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emagenta\u003ca name\u003d\"color-names-magenta\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF00FF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emaroon\u003ca name\u003d\"color-names-maroon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#800000\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumaquamarine\u003ca name\u003d\"color-names-mediumaquamarine\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#66CDAA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumblue\u003ca name\u003d\"color-names-mediumblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#0000CD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumorchid\u003ca name\u003d\"color-names-mediumorchid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#BA55D3\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumpurple\u003ca name\u003d\"color-names-mediumpurple\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#9370DB\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumseagreen\u003ca name\u003d\"color-names-mediumseagreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#3CB371\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumslateblue\u003ca name\u003d\"color-names-mediumslateblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#7B68EE\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumspringgreen\u003ca name\u003d\"color-names-mediumspringgreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00FA9A\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumturquoise\u003ca name\u003d\"color-names-mediumturquoise\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#48D1CC\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emediumvioletred\u003ca name\u003d\"color-names-mediumvioletred\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#C71585\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emidnightblue\u003ca name\u003d\"color-names-midnightblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#191970\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emintcream\u003ca name\u003d\"color-names-mintcream\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F5FFFA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emistyrose\u003ca name\u003d\"color-names-mistyrose\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFE4E1\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emoccasin\u003ca name\u003d\"color-names-moccasin\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFE4B5\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enavajowhite\u003ca name\u003d\"color-names-navajowhite\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFDEAD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enavy\u003ca name\u003d\"color-names-navy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#000080\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoldlace\u003ca name\u003d\"color-names-oldlace\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FDF5E6\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eolive\u003ca name\u003d\"color-names-olive\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#808000\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eolivedrab\u003ca name\u003d\"color-names-olivedrab\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#6B8E23\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eorange\u003ca name\u003d\"color-names-orange\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFA500\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eorangered\u003ca name\u003d\"color-names-orangered\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF4500\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eorchid\u003ca name\u003d\"color-names-orchid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DA70D6\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epalegoldenrod\u003ca name\u003d\"color-names-palegoldenrod\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#EEE8AA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epalegreen\u003ca name\u003d\"color-names-palegreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#98FB98\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epaleturquoise\u003ca name\u003d\"color-names-paleturquoise\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#AFEEEE\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epalevioletred\u003ca name\u003d\"color-names-palevioletred\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DB7093\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epapayawhip\u003ca name\u003d\"color-names-papayawhip\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFEFD5\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epeachpuff\u003ca name\u003d\"color-names-peachpuff\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFDAB9\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eperu\u003ca name\u003d\"color-names-peru\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#CD853F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epink\u003ca name\u003d\"color-names-pink\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFC0CB\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eplum\u003ca name\u003d\"color-names-plum\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#DDA0DD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epowderblue\u003ca name\u003d\"color-names-powderblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#B0E0E6\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epurple\u003ca name\u003d\"color-names-purple\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#800080\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erebeccapurple\u003ca name\u003d\"color-names-rebeccapurple\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#663399\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ered\u003ca name\u003d\"color-names-red\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF0000\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erosybrown\u003ca name\u003d\"color-names-rosybrown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#BC8F8F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eroyalblue\u003ca name\u003d\"color-names-royalblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#4169E1\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esaddlebrown\u003ca name\u003d\"color-names-saddlebrown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#8B4513\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esalmon\u003ca name\u003d\"color-names-salmon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FA8072\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esandybrown\u003ca name\u003d\"color-names-sandybrown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F4A460\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eseagreen\u003ca name\u003d\"color-names-seagreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#2E8B57\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eseashell\u003ca name\u003d\"color-names-seashell\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFF5EE\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esienna\u003ca name\u003d\"color-names-sienna\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#A0522D\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esilver\u003ca name\u003d\"color-names-silver\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#C0C0C0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eskyblue\u003ca name\u003d\"color-names-skyblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#87CEEB\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eslateblue\u003ca name\u003d\"color-names-slateblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#6A5ACD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eslategray\u003ca name\u003d\"color-names-slategray\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#708090\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eslategrey\u003ca name\u003d\"color-names-slategrey\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#708090\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esnow\u003ca name\u003d\"color-names-snow\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFAFA\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003espringgreen\u003ca name\u003d\"color-names-springgreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#00FF7F\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esteelblue\u003ca name\u003d\"color-names-steelblue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#4682B4\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etan\u003ca name\u003d\"color-names-tan\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#D2B48C\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eteal\u003ca name\u003d\"color-names-teal\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#008080\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ethistle\u003ca name\u003d\"color-names-thistle\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#D8BFD8\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etomato\u003ca name\u003d\"color-names-tomato\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FF6347\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eturquoise\u003ca name\u003d\"color-names-turquoise\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#40E0D0\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eviolet\u003ca name\u003d\"color-names-violet\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#EE82EE\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewheat\u003ca name\u003d\"color-names-wheat\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F5DEB3\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewhite\u003ca name\u003d\"color-names-white\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFFFF\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewhitesmoke\u003ca name\u003d\"color-names-whitesmoke\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#F5F5F5\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eyellow\u003ca name\u003d\"color-names-yellow\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#FFFF00\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eyellowgreen\u003ca name\u003d\"color-names-yellowgreen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e#9ACD32\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/color-names",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2120"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ColorCodes",
+  "title": "Codes for Colors",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "FHIR Infrastructure",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This code system represents that named RGB colors found in the [CSS4 specification](https://www.w3.org/TR/css-color-4/). The names are not case sensitive and different cases are encountered in common use (e.g. AliceBlue vs aliceblue.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "[Copyright](https://www.w3.org/Consortium/Legal/ipr-notice) ©2022 World Wide Web Consortium. All Rights Reserved. This work is distributed under the [W3C® Software and Document License](https://www.w3.org/Consortium/Legal/copyright-software) in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.",
+  "caseSensitive": false,
+  "content": "complete",
+  "property": [
+    {
+      "code": "rgb",
+      "description": "The RGB color that matches the named color (as defined in CSS4 specification)",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "aliceblue",
+      "display": "aliceblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F0F8FF"
+        }
+      ]
+    },
+    {
+      "code": "antiquewhite",
+      "display": "antiquewhite",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FAEBD7"
+        }
+      ]
+    },
+    {
+      "code": "aqua",
+      "display": "aqua",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00FFFF"
+        }
+      ]
+    },
+    {
+      "code": "aquamarine",
+      "display": "aquamarine",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#7FFFD4"
+        }
+      ]
+    },
+    {
+      "code": "azure",
+      "display": "azure",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F0FFFF"
+        }
+      ]
+    },
+    {
+      "code": "beige",
+      "display": "beige",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F5F5DC"
+        }
+      ]
+    },
+    {
+      "code": "bisque",
+      "display": "bisque",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFE4C4"
+        }
+      ]
+    },
+    {
+      "code": "black",
+      "display": "black",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#000000"
+        }
+      ]
+    },
+    {
+      "code": "blanchedalmond",
+      "display": "blanchedalmond",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFEBCD"
+        }
+      ]
+    },
+    {
+      "code": "blue",
+      "display": "blue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#0000FF"
+        }
+      ]
+    },
+    {
+      "code": "blueviolet",
+      "display": "blueviolet",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#8A2BE2"
+        }
+      ]
+    },
+    {
+      "code": "brown",
+      "display": "brown",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#A52A2A"
+        }
+      ]
+    },
+    {
+      "code": "burlywood",
+      "display": "burlywood",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DEB887"
+        }
+      ]
+    },
+    {
+      "code": "cadetblue",
+      "display": "cadetblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#5F9EA0"
+        }
+      ]
+    },
+    {
+      "code": "chartreuse",
+      "display": "chartreuse",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#7FFF00"
+        }
+      ]
+    },
+    {
+      "code": "chocolate",
+      "display": "chocolate",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#D2691E"
+        }
+      ]
+    },
+    {
+      "code": "coral",
+      "display": "coral",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF7F50"
+        }
+      ]
+    },
+    {
+      "code": "cornflowerblue",
+      "display": "cornflowerblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#6495ED"
+        }
+      ]
+    },
+    {
+      "code": "cornsilk",
+      "display": "cornsilk",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFF8DC"
+        }
+      ]
+    },
+    {
+      "code": "crimson",
+      "display": "crimson",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DC143C"
+        }
+      ]
+    },
+    {
+      "code": "cyan",
+      "display": "cyan",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00FFFF"
+        }
+      ]
+    },
+    {
+      "code": "darkblue",
+      "display": "darkblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00008B"
+        }
+      ]
+    },
+    {
+      "code": "darkcyan",
+      "display": "darkcyan",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#008B8B"
+        }
+      ]
+    },
+    {
+      "code": "darkgoldenrod",
+      "display": "darkgoldenrod",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#B8860B"
+        }
+      ]
+    },
+    {
+      "code": "darkgray",
+      "display": "darkgray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#A9A9A9"
+        }
+      ]
+    },
+    {
+      "code": "darkgreen",
+      "display": "darkgreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#006400"
+        }
+      ]
+    },
+    {
+      "code": "darkgrey",
+      "display": "darkgrey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#A9A9A9"
+        }
+      ]
+    },
+    {
+      "code": "darkkhaki",
+      "display": "darkkhaki",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#BDB76B"
+        }
+      ]
+    },
+    {
+      "code": "darkmagenta",
+      "display": "darkmagenta",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#8B008B"
+        }
+      ]
+    },
+    {
+      "code": "darkolivegreen",
+      "display": "darkolivegreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#556B2F"
+        }
+      ]
+    },
+    {
+      "code": "darkorange",
+      "display": "darkorange",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF8C00"
+        }
+      ]
+    },
+    {
+      "code": "darkorchid",
+      "display": "darkorchid",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#9932CC"
+        }
+      ]
+    },
+    {
+      "code": "darkred",
+      "display": "darkred",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#8B0000"
+        }
+      ]
+    },
+    {
+      "code": "darksalmon",
+      "display": "darksalmon",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#E9967A"
+        }
+      ]
+    },
+    {
+      "code": "darkseagreen",
+      "display": "darkseagreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#8FBC8F"
+        }
+      ]
+    },
+    {
+      "code": "darkslateblue",
+      "display": "darkslateblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#483D8B"
+        }
+      ]
+    },
+    {
+      "code": "darkslategray",
+      "display": "darkslategray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#2F4F4F"
+        }
+      ]
+    },
+    {
+      "code": "darkslategrey",
+      "display": "darkslategrey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#2F4F4F"
+        }
+      ]
+    },
+    {
+      "code": "darkturquoise",
+      "display": "darkturquoise",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00CED1"
+        }
+      ]
+    },
+    {
+      "code": "darkviolet",
+      "display": "darkviolet",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#9400D3"
+        }
+      ]
+    },
+    {
+      "code": "deeppink",
+      "display": "deeppink",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF1493"
+        }
+      ]
+    },
+    {
+      "code": "deepskyblue",
+      "display": "deepskyblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00BFFF"
+        }
+      ]
+    },
+    {
+      "code": "dimgray",
+      "display": "dimgray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#696969"
+        }
+      ]
+    },
+    {
+      "code": "dimgrey",
+      "display": "dimgrey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#696969"
+        }
+      ]
+    },
+    {
+      "code": "dodgerblue",
+      "display": "dodgerblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#1E90FF"
+        }
+      ]
+    },
+    {
+      "code": "firebrick",
+      "display": "firebrick",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#B22222"
+        }
+      ]
+    },
+    {
+      "code": "floralwhite",
+      "display": "floralwhite",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFAF0"
+        }
+      ]
+    },
+    {
+      "code": "forestgreen",
+      "display": "forestgreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#228B22"
+        }
+      ]
+    },
+    {
+      "code": "fuchsia",
+      "display": "fuchsia",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF00FF"
+        }
+      ]
+    },
+    {
+      "code": "gainsboro",
+      "display": "gainsboro",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DCDCDC"
+        }
+      ]
+    },
+    {
+      "code": "ghostwhite",
+      "display": "ghostwhite",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F8F8FF"
+        }
+      ]
+    },
+    {
+      "code": "gold",
+      "display": "gold",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFD700"
+        }
+      ]
+    },
+    {
+      "code": "goldenrod",
+      "display": "goldenrod",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DAA520"
+        }
+      ]
+    },
+    {
+      "code": "gray",
+      "display": "gray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#808080"
+        }
+      ]
+    },
+    {
+      "code": "green",
+      "display": "green",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#008000"
+        }
+      ]
+    },
+    {
+      "code": "greenyellow",
+      "display": "greenyellow",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#ADFF2F"
+        }
+      ]
+    },
+    {
+      "code": "grey",
+      "display": "grey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#808080"
+        }
+      ]
+    },
+    {
+      "code": "honeydew",
+      "display": "honeydew",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F0FFF0"
+        }
+      ]
+    },
+    {
+      "code": "hotpink",
+      "display": "hotpink",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF69B4"
+        }
+      ]
+    },
+    {
+      "code": "indianred",
+      "display": "indianred",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#CD5C5C"
+        }
+      ]
+    },
+    {
+      "code": "indigo",
+      "display": "indigo",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#4B0082"
+        }
+      ]
+    },
+    {
+      "code": "ivory",
+      "display": "ivory",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFFF0"
+        }
+      ]
+    },
+    {
+      "code": "khaki",
+      "display": "khaki",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F0E68C"
+        }
+      ]
+    },
+    {
+      "code": "lavender",
+      "display": "lavender",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#E6E6FA"
+        }
+      ]
+    },
+    {
+      "code": "lavenderblush",
+      "display": "lavenderblush",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFF0F5"
+        }
+      ]
+    },
+    {
+      "code": "lawngreen",
+      "display": "lawngreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#7CFC00"
+        }
+      ]
+    },
+    {
+      "code": "lemonchiffon",
+      "display": "lemonchiffon",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFACD"
+        }
+      ]
+    },
+    {
+      "code": "lightblue",
+      "display": "lightblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#ADD8E6"
+        }
+      ]
+    },
+    {
+      "code": "lightcoral",
+      "display": "lightcoral",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F08080"
+        }
+      ]
+    },
+    {
+      "code": "lightcyan",
+      "display": "lightcyan",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#E0FFFF"
+        }
+      ]
+    },
+    {
+      "code": "lightgoldenrodyellow",
+      "display": "lightgoldenrodyellow",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FAFAD2"
+        }
+      ]
+    },
+    {
+      "code": "lightgray",
+      "display": "lightgray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#D3D3D3"
+        }
+      ]
+    },
+    {
+      "code": "lightgreen",
+      "display": "lightgreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#90EE90"
+        }
+      ]
+    },
+    {
+      "code": "lightgrey",
+      "display": "lightgrey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#D3D3D3"
+        }
+      ]
+    },
+    {
+      "code": "lightpink",
+      "display": "lightpink",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFB6C1"
+        }
+      ]
+    },
+    {
+      "code": "lightsalmon",
+      "display": "lightsalmon",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFA07A"
+        }
+      ]
+    },
+    {
+      "code": "lightseagreen",
+      "display": "lightseagreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#20B2AA"
+        }
+      ]
+    },
+    {
+      "code": "lightskyblue",
+      "display": "lightskyblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#87CEFA"
+        }
+      ]
+    },
+    {
+      "code": "lightslategray",
+      "display": "lightslategray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#778899"
+        }
+      ]
+    },
+    {
+      "code": "lightslategrey",
+      "display": "lightslategrey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#778899"
+        }
+      ]
+    },
+    {
+      "code": "lightsteelblue",
+      "display": "lightsteelblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#B0C4DE"
+        }
+      ]
+    },
+    {
+      "code": "lightyellow",
+      "display": "lightyellow",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFFE0"
+        }
+      ]
+    },
+    {
+      "code": "lime",
+      "display": "lime",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00FF00"
+        }
+      ]
+    },
+    {
+      "code": "limegreen",
+      "display": "limegreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#32CD32"
+        }
+      ]
+    },
+    {
+      "code": "linen",
+      "display": "linen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FAF0E6"
+        }
+      ]
+    },
+    {
+      "code": "magenta",
+      "display": "magenta",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF00FF"
+        }
+      ]
+    },
+    {
+      "code": "maroon",
+      "display": "maroon",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#800000"
+        }
+      ]
+    },
+    {
+      "code": "mediumaquamarine",
+      "display": "mediumaquamarine",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#66CDAA"
+        }
+      ]
+    },
+    {
+      "code": "mediumblue",
+      "display": "mediumblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#0000CD"
+        }
+      ]
+    },
+    {
+      "code": "mediumorchid",
+      "display": "mediumorchid",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#BA55D3"
+        }
+      ]
+    },
+    {
+      "code": "mediumpurple",
+      "display": "mediumpurple",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#9370DB"
+        }
+      ]
+    },
+    {
+      "code": "mediumseagreen",
+      "display": "mediumseagreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#3CB371"
+        }
+      ]
+    },
+    {
+      "code": "mediumslateblue",
+      "display": "mediumslateblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#7B68EE"
+        }
+      ]
+    },
+    {
+      "code": "mediumspringgreen",
+      "display": "mediumspringgreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00FA9A"
+        }
+      ]
+    },
+    {
+      "code": "mediumturquoise",
+      "display": "mediumturquoise",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#48D1CC"
+        }
+      ]
+    },
+    {
+      "code": "mediumvioletred",
+      "display": "mediumvioletred",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#C71585"
+        }
+      ]
+    },
+    {
+      "code": "midnightblue",
+      "display": "midnightblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#191970"
+        }
+      ]
+    },
+    {
+      "code": "mintcream",
+      "display": "mintcream",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F5FFFA"
+        }
+      ]
+    },
+    {
+      "code": "mistyrose",
+      "display": "mistyrose",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFE4E1"
+        }
+      ]
+    },
+    {
+      "code": "moccasin",
+      "display": "moccasin",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFE4B5"
+        }
+      ]
+    },
+    {
+      "code": "navajowhite",
+      "display": "navajowhite",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFDEAD"
+        }
+      ]
+    },
+    {
+      "code": "navy",
+      "display": "navy",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#000080"
+        }
+      ]
+    },
+    {
+      "code": "oldlace",
+      "display": "oldlace",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FDF5E6"
+        }
+      ]
+    },
+    {
+      "code": "olive",
+      "display": "olive",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#808000"
+        }
+      ]
+    },
+    {
+      "code": "olivedrab",
+      "display": "olivedrab",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#6B8E23"
+        }
+      ]
+    },
+    {
+      "code": "orange",
+      "display": "orange",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFA500"
+        }
+      ]
+    },
+    {
+      "code": "orangered",
+      "display": "orangered",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF4500"
+        }
+      ]
+    },
+    {
+      "code": "orchid",
+      "display": "orchid",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DA70D6"
+        }
+      ]
+    },
+    {
+      "code": "palegoldenrod",
+      "display": "palegoldenrod",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#EEE8AA"
+        }
+      ]
+    },
+    {
+      "code": "palegreen",
+      "display": "palegreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#98FB98"
+        }
+      ]
+    },
+    {
+      "code": "paleturquoise",
+      "display": "paleturquoise",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#AFEEEE"
+        }
+      ]
+    },
+    {
+      "code": "palevioletred",
+      "display": "palevioletred",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DB7093"
+        }
+      ]
+    },
+    {
+      "code": "papayawhip",
+      "display": "papayawhip",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFEFD5"
+        }
+      ]
+    },
+    {
+      "code": "peachpuff",
+      "display": "peachpuff",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFDAB9"
+        }
+      ]
+    },
+    {
+      "code": "peru",
+      "display": "peru",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#CD853F"
+        }
+      ]
+    },
+    {
+      "code": "pink",
+      "display": "pink",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFC0CB"
+        }
+      ]
+    },
+    {
+      "code": "plum",
+      "display": "plum",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#DDA0DD"
+        }
+      ]
+    },
+    {
+      "code": "powderblue",
+      "display": "powderblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#B0E0E6"
+        }
+      ]
+    },
+    {
+      "code": "purple",
+      "display": "purple",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#800080"
+        }
+      ]
+    },
+    {
+      "code": "rebeccapurple",
+      "display": "rebeccapurple",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#663399"
+        }
+      ]
+    },
+    {
+      "code": "red",
+      "display": "red",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF0000"
+        }
+      ]
+    },
+    {
+      "code": "rosybrown",
+      "display": "rosybrown",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#BC8F8F"
+        }
+      ]
+    },
+    {
+      "code": "royalblue",
+      "display": "royalblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#4169E1"
+        }
+      ]
+    },
+    {
+      "code": "saddlebrown",
+      "display": "saddlebrown",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#8B4513"
+        }
+      ]
+    },
+    {
+      "code": "salmon",
+      "display": "salmon",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FA8072"
+        }
+      ]
+    },
+    {
+      "code": "sandybrown",
+      "display": "sandybrown",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F4A460"
+        }
+      ]
+    },
+    {
+      "code": "seagreen",
+      "display": "seagreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#2E8B57"
+        }
+      ]
+    },
+    {
+      "code": "seashell",
+      "display": "seashell",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFF5EE"
+        }
+      ]
+    },
+    {
+      "code": "sienna",
+      "display": "sienna",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#A0522D"
+        }
+      ]
+    },
+    {
+      "code": "silver",
+      "display": "silver",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#C0C0C0"
+        }
+      ]
+    },
+    {
+      "code": "skyblue",
+      "display": "skyblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#87CEEB"
+        }
+      ]
+    },
+    {
+      "code": "slateblue",
+      "display": "slateblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#6A5ACD"
+        }
+      ]
+    },
+    {
+      "code": "slategray",
+      "display": "slategray",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#708090"
+        }
+      ]
+    },
+    {
+      "code": "slategrey",
+      "display": "slategrey",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#708090"
+        }
+      ]
+    },
+    {
+      "code": "snow",
+      "display": "snow",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFAFA"
+        }
+      ]
+    },
+    {
+      "code": "springgreen",
+      "display": "springgreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#00FF7F"
+        }
+      ]
+    },
+    {
+      "code": "steelblue",
+      "display": "steelblue",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#4682B4"
+        }
+      ]
+    },
+    {
+      "code": "tan",
+      "display": "tan",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#D2B48C"
+        }
+      ]
+    },
+    {
+      "code": "teal",
+      "display": "teal",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#008080"
+        }
+      ]
+    },
+    {
+      "code": "thistle",
+      "display": "thistle",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#D8BFD8"
+        }
+      ]
+    },
+    {
+      "code": "tomato",
+      "display": "tomato",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FF6347"
+        }
+      ]
+    },
+    {
+      "code": "turquoise",
+      "display": "turquoise",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#40E0D0"
+        }
+      ]
+    },
+    {
+      "code": "violet",
+      "display": "violet",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#EE82EE"
+        }
+      ]
+    },
+    {
+      "code": "wheat",
+      "display": "wheat",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F5DEB3"
+        }
+      ]
+    },
+    {
+      "code": "white",
+      "display": "white",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFFFF"
+        }
+      ]
+    },
+    {
+      "code": "whitesmoke",
+      "display": "whitesmoke",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "code": "yellow",
+      "display": "yellow",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#FFFF00"
+        }
+      ]
+    },
+    {
+      "code": "yellowgreen",
+      "display": "yellowgreen",
+      "property": [
+        {
+          "code": "rgb",
+          "valueString": "#9ACD32"
+        }
+      ]
+    }
+  ]
+}

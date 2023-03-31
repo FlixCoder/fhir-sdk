@@ -1,0 +1,133 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "group-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/group-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eperson\u003ca name\u003d\"group-type-person\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePerson\u003c/td\u003e\u003ctd\u003eGroup contains \u0026quot;person\u0026quot; Patient resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eanimal\u003ca name\u003d\"group-type-animal\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAnimal\u003c/td\u003e\u003ctd\u003eGroup contains \u0026quot;animal\u0026quot; Patient resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epractitioner\u003ca name\u003d\"group-type-practitioner\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePractitioner\u003c/td\u003e\u003ctd\u003eGroup contains healthcare practitioner resources (Practitioner or PractitionerRole).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edevice\u003ca name\u003d\"group-type-device\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDevice\u003c/td\u003e\u003ctd\u003eGroup contains Device resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecareteam\u003ca name\u003d\"group-type-careteam\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCareTeam\u003c/td\u003e\u003ctd\u003eGroup contains CareTeam resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehealthcareservice\u003ca name\u003d\"group-type-healthcareservice\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHealthcareService\u003c/td\u003e\u003ctd\u003eGroup contains HealthcareService resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elocation\u003ca name\u003d\"group-type-location\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLocation\u003c/td\u003e\u003ctd\u003eGroup contains Location resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eorganization\u003ca name\u003d\"group-type-organization\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOrganization\u003c/td\u003e\u003ctd\u003eGroup contains Organization resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erelatedperson\u003ca name\u003d\"group-type-relatedperson\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRelatedPerson\u003c/td\u003e\u003ctd\u003eGroup contains RelatedPerson resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003especimen\u003ca name\u003d\"group-type-specimen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSpecimen\u003c/td\u003e\u003ctd\u003eGroup contains Specimen resources.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/group-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.285"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.278"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.156"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "GroupType",
+  "title": "Group Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Types of resources that are part of group.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/group-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "person",
+      "display": "Person",
+      "definition": "Group contains \"person\" Patient resources."
+    },
+    {
+      "code": "animal",
+      "display": "Animal",
+      "definition": "Group contains \"animal\" Patient resources."
+    },
+    {
+      "code": "practitioner",
+      "display": "Practitioner",
+      "definition": "Group contains healthcare practitioner resources (Practitioner or PractitionerRole)."
+    },
+    {
+      "code": "device",
+      "display": "Device",
+      "definition": "Group contains Device resources."
+    },
+    {
+      "code": "careteam",
+      "display": "CareTeam",
+      "definition": "Group contains CareTeam resources."
+    },
+    {
+      "code": "healthcareservice",
+      "display": "HealthcareService",
+      "definition": "Group contains HealthcareService resources."
+    },
+    {
+      "code": "location",
+      "display": "Location",
+      "definition": "Group contains Location resources."
+    },
+    {
+      "code": "organization",
+      "display": "Organization",
+      "definition": "Group contains Organization resources."
+    },
+    {
+      "code": "relatedperson",
+      "display": "RelatedPerson",
+      "definition": "Group contains RelatedPerson resources."
+    },
+    {
+      "code": "specimen",
+      "display": "Specimen",
+      "definition": "Group contains Specimen resources."
+    }
+  ]
+}

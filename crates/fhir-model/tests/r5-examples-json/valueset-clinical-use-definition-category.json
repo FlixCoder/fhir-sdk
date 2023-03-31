@@ -1,0 +1,76 @@
+{
+  "resourceType": "ValueSet",
+  "id": "clinical-use-definition-category",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \n      \u003cul\u003e\n        \n        \u003cli\u003eInclude all codes defined in \n          \n          \u003ca href\u003d\"codesystem-clinical-use-definition-category.html\"\u003e\n            \n            \u003ccode\u003ehttp://hl7.org/fhir/clinical-use-definition-category\u003c/code\u003e\n          \n          \u003c/a\u003e\n        \n        \u003c/li\u003e\n      \n      \u003c/ul\u003eclinical-use-definition-category\n    \n    \u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "brr"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/clinical-use-definition-category",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3109"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ClinicalUseDefinitionCategory",
+  "title": "Clinical Use Definition Category",
+  "status": "draft",
+  "experimental": false,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A categorisation for a clinical use information item.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/clinical-use-definition-category"
+      }
+    ]
+  }
+}

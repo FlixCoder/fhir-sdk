@@ -1,0 +1,2183 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "shareablenamingsystem",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003eto do\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "vocab"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    }
+  ],
+  "url": "http://hl7.org/fhir/StructureDefinition/shareablenamingsystem",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.5.1260"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ShareableNamingSystem",
+  "title": "Shareable NamingSystem",
+  "status": "draft",
+  "experimental": false,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7",
+  "description": "Enforces the minimum information set for the naming system metadata required by HL7 and other organizations that share and publish naming systems",
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "objimpl",
+      "uri": "http://hl7.org/fhir/object-implementation",
+      "name": "Object Implementation Information"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "NamingSystem",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/NamingSystem",
+  "derivation": "constraint",
+  "snapshot": {
+    "element": [
+      {
+        "id": "NamingSystem",
+        "path": "NamingSystem",
+        "short": "System of unique identification",
+        "definition": "A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a \"System\" used within the Identifier and Coding data types.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem",
+          "min": 0,
+          "max": "*"
+        },
+        "constraint": [
+          {
+            "key": "cnl-0",
+            "severity": "warning",
+            "human": "Name should be usable as an identifier for the module by machine processing applications such as code generation",
+            "expression": "name.exists() implies name.matches(\u0027^[A-Z]([A-Za-z0-9_]){1,254}$\u0027)",
+            "source": "http://hl7.org/fhir/StructureDefinition/NamingSystem"
+          },
+          {
+            "key": "nsd-1",
+            "severity": "error",
+            "human": "Root systems cannot have uuid identifiers",
+            "expression": "kind !\u003d \u0027root\u0027 or uniqueId.all(type !\u003d \u0027uuid\u0027)",
+            "source": "http://hl7.org/fhir/StructureDefinition/NamingSystem"
+          },
+          {
+            "key": "nsd-2",
+            "severity": "error",
+            "human": "Can\u0027t have more than one preferred identifier for a type",
+            "expression": "uniqueId.where(preferred \u003d true).select(type).isDistinct()",
+            "source": "http://hl7.org/fhir/StructureDefinition/NamingSystem"
+          },
+          {
+            "key": "nsd-3",
+            "severity": "error",
+            "human": "Can\u0027t have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)",
+            "expression": "uniqueId.where(authoritative \u003d \u0027true\u0027).select(type.toString() \u0026 period.start.toString() \u0026 period.end.toString()).isDistinct()",
+            "source": "http://hl7.org/fhir/StructureDefinition/NamingSystem"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "conformance.behavior,conformance.terminology"
+          },
+          {
+            "identity": "v2",
+            "map": "N/A"
+          },
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.id",
+        "path": "NamingSystem.id",
+        "short": "Logical id of this artifact",
+        "definition": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "comment": "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.id",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+                "valueUrl": "id"
+              }
+            ],
+            "code": "http://hl7.org/fhirpath/System.String"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.meta",
+        "path": "NamingSystem.meta",
+        "short": "Metadata about the resource",
+        "definition": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.meta",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Meta"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.implicitRules",
+        "path": "NamingSystem.implicitRules",
+        "short": "A set of rules under which this content was created",
+        "definition": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+        "comment": "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.implicitRules",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": true,
+        "isModifierReason": "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies its meaning or interpretation",
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.language",
+        "path": "NamingSystem.language",
+        "short": "Language of the resource content",
+        "definition": "The base language in which the resource is written.",
+        "comment": "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.language",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "Language"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "required",
+          "description": "IETF language tag for a human language",
+          "valueSet": "http://hl7.org/fhir/ValueSet/all-languages|5.0.0",
+          "additional": [
+            {
+              "purpose": "starter",
+              "valueSet": "http://hl7.org/fhir/ValueSet/languages"
+            }
+          ]
+        }
+      },
+      {
+        "id": "NamingSystem.text",
+        "path": "NamingSystem.text",
+        "short": "Text summary of the resource, for human interpretation",
+        "definition": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+        "comment": "Contained resources do not have a narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs\u003d1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+        "alias": [
+          "narrative",
+          "html",
+          "xhtml",
+          "display"
+        ],
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "DomainResource.text",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Narrative"
+          }
+        ],
+        "condition": [
+          "dom-6"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Act.text?"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.contained",
+        "path": "NamingSystem.contained",
+        "short": "Contained, inline Resources",
+        "definition": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope. This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning.",
+        "comment": "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags in their meta elements, but SHALL NOT have security labels.",
+        "alias": [
+          "inline resources",
+          "anonymous resources",
+          "contained resources"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.contained",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Resource"
+          }
+        ],
+        "condition": [
+          "dom-2",
+          "dom-4",
+          "dom-3",
+          "dom-5"
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.extension",
+        "path": "NamingSystem.extension",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "url"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "short": "Extension",
+        "definition": "An Extension",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.extension:knowledgeRepresentationLevel",
+        "path": "NamingSystem.extension",
+        "sliceName": "knowledgeRepresentationLevel",
+        "short": "narrative | semi-structured | structured | executable",
+        "definition": "Defines a knowledge representation level provided by this knowledge artifact.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false
+      },
+      {
+        "id": "NamingSystem.modifierExtension",
+        "path": "NamingSystem.modifierExtension",
+        "short": "Extensions that cannot be ignored",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "requirements": "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension).",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": true,
+        "isModifierReason": "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.url",
+        "path": "NamingSystem.url",
+        "short": "Canonical identifier for this naming system, represented as a URI (globally unique)",
+        "definition": "An absolute URI that is used to identify this naming system when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this naming system is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the naming system is stored on different servers.",
+        "comment": "Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.\n\nThe determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). \n\nIn some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found.",
+        "requirements": "Allows the naming system to be referenced by a single globally unique identifier.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.url",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "cnl-1",
+            "severity": "warning",
+            "human": "URL should not contain | or # - these characters make processing canonical references problematic",
+            "expression": "exists() implies matches(\u0027^[^|# ]+$\u0027)",
+            "source": "http://hl7.org/fhir/StructureDefinition/NamingSystem"
+          },
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.identifier"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.identifier",
+        "path": "NamingSystem.identifier",
+        "short": "Additional identifier for the naming system (business identifier)",
+        "definition": "A formal identifier that is used to identify this naming system when it is represented in other formats, or referenced in a specification, model, design or an instance.",
+        "comment": "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this naming system outside of FHIR, where it is not possible to use the logical URI.",
+        "requirements": "Allows externally provided and/or usable business identifiers to be easily associated with the naming system.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.identifier",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.identifier"
+          },
+          {
+            "identity": "objimpl",
+            "map": "no-gen-base"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.version",
+        "path": "NamingSystem.version",
+        "short": "Business version of the naming system",
+        "definition": "The identifier that is used to identify this version of the naming system when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the naming system author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.",
+        "comment": "There may be different naming system instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the naming system with the format [url]|[version]. The version SHOULD NOT contain a \u0027#\u0027 - see [Business Version](resource.html#bv-format).",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.version",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.version"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.versionAlgorithm[x]",
+        "path": "NamingSystem.versionAlgorithm[x]",
+        "short": "How to compare versions",
+        "definition": "Indicates the mechanism used to compare versions to determine which NamingSystem is more current.",
+        "comment": "If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can\u0027t be successfully be determined.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.versionAlgorithm[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          },
+          {
+            "code": "Coding"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/ValueSet/version-algorithm"
+        }
+      },
+      {
+        "id": "NamingSystem.name",
+        "path": "NamingSystem.name",
+        "short": "Name for this naming system (computer friendly)",
+        "definition": "A natural language name identifying the naming system. This name should be usable as an identifier for the module by machine processing applications such as code generation.",
+        "comment": "The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly.The\"symbolic name\" for an OID would be captured as an extension.",
+        "requirements": "Support human navigation and code generation.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.name",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "condition": [
+          "cnl-0"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.title",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.title",
+        "short": "Title for this naming system (human friendly)",
+        "definition": "A short, descriptive, user-friendly title for the naming system.",
+        "comment": "This title does not need to be machine-processing friendly and may contain punctuation, white-space, etc.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.title",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.status",
+        "path": "NamingSystem.status",
+        "short": "draft | active | retired | unknown",
+        "definition": "The status of this naming system. Enables tracking the life-cycle of the content.",
+        "comment": "Allows filtering of naming systems that are appropriate for use versus not.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.status",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": true,
+        "isModifierReason": "This is labeled as \"Is Modifier\" because applications should not use a retired {{title}} without due consideration",
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "PublicationStatus"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "required",
+          "description": "The lifecycle status of an artifact.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/publication-status|5.0.0"
+        },
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.status"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.kind",
+        "path": "NamingSystem.kind",
+        "short": "codesystem | identifier | root",
+        "definition": "Indicates the purpose for the naming system - what kinds of things does it make unique?",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.kind",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "nsd-1"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "NamingSystemType"
+            }
+          ],
+          "strength": "required",
+          "description": "Identifies the purpose of the naming system.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/namingsystem-type|5.0.0"
+        },
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.class"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.experimental",
+        "path": "NamingSystem.experimental",
+        "short": "For testing purposes, not real usage",
+        "definition": "A Boolean value to indicate that this naming system is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.",
+        "comment": "Allows filtering of naming systems that are appropriate for use versus not.",
+        "requirements": "Enables experimental content to be developed following the same lifecycle that would be used for a production-level naming system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.experimental",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "meaningWhenMissing": "If absent, this resource is treated as though it is not experimental.",
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.class"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.date",
+        "path": "NamingSystem.date",
+        "short": "Date last changed",
+        "definition": "The date  (and optionally time) when the naming system was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the naming system changes.",
+        "comment": "The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the naming system. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "alias": [
+          "Revision Date"
+        ],
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.date",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.recorded"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.publisher",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.publisher",
+        "short": "Name of the publisher/steward (organization or individual)",
+        "definition": "The name of the organization or individual responsible for the release and ongoing maintenance of the naming system.",
+        "comment": "Usually an organization but may be an individual. The publisher (or steward) of the naming system is the organization or individual primarily responsible for the maintenance and upkeep of the naming system. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the naming system. This item SHOULD be populated unless the information is available from context.",
+        "requirements": "Helps establish the \"authority/credibility\" of the naming system.  May also allow for contact.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.publisher",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.witness"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.contact",
+        "path": "NamingSystem.contact",
+        "short": "Contact details for the publisher",
+        "definition": "Contact details to assist a user in finding and communicating with the publisher.",
+        "comment": "May be a web site, an email address, a telephone number, etc.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.contact",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.responsible",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.responsible",
+        "short": "Who maintains system namespace?",
+        "definition": "The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.",
+        "comment": "This is the primary organization.  Responsibility for some aspects of a namespace may be delegated.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.responsible",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.witness"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.type",
+        "path": "NamingSystem.type",
+        "short": "e.g. driver,  provider,  patient, bank etc",
+        "definition": "Categorizes a naming system for easier search by grouping related naming systems.",
+        "comment": "This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.type",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "NamingSystemIdentifierSystemType"
+            }
+          ],
+          "strength": "preferred",
+          "description": "A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/namingsystem-identifier-system-type"
+        }
+      },
+      {
+        "id": "NamingSystem.description",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.description",
+        "short": "Natural language description of the naming system",
+        "definition": "A free text natural language description of the naming system from a consumer\u0027s perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc.",
+        "comment": "This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the naming system as conveyed in the \u0027text\u0027 field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the naming system is presumed to be the predominant language in the place the naming system was created).",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.description",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.useContext",
+        "path": "NamingSystem.useContext",
+        "short": "The context that the content is intended to support",
+        "definition": "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate naming system instances.",
+        "comment": "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.",
+        "requirements": "Assist in searching for appropriate content.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.useContext",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "UsageContext"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.jurisdiction",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
+          }
+        ],
+        "path": "NamingSystem.jurisdiction",
+        "short": "Intended jurisdiction for naming system (if applicable)",
+        "definition": "A legal or geographic region in which the naming system is intended to be used.",
+        "comment": "It may be possible for the naming system to be used in jurisdictions other than those for which it was originally designed or intended.\n\nDEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new \u0027jurisdiction\u0027 code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#jurisdiction and useContext.valueCodeableConcept indicating the jurisdiction.)",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.jurisdiction",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "Jurisdiction"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "extensible",
+          "description": "Countries and regions within which this artifact is targeted for use.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/jurisdiction"
+        }
+      },
+      {
+        "id": "NamingSystem.purpose",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.purpose",
+        "short": "Why this naming system is defined",
+        "definition": "Explanation of why this naming system is needed and why it has been designed as it has.",
+        "comment": "This element does not describe the usage of the code system. Instead, it provides traceability of \u0027\u0027why\u0027\u0027 the resource is either needed or \u0027\u0027why\u0027\u0027 it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this code system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.purpose",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.why[x]"
+          },
+          {
+            "identity": "objimpl",
+            "map": "no-gen-base"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.copyright",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.copyright",
+        "short": "Use and/or publishing restrictions",
+        "definition": "A copyright statement relating to the naming system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the naming system.",
+        "requirements": "Consumers must be able to determine any legal restrictions on the use of the naming system and/or its content.",
+        "alias": [
+          "License",
+          "Restrictions"
+        ],
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.copyright",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "objimpl",
+            "map": "no-gen-base"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.copyrightLabel",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.copyrightLabel",
+        "short": "Copyright holder and year(s)",
+        "definition": "A short string (\u003c50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. \u0027All rights reserved\u0027, \u0027Some rights reserved\u0027).",
+        "comment": "The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general \u0027copyright\u0027 element.",
+        "requirements": "Defines the content expected to be rendered in all representations of the artifact.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.copyrightLabel",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.approvalDate",
+        "path": "NamingSystem.approvalDate",
+        "short": "When the NamingSystem was approved by publisher",
+        "definition": "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.",
+        "comment": "The \u0027date\u0027 element may be more recent than the approval date because of minor changes or editorial corrections.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.approvalDate",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "date"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "objimpl",
+            "map": "no-gen-base"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.lastReviewDate",
+        "path": "NamingSystem.lastReviewDate",
+        "short": "When the NamingSystem was last reviewed by the publisher",
+        "definition": "The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.",
+        "comment": "If specified, this date follows the original approval date.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "requirements": "Gives a sense of how \"current\" the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.lastReviewDate",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "date"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "objimpl",
+            "map": "no-gen-base"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.effectivePeriod",
+        "path": "NamingSystem.effectivePeriod",
+        "short": "When the NamingSystem is expected to be used",
+        "definition": "The period during which the NamingSystem content was or is planned to be in active use.",
+        "comment": "The effective period for a NamingSystem determines when the content is applicable for usage and is independent of publication and review dates. For example, a NamingSystem intended to be used for the year 2016 might be published in 2015.\n\nSee guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "requirements": "Allows establishing a transition before a resource comes into effect and also allows for a sunsetting process when new versions of the NamingSystem are or are expected to be used instead.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.effectivePeriod",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "objimpl",
+            "map": "no-gen-base"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.topic",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+            "valueCode": "deprecated"
+          }
+        ],
+        "path": "NamingSystem.topic",
+        "short": "E.g. Education, Treatment, Assessment, etc",
+        "definition": "Descriptions related to the content of the NamingSystem. Topics provide a high-level categorization as well as keywords for the NamingSystem that can be useful for filtering and searching.",
+        "comment": "DEPRECATION NOTE: For consistency, implementations are encouraged to migrate to using the new \u0027topic\u0027 code in the useContext element.  (I.e. useContext.code indicating http://terminology.hl7.org/CodeSystem/usage-context-type#topic and useContext.valueCodeableConcept indicating the topic)",
+        "requirements": "Repositories must be able to determine how to categorize the NamingSystem so that it can be found by topical and keyword searches.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.topic",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "DefinitionTopic"
+            }
+          ],
+          "strength": "example",
+          "valueSet": "http://hl7.org/fhir/ValueSet/definition-topic"
+        }
+      },
+      {
+        "id": "NamingSystem.author",
+        "path": "NamingSystem.author",
+        "short": "Who authored the CodeSystem",
+        "definition": "An individiual or organization primarily involved in the creation and maintenance of the NamingSystem.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.author",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.editor",
+        "path": "NamingSystem.editor",
+        "short": "Who edited the NamingSystem",
+        "definition": "An individual or organization primarily responsible for internal coherence of the NamingSystem.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.editor",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.reviewer",
+        "path": "NamingSystem.reviewer",
+        "short": "Who reviewed the NamingSystem",
+        "definition": "An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the NamingSystem.",
+        "comment": "See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.reviewer",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.endorser",
+        "path": "NamingSystem.endorser",
+        "short": "Who endorsed the NamingSystem",
+        "definition": "An individual or organization asserted by the publisher to be responsible for officially endorsing the NamingSystem for use in some setting.",
+        "comment": "See guidance around (not) making local changes to elements [here](canonicalresource.html#localization).",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.endorser",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.relatedArtifact",
+        "path": "NamingSystem.relatedArtifact",
+        "short": "Additional documentation, citations, etc",
+        "definition": "Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.",
+        "comment": "Each related artifact is either an attachment, or a reference to another resource, but not both.",
+        "requirements": "A NamingSystem must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.relatedArtifact",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "RelatedArtifact"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.usage",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable",
+            "valueBoolean": true
+          }
+        ],
+        "path": "NamingSystem.usage",
+        "short": "How/where is it used",
+        "definition": "Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.usage",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.uniqueId",
+        "path": "NamingSystem.uniqueId",
+        "short": "Unique identifiers used for system",
+        "definition": "Indicates how the system may be identified when referenced in electronic exchange.",
+        "comment": "Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.",
+        "min": 1,
+        "max": "*",
+        "base": {
+          "path": "NamingSystem.uniqueId",
+          "min": 1,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "BackboneElement"
+          }
+        ],
+        "condition": [
+          "nsd-1",
+          "nsd-2",
+          "nsd-3"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "NamingSystem.uniqueId.id",
+        "path": "NamingSystem.uniqueId.id",
+        "representation": [
+          "xmlAttr"
+        ],
+        "short": "Unique id for inter-element referencing",
+        "definition": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.id",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+                "valueUrl": "string"
+              }
+            ],
+            "code": "http://hl7.org/fhirpath/System.String"
+          }
+        ],
+        "condition": [
+          "ele-1"
+        ],
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.uniqueId.extension",
+        "path": "NamingSystem.uniqueId.extension",
+        "short": "Additional content defined by implementations",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.uniqueId.modifierExtension",
+        "path": "NamingSystem.uniqueId.modifierExtension",
+        "short": "Extensions that cannot be ignored even if unrecognized",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "requirements": "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension).",
+        "alias": [
+          "extensions",
+          "user content",
+          "modifiers"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "BackboneElement.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "isModifier": true,
+        "isModifierReason": "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them",
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.uniqueId.type",
+        "path": "NamingSystem.uniqueId.type",
+        "short": "oid | uuid | uri | iri-stem | v2csmnemonic | other",
+        "definition": "Identifies the unique identifier scheme used for this particular identifier.",
+        "comment": "Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc. Preferred identifiers for the same identifier type SHOULD NOT overlap by period.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.uniqueId.type",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "condition": [
+          "nsd-1",
+          "nsd-2",
+          "nsd-3"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "NamingSystemIdentifierType"
+            }
+          ],
+          "strength": "required",
+          "description": "Identifies the style of unique identifier used to identify a namespace.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|5.0.0"
+        }
+      },
+      {
+        "id": "NamingSystem.uniqueId.value",
+        "path": "NamingSystem.uniqueId.value",
+        "short": "The unique identifier",
+        "definition": "The string that should be sent over the wire to identify the code system or identifier system.",
+        "comment": "If the value is a URI intended for use as FHIR system identifier, the URI should not contain \"\\\" or \"?\" or \",\" since this makes escaping very difficult.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.uniqueId.value",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.identifier"
+          }
+        ]
+      },
+      {
+        "id": "NamingSystem.uniqueId.preferred",
+        "path": "NamingSystem.uniqueId.preferred",
+        "short": "Is this the id that should be used for this type",
+        "definition": "Indicates whether this identifier is the \"preferred\" identifier of this type.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.uniqueId.preferred",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "meaningWhenMissing": "If there are multiple ids, and one is labeled \"preferred\", then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn",
+        "condition": [
+          "nsd-2"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.uniqueId.comment",
+        "path": "NamingSystem.uniqueId.comment",
+        "short": "Notes about identifier usage",
+        "definition": "Notes about the past or intended usage of this identifier.",
+        "comment": "e.g. \"must be used in Germany\" or \"was initially published in error with this value\".",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.uniqueId.comment",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.uniqueId.period",
+        "path": "NamingSystem.uniqueId.period",
+        "short": "When is identifier valid?",
+        "definition": "Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.",
+        "comment": "Within a registry, a given identifier should only be \"active\" for a single namespace at a time.  (Ideally, an identifier should only ever be associated with a single namespace across all time).\n\nThe nuance of identifier deprecation is not represented with a separate element. When a determination is made that an identifier should not be used, the validity period end date is updated with the date the identifier is deemed to be deprecated. The identifier should no longer be used once the period end date is reached.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.uniqueId.period",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "condition": [
+          "nsd-3"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "NamingSystem.uniqueId.authoritative",
+        "path": "NamingSystem.uniqueId.authoritative",
+        "short": "Whether the identifier is authoritative",
+        "definition": "Indicates whether this identifier ie endorsed by the official owner of the associated naming system.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "NamingSystem.uniqueId.authoritative",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "condition": [
+          "nsd-3"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      }
+    ]
+  },
+  "differential": {
+    "element": [
+      {
+        "id": "NamingSystem",
+        "path": "NamingSystem",
+        "min": 1,
+        "max": "1"
+      },
+      {
+        "id": "NamingSystem.extension:knowledgeRepresentationLevel",
+        "path": "NamingSystem.extension",
+        "sliceName": "knowledgeRepresentationLevel",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.url",
+        "path": "NamingSystem.url",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.version",
+        "path": "NamingSystem.version",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.versionAlgorithm[x]",
+        "path": "NamingSystem.versionAlgorithm[x]",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.name",
+        "path": "NamingSystem.name",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.title",
+        "path": "NamingSystem.title",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.status",
+        "path": "NamingSystem.status",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.experimental",
+        "path": "NamingSystem.experimental",
+        "min": 0,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.publisher",
+        "path": "NamingSystem.publisher",
+        "mustSupport": true
+      },
+      {
+        "id": "NamingSystem.description",
+        "path": "NamingSystem.description",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      }
+    ]
+  }
+}

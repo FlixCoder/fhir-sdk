@@ -1,0 +1,60 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "timing-abbreviation",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://terminology.hl7.org/CodeSystem/timing-abbreviation\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eC\u003ca name\u003d\"timing-abbreviation-C\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContinuous (frequency)\u003c/td\u003e\u003ctd\u003eService is provided continuously between start time and stop time.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://terminology.hl7.org/CodeSystem/timing-abbreviation",
+  "version": "5.0.0",
+  "name": "TimingAbbreviation",
+  "title": "TimingAbbreviation",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Code for a known / defined timing pattern.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "C",
+      "display": "Continuous (frequency)",
+      "definition": "Service is provided continuously between start time and stop time."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "testscript-scope-phase-codes",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/testscript-scope-phase-codes\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunit\u003ca name\u003d\"testscript-scope-phase-codes-unit\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnit\u003c/td\u003e\u003ctd\u003eThe development or implementation phase.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintegration\u003ca name\u003d\"testscript-scope-phase-codes-integration\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIntegration\u003c/td\u003e\u003ctd\u003eThe internal system to system phase.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eproduction\u003ca name\u003d\"testscript-scope-phase-codes-production\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProduction\u003c/td\u003e\u003ctd\u003eThe live system to system phase (Note, this may involve pii/phi data).\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/testscript-scope-phase-codes",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1950"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "TestScriptScopePhaseType",
+  "title": "Test Script Scope Phase Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-25T17:01:24-04:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The phase of testing for this artifact.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "unit",
+      "display": "Unit",
+      "definition": "The development or implementation phase."
+    },
+    {
+      "code": "integration",
+      "display": "Integration",
+      "definition": "The internal system to system phase."
+    },
+    {
+      "code": "production",
+      "display": "Production",
+      "definition": "The live system to system phase (Note, this may involve pii/phi data)."
+    }
+  ]
+}

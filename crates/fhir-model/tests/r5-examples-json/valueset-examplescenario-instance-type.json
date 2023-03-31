@@ -1,0 +1,67 @@
+{
+  "resourceType": "ValueSet",
+  "id": "examplescenario-instance-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"valueset-resource-types.html\"\u003eResource Types\u003c/a\u003e\u003c/li\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v2-0354.html\"\u003e\u003ccode\u003ehttp://terminology.hl7.org/CodeSystem/v2-0354\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/examplescenario-instance-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3006"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ExampleScenarioResourceType",
+  "title": "Example Scenario Resource Type",
+  "status": "draft",
+  "experimental": true,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7 FHIR Infrastructure WG",
+  "description": "Types of resource structures that can be passed in or out of exchange operations.  Not necessarily FHIR.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/resource-types"
+        ]
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0354"
+      }
+    ]
+  }
+}

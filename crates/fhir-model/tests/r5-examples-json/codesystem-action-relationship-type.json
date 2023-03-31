@@ -1,0 +1,130 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "action-relationship-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/action-relationship-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebefore\u003ca name\u003d\"action-relationship-type-before\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBefore\u003c/td\u003e\u003ctd\u003eThe action must be performed before the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  before-start\u003ca name\u003d\"action-relationship-type-before-start\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBefore Start\u003c/td\u003e\u003ctd\u003eThe action must be performed before the start of the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  before-end\u003ca name\u003d\"action-relationship-type-before-end\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBefore End\u003c/td\u003e\u003ctd\u003eThe action must be performed before the end of the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econcurrent\u003ca name\u003d\"action-relationship-type-concurrent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConcurrent\u003c/td\u003e\u003ctd\u003eThe action must be performed concurrent with the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  concurrent-with-start\u003ca name\u003d\"action-relationship-type-concurrent-with-start\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConcurrent With Start\u003c/td\u003e\u003ctd\u003eThe action must be performed concurrent with the start of the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  concurrent-with-end\u003ca name\u003d\"action-relationship-type-concurrent-with-end\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConcurrent With End\u003c/td\u003e\u003ctd\u003eThe action must be performed concurrent with the end of the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eafter\u003ca name\u003d\"action-relationship-type-after\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAfter\u003c/td\u003e\u003ctd\u003eThe action must be performed after the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  after-start\u003ca name\u003d\"action-relationship-type-after-start\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAfter Start\u003c/td\u003e\u003ctd\u003eThe action must be performed after the start of the related action.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  after-end\u003ca name\u003d\"action-relationship-type-after-end\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAfter End\u003c/td\u003e\u003ctd\u003eThe action must be performed after the end of the related action.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    }
+  ],
+  "url": "http://hl7.org/fhir/action-relationship-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.814"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.797"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ActionRelationshipType",
+  "title": "Action Relationship Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Defines the types of relationships between actions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/action-relationship-type",
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "before",
+      "display": "Before",
+      "definition": "The action must be performed before the related action.",
+      "concept": [
+        {
+          "code": "before-start",
+          "display": "Before Start",
+          "definition": "The action must be performed before the start of the related action."
+        },
+        {
+          "code": "before-end",
+          "display": "Before End",
+          "definition": "The action must be performed before the end of the related action."
+        }
+      ]
+    },
+    {
+      "code": "concurrent",
+      "display": "Concurrent",
+      "definition": "The action must be performed concurrent with the related action.",
+      "concept": [
+        {
+          "code": "concurrent-with-start",
+          "display": "Concurrent With Start",
+          "definition": "The action must be performed concurrent with the start of the related action."
+        },
+        {
+          "code": "concurrent-with-end",
+          "display": "Concurrent With End",
+          "definition": "The action must be performed concurrent with the end of the related action."
+        }
+      ]
+    },
+    {
+      "code": "after",
+      "display": "After",
+      "definition": "The action must be performed after the related action.",
+      "concept": [
+        {
+          "code": "after-start",
+          "display": "After Start",
+          "definition": "The action must be performed after the start of the related action."
+        },
+        {
+          "code": "after-end",
+          "display": "After End",
+          "definition": "The action must be performed after the end of the related action."
+        }
+      ]
+    }
+  ]
+}

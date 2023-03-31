@@ -1,0 +1,93 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "device-availability-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/device-availability-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elost\u003ca name\u003d\"device-availability-status-lost\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLost\u003c/td\u003e\u003ctd\u003eThe device is lost.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edamaged\u003ca name\u003d\"device-availability-status-damaged\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDamaged\u003c/td\u003e\u003ctd\u003eThe device is damaged.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edestroyed\u003ca name\u003d\"device-availability-status-destroyed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDestroyed\u003c/td\u003e\u003ctd\u003eThe device is destroyed.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eavailable\u003ca name\u003d\"device-availability-status-available\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAvailable\u003c/td\u003e\u003ctd\u003eThe device is available.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/device-availability-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2048"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "FHIRDeviceAvailabilityStatus",
+  "title": "FHIR Device Availability Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The record status of the device.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/device-availability-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "lost",
+      "display": "Lost",
+      "definition": "The device is lost."
+    },
+    {
+      "code": "damaged",
+      "display": "Damaged",
+      "definition": "The device is damaged."
+    },
+    {
+      "code": "destroyed",
+      "display": "Destroyed",
+      "definition": "The device is destroyed."
+    },
+    {
+      "code": "available",
+      "display": "Available",
+      "definition": "The device is available."
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "resourceType": "EvidenceVariable",
+  "id": "example-eligibility-criteria-adults-with-obesity",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: EvidenceVariable\u003c/b\u003e\u003ca name\u003d\"example-eligibility-criteria-adults-with-obesity\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource EvidenceVariable \u0026quot;example-eligibility-criteria-adults-with-obesity\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: FEvIR Object Identifier: 49218\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: StudyEligibilityCriteriaObesePatients18YearsOld\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: StudyEligibilityCriteria: Obese patients ≥ 18 years old\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edate\u003c/b\u003e: 2022-07-24T21:00:00.088Z\u003c/p\u003e\u003cp\u003e\u003cb\u003epublisher\u003c/b\u003e: Computable Publishing LLC\u003c/p\u003e\u003cp\u003e\u003cb\u003econtact\u003c/b\u003e: \u003ca href\u003d\"mailto:support@computablepublishing.com\"\u003esupport@computablepublishing.com\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: obese, adult (age ≥18 years old) patients\u003c/p\u003e\u003cp\u003e\u003cb\u003ecopyright\u003c/b\u003e: https://creativecommons.org/licenses/by-nc-sa/4.0/\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: Brian S. Alper: \u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003erelatedArtifact\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: derived-from\u003c/p\u003e\u003cp\u003e\u003cb\u003elabel\u003c/b\u003e: data source\u003c/p\u003e\u003cp\u003e\u003cb\u003ecitation\u003c/b\u003e: Bariatric surgery and cardiovascular disease: a systematic review and meta-analysis [Journal Article]. Contributors: van Veldhuisen SL, Gorter TM, van Woerden G, de Boer RA, Rienstra M, Hazebroek EJ, van Veldhuisen DJ. In: European heart journal, PMID 35243488. Published March 04, 2022. Available at: https://pubmed.ncbi.nlm.nih.gov/35243488/.\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edocument\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003erelatedArtifact\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: supported-with\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: Citation Resource for the original article \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edisplay\u003c/b\u003e: Citation Resource for 2022 Systematic Review of bariatric surgery mortality effect - PMID 35243488\u003c/p\u003e\u003cp\u003e\u003cb\u003eresourceReference\u003c/b\u003e: \u003ca href\u003d\"broken-link.html\"\u003eCitation/33400: StudyCitation: 2022 Systematic Review of bariatric surgery mortality effect 35243488\u003c/a\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003eactual\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: adult (age ≥18 years old)\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eCurrent chronological age \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#424144002)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u0026gt;\u003d18 year\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code a \u003d \u0027a\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003echaracteristic\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: obese (Body mass index \u0026gt;\u003d 30 kg/m2)\u003c/p\u003e\u003cp\u003e\u003cb\u003eexclude\u003c/b\u003e: false\u003c/p\u003e\u003ch3\u003eDefinitionByTypeAndValues\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eBody mass index (BMI) [Ratio] \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://loinc.org/\"\u003eLOINC\u003c/a\u003e#39156-5)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u0026gt;\u003d30 kg/m2\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code kg/m2 \u003d \u0027kg/m2\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "text": "FEvIR Object Identifier"
+      },
+      "system": "https://fevir.net",
+      "value": "49218",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    }
+  ],
+  "name": "StudyEligibilityCriteriaObesePatients18YearsOld",
+  "title": "StudyEligibilityCriteria: Obese patients ≥ 18 years old",
+  "status": "active",
+  "date": "2022-07-24T21:00:00.088Z",
+  "publisher": "Computable Publishing LLC",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "support@computablepublishing.com"
+        }
+      ]
+    }
+  ],
+  "description": "obese, adult (age ≥18 years old) patients",
+  "copyright": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "author": [
+    {
+      "name": "Brian S. Alper"
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "derived-from",
+      "label": "data source",
+      "citation": "Bariatric surgery and cardiovascular disease: a systematic review and meta-analysis [Journal Article]. Contributors: van Veldhuisen SL, Gorter TM, van Woerden G, de Boer RA, Rienstra M, Hazebroek EJ, van Veldhuisen DJ. In: European heart journal, PMID 35243488. Published March 04, 2022. Available at: https://pubmed.ncbi.nlm.nih.gov/35243488/.",
+      "document": {
+        "url": "https://academic.oup.com/eurheartj/article/43/20/1955/6542137"
+      }
+    },
+    {
+      "type": "supported-with",
+      "classifier": [
+        {
+          "text": "Citation Resource for the original article"
+        }
+      ],
+      "display": "Citation Resource for 2022 Systematic Review of bariatric surgery mortality effect - PMID 35243488",
+      "resourceReference": {
+        "reference": "Citation/33400",
+        "type": "Citation",
+        "display": "StudyCitation: 2022 Systematic Review of bariatric surgery mortality effect 35243488"
+      }
+    }
+  ],
+  "actual": true,
+  "characteristic": [
+    {
+      "description": "adult (age ≥18 years old)",
+      "exclude": false,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "424144002",
+              "display": "Current chronological age"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 18,
+          "comparator": "\u003e\u003d",
+          "unit": "year",
+          "system": "http://unitsofmeasure.org",
+          "code": "a"
+        }
+      }
+    },
+    {
+      "description": "obese (Body mass index \u003e\u003d 30 kg/m2)",
+      "exclude": false,
+      "definitionByTypeAndValue": {
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "39156-5",
+              "display": "Body mass index (BMI) [Ratio]"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 30,
+          "comparator": "\u003e\u003d",
+          "unit": "kg/m2",
+          "system": "http://unitsofmeasure.org",
+          "code": "kg/m2"
+        }
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

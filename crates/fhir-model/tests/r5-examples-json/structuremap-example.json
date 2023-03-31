@@ -1,0 +1,80 @@
+{
+  "resourceType": "StructureMap",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cpre class\u003d\"fml\"\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003eurl\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027http://hl7.org/fhir/StructureMap/example\u0027\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003ename\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027ExampleMap\u0027\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003etitle\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027Example Map\u0027\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003estatus\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027draft\u0027\u003c/span\u003e\n\n\n        \u003cspan style\u003d\"color: navy\"\u003e// \u003c/span\u003e\n        \u003cspan style\u003d\"color: green\"\u003etest -\u0026gt; testValue\u003c/span\u003e\n\n        \u003cb\u003egroup \u003c/b\u003eExamples\n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\n        \u003cb\u003esource\u003c/b\u003e \n        \u003cspan style\u003d\"color: maroon\"\u003etestSrc\u003c/span\u003e, \n        \u003cb\u003etarget\u003c/b\u003e \n        \u003cspan style\u003d\"color: maroon\"\u003etestTgt\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e {\n\u003c/span\u003e  testSrc.test\n        \u003cspan style\u003d\"color: navy\"\u003e : \u003c/span\u003eSourceClassA\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003et\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etestTgt.testValue \u003d \n        \u003cb\u003ecopy\u003c/b\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;rule1\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: navy\"\u003e}\n\n\u003c/span\u003e\n      \u003c/pre\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/StructureMap/example",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.13.2"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ExampleMap",
+  "title": "Example Map",
+  "status": "draft",
+  "experimental": true,
+  "date": "2017-03-09",
+  "publisher": "HL7 FHIR Standard",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Example Structure Map",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "009",
+          "display": "Oceania"
+        }
+      ]
+    }
+  ],
+  "group": [
+    {
+      "name": "Examples",
+      "documentation": "test -\u003e testValue",
+      "input": [
+        {
+          "name": "testSrc",
+          "mode": "source"
+        },
+        {
+          "name": "testTgt",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "rule1",
+          "source": [
+            {
+              "context": "testSrc",
+              "type": "SourceClassA",
+              "element": "test",
+              "variable": "t"
+            }
+          ],
+          "target": [
+            {
+              "context": "testTgt",
+              "element": "testValue",
+              "transform": "copy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

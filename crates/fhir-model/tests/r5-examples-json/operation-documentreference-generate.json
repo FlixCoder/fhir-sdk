@@ -1,0 +1,88 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "DocumentReference-generate",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eURL: [base]/DocumentReference/$generate\u003c/p\u003e\u003cp\u003eParameters\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eUse\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eName\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eScope\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCardinality\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eBinding\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDocumentation\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003eurl\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#uri\"\u003euri\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe URL to the source document. This may be a general URL or a Binary or a Composition or a Bundle.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003epersist\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#boolean\"\u003eboolean\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eWhether to store the document at the document end-point (/Document) or not, once it is generated (default is for the server to decide).\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOUT\u003c/td\u003e\u003ctd\u003ereturn\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"bundle.html\"\u003eBundle\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe bundle type is \u0026quot;searchset\u0026quot;containing \u003ca href\u003d\"documentreference.html\"\u003eDocumentReference\u003c/a\u003e resource and may include a Binary. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cdiv\u003e\u003cp\u003eThe server either returns a search result containing a single document reference,\nor it returns an error.\nIf the URI refers to another server, it is at the discretion of the\nserver whether to retrieve it or return an error.\u003c/p\u003e\n\u003c/div\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    }
+  ],
+  "url": "http://hl7.org/fhir/OperationDefinition/DocumentReference-generate",
+  "version": "5.0.0",
+  "name": "Generate",
+  "title": "Generate a DocumentReference from a document",
+  "status": "draft",
+  "kind": "operation",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A client can ask a server to generate a document reference from a document.\nThe server reads the existing document and generates a matching DocumentReference\nresource, or returns one it has previously generated. Servers may be able to \nreturn or generate document references for the following types of content:",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "affectsState": true,
+  "code": "generate",
+  "comment": "The server either returns a search result containing a single document reference, \nor it returns an error. \nIf the URI refers to another server, it is at the discretion of the \nserver whether to retrieve it or return an error.",
+  "resource": [
+    "DocumentReference"
+  ],
+  "system": false,
+  "type": true,
+  "instance": false,
+  "parameter": [
+    {
+      "name": "url",
+      "use": "in",
+      "min": 1,
+      "max": "1",
+      "documentation": "The URL to the source document. This may be a general URL or a Binary or a Composition or a Bundle.",
+      "type": "uri"
+    },
+    {
+      "name": "persist",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "Whether to store the document at the document end-point (/Document) or not, once it is generated (default is for the server to decide).",
+      "type": "boolean"
+    },
+    {
+      "name": "return",
+      "use": "out",
+      "min": 1,
+      "max": "1",
+      "documentation": "The bundle type is \"searchset\"containing [DocumentReference](documentreference.html) resource and may include a Binary. If the input url refers to another server, it is at the discretion of the server whether to retrieve it or return an error.",
+      "type": "Bundle"
+    }
+  ]
+}

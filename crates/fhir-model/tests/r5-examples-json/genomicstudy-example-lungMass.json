@@ -1,0 +1,295 @@
+{
+  "resourceType": "GenomicStudy",
+  "id": "example-lungMass",
+  "text": {
+    "status": "additional",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003eWhole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable.\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "use": "temp",
+      "system": "http://www.somesystemabc.net/identifiers/genomicstudies",
+      "value": "urn:uuid:1111-1111-1111-1112"
+    }
+  ],
+  "status": "registered",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "443968007",
+          "display": "Whole Exome Sequencing - Sequencing of entire coding region of gene (procedure)"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/genomicPatient"
+  },
+  "encounter": {
+    "reference": "Encounter/genomicEncounter"
+  },
+  "startDate": "2019-03-01",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/genomicServiceRequest2"
+    }
+  ],
+  "referrer": {
+    "reference": "Practitioner/practitioner01"
+  },
+  "interpreter": [
+    {
+      "reference": "Practitioner/practitioner02"
+    }
+  ],
+  "reason": [
+    {
+      "concept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "309529002",
+            "display": "Lung mass (finding) "
+          }
+        ]
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "For technical reasons, PIK3CB was deemed uncallable."
+    }
+  ],
+  "description": "Whole exome sequencing of lung biopsy. 300 genes are examined for simple variants (SNV, MNV, InDel), and 170 genes are also examined for CNVs. For technical reasons, PIK3CB was deemed uncallable.",
+  "analysis": [
+    {
+      "identifier": [
+        {
+          "use": "official",
+          "system": "http://www.somesystemabc.net/identifiers/genomicAnalyses",
+          "value": "urn:uuid:1111-1111-1111-1112"
+        }
+      ],
+      "methodType": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "117040002",
+              "display": "Nucleic acid sequencing (procedure)"
+            }
+          ]
+        }
+      ],
+      "changeType": [
+        {
+          "coding": [
+            {
+              "system": "http://sequenceontology.org",
+              "code": "SO:0001483",
+              "display": "SNV"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "system": "http://sequenceontology.org",
+              "code": "SO:0002007",
+              "display": "MNV"
+            }
+          ]
+        },
+        {
+          "coding": [
+            {
+              "system": "http://sequenceontology.org",
+              "code": "SO:1000032",
+              "display": "delins"
+            }
+          ]
+        }
+      ],
+      "genomeBuild": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "LA26806-2",
+            "display": "GRCh38"
+          }
+        ]
+      },
+      "title": "Simple variant analysis",
+      "specimen": [
+        {
+          "reference": "Specimen/genomicSpecimen"
+        }
+      ],
+      "date": "2019-03-01T01:01:10-06:00",
+      "note": [
+        {
+          "text": "For technical reasons, PIK3CB was deemed uncallable using this method."
+        }
+      ],
+      "regionsStudied": [
+        {
+          "reference": "DocumentReference/WES_FullSequencedRegion_GRCh38"
+        }
+      ],
+      "regionsCalled": [
+        {
+          "reference": "DocumentReference/SimpleVariantAnalysis_called"
+        }
+      ],
+      "output": [
+        {
+          "file": {
+            "reference": "DocumentReference/genomicVCFfile_simple"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "vcf",
+                "display": "VCF"
+              }
+            ]
+          }
+        }
+      ],
+      "performer": [
+        {
+          "actor": {
+            "reference": "Practitioner/practitioner02"
+          },
+          "role": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html",
+                "code": "PRF",
+                "display": "Performer"
+              }
+            ]
+          }
+        }
+      ],
+      "device": [
+        {
+          "device": {
+            "reference": "Device/NGS-device"
+          },
+          "function": {
+            "coding": [
+              {
+                "display": "Next Generation Sequencing"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "identifier": [
+        {
+          "use": "official",
+          "system": "http://www.somesystemabc.net/identifiers/genomicAnalyses",
+          "value": "urn:uuid:1111-1111-1111-1115"
+        }
+      ],
+      "methodType": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "117040002",
+              "display": "Nucleic acid sequencing (procedure)"
+            }
+          ]
+        }
+      ],
+      "changeType": [
+        {
+          "coding": [
+            {
+              "system": "http://sequenceontology.org",
+              "code": "SO:0001019",
+              "display": "CNV"
+            }
+          ]
+        }
+      ],
+      "genomeBuild": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "LA26806-2",
+            "display": "GRCh38"
+          }
+        ]
+      },
+      "title": "CNV analysis",
+      "specimen": [
+        {
+          "reference": "Specimen/genomicSpecimen"
+        }
+      ],
+      "date": "2019-03-01T01:01:10-06:00",
+      "note": [
+        {
+          "text": "For technical reasons, PIK3CB was deemed uncallable using this method."
+        }
+      ],
+      "regionsStudied": [
+        {
+          "reference": "DocumentReference/WES_FullSequencedRegion_GRCh38"
+        }
+      ],
+      "regionsCalled": [
+        {
+          "reference": "DocumentReference/CNVAnalysis_called"
+        }
+      ],
+      "output": [
+        {
+          "file": {
+            "reference": "DocumentReference/genomicVCFfile_cnv"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "vcf",
+                "display": "VCF"
+              }
+            ]
+          }
+        }
+      ],
+      "performer": [
+        {
+          "actor": {
+            "reference": "Practitioner/practitioner02"
+          },
+          "role": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html",
+                "code": "PRF",
+                "display": "Performer"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

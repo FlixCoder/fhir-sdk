@@ -1,0 +1,53 @@
+{
+  "resourceType": "Requirements",
+  "id": "example1",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Requirements\u003c/b\u003e\u003ca name\u003d\"example1\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Requirements \u0026quot;example1\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eurl\u003c/b\u003e: \u003ccode\u003ehttp://hl7.org/fhir/Requirements/example1\u003c/code\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: urn:oid:2.16.840.1.113883.4.642.18.1\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: ExampleRequirements1\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Example Requirements Set 1\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edate\u003c/b\u003e: 2021-11-02T14:31:30.239Z\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Example Requirements Set 1\u003c/p\u003e\u003cp\u003e\u003cb\u003eactor\u003c/b\u003e: \u003ca href\u003d\"http://hl7.org/fhir/ActorDefinition/server\"\u003ehttp://hl7.org/fhir/ActorDefinition/server\u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003estatement\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ekey\u003c/b\u003e: req-1\u003c/p\u003e\u003cp\u003e\u003cb\u003econformance\u003c/b\u003e: SHALL\u003c/p\u003e\u003cp\u003e\u003cb\u003erequirement\u003c/b\u003e: The server SHALL support expanding value sets\u003c/p\u003e\u003cp\u003e\u003cb\u003esatisfiedBy\u003c/b\u003e: \u003ca href\u003d\"http://hl7.org/fhir/terminology-service.html#expand\"\u003ehttp://hl7.org/fhir/terminology-service.html#expand\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esource\u003c/b\u003e: \u003cspan\u003e: Grahame Grieve\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003estatement\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ekey\u003c/b\u003e: 46f77dcd-d51e-4738-b61f-22506d0cb0ac\u003c/p\u003e\u003cp\u003e\u003cb\u003elabel\u003c/b\u003e: requirement-2\u003c/p\u003e\u003cp\u003e\u003cb\u003econformance\u003c/b\u003e: SHALL\u003c/p\u003e\u003cp\u003e\u003cb\u003erequirement\u003c/b\u003e: Operations based on the codeSystem resource SHALL have the same result whether or not the relationships are represented explicitly as properties or implicitly using the CodeSystem resource hierarchy\u003c/p\u003e\u003cp\u003e\u003cb\u003esource\u003c/b\u003e: \u003cspan\u003e: Jose Costa Teixeira\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/Requirements/example1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.18.1"
+    }
+  ],
+  "name": "ExampleRequirements1",
+  "title": "Example Requirements Set 1",
+  "status": "active",
+  "date": "2021-11-02T14:31:30.239Z",
+  "description": "Example Requirements Set 1",
+  "actor": [
+    "http://hl7.org/fhir/ActorDefinition/server"
+  ],
+  "statement": [
+    {
+      "key": "req-1",
+      "conformance": [
+        "SHALL"
+      ],
+      "requirement": "The server SHALL support expanding value sets",
+      "satisfiedBy": [
+        "http://hl7.org/fhir/terminology-service.html#expand"
+      ],
+      "source": [
+        {
+          "display": "Grahame Grieve"
+        }
+      ]
+    },
+    {
+      "key": "46f77dcd-d51e-4738-b61f-22506d0cb0ac",
+      "label": "requirement-2",
+      "conformance": [
+        "SHALL"
+      ],
+      "requirement": "Operations based on the codeSystem resource SHALL have the same result whether or not the relationships are represented explicitly as properties or implicitly using the CodeSystem resource hierarchy",
+      "source": [
+        {
+          "display": "Jose Costa Teixeira"
+        }
+      ]
+    }
+  ]
+}

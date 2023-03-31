@@ -1,0 +1,1773 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "qgen-BiologicallyDerivedProduct1",
+  "contained": [
+    {
+      "resourceType": "ValueSet",
+      "id": "vs2",
+      "name": "Type options for BiologicallyDerivedProduct.collection.collected[x]",
+      "status": "active",
+      "description": "Type options for BiologicallyDerivedProduct.collection.collected[x]",
+      "expansion": {
+        "identifier": "urn:uuid:4ddb8982-9698-4bcb-9305-36537d758c59",
+        "timestamp": "2023-03-26T15:24:09+11:00",
+        "contains": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "dateTime",
+            "display": "dateTime"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "Period",
+            "display": "Period"
+          }
+        ]
+      }
+    },
+    {
+      "resourceType": "ValueSet",
+      "id": "vs3",
+      "name": "Type options for BiologicallyDerivedProduct.property.value[x]",
+      "status": "active",
+      "description": "Type options for BiologicallyDerivedProduct.property.value[x]",
+      "expansion": {
+        "identifier": "urn:uuid:c5c3e998-809f-4325-94f6-07b5e92f22e4",
+        "timestamp": "2023-03-26T15:24:09+11:00",
+        "contains": [
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "boolean",
+            "display": "boolean"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "integer",
+            "display": "integer"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "CodeableConcept",
+            "display": "CodeableConcept"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "Period",
+            "display": "Period"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "Quantity",
+            "display": "Quantity"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "Range",
+            "display": "Range"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "Ratio",
+            "display": "Ratio"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "string",
+            "display": "string"
+          },
+          {
+            "system": "http://hl7.org/fhir/fhir-types",
+            "code": "Attachment",
+            "display": "Attachment"
+          }
+        ]
+      }
+    }
+  ],
+  "url": "http://hl7.org/fhir/Questionnaire/qgen-BiologicallyDerivedProduct1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986"
+    }
+  ],
+  "version": "5.0.0",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "Health Level Seven International (Orders and Observations)",
+  "item": [
+    {
+      "linkId": "BiologicallyDerivedProduct",
+      "text": "This resource reflects an instance of a biologically derived product",
+      "type": "group",
+      "required": false,
+      "repeats": true,
+      "item": [
+        {
+          "linkId": "BiologicallyDerivedProduct-display",
+          "text": "Substances include, but are not limited to: whole blood, bone marrow, organs, and manipulated blood cells.",
+          "type": "display"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "flyover",
+                    "display": "Fly-over"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct-flyover",
+          "text": "This resource reflects an instance of a biologically derived product. A material substance originating from a biological entity intended to be transplanted or infused\ninto another (possibly the same) biological entity.",
+          "type": "display"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "string"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.id",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.id-flyover",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.id.value",
+              "text": "Logical id of this artifact",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.meta",
+          "text": "Metadata about the resource",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.meta-flyover",
+              "text": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "uri"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.implicitRules",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.implicitRules-flyover",
+              "text": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc. Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.implicitRules.value",
+              "text": "A set of rules under which this content was created",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "code"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.language",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.language-flyover",
+              "text": "The base language in which the resource is written. Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.language.value",
+              "text": "language",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.text",
+          "text": "Text summary of the resource, for human interpretation",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.text-flyover",
+              "text": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety. Contained resources do not have a narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs\u003d1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "BiologicallyDerivedProduct.contained",
+          "text": "Contained, inline Resources",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.contained-flyover",
+              "text": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope. This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning. This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags in their meta elements, but SHALL NOT have security labels.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "BiologicallyDerivedProduct.extension",
+          "text": "Additional content defined by implementations",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.extension-flyover",
+              "text": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "BiologicallyDerivedProduct.modifierExtension",
+          "text": "Extensions that cannot be ignored",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.modifierExtension-flyover",
+              "text": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Coding"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.productCategory",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.productCategory-flyover",
+              "text": "Broad category of this product.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.productCategory.value",
+              "text": "organ | tissue | fluid | cells | biologicalAgent",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.productCode",
+          "text": "A code that identifies the kind of this biologically derived product",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.productCode-flyover",
+              "text": "A codified value that systematically supports characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.productCode.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.productCode.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.parent",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.parent-flyover",
+              "text": "Parent product (if any) for this biologically-derived product. For products that have multiple collections. For example Peripheral Blood Stem Cells may be collected over several days from a single donor and the donation split into in multiple containers which must be linked to the parent donation.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "BiologicallyDerivedProduct"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.parent.value",
+              "text": "The parent biologically-derived product",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.request",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.request-flyover",
+              "text": "Request to obtain and/or infuse this biologically derived product.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "ServiceRequest"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.request.value",
+              "text": "Request to obtain and/or infuse this product",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Identifier"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.identifier",
+          "text": "Instance identifier",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.identifier-flyover",
+              "text": "Unique instance identifiers assigned to a biologically derived product. Note: This is a business identifier, not a resource identifier. This identifier should uniquely identify the product instance in the business domain.  Ideally it should be a globally unique identifier under the control of an ISO/IEC 15459 Issuing Agency.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.identifier.label",
+              "text": "label:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.identifier.system",
+              "text": "system:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.identifier.value",
+              "text": "value:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Identifier"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.biologicalSourceEvent",
+          "text": "An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.biologicalSourceEvent-flyover",
+              "text": "An identifier that supports traceability to the event during which material in this product from one or more biological entities was obtained or pooled. Necessary to support mandatory requirements for traceability from donor/source to recipient and vice versa, while also satisfying donor anonymity requirements. The element is defined consistently across BiologicallyDerivedProduct, NutritionProduct, and Device.  The identifier references an event that links to a single biological entity such as a blood donor, or to multiple biological entities (e.g. when the product is an embryo or a pooled platelet product).  A single biologicalSourceEvent identifier may appear on multiple products of many types derived from a single donation event or source extraction.  As an example, a single donation event may provide 2 kidneys and a liver for organ transplantation, 2 corneas for eye surgery, heart valves and arterial tissue for cardiovascular surgery, multiple skin grafts, tendons, multiple shaped bone grafts and a large number of bone putty/paste products; and each of them may be assigned to the same biological source event identifier.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.biologicalSourceEvent.label",
+              "text": "label:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.biologicalSourceEvent.system",
+              "text": "system:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.biologicalSourceEvent.value",
+              "text": "value:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.processingFacility",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.processingFacility-flyover",
+              "text": "Processing facilities responsible for the labeling and distribution of this biologically derived product.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Organization"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.processingFacility.value",
+              "text": "Processing facilities responsible for the labeling and distribution of this biologically derived product",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "string"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.division",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.division-flyover",
+              "text": "A unique identifier for an aliquot of a product.  Used to distinguish individual aliquots of a product carrying the same biologicalSource and productCode identifiers.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.division.value",
+              "text": "A unique identifier for an aliquot of a product",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Coding"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.productStatus",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.productStatus-flyover",
+              "text": "Whether the product is currently available.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.productStatus.value",
+              "text": "available | unavailable",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "datetime"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.expirationDate",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.expirationDate-flyover",
+              "text": "Date, and where relevant time, of expiration.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.expirationDate.value",
+              "text": "Date, and where relevant time, of expiration",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.collection",
+          "text": "How this product was collected",
+          "type": "group",
+          "required": false,
+          "repeats": false,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.collection-flyover",
+              "text": "How this product was collected.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "string"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.collection.id",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.id-flyover",
+                  "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "BiologicallyDerivedProduct.collection.id.value",
+                  "text": "Unique id for inter-element referencing",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.collection.extension",
+              "text": "Additional content defined by implementations",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.extension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.collection.modifierExtension",
+              "text": "Extensions that cannot be ignored even if unrecognized",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.modifierExtension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "Reference"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.collection.collector",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.collector-flyover",
+                  "text": "Healthcare professional who is performing the collection.",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                      "valueCode": "Practitioner, PractitionerRole"
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                      "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.collector.value",
+                  "text": "Individual performing collection",
+                  "type": "reference",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "Reference"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.collection.source",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.source-flyover",
+                  "text": "The patient or entity, such as a hospital or vendor in the case of a processed/manipulated/manufactured product, providing the product.",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                      "valueCode": "Patient, Organization"
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                      "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.source.value",
+                  "text": "The patient who underwent the medical procedure to collect the product or the organization that facilitated the collection",
+                  "type": "reference",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.collection.collected[x]",
+              "text": "Time of product collection",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.collection.collected[x]-flyover",
+                  "text": "Time of product collection.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "BiologicallyDerivedProduct.collection.collected[x]._type",
+                  "text": "type",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly",
+                  "answerValueSet": "#vs2",
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "datetime"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.collection.collected[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.collection.collected[x]._null.value",
+                          "type": "dateTime",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Period"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.collection.collected[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.collection.collected[x]._null.low",
+                          "text": "start:",
+                          "type": "dateTime",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.collection.collected[x]._null.end",
+                          "text": "end:",
+                          "type": "dateTime",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Range"
+            }
+          ],
+          "linkId": "BiologicallyDerivedProduct.storageTempRequirements",
+          "text": "Product storage temperature requirements",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.storageTempRequirements-flyover",
+              "text": "The temperature requirements for storage of the biologically-derived product. May be extracted from information held in the Product Description Code.",
+              "type": "display"
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.storageTempRequirements.low",
+              "text": "low:",
+              "type": "decimal",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.storageTempRequirements.high",
+              "text": "high:",
+              "type": "decimal",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.storageTempRequirements.units",
+              "text": "units:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "linkId": "BiologicallyDerivedProduct.property",
+          "text": "A property that is specific to this BiologicallyDerviedProduct instance",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "linkId": "BiologicallyDerivedProduct.property-display",
+              "text": "Property can be used to provide information on a wide range of additional information specific to a particular biologicallyDerivedProduct.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.property-flyover",
+              "text": "A property that is specific to this BiologicallyDerviedProduct instance.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "string"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.property.id",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.property.id-flyover",
+                  "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "BiologicallyDerivedProduct.property.id.value",
+                  "text": "Unique id for inter-element referencing",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.property.extension",
+              "text": "Additional content defined by implementations",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.property.extension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "linkId": "BiologicallyDerivedProduct.property.modifierExtension",
+              "text": "Extensions that cannot be ignored even if unrecognized",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.property.modifierExtension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "CodeableConcept"
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.property.type",
+              "text": "Code that specifies the property",
+              "type": "group",
+              "required": true,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.property.type-flyover",
+                  "text": "Code that specifies the property. It should reference an established coding system. The element is identified by name and system URI in the type. Some types may have multiple occurrences.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "BiologicallyDerivedProduct.property.type.coding",
+                  "text": "code:",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
+                },
+                {
+                  "linkId": "BiologicallyDerivedProduct.property.type.text",
+                  "text": "text:",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                }
+              ],
+              "linkId": "BiologicallyDerivedProduct.property.value[x]",
+              "text": "Property values",
+              "type": "group",
+              "required": true,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "BiologicallyDerivedProduct.property.value[x]-flyover",
+                  "text": "Property values. The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available. The type of value will depend on the property type and is specified in ST-027.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "BiologicallyDerivedProduct.property.value[x]._type",
+                  "text": "type",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly",
+                  "answerValueSet": "#vs3",
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "boolean"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.value",
+                          "type": "boolean",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "integer"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.value",
+                          "type": "integer",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "CodeableConcept"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.coding",
+                          "text": "code:",
+                          "type": "coding",
+                          "required": false,
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.text",
+                          "text": "text:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Period"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.low",
+                          "text": "start:",
+                          "type": "dateTime",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.end",
+                          "text": "end:",
+                          "type": "dateTime",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Quantity"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.comparator",
+                          "text": "comp:",
+                          "type": "coding",
+                          "required": false,
+                          "repeats": false,
+                          "answerConstraint": "optionsOnly"
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.value",
+                          "text": "value:",
+                          "type": "decimal",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.units",
+                          "text": "units:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.code",
+                          "text": "coded units:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.system",
+                          "text": "units system:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Range"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.low",
+                          "text": "low:",
+                          "type": "decimal",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.high",
+                          "text": "high:",
+                          "type": "decimal",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.units",
+                          "text": "units:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Ratio"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.numerator",
+                          "text": "numerator:",
+                          "type": "decimal",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.denominator",
+                          "text": "denominator:",
+                          "type": "decimal",
+                          "required": false,
+                          "repeats": false
+                        },
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.units",
+                          "text": "units:",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "string"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group",
+                      "item": [
+                        {
+                          "linkId": "BiologicallyDerivedProduct.property.value[x]._null.value",
+                          "type": "string",
+                          "required": false,
+                          "repeats": false
+                        }
+                      ]
+                    },
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                          "valueString": "Attachment"
+                        }
+                      ],
+                      "linkId": "BiologicallyDerivedProduct.property.value[x]._null",
+                      "type": "group"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

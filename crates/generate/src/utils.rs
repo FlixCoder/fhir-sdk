@@ -2,7 +2,7 @@
 
 use std::str::FromStr;
 
-/// Status of a Definition.
+/// Status of a Definition. (TODO: Replace with FHIR RequestStatus)
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Status {
 	/// Draft.

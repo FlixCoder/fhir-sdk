@@ -1,0 +1,145 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "example-supplement-2",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cp\u003eThis code system \n        \u003ccode\u003ehttp://hl7.org/fhir/bundle-type-de\u003c/code\u003e\n      \u003c/p\u003e\n      \u003ctable class\u003d\"codes\"\u003e\n        \u003ctr\u003e\n          \u003ctd style\u003d\"white-space:nowrap\"\u003e\n            \u003cb\u003eCode\u003c/b\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-document\"\u003edocument\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-document\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-message\"\u003emessage\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-message\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-transaction\"\u003etransaction\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-transaction\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-transaction-response\"\u003etransaction-response\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-transaction-response\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-batch\"\u003ebatch\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-batch\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-batch-response\"\u003ebatch-response\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-batch-response\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-history\"\u003ehistory\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-history\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-searchset\"\u003esearchset\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-searchset\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003ca style\u003d\"white-space:nowrap\" href\u003d\"codesystem-bundle-type.html#bundle-type-collection\"\u003ecollection\u003c/a\u003e\n            \u003ca name\u003d\"example-supplement-2-collection\"\u003e \u003c/a\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n      \u003cp\u003e\n        \u003cb\u003eAdditional Language Displays\u003c/b\u003e\n      \u003c/p\u003e\n      \u003ctable class\u003d\"codes\"\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003cb\u003eCode\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003eDeutsch (German, de)\u003c/b\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003edocument\u003c/td\u003e\n          \u003ctd\u003eDokument\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003emessage\u003c/td\u003e\n          \u003ctd\u003eNachricht\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003etransaction\u003c/td\u003e\n          \u003ctd\u003eTransaktion\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003etransaction-response\u003c/td\u003e\n          \u003ctd\u003eTransaktionsantwort\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003ebatch\u003c/td\u003e\n          \u003ctd\u003eStapel\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003ebatch-response\u003c/td\u003e\n          \u003ctd\u003eBatch-Antwort\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003ehistory\u003c/td\u003e\n          \u003ctd\u003eVerlaufsliste\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003esearchset\u003c/td\u003e\n          \u003ctd\u003eSuchergebnisse\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003ecollection\u003c/td\u003e\n          \u003ctd\u003eSammlung\u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/bundle-type-de",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1822"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "BundleTypeGerman",
+  "title": "Bundle Type German",
+  "status": "draft",
+  "experimental": true,
+  "date": "2017-12-21T16:40:38+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "German Translations for Bundle Type",
+  "copyright": "Creative Commons 0",
+  "content": "supplement",
+  "supplements": "http://hl7.org/fhir/bundle-type",
+  "concept": [
+    {
+      "code": "document",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Dokument"
+        }
+      ]
+    },
+    {
+      "code": "message",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Nachricht"
+        }
+      ]
+    },
+    {
+      "code": "transaction",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Transaktion"
+        }
+      ]
+    },
+    {
+      "code": "transaction-response",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Transaktionsantwort"
+        }
+      ]
+    },
+    {
+      "code": "batch",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Stapel"
+        }
+      ]
+    },
+    {
+      "code": "batch-response",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Batch-Antwort"
+        }
+      ]
+    },
+    {
+      "code": "history",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Verlaufsliste"
+        }
+      ]
+    },
+    {
+      "code": "searchset",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Suchergebnisse"
+        }
+      ]
+    },
+    {
+      "code": "collection",
+      "designation": [
+        {
+          "language": "de",
+          "use": {
+            "system": "http://terminology.hl7.org/CodeSystem/hl7TermMaintInfra",
+            "code": "preferredForLanguage"
+          },
+          "value": "Sammlung"
+        }
+      ]
+    }
+  ]
+}

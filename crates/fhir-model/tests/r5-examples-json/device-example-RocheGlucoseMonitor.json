@@ -1,0 +1,145 @@
+{
+  "resourceType": "Device",
+  "id": "RocheGlucoseMonitor",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Device\u003c/b\u003e\u003ca name\u003d\"RocheGlucoseMonitor\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Device \u0026quot;RocheGlucoseMonitor\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: System Identifier: 00-60-19-00-01-0E-92-34, Bluetooth Address: F4-5E-AB-A8-08-32\u003c/p\u003e\u003ch3\u003eUdiCarriers\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDeviceIdentifier\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eIssuer\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eJurisdiction\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCarrierHRF\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEntryType\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e26868744401925\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://hl7.org/fhir/NamingSystem/gs1-di\"\u003ehttp://hl7.org/fhir/NamingSystem/gs1-di\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://hl7.org/fhir/NamingSystem/fda-udi\"\u003ehttp://hl7.org/fhir/NamingSystem/fda-udi\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e(01)26868744401925(21)92300365108\u003c/td\u003e\u003ctd\u003eunknown\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003emanufacturer\u003c/b\u003e: Roche\u003c/p\u003e\u003cp\u003e\u003cb\u003eserialNumber\u003c/b\u003e: 92300365108\u003c/p\u003e\u003ch3\u003eNames\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003emeter+00365108\u003c/td\u003e\u003ctd\u003euser-friendly-name\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003emodelNumber\u003c/b\u003e: 923\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_MOC_VMS_MDS_SIMP: Personal Health Device \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#65573 \u0026quot;MDC_MOC_VMS_MDS_SIMP\u0026quot;)\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eVersions\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eMDC_ID_PROD_SPEC_FW: Firmware revision \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#531976)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003ev1.8.3\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ch3\u003eConformsTos\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eSpecification\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eVersion\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eMDC_DEV_SPEC_PROFILE_GLUCOSE: Glucose Meter \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#528401)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e2\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#68220)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: MDC_TIME_SYNC_NONE: No time synchronization \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532224)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: mds-time-capab-real-time-clock \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ASN1ToHL7#68219.0)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: real time clock supported \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (v2-0136#Y)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers",
+            "code": "SYSID",
+            "display": "System Identifier"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680",
+      "value": "00-60-19-00-01-0E-92-34"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers",
+            "code": "BTMAC",
+            "display": "Bluetooth Address"
+          }
+        ]
+      },
+      "system": "http://hl7.org/fhir/sid/eui-48",
+      "value": "F4-5E-AB-A8-08-32"
+    }
+  ],
+  "udiCarrier": [
+    {
+      "deviceIdentifier": "26868744401925",
+      "issuer": "http://hl7.org/fhir/NamingSystem/gs1-di",
+      "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi",
+      "carrierHRF": "(01)26868744401925(21)92300365108",
+      "entryType": "unknown"
+    }
+  ],
+  "manufacturer": "Roche",
+  "serialNumber": "92300365108",
+  "name": [
+    {
+      "value": "meter+00365108",
+      "type": "user-friendly-name"
+    }
+  ],
+  "modelNumber": "923",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:11073:10101",
+          "code": "65573",
+          "display": "MDC_MOC_VMS_MDS_SIMP"
+        }
+      ],
+      "text": "MDC_MOC_VMS_MDS_SIMP: Personal Health Device"
+    }
+  ],
+  "version": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "531976"
+          }
+        ],
+        "text": "MDC_ID_PROD_SPEC_FW: Firmware revision"
+      },
+      "value": "v1.8.3"
+    }
+  ],
+  "conformsTo": [
+    {
+      "specification": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "528401"
+          }
+        ],
+        "text": "MDC_DEV_SPEC_PROFILE_GLUCOSE: Glucose Meter"
+      },
+      "version": "2"
+    }
+  ],
+  "property": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "68220"
+          }
+        ],
+        "text": "MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532224"
+          }
+        ],
+        "text": "MDC_TIME_SYNC_NONE: No time synchronization"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ASN1ToHL7",
+            "code": "68219.0"
+          }
+        ],
+        "text": "mds-time-capab-real-time-clock"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+            "code": "Y"
+          }
+        ],
+        "text": "real time clock supported"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

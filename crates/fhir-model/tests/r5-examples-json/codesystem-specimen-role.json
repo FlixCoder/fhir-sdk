@@ -1,0 +1,118 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "specimen-role",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/specimen-role\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eb\u003ca name\u003d\"specimen-role-b\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBlind Sample\u003c/td\u003e\u003ctd\u003eUsed to test the validity of the measurement process, where the composition of the sample is unknown except to the person submitting it.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ec\u003ca name\u003d\"specimen-role-c\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCalibrator\u003c/td\u003e\u003ctd\u003eUsed for initial setting of calibration of the instrument.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ee\u003ca name\u003d\"specimen-role-e\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eElectronic QC\u003c/td\u003e\u003ctd\u003eUsed with manufactured reference providing signals that simulate QC results.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ef\u003ca name\u003d\"specimen-role-f\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFiller Organization Proficiency\u003c/td\u003e\u003ctd\u003eSpecimen used for testing proficiency of the organization performing the testing (Filler).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eo\u003ca name\u003d\"specimen-role-o\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOperator Proficiency\u003c/td\u003e\u003ctd\u003eSpecimen used for testing Operator Proficiency.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ep\u003ca name\u003d\"specimen-role-p\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePatient\u003c/td\u003e\u003ctd\u003eUsed for any patient sample.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eq\u003ca name\u003d\"specimen-role-q\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eControl specimen\u003c/td\u003e\u003ctd\u003eUsed when specimen is the control specimen (either positive or negative).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003er\u003ca name\u003d\"specimen-role-r\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReplicate (of patient sample as a control)\u003c/td\u003e\u003ctd\u003eUsed when a patient sample is re-run as a control for a repeat test.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ev\u003ca name\u003d\"specimen-role-v\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eVerifying Calibrator\u003c/td\u003e\u003ctd\u003eUsed for periodic calibration checks.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/specimen-role",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2060"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "SpecimenRole",
+  "title": "Specimen Role",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes providing the combined status of the specimen.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/specimen-role",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "b",
+      "display": "Blind Sample",
+      "definition": "Used to test the validity of the measurement process, where the composition of the sample is unknown except to the person submitting it."
+    },
+    {
+      "code": "c",
+      "display": "Calibrator",
+      "definition": "Used for initial setting of calibration of the instrument."
+    },
+    {
+      "code": "e",
+      "display": "Electronic QC",
+      "definition": "Used with manufactured reference providing signals that simulate QC results."
+    },
+    {
+      "code": "f",
+      "display": "Filler Organization Proficiency",
+      "definition": "Specimen used for testing proficiency of the organization performing the testing (Filler)."
+    },
+    {
+      "code": "o",
+      "display": "Operator Proficiency",
+      "definition": "Specimen used for testing Operator Proficiency."
+    },
+    {
+      "code": "p",
+      "display": "Patient",
+      "definition": "Used for any patient sample."
+    },
+    {
+      "code": "q",
+      "display": "Control specimen",
+      "definition": "Used when specimen is the control specimen (either positive or negative)."
+    },
+    {
+      "code": "r",
+      "display": "Replicate (of patient sample as a control)",
+      "definition": "Used when a patient sample is re-run as a control for a repeat test."
+    },
+    {
+      "code": "v",
+      "display": "Verifying Calibrator",
+      "definition": "Used for periodic calibration checks."
+    }
+  ]
+}

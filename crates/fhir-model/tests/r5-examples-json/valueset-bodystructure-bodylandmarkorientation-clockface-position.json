@@ -1,0 +1,115 @@
+{
+  "resourceType": "ValueSet",
+  "id": "bodystructure-bodylandmarkorientation-clockface-position",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260318004\"\u003e260318004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e1 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260328008\"\u003e260328008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e2 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260330005\"\u003e260330005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e3 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260333007\"\u003e260333007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e4 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260335000\"\u003e260335000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e5 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260337008\"\u003e260337008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e6 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260339006\"\u003e260339006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e7 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260341007\"\u003e260341007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e8 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260343005\"\u003e260343005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e9 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260322009\"\u003e260322009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e10 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260324005\"\u003e260324005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e11 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/260326007\"\u003e260326007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e12 o\u0027clock position\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/bodystructure-bodylandmarkorientation-clockface-position",
+  "version": "5.0.0",
+  "name": "BodystructureBodyLandmarkClockFacePosition",
+  "title": "Bodystructure  Body Landmark  Clock  Face  Position",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Select SNOMED CT codes. A set of codes that describe a things orientation based on a hourly positions of a clock face.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "260318004",
+            "display": "1 o\u0027clock position"
+          },
+          {
+            "code": "260328008",
+            "display": "2 o\u0027clock position"
+          },
+          {
+            "code": "260330005",
+            "display": "3 o\u0027clock position"
+          },
+          {
+            "code": "260333007",
+            "display": "4 o\u0027clock position"
+          },
+          {
+            "code": "260335000",
+            "display": "5 o\u0027clock position"
+          },
+          {
+            "code": "260337008",
+            "display": "6 o\u0027clock position"
+          },
+          {
+            "code": "260339006",
+            "display": "7 o\u0027clock position"
+          },
+          {
+            "code": "260341007",
+            "display": "8 o\u0027clock position"
+          },
+          {
+            "code": "260343005",
+            "display": "9 o\u0027clock position"
+          },
+          {
+            "code": "260322009",
+            "display": "10 o\u0027clock position"
+          },
+          {
+            "code": "260324005",
+            "display": "11 o\u0027clock position"
+          },
+          {
+            "code": "260326007",
+            "display": "12 o\u0027clock position"
+          }
+        ]
+      }
+    ]
+  }
+}

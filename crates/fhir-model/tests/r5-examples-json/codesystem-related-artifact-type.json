@@ -1,0 +1,250 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "related-artifact-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/related-artifact-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edocumentation\u003ca name\u003d\"related-artifact-type-documentation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDocumentation\u003c/td\u003e\u003ctd\u003eAdditional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ejustification\u003ca name\u003d\"related-artifact-type-justification\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eJustification\u003c/td\u003e\u003ctd\u003eThe target artifact is a summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecitation\u003ca name\u003d\"related-artifact-type-citation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCitation\u003c/td\u003e\u003ctd\u003eBibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epredecessor\u003ca name\u003d\"related-artifact-type-predecessor\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePredecessor\u003c/td\u003e\u003ctd\u003eThe previous version of the knowledge artifact, used to establish an ordering of versions of an artifact, independent of the status of each version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esuccessor\u003ca name\u003d\"related-artifact-type-successor\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSuccessor\u003c/td\u003e\u003ctd\u003eThe subsequent version of the knowledge artfact, used to establish an ordering of versions of an artifact, independent of the status of each version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ederived-from\u003ca name\u003d\"related-artifact-type-derived-from\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDerived From\u003c/td\u003e\u003ctd\u003eThis artifact is derived from the target artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting. The artifact may be derived from one or more target artifacts.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edepends-on\u003ca name\u003d\"related-artifact-type-depends-on\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDepends On\u003c/td\u003e\u003ctd\u003eThis artifact depends on the target artifact. There is a requirement to use the target artifact in the creation or interpretation of this artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecomposed-of\u003ca name\u003d\"related-artifact-type-composed-of\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eComposed Of\u003c/td\u003e\u003ctd\u003eThis artifact is composed of the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epart-of\u003ca name\u003d\"related-artifact-type-part-of\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePart Of\u003c/td\u003e\u003ctd\u003eThis artifact is a part of the target artifact. The target artifact is composed of this artifact (and possibly other artifacts).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eamends\u003ca name\u003d\"related-artifact-type-amends\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAmends\u003c/td\u003e\u003ctd\u003eThis artifact amends or changes the target artifact. This artifact adds additional information that is functionally expected to replace information in the target artifact. This artifact replaces a part but not all of the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eamended-with\u003ca name\u003d\"related-artifact-type-amended-with\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAmended With\u003c/td\u003e\u003ctd\u003eThis artifact is amended with or changed by the target artifact. There is information in this artifact that should be functionally replaced with information in the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eappends\u003ca name\u003d\"related-artifact-type-appends\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAppends\u003c/td\u003e\u003ctd\u003eThis artifact adds additional information to the target artifact. The additional information does not replace or change information in the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eappended-with\u003ca name\u003d\"related-artifact-type-appended-with\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAppended With\u003c/td\u003e\u003ctd\u003eThis artifact has additional information in the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecites\u003ca name\u003d\"related-artifact-type-cites\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCites\u003c/td\u003e\u003ctd\u003eThis artifact cites the target artifact. This may be a bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecited-by\u003ca name\u003d\"related-artifact-type-cited-by\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCited By\u003c/td\u003e\u003ctd\u003eThis artifact is cited by the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecomments-on\u003ca name\u003d\"related-artifact-type-comments-on\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIs Comment On\u003c/td\u003e\u003ctd\u003eThis artifact contains comments about the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecomment-in\u003ca name\u003d\"related-artifact-type-comment-in\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHas Comment In\u003c/td\u003e\u003ctd\u003eThis artifact has comments about it in the target artifact.  The type of comments may be expressed in the targetClassifier element such as reply, review, editorial, feedback, solicited, unsolicited, structured, unstructured.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtains\u003ca name\u003d\"related-artifact-type-contains\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContains\u003c/td\u003e\u003ctd\u003eThis artifact is a container in which the target artifact is contained. A container is a data structure whose instances are collections of other objects. (A database contains the dataset.).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtained-in\u003ca name\u003d\"related-artifact-type-contained-in\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContained In\u003c/td\u003e\u003ctd\u003eThis artifact is contained in the target artifact. The target artifact is a data structure whose instances are collections of other objects.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecorrects\u003ca name\u003d\"related-artifact-type-corrects\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCorrects\u003c/td\u003e\u003ctd\u003eThis artifact identifies errors and replacement content for the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecorrection-in\u003ca name\u003d\"related-artifact-type-correction-in\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCorrection In\u003c/td\u003e\u003ctd\u003eThis artifact has corrections to it in the target artifact. The target artifact identifies errors and replacement content for this artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereplaces\u003ca name\u003d\"related-artifact-type-replaces\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReplaces\u003c/td\u003e\u003ctd\u003eThis artifact replaces or supersedes the target artifact. The target artifact may be considered deprecated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereplaced-with\u003ca name\u003d\"related-artifact-type-replaced-with\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReplaced With\u003c/td\u003e\u003ctd\u003eThis artifact is replaced with or superseded by the target artifact. This artifact may be considered deprecated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eretracts\u003ca name\u003d\"related-artifact-type-retracts\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRetracts\u003c/td\u003e\u003ctd\u003eThis artifact retracts the target artifact. The content that was published in the target artifact should be considered removed from publication and should no longer be considered part of the public record.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eretracted-by\u003ca name\u003d\"related-artifact-type-retracted-by\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRetracted By\u003c/td\u003e\u003ctd\u003eThis artifact is retracted by the target artifact. The content that was published in this artifact should be considered removed from publication and should no longer be considered part of the public record.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esigns\u003ca name\u003d\"related-artifact-type-signs\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSigns\u003c/td\u003e\u003ctd\u003eThis artifact is a signature of the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esimilar-to\u003ca name\u003d\"related-artifact-type-similar-to\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSimilar To\u003c/td\u003e\u003ctd\u003eThis artifact has characteristics in common with the target artifact. This relationship may be used in systems to “deduplicate” knowledge artifacts from different sources, or in systems to show “similar items”.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esupports\u003ca name\u003d\"related-artifact-type-supports\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSupports\u003c/td\u003e\u003ctd\u003eThis artifact provides additional support for the target artifact. The type of support  is not documentation as it does not describe, explain, or instruct regarding the target artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esupported-with\u003ca name\u003d\"related-artifact-type-supported-with\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSupported With\u003c/td\u003e\u003ctd\u003eThe target artifact contains additional information related to the knowledge artifact but is not documentation as the additional information does not describe, explain, or instruct regarding the knowledge artifact content or application. This could include an associated dataset.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etransforms\u003ca name\u003d\"related-artifact-type-transforms\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTransforms\u003c/td\u003e\u003ctd\u003eThis artifact was generated by transforming the target artifact (e.g., format or language conversion). This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but changes are only apparent in form and there is only one target artifact with the “transforms” relationship type.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etransformed-into\u003ca name\u003d\"related-artifact-type-transformed-into\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTransformed Into\u003c/td\u003e\u003ctd\u003eThis artifact was transformed into the target artifact (e.g., by format or language conversion).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etransformed-with\u003ca name\u003d\"related-artifact-type-transformed-with\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTransformed With\u003c/td\u003e\u003ctd\u003eThis artifact was generated by transforming a related artifact (e.g., format or language conversion), noted separately with the “transforms” relationship type. This transformation used the target artifact to inform the transformation. The target artifact may be a conversion script or translation guide.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edocuments\u003ca name\u003d\"related-artifact-type-documents\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDocuments\u003c/td\u003e\u003ctd\u003eThis artifact provides additional documentation for the target artifact. This could include additional instructions on usage as well as additional information on clinical context or appropriateness.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003especification-of\u003ca name\u003d\"related-artifact-type-specification-of\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSpecification Of\u003c/td\u003e\u003ctd\u003eThe target artifact is a precise description of a concept in this artifact. This may be used when the RelatedArtifact datatype is used in elements contained in this artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecreated-with\u003ca name\u003d\"related-artifact-type-created-with\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreated With\u003c/td\u003e\u003ctd\u003eThis artifact was created with the target artifact. The target artifact is a tool or support material used in the creation of the artifact, and not content that the artifact was derived from.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecite-as\u003ca name\u003d\"related-artifact-type-cite-as\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCite As\u003c/td\u003e\u003ctd\u003eThe related artifact is the citation for this artifact.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/related-artifact-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.100"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "RelatedArtifactType",
+  "title": "RelatedArtifactType",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The type of relationship to the related artifact.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/related-artifact-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "documentation",
+      "display": "Documentation",
+      "definition": "Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness."
+    },
+    {
+      "code": "justification",
+      "display": "Justification",
+      "definition": "The target artifact is a summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource."
+    },
+    {
+      "code": "citation",
+      "display": "Citation",
+      "definition": "Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource."
+    },
+    {
+      "code": "predecessor",
+      "display": "Predecessor",
+      "definition": "The previous version of the knowledge artifact, used to establish an ordering of versions of an artifact, independent of the status of each version."
+    },
+    {
+      "code": "successor",
+      "display": "Successor",
+      "definition": "The subsequent version of the knowledge artfact, used to establish an ordering of versions of an artifact, independent of the status of each version."
+    },
+    {
+      "code": "derived-from",
+      "display": "Derived From",
+      "definition": "This artifact is derived from the target artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting. The artifact may be derived from one or more target artifacts."
+    },
+    {
+      "code": "depends-on",
+      "display": "Depends On",
+      "definition": "This artifact depends on the target artifact. There is a requirement to use the target artifact in the creation or interpretation of this artifact."
+    },
+    {
+      "code": "composed-of",
+      "display": "Composed Of",
+      "definition": "This artifact is composed of the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.)."
+    },
+    {
+      "code": "part-of",
+      "display": "Part Of",
+      "definition": "This artifact is a part of the target artifact. The target artifact is composed of this artifact (and possibly other artifacts)."
+    },
+    {
+      "code": "amends",
+      "display": "Amends",
+      "definition": "This artifact amends or changes the target artifact. This artifact adds additional information that is functionally expected to replace information in the target artifact. This artifact replaces a part but not all of the target artifact."
+    },
+    {
+      "code": "amended-with",
+      "display": "Amended With",
+      "definition": "This artifact is amended with or changed by the target artifact. There is information in this artifact that should be functionally replaced with information in the target artifact."
+    },
+    {
+      "code": "appends",
+      "display": "Appends",
+      "definition": "This artifact adds additional information to the target artifact. The additional information does not replace or change information in the target artifact."
+    },
+    {
+      "code": "appended-with",
+      "display": "Appended With",
+      "definition": "This artifact has additional information in the target artifact."
+    },
+    {
+      "code": "cites",
+      "display": "Cites",
+      "definition": "This artifact cites the target artifact. This may be a bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource."
+    },
+    {
+      "code": "cited-by",
+      "display": "Cited By",
+      "definition": "This artifact is cited by the target artifact."
+    },
+    {
+      "code": "comments-on",
+      "display": "Is Comment On",
+      "definition": "This artifact contains comments about the target artifact."
+    },
+    {
+      "code": "comment-in",
+      "display": "Has Comment In",
+      "definition": "This artifact has comments about it in the target artifact.  The type of comments may be expressed in the targetClassifier element such as reply, review, editorial, feedback, solicited, unsolicited, structured, unstructured."
+    },
+    {
+      "code": "contains",
+      "display": "Contains",
+      "definition": "This artifact is a container in which the target artifact is contained. A container is a data structure whose instances are collections of other objects. (A database contains the dataset.)."
+    },
+    {
+      "code": "contained-in",
+      "display": "Contained In",
+      "definition": "This artifact is contained in the target artifact. The target artifact is a data structure whose instances are collections of other objects."
+    },
+    {
+      "code": "corrects",
+      "display": "Corrects",
+      "definition": "This artifact identifies errors and replacement content for the target artifact."
+    },
+    {
+      "code": "correction-in",
+      "display": "Correction In",
+      "definition": "This artifact has corrections to it in the target artifact. The target artifact identifies errors and replacement content for this artifact."
+    },
+    {
+      "code": "replaces",
+      "display": "Replaces",
+      "definition": "This artifact replaces or supersedes the target artifact. The target artifact may be considered deprecated."
+    },
+    {
+      "code": "replaced-with",
+      "display": "Replaced With",
+      "definition": "This artifact is replaced with or superseded by the target artifact. This artifact may be considered deprecated."
+    },
+    {
+      "code": "retracts",
+      "display": "Retracts",
+      "definition": "This artifact retracts the target artifact. The content that was published in the target artifact should be considered removed from publication and should no longer be considered part of the public record."
+    },
+    {
+      "code": "retracted-by",
+      "display": "Retracted By",
+      "definition": "This artifact is retracted by the target artifact. The content that was published in this artifact should be considered removed from publication and should no longer be considered part of the public record."
+    },
+    {
+      "code": "signs",
+      "display": "Signs",
+      "definition": "This artifact is a signature of the target artifact."
+    },
+    {
+      "code": "similar-to",
+      "display": "Similar To",
+      "definition": "This artifact has characteristics in common with the target artifact. This relationship may be used in systems to “deduplicate” knowledge artifacts from different sources, or in systems to show “similar items”."
+    },
+    {
+      "code": "supports",
+      "display": "Supports",
+      "definition": "This artifact provides additional support for the target artifact. The type of support  is not documentation as it does not describe, explain, or instruct regarding the target artifact."
+    },
+    {
+      "code": "supported-with",
+      "display": "Supported With",
+      "definition": "The target artifact contains additional information related to the knowledge artifact but is not documentation as the additional information does not describe, explain, or instruct regarding the knowledge artifact content or application. This could include an associated dataset."
+    },
+    {
+      "code": "transforms",
+      "display": "Transforms",
+      "definition": "This artifact was generated by transforming the target artifact (e.g., format or language conversion). This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but changes are only apparent in form and there is only one target artifact with the “transforms” relationship type."
+    },
+    {
+      "code": "transformed-into",
+      "display": "Transformed Into",
+      "definition": "This artifact was transformed into the target artifact (e.g., by format or language conversion)."
+    },
+    {
+      "code": "transformed-with",
+      "display": "Transformed With",
+      "definition": "This artifact was generated by transforming a related artifact (e.g., format or language conversion), noted separately with the “transforms” relationship type. This transformation used the target artifact to inform the transformation. The target artifact may be a conversion script or translation guide."
+    },
+    {
+      "code": "documents",
+      "display": "Documents",
+      "definition": "This artifact provides additional documentation for the target artifact. This could include additional instructions on usage as well as additional information on clinical context or appropriateness."
+    },
+    {
+      "code": "specification-of",
+      "display": "Specification Of",
+      "definition": "The target artifact is a precise description of a concept in this artifact. This may be used when the RelatedArtifact datatype is used in elements contained in this artifact."
+    },
+    {
+      "code": "created-with",
+      "display": "Created With",
+      "definition": "This artifact was created with the target artifact. The target artifact is a tool or support material used in the creation of the artifact, and not content that the artifact was derived from."
+    },
+    {
+      "code": "cite-as",
+      "display": "Cite As",
+      "definition": "The related artifact is the citation for this artifact."
+    }
+  ]
+}

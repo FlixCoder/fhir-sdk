@@ -1,0 +1,130 @@
+{
+  "resourceType": "ValueSet",
+  "id": "device-specification-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003e\u003ccode\u003eurn:iso:std:iso:11073:10101\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528391\u003c/td\u003e\u003ctd\u003eBlood Pressure Cuff\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528404\u003c/td\u003e\u003ctd\u003eBody Composition Analyzer\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528425\u003c/td\u003e\u003ctd\u003eCardiovascular Device\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528402\u003c/td\u003e\u003ctd\u003eCoagulation meter\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528409\u003c/td\u003e\u003ctd\u003eContinuous Glucose Monitor\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528390\u003c/td\u003e\u003ctd\u003eElectro cardiograph\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528457\u003c/td\u003e\u003ctd\u003eGeneric 20601 Device\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528401\u003c/td\u003e\u003ctd\u003eGlucose Monitor\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528455\u003c/td\u003e\u003ctd\u003eIndependent Activity/Living Hub\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528403\u003c/td\u003e\u003ctd\u003eInsulin Pump\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528405\u003c/td\u003e\u003ctd\u003ePeak Flow meter\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528388\u003c/td\u003e\u003ctd\u003ePulse Oximeter\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528397\u003c/td\u003e\u003ctd\u003eRespiration rate\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528408\u003c/td\u003e\u003ctd\u003eSleep Apnea Breathing Equipment\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528426\u003c/td\u003e\u003ctd\u003eStrength Equipment\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528392\u003c/td\u003e\u003ctd\u003eThermometer\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528399\u003c/td\u003e\u003ctd\u003eWeight Scale\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/device-specification-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3204"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "DeviceSpecificationType",
+  "title": "Device Specification Type",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7 International",
+  "description": "The type or specification of a standard that devices can adhere to",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "urn:iso:std:iso:11073:10101",
+        "concept": [
+          {
+            "code": "528391",
+            "display": "Blood Pressure Cuff"
+          },
+          {
+            "code": "528404",
+            "display": "Body Composition Analyzer"
+          },
+          {
+            "code": "528425",
+            "display": "Cardiovascular Device"
+          },
+          {
+            "code": "528402",
+            "display": "Coagulation meter"
+          },
+          {
+            "code": "528409",
+            "display": "Continuous Glucose Monitor"
+          },
+          {
+            "code": "528390",
+            "display": "Electro cardiograph"
+          },
+          {
+            "code": "528457",
+            "display": "Generic 20601 Device"
+          },
+          {
+            "code": "528401",
+            "display": "Glucose Monitor"
+          },
+          {
+            "code": "528455",
+            "display": "Independent Activity/Living Hub"
+          },
+          {
+            "code": "528403",
+            "display": "Insulin Pump"
+          },
+          {
+            "code": "528405",
+            "display": "Peak Flow meter"
+          },
+          {
+            "code": "528388",
+            "display": "Pulse Oximeter"
+          },
+          {
+            "code": "528397",
+            "display": "Respiration rate"
+          },
+          {
+            "code": "528408",
+            "display": "Sleep Apnea Breathing Equipment"
+          },
+          {
+            "code": "528426",
+            "display": "Strength Equipment"
+          },
+          {
+            "code": "528392",
+            "display": "Thermometer"
+          },
+          {
+            "code": "528399",
+            "display": "Weight Scale"
+          }
+        ]
+      }
+    ]
+  }
+}

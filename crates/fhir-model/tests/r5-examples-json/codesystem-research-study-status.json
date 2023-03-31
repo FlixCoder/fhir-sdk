@@ -1,0 +1,163 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "research-study-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T09:21:02+05:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/research-study-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoverall-study\u003ca name\u003d\"research-study-status-overall-study\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOverall study\u003c/td\u003e\u003ctd\u003eUsed for documenting the start and end of the overall study, distinct from progress states.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eactive\u003ca name\u003d\"research-study-status-active\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eActive\u003c/td\u003e\u003ctd\u003eStudy is opened for accrual.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eactive-but-not-recruiting\u003ca name\u003d\"research-study-status-active-but-not-recruiting\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eActive, not recruiting\u003c/td\u003e\u003ctd\u003eThe study is ongoing, and participants are receiving an intervention or being examined, but potential participants are not currently being recruited or enrolled.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eadministratively-completed\u003ca name\u003d\"research-study-status-administratively-completed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAdministratively Completed\u003c/td\u003e\u003ctd\u003eStudy is completed prematurely and will not resume; patients are no longer examined nor treated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eapproved\u003ca name\u003d\"research-study-status-approved\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eApproved\u003c/td\u003e\u003ctd\u003eProtocol is approved by the review board.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eclosed-to-accrual\u003ca name\u003d\"research-study-status-closed-to-accrual\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClosed to Accrual\u003c/td\u003e\u003ctd\u003eStudy is closed for accrual; patients can be examined and treated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eclosed-to-accrual-and-intervention\u003ca name\u003d\"research-study-status-closed-to-accrual-and-intervention\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClosed to Accrual and Intervention\u003c/td\u003e\u003ctd\u003eStudy is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecompleted\u003ca name\u003d\"research-study-status-completed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCompleted\u003c/td\u003e\u003ctd\u003eThe study closed according to the study plan. There will be no further treatments, interventions or data collection.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edisapproved\u003ca name\u003d\"research-study-status-disapproved\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDisapproved\u003c/td\u003e\u003ctd\u003eProtocol was disapproved by the review board.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eenrolling-by-invitation\u003ca name\u003d\"research-study-status-enrolling-by-invitation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEnrolling by invitation\u003c/td\u003e\u003ctd\u003eThe study is selecting its participants from a population, or group of people, decided on by the researchers in advance. These studies are not open to everyone who meets the eligibility criteria but only to people in that particular population, who are specifically invited to participate.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ein-review\u003ca name\u003d\"research-study-status-in-review\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIn Review\u003c/td\u003e\u003ctd\u003eProtocol is submitted to the review board for approval.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enot-yet-recruiting\u003ca name\u003d\"research-study-status-not-yet-recruiting\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot yet recruiting\u003c/td\u003e\u003ctd\u003eThe study has not started recruiting participants.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erecruiting\u003ca name\u003d\"research-study-status-recruiting\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRecruiting\u003c/td\u003e\u003ctd\u003eThe study is currently recruiting participants.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etemporarily-closed-to-accrual\u003ca name\u003d\"research-study-status-temporarily-closed-to-accrual\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTemporarily Closed to Accrual\u003c/td\u003e\u003ctd\u003eStudy is temporarily closed for accrual; can be potentially resumed in the future; patients can be examined and treated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etemporarily-closed-to-accrual-and-intervention\u003ca name\u003d\"research-study-status-temporarily-closed-to-accrual-and-intervention\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTemporarily Closed to Accrual and Intervention\u003c/td\u003e\u003ctd\u003eStudy is temporarily closed for accrual and intervention and potentially can be resumed in the future.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eterminated\u003ca name\u003d\"research-study-status-terminated\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTerminated\u003c/td\u003e\u003ctd\u003eThe study has stopped early and will not start again. Participants are no longer being examined or treated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewithdrawn\u003ca name\u003d\"research-study-status-withdrawn\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWithdrawn\u003c/td\u003e\u003ctd\u003eProtocol was withdrawn by the lead organization.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "brr"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/research-study-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.820"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.803"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ResearchStudyStatus",
+  "title": "Research Study Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes that convey the current status of the research study.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/research-study-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "overall-study",
+      "display": "Overall study",
+      "definition": "Used for documenting the start and end of the overall study, distinct from progress states."
+    },
+    {
+      "code": "active",
+      "display": "Active",
+      "definition": "Study is opened for accrual."
+    },
+    {
+      "code": "active-but-not-recruiting",
+      "display": "Active, not recruiting",
+      "definition": "The study is ongoing, and participants are receiving an intervention or being examined, but potential participants are not currently being recruited or enrolled."
+    },
+    {
+      "code": "administratively-completed",
+      "display": "Administratively Completed",
+      "definition": "Study is completed prematurely and will not resume; patients are no longer examined nor treated."
+    },
+    {
+      "code": "approved",
+      "display": "Approved",
+      "definition": "Protocol is approved by the review board."
+    },
+    {
+      "code": "closed-to-accrual",
+      "display": "Closed to Accrual",
+      "definition": "Study is closed for accrual; patients can be examined and treated."
+    },
+    {
+      "code": "closed-to-accrual-and-intervention",
+      "display": "Closed to Accrual and Intervention",
+      "definition": "Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "The study closed according to the study plan. There will be no further treatments, interventions or data collection."
+    },
+    {
+      "code": "disapproved",
+      "display": "Disapproved",
+      "definition": "Protocol was disapproved by the review board."
+    },
+    {
+      "code": "enrolling-by-invitation",
+      "display": "Enrolling by invitation",
+      "definition": "The study is selecting its participants from a population, or group of people, decided on by the researchers in advance. These studies are not open to everyone who meets the eligibility criteria but only to people in that particular population, who are specifically invited to participate."
+    },
+    {
+      "code": "in-review",
+      "display": "In Review",
+      "definition": "Protocol is submitted to the review board for approval."
+    },
+    {
+      "code": "not-yet-recruiting",
+      "display": "Not yet recruiting",
+      "definition": "The study has not started recruiting participants."
+    },
+    {
+      "code": "recruiting",
+      "display": "Recruiting",
+      "definition": "The study is currently recruiting participants."
+    },
+    {
+      "code": "temporarily-closed-to-accrual",
+      "display": "Temporarily Closed to Accrual",
+      "definition": "Study is temporarily closed for accrual; can be potentially resumed in the future; patients can be examined and treated."
+    },
+    {
+      "code": "temporarily-closed-to-accrual-and-intervention",
+      "display": "Temporarily Closed to Accrual and Intervention",
+      "definition": "Study is temporarily closed for accrual and intervention and potentially can be resumed in the future."
+    },
+    {
+      "code": "terminated",
+      "display": "Terminated",
+      "definition": "The study has stopped early and will not start again. Participants are no longer being examined or treated."
+    },
+    {
+      "code": "withdrawn",
+      "display": "Withdrawn",
+      "definition": "Protocol was withdrawn by the lead organization."
+    }
+  ]
+}

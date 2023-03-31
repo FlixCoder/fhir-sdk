@@ -1,0 +1,91 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "research-study-arm-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/research-study-arm-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eactive-comparator\u003ca name\u003d\"research-study-arm-type-active-comparator\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eActive Comparator\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eplacebo-comparator\u003ca name\u003d\"research-study-arm-type-placebo-comparator\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePlacebo Comparator\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esham-comparator\u003ca name\u003d\"research-study-arm-type-sham-comparator\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSham Comparator\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eno-intervention\u003ca name\u003d\"research-study-arm-type-no-intervention\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNo Intervention\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eexperimental\u003ca name\u003d\"research-study-arm-type-experimental\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eExperimental\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eother-arm-type\u003ca name\u003d\"research-study-arm-type-other-arm-type\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOther Arm Type\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "brr"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/research-study-arm-type",
+  "version": "5.0.0",
+  "name": "ResearchStudyArmType",
+  "title": "ResearchStudy Arm Type Code System",
+  "status": "active",
+  "experimental": false,
+  "date": "2022-05-15T16:55:11.085+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes for the main intent of the study.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/research-study-arm-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "active-comparator",
+      "display": "Active Comparator"
+    },
+    {
+      "code": "placebo-comparator",
+      "display": "Placebo Comparator"
+    },
+    {
+      "code": "sham-comparator",
+      "display": "Sham Comparator"
+    },
+    {
+      "code": "no-intervention",
+      "display": "No Intervention"
+    },
+    {
+      "code": "experimental",
+      "display": "Experimental"
+    },
+    {
+      "code": "other-arm-type",
+      "display": "Other Arm Type"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "resourceType": "ValueSet",
+  "id": "immunization-target-disease",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/397428000\"\u003e397428000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDiphtheria (disorder)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/27836007\"\u003e27836007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePertussis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/76902006\"\u003e76902006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTetanus\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/721764008\"\u003e721764008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInfection caused by Human poliovirus (disorder)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/14189004\"\u003e14189004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMeasles\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/36989005\"\u003e36989005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMumps\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/36653000\"\u003e36653000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRubella\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/16814004\"\u003e16814004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePneumococcal infectious disease\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/23511006\"\u003e23511006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMeningococcal infectious disease\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/709410003\"\u003e709410003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHaemophilus influenzae type b infection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/56717001\"\u003e56717001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTuberculosis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/363354003\"\u003e363354003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMalignant tumor of cervix\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/266113007\"\u003e266113007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGenital warts\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/415822001\"\u003e415822001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eViral gastroenteritis due to Rotavirus\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/66071002\"\u003e66071002\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eType B viral hepatitis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/40468003\"\u003e40468003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eViral hepatitis, type A\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/7111000119109\"\u003e7111000119109\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHepatitis E virus infection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/719590007\"\u003e719590007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInfluenza caused by seasonal influenza virus (disorder)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/719865001\"\u003e719865001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInfluenza caused by pandemic influenza virus (disorder)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/38907003\"\u003e38907003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eVaricella\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/4740000\"\u003e4740000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHerpes zoster\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/55735004\"\u003e55735004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRespiratory syncytial virus infection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/240613006\"\u003e240613006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTyphus group rickettsial disease\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/4834000\"\u003e4834000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTyphoid fever\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/85904008\"\u003e85904008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eParatyphoid fever\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/63650001\"\u003e63650001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCholera\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/16541001\"\u003e16541001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eYellow fever\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/38362002\"\u003e38362002\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDengue\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/61462000\"\u003e61462000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMalaria\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/14168008\"\u003e14168008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRabies\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/186772009\"\u003e186772009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRMSF - Rocky Mountain spotted fever\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/712986001\"\u003e712986001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTickborne encephalitis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/52947006\"\u003e52947006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eJapanese encephalitis virus disease\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/186788009\"\u003e186788009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eQ fever\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/409498004\"\u003e409498004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAnthrax (disorder)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/58750007\"\u003e58750007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePlague\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/19265001\"\u003e19265001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTularemia\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/23502006\"\u003e23502006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLyme disease\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/75702008\"\u003e75702008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBrucellosis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/80612004\"\u003e80612004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLeishmaniasis\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/186747009\"\u003e186747009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCoronavirus infection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/67924001\"\u003e67924001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSmallpox\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/70090004\"\u003e70090004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCowpox\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pher"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/immunization-target-disease",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.1047"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ImmunizationTargetDiseaseCodes",
+  "title": "Immunization Target Disease Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the disease that the dose is being administered against. This value set is provided as a suggestive example and includes SNOMED CT concepts from the 64572001 (Disease) hierarchy.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "397428000"
+          },
+          {
+            "code": "27836007"
+          },
+          {
+            "code": "76902006"
+          },
+          {
+            "code": "721764008"
+          },
+          {
+            "code": "14189004"
+          },
+          {
+            "code": "36989005"
+          },
+          {
+            "code": "36653000"
+          },
+          {
+            "code": "16814004"
+          },
+          {
+            "code": "23511006"
+          },
+          {
+            "code": "709410003"
+          },
+          {
+            "code": "56717001"
+          },
+          {
+            "code": "363354003"
+          },
+          {
+            "code": "266113007"
+          },
+          {
+            "code": "415822001"
+          },
+          {
+            "code": "66071002"
+          },
+          {
+            "code": "40468003"
+          },
+          {
+            "code": "7111000119109"
+          },
+          {
+            "code": "719590007"
+          },
+          {
+            "code": "719865001"
+          },
+          {
+            "code": "38907003"
+          },
+          {
+            "code": "4740000"
+          },
+          {
+            "code": "55735004"
+          },
+          {
+            "code": "240613006"
+          },
+          {
+            "code": "4834000"
+          },
+          {
+            "code": "85904008"
+          },
+          {
+            "code": "63650001"
+          },
+          {
+            "code": "16541001"
+          },
+          {
+            "code": "38362002"
+          },
+          {
+            "code": "61462000"
+          },
+          {
+            "code": "14168008"
+          },
+          {
+            "code": "186772009"
+          },
+          {
+            "code": "712986001"
+          },
+          {
+            "code": "52947006"
+          },
+          {
+            "code": "186788009"
+          },
+          {
+            "code": "409498004"
+          },
+          {
+            "code": "58750007"
+          },
+          {
+            "code": "19265001"
+          },
+          {
+            "code": "23502006"
+          },
+          {
+            "code": "75702008"
+          },
+          {
+            "code": "80612004"
+          },
+          {
+            "code": "186747009"
+          },
+          {
+            "code": "67924001"
+          },
+          {
+            "code": "70090004"
+          }
+        ]
+      }
+    ]
+  }
+}

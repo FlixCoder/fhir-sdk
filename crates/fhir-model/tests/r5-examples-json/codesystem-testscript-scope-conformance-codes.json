@@ -1,0 +1,88 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "testscript-scope-conformance-codes",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/testscript-scope-conformance-codes\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erequired\u003ca name\u003d\"testscript-scope-conformance-codes-required\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRequired\u003c/td\u003e\u003ctd\u003eAll tests are expected to pass. Warning statuses are permitted. This is the default value.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoptional\u003ca name\u003d\"testscript-scope-conformance-codes-optional\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOptional\u003c/td\u003e\u003ctd\u003eAll tests are expected to pass but non-pass statuses may be allowed.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estrict\u003ca name\u003d\"testscript-scope-conformance-codes-strict\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eStrict\u003c/td\u003e\u003ctd\u003eAll tests are expected to pass. Warnings are treated as a failure.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/testscript-scope-conformance-codes",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1949"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "TestScriptScopeConformanceType",
+  "title": "Test Script Scope Conformance Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-25T17:01:24-04:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The expectation of whether the test must pass for the system to be considered conformant with the artifact.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "required",
+      "display": "Required",
+      "definition": "All tests are expected to pass. Warning statuses are permitted. This is the default value."
+    },
+    {
+      "code": "optional",
+      "display": "Optional",
+      "definition": "All tests are expected to pass but non-pass statuses may be allowed."
+    },
+    {
+      "code": "strict",
+      "display": "Strict",
+      "definition": "All tests are expected to pass. Warnings are treated as a failure."
+    }
+  ]
+}

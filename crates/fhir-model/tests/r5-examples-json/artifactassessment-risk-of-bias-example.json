@@ -1,0 +1,449 @@
+{
+  "resourceType": "ArtifactAssessment",
+  "id": "risk-of-bias-example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: ArtifactAssessment\u003c/b\u003e\u003ca name\u003d\"risk-of-bias-example\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource ArtifactAssessment \u0026quot;risk-of-bias-example\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: FEvIR Object Identifier: 27751\u003c/p\u003e\u003cp\u003e\u003cb\u003edate\u003c/b\u003e: 2021-11-02T14:31:30.239Z\u003c/p\u003e\u003cp\u003e\u003cb\u003ecopyright\u003c/b\u003e: https://creativecommons.org/licenses/by-nc-sa/4.0/\u003c/p\u003e\u003cp\u003e\u003cb\u003elastReviewDate\u003c/b\u003e: 2021-08-11\u003c/p\u003e\u003cp\u003e\u003cb\u003eartifact\u003c/b\u003e: \u003ca href\u003d\"http://fevir.net/resources/Evidence/7637\"\u003ehttp://fevir.net/resources/Evidence/7637\u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econtent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003einformationType\u003c/b\u003e: rating\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Risk of bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-type.html\"\u003eEvidence Certainty Type[5.0.0]\u003c/a\u003e#RiskOfBias)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: extremely serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#extremely-serious-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: COVID-19 Knowledge Accelerator Evidence 7637 Authors (Brian S. Alper, Harold Lehmann, Ahmad Sofi-Mahmudi, Joanne Dehnbostel, Ilkka Kunnamo)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efreeToShare\u003c/b\u003e: true\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: Inclusion of suspected COVID-19 in 1 of 3 trials may introduce selection bias, but the impact appears limited.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Selection Bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: no serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#no-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: The study design used response-adaptive randomization in which group assignment ratios could be modified during the trial on the basis of response-adaptive interim analyses to favor the assignment of patients to the treatment group showing greater benefit. The confounding by time (imbalanced randomization with time period) is not adequately reported to determine the potential influence on results or adequacy of adjusted analyses.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Confounding Covariate Bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#serious-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Brian S. Alper, Ilkka Kunnamo, Alfonso Iorio, Joanne Dehnbostel, Harold Lehmann, Kenneth Wilkins; clarifying explanation reviewed by Janice Tufte\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: Awareness of treatment assignment may reduce clinical decision to initiate some types of \u0026quot;organ support\u0026quot; in patients with higher risk of major bleeding.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Performance Bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: very serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#very-serious-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Brian S. Alper, Joanne Dehnbostel, Harold Lehmann, Muhammad Afzal\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: The influence of awareness of treatment assignment by the treating clinicians on the initaition of organ support (which is the primary outcome) was already addressed as Performance Bias so is not repeated here as a bias in detecting the outcome.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Detection Bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: no serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#no-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: Only 19 of 1190 (1.6%) therapeutic group and 6 of 1054 (0.6) prophylactic group were excluded after randomization.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Attrition Bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: no serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#no-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: It is unknown if the results are sensitive to the analytic method, and the stopping criteria were based on statistical significance and not magnitude of effect.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Analysis Bias \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: very serious concern \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-rating.html\"\u003eEvidence Certainty Rating[5.0.0]\u003c/a\u003e#very-serious-concern)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal, Janice Tufte\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomponent\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econtent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003einformationType\u003c/b\u003e: comment\u003c/p\u003e\u003cp\u003e\u003cb\u003esummary\u003c/b\u003e: Results not consistent with critically ill cohort.\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Inconsistency \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-certainty-type.html\"\u003eEvidence Certainty Type[5.0.0]\u003c/a\u003e#Inconsistency)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eauthor\u003c/b\u003e: \u003cspan\u003e: Ilkka Kunnamo\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "text": "FEvIR Object Identifier"
+      },
+      "system": "https://fevir.net",
+      "value": "27751",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    }
+  ],
+  "date": "2021-11-02T14:31:30.239Z",
+  "copyright": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "lastReviewDate": "2021-08-11",
+  "artifactCanonical": "http://fevir.net/resources/Evidence/7637",
+  "content": [
+    {
+      "informationType": "rating",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/certainty-type",
+            "version": "5.0.0",
+            "code": "RiskOfBias",
+            "display": "Risk of bias",
+            "userSelected": true
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/certainty-rating",
+              "version": "5.0.0",
+              "code": "extremely-serious-concern",
+              "display": "extremely serious concern",
+              "userSelected": true
+            }
+          ]
+        }
+      ],
+      "author": {
+        "display": "COVID-19 Knowledge Accelerator Evidence 7637 Authors (Brian S. Alper, Harold Lehmann, Ahmad Sofi-Mahmudi, Joanne Dehnbostel, Ilkka Kunnamo)"
+      },
+      "freeToShare": true,
+      "component": [
+        {
+          "summary": "Inclusion of suspected COVID-19 in 1 of 3 trials may introduce selection bias, but the impact appears limited.",
+          "type": {
+            "text": "Selection Bias"
+          },
+          "classifier": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/certainty-rating",
+                  "version": "5.0.0",
+                  "code": "no-concern",
+                  "display": "no serious concern",
+                  "userSelected": true
+                }
+              ]
+            }
+          ],
+          "author": {
+            "display": "Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal"
+          },
+          "component": [
+            {
+              "summary": "Definition of Selection Bias \u003d A bias resulting from methods used to select subjects or data, factors that influence initial study participation, or differences between the study sample and the population of interest"
+            }
+          ]
+        },
+        {
+          "summary": "The study design used response-adaptive randomization in which group assignment ratios could be modified during the trial on the basis of response-adaptive interim analyses to favor the assignment of patients to the treatment group showing greater benefit. The confounding by time (imbalanced randomization with time period) is not adequately reported to determine the potential influence on results or adequacy of adjusted analyses.",
+          "type": {
+            "text": "Confounding Covariate Bias"
+          },
+          "classifier": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/certainty-rating",
+                  "version": "5.0.0",
+                  "code": "serious-concern",
+                  "display": "serious concern",
+                  "userSelected": true
+                }
+              ]
+            }
+          ],
+          "author": {
+            "display": "Brian S. Alper, Ilkka Kunnamo, Alfonso Iorio, Joanne Dehnbostel, Harold Lehmann, Kenneth Wilkins; clarifying explanation reviewed by Janice Tufte"
+          },
+          "component": [
+            {
+              "summary": "Definition of Confounding Covariate Bias \u003d A situation in which the effect or association between an exposure and outcome is distorted by another variable. For confounding covariate bias to occur the distorting variable must be (1) associated with the exposure and the outcome, (2) not in the causal pathway between exposure and outcome, and (3) unequally distributed between the groups being compared."
+            },
+            {
+              "summary": "ATTACC implemented response-adaptive randomization on December 15, 2020, which led to imbalanced randomization. No data reported to determine if intervention-specific outcome rates were similar or different before and after December 15, 2020 in the ATTACC cohort."
+            },
+            {
+              "summary": "Insufficient details reported to judge whether there is an imbalance in outcomes related to the adaptive randomization which in turn could be used to judge the validity of adjustment methods in the statistical model for this concern and the appropriateness of any sensitivity analyses."
+            },
+            {
+              "summary": "Response-adaptive randomization led to imbalanced randomization.",
+              "type": {
+                "text": "Allocation Bias"
+              },
+              "classifier": [
+                {
+                  "text": "Adaptive randomization is not a concern by itself, only if it results in a confounding difference."
+                }
+              ],
+              "author": {
+                "display": "Brian S. Alper, Joanne Dehnbostel, Harold Lehmann, Kenneth Wilkins"
+              },
+              "component": [
+                {
+                  "summary": "Definition of Allocation Bias \u003d A confounding covariate bias resulting from methods for assignment of the independent variable by the investigator to evaluate a response or outcome."
+                },
+                {
+                  "summary": "ATTACC implemented response-adaptive randomization on December 15, 2020, which led to imbalanced randomization."
+                }
+              ]
+            },
+            {
+              "summary": "There is an unequal distribution of calendar time between the groups being compared.",
+              "type": {
+                "text": "Confounding difference"
+              },
+              "classifier": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/certainty-rating",
+                      "version": "5.0.0",
+                      "code": "serious-concern",
+                      "display": "serious concern",
+                      "userSelected": true
+                    }
+                  ]
+                }
+              ],
+              "author": {
+                "display": "Brian S. Alper, Joanne Dehnbostel, Harold Lehmann, Kenneth Wilkins"
+              },
+              "component": [
+                {
+                  "summary": "Definition of Confounding difference \u003d A confounding covariate bias in which the unequal distribution of a potentially distorting variable is recognized."
+                },
+                {
+                  "summary": "Incomplete reporting limits the determination of the potential degree of influence of calendar time."
+                },
+                {
+                  "summary": "There is evidence of potential for calendar time to influence the results: In an observational study of 18,508 adults with laboratory-confirmed, COVID-19 associated hospitalization \u0027The percentage of hospitalized patients admitted to the ICU decreased from 37.8% in March to 20.5% in December\u0027 (Ann Intern Med 2021 Aug 10 https://www.acpjournals.org/doi/10.7326/M21-1991)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "summary": "Awareness of treatment assignment may reduce clinical decision to initiate some types of \"organ support\" in patients with higher risk of major bleeding.",
+          "type": {
+            "text": "Performance Bias"
+          },
+          "classifier": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/certainty-rating",
+                  "version": "5.0.0",
+                  "code": "very-serious-concern",
+                  "display": "very serious concern",
+                  "userSelected": true
+                }
+              ]
+            }
+          ],
+          "author": {
+            "display": "Brian S. Alper, Joanne Dehnbostel, Harold Lehmann, Muhammad Afzal"
+          },
+          "component": [
+            {
+              "summary": "Definition of Performance Bias \u003d A bias resulting from differences between the received exposure and the intended exposure."
+            },
+            {
+              "summary": "Lack of blinding may explain reported differences in the primary outcome.",
+              "type": {
+                "text": "Inadequate blinding of intervention deliverers"
+              },
+              "classifier": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/certainty-rating",
+                      "version": "5.0.0",
+                      "code": "very-serious-concern",
+                      "display": "very serious concern",
+                      "userSelected": true
+                    }
+                  ]
+                }
+              ],
+              "author": {
+                "display": "Brian S. Alper; clarifying explanation reviewed by Janice Tufte"
+              },
+              "component": [
+                {
+                  "summary": "The absolute difference in survival without intubation was 1%, so 3% of the 4% absolute difference in the primary outcome can be considered \"organ support without intubation\"."
+                },
+                {
+                  "summary": "The specific \"organ support without intubation\" was not reported. The methods for one of the included trials stated \"Organ Support is defined as receipt of invasive or non-invasive mechanical ventilation, high flow nasal oxygen, vasopressor therapy, or ECMO support\""
+                },
+                {
+                  "summary": "Awareness of treatment assignment may reduce clinical decision to initiate \"organ support without intubation\" in patients with higher risk of major bleeding."
+                },
+                {
+                  "summary": "Definition of Inadequate blinding of intervention deliverers \u003d A performance bias due to awareness of the allocated intervention by individuals providing or delivering the intervention."
+                }
+              ]
+            },
+            {
+              "summary": "Crossover to other intervention in 20%",
+              "type": {
+                "text": "Deviation from study intervention protocol"
+              },
+              "classifier": [
+                {
+                  "text": "degree of concern unclear"
+                }
+              ],
+              "author": {
+                "display": "Surbhi Shah, Brian S. Alper"
+              },
+              "component": [
+                {
+                  "summary": "Therapeutic dose anticoagulation (in the first 24-48 hours following randomization) was reported in 79.6% of the therapeutic arm and 0.9% of the usual care arm. (Table S3)"
+                },
+                {
+                  "summary": "Definition of Deviation from study intervention protocol \u003d A performance bias in which the intervention received differs from the intervention specified in the study protocol."
+                }
+              ]
+            },
+            {
+              "summary": "We discussed whether they may be a bias related to limited adherence to anticoagulation. Because this was an inpatient population, we did not expect adherence problems that are more common with outpatient thromboprophylaxis.",
+              "type": {
+                "text": "Nonadherence of implementation"
+              },
+              "classifier": [
+                {
+                  "text": "limited concern"
+                }
+              ],
+              "author": {
+                "display": "COVID-19 Knowledge Accelerator Working Group discussion with Brian S. Alper, Ilkka Kunnamo, Joanne Dehnbostel; Performance Bias concern initially suggested by Harold Lehmann"
+              },
+              "component": [
+                {
+                  "summary": "Initial adherence to the protocol-assigned anticoagulation dose after randomization was 88.3% in the therapeutic-dose anticoagulation group and 98.3% in the thromboprophylaxis group (Table S3)."
+                },
+                {
+                  "summary": "Definition of Nonadherence of implementation \u003d A performance bias in which the intervention deliverers do not completely adhere to the expected intervention."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "summary": "The influence of awareness of treatment assignment by the treating clinicians on the initaition of organ support (which is the primary outcome) was already addressed as Performance Bias so is not repeated here as a bias in detecting the outcome.",
+          "type": {
+            "text": "Detection Bias"
+          },
+          "classifier": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/certainty-rating",
+                  "version": "5.0.0",
+                  "code": "no-concern",
+                  "display": "no serious concern",
+                  "userSelected": true
+                }
+              ]
+            }
+          ],
+          "author": {
+            "display": "Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal"
+          },
+          "component": [
+            {
+              "summary": "Definition of Detection Bias \u003d A bias due to distortions in how variable values (data) are determined."
+            }
+          ]
+        },
+        {
+          "summary": "Only 19 of 1190 (1.6%) therapeutic group and 6 of 1054 (0.6) prophylactic group were excluded after randomization.",
+          "type": {
+            "text": "Attrition Bias"
+          },
+          "classifier": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/certainty-rating",
+                  "version": "5.0.0",
+                  "code": "no-concern",
+                  "display": "no serious concern",
+                  "userSelected": true
+                }
+              ]
+            }
+          ],
+          "author": {
+            "display": "Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal"
+          },
+          "component": [
+            {
+              "summary": "Definition of Attrition Bias \u003d A bias due to absence of expected participation or data collection after selection for study inclusion."
+            }
+          ]
+        },
+        {
+          "summary": "It is unknown if the results are sensitive to the analytic method, and the stopping criteria were based on statistical significance and not magnitude of effect.",
+          "type": {
+            "text": "Analysis Bias"
+          },
+          "classifier": [
+            {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/certainty-rating",
+                  "version": "5.0.0",
+                  "code": "very-serious-concern",
+                  "display": "very serious concern",
+                  "userSelected": true
+                }
+              ]
+            }
+          ],
+          "author": {
+            "display": "Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal, Janice Tufte"
+          },
+          "component": [
+            {
+              "summary": "Definition of Analysis Bias \u003d A bias related to the analytic process applied to the data."
+            },
+            {
+              "summary": "A frequentist analysis is not reported so we cannot determine if the results are sensitive to the analytic method",
+              "type": {
+                "text": "Bias related to selection of the analysis"
+              },
+              "classifier": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/certainty-rating",
+                      "version": "5.0.0",
+                      "code": "very-serious-concern",
+                      "display": "very serious concern",
+                      "userSelected": true
+                    }
+                  ]
+                }
+              ],
+              "author": {
+                "display": "Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal, Janice Tufte"
+              },
+              "component": [
+                {
+                  "summary": "Definition of Bias related to selection of the analysis \u003d An analysis bias due to inappropriate choice of analysis methods before the analysis is applied."
+                },
+                {
+                  "summary": "There was no pre-specified frequentist analysis. There was no posthoc frequentist analysis reported."
+                },
+                {
+                  "summary": "It is uncertain what a frequentist analysis would show and uncertain whether the choice of Bayesian analysis or frequentist analysis has a substantial influence on the results."
+                }
+              ]
+            },
+            {
+              "summary": "The stopping criteria were based on statistical significance and not magnitude of effect.",
+              "type": {
+                "text": "Early trial termination"
+              },
+              "classifier": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/certainty-rating",
+                      "version": "5.0.0",
+                      "code": "very-serious-concern",
+                      "display": "very serious concern",
+                      "userSelected": true
+                    }
+                  ]
+                }
+              ],
+              "author": {
+                "display": "Brian S. Alper, Joanne Dehnbostel, Muhammad Afzal, Janice Tufte"
+              },
+              "component": [
+                {
+                  "summary": "There was no “minimally important difference”. So a 99% probability of having an odds ratio \u003e 1 (even if the magnitude of effect is infinitesimal) was used to decide it was time to stop the trial."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "informationType": "comment",
+      "summary": "Results not consistent with critically ill cohort.",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/certainty-type",
+            "version": "5.0.0",
+            "code": "Inconsistency",
+            "display": "Inconsistency",
+            "userSelected": true
+          }
+        ]
+      },
+      "author": {
+        "display": "Ilkka Kunnamo"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

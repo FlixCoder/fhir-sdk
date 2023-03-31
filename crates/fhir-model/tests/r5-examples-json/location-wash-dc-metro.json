@@ -1,0 +1,42 @@
+{
+  "resourceType": "Location",
+  "id": "wash-dc-metro",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-location"
+    ],
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Location\u003c/b\u003e\u003ca name\u003d\"wash-dc-metro\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Location \u0026quot;wash-dc-metro\u0026quot; \u003c/p\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eProfile: \u003ccode\u003ehttp://hl7.org/fhir/uv/vhdir/StructureDefinition/vhdir-location\u003c/code\u003e\u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eLocation Boundary (GeoJSON)\u003c/b\u003e: \u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: \u003cspan title\u003d\"  this record is active  \"\u003eWashington, DC metro area\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eform\u003c/b\u003e: Area \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-location-physical-type.html\"\u003eLocation type\u003c/a\u003e#area)\u003c/span\u003e\u003c/p\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/location-boundary-geojson",
+      "valueAttachment": {
+        "contentType": "application/geo+json",
+        "data": "VGhlbWU6IA0KUmF3UGFyc2VkDQp7InR5cGUiOiJGZWF0dXJlQ29sbGVjdGlvbiIsInByb3BlcnRpZXMiOnsia2luZCI6InN0YXRlIiwic3RhdGUiOiJEQyJ9LCJmZWF0dXJlcyI6Ww0KeyJ0eXBlIjoiRmVhdHVyZSIsInByb3BlcnRpZXMiOnsia2luZCI6ImNvdW50eSIsIm5hbWUiOiJEaXN0cmljdCBvZiBDb2x1bWJpYSIsInN0YXRlIjoiREMifSwiZ2VvbWV0cnkiOnsidHlwZSI6Ik11bHRpUG9seWdvbiIsImNvb3JkaW5hdGVzIjpbW1tbLTc3LjAzNTMsMzguOTkzOV0sWy03Ny4wMDI0LDM4Ljk2NjVdLFstNzYuOTA5MywzOC44OTUzXSxbLTc3LjA0MDcsMzguNzkxMl0sWy03Ny4wNDYyLDM4Ljg0MDVdLFstNzcuMDQwNywzOC44NzM0XSxbLTc3LjExNzQsMzguOTMzNl1dXV19fQ0KXX0\u003d",
+        "url": "https://github.com/OpenDataDE/State-zip-code-GeoJSON/raw/master/dc_district_of_columbia_zip_codes_geo.min.json",
+        "size": "389"
+      }
+    }
+  ],
+  "status": "active",
+  "name": "Washington, DC metro area",
+  "form": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+        "code": "area",
+        "display": "Area"
+      }
+    ]
+  }
+}

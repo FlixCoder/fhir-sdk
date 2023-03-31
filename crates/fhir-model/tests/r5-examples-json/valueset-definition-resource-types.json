@@ -1,0 +1,120 @@
+{
+  "resourceType": "ValueSet",
+  "id": "definition-resource-types",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"codesystem-fhir-types.html\"\u003e\u003ccode\u003ehttp://hl7.org/fhir/fhir-types\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-ActivityDefinition\"\u003eActivityDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eActivityDefinition\u003c/td\u003e\u003ctd\u003eThis resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-ChargeItemDefinition\"\u003eChargeItemDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChargeItemDefinition\u003c/td\u003e\u003ctd\u003eThe ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-ClinicalUseDefinition\"\u003eClinicalUseDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClinicalUseDefinition\u003c/td\u003e\u003ctd\u003eA single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-EventDefinition\"\u003eEventDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEventDefinition\u003c/td\u003e\u003ctd\u003eThe EventDefinition resource provides a reusable description of when a particular event can occur.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Measure\"\u003eMeasure\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMeasure\u003c/td\u003e\u003ctd\u003eThe Measure resource provides the definition of a quality measure.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-MessageDefinition\"\u003eMessageDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMessageDefinition\u003c/td\u003e\u003ctd\u003eDefines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-ObservationDefinition\"\u003eObservationDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eObservationDefinition\u003c/td\u003e\u003ctd\u003eSet of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-OperationDefinition\"\u003eOperationDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOperationDefinition\u003c/td\u003e\u003ctd\u003eA formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-PlanDefinition\"\u003ePlanDefinition\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePlanDefinition\u003c/td\u003e\u003ctd\u003eThis resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Questionnaire\"\u003eQuestionnaire\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eQuestionnaire\u003c/td\u003e\u003ctd\u003eA structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Requirements\"\u003eRequirements\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRequirements\u003c/td\u003e\u003ctd\u003eThe Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-SubscriptionTopic\"\u003eSubscriptionTopic\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSubscriptionTopic\u003c/td\u003e\u003ctd\u003eDescribes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-TestPlan\"\u003eTestPlan\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTestPlan\u003c/td\u003e\u003ctd\u003eA plan for executing testing on an artifact or specifications\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-TestScript\"\u003eTestScript\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTestScript\u003c/td\u003e\u003ctd\u003eA structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/definition-resource-types",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.1056"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "DefinitionResourceTypes",
+  "title": "Definition Resource Types",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "All Resource Types that represent definition resources",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/fhir-types",
+        "concept": [
+          {
+            "code": "ActivityDefinition"
+          },
+          {
+            "code": "ChargeItemDefinition"
+          },
+          {
+            "code": "ClinicalUseDefinition"
+          },
+          {
+            "code": "EventDefinition"
+          },
+          {
+            "code": "Measure"
+          },
+          {
+            "code": "MessageDefinition"
+          },
+          {
+            "code": "ObservationDefinition"
+          },
+          {
+            "code": "OperationDefinition"
+          },
+          {
+            "code": "PlanDefinition"
+          },
+          {
+            "code": "Questionnaire"
+          },
+          {
+            "code": "Requirements"
+          },
+          {
+            "code": "SubscriptionTopic"
+          },
+          {
+            "code": "TestPlan"
+          },
+          {
+            "code": "TestScript"
+          }
+        ]
+      }
+    ]
+  }
+}

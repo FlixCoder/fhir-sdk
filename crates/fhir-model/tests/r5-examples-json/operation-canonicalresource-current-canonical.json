@@ -1,0 +1,88 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "CanonicalResource-current-canonical",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eURL: [base]/$current-canonical\u003c/p\u003e\u003cp\u003eURL: [base]/CanonicalResource/$current-canonical\u003c/p\u003e\u003cp\u003eParameters\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eUse\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eName\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eScope\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCardinality\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eBinding\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDocumentation\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003eurl\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#uri\"\u003euri\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThis is the canonical URL (with no version declared)\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003estatus\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..*\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#code\"\u003ecode\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe statuses to allow to be returned. If no status codes are provided, then any status is ok\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOUT\u003c/td\u003e\u003ctd\u003eresult\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"canonicalresource.html\"\u003eCanonicalResource\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eIf no resources can be found, will return nothing.  If multiple resources are found for the specified statuses and \u0027most current\u0027 can\u0027t be determined by comparing the versions, the operation will fail with an operation outcome.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cdiv\u003e\u003cp\u003eIf none of the instances define the versionAlgorithm to use, a server may  dynamically attempt to determine which versioning system is implied by the data.\u003c/p\u003e\n\u003cp\u003eIf the instances found with the provided canonical URL define different versionAlgorithm values the server may return an error.\u003c/p\u003e\n\u003cp\u003eNote that the \u003cem\u003eCanonicalResource\u003c/em\u003e is an interface and not an actual resource type, as such the operation is actually called on the canonical resource types such as CodeSystem, Questionnaire etc.\u003c/p\u003e\n\u003c/div\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    }
+  ],
+  "url": "http://hl7.org/fhir/OperationDefinition/CanonicalResource-current-canonical",
+  "version": "5.0.0",
+  "name": "CurrentCanonical",
+  "title": "Fetch the current version of a canonical resource (based on canonical versioning)",
+  "status": "draft",
+  "kind": "operation",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Returns the most current version of the canonical resource with the specified url available on the server.  It optionally also allows filtering to only expose the most current version with a particular status or set of statuses.\r\rNote that \u0027current\u0027 is determined by comparing version values using the specified versionAlgorithm, NOT by looking at lastUpdated.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "affectsState": false,
+  "code": "current-canonical",
+  "comment": "If none of the instances define the versionAlgorithm to use, a server may  dynamically attempt to determine which versioning system is implied by the data.\r\rIf the instances found with the provided canonical URL define different versionAlgorithm values the server may return an error.\r\rNote that the *CanonicalResource* is an interface and not an actual resource type, as such the operation is actually called on the canonical resource types such as CodeSystem, Questionnaire etc.",
+  "resource": [
+    "CanonicalResource"
+  ],
+  "system": true,
+  "type": true,
+  "instance": false,
+  "parameter": [
+    {
+      "name": "url",
+      "use": "in",
+      "min": 1,
+      "max": "1",
+      "documentation": "This is the canonical URL (with no version declared)",
+      "type": "uri"
+    },
+    {
+      "name": "status",
+      "use": "in",
+      "min": 0,
+      "max": "*",
+      "documentation": "The statuses to allow to be returned. If no status codes are provided, then any status is ok",
+      "type": "code"
+    },
+    {
+      "name": "result",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "documentation": "If no resources can be found, will return nothing.  If multiple resources are found for the specified statuses and \u0027most current\u0027 can\u0027t be determined by comparing the versions, the operation will fail with an operation outcome.",
+      "type": "CanonicalResource"
+    }
+  ]
+}

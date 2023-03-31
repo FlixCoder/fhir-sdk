@@ -1,0 +1,108 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "account-billing-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/account-billing-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eopen\u003ca name\u003d\"account-billing-status-open\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOpen\u003c/td\u003e\u003ctd\u003eThe account is open for charging transactions (account.status is active)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecarecomplete-notbilled\u003ca name\u003d\"account-billing-status-carecomplete-notbilled\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCareComplete/Not Billed\u003c/td\u003e\u003ctd\u003eThe account.status is still active and may have charges recorded against it (only for events in the servicePeriod), however the encounters associated are completed. (Also known as Discharged not billed) This BillingStatus is often not used in ongoing accounts. (account.status is active)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebilling\u003ca name\u003d\"account-billing-status-billing\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBilling\u003c/td\u003e\u003ctd\u003eIndicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc. During this time any new charges will not be included in the current billing run/cycle. (account.status is active)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eclosed-baddebt\u003ca name\u003d\"account-billing-status-closed-baddebt\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClosed-Bad Debt\u003c/td\u003e\u003ctd\u003eThe balance of this debt has not been able to be recovered, and the organization has decided not to persue debt recovery. (account.status is in-active)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eclosed-voided\u003ca name\u003d\"account-billing-status-closed-voided\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClosed-Voided\u003c/td\u003e\u003ctd\u003eThe account was not created in error, however the organization has decided that it will not be charging any transactions associated. (account.status is i n-active)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eclosed-completed\u003ca name\u003d\"account-billing-status-closed-completed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClosed-Completed\u003c/td\u003e\u003ctd\u003eThe account is closed and all charges are processed and accounted for. (account.status is i n-active)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eclosed-combined\u003ca name\u003d\"account-billing-status-closed-combined\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClosed-Combined\u003c/td\u003e\u003ctd\u003eThis account has been merged into another account, all charged have been migrated. This account should no longer be used, and will not be billed. (account.status is i n-active)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/account-billing-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2063"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AccountBillingStatus",
+  "title": "Example Account Billing Statuses",
+  "status": "active",
+  "experimental": true,
+  "date": "2021-05-26",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Indicates whether the account is available to be used for billing purposes.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/account-billing-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "open",
+      "display": "Open",
+      "definition": "The account is open for charging transactions (account.status is active)"
+    },
+    {
+      "code": "carecomplete-notbilled",
+      "display": "CareComplete/Not Billed",
+      "definition": "The account.status is still active and may have charges recorded against it (only for events in the servicePeriod), however the encounters associated are completed. (Also known as Discharged not billed) This BillingStatus is often not used in ongoing accounts. (account.status is active)"
+    },
+    {
+      "code": "billing",
+      "display": "Billing",
+      "definition": "Indicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc. During this time any new charges will not be included in the current billing run/cycle. (account.status is active)"
+    },
+    {
+      "code": "closed-baddebt",
+      "display": "Closed-Bad Debt",
+      "definition": "The balance of this debt has not been able to be recovered, and the organization has decided not to persue debt recovery. (account.status is in-active)"
+    },
+    {
+      "code": "closed-voided",
+      "display": "Closed-Voided",
+      "definition": "The account was not created in error, however the organization has decided that it will not be charging any transactions associated. (account.status is i n-active)"
+    },
+    {
+      "code": "closed-completed",
+      "display": "Closed-Completed",
+      "definition": "The account is closed and all charges are processed and accounted for. (account.status is i n-active)"
+    },
+    {
+      "code": "closed-combined",
+      "display": "Closed-Combined",
+      "definition": "This account has been merged into another account, all charged have been migrated. This account should no longer be used, and will not be billed. (account.status is i n-active)"
+    }
+  ]
+}

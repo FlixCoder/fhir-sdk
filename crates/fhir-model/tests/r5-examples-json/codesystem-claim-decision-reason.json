@@ -1,0 +1,69 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "claim-decision-reason",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/claim-decision-reason\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0001\u003ca name\u003d\"claim-decision-reason-0001\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot medically necessary\u003c/td\u003e\u003ctd\u003eThe payer has determined this product, service, or procedure as not medically necessary.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0002\u003ca name\u003d\"claim-decision-reason-0002\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePrior authorization not obtained\u003c/td\u003e\u003ctd\u003ePrior authorization was not obtained prior to providing the product, service, or procedure.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0003\u003ca name\u003d\"claim-decision-reason-0003\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProvider out-of-network\u003c/td\u003e\u003ctd\u003eThis provider is considered out-of-network by the payer for this plan.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0004\u003ca name\u003d\"claim-decision-reason-0004\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eService inconsistent with patient age\u003c/td\u003e\u003ctd\u003eThe payer has determined this product, service, or procedure is not consistent with the patient\u0027s age.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0005\u003ca name\u003d\"claim-decision-reason-0005\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBenefit limits exceeded\u003c/td\u003e\u003ctd\u003eThe patient or subscriber benefit\u0027s have been exceeded.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/claim-decision-reason",
+  "version": "5.0.0",
+  "name": "ClaimAdjudicationDecisionReasonCodes",
+  "title": "Claim Adjudication Decision Reason Codes",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "This value set provides example Claim Adjudication Decision Reason codes.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "HL7 Inc.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "0001",
+      "display": "Not medically necessary",
+      "definition": "The payer has determined this product, service, or procedure as not medically necessary."
+    },
+    {
+      "code": "0002",
+      "display": "Prior authorization not obtained",
+      "definition": "Prior authorization was not obtained prior to providing the product, service, or procedure."
+    },
+    {
+      "code": "0003",
+      "display": "Provider out-of-network",
+      "definition": "This provider is considered out-of-network by the payer for this plan."
+    },
+    {
+      "code": "0004",
+      "display": "Service inconsistent with patient age",
+      "definition": "The payer has determined this product, service, or procedure is not consistent with the patient\u0027s age."
+    },
+    {
+      "code": "0005",
+      "display": "Benefit limits exceeded",
+      "definition": "The patient or subscriber benefit\u0027s have been exceeded."
+    }
+  ]
+}

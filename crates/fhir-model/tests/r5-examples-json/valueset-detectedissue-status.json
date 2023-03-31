@@ -1,0 +1,98 @@
+{
+  "resourceType": "ValueSet",
+  "id": "detectedissue-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"codesystem-observation-status.html\"\u003e\u003ccode\u003ehttp://hl7.org/fhir/observation-status\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003e\u003ca href\u003d\"valueset-resource-status.html\"\u003eCanonical Mapping for \u0026quot;Detected Issue Status\u0026quot;\u003c/a\u003e\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-observation-status.html#observation-status-preliminary\"\u003epreliminary\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePreliminary\u003c/td\u003e\u003ctd\u003eThis is an initial or interim observation: data may be incomplete or unverified.\u003c/td\u003e\u003ctd\u003e\u003cspan title\u003d\"EQUIVALENT\"\u003e~\u003c/span\u003e\u003ca href\u003d\"codesystem-resource-status.html#resource-status-draft\"\u003edraft\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-observation-status.html#observation-status-final\"\u003efinal\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFinal\u003c/td\u003e\u003ctd\u003eThe observation is complete and there are no further actions needed. Additional information such \u0026quot;released\u0026quot;, \u0026quot;signed\u0026quot;, etc. would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied.\u003c/td\u003e\u003ctd\u003e\u003cspan title\u003d\"EQUIVALENT\"\u003e~\u003c/span\u003e\u003ca href\u003d\"codesystem-resource-status.html#resource-status-complete\"\u003ecomplete\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-observation-status.html#observation-status-entered-in-error\"\u003eentered-in-error\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEntered in Error\u003c/td\u003e\u003ctd\u003eThe observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \u0026quot;cancelled\u0026quot; rather than \u0026quot;entered-in-error\u0026quot;.).\u003c/td\u003e\u003ctd\u003e\u003cspan title\u003d\"EQUIVALENT\"\u003e~\u003c/span\u003e\u003ca href\u003d\"codesystem-resource-status.html#resource-status-error\"\u003eerror\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"codesystem-detectedissue-status.html\"\u003e\u003ccode\u003ehttp://hl7.org/fhir/detectedissue-status\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003e\u003ca href\u003d\"valueset-resource-status.html\"\u003eCanonical Mapping for \u0026quot;Detected Issue Status\u0026quot;\u003c/a\u003e\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-detectedissue-status.html#detectedissue-status-mitigated\"\u003emitigated\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMitigated\u003c/td\u003e\u003ctd\u003eIndicates the detected issue has been mitigated\u003c/td\u003e\u003ctd\u003e\u003cspan title\u003d\"EQUIVALENT\"\u003e~\u003c/span\u003e\u003ca href\u003d\"codesystem-resource-status.html#resource-status-inactive\"\u003einactive\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/detectedissue-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3158"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "DetectedIssueStatus",
+  "title": "Detected Issue Status",
+  "status": "draft",
+  "experimental": false,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Indicates the status of a detected issue",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/observation-status",
+        "concept": [
+          {
+            "code": "preliminary",
+            "display": "Preliminary"
+          },
+          {
+            "code": "final",
+            "display": "Final"
+          },
+          {
+            "code": "entered-in-error",
+            "display": "Entered in Error"
+          }
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/detectedissue-status",
+        "concept": [
+          {
+            "code": "mitigated",
+            "display": "Mitigated"
+          }
+        ]
+      }
+    ]
+  }
+}

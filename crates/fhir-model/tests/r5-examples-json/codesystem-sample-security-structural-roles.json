@@ -1,0 +1,106 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "sample-security-structural-roles",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/sample-security-structural-roles\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eregulated-health-professionals\u003ca name\u003d\"sample-security-structural-roles-regulated-health-professionals\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRegulated Health Professionals\u003c/td\u003e\u003ctd\u003eA person who is authorized by a national recognized body to be qualified to perform health services\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  general-medicine\u003ca name\u003d\"sample-security-structural-roles-general-medicine\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGeneral Medicine\u003c/td\u003e\u003ctd\u003eThe branch of medicine involving the study and treatment of general diseases or those affecting the internal parts of the body, especially those not usually requiring surgical intervention\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  general-nursing\u003ca name\u003d\"sample-security-structural-roles-general-nursing\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGeneral Nursing\u003c/td\u003e\u003ctd\u003eThe branch of healthcare concerned with caring for the sick or injured in any environment.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  dentist\u003ca name\u003d\"sample-security-structural-roles-dentist\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDentist\u003c/td\u003e\u003ctd\u003eThe specialty relating to the function and diseases of the teeth, mouth, and gums.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  veterinarian\u003ca name\u003d\"sample-security-structural-roles-veterinarian\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eVeterinarian\u003c/td\u003e\u003ctd\u003eThe specialty relating to non-human subjects.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  pharmacy\u003ca name\u003d\"sample-security-structural-roles-pharmacy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePharmacy\u003c/td\u003e\u003ctd\u003eThe branch of medical science that deals with drugs and their uses.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  dietician\u003ca name\u003d\"sample-security-structural-roles-dietician\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDietician\u003c/td\u003e\u003ctd\u003eThe health profession concerned with the practical application of diet in the prophylaxis and treatment of disease.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  pediatrics\u003ca name\u003d\"sample-security-structural-roles-pediatrics\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePediatrics\u003c/td\u003e\u003ctd\u003eThe medical specialty concerned with the study of treatment of children in health and disease during development from birth through adolescence.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enon-regulated-health-professionals\u003ca name\u003d\"sample-security-structural-roles-non-regulated-health-professionals\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNon-Regulated health Professionals\u003c/td\u003e\u003ctd\u003eperson employed by a healthcare organization who is not a health professional\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  receptionist\u003ca name\u003d\"sample-security-structural-roles-receptionist\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReceptionist\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  business-manager\u003ca name\u003d\"sample-security-structural-roles-business-manager\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBusiness Manager\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  transcriptionist\u003ca name\u003d\"sample-security-structural-roles-transcriptionist\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTranscriptionist\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  claims-adjudicator\u003ca name\u003d\"sample-security-structural-roles-claims-adjudicator\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eClaims Adjudicator\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/sample-security-structural-roles",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1800"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "SampleSecurityStructuralRoles",
+  "title": "Sample Codes for Security Structural Role",
+  "status": "draft",
+  "experimental": true,
+  "description": "This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions..",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This is an example set.",
+  "caseSensitive": true,
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "regulated-health-professionals",
+      "display": "Regulated Health Professionals",
+      "definition": "A person who is authorized by a national recognized body to be qualified to perform health services",
+      "concept": [
+        {
+          "code": "general-medicine",
+          "display": "General Medicine",
+          "definition": "The branch of medicine involving the study and treatment of general diseases or those affecting the internal parts of the body, especially those not usually requiring surgical intervention"
+        },
+        {
+          "code": "general-nursing",
+          "display": "General Nursing",
+          "definition": "The branch of healthcare concerned with caring for the sick or injured in any environment."
+        },
+        {
+          "code": "dentist",
+          "display": "Dentist",
+          "definition": "The specialty relating to the function and diseases of the teeth, mouth, and gums."
+        },
+        {
+          "code": "veterinarian",
+          "display": "Veterinarian",
+          "definition": "The specialty relating to non-human subjects."
+        },
+        {
+          "code": "pharmacy",
+          "display": "Pharmacy",
+          "definition": "The branch of medical science that deals with drugs and their uses."
+        },
+        {
+          "code": "dietician",
+          "display": "Dietician",
+          "definition": "The health profession concerned with the practical application of diet in the prophylaxis and treatment of disease."
+        },
+        {
+          "code": "pediatrics",
+          "display": "Pediatrics",
+          "definition": "The medical specialty concerned with the study of treatment of children in health and disease during development from birth through adolescence."
+        }
+      ]
+    },
+    {
+      "code": "non-regulated-health-professionals",
+      "display": "Non-Regulated health Professionals",
+      "definition": "person employed by a healthcare organization who is not a health professional",
+      "concept": [
+        {
+          "code": "receptionist",
+          "display": "Receptionist"
+        },
+        {
+          "code": "business-manager",
+          "display": "Business Manager"
+        },
+        {
+          "code": "transcriptionist",
+          "display": "Transcriptionist"
+        },
+        {
+          "code": "claims-adjudicator",
+          "display": "Claims Adjudicator"
+        }
+      ]
+    }
+  ]
+}

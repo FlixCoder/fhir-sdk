@@ -1,0 +1,58 @@
+{
+  "resourceType": "ImagingSelection",
+  "id": "example-segmentation-image-selection",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: ImagingSelection\u003c/b\u003e\u003ca name\u003d\"example-segmentation-image-selection\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource ImagingSelection \u0026quot;example-segmentation-image-selection\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: urn:oid:1.2.840.113747.20080222.234082332589842666931650220811572.2.1\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: available\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Segment within a DICOM Segmentation instance \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estudyUid\u003c/b\u003e: 1.2.840.113747.20080222.234082332589846966931650220811572\u003c/p\u003e\u003cp\u003e\u003cb\u003ederivedFrom\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eseriesUid\u003c/b\u003e: 1.2.840.113747.20080222.234082332589846992931650220811572.1\u003c/p\u003e\u003cp\u003e\u003cb\u003eframeOfReferenceUid\u003c/b\u003e: 1.2.840.113747.20080222.234082332589842666931650220811572.0\u003c/p\u003e\u003ch3\u003eInstances\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eUid\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eSopClass\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eSubset\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e1.2.840.113747.20080222.234082332589846992522666220811572.1.0\u003c/td\u003e\u003ctd\u003eurn:oid:1.2.840.10008.5.1.4.1.1.66.4 (Details: urn:ietf:rfc:3986 code urn:oid:1.2.840.10008.5.1.4.1.1.66.4 \u003d \u0027urn:oid:1.2.840.10008.5.1.4.1.1.66.4\u0027, stated as \u0027null\u0027)\u003c/td\u003e\u003ctd\u003e1\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:1.2.840.113747.20080222.234082332589842666931650220811572.2.1"
+    }
+  ],
+  "status": "available",
+  "subject": {
+    "type": "Patient",
+    "identifier": {
+      "system": "https://fhirhospital.org",
+      "value": "ISRNEJAWJHZOTNBS"
+    }
+  },
+  "code": {
+    "text": "Segment within a DICOM Segmentation instance"
+  },
+  "studyUid": "1.2.840.113747.20080222.234082332589846966931650220811572",
+  "derivedFrom": [
+    {
+      "type": "ImagingStudy",
+      "identifier": {
+        "system": "urn:dicom:uid",
+        "value": "urn:oid:1.2.840.113747.20080222.234082332592522666931650220811572"
+      }
+    }
+  ],
+  "seriesUid": "1.2.840.113747.20080222.234082332589846992931650220811572.1",
+  "frameOfReferenceUid": "1.2.840.113747.20080222.234082332589842666931650220811572.0",
+  "instance": [
+    {
+      "uid": "1.2.840.113747.20080222.234082332589846992522666220811572.1.0",
+      "sopClass": {
+        "system": "urn:ietf:rfc:3986",
+        "code": "urn:oid:1.2.840.10008.5.1.4.1.1.66.4"
+      },
+      "subset": [
+        "1"
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

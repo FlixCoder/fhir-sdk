@@ -1,0 +1,108 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "contributor-summary-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/contributor-summary-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eauthor-string\u003ca name\u003d\"contributor-summary-type-author-string\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAuthor string\u003c/td\u003e\u003ctd\u003eDisplay of the author list as a complete string.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtributorship-list\u003ca name\u003d\"contributor-summary-type-contributorship-list\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContributorship list\u003c/td\u003e\u003ctd\u003eDisplay of the list of contributors as a complete string.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtributorship-statement\u003ca name\u003d\"contributor-summary-type-contributorship-statement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContributorship statement\u003c/td\u003e\u003ctd\u003eCompiled summary of contributions.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eacknowledgement-list\u003ca name\u003d\"contributor-summary-type-acknowledgement-list\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAcknowledgment list\u003c/td\u003e\u003ctd\u003eDisplay of the list of acknowledged parties as a complete string.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eacknowledgment-statement\u003ca name\u003d\"contributor-summary-type-acknowledgment-statement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAcknowledgment statement\u003c/td\u003e\u003ctd\u003eStatement of acknowledgment of contributions beyond those compiled for formal contributorship statements.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efunding-statement\u003ca name\u003d\"contributor-summary-type-funding-statement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFunding statement\u003c/td\u003e\u003ctd\u003eStatement of financial support for the creation of the cited artifact.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecompeting-interests-statement\u003ca name\u003d\"contributor-summary-type-competing-interests-statement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCompeting interests statement\u003c/td\u003e\u003ctd\u003eStatement of completing interests related to the creation of the cited artifact. Also called conflicts of interest or declaration of interests.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/contributor-summary-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1893"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ContributorSummaryType",
+  "title": "Contributor Summary Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Used to code author list statement, contributorship statement, and such.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/contributor-summary-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "author-string",
+      "display": "Author string",
+      "definition": "Display of the author list as a complete string."
+    },
+    {
+      "code": "contributorship-list",
+      "display": "Contributorship list",
+      "definition": "Display of the list of contributors as a complete string."
+    },
+    {
+      "code": "contributorship-statement",
+      "display": "Contributorship statement",
+      "definition": "Compiled summary of contributions."
+    },
+    {
+      "code": "acknowledgement-list",
+      "display": "Acknowledgment list",
+      "definition": "Display of the list of acknowledged parties as a complete string."
+    },
+    {
+      "code": "acknowledgment-statement",
+      "display": "Acknowledgment statement",
+      "definition": "Statement of acknowledgment of contributions beyond those compiled for formal contributorship statements."
+    },
+    {
+      "code": "funding-statement",
+      "display": "Funding statement",
+      "definition": "Statement of financial support for the creation of the cited artifact."
+    },
+    {
+      "code": "competing-interests-statement",
+      "display": "Competing interests statement",
+      "definition": "Statement of completing interests related to the creation of the cited artifact. Also called conflicts of interest or declaration of interests."
+    }
+  ]
+}

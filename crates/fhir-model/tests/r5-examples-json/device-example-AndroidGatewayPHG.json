@@ -1,0 +1,234 @@
+{
+  "resourceType": "Device",
+  "id": "AndroidGatewayPHG",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Device\u003c/b\u003e\u003ca name\u003d\"AndroidGatewayPHG\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Device \u0026quot;AndroidGatewayPHG\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: System Identifier: 4C-4E-49-12-34-56-FF-FF\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_MOC_VMS_MDS_AHD: Continua compliant Gateway \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#531981 \u0026quot;MDC_MOC_VMS_MDS_AHD\u0026quot;)\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eVersions\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eMDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532352)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e6.0\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532353)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 4 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ContinuaPAN#4)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026amp;Fitness interfaces list \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532355)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 0 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ContinuaHFS#0)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026amp;Fitness interfaces list \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532355)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 3 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ContinuaHFS#3)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026amp;Fitness interfaces list \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532355)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 7 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ContinuaHFS#7)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026amp;Fitness interfaces list \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532355)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 2 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ContinuaHFS#2)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026amp;Fitness interfaces list \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532355)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 6 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ContinuaHFS#6)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: regulation-status \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (ASN1ToHL7#532354.0)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: Device is Unregulated \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (v2-0136#Y)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#68220)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: MDC_TIME_SYNC_NTPV4: NTPV4 time synchronization \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#532226)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eproperty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: MDC_TIME_SYNC_ACCURACY: unknown code \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003eISO 11073-10101 Health informatics - Point-of-care\u003c/a\u003e#68221)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003evalue\u003c/b\u003e: 120000000 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://ucum.org\"\u003eUCUM\u003c/a\u003e#us)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaDeviceIdentifiers",
+            "code": "SYSID",
+            "display": "System Identifier"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.840.10004.1.1.1.0.0.1.0.0.1.2680",
+      "value": "4C-4E-49-12-34-56-FF-FF"
+    }
+  ],
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:11073:10101",
+          "code": "531981",
+          "display": "MDC_MOC_VMS_MDS_AHD"
+        }
+      ],
+      "text": "MDC_MOC_VMS_MDS_AHD: Continua compliant Gateway"
+    }
+  ],
+  "version": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532352"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_VERSION: Continua version"
+      },
+      "value": "6.0"
+    }
+  ],
+  "property": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532353"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_CERT_DEV_LIST: Continua certified device list"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaPAN",
+            "code": "4"
+          }
+        ]
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532355"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026Fitness interfaces list"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaHFS",
+            "code": "0"
+          }
+        ]
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532355"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026Fitness interfaces list"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaHFS",
+            "code": "3"
+          }
+        ]
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532355"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026Fitness interfaces list"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaHFS",
+            "code": "7"
+          }
+        ]
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532355"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026Fitness interfaces list"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaHFS",
+            "code": "2"
+          }
+        ]
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532355"
+          }
+        ],
+        "text": "MDC_REG_CERT_DATA_CONTINUA_AHD_CERT_LIST: Continua certified Health\u0026Fitness interfaces list"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ContinuaHFS",
+            "code": "6"
+          }
+        ]
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ASN1ToHL7",
+            "code": "532354.0",
+            "display": "regulation-status"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+            "code": "Y"
+          }
+        ],
+        "text": "Device is Unregulated"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "68220"
+          }
+        ],
+        "text": "MDC_TIME_SYNC_PROTOCOL: Time synchronization protocol"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "532226"
+          }
+        ],
+        "text": "MDC_TIME_SYNC_NTPV4: NTPV4 time synchronization"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:11073:10101",
+            "code": "68221"
+          }
+        ],
+        "text": "MDC_TIME_SYNC_ACCURACY: unknown code"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://unitsofmeasure.org",
+            "code": "us"
+          }
+        ],
+        "text": "120000000"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "resourceType": "ValueSet",
+  "id": "medicinal-product-classification",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"http://www.whocc.no/atc\"\u003e\u003ccode\u003ehttp://www.whocc.no/atc\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "brr"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/medicinal-product-classification",
+  "version": "5.0.0",
+  "name": "ProductClassification",
+  "title": "Product Classification",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes codes from the Anatomical Therapeutic Chemical Classification System - provided as an exemplar value set.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This resource includes content from the Anatomical Therapeutic Chemical Classification System which is copyright of the WHO Collaborating Centre for Drug Statistics Methodology.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.whocc.no/atc"
+      }
+    ]
+  }
+}

@@ -1,0 +1,1668 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "PractitionerRole",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ctable border\u003d\"0\" cellpadding\u003d\"0\" cellspacing\u003d\"0\" style\u003d\"border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;\"\u003e\u003ctr style\u003d\"border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top\"\u003e\u003cth style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"The logical name of the element\"\u003eName\u003c/a\u003e\u003c/th\u003e\u003cth style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"Information about the use of the element\"\u003eFlags\u003c/a\u003e\u003c/th\u003e\u003cth style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"Minimum and Maximum # of times the the element can appear in the instance\"\u003eCard.\u003c/a\u003e\u003c/th\u003e\u003cth style\u003d\"width: 100px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"Reference to the type of the element\"\u003eType\u003c/a\u003e\u003c/th\u003e\u003cth style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"Additional information about the element\"\u003eDescription \u0026amp; Constraints\u003c/a\u003e\u003cspan style\u003d\"float: right\"\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"Legend for this format\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt\u003d\"doco\" style\u003d\"background-color: inherit\"/\u003e\u003c/a\u003e\u003c/span\u003e\u003c/th\u003e\u003c/tr\u003e\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAAJUlEQVR4Xu3IIQEAAAgDsHd9/w4EQIOamFnaBgAA4MMKAACAKwNp30CqZFfFmwAAAABJRU5ErkJggg\u003d\u003d)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAACCElEQVQ4y4XTv2sUQRTA8e9Mzt3kjoOLSXFgZ6GJQlALCysLC89OsLTXv0VFxE4stRAEQUghSWEXuM4qMZpATsUD70dyMdnduZ15z2IvMV5IfDDNm5nPm59GVTkpms1mTVXvhxDuichlEZn03m+KyJL3/mWj0fiKqp7YVlZWXrfbbR2PTqeji4uLn1WVEqdECKFRr9eP5WdnZ/HeXwROB0TEA3S7XarVKiLC1tYW8/PzeO/5LxBCUABrLXEc02q1KJfLB30F0P144dPU9LVL1kwcrU06WP0ewhML4JwDYDgcHo7I87wAjNq5ypU3Z8arT8F5u/xejw52zmGM+Rcg1wyIcc/BTYCdBlODyh3ElA1AHMekaUoURURRBECWZSNgaGzBxxAU9jfQ9jrJr2dcbbXobRYHlQAzo9X1gDR9+KUArE6CwLefZD9WCW6P0uRZKreXqADkHXZ3dshzjwRholJH397AOXcTwHTfzQ1n7q6NnYEAy+DWQVNwKWQJ6vcx557Se7HAzIN1M9rCwVteA/rAYDRRICQgSZEr7WLYO3bzJVJGQBu0D74PkoHkoBnIHvjfkO9AGABmDHCjFWgH8i7kPQh9yEeYH4DfLhBJgA2A7BBQJ9uwXWY3rhJqFo1AaiB1CBngwKZQcqAeSFSduL9Akj7qPF64jnALS5VTPwdgPwwJ+uog9Qcx4kRZiPKqxgAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Resource\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole : A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.\"\u003ePractitionerRole\u003c/span\u003e\u003ca name\u003d\"PractitionerRole\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6\" href\u003d\"versions.html#std-process\" title\u003d\"Standards Status \u003d Trial Use\"\u003eTU\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"domainresource.html\"\u003eDomainResource\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eRoles/organizations the practitioner is associated with\u003cbr/\u003e\u003cbr/\u003eElements defined in Ancestors: \u003ca href\u003d\"resource.html#Resource\" title\u003d\"The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.\"\u003eid\u003c/a\u003e, \u003ca href\u003d\"resource.html#Resource\" title\u003d\"The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.\"\u003emeta\u003c/a\u003e, \u003ca href\u003d\"resource.html#Resource\" title\u003d\"A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.\"\u003eimplicitRules\u003c/a\u003e, \u003ca href\u003d\"resource.html#Resource\" title\u003d\"The base language in which the resource is written.\"\u003elanguage\u003c/a\u003e, \u003ca href\u003d\"domainresource.html#DomainResource\" title\u003d\"A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \u0026quot;clinically safe\u0026quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.\"\u003etext\u003c/a\u003e, \u003ca href\u003d\"domainresource.html#DomainResource\" title\u003d\"These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope. This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning.\"\u003econtained\u003c/a\u003e, \u003ca href\u003d\"domainresource.html#DomainResource\" title\u003d\"May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.\"\u003eextension\u003c/a\u003e, \u003ca href\u003d\"domainresource.html#DomainResource\" title\u003d\"May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).\"\u003emodifierExtension\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.identifier : Business Identifiers that are specific to a role/location.\"\u003eidentifier\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.identifier\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#Identifier\"\u003eIdentifier\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eIdentifiers for a role/location\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAARklEQVQ4y2P8//8/AyWAhYFCMAgMuHjx4n+KXaCv+I0szW8WpCG8kFO1lGFKW/SIjAUYgxz/MzAwMDC+nqhDUTQyjuYFBgCNmhP4OvTRgwAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Primitive Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.active :  Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed.\"\u003eactive\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.active\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..1\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#boolean\"\u003eboolean\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eWhether this practitioner role record is in active use\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.period : The period during which the person is authorized to act as a practitioner in these role(s) for the organization.\"\u003eperiod\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.period\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..1\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#Period\"\u003ePeriod\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eThe period during which the practitioner is authorized to perform in these role(s)\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAFxJREFUOE/NjEEOACEIA/0o/38GGw+agoXYeNnDJDCUDnd/gkoFKhWozJiZI3gLwY6rAgxhsPKTPUzycTl8lAryMyMsVQG6TFi6cHULyz8KOjC7OIQKlQpU3uPjAwhX2CCcGsgOAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Reference to another Resource\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.practitioner : Practitioner that is able to provide the defined services for the organization.\"\u003epractitioner\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.practitioner\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..1\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"references.html#Reference\"\u003eReference\u003c/a\u003e(\u003ca href\u003d\"practitioner.html\"\u003ePractitioner\u003c/a\u003e)\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003ePractitioner that provides services for the organization\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAFxJREFUOE/NjEEOACEIA/0o/38GGw+agoXYeNnDJDCUDnd/gkoFKhWozJiZI3gLwY6rAgxhsPKTPUzycTl8lAryMyMsVQG6TFi6cHULyz8KOjC7OIQKlQpU3uPjAwhX2CCcGsgOAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Reference to another Resource\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.organization : The organization where the Practitioner performs the roles associated.\"\u003eorganization\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.organization\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..1\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"references.html#Reference\"\u003eReference\u003c/a\u003e(\u003ca href\u003d\"organization.html\"\u003eOrganization\u003c/a\u003e)\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eOrganization where the roles are available\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.code : Roles which this practitioner is authorized to perform for the organization.\"\u003ecode\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.code\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#CodeableConcept\"\u003eCodeableConcept\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eRoles which this practitioner may perform\u003cbr/\u003eBinding: \u003ca href\u003d\"valueset-practitioner-role.html\"\u003ePractitioner Role\u003c/a\u003e (\u003ca href\u003d\"terminologies.html#example\" title\u003d\"Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.\"\u003eExample\u003c/a\u003e)\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.specialty : The specialty of a practitioner that describes the functional role they are practicing at a given organization or location.\"\u003especialty\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.specialty\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#CodeableConcept\"\u003eCodeableConcept\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eSpecific specialty of the practitioner\u003cbr/\u003eBinding: \u003ca href\u003d\"valueset-c80-practice-codes.html\"\u003ePractice Setting Code Value Set\u003c/a\u003e (\u003ca href\u003d\"terminologies.html#preferred\" title\u003d\"Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.\"\u003ePreferred\u003c/a\u003e)\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAFxJREFUOE/NjEEOACEIA/0o/38GGw+agoXYeNnDJDCUDnd/gkoFKhWozJiZI3gLwY6rAgxhsPKTPUzycTl8lAryMyMsVQG6TFi6cHULyz8KOjC7OIQKlQpU3uPjAwhX2CCcGsgOAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Reference to another Resource\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.location : The location(s) at which this practitioner provides care.\"\u003elocation\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.location\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca style\u003d\"padding-left: 3px; padding-right: 3px; color: black; null\" href\u003d\"elementdefinition-definitions.html#ElementDefinition.isSummary\" title\u003d\"This element is included in summaries\"\u003eΣ\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"references.html#Reference\"\u003eReference\u003c/a\u003e(\u003ca href\u003d\"location.html\"\u003eLocation\u003c/a\u003e)\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eLocation(s) where the practitioner provides care\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAFxJREFUOE/NjEEOACEIA/0o/38GGw+agoXYeNnDJDCUDnd/gkoFKhWozJiZI3gLwY6rAgxhsPKTPUzycTl8lAryMyMsVQG6TFi6cHULyz8KOjC7OIQKlQpU3uPjAwhX2CCcGsgOAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Reference to another Resource\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.healthcareService : The list of healthcare services that this worker provides for this role\u0027s Organization/Location(s).\"\u003ehealthcareService\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.healthcareService\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"references.html#Reference\"\u003eReference\u003c/a\u003e(\u003ca href\u003d\"healthcareservice.html\"\u003eHealthcareService\u003c/a\u003e)\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eHealthcare services provided for this role\u0027s Organization/Location(s)\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.contact : The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites.\"\u003econtact\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.contact\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"metadatatypes.html#ExtendedContactDetail\"\u003eExtendedContactDetail\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eOfficial contact details relating to this PractitionerRole\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.characteristic : Collection of characteristics (attributes).\"\u003echaracteristic\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.characteristic\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#CodeableConcept\"\u003eCodeableConcept\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eCollection of characteristics (attributes)\u003cbr/\u003eBinding: \u003ca href\u003d\"valueset-service-mode.html\"\u003eService Mode\u003c/a\u003e (\u003ca href\u003d\"terminologies.html#example\" title\u003d\"Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.\"\u003eExample\u003c/a\u003e)\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.communication : A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.\"\u003ecommunication\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.communication\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"datatypes.html#CodeableConcept\"\u003eCodeableConcept\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eA language the practitioner (in this role) can use in patient communication\u003cbr/\u003eBinding: \u003ca href\u003d\"valueset-all-languages.html\"\u003eAll Languages\u003c/a\u003e (\u003ca href\u003d\"terminologies.html#required\" title\u003d\"To be conformant, the concept in this element SHALL be from the specified value set.\"\u003eRequired\u003c/a\u003e)\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd style\u003d\"font-size: 11px\"\u003e\u003cb\u003eAdditional Bindings\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"font-size: 11px\"\u003ePurpose\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"font-size: 11px\"\u003e\u003ca href\u003d\"valueset-languages.html\" title\u003d\"http://hl7.org/fhir/ValueSet/languages\"\u003eCommon Languages\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"font-size: 11px\"\u003e\u003ca href\u003d\"valueset-additional-binding-purpose.html#additional-binding-purpose-starter\" title\u003d\"This value set is a good set of codes to start with when designing your system\"\u003eStarter Set\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAALUlEQVR4Xu3IoREAIAwEwfT6/ddA0GBAxO3NrLlKUj9263wAAAAvrgEAADClAVWFQIBRHMicAAAAAElFTkSuQmCC)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzI3XJ6V3QAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+2RsQ0AIAzDav7/2VzQwoCY4iWbZSmo1QGoUgNMghvWaIejPQW/CrrNCylIwcOCDYfLNRcNer4SAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,R0lGODlhEAAQAPZ/APrkusOiYvvfqbiXWaV2G+jGhdq1b8GgYf3v1frw3vTUlsWkZNewbcSjY/DQkad4Hb6dXv3u0f3v1ObEgfPTlerJiP3w1v79+e7OkPrfrfnjuNOtZPrpydaxa+/YrvvdpP779ZxvFPvnwKKBQaFyF/369M2vdaqHRPz58/HNh/vowufFhfroxO3OkPrluv779tK0e6JzGProwvrow9m4eOnIifPTlPDPkP78+Naxaf3v0/zowfXRi+bFhLWUVv379/rnwPvszv3rye3LiPvnv+3MjPDasKiIS/789/3x2f747eXDg+7Mifvu0tu7f+/QkfDTnPXWmPrjsvrjtPbPgrqZW+/QlPz48K2EMv36866OUPvowat8Ivvgq/Pbrvzgq/PguvrgrqN0Gda2evfYm9+7d/rpw9q6e/LSku/Rl/XVl/LSlfrkt+zVqe7Wqv3x1/bNffbOf59wFdS6if3u0vrqyP3owPvepfXQivDQkO/PkKh9K7STVf779P///wD/ACH5BAEKAH8ALAAAAAAQABAAAAemgH+CgxeFF4OIhBdKGwFChYl/hYwbdkoBPnaQkosbG3d3VEpSUlonUoY1Gzo6QkI8SrGxWBOFG4uySgY5ZWR3PFy2hnaWZXC/PHcPwkpJk1ShoHcxhQEXSUmtFy6+0iSFVResrjoTPDzdcoU+F65CduVU6KAhhQa3F8Tx8nchBoYuqoTLZoAKFRIhqGwqJAULFx0GYpBQeChRIR4TJm6KJMhQRUSBAAA7\" alt\u003d\".\" style\u003d\"background-color: #F7F7F7; background-color: inherit\" title\u003d\"Data Type\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.availability : A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.\"\u003eavailability\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.availability\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"metadatatypes.html#Availability\"\u003eAvailability\u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eTimes the Practitioner is available at this location and/or healthcare service (including exceptions)\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr style\u003d\"border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white\"\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAACCAYAAACg/LjIAAAAJUlEQVR4Xu3IIQEAAAgDsHd9/w4EQIOamFnaBgAA4MMKAACAKwNp30CqZFfFmwAAAABJRU5ErkJggg\u003d\u003d)\" class\u003d\"hierarchy\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAWCAYAAAABxvaqAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzIs1vtcMQAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQI12P4//8/AxMDAwNdCABMPwMo2ctnoQAAAABJRU5ErkJggg\u003d\u003d\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAWCAYAAADJqhx8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wYeFzME+lXFigAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAANklEQVQ4y+3OsRUAIAjEUOL+O8cJABttJM11/x1qZAGqRBEVcNIqdWj1efDqQbb3HwwwwEfABmQUHSPM9dtDAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: inherit\" class\u003d\"hierarchy\"/\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAFxJREFUOE/NjEEOACEIA/0o/38GGw+agoXYeNnDJDCUDnd/gkoFKhWozJiZI3gLwY6rAgxhsPKTPUzycTl8lAryMyMsVQG6TFi6cHULyz8KOjC7OIQKlQpU3uPjAwhX2CCcGsgOAAAAAElFTkSuQmCC\" alt\u003d\".\" style\u003d\"background-color: white; background-color: inherit\" title\u003d\"Reference to another Resource\" class\u003d\"hierarchy\"/\u003e \u003cspan title\u003d\"PractitionerRole.endpoint :  Technical endpoints providing access to services operated for the practitioner with this role. Commonly used for locating scheduling services, or identifying where to send referrals electronically.\"\u003eendpoint\u003c/span\u003e\u003ca name\u003d\"PractitionerRole.endpoint\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"/\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e0..*\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003e\u003ca href\u003d\"references.html#Reference\"\u003eReference\u003c/a\u003e(\u003ca href\u003d\"endpoint.html\"\u003eEndpoint\u003c/a\u003e)\u003c/td\u003e\u003ctd style\u003d\"vertical-align: top; text-align : left; background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px\" class\u003d\"hierarchy\"\u003eEndpoints for interacting with the practitioner in this role\u003cbr/\u003e\u003cbr/\u003e\u003c/td\u003e\u003c/tr\u003e\r\n\u003ctr\u003e\u003ctd colspan\u003d\"5\" class\u003d\"hierarchy\"\u003e\u003cbr/\u003e\u003ca href\u003d\"https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views\" title\u003d\"Legend for this format\"\u003e\u003cimg src\u003d\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC\" alt\u003d\"doco\" style\u003d\"background-color: inherit\"/\u003e Documentation for this format\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-category",
+      "valueString": "Base.Individuals"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 4
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category",
+      "valueCode": "individual"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    }
+  ],
+  "url": "http://hl7.org/fhir/StructureDefinition/PractitionerRole",
+  "version": "5.0.0",
+  "name": "PractitionerRole",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "Health Level Seven International (Patient Administration)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    },
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/pafm/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "purpose": "Need to track services that a healthcare provider is able to provide at an organization\u0027s location, and the services that they can perform there.",
+  "fhirVersion": "5.0.0",
+  "mapping": [
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    },
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 V2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "interface",
+      "uri": "http://hl7.org/fhir/interface",
+      "name": "Interface Pattern"
+    },
+    {
+      "identity": "servd",
+      "uri": "http://www.omg.org/spec/ServD/1.0/",
+      "name": "ServD"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "PractitionerRole",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/DomainResource",
+  "derivation": "specialization",
+  "snapshot": {
+    "element": [
+      {
+        "id": "PractitionerRole",
+        "path": "PractitionerRole",
+        "short": "Roles/organizations the practitioner is associated with",
+        "definition": "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole",
+          "min": 0,
+          "max": "*"
+        },
+        "constraint": [
+          {
+            "key": "dom-2",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL NOT contain nested Resources",
+            "expression": "contained.contained.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-3",
+            "severity": "error",
+            "human": "If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource or SHALL refer to the containing resource",
+            "expression": "contained.where(((\u0027#\u0027+id in (%resource.descendants().reference | %resource.descendants().ofType(canonical) | %resource.descendants().ofType(uri) | %resource.descendants().ofType(url))) or descendants().where(reference \u003d \u0027#\u0027).exists() or descendants().where(ofType(canonical) \u003d \u0027#\u0027).exists() or descendants().where(ofType(canonical) \u003d \u0027#\u0027).exists()).not()).trace(\u0027unmatched\u0027, id).empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-4",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a meta.versionId or a meta.lastUpdated",
+            "expression": "contained.meta.versionId.empty() and contained.meta.lastUpdated.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "key": "dom-5",
+            "severity": "error",
+            "human": "If a resource is contained in another resource, it SHALL NOT have a security label",
+            "expression": "contained.meta.security.empty()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice",
+                "valueBoolean": true
+              },
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice-explanation",
+                "valueMarkdown": "When a resource has no narrative, only systems that fully understand the data can display the resource to a human safely. Including a human readable representation in the resource makes for a much more robust eco-system and cheaper handling of resources by intermediary systems. Some ecosystems restrict distribution of resources to only those systems that do fully understand the resources, and as a consequence implementers may believe that the narrative is superfluous. However experience shows that such eco-systems often open up to new participants over time."
+              }
+            ],
+            "key": "dom-6",
+            "severity": "warning",
+            "human": "A resource should have narrative for robust management",
+            "expression": "text.`div`.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/DomainResource"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Entity, Role, or Act,Role"
+          },
+          {
+            "identity": "w5",
+            "map": "administrative.individual"
+          },
+          {
+            "identity": "v2",
+            "map": "PRD (as one example)"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant"
+          },
+          {
+            "identity": "servd",
+            "map": "ServiceSiteProvider"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.id",
+        "path": "PractitionerRole.id",
+        "short": "Logical id of this artifact",
+        "definition": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+        "comment": "Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.id",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type",
+                "valueUrl": "id"
+              }
+            ],
+            "code": "http://hl7.org/fhirpath/System.String"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "PractitionerRole.meta",
+        "path": "PractitionerRole.meta",
+        "short": "Metadata about the resource",
+        "definition": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.meta",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Meta"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "PractitionerRole.implicitRules",
+        "path": "PractitionerRole.implicitRules",
+        "short": "A set of rules under which this content was created",
+        "definition": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+        "comment": "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.implicitRules",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "uri"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": true,
+        "isModifierReason": "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies its meaning or interpretation",
+        "isSummary": true
+      },
+      {
+        "id": "PractitionerRole.language",
+        "path": "PractitionerRole.language",
+        "short": "Language of the resource content",
+        "definition": "The base language in which the resource is written.",
+        "comment": "Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Resource.language",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "Language"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "required",
+          "description": "IETF language tag for a human language",
+          "valueSet": "http://hl7.org/fhir/ValueSet/all-languages|5.0.0",
+          "additional": [
+            {
+              "purpose": "starter",
+              "valueSet": "http://hl7.org/fhir/ValueSet/languages"
+            }
+          ]
+        }
+      },
+      {
+        "id": "PractitionerRole.text",
+        "path": "PractitionerRole.text",
+        "short": "Text summary of the resource, for human interpretation",
+        "definition": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+        "comment": "Contained resources do not have a narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs\u003d1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+        "alias": [
+          "narrative",
+          "html",
+          "xhtml",
+          "display"
+        ],
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "DomainResource.text",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Narrative"
+          }
+        ],
+        "condition": [
+          "dom-6"
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "Act.text?"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.contained",
+        "path": "PractitionerRole.contained",
+        "short": "Contained, inline Resources",
+        "definition": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope. This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning.",
+        "comment": "This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags in their meta elements, but SHALL NOT have security labels.",
+        "alias": [
+          "inline resources",
+          "anonymous resources",
+          "contained resources"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.contained",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Resource"
+          }
+        ],
+        "condition": [
+          "dom-2",
+          "dom-4",
+          "dom-3",
+          "dom-5"
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.extension",
+        "path": "PractitionerRole.extension",
+        "short": "Additional content defined by implementations",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.modifierExtension",
+        "path": "PractitionerRole.modifierExtension",
+        "short": "Extensions that cannot be ignored",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "requirements": "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](extensibility.html#modifierExtension).",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key": "ext-1",
+            "severity": "error",
+            "human": "Must have either extensions or value[x], not both",
+            "expression": "extension.exists() !\u003d value.exists()",
+            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": true,
+        "isModifierReason": "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "N/A"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.identifier",
+        "path": "PractitionerRole.identifier",
+        "short": "Identifiers for a role/location",
+        "definition": "Business Identifiers that are specific to a role/location.",
+        "comment": "A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods.",
+        "requirements": "Often, specific identities are assigned for the agent.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.identifier",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.identifier"
+          },
+          {
+            "identity": "v2",
+            "map": "PRD-7 (or XCN.1)"
+          },
+          {
+            "identity": "rim",
+            "map": ".id"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant.identifier"
+          },
+          {
+            "identity": "servd",
+            "map": "./Identifiers"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.active",
+        "path": "PractitionerRole.active",
+        "short": "Whether this practitioner role record is in active use",
+        "definition": " Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed.",
+        "comment": "If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active.",
+        "requirements": "Need to be able to mark a practitioner role record as not to be used because it was created in error, or otherwise no longer in active use.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "PractitionerRole.active",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "meaningWhenMissing": "This resource is generally assumed to be active if no value is provided for the active element",
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.status"
+          },
+          {
+            "identity": "v2",
+            "map": "STF-7"
+          },
+          {
+            "identity": "rim",
+            "map": ".statusCode"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant.active"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.period",
+        "path": "PractitionerRole.period",
+        "short": "The period during which the practitioner is authorized to perform in these role(s)",
+        "definition": "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.",
+        "comment": "If a practitioner is performing a role within an organization over multiple, non-adjacent periods, there should be a distinct PractitionerRole instance for each period.  For example, if a nurse is employed at a hospital, leaves the organization for a period of time due to pandemic related stress, but returns post-pandemic to the same job role, there would be two PractitionerRole instances for the different periods of employment.",
+        "requirements": "Even after the agencies is revoked, the fact that it existed must still be recorded.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "PractitionerRole.period",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.done[x]"
+          },
+          {
+            "identity": "v2",
+            "map": "PRD-8/9 / PRA-5.4"
+          },
+          {
+            "identity": "rim",
+            "map": ".performance[@typeCode \u003c\u003d \u0027PPRF\u0027].ActDefinitionOrEvent.effectiveTime"
+          },
+          {
+            "identity": "servd",
+            "map": "(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "path": "PractitionerRole.practitioner",
+        "short": "Practitioner that provides services for the organization",
+        "definition": "Practitioner that is able to provide the defined services for the organization.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "PractitionerRole.practitioner",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Practitioner"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".player"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.organization",
+        "path": "PractitionerRole.organization",
+        "short": "Organization where the roles are available",
+        "definition": "The organization where the Practitioner performs the roles associated.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "PractitionerRole.organization",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".scoper"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.code",
+        "path": "PractitionerRole.code",
+        "short": "Roles which this practitioner may perform",
+        "definition": "Roles which this practitioner is authorized to perform for the organization.",
+        "comment": "A person may have more than one role.",
+        "requirements": "Need to know what authority the practitioner has - what can they do?",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.code",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "PractitionerRole"
+            }
+          ],
+          "strength": "example",
+          "description": "The role a person plays representing an organization.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/practitioner-role"
+        },
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "PRD-1 / STF-18  / PRA-3  / PRT-4  / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17"
+          },
+          {
+            "identity": "rim",
+            "map": ".code"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant.name"
+          },
+          {
+            "identity": "servd",
+            "map": "(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.specialty",
+        "path": "PractitionerRole.specialty",
+        "short": "Specific specialty of the practitioner",
+        "definition": "The specialty of a practitioner that describes the functional role they are practicing at a given organization or location.",
+        "comment": "The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.specialty",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "PractitionerSpecialty"
+            }
+          ],
+          "strength": "preferred",
+          "description": "Specific specialty associated with the agency.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/c80-practice-codes"
+        },
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "PRA-5"
+          },
+          {
+            "identity": "rim",
+            "map": ".player.HealthCareProvider[@classCode \u003d \u0027PROV\u0027].code"
+          },
+          {
+            "identity": "servd",
+            "map": "./Specialty"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.location",
+        "path": "PractitionerRole.location",
+        "short": "Location(s) where the practitioner provides care",
+        "definition": "The location(s) at which this practitioner provides care.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.location",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Location"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.where[x]"
+          },
+          {
+            "identity": "rim",
+            "map": ".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode \u003d \u0027SDLOC\u0027]"
+          },
+          {
+            "identity": "servd",
+            "map": "(ServD maps Practitioners and Organizations via another entity, so this concept is not available)\u003cbr/\u003e However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.healthcareService",
+        "path": "PractitionerRole.healthcareService",
+        "short": "Healthcare services provided for this role\u0027s Organization/Location(s)",
+        "definition": "The list of healthcare services that this worker provides for this role\u0027s Organization/Location(s).",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.healthcareService",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/HealthcareService"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "EDU-2 / AFF-3"
+          },
+          {
+            "identity": "rim",
+            "map": ".player.QualifiedEntity[@classCode \u003d \u0027QUAL\u0027].code"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.contact",
+        "path": "PractitionerRole.contact",
+        "short": "Official contact details relating to this PractitionerRole",
+        "definition": "The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites.",
+        "requirements": "Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.contact",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ExtendedContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "PractitionerRole.characteristic",
+        "path": "PractitionerRole.characteristic",
+        "short": "Collection of characteristics (attributes)",
+        "definition": "Collection of characteristics (attributes).",
+        "comment": "These could be such things as is the service mode used by this role.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.characteristic",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "ServiceCharacteristic"
+            }
+          ],
+          "strength": "example",
+          "description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+          "valueSet": "http://hl7.org/fhir/ValueSet/service-mode"
+        },
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".actrelationship[typeCode\u003dPERT].observation"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.communication",
+        "path": "PractitionerRole.communication",
+        "short": "A language the practitioner (in this role) can use in patient communication",
+        "definition": "A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.",
+        "comment": "The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.\r\rNote that for non-patient oriented communication, see Practitioner.communication.  Note that all \u0027person\u0027 type resources (Person, RelatedPerson, Patient, Practitioner) have a communication structure that includes preferences.  Role or service oriented resources such as HealthcareService and PractitionerRole only include languages that are available for interacting with patients.",
+        "requirements": "Knowing which language a practitioner speaks can help in facilitating patients to locate practitioners that speak their language.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.communication",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "Language"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "required",
+          "description": "IETF language tag for a human language",
+          "valueSet": "http://hl7.org/fhir/ValueSet/all-languages|5.0.0",
+          "additional": [
+            {
+              "purpose": "starter",
+              "valueSet": "http://hl7.org/fhir/ValueSet/languages"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "./languageCommunication"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.availability",
+        "path": "PractitionerRole.availability",
+        "short": "Times the Practitioner is available at this location and/or healthcare service (including exceptions)",
+        "definition": "A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.",
+        "comment": "More detailed availability information may be provided in associated Schedule/Slot resources.\n\nSystems may choose to render availability differently than it is exchanged on the interface. For example, rather than \"Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm\" as would be implied by two availableTime repetitions, an application could render this information as \"Mon-Fri 9-12am and 1-5pm\".\r\rThe NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays).",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.availability",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Availability"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".effectiveTime"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.endpoint",
+        "path": "PractitionerRole.endpoint",
+        "short": "Endpoints for interacting with the practitioner in this role",
+        "definition": " Technical endpoints providing access to services operated for the practitioner with this role. Commonly used for locating scheduling services, or identifying where to send referrals electronically.",
+        "requirements": "Organizations have multiple systems that provide various services and may also be different for practitioners too.\n\nSo the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "PractitionerRole.endpoint",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Endpoint"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      }
+    ]
+  },
+  "differential": {
+    "element": [
+      {
+        "id": "PractitionerRole",
+        "path": "PractitionerRole",
+        "short": "Roles/organizations the practitioner is associated with",
+        "definition": "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.",
+        "min": 0,
+        "max": "*",
+        "mustSupport": false,
+        "isModifier": false,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "administrative.individual"
+          },
+          {
+            "identity": "v2",
+            "map": "PRD (as one example)"
+          },
+          {
+            "identity": "rim",
+            "map": "Role"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant"
+          },
+          {
+            "identity": "servd",
+            "map": "ServiceSiteProvider"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.identifier",
+        "path": "PractitionerRole.identifier",
+        "short": "Identifiers for a role/location",
+        "definition": "Business Identifiers that are specific to a role/location.",
+        "comment": "A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods.",
+        "requirements": "Often, specific identities are assigned for the agent.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.identifier"
+          },
+          {
+            "identity": "v2",
+            "map": "PRD-7 (or XCN.1)"
+          },
+          {
+            "identity": "rim",
+            "map": ".id"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant.identifier"
+          },
+          {
+            "identity": "servd",
+            "map": "./Identifiers"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.active",
+        "path": "PractitionerRole.active",
+        "short": "Whether this practitioner role record is in active use",
+        "definition": " Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed.",
+        "comment": "If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active.",
+        "requirements": "Need to be able to mark a practitioner role record as not to be used because it was created in error, or otherwise no longer in active use.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "meaningWhenMissing": "This resource is generally assumed to be active if no value is provided for the active element",
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.status"
+          },
+          {
+            "identity": "v2",
+            "map": "STF-7"
+          },
+          {
+            "identity": "rim",
+            "map": ".statusCode"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant.active"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.period",
+        "path": "PractitionerRole.period",
+        "short": "The period during which the practitioner is authorized to perform in these role(s)",
+        "definition": "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.",
+        "comment": "If a practitioner is performing a role within an organization over multiple, non-adjacent periods, there should be a distinct PractitionerRole instance for each period.  For example, if a nurse is employed at a hospital, leaves the organization for a period of time due to pandemic related stress, but returns post-pandemic to the same job role, there would be two PractitionerRole instances for the different periods of employment.",
+        "requirements": "Even after the agencies is revoked, the fact that it existed must still be recorded.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.done[x]"
+          },
+          {
+            "identity": "v2",
+            "map": "PRD-8/9 / PRA-5.4"
+          },
+          {
+            "identity": "rim",
+            "map": ".performance[@typeCode \u003c\u003d \u0027PPRF\u0027].ActDefinitionOrEvent.effectiveTime"
+          },
+          {
+            "identity": "servd",
+            "map": "(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.practitioner",
+        "path": "PractitionerRole.practitioner",
+        "short": "Practitioner that provides services for the organization",
+        "definition": "Practitioner that is able to provide the defined services for the organization.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Practitioner"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".player"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.organization",
+        "path": "PractitionerRole.organization",
+        "short": "Organization where the roles are available",
+        "definition": "The organization where the Practitioner performs the roles associated.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Organization"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".scoper"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.code",
+        "path": "PractitionerRole.code",
+        "short": "Roles which this practitioner may perform",
+        "definition": "Roles which this practitioner is authorized to perform for the organization.",
+        "comment": "A person may have more than one role.",
+        "requirements": "Need to know what authority the practitioner has - what can they do?",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "PractitionerRole"
+            }
+          ],
+          "strength": "example",
+          "description": "The role a person plays representing an organization.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/practitioner-role"
+        },
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "PRD-1 / STF-18  / PRA-3  / PRT-4  / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17"
+          },
+          {
+            "identity": "rim",
+            "map": ".code"
+          },
+          {
+            "identity": "interface",
+            "map": "Participant.name"
+          },
+          {
+            "identity": "servd",
+            "map": "(ServD maps Practitioners and Organizations via another entity, so this concept is not available)"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.specialty",
+        "path": "PractitionerRole.specialty",
+        "short": "Specific specialty of the practitioner",
+        "definition": "The specialty of a practitioner that describes the functional role they are practicing at a given organization or location.",
+        "comment": "The specialty represents the functional role a practitioner is playing within an organization/location. This role may require the individual have certain qualifications, which would be represented in the Practitioner.qualifications property.  Note that qualifications may or might not relate to or be required by the practicing specialty.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "PractitionerSpecialty"
+            }
+          ],
+          "strength": "preferred",
+          "description": "Specific specialty associated with the agency.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/c80-practice-codes"
+        },
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "PRA-5"
+          },
+          {
+            "identity": "rim",
+            "map": ".player.HealthCareProvider[@classCode \u003d \u0027PROV\u0027].code"
+          },
+          {
+            "identity": "servd",
+            "map": "./Specialty"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.location",
+        "path": "PractitionerRole.location",
+        "short": "Location(s) where the practitioner provides care",
+        "definition": "The location(s) at which this practitioner provides care.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Location"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "w5",
+            "map": "FiveWs.where[x]"
+          },
+          {
+            "identity": "rim",
+            "map": ".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode \u003d \u0027SDLOC\u0027]"
+          },
+          {
+            "identity": "servd",
+            "map": "(ServD maps Practitioners and Organizations via another entity, so this concept is not available)\u003cbr/\u003e However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.healthcareService",
+        "path": "PractitionerRole.healthcareService",
+        "short": "Healthcare services provided for this role\u0027s Organization/Location(s)",
+        "definition": "The list of healthcare services that this worker provides for this role\u0027s Organization/Location(s).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/HealthcareService"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "EDU-2 / AFF-3"
+          },
+          {
+            "identity": "rim",
+            "map": ".player.QualifiedEntity[@classCode \u003d \u0027QUAL\u0027].code"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.contact",
+        "path": "PractitionerRole.contact",
+        "short": "Official contact details relating to this PractitionerRole",
+        "definition": "The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites.",
+        "requirements": "Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "ExtendedContactDetail"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "PractitionerRole.characteristic",
+        "path": "PractitionerRole.characteristic",
+        "short": "Collection of characteristics (attributes)",
+        "definition": "Collection of characteristics (attributes).",
+        "comment": "These could be such things as is the service mode used by this role.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "ServiceCharacteristic"
+            }
+          ],
+          "strength": "example",
+          "description": "A custom attribute that could be provided at a service (e.g. Wheelchair accessibility).",
+          "valueSet": "http://hl7.org/fhir/ValueSet/service-mode"
+        },
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".actrelationship[typeCode\u003dPERT].observation"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.communication",
+        "path": "PractitionerRole.communication",
+        "short": "A language the practitioner (in this role) can use in patient communication",
+        "definition": "A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search.",
+        "comment": "The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.\r\rNote that for non-patient oriented communication, see Practitioner.communication.  Note that all \u0027person\u0027 type resources (Person, RelatedPerson, Patient, Practitioner) have a communication structure that includes preferences.  Role or service oriented resources such as HealthcareService and PractitionerRole only include languages that are available for interacting with patients.",
+        "requirements": "Knowing which language a practitioner speaks can help in facilitating patients to locate practitioners that speak their language.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "Language"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "required",
+          "description": "IETF language tag for a human language",
+          "valueSet": "http://hl7.org/fhir/ValueSet/all-languages|5.0.0",
+          "additional": [
+            {
+              "purpose": "starter",
+              "valueSet": "http://hl7.org/fhir/ValueSet/languages"
+            }
+          ]
+        },
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "./languageCommunication"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.availability",
+        "path": "PractitionerRole.availability",
+        "short": "Times the Practitioner is available at this location and/or healthcare service (including exceptions)",
+        "definition": "A collection of times the practitioner is available or performing this role at the location and/or healthcareservice.",
+        "comment": "More detailed availability information may be provided in associated Schedule/Slot resources.\n\nSystems may choose to render availability differently than it is exchanged on the interface. For example, rather than \"Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm\" as would be implied by two availableTime repetitions, an application could render this information as \"Mon-Fri 9-12am and 1-5pm\".\r\rThe NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays).",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Availability"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": ".effectiveTime"
+          }
+        ]
+      },
+      {
+        "id": "PractitionerRole.endpoint",
+        "path": "PractitionerRole.endpoint",
+        "short": "Endpoints for interacting with the practitioner in this role",
+        "definition": " Technical endpoints providing access to services operated for the practitioner with this role. Commonly used for locating scheduling services, or identifying where to send referrals electronically.",
+        "requirements": "Organizations have multiple systems that provide various services and may also be different for practitioners too.\n\nSo the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose.",
+        "min": 0,
+        "max": "*",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Endpoint"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": false,
+        "mapping": [
+          {
+            "identity": "rim",
+            "map": "n/a"
+          }
+        ]
+      }
+    ]
+  }
+}

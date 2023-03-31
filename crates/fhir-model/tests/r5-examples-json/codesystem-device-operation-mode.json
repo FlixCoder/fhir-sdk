@@ -1,0 +1,98 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "device-operation-mode",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/device-operation-mode\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enormal\u003ca name\u003d\"device-operation-mode-normal\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNormal\u003c/td\u003e\u003ctd\u003eThe device operates in a mode that supports the fulfillment of its clinical functions.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edemo\u003ca name\u003d\"device-operation-mode-demo\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDemo\u003c/td\u003e\u003ctd\u003eThe device operates in a mode that is intended for demonstration purposes only. Arbitrary values are generated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eservice\u003ca name\u003d\"device-operation-mode-service\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eService\u003c/td\u003e\u003ctd\u003eThe device operates in a mode that is intended for correcting a functional problem of the device only. Arbitrary values may be generated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emaintenance\u003ca name\u003d\"device-operation-mode-maintenance\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMaintenance\u003c/td\u003e\u003ctd\u003eThe device operates in a mode that is intended for preventative and/or scheduled maintenance purposes only.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etest\u003ca name\u003d\"device-operation-mode-test\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTest\u003c/td\u003e\u003ctd\u003eThe device operates in a test mode that is not intended to be used for production/operational purposes.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/device-operation-mode",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2107"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "FHIRDeviceOperationMode",
+  "title": "FHIR Device Operation Mode",
+  "status": "active",
+  "experimental": false,
+  "date": "2022-03-28T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The operation mode of the device.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/device-operation-mode",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "normal",
+      "display": "Normal",
+      "definition": "The device operates in a mode that supports the fulfillment of its clinical functions."
+    },
+    {
+      "code": "demo",
+      "display": "Demo",
+      "definition": "The device operates in a mode that is intended for demonstration purposes only. Arbitrary values are generated."
+    },
+    {
+      "code": "service",
+      "display": "Service",
+      "definition": "The device operates in a mode that is intended for correcting a functional problem of the device only. Arbitrary values may be generated."
+    },
+    {
+      "code": "maintenance",
+      "display": "Maintenance",
+      "definition": "The device operates in a mode that is intended for preventative and/or scheduled maintenance purposes only."
+    },
+    {
+      "code": "test",
+      "display": "Test",
+      "definition": "The device operates in a test mode that is not intended to be used for production/operational purposes."
+    }
+  ]
+}

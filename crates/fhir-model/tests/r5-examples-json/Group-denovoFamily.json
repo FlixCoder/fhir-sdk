@@ -1,0 +1,77 @@
+{
+  "resourceType": "Group",
+  "id": "groupDenovoFamily",
+  "text": {
+    "status": "additional",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cp\u003e Denovo mutation study members \u003c/p\u003e \n      \u003cul\u003e \n        \u003cli\u003e Patient: Child Junior Doe\u003c/li\u003e \n        \u003cli\u003e Mother: Jane Mother Doe\u003c/li\u003e \n        \u003cli\u003e Father: John Father Doe\u003c/li\u003e \n      \u003c/ul\u003e \n    \u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "use": "temp",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ]
+      },
+      "system": "http://www.somesystemabc.net/identifiers/groups",
+      "value": "11111",
+      "period": {
+        "start": "2021-01-01"
+      },
+      "assigner": {
+        "display": "Child Hospital"
+      }
+    }
+  ],
+  "active": true,
+  "type": "person",
+  "membership": "enumerated",
+  "name": "Denovo Mutation Example Group",
+  "description": "[markdown]",
+  "quantity": 3,
+  "managingEntity": {
+    "reference": "Practitioner/practitioner02"
+  },
+  "member": [
+    {
+      "entity": {
+        "reference": "Patient/proband"
+      },
+      "period": {
+        "start": "2021-01-01T01:01:10-06:00"
+      },
+      "inactive": false
+    },
+    {
+      "entity": {
+        "reference": "RelatedPerson/relatedPersonDenovoMother"
+      },
+      "period": {
+        "start": "2021-01-01T01:01:10-06:00"
+      },
+      "inactive": false
+    },
+    {
+      "entity": {
+        "reference": "RelatedPerson/relatedPersonDenovoFather"
+      },
+      "period": {
+        "start": "2021-01-01T01:01:10-06:00"
+      },
+      "inactive": false
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

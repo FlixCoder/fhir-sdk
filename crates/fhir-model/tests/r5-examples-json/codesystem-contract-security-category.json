@@ -1,0 +1,66 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "contract-security-category",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003eEach definition includes usage notes explaining\n            the precedence order in contract lifecycle - i.e., while only some stages are required,\n            the order in which they may occur is deterministic; and a map to comparable FHIR and v.3\n            status codes. It follows guidance about use of status codes in FHIR in\n            \n      \u003ca href\u003d\"sc.html\"\u003ethe Status Codes Grid\u003c/a\u003e.\n    \u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/contract-security-category",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1221"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ContractSecurityCategory",
+  "title": "Contract Security Category",
+  "status": "active",
+  "experimental": true,
+  "date": "2017-02-13",
+  "publisher": "HL7 International",
+  "contact": [
+    {
+      "name": "FHIR project team",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This CodeSystem contains FHIR-defined contract security category types.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "policy",
+      "display": "Policy",
+      "definition": "To be completed"
+    }
+  ]
+}

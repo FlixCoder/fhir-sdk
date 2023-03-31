@@ -1,0 +1,63 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "summary",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cp\u003eThis code system \n        \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/summary\u003c/code\u003e defines many codes, but they are not represented here\n      \u003c/p\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/CodeSystem/summary",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1821"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "CodeSystemSummaryExampleACMEBodySites",
+  "title": "Code system summary example for ACME body sites",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7 International",
+  "contact": [
+    {
+      "name": "FHIR project team",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This is an example code system summary for the ACME codes for body site.",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://example.org/CodeSystem/contexttype",
+        "code": "species"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "337915000",
+            "display": "Homo sapiens (organism)"
+          }
+        ]
+      }
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "CA"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "not-present",
+  "count": 92
+}

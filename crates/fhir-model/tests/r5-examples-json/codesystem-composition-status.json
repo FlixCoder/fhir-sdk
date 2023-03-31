@@ -1,0 +1,143 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "composition-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/composition-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eregistered\u003ca name\u003d\"composition-status-registered\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRegistered\u003c/td\u003e\u003ctd\u003eThe existence of the composition is registered, but there is nothing yet available.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epartial\u003ca name\u003d\"composition-status-partial\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePartial\u003c/td\u003e\u003ctd\u003eThis is a partial (e.g. initial, interim or preliminary) composition: data in the composition may be incomplete or unverified.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  preliminary\u003ca name\u003d\"composition-status-preliminary\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePreliminary\u003c/td\u003e\u003ctd\u003eVerified early results are available, but not all results are final.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efinal\u003ca name\u003d\"composition-status-final\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFinal\u003c/td\u003e\u003ctd\u003eThis version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eamended\u003ca name\u003d\"composition-status-amended\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAmended\u003c/td\u003e\u003ctd\u003eThe composition content or the referenced resources have been modified (edited or added to) subsequent to being released as \u0026quot;final\u0026quot; and the composition is complete and verified by an authorized person.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  corrected\u003ca name\u003d\"composition-status-corrected\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCorrected\u003c/td\u003e\u003ctd\u003eSubsequent to being final, the composition content has been modified to correct an error in the composition or referenced results.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  appended\u003ca name\u003d\"composition-status-appended\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAppended\u003c/td\u003e\u003ctd\u003eSubsequent to being final, the composition content has been modified by adding new content. The existing content is unchanged.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecancelled\u003ca name\u003d\"composition-status-cancelled\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCancelled\u003c/td\u003e\u003ctd\u003eThe composition is unavailable because the measurement was not started or not completed (also sometimes called \u0026quot;aborted\u0026quot;).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eentered-in-error\u003ca name\u003d\"composition-status-entered-in-error\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEntered in Error\u003c/td\u003e\u003ctd\u003eThe composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeprecated\u003ca name\u003d\"composition-status-deprecated\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDeprecated\u003c/td\u003e\u003ctd\u003eThis composition has been withdrawn or superseded and should no longer be used.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunknown\u003ca name\u003d\"composition-status-unknown\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnknown\u003c/td\u003e\u003ctd\u003eThe authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for \u0026quot;other\u0026quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "sd"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    }
+  ],
+  "url": "http://hl7.org/fhir/composition-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.242"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.237"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.123"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "CompositionStatus",
+  "title": "Composition Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The workflow/clinical status of the composition.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/composition-status",
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "registered",
+      "display": "Registered",
+      "definition": "The existence of the composition is registered, but there is nothing yet available."
+    },
+    {
+      "code": "partial",
+      "display": "Partial",
+      "definition": "This is a partial (e.g. initial, interim or preliminary) composition: data in the composition may be incomplete or unverified.",
+      "concept": [
+        {
+          "code": "preliminary",
+          "display": "Preliminary",
+          "definition": "Verified early results are available, but not all results are final."
+        }
+      ]
+    },
+    {
+      "code": "final",
+      "display": "Final",
+      "definition": "This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition."
+    },
+    {
+      "code": "amended",
+      "display": "Amended",
+      "definition": "The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as \"final\" and the composition is complete and verified by an authorized person.",
+      "concept": [
+        {
+          "code": "corrected",
+          "display": "Corrected",
+          "definition": "Subsequent to being final, the composition content has been modified to correct an error in the composition or referenced results."
+        },
+        {
+          "code": "appended",
+          "display": "Appended",
+          "definition": "Subsequent to being final, the composition content has been modified by adding new content. The existing content is unchanged."
+        }
+      ]
+    },
+    {
+      "code": "cancelled",
+      "display": "Cancelled",
+      "definition": "The composition is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\")."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid."
+    },
+    {
+      "code": "deprecated",
+      "display": "Deprecated",
+      "definition": "This composition has been withdrawn or superseded and should no longer be used."
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."
+    }
+  ]
+}

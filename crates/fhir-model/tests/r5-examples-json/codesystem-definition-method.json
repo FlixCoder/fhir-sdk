@@ -1,0 +1,113 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "definition-method",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/definition-method\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esystematic-assessment\u003ca name\u003d\"definition-method-systematic-assessment\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSystematic Assessment\u003c/td\u003e\u003ctd\u003eAny method of routinely determining whether or not specific outcomes (e.g. adverse events) have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enon-systematic-assessment\u003ca name\u003d\"definition-method-non-systematic-assessment\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNon-Systematic Assessment\u003c/td\u003e\u003ctd\u003eAny non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emean\u003ca name\u003d\"definition-method-mean\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMean\u003c/td\u003e\u003ctd\u003eAggregated using mean of observed values.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emedian\u003ca name\u003d\"definition-method-median\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedian\u003c/td\u003e\u003ctd\u003eAggregated using median of observed values.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emean-of-mean\u003ca name\u003d\"definition-method-mean-of-mean\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMean of Means\u003c/td\u003e\u003ctd\u003eAggregated using mean of means (e.g. study mean values).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emean-of-median\u003ca name\u003d\"definition-method-mean-of-median\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMean of Medians\u003c/td\u003e\u003ctd\u003eAggregated using mean of medians (e.g. study median values).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emedian-of-mean\u003ca name\u003d\"definition-method-median-of-mean\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedian of Means\u003c/td\u003e\u003ctd\u003eAggregated using median of means (e.g. study mean values).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emedian-of-median\u003ca name\u003d\"definition-method-median-of-median\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedian of Medians\u003c/td\u003e\u003ctd\u003eAggregated using median of medians (e.g. study median values).\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/definition-method",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1953"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "DefinitionMethod",
+  "title": "Definition Method",
+  "status": "active",
+  "experimental": false,
+  "date": "2020-12-28T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The method used to define, describe, or determine a characteristic value.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/definition-method",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "systematic-assessment",
+      "display": "Systematic Assessment",
+      "definition": "Any method of routinely determining whether or not specific outcomes (e.g. adverse events) have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method"
+    },
+    {
+      "code": "non-systematic-assessment",
+      "display": "Non-Systematic Assessment",
+      "definition": "Any non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing"
+    },
+    {
+      "code": "mean",
+      "display": "Mean",
+      "definition": "Aggregated using mean of observed values."
+    },
+    {
+      "code": "median",
+      "display": "Median",
+      "definition": "Aggregated using median of observed values."
+    },
+    {
+      "code": "mean-of-mean",
+      "display": "Mean of Means",
+      "definition": "Aggregated using mean of means (e.g. study mean values)."
+    },
+    {
+      "code": "mean-of-median",
+      "display": "Mean of Medians",
+      "definition": "Aggregated using mean of medians (e.g. study median values)."
+    },
+    {
+      "code": "median-of-mean",
+      "display": "Median of Means",
+      "definition": "Aggregated using median of means (e.g. study mean values)."
+    },
+    {
+      "code": "median-of-median",
+      "display": "Median of Medians",
+      "definition": "Aggregated using median of medians (e.g. study median values)."
+    }
+  ]
+}

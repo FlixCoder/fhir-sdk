@@ -1,0 +1,384 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "FHIR-version",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/FHIR-version\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.01\u003ca name\u003d\"FHIR-version-0.4601\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOldest archived version of FHIR.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.05\u003ca name\u003d\"FHIR-version-0.4605\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e1st Draft for Comment (Sept 2012 Ballot).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.06\u003ca name\u003d\"FHIR-version-0.4606\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e2nd Draft for Comment (January 2013 Ballot).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.11\u003ca name\u003d\"FHIR-version-0.4611\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 1 Ballot version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.0\u003ca name\u003d\"FHIR-version-0.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 1 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  0.0.80\u003ca name\u003d\"FHIR-version-0.460.4680\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 1 Official version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  0.0.81\u003ca name\u003d\"FHIR-version-0.460.4681\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 1 Official version Technical Errata #1.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  0.0.82\u003ca name\u003d\"FHIR-version-0.460.4682\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 1 Official version Technical Errata #2.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.4\u003ca name\u003d\"FHIR-version-0.464\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eJanuary 2015 Ballot.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  0.4.0\u003ca name\u003d\"FHIR-version-0.464.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDraft For Comment (January 2015 Ballot).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e0.5\u003ca name\u003d\"FHIR-version-0.465\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMay 2015 Ballot.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  0.5.0\u003ca name\u003d\"FHIR-version-0.465.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 2 Ballot version (May 2015 Ballot).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e1.0\u003ca name\u003d\"FHIR-version-1.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 2 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.0.0\u003ca name\u003d\"FHIR-version-1.460.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 2 QA Preview + CQIF Ballot (Sep 2015).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.0.1\u003ca name\u003d\"FHIR-version-1.460.461\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 2 (Official version).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.0.2\u003ca name\u003d\"FHIR-version-1.460.462\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDSTU 2 (Official version) with 1 technical errata.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e1.1\u003ca name\u003d\"FHIR-version-1.461\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGAO Ballot version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.1.0\u003ca name\u003d\"FHIR-version-1.461.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGAO Ballot + draft changes to main FHIR standard.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e1.4\u003ca name\u003d\"FHIR-version-1.464\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConnectathon 12 (Montreal) version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.4.0\u003ca name\u003d\"FHIR-version-1.464.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCQF on FHIR Ballot + Connectathon 12 (Montreal).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e1.6\u003ca name\u003d\"FHIR-version-1.466\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConnectathon 13 (Baltimore) version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.6.0\u003ca name\u003d\"FHIR-version-1.466.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR STU3 Ballot + Connectathon 13 (Baltimore).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e1.8\u003ca name\u003d\"FHIR-version-1.468\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConnectathon 14 (San Antonio) version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  1.8.0\u003ca name\u003d\"FHIR-version-1.468.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR STU3 Candidate + Connectathon 14 (San Antonio).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e3.0\u003ca name\u003d\"FHIR-version-3.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSTU3 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  3.0.0\u003ca name\u003d\"FHIR-version-3.460.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 3 (STU).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  3.0.1\u003ca name\u003d\"FHIR-version-3.460.461\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 3 (STU) with 1 technical errata.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  3.0.2\u003ca name\u003d\"FHIR-version-3.460.462\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 3 (STU) with 2 technical errata.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e3.3\u003ca name\u003d\"FHIR-version-3.463\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4 Ballot #1 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  3.3.0\u003ca name\u003d\"FHIR-version-3.463.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4 Ballot #1 + Connectaton 18 (Cologne).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e3.5\u003ca name\u003d\"FHIR-version-3.465\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4 Ballot #2 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  3.5.0\u003ca name\u003d\"FHIR-version-3.465.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4 Ballot #2 + Connectathon 19 (Baltimore).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.0\u003ca name\u003d\"FHIR-version-4.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.0.0\u003ca name\u003d\"FHIR-version-4.460.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 4 (Normative + STU).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.0.1\u003ca name\u003d\"FHIR-version-4.460.461\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 4 (Normative + STU) with 1 technical errata.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.1\u003ca name\u003d\"FHIR-version-4.461\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4B Ballot #1 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.1.0\u003ca name\u003d\"FHIR-version-4.461.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4B Ballot #1 + Connectathon 27 (Virtual).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.2\u003ca name\u003d\"FHIR-version-4.462\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #1 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.2.0\u003ca name\u003d\"FHIR-version-4.462.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #1 + Connectathon 23 (Sydney).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.3\u003ca name\u003d\"FHIR-version-4.463\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR4B version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.3.0\u003ca name\u003d\"FHIR-version-4.463.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 4B (Normative + STU).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.3.0-cibuild\u003ca name\u003d\"FHIR-version-4.463.460-cibuild\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 4B CI-Builld.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.3.0-snapshot1\u003ca name\u003d\"FHIR-version-4.463.460-snapshot1\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFHIR Release 4B Snapshot #1.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.4\u003ca name\u003d\"FHIR-version-4.464\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #2 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.4.0\u003ca name\u003d\"FHIR-version-4.464.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #2 + Connectathon 24 (Virtual).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.5\u003ca name\u003d\"FHIR-version-4.465\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #3 version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.5.0\u003ca name\u003d\"FHIR-version-4.465.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #3 + Connectathon 25 (Virtual).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e4.6\u003ca name\u003d\"FHIR-version-4.466\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Draft Ballot version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  4.6.0\u003ca name\u003d\"FHIR-version-4.466.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Draft Ballot + Connectathon 27 (Virtual).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e5.0\u003ca name\u003d\"FHIR-version-5.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Versions.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  5.0.0\u003ca name\u003d\"FHIR-version-5.460.460\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Final Version.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e    5.0.0-cibuild\u003ca name\u003d\"FHIR-version-5.460.460-cibuild\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Rolling ci-build.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e    5.0.0-snapshot1\u003ca name\u003d\"FHIR-version-5.460.460-snapshot1\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Preview #2.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e    5.0.0-snapshot2\u003ca name\u003d\"FHIR-version-5.460.460-snapshot2\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Interim tooling stage.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e    5.0.0-ballot\u003ca name\u003d\"FHIR-version-5.460.460-ballot\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Ballot.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e    5.0.0-snapshot3\u003ca name\u003d\"FHIR-version-5.460.460-snapshot3\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 January 2023 Staging Release + Connectathon 32.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e3\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e    5.0.0-draft-final\u003ca name\u003d\"FHIR-version-5.460.460-draft-final\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eR5 Final QA.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "vocab"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/FHIR-version",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1310"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "FHIRVersion",
+  "title": "FHIRVersion",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "description": "All published FHIR Versions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/FHIR-version",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "0.01",
+      "display": "0.01",
+      "definition": "Oldest archived version of FHIR."
+    },
+    {
+      "code": "0.05",
+      "display": "0.05",
+      "definition": "1st Draft for Comment (Sept 2012 Ballot)."
+    },
+    {
+      "code": "0.06",
+      "display": "0.06",
+      "definition": "2nd Draft for Comment (January 2013 Ballot)."
+    },
+    {
+      "code": "0.11",
+      "display": "0.11",
+      "definition": "DSTU 1 Ballot version."
+    },
+    {
+      "code": "0.0",
+      "display": "0.0",
+      "definition": "DSTU 1 version.",
+      "concept": [
+        {
+          "code": "0.0.80",
+          "display": "0.0.80",
+          "definition": "DSTU 1 Official version."
+        },
+        {
+          "code": "0.0.81",
+          "display": "0.0.81",
+          "definition": "DSTU 1 Official version Technical Errata #1."
+        },
+        {
+          "code": "0.0.82",
+          "display": "0.0.82",
+          "definition": "DSTU 1 Official version Technical Errata #2."
+        }
+      ]
+    },
+    {
+      "code": "0.4",
+      "display": "0.4",
+      "definition": "January 2015 Ballot.",
+      "concept": [
+        {
+          "code": "0.4.0",
+          "display": "0.4.0",
+          "definition": "Draft For Comment (January 2015 Ballot)."
+        }
+      ]
+    },
+    {
+      "code": "0.5",
+      "display": "0.5",
+      "definition": "May 2015 Ballot.",
+      "concept": [
+        {
+          "code": "0.5.0",
+          "display": "0.5.0",
+          "definition": "DSTU 2 Ballot version (May 2015 Ballot)."
+        }
+      ]
+    },
+    {
+      "code": "1.0",
+      "display": "1.0",
+      "definition": "DSTU 2 version.",
+      "concept": [
+        {
+          "code": "1.0.0",
+          "display": "1.0.0",
+          "definition": "DSTU 2 QA Preview + CQIF Ballot (Sep 2015)."
+        },
+        {
+          "code": "1.0.1",
+          "display": "1.0.1",
+          "definition": "DSTU 2 (Official version)."
+        },
+        {
+          "code": "1.0.2",
+          "display": "1.0.2",
+          "definition": "DSTU 2 (Official version) with 1 technical errata."
+        }
+      ]
+    },
+    {
+      "code": "1.1",
+      "display": "1.1",
+      "definition": "GAO Ballot version.",
+      "concept": [
+        {
+          "code": "1.1.0",
+          "display": "1.1.0",
+          "definition": "GAO Ballot + draft changes to main FHIR standard."
+        }
+      ]
+    },
+    {
+      "code": "1.4",
+      "display": "1.4",
+      "definition": "Connectathon 12 (Montreal) version.",
+      "concept": [
+        {
+          "code": "1.4.0",
+          "display": "1.4.0",
+          "definition": "CQF on FHIR Ballot + Connectathon 12 (Montreal)."
+        }
+      ]
+    },
+    {
+      "code": "1.6",
+      "display": "1.6",
+      "definition": "Connectathon 13 (Baltimore) version.",
+      "concept": [
+        {
+          "code": "1.6.0",
+          "display": "1.6.0",
+          "definition": "FHIR STU3 Ballot + Connectathon 13 (Baltimore)."
+        }
+      ]
+    },
+    {
+      "code": "1.8",
+      "display": "1.8",
+      "definition": "Connectathon 14 (San Antonio) version.",
+      "concept": [
+        {
+          "code": "1.8.0",
+          "display": "1.8.0",
+          "definition": "FHIR STU3 Candidate + Connectathon 14 (San Antonio)."
+        }
+      ]
+    },
+    {
+      "code": "3.0",
+      "display": "3.0",
+      "definition": "STU3 version.",
+      "concept": [
+        {
+          "code": "3.0.0",
+          "display": "3.0.0",
+          "definition": "FHIR Release 3 (STU)."
+        },
+        {
+          "code": "3.0.1",
+          "display": "3.0.1",
+          "definition": "FHIR Release 3 (STU) with 1 technical errata."
+        },
+        {
+          "code": "3.0.2",
+          "display": "3.0.2",
+          "definition": "FHIR Release 3 (STU) with 2 technical errata."
+        }
+      ]
+    },
+    {
+      "code": "3.3",
+      "display": "3.3",
+      "definition": "R4 Ballot #1 version.",
+      "concept": [
+        {
+          "code": "3.3.0",
+          "display": "3.3.0",
+          "definition": "R4 Ballot #1 + Connectaton 18 (Cologne)."
+        }
+      ]
+    },
+    {
+      "code": "3.5",
+      "display": "3.5",
+      "definition": "R4 Ballot #2 version.",
+      "concept": [
+        {
+          "code": "3.5.0",
+          "display": "3.5.0",
+          "definition": "R4 Ballot #2 + Connectathon 19 (Baltimore)."
+        }
+      ]
+    },
+    {
+      "code": "4.0",
+      "display": "4.0",
+      "definition": "R4 version.",
+      "concept": [
+        {
+          "code": "4.0.0",
+          "display": "4.0.0",
+          "definition": "FHIR Release 4 (Normative + STU)."
+        },
+        {
+          "code": "4.0.1",
+          "display": "4.0.1",
+          "definition": "FHIR Release 4 (Normative + STU) with 1 technical errata."
+        }
+      ]
+    },
+    {
+      "code": "4.1",
+      "display": "4.1",
+      "definition": "R4B Ballot #1 version.",
+      "concept": [
+        {
+          "code": "4.1.0",
+          "display": "4.1.0",
+          "definition": "R4B Ballot #1 + Connectathon 27 (Virtual)."
+        }
+      ]
+    },
+    {
+      "code": "4.2",
+      "display": "4.2",
+      "definition": "R5 Preview #1 version.",
+      "concept": [
+        {
+          "code": "4.2.0",
+          "display": "4.2.0",
+          "definition": "R5 Preview #1 + Connectathon 23 (Sydney)."
+        }
+      ]
+    },
+    {
+      "code": "4.3",
+      "display": "4.3",
+      "definition": "R4B version.",
+      "concept": [
+        {
+          "code": "4.3.0",
+          "display": "4.3.0",
+          "definition": "FHIR Release 4B (Normative + STU)."
+        },
+        {
+          "code": "4.3.0-cibuild",
+          "display": "4.3.0-cibuild",
+          "definition": "FHIR Release 4B CI-Builld."
+        },
+        {
+          "code": "4.3.0-snapshot1",
+          "display": "4.3.0-snapshot1",
+          "definition": "FHIR Release 4B Snapshot #1."
+        }
+      ]
+    },
+    {
+      "code": "4.4",
+      "display": "4.4",
+      "definition": "R5 Preview #2 version.",
+      "concept": [
+        {
+          "code": "4.4.0",
+          "display": "4.4.0",
+          "definition": "R5 Preview #2 + Connectathon 24 (Virtual)."
+        }
+      ]
+    },
+    {
+      "code": "4.5",
+      "display": "4.5",
+      "definition": "R5 Preview #3 version.",
+      "concept": [
+        {
+          "code": "4.5.0",
+          "display": "4.5.0",
+          "definition": "R5 Preview #3 + Connectathon 25 (Virtual)."
+        }
+      ]
+    },
+    {
+      "code": "4.6",
+      "display": "4.6",
+      "definition": "R5 Draft Ballot version.",
+      "concept": [
+        {
+          "code": "4.6.0",
+          "display": "4.6.0",
+          "definition": "R5 Draft Ballot + Connectathon 27 (Virtual)."
+        }
+      ]
+    },
+    {
+      "code": "5.0",
+      "display": "5.0",
+      "definition": "R5 Versions.",
+      "concept": [
+        {
+          "code": "5.0.0",
+          "display": "5.0.0",
+          "definition": "R5 Final Version.",
+          "concept": [
+            {
+              "code": "5.0.0-cibuild",
+              "display": "5.0.0-cibuild",
+              "definition": "R5 Rolling ci-build."
+            },
+            {
+              "code": "5.0.0-snapshot1",
+              "display": "5.0.0-snapshot1",
+              "definition": "R5 Preview #2."
+            },
+            {
+              "code": "5.0.0-snapshot2",
+              "display": "5.0.0-snapshot2",
+              "definition": "R5 Interim tooling stage."
+            },
+            {
+              "code": "5.0.0-ballot",
+              "display": "5.0.0-ballot",
+              "definition": "R5 Ballot."
+            },
+            {
+              "code": "5.0.0-snapshot3",
+              "display": "5.0.0-snapshot3",
+              "definition": "R5 January 2023 Staging Release + Connectathon 32."
+            },
+            {
+              "code": "5.0.0-draft-final",
+              "display": "5.0.0-draft-final",
+              "definition": "R5 Final QA."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "resourceType": "StructureMap",
+  "id": "supplyrequest-transform",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cpre class\u003d\"fml\"\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003eurl\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027http://hl7.org/fhir/StructureMap/supplyrequest-transform\u0027\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003ename\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027TransformFromAnActivityDefinitionToASupplyRequest\u0027\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003etitle\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027Transform from an ActivityDefinition to a SupplyRequest\u0027\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: #cc00cc\"\u003e/// \n          \u003cb\u003estatus\u003c/b\u003e \u003d \n        \u003c/span\u003e\n        \u003cspan style\u003d\"color: blue\"\u003e\u0027draft\u0027\u003c/span\u003e\n\n\n        \u003cb\u003euses\u003c/b\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e \u0026quot;\u003c/span\u003e\n        \u003ca href\u003d\"activitydefinition.html\" title\u003d\"ActivityDefinition\"\u003ehttp://hl7.org/fhir/StructureDefinition/ActivityDefinition\u003c/a\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\u0026quot; \u003c/span\u003e\n        \u003cb\u003eas \u003c/b\u003e\n        \u003cb\u003esource\u003c/b\u003e\n\n        \u003cb\u003euses\u003c/b\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e \u0026quot;\u003c/span\u003e\n        \u003ca href\u003d\"supplyrequest.html\" title\u003d\"SupplyRequest\"\u003ehttp://hl7.org/fhir/StructureDefinition/SupplyRequest\u003c/a\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\u0026quot; \u003c/span\u003e\n        \u003cb\u003eas \u003c/b\u003e\n        \u003cb\u003etarget\u003c/b\u003e\n\n\n        \u003cb\u003egroup \u003c/b\u003emain\n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\n        \u003cb\u003esource\u003c/b\u003e \n        \u003cspan style\u003d\"color: maroon\"\u003esource\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e : \u003c/span\u003eActivityDefinition, \n        \u003cb\u003etarget\u003c/b\u003e \n        \u003cspan style\u003d\"color: maroon\"\u003etarget\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e : \u003c/span\u003eSupplyRequest\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e {\n\u003c/span\u003e  source.id\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etarget.status \u003d \n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\u0027draft\u0027\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;status\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n  source.id\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etarget.category \u003d \n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\u0027non-stock\u0027\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;category\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n  source.id\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etarget.priority \u003d \n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\u0027routine\u0027\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;priority\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n  source.quantity\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etarget.category \u003d \n        \u003cb\u003ecopy\u003c/b\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n  source.code\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003e target.item \u003d \n        \u003cb\u003ecreate\u003c/b\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003eb\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e, \u003c/span\u003e b.concept \u003d \n        \u003cb\u003ecopy\u003c/b\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;item\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n  source.id\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etarget.occurrence \u003d \n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003enow()\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;when\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n  source.id\n        \u003cb\u003e as \u003c/b\u003e\n        \u003cspan style\u003d\"color: maroon\"\u003ea\u003c/span\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e\n          \u003cb\u003e -\u0026gt; \u003c/b\u003e\n        \u003c/span\u003etarget.authoredOn \u003d \n        \u003cspan style\u003d\"color: navy\"\u003e(\u003c/span\u003enow()\n        \u003cspan style\u003d\"color: navy\"\u003e)\u003c/span\u003e \n        \u003ci\u003e\u0026quot;authoredOn\u0026quot;\u003c/i\u003e\n        \u003cspan style\u003d\"color: navy\"\u003e;\u003c/span\u003e\n\n        \u003cspan style\u003d\"color: navy\"\u003e}\n\n\u003c/span\u003e\n      \u003c/pre\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/StructureMap/supplyrequest-transform",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.13.1"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "TransformFromAnActivityDefinitionToASupplyRequest",
+  "title": "Transform from an ActivityDefinition to a SupplyRequest",
+  "status": "draft",
+  "experimental": true,
+  "description": "Transform from an ActivityDefinition to a SupplyRequest",
+  "structure": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/ActivityDefinition",
+      "mode": "source"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/SupplyRequest",
+      "mode": "target"
+    }
+  ],
+  "group": [
+    {
+      "name": "main",
+      "input": [
+        {
+          "name": "source",
+          "type": "ActivityDefinition",
+          "mode": "source"
+        },
+        {
+          "name": "target",
+          "type": "SupplyRequest",
+          "mode": "target"
+        }
+      ],
+      "rule": [
+        {
+          "name": "status",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "status",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "\u0027draft\u0027"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "category",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "category",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "\u0027non-stock\u0027"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "priority",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "priority",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "\u0027routine\u0027"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "quantity",
+          "source": [
+            {
+              "context": "source",
+              "element": "quantity",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "category",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "item",
+          "source": [
+            {
+              "context": "source",
+              "element": "code",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "item",
+              "variable": "b",
+              "transform": "create"
+            },
+            {
+              "context": "b",
+              "element": "concept",
+              "transform": "copy"
+            }
+          ]
+        },
+        {
+          "name": "when",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "occurrence",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "now()"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "authoredOn",
+          "source": [
+            {
+              "context": "source",
+              "element": "id",
+              "variable": "a"
+            }
+          ],
+          "target": [
+            {
+              "context": "target",
+              "element": "authoredOn",
+              "transform": "evaluate",
+              "parameter": [
+                {
+                  "valueString": "now()"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

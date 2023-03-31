@@ -1,0 +1,81 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "observation-triggeredbytype",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/observation-triggeredbytype\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereflex\u003ca name\u003d\"observation-triggeredbytype-reflex\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReflex\u003c/td\u003e\u003ctd\u003ePerformance of one or more other tests depending on the results of the initial test.  This may include collection of additional specimen. While a new ServiceRequest is not required to perform the additional test, where it is still needed (e.g., requesting another laboratory to perform the reflex test), the Observation.basedOn would reference the new ServiceRequest that requested the additional test to be performed as well as the original ServiceRequest to reflect the one that provided the authorization.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erepeat\u003ca name\u003d\"observation-triggeredbytype-repeat\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRepeat (per policy)\u003c/td\u003e\u003ctd\u003ePerformance of the same test again with the same parameters/settings/solution.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ere-run\u003ca name\u003d\"observation-triggeredbytype-re-run\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRe-run (per policy)\u003c/td\u003e\u003ctd\u003ePerformance of the same test but with different parameters/settings/solution.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/observation-triggeredbytype",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2098"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "TriggeredBytype",
+  "title": "triggered Bytype",
+  "status": "active",
+  "experimental": true,
+  "date": "2022-03-16T16:55:11+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes providing the triggeredBy type of observation.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/observation-triggeredbytype",
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "reflex",
+      "display": "Reflex",
+      "definition": "Performance of one or more other tests depending on the results of the initial test.  This may include collection of additional specimen. While a new ServiceRequest is not required to perform the additional test, where it is still needed (e.g., requesting another laboratory to perform the reflex test), the Observation.basedOn would reference the new ServiceRequest that requested the additional test to be performed as well as the original ServiceRequest to reflect the one that provided the authorization."
+    },
+    {
+      "code": "repeat",
+      "display": "Repeat (per policy)",
+      "definition": "Performance of the same test again with the same parameters/settings/solution."
+    },
+    {
+      "code": "re-run",
+      "display": "Re-run (per policy)",
+      "definition": "Performance of the same test but with different parameters/settings/solution."
+    }
+  ]
+}

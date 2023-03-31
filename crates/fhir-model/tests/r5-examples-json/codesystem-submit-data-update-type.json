@@ -1,0 +1,72 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "submit-data-update-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/submit-data-update-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eincremental\u003ca name\u003d\"submit-data-update-type-incremental\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIncremental\u003c/td\u003e\u003ctd\u003eIn contrast to the Snapshot Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains only the new and updated DEQM and QI Core Profiles since the last transaction. If the Consumer supports incremental updates, the contents of the updated payload updates the previous payload data.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esnapshot\u003ca name\u003d\"submit-data-update-type-snapshot\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSnapshot\u003c/td\u003e\u003ctd\u003eIn contrast to the Incremental Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains all the DEQM and QI Core Profiles for each transaction.  If the Consumer supports snapshot updates, the contents of the updated payload entirely replaces the previous payload\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cqi"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/submit-data-update-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1948"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "SubmitDataUpdateType",
+  "title": "Submit Data Update Type",
+  "status": "active",
+  "experimental": true,
+  "date": "2021-04-06T19:00:36+00:00",
+  "publisher": "HL7 International - Clinical Quality Information Work Group",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/submit-data-update-type",
+  "content": "complete",
+  "count": 2,
+  "concept": [
+    {
+      "code": "incremental",
+      "display": "Incremental",
+      "definition": "In contrast to the Snapshot Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains only the new and updated DEQM and QI Core Profiles since the last transaction. If the Consumer supports incremental updates, the contents of the updated payload updates the previous payload data."
+    },
+    {
+      "code": "snapshot",
+      "display": "Snapshot",
+      "definition": "In contrast to the Incremental Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains all the DEQM and QI Core Profiles for each transaction.  If the Consumer supports snapshot updates, the contents of the updated payload entirely replaces the previous payload"
+    }
+  ]
+}

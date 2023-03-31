@@ -1,0 +1,625 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "Publishable",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003eto do\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "informative"
+    }
+  ],
+  "url": "http://hl7.org/fhir/StructureDefinition/Publishable",
+  "version": "5.0.0",
+  "name": "Publishable",
+  "title": "publishable",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "Health Level Seven International fhir",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Logical Model: A pattern to be followed by resources that represent a publishable knowledge artifact such as a ValueSet, Profile, Library, Decision Support Rule, or Quality Measure.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "purpose": "The Publishable pattern is defined to ensure that artifacts have enough metadata to understand when, where, and why a particular artifact would be used, as well as who contributed to it, who reviewed or endorsed it, and what evidence supports its use. The pattern is about ensuring artifacts can establish trust and credibility, as well as carry enough metadata to be discoverable in a public repository or artifact catalog.",
+  "fhirVersion": "5.0.0",
+  "kind": "logical",
+  "abstract": false,
+  "type": "Publishable",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Base",
+  "snapshot": {
+    "element": [
+      {
+        "id": "Publishable",
+        "path": "Publishable",
+        "short": "Publishable Pattern",
+        "definition": "A pattern to be followed by resources that represent a publishable knowledge artifact such as a ValueSet, Profile, Library, Decision Support Rule, or Quality Measure.",
+        "comment": "The Publishable pattern builds on the Shareable pattern and establishes the expectations for publication and distribution of an artifact as part of an artifact repository.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable",
+          "min": 0,
+          "max": "*"
+        },
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.identifier",
+        "path": "Publishable.identifier",
+        "short": "Additional identifier for the {{title}}",
+        "definition": "A formal identifier that is used to identify this {{title}} when it is represented in other formats, or referenced in a specification, model, design or an instance.",
+        "comment": "Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this {{title}} outside of FHIR, where it is not possible to use the logical URI.",
+        "requirements": "Allows externally provided and/or usable business identifiers to be easily associated with the module.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.identifier",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Identifier"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Publishable.date",
+        "path": "Publishable.date",
+        "short": "Date last changed",
+        "definition": "The date  (and optionally time) when the {{title}} was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the {{title}} changes.",
+        "comment": "The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the {{title}}. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource.",
+        "alias": [
+          "revision date"
+        ],
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Publishable.date",
+          "min": 1,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Publishable.contact",
+        "path": "Publishable.contact",
+        "short": "Contact details for the publisher",
+        "definition": "Contact details to assist a user in finding and communicating with the publisher.",
+        "comment": "May be a web site, an email address, a telephone number, etc.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.contact",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Publishable.useContext",
+        "path": "Publishable.useContext",
+        "short": "The context that the content is intended to support",
+        "definition": "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate {{title}} instances.",
+        "comment": "When multiple useContexts are specified, there is no expectation that all or any of the contexts apply.",
+        "requirements": "Assist in searching for appropriate content.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.useContext",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "UsageContext"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Publishable.jurisdiction",
+        "path": "Publishable.jurisdiction",
+        "short": "Intended jurisdiction for {{title}} (if applicable)",
+        "definition": "A legal or geographic region in which the {{title}} is intended to be used.",
+        "comment": "It may be possible for the {{title}} to be used in jurisdictions other than those for which it was originally designed or intended.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.jurisdiction",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "Jurisdiction"
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding",
+              "valueBoolean": true
+            }
+          ],
+          "strength": "required",
+          "description": "Countries and regions within which this artifact is targeted for use.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0"
+        }
+      },
+      {
+        "id": "Publishable.purpose",
+        "path": "Publishable.purpose",
+        "short": "Why this {{title}} is defined",
+        "definition": "Explanation of why this {{title}} is needed and why it has been designed as it has.",
+        "comment": "This element does not describe the usage of the {{title}}. Instead, it provides traceability of \u0027\u0027why\u0027\u0027 the resource is either needed or \u0027\u0027why\u0027\u0027 it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Publishable.purpose",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.copyright",
+        "path": "Publishable.copyright",
+        "short": "Use and/or publishing restrictions",
+        "definition": "A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}.",
+        "requirements": "Consumers must be able to determine any legal restrictions on the use of the {{title}} and/or its content.",
+        "alias": [
+          "license",
+          "restrictions"
+        ],
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Publishable.copyright",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "markdown"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.copyrightLabel",
+        "path": "Publishable.copyrightLabel",
+        "short": "Copyright holder and year(s)",
+        "definition": "A short string (\u003c50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. \u0027All rights reserved\u0027, \u0027Some rights reserved\u0027).",
+        "comment": "The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general \u0027copyright\u0027 element.",
+        "requirements": "Defines the content expected to be rendered in all representations of the artifact.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Publishable.copyrightLabel",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.approvalDate",
+        "path": "Publishable.approvalDate",
+        "short": "When the {{title}} was approved by publisher",
+        "definition": "The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage.",
+        "comment": "The \u0027date\u0027 element may be more recent than the approval date because of minor changes or editorial corrections.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Publishable.approvalDate",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "date"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.lastReviewDate",
+        "path": "Publishable.lastReviewDate",
+        "short": "When the {{title}} was last reviewed",
+        "definition": "The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date.",
+        "comment": "If specified, this date follows the original approval date.",
+        "requirements": "Gives a sense of how \"current\" the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Publishable.lastReviewDate",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "date"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.effectivePeriod",
+        "path": "Publishable.effectivePeriod",
+        "short": "When the {{title}} is expected to be used",
+        "definition": "The period during which the {{title}} content was or is planned to be in active use.",
+        "comment": "The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015.",
+        "requirements": "Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the {{title}} are or are expected to be used instead.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Publishable.effectivePeriod",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Period"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Publishable.topic",
+        "path": "Publishable.topic",
+        "short": "E.g. Education, Treatment, Assessment, etc.",
+        "definition": "Descriptive topics related to the content of the library. Topics provide a high-level categorization of the library that can be useful for filtering and searching.",
+        "comment": "This element provides a topical categorization of the {{title}}, as opposed to the more structured context-of-use information provided in the useContext element.",
+        "requirements": "Repositories must be able to determine how to categorize the {{title}} so that it can be found by topical searches.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.topic",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "DefinitionTopic"
+            }
+          ],
+          "strength": "example",
+          "description": "Topics associated with the artifact",
+          "valueSet": "http://hl7.org/fhir/ValueSet/definition-topic"
+        }
+      },
+      {
+        "id": "Publishable.author",
+        "path": "Publishable.author",
+        "short": "Who authored the {{title}}",
+        "definition": "An individiual or organization primarily involved in the creation and maintenance of the {{title}}.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.author",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.editor",
+        "path": "Publishable.editor",
+        "short": "Who edited the {{title}}",
+        "definition": "An individual or organization primarily responsible for internal coherence of the {{title}}.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.editor",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.reviewer",
+        "path": "Publishable.reviewer",
+        "short": "Who reviewed the {{title}}",
+        "definition": "An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the {{title}}.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.reviewer",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.endorser",
+        "path": "Publishable.endorser",
+        "short": "Who endorsed the {{title}}",
+        "definition": "An individual or organization asserted by the publisher to be responsible for officially endorsing the {{title}} for use in some setting.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.endorser",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "ContactDetail"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      },
+      {
+        "id": "Publishable.relatedArtifact",
+        "path": "Publishable.relatedArtifact",
+        "short": "Additional documentation, citations, etc.",
+        "definition": "Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts.",
+        "comment": "Each related artifact is either an attachment, or a reference to another resource, but not both.",
+        "requirements": "A {{title}} must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Publishable.relatedArtifact",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "RelatedArtifact"
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false
+      }
+    ]
+  }
+}

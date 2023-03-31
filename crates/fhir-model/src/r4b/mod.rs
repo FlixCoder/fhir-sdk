@@ -1,4 +1,4 @@
-//! Revision 4 types of FHIR.
+//! Revision 4B types of FHIR.
 
 pub mod codes;
 pub mod resources;

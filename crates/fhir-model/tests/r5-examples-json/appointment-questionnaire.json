@@ -1,0 +1,3520 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "qgen-Appointment1",
+  "url": "http://hl7.org/fhir/Questionnaire/qgen-Appointment1",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986"
+    }
+  ],
+  "version": "5.0.0",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "Health Level Seven International (Patient Administration)",
+  "item": [
+    {
+      "linkId": "Appointment",
+      "text": "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)",
+      "type": "group",
+      "required": false,
+      "repeats": true,
+      "item": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/questionnaire-item-control",
+                    "code": "flyover",
+                    "display": "Fly-over"
+                  }
+                ]
+              }
+            }
+          ],
+          "linkId": "Appointment-flyover",
+          "text": "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).",
+          "type": "display"
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "string"
+            }
+          ],
+          "linkId": "Appointment.id",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.id-flyover",
+              "text": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes. Within the context of the FHIR RESTful interactions, the resource has an id except for cases like the create and conditional update. Otherwise, the use of the resouce id depends on the given use case.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.id.value",
+              "text": "Logical id of this artifact",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            }
+          ],
+          "linkId": "Appointment.meta",
+          "text": "Metadata about the resource",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.meta-flyover",
+              "text": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "uri"
+            }
+          ],
+          "linkId": "Appointment.implicitRules",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.implicitRules-flyover",
+              "text": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc. Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of its narrative along with other profiles, value sets, etc.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.implicitRules.value",
+              "text": "A set of rules under which this content was created",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "code"
+            }
+          ],
+          "linkId": "Appointment.language",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.language-flyover",
+              "text": "The base language in which the resource is written. Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.language.value",
+              "text": "language",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            }
+          ],
+          "linkId": "Appointment.text",
+          "text": "Text summary of the resource, for human interpretation",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.text-flyover",
+              "text": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety. Contained resources do not have a narrative. Resources that are not contained SHOULD have a narrative. In some cases, a resource may only have text with little or no additional discrete data (as long as all minOccurs\u003d1 elements are satisfied).  This may be necessary for data from legacy systems where information is captured as a \"text blob\" or where text is additionally entered raw or narrated and encoded information is added later.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.contained",
+          "text": "Contained, inline Resources",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.contained-flyover",
+              "text": "These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, nor can they have their own independent transaction scope. This is allowed to be a Parameters resource if and only if it is referenced by a resource that provides context/meaning. This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again. Contained resources may have profiles and tags in their meta elements, but SHALL NOT have security labels.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.extension",
+          "text": "Additional content defined by implementations",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.extension-flyover",
+              "text": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.modifierExtension",
+          "text": "Extensions that cannot be ignored",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.modifierExtension-flyover",
+              "text": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Identifier"
+            }
+          ],
+          "linkId": "Appointment.identifier",
+          "text": "External Ids for this item",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.identifier-flyover",
+              "text": "This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.identifier.label",
+              "text": "label:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "Appointment.identifier.system",
+              "text": "system:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "Appointment.identifier.value",
+              "text": "value:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "code"
+            }
+          ],
+          "linkId": "Appointment.status",
+          "type": "group",
+          "required": true,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.status-flyover",
+              "text": "The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status. If the Appointment\u0027s status is \"cancelled\" then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.\n\nThis element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.status.value",
+              "text": "status",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOrType"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "Appointment.cancellationReason",
+          "text": "The coded reason for the appointment being cancelled",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.cancellationReason-flyover",
+              "text": "The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.cancellationReason.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "Appointment.cancellationReason.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "Appointment.class",
+          "text": "Classification when becoming an encounter",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.class-flyover",
+              "text": "Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.class.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "Appointment.class.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "Appointment.serviceCategory",
+          "text": "A broad categorization of the service that is to be performed during this appointment",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.serviceCategory-flyover",
+              "text": "A broad categorization of the service that is to be performed during this appointment.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.serviceCategory.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "Appointment.serviceCategory.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.serviceType",
+          "text": "The specific service that is to be performed during this appointment",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "linkId": "Appointment.serviceType-display",
+              "text": "For a provider to provider appointment the code \"FOLLOWUP\" may be appropriate, as this is expected to be discussing some patient that was seen in the past.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.serviceType-flyover",
+              "text": "The specific service that is to be performed during this appointment.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "Appointment.specialty",
+          "text": "The specialty of a practitioner that would be required to perform the service requested in this appointment",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.specialty-flyover",
+              "text": "The specialty of a practitioner that would be required to perform the service requested in this appointment.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.specialty.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "Appointment.specialty.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "Appointment.appointmentType",
+          "text": "The style of appointment or patient that has been booked in the slot (not service type)",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.appointmentType-flyover",
+              "text": "The style of appointment or patient that has been booked in the slot (not service type).",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.appointmentType.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "Appointment.appointmentType.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.reason",
+          "text": "Reason this appointment is scheduled",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.reason-flyover",
+              "text": "The reason that this appointment is being scheduled. This is more clinical than administrative. This can be coded, or as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "CodeableConcept"
+            }
+          ],
+          "linkId": "Appointment.priority",
+          "text": "Used to make informed decisions if needing to re-prioritize",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.priority-flyover",
+              "text": "The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority). Seeking implementer feedback on this property and how interoperable it is.\r\rUsing an extension to record a CodeableConcept for named values may be tested at a future connectathon.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.priority.coding",
+              "text": "code:",
+              "type": "coding",
+              "required": false,
+              "repeats": false,
+              "answerConstraint": "optionsOnly"
+            },
+            {
+              "linkId": "Appointment.priority.text",
+              "text": "text:",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "string"
+            }
+          ],
+          "linkId": "Appointment.description",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.description-flyover",
+              "text": "The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the note field.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.description.value",
+              "text": "Shown on a subject line in a meeting request, or appointment list",
+              "type": "string",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.replaces",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.replaces-flyover",
+              "text": "Appointment replaced by this Appointment in cases where there is a cancellation, the details of the cancellation can be found in the cancellationReason property (on the referenced resource).",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Appointment"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.replaces.value",
+              "text": "Appointment replaced by this Appointment",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.virtualService",
+          "text": "Connection details of a virtual service (e.g. conference call)",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "linkId": "Appointment.virtualService-display",
+              "text": "There are two types of virtual meetings that often exist:\r\r* a persistent, virtual meeting room that can only be used for a single purpose at a time, \r* and a dynamic virtual meeting room that is generated on demand for a specific purpose.\r\rImplementers may consider using Location.virtualService for persistent meeting rooms.\r\rIf each participant would have a different meeting link, an extension using the VirtualServiceContactDetail  can be applied to the Appointment.participant BackboneElement.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.virtualService-flyover",
+              "text": "Connection details of a virtual service (e.g. conference call).",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.supportingInformation",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.supportingInformation-flyover",
+              "text": "Additional information to support the appointment provided when making the appointment.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Resource"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.supportingInformation.value",
+              "text": "Additional information to support the appointment",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.previousAppointment",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.previousAppointment-flyover",
+              "text": "The previous appointment in a series of related appointments. This property is intended for use when representing a series of related appointments.  For example, in a nuclear medicine procedure, where there is an appointment for the injection of the isotopes, and then a subsequent appointment for the scan, the scan appointment would refer to the injection appointment via Appointment.previousAppointment.  For representing recurring appointments, see the guidance on recurring vs. series appointments.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Appointment"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.previousAppointment.value",
+              "text": "The previous appointment in a series",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.originatingAppointment",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.originatingAppointment-flyover",
+              "text": "The originating appointment in a recurring set of related appointments. This property is intended for use when representing a recurring set of related appointments.\r\rFor example, a patient undergoing physical therapy may have a recurring appointment every Tuesday and Thursday.  Each occurrence of the set will refer to the originating appointment, which contains the recurring template information.  For representing appointment series, see the guidance on recurring vs. series appointments.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Appointment"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.originatingAppointment.value",
+              "text": "The originating appointment in a recurring set of appointments",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "instant"
+            }
+          ],
+          "linkId": "Appointment.start",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.start-flyover",
+              "text": "Date/Time that the appointment is to take place. If actual start/end times are not known then the requested period start/end can be used.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.start.value",
+              "text": "When appointment is to take place",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "instant"
+            }
+          ],
+          "linkId": "Appointment.end",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.end-flyover",
+              "text": "Date/Time that the appointment is to conclude. If actual start/end times are not known then the requested period start/end can be used.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.end.value",
+              "text": "When appointment is to conclude",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "integer"
+            }
+          ],
+          "linkId": "Appointment.minutesDuration",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.minutesDuration-flyover",
+              "text": "Number of minutes that the appointment is to take. This can be less than the duration between the start and end times.  For example, where the actual time of appointment is only an estimate or if a 30 minute appointment is being requested, but any time would work.  Also, if there is, for example, a planned 15 minute break in the middle of a long appointment, the duration may be 15 minutes less than the difference between the start and end.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.minutesDuration.value",
+              "text": "Can be less than start/end (e.g. estimate)",
+              "type": "integer",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Period"
+            }
+          ],
+          "linkId": "Appointment.requestedPeriod",
+          "text": "Potential date/time interval(s) requested to allocate the appointment within",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.requestedPeriod-flyover",
+              "text": "A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.\n\nThe duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system. This does not introduce a capacity for recurring appointments.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.requestedPeriod.low",
+              "text": "start:",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            },
+            {
+              "linkId": "Appointment.requestedPeriod.end",
+              "text": "end:",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.slot",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.slot-flyover",
+              "text": "The slots from the participants\u0027 schedules that will be filled by the appointment.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Slot"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.slot.value",
+              "text": "The slots that this appointment is filling",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.account",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.account-flyover",
+              "text": "The set of accounts that is expected to be used for billing the activities that result from this Appointment. The specified account(s) could be those identified during pre-registration workflows in preparation for an upcoming Encounter.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Account"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.account.value",
+              "text": "The set of accounts that may be used for billing for this Appointment",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "datetime"
+            }
+          ],
+          "linkId": "Appointment.created",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.created-flyover",
+              "text": "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment. This property is required for many use cases where the age of an appointment is considered in processing workflows for scheduling and billing of appointments.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.created.value",
+              "text": "The date that this appointment was initially created",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "datetime"
+            }
+          ],
+          "linkId": "Appointment.cancellationDate",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.cancellationDate-flyover",
+              "text": "The date/time describing when the appointment was cancelled. If the appointment was cancelled multiple times, this would reflect the most recent cancellation.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.cancellationDate.value",
+              "text": "When the appointment was cancelled",
+              "type": "dateTime",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Annotation"
+            }
+          ],
+          "linkId": "Appointment.note",
+          "text": "Additional comments",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.note-flyover",
+              "text": "Additional notes/comments about the appointment. Additional text to aid in facilitating the appointment. For instance, a note might be, \"patient should proceed immediately to infusion room upon arrival\"\r\rWhere this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.\r\rTypically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required.",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.patientInstruction",
+          "text": "Detailed information and instructions for the patient",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.patientInstruction-flyover",
+              "text": "While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before).",
+              "type": "display"
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.basedOn",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.basedOn-flyover",
+              "text": "The request this appointment is allocated to assess (e.g. incoming referral or procedure request).",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "CarePlan, DeviceRequest, MedicationRequest, ServiceRequest"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.basedOn.value",
+              "text": "The request this appointment is allocated to assess",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "Reference"
+            }
+          ],
+          "linkId": "Appointment.subject",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.subject-flyover",
+              "text": "The patient or group associated with the appointment, if they are to be present (usually) then they should also be included in the participant backbone element.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                  "valueCode": "Patient, Group"
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                  "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                }
+              ],
+              "linkId": "Appointment.subject.value",
+              "text": "The patient or group associated with the appointment",
+              "type": "reference",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+              "valueInteger": 1
+            }
+          ],
+          "linkId": "Appointment.participant",
+          "text": "Participants involved in appointment",
+          "type": "group",
+          "required": true,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.participant-flyover",
+              "text": "List of participants involved in the appointment.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "string"
+                }
+              ],
+              "linkId": "Appointment.participant.id",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.id-flyover",
+                  "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.participant.id.value",
+                  "text": "Unique id for inter-element referencing",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "linkId": "Appointment.participant.extension",
+              "text": "Additional content defined by implementations",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.extension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "linkId": "Appointment.participant.modifierExtension",
+              "text": "Extensions that cannot be ignored even if unrecognized",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.modifierExtension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "CodeableConcept"
+                }
+              ],
+              "linkId": "Appointment.participant.type",
+              "text": "Role of participant in the appointment",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.type-flyover",
+                  "text": "Role of participant in the appointment. The role of the participant can be used to declare what the actor will be doing in the scope of this appointment.\r\rIf the actor is not specified, then it is expected that the actor will be filled in at a later stage of planning.\r\rThis value SHALL be the same when creating an AppointmentResponse so that they can be matched, and subsequently update the Appointment.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.participant.type.coding",
+                  "text": "code:",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
+                },
+                {
+                  "linkId": "Appointment.participant.type.text",
+                  "text": "text:",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "Period"
+                }
+              ],
+              "linkId": "Appointment.participant.period",
+              "text": "Participation period of the actor",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.period-flyover",
+                  "text": "Participation period of the actor.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.participant.period.low",
+                  "text": "start:",
+                  "type": "dateTime",
+                  "required": false,
+                  "repeats": false
+                },
+                {
+                  "linkId": "Appointment.participant.period.end",
+                  "text": "end:",
+                  "type": "dateTime",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "Reference"
+                }
+              ],
+              "linkId": "Appointment.participant.actor",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.actor-flyover",
+                  "text": "The individual, device, location, or service participating in the appointment. Where a CareTeam is provided, this does not imply that the entire team is included, just a single member from the group with the appropriate role. Where multiple members are required, please include the CareTeam the required number of times.",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceResource",
+                      "valueCode": "Patient, Group, Practitioner, PractitionerRole, CareTeam, RelatedPerson, Device, HealthcareService, Location"
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter",
+                      "valueString": "subject\u003d$subj\u0026patient\u003d$subj\u0026encounter\u003d$encounter"
+                    }
+                  ],
+                  "linkId": "Appointment.participant.actor.value",
+                  "text": "The individual, device, location, or service participating in the appointment",
+                  "type": "reference",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "boolean"
+                }
+              ],
+              "linkId": "Appointment.participant.required",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.required-flyover",
+                  "text": "Whether this participant is required to be present at the meeting. If false, the participant is optional. For the use-case where two doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present include the patient in the subject field, but do not include them as a participant - this was formerly done prior to R5 with required\u003d\u0027information-only\u0027.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.participant.required.value",
+                  "text": "The participant is required to attend (optional when false)",
+                  "type": "boolean",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "code"
+                }
+              ],
+              "linkId": "Appointment.participant.status",
+              "type": "group",
+              "required": true,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.participant.status-flyover",
+                  "text": "Participation status of the actor.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.participant.status.value",
+                  "text": "status",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "integer"
+            }
+          ],
+          "linkId": "Appointment.recurrenceId",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.recurrenceId-flyover",
+              "text": "The sequence number that identifies a specific appointment in a recurring pattern.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.recurrenceId.value",
+              "text": "The sequence number in the recurrence",
+              "type": "integer",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+              "valueInteger": 1
+            },
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+              "valueString": "boolean"
+            }
+          ],
+          "linkId": "Appointment.occurrenceChanged",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.occurrenceChanged-flyover",
+              "text": "This appointment varies from the recurring pattern. For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, a single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday.",
+              "type": "display"
+            },
+            {
+              "linkId": "Appointment.occurrenceChanged.value",
+              "text": "Indicates that this appointment varies from a recurrence pattern",
+              "type": "boolean",
+              "required": false,
+              "repeats": false
+            }
+          ]
+        },
+        {
+          "linkId": "Appointment.recurrenceTemplate",
+          "text": "Details of the recurrence pattern/template used to generate occurrences",
+          "type": "group",
+          "required": false,
+          "repeats": true,
+          "item": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/questionnaire-item-control",
+                        "code": "flyover",
+                        "display": "Fly-over"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate-flyover",
+              "text": "The details of the recurrence pattern or template that is used to generate recurring appointments.",
+              "type": "display"
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "string"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.id",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.id-flyover",
+                  "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.id.value",
+                  "text": "Unique id for inter-element referencing",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "linkId": "Appointment.recurrenceTemplate.extension",
+              "text": "Additional content defined by implementations",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.extension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "linkId": "Appointment.recurrenceTemplate.modifierExtension",
+              "text": "Extensions that cannot be ignored even if unrecognized",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.modifierExtension-flyover",
+                  "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                  "type": "display"
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "CodeableConcept"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.timezone",
+              "text": "The timezone of the occurrences",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.timezone-flyover",
+                  "text": "The timezone of the recurring appointment occurrences.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.timezone.coding",
+                  "text": "code:",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOrType"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.timezone.text",
+                  "text": "text:",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "CodeableConcept"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.recurrenceType",
+              "text": "The frequency of the recurrence",
+              "type": "group",
+              "required": true,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.recurrenceType-flyover",
+                  "text": "How often the appointment series should recur.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.recurrenceType.coding",
+                  "text": "code:",
+                  "type": "coding",
+                  "required": false,
+                  "repeats": false,
+                  "answerConstraint": "optionsOnly"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.recurrenceType.text",
+                  "text": "text:",
+                  "type": "string",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "datetime"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.lastOccurrenceDate",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.lastOccurrenceDate-flyover",
+                  "text": "Recurring appointments will not occur after this date.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.lastOccurrenceDate.value",
+                  "text": "The date when the recurrence should end",
+                  "type": "dateTime",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "integer"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.occurrenceCount",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.occurrenceCount-flyover",
+                  "text": "How many appointments are planned in the recurrence.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.occurrenceCount.value",
+                  "text": "The number of planned occurrences",
+                  "type": "integer",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "datetime"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.occurrenceDate",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.occurrenceDate-flyover",
+                  "text": "The list of specific dates that will have appointments generated.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.occurrenceDate.value",
+                  "text": "Specific dates for a recurring set of appointments (no template)",
+                  "type": "dateTime",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.weeklyTemplate",
+              "text": "Information about weekly recurring appointments",
+              "type": "group",
+              "required": false,
+              "repeats": false,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate-flyover",
+                  "text": "Information about weekly recurring appointments.",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "string"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.id",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.id-flyover",
+                      "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.id.value",
+                      "text": "Unique id for inter-element referencing",
+                      "type": "string",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.extension",
+                  "text": "Additional content defined by implementations",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.extension-flyover",
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.modifierExtension",
+                  "text": "Extensions that cannot be ignored even if unrecognized",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.modifierExtension-flyover",
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.monday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.monday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Mondays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.monday.value",
+                      "text": "Recurs on Mondays",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.tuesday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.tuesday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Tuesdays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.tuesday.value",
+                      "text": "Recurs on Tuesday",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.wednesday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.wednesday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Wednesdays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.wednesday.value",
+                      "text": "Recurs on Wednesday",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.thursday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.thursday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Thursdays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.thursday.value",
+                      "text": "Recurs on Thursday",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.friday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.friday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Fridays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.friday.value",
+                      "text": "Recurs on Friday",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.saturday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.saturday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Saturdays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.saturday.value",
+                      "text": "Recurs on Saturday",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "boolean"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.sunday",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.sunday-flyover",
+                      "text": "Indicates that recurring appointments should occur on Sundays.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.sunday.value",
+                      "text": "Recurs on Sunday",
+                      "type": "boolean",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "integer"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.weekInterval",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.weekInterval-flyover",
+                      "text": "The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.\r\re.g. For recurring every second week this interval would be 2, or every third week the interval would be 3.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.weeklyTemplate.weekInterval.value",
+                      "text": "Recurs every nth week",
+                      "type": "integer",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.monthlyTemplate",
+              "text": "Information about monthly recurring appointments",
+              "type": "group",
+              "required": false,
+              "repeats": false,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate-flyover",
+                  "text": "Information about monthly recurring appointments.",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "string"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.id",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.id-flyover",
+                      "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.id.value",
+                      "text": "Unique id for inter-element referencing",
+                      "type": "string",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.extension",
+                  "text": "Additional content defined by implementations",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.extension-flyover",
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.modifierExtension",
+                  "text": "Extensions that cannot be ignored even if unrecognized",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.modifierExtension-flyover",
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "integer"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth-flyover",
+                      "text": "Indicates that appointments in the series of recurring appointments should occur on a specific day of the month.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth.value",
+                      "text": "Recurs on a specific day of the month",
+                      "type": "integer",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "Coding"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth-flyover",
+                      "text": "Indicates which week within a month the appointments in the series of recurring appointments should occur on.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth.value",
+                      "text": "Indicates which week of the month the appointment should occur",
+                      "type": "coding",
+                      "required": false,
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "Coding"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek-flyover",
+                      "text": "Indicates which day of the week the recurring appointments should occur each nth week. This property is intended to be used with Appointment.recurrenceTemplate.monthly.nthWeek.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek.value",
+                      "text": "Indicates which day of the week the appointment should occur",
+                      "type": "coding",
+                      "required": false,
+                      "repeats": false,
+                      "answerConstraint": "optionsOrType"
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "integer"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.monthInterval",
+                  "type": "group",
+                  "required": true,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.monthInterval-flyover",
+                      "text": "Indicates that recurring appointments should occur every nth month.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.monthlyTemplate.monthInterval.value",
+                      "text": "Recurs every nth month",
+                      "type": "integer",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                  "valueInteger": 1
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.yearlyTemplate",
+              "text": "Information about yearly recurring appointments",
+              "type": "group",
+              "required": false,
+              "repeats": false,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.yearlyTemplate-flyover",
+                  "text": "Information about yearly recurring appointments.",
+                  "type": "display"
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "string"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.id",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.id-flyover",
+                      "text": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.id.value",
+                      "text": "Unique id for inter-element referencing",
+                      "type": "string",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.extension",
+                  "text": "Additional content defined by implementations",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.extension-flyover",
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.modifierExtension",
+                  "text": "Extensions that cannot be ignored even if unrecognized",
+                  "type": "group",
+                  "required": false,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.modifierExtension-flyover",
+                      "text": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+                      "type": "display"
+                    }
+                  ]
+                },
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs",
+                      "valueInteger": 1
+                    },
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                      "valueString": "integer"
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.yearInterval",
+                  "type": "group",
+                  "required": true,
+                  "repeats": true,
+                  "item": [
+                    {
+                      "extension": [
+                        {
+                          "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                          "valueCodeableConcept": {
+                            "coding": [
+                              {
+                                "system": "http://hl7.org/fhir/questionnaire-item-control",
+                                "code": "flyover",
+                                "display": "Fly-over"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.yearInterval-flyover",
+                      "text": "Appointment recurs every nth year.",
+                      "type": "display"
+                    },
+                    {
+                      "linkId": "Appointment.recurrenceTemplate.yearlyTemplate.yearInterval.value",
+                      "text": "Recurs every nth year",
+                      "type": "integer",
+                      "required": false,
+                      "repeats": false
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "datetime"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.excludingDate",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.excludingDate-flyover",
+                  "text": "Any dates, such as holidays, that should be excluded from the recurrence. excludingDate is an alternative to excludingRecurrenceId.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.excludingDate.value",
+                  "text": "Any dates that should be excluded from the series",
+                  "type": "dateTime",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            },
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-fhirType",
+                  "valueString": "integer"
+                }
+              ],
+              "linkId": "Appointment.recurrenceTemplate.excludingRecurrenceId",
+              "type": "group",
+              "required": false,
+              "repeats": true,
+              "item": [
+                {
+                  "extension": [
+                    {
+                      "url": "http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl",
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "http://hl7.org/fhir/questionnaire-item-control",
+                            "code": "flyover",
+                            "display": "Fly-over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "linkId": "Appointment.recurrenceTemplate.excludingRecurrenceId-flyover",
+                  "text": "Any dates, such as holidays, that should be excluded from the recurrence. excludingRecurrenceId is an alternative to excludingDate.  You may say either that 12/25/XXXX should be excluded using excludingDate, or you may indicate the recurrenceId of the appointment that would fall on the excluded date in the excludingRecurrenceId property.",
+                  "type": "display"
+                },
+                {
+                  "linkId": "Appointment.recurrenceTemplate.excludingRecurrenceId.value",
+                  "text": "Any recurrence IDs that should be excluded from the recurrence",
+                  "type": "integer",
+                  "required": false,
+                  "repeats": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

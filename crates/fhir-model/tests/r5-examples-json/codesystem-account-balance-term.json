@@ -1,0 +1,84 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "account-balance-term",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/account-balance-term\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecurrent\u003ca name\u003d\"account-balance-term-current\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCurrent\u003c/td\u003e\u003ctd\u003eThis balance is the current balance\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e30\u003ca name\u003d\"account-balance-term-30\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e30 day\u003c/td\u003e\u003ctd\u003eThis balance is outstanding over 30 days\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e60\u003ca name\u003d\"account-balance-term-60\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e60 day\u003c/td\u003e\u003ctd\u003eThis balance is outstanding over 60 days\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e90\u003ca name\u003d\"account-balance-term-90\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e90 day\u003c/td\u003e\u003ctd\u003eThis balance is outstanding over 90 days\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e120\u003ca name\u003d\"account-balance-term-120\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003e120 day\u003c/td\u003e\u003ctd\u003eThis balance is outstanding over 120 days\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/account-balance-term",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2064"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AccountBalanceTerm",
+  "title": "Account Balance Term",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "Indicates the account balance\u0027s age",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/account-payment-terms",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "current",
+      "display": "Current",
+      "definition": "This balance is the current balance"
+    },
+    {
+      "code": "30",
+      "display": "30 day",
+      "definition": "This balance is outstanding over 30 days"
+    },
+    {
+      "code": "60",
+      "display": "60 day",
+      "definition": "This balance is outstanding over 60 days"
+    },
+    {
+      "code": "90",
+      "display": "90 day",
+      "definition": "This balance is outstanding over 90 days"
+    },
+    {
+      "code": "120",
+      "display": "120 day",
+      "definition": "This balance is outstanding over 120 days"
+    }
+  ]
+}

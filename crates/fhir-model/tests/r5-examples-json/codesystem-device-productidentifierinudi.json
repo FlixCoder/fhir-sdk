@@ -1,0 +1,96 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "device-productidentifierinudi",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/device-productidentifierinudi\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elot-number\u003ca name\u003d\"device-productidentifierinudi-lot-number\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLot Number\u003c/td\u003e\u003ctd\u003eThe label includes the lot number.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emanufactured-date\u003ca name\u003d\"device-productidentifierinudi-manufactured-date\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eManufactured date\u003c/td\u003e\u003ctd\u003eThe label includes the manufacture date.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eserial-number\u003ca name\u003d\"device-productidentifierinudi-serial-number\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSerial Number\u003c/td\u003e\u003ctd\u003eThe label includes the serial number.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eexpiration-date\u003ca name\u003d\"device-productidentifierinudi-expiration-date\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eExpiration date\u003c/td\u003e\u003ctd\u003eThe label includes the expiration date.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebiological-source\u003ca name\u003d\"device-productidentifierinudi-biological-source\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBiological source\u003c/td\u003e\u003ctd\u003eThe label includes the biological source identifier.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esoftware-version\u003ca name\u003d\"device-productidentifierinudi-software-version\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSoftware Version\u003c/td\u003e\u003ctd\u003eThe label includes the software version.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/device-productidentifierinudi",
+  "version": "5.0.0",
+  "name": "DeviceProductionIdentifierInUDI",
+  "title": "Device Production Identifier In UDI",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The production identifier(s) that are expected to appear in the UDI carrier.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "lot-number",
+      "display": "Lot Number",
+      "definition": "The label includes the lot number."
+    },
+    {
+      "code": "manufactured-date",
+      "display": "Manufactured date",
+      "definition": "The label includes the manufacture date."
+    },
+    {
+      "code": "serial-number",
+      "display": "Serial Number",
+      "definition": "The label includes the serial number."
+    },
+    {
+      "code": "expiration-date",
+      "display": "Expiration date",
+      "definition": "The label includes the expiration date."
+    },
+    {
+      "code": "biological-source",
+      "display": "Biological source",
+      "definition": "The label includes the biological source identifier."
+    },
+    {
+      "code": "software-version",
+      "display": "Software Version",
+      "definition": "The label includes the software version."
+    }
+  ]
+}

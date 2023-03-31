@@ -1,0 +1,85 @@
+{
+  "resourceType": "List",
+  "id": "example-xds",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ch2\u003ePhysical\u003c/h2\u003e\u003ctable class\u003d\"clstu\"\u003e\u003ctr\u003e\u003ctd\u003eDate: 26 Dec 2004, 3:50:50 pmMode: workingStatus: currentCode: History and Physical\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eSubject: \u003ca href\u003d\"patient-example-xcda.html\"\u003ePatient/xcda\u003c/a\u003e \u0026quot;Henry LEVIN\u0026quot;Source: (null)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr style\u003d\"backgound-color: #eeeeee\"\u003e\u003ctd\u003e\u003cb\u003eItems\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"documentreference-example.html\"\u003eDocumentReference/example\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "contained": [
+    {
+      "resourceType": "Practitioner",
+      "id": "a1",
+      "name": [
+        {
+          "family": "Dopplemeyer",
+          "given": [
+            "Sherry"
+          ]
+        }
+      ],
+      "telecom": [
+        {
+          "system": "email",
+          "value": "john.doe@healthcare.example.org"
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://ihe.net/fhir/CodeSystem/identifier-type",
+            "code": "master"
+          }
+        ]
+      },
+      "system": "http://example.org/documents",
+      "value": "23425234234-2346"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://ihe.net/fhir/CodeSystem/identifier-type",
+            "code": "set"
+          }
+        ]
+      },
+      "system": "http://example.org/documents",
+      "value": "23425234234-2347"
+    }
+  ],
+  "status": "current",
+  "mode": "working",
+  "title": "Physical",
+  "code": {
+    "text": "History and Physical"
+  },
+  "subject": [
+    {
+      "reference": "Patient/xcda"
+    }
+  ],
+  "date": "2004-12-25T23:50:50-05:00",
+  "source": {
+    "reference": "#a1"
+  },
+  "entry": [
+    {
+      "item": {
+        "reference": "DocumentReference/example"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

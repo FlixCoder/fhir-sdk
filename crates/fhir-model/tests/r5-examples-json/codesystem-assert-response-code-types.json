@@ -1,0 +1,303 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "assert-response-code-types",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/assert-response-code-types\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtinue\u003ca name\u003d\"assert-response-code-types-continue\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContinue\u003c/td\u003e\u003ctd\u003eResponse code is 100.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eswitchingProtocols\u003ca name\u003d\"assert-response-code-types-switchingProtocols\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSwitching Protocols\u003c/td\u003e\u003ctd\u003eResponse code is 101.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eokay\u003ca name\u003d\"assert-response-code-types-okay\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOK\u003c/td\u003e\u003ctd\u003eResponse code is 200.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecreated\u003ca name\u003d\"assert-response-code-types-created\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreated\u003c/td\u003e\u003ctd\u003eResponse code is 201.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eaccepted\u003ca name\u003d\"assert-response-code-types-accepted\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAccepted\u003c/td\u003e\u003ctd\u003eResponse code is 202.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enonAuthoritativeInformation\u003ca name\u003d\"assert-response-code-types-nonAuthoritativeInformation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNon-Authoritative Information\u003c/td\u003e\u003ctd\u003eResponse code is 203.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enoContent\u003ca name\u003d\"assert-response-code-types-noContent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNo Content\u003c/td\u003e\u003ctd\u003eResponse code is 204.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eresetContent\u003ca name\u003d\"assert-response-code-types-resetContent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReset Content\u003c/td\u003e\u003ctd\u003eResponse code is 205.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epartialContent\u003ca name\u003d\"assert-response-code-types-partialContent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePartial Content\u003c/td\u003e\u003ctd\u003eResponse code is 206.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emultipleChoices\u003ca name\u003d\"assert-response-code-types-multipleChoices\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMultiple Choices\u003c/td\u003e\u003ctd\u003eResponse code is 300.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emovedPermanently\u003ca name\u003d\"assert-response-code-types-movedPermanently\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMoved Permanently\u003c/td\u003e\u003ctd\u003eResponse code is 301.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efound\u003ca name\u003d\"assert-response-code-types-found\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFound\u003c/td\u003e\u003ctd\u003eResponse code is 302.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eseeOther\u003ca name\u003d\"assert-response-code-types-seeOther\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSee Other\u003c/td\u003e\u003ctd\u003eResponse code is 303.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enotModified\u003ca name\u003d\"assert-response-code-types-notModified\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot Modified\u003c/td\u003e\u003ctd\u003eResponse code is 304.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003euseProxy\u003ca name\u003d\"assert-response-code-types-useProxy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUse Proxy\u003c/td\u003e\u003ctd\u003eResponse code is 305.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etemporaryRedirect\u003ca name\u003d\"assert-response-code-types-temporaryRedirect\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTemporary Redirect\u003c/td\u003e\u003ctd\u003eResponse code is 307.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epermanentRedirect\u003ca name\u003d\"assert-response-code-types-permanentRedirect\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePermanent Redirect\u003c/td\u003e\u003ctd\u003eResponse code is 308.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebadRequest\u003ca name\u003d\"assert-response-code-types-badRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBad Request\u003c/td\u003e\u003ctd\u003eResponse code is 400.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunauthorized\u003ca name\u003d\"assert-response-code-types-unauthorized\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnauthorized\u003c/td\u003e\u003ctd\u003eResponse code is 401.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epaymentRequired\u003ca name\u003d\"assert-response-code-types-paymentRequired\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePayment Required\u003c/td\u003e\u003ctd\u003eResponse code is 402.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eforbidden\u003ca name\u003d\"assert-response-code-types-forbidden\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eForbidden\u003c/td\u003e\u003ctd\u003eResponse code is 403.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enotFound\u003ca name\u003d\"assert-response-code-types-notFound\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot Found\u003c/td\u003e\u003ctd\u003eResponse code is 404.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emethodNotAllowed\u003ca name\u003d\"assert-response-code-types-methodNotAllowed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMethod Not Allowed\u003c/td\u003e\u003ctd\u003eResponse code is 405.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enotAcceptable\u003ca name\u003d\"assert-response-code-types-notAcceptable\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot Acceptable\u003c/td\u003e\u003ctd\u003eResponse code is 406.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eproxyAuthenticationRequired\u003ca name\u003d\"assert-response-code-types-proxyAuthenticationRequired\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProxy Authentication Required\u003c/td\u003e\u003ctd\u003eResponse code is 407.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erequestTimeout\u003ca name\u003d\"assert-response-code-types-requestTimeout\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRequest Timeout\u003c/td\u003e\u003ctd\u003eResponse code is 408.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econflict\u003ca name\u003d\"assert-response-code-types-conflict\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConflict\u003c/td\u003e\u003ctd\u003eResponse code is 409.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egone\u003ca name\u003d\"assert-response-code-types-gone\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGone\u003c/td\u003e\u003ctd\u003eResponse code is 410.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elengthRequired\u003ca name\u003d\"assert-response-code-types-lengthRequired\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLength Required\u003c/td\u003e\u003ctd\u003eResponse code is 411.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epreconditionFailed\u003ca name\u003d\"assert-response-code-types-preconditionFailed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePrecondition Failed\u003c/td\u003e\u003ctd\u003eResponse code is 412.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtentTooLarge\u003ca name\u003d\"assert-response-code-types-contentTooLarge\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eContent Too Large\u003c/td\u003e\u003ctd\u003eResponse code is 413.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003euriTooLong\u003ca name\u003d\"assert-response-code-types-uriTooLong\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eURI Too Long\u003c/td\u003e\u003ctd\u003eResponse code is 414.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunsupportedMediaType\u003ca name\u003d\"assert-response-code-types-unsupportedMediaType\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnsupported Media Type\u003c/td\u003e\u003ctd\u003eResponse code is 415.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erangeNotSatisfiable\u003ca name\u003d\"assert-response-code-types-rangeNotSatisfiable\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRange Not Satisfiable\u003c/td\u003e\u003ctd\u003eResponse code is 416.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eexpectationFailed\u003ca name\u003d\"assert-response-code-types-expectationFailed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eExpectation Failed\u003c/td\u003e\u003ctd\u003eResponse code is 417.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emisdirectedRequest\u003ca name\u003d\"assert-response-code-types-misdirectedRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMisdirected Request\u003c/td\u003e\u003ctd\u003eResponse code is 421.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunprocessableContent\u003ca name\u003d\"assert-response-code-types-unprocessableContent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnprocessable Content\u003c/td\u003e\u003ctd\u003eResponse code is 422.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eupgradeRequired\u003ca name\u003d\"assert-response-code-types-upgradeRequired\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUpgrade Required\u003c/td\u003e\u003ctd\u003eResponse code is 426.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003einternalServerError\u003ca name\u003d\"assert-response-code-types-internalServerError\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInternal Server Error\u003c/td\u003e\u003ctd\u003eResponse code is 500.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enotImplemented\u003ca name\u003d\"assert-response-code-types-notImplemented\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot Implemented\u003c/td\u003e\u003ctd\u003eResponse code is 501.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebadGateway\u003ca name\u003d\"assert-response-code-types-badGateway\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBad Gateway\u003c/td\u003e\u003ctd\u003eResponse code is 502.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eserviceUnavailable\u003ca name\u003d\"assert-response-code-types-serviceUnavailable\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eService Unavailable\u003c/td\u003e\u003ctd\u003eResponse code is 503.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egatewayTimeout\u003ca name\u003d\"assert-response-code-types-gatewayTimeout\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGateway Timeout\u003c/td\u003e\u003ctd\u003eResponse code is 504.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehttpVersionNotSupported\u003ca name\u003d\"assert-response-code-types-httpVersionNotSupported\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHTTP Version Not Supported\u003c/td\u003e\u003ctd\u003eResponse code is 505.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/assert-response-code-types",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.711"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.699"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.361"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AssertionResponseTypes",
+  "title": "Assertion Response Types",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The type of response code to use for assertion.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/assert-response-code-types",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "continue",
+      "display": "Continue",
+      "definition": "Response code is 100."
+    },
+    {
+      "code": "switchingProtocols",
+      "display": "Switching Protocols",
+      "definition": "Response code is 101."
+    },
+    {
+      "code": "okay",
+      "display": "OK",
+      "definition": "Response code is 200."
+    },
+    {
+      "code": "created",
+      "display": "Created",
+      "definition": "Response code is 201."
+    },
+    {
+      "code": "accepted",
+      "display": "Accepted",
+      "definition": "Response code is 202."
+    },
+    {
+      "code": "nonAuthoritativeInformation",
+      "display": "Non-Authoritative Information",
+      "definition": "Response code is 203."
+    },
+    {
+      "code": "noContent",
+      "display": "No Content",
+      "definition": "Response code is 204."
+    },
+    {
+      "code": "resetContent",
+      "display": "Reset Content",
+      "definition": "Response code is 205."
+    },
+    {
+      "code": "partialContent",
+      "display": "Partial Content",
+      "definition": "Response code is 206."
+    },
+    {
+      "code": "multipleChoices",
+      "display": "Multiple Choices",
+      "definition": "Response code is 300."
+    },
+    {
+      "code": "movedPermanently",
+      "display": "Moved Permanently",
+      "definition": "Response code is 301."
+    },
+    {
+      "code": "found",
+      "display": "Found",
+      "definition": "Response code is 302."
+    },
+    {
+      "code": "seeOther",
+      "display": "See Other",
+      "definition": "Response code is 303."
+    },
+    {
+      "code": "notModified",
+      "display": "Not Modified",
+      "definition": "Response code is 304."
+    },
+    {
+      "code": "useProxy",
+      "display": "Use Proxy",
+      "definition": "Response code is 305."
+    },
+    {
+      "code": "temporaryRedirect",
+      "display": "Temporary Redirect",
+      "definition": "Response code is 307."
+    },
+    {
+      "code": "permanentRedirect",
+      "display": "Permanent Redirect",
+      "definition": "Response code is 308."
+    },
+    {
+      "code": "badRequest",
+      "display": "Bad Request",
+      "definition": "Response code is 400."
+    },
+    {
+      "code": "unauthorized",
+      "display": "Unauthorized",
+      "definition": "Response code is 401."
+    },
+    {
+      "code": "paymentRequired",
+      "display": "Payment Required",
+      "definition": "Response code is 402."
+    },
+    {
+      "code": "forbidden",
+      "display": "Forbidden",
+      "definition": "Response code is 403."
+    },
+    {
+      "code": "notFound",
+      "display": "Not Found",
+      "definition": "Response code is 404."
+    },
+    {
+      "code": "methodNotAllowed",
+      "display": "Method Not Allowed",
+      "definition": "Response code is 405."
+    },
+    {
+      "code": "notAcceptable",
+      "display": "Not Acceptable",
+      "definition": "Response code is 406."
+    },
+    {
+      "code": "proxyAuthenticationRequired",
+      "display": "Proxy Authentication Required",
+      "definition": "Response code is 407."
+    },
+    {
+      "code": "requestTimeout",
+      "display": "Request Timeout",
+      "definition": "Response code is 408."
+    },
+    {
+      "code": "conflict",
+      "display": "Conflict",
+      "definition": "Response code is 409."
+    },
+    {
+      "code": "gone",
+      "display": "Gone",
+      "definition": "Response code is 410."
+    },
+    {
+      "code": "lengthRequired",
+      "display": "Length Required",
+      "definition": "Response code is 411."
+    },
+    {
+      "code": "preconditionFailed",
+      "display": "Precondition Failed",
+      "definition": "Response code is 412."
+    },
+    {
+      "code": "contentTooLarge",
+      "display": "Content Too Large",
+      "definition": "Response code is 413."
+    },
+    {
+      "code": "uriTooLong",
+      "display": "URI Too Long",
+      "definition": "Response code is 414."
+    },
+    {
+      "code": "unsupportedMediaType",
+      "display": "Unsupported Media Type",
+      "definition": "Response code is 415."
+    },
+    {
+      "code": "rangeNotSatisfiable",
+      "display": "Range Not Satisfiable",
+      "definition": "Response code is 416."
+    },
+    {
+      "code": "expectationFailed",
+      "display": "Expectation Failed",
+      "definition": "Response code is 417."
+    },
+    {
+      "code": "misdirectedRequest",
+      "display": "Misdirected Request",
+      "definition": "Response code is 421."
+    },
+    {
+      "code": "unprocessableContent",
+      "display": "Unprocessable Content",
+      "definition": "Response code is 422."
+    },
+    {
+      "code": "upgradeRequired",
+      "display": "Upgrade Required",
+      "definition": "Response code is 426."
+    },
+    {
+      "code": "internalServerError",
+      "display": "Internal Server Error",
+      "definition": "Response code is 500."
+    },
+    {
+      "code": "notImplemented",
+      "display": "Not Implemented",
+      "definition": "Response code is 501."
+    },
+    {
+      "code": "badGateway",
+      "display": "Bad Gateway",
+      "definition": "Response code is 502."
+    },
+    {
+      "code": "serviceUnavailable",
+      "display": "Service Unavailable",
+      "definition": "Response code is 503."
+    },
+    {
+      "code": "gatewayTimeout",
+      "display": "Gateway Timeout",
+      "definition": "Response code is 504."
+    },
+    {
+      "code": "httpVersionNotSupported",
+      "display": "HTTP Version Not Supported",
+      "definition": "Response code is 505."
+    }
+  ]
+}

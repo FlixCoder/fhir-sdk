@@ -1,0 +1,83 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "example-priority",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003ch2\u003enull (http://hl7.org/fhir/ConceptMap/example-priority)\u003c/h2\u003e\n      \u003cp\u003eMapping from http://snomed.info/sct?fhir_vs to (not specified)\u003c/p\u003e\n      \u003cp\u003eDRAFT (not intended for production usage). Published on ?ngen-10? by null. Creative Commons 0\u003c/p\u003e\n      \u003cdiv\u003e\n        \u003cp\u003eExample inspired by UK extended complex map (999002271000000101)\u003c/p\u003e\n\n      \u003c/div\u003e\n      \u003cbr/\u003e\n      \u003cp\u003e\n        \u003cb\u003eGroup 1\u003c/b\u003eMapping from \n        \u003ccode\u003ehttp://snomed.info./sct\u003c/code\u003e to \n        \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-icd10.html\"\u003eICD-10\u003c/a\u003e\n      \u003c/p\u003e\n      \u003ctable class\u003d\"grid\"\u003e\n        \u003ctr\u003e\n          \u003ctd colspan\u003d\"2\"\u003e\n            \u003cb\u003eSource Concept Details\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003eRelationship\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd colspan\u003d\"2\"\u003e\n            \u003cb\u003eTarget Concept Details\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd colspan\u003d\"2\"\u003e\n            \u003cb\u003eProperties\u003c/b\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd colspan\u003d\"2\"\u003e\n            \u003cb\u003eCodes\u003c/b\u003e from http://snomed.info./sct\n          \u003c/td\u003e\n          \u003ctd/\u003e\n          \u003ctd colspan\u003d\"2\"\u003e\n            \u003cb\u003eCodes\u003c/b\u003e from \n            \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-icd10.html\" title\u003d\"http://hl7.org/fhir/sid/icd-10\"\u003eICD-10\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003emapAdvice\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003epriority\u003c/b\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd style\u003d\"border-right-width: 0px; border-bottom-style: none\"\u003e429353004\u003c/td\u003e\n          \u003ctd style\u003d\"border-left-width: 0px; border-bottom-style: none\"/\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#source-is-narrower-than-target\" title\u003d\"source-is-narrower-than-target\"\u003eis narrower then\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd style\u003d\"border-right-width: 0px\"\u003eS59.7\u003c/td\u003e\n          \u003ctd style\u003d\"border-left-width: 0px\"\u003eMultiple injuries of forearm\u003c/td\u003e\n          \u003ctd\u003etodo\u003c/td\u003e\n          \u003ctd\u003etodo\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd style\u003d\"border-right-width: 0px; border-top-style: none; border-bottom-style: none\"/\u003e\n          \u003ctd style\u003d\"border-left-width: 0px; border-top-style: none; border-bottom-style: none\"/\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#source-is-narrower-than-target\" title\u003d\"source-is-narrower-than-target\"\u003eis narrower then\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd style\u003d\"border-right-width: 0px\"\u003eS59.9\u003c/td\u003e\n          \u003ctd style\u003d\"border-left-width: 0px\"\u003eUnspecified injury of forearm\u003c/td\u003e\n          \u003ctd\u003etodo\u003c/td\u003e\n          \u003ctd\u003etodo\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd style\u003d\"border-right-width: 0px; border-top-style: none\"/\u003e\n          \u003ctd style\u003d\"border-top-style: none; border-left-width: 0px\"/\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#source-is-narrower-than-target\" title\u003d\"source-is-narrower-than-target\"\u003eis narrower then\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd style\u003d\"border-right-width: 0px\"\u003eS59.8\u003c/td\u003e\n          \u003ctd style\u003d\"border-left-width: 0px\"\u003eOther specified injuries of forearm\u003c/td\u003e\n          \u003ctd\u003etodo\u003c/td\u003e\n          \u003ctd\u003etodo\u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/example-priority",
+  "version": "5.0.0",
+  "title": "Example map with priorities",
+  "status": "draft",
+  "experimental": true,
+  "description": "Example inspired by UK extended complex map (999002271000000101)",
+  "copyright": "Creative Commons 0",
+  "property": [
+    {
+      "code": "priority",
+      "description": "The priority with which to choose this mapping over the other mappings for the same code",
+      "type": "string"
+    },
+    {
+      "code": "mapAdvice",
+      "description": "Additional advice for a user using these maps",
+      "type": "string"
+    }
+  ],
+  "sourceScopeUri": "http://snomed.info/sct?fhir_vs",
+  "group": [
+    {
+      "source": "http://snomed.info./sct",
+      "target": "http://hl7.org/fhir/sid/icd-10",
+      "element": [
+        {
+          "code": "429353004",
+          "target": [
+            {
+              "code": "S59.7",
+              "relationship": "source-is-narrower-than-target",
+              "property": [
+                {
+                  "code": "priority",
+                  "valueString": "1"
+                },
+                {
+                  "code": "mapAdvice",
+                  "valueString": "ADDITIONAL CODE POSSIBLE"
+                }
+              ]
+            },
+            {
+              "code": "S59.9",
+              "relationship": "source-is-narrower-than-target",
+              "property": [
+                {
+                  "code": "priority",
+                  "valueString": "3"
+                },
+                {
+                  "code": "mapAdvice",
+                  "valueString": "ADDITIONAL CODE POSSIBLE"
+                }
+              ]
+            },
+            {
+              "code": "S59.8",
+              "relationship": "source-is-narrower-than-target",
+              "property": [
+                {
+                  "code": "priority",
+                  "valueString": "2"
+                },
+                {
+                  "code": "mapAdvice",
+                  "valueString": "ADDITIONAL CODE POSSIBLE"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

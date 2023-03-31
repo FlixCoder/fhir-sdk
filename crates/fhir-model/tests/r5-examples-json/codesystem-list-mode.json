@@ -1,0 +1,98 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "list-mode",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/list-mode\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eworking\u003ca name\u003d\"list-mode-working\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWorking List\u003c/td\u003e\u003ctd\u003eThis list is the master list, maintained in an ongoing fashion with regular updates as the real-world list it is tracking changes.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esnapshot\u003ca name\u003d\"list-mode-snapshot\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSnapshot List\u003c/td\u003e\u003ctd\u003eThis list was prepared as a snapshot. It should not be assumed to be current.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echanges\u003ca name\u003d\"list-mode-changes\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eChange List\u003c/td\u003e\u003ctd\u003eA point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/list-mode",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.319"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.310"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.174"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ListMode",
+  "title": "List Mode",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The processing mode that applies to this list.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/list-mode",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "working",
+      "display": "Working List",
+      "definition": "This list is the master list, maintained in an ongoing fashion with regular updates as the real-world list it is tracking changes."
+    },
+    {
+      "code": "snapshot",
+      "display": "Snapshot List",
+      "definition": "This list was prepared as a snapshot. It should not be assumed to be current."
+    },
+    {
+      "code": "changes",
+      "display": "Change List",
+      "definition": "A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter."
+    }
+  ]
+}

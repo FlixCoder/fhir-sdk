@@ -1,0 +1,18 @@
+{
+  "resourceType": "VerificationResult",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: VerificationResult\u003c/b\u003e\u003ca name\u003d\"example\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource VerificationResult \u0026quot;example\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: \u003cspan title\u003d\" \n\t\u0026lt;target\u0026gt;\n\t\t\u0026lt;display value\u003d\u0026quot;Dr Feelbetter\u0026quot; /\u0026gt;\n\t\u0026lt;/target\u0026gt;\n\t\u0026lt;need value\u003d\u0026quot;initial\u0026quot; /\u0026gt;  \"\u003eattested\u003c/span\u003e\u003c/p\u003e\u003c/div\u003e"
+  },
+  "status": "attested",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

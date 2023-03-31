@@ -1,0 +1,69 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "deviceassociation-status-reason",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/deviceassociation-status-reason\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eattached\u003ca name\u003d\"deviceassociation-status-reason-attached\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAttached\u003c/td\u003e\u003ctd\u003eThe device is connected to the patient.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edisconnected\u003ca name\u003d\"deviceassociation-status-reason-disconnected\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDisconnected\u003c/td\u003e\u003ctd\u003eThe device is no longer connected.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efailed\u003ca name\u003d\"deviceassociation-status-reason-failed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFailed\u003c/td\u003e\u003ctd\u003eThe device has failed to work, or continue to function.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eplaced\u003ca name\u003d\"deviceassociation-status-reason-placed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eplaced\u003c/td\u003e\u003ctd\u003eThe device was placed in the patient.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereplaced\u003ca name\u003d\"deviceassociation-status-reason-replaced\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReplaced\u003c/td\u003e\u003ctd\u003eThe device was updated with a new device or device part.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/deviceassociation-status-reason",
+  "version": "5.0.0",
+  "name": "DeviceAssociation",
+  "title": "DeviceAssociation Status Reason Codes",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "DeviceAssociation Status Reason Codes",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/deviceassociation-status-reason",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "attached",
+      "display": "Attached",
+      "definition": "The device is connected to the patient."
+    },
+    {
+      "code": "disconnected",
+      "display": "Disconnected",
+      "definition": "The device is no longer connected."
+    },
+    {
+      "code": "failed",
+      "display": "Failed",
+      "definition": "The device has failed to work, or continue to function."
+    },
+    {
+      "code": "placed",
+      "display": "placed",
+      "definition": "The device was placed in the patient."
+    },
+    {
+      "code": "replaced",
+      "display": "Replaced",
+      "definition": "The device was updated with a new device or device part."
+    }
+  ]
+}

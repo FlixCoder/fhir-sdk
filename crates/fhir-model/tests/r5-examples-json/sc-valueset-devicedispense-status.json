@@ -1,0 +1,128 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "sc-devicedispense-status",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ch2\u003eDeviceDispenseStatusCodesCanonicalMap (http://hl7.org/fhir/ConceptMap/sc-devicedispense-status)\u003c/h2\u003e\u003cp\u003eMapping from \u003ca href\u003d\"valueset-devicedispense-status.html\"\u003eDeviceDispense Status Codes\u003c/a\u003e to \u003ca href\u003d\"valueset-resource-status.html\"\u003eCanonical Status Codes for FHIR Resources\u003c/a\u003e\u003c/p\u003e\u003cp\u003eDRAFT. Published on ?ngen-10? by FHIR Project team (\u003ca href\u003d\"http://hl7.org/fhir\"\u003ehttp://hl7.org/fhir\u003c/a\u003e). \u003c/p\u003e\u003cdiv\u003e\u003cp\u003eCanonical Mapping for \u0026quot;DeviceDispense Status Codes\u0026quot;\u003c/p\u003e\n\u003c/div\u003e\u003cbr/\u003e\u003cp\u003e\u003cb\u003eGroup 1\u003c/b\u003eMapping from \u003ca href\u003d\"codesystem-devicedispense-status.html\"\u003eDeviceDispense Status Codes\u003c/a\u003e to \u003ca href\u003d\"codesystem-resource-status.html\"\u003eCanonical Status Codes for FHIR Resources\u003c/a\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eSource Code\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRelationship\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eTarget Code\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eentered-in-error\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eerror\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003epreparation\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eplanned\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ein-progress\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eactive\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eon-hold\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003esuspended\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003estopped\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003efailed\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ecompleted\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecomplete\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eunknown\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eunknown\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ecancelled\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003enot-done\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003edeclined\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003enot-done\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/sc-devicedispense-status",
+  "version": "5.0.0",
+  "name": "DeviceDispenseStatusCodesCanonicalMap",
+  "title": "Canonical Mapping for \"DeviceDispense Status Codes\"",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Canonical Mapping for \"DeviceDispense Status Codes\"",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "sourceScopeCanonical": "http://hl7.org/fhir/ValueSet/devicedispense-status",
+  "targetScopeCanonical": "http://hl7.org/fhir/ValueSet/resource-status",
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/devicedispense-status",
+      "target": "http://hl7.org/fhir/resource-status",
+      "element": [
+        {
+          "code": "entered-in-error",
+          "target": [
+            {
+              "code": "error",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "preparation",
+          "target": [
+            {
+              "code": "planned",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "in-progress",
+          "target": [
+            {
+              "code": "active",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "on-hold",
+          "target": [
+            {
+              "code": "suspended",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "stopped",
+          "target": [
+            {
+              "code": "failed",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "completed",
+          "target": [
+            {
+              "code": "complete",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "unknown",
+          "target": [
+            {
+              "code": "unknown",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "cancelled",
+          "target": [
+            {
+              "code": "not-done",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "declined",
+          "target": [
+            {
+              "code": "not-done",
+              "relationship": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

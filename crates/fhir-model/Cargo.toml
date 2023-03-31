@@ -17,8 +17,9 @@ version = "0.2.0"
 all-features = true
 
 [features]
-default = ["r4b"]
+default = ["r5"]
 r4b = []
+r5 = []
 
 [dependencies]
 serde = {version = "1.0.158", features = ["derive"]}

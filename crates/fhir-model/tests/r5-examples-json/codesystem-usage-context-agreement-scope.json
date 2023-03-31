@@ -1,0 +1,90 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "usage-context-agreement-scope",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/usage-context-agreement-scope\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erealm-base\u003ca name\u003d\"usage-context-agreement-scope-realm-base\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRealm Base\u003c/td\u003e\u003ctd\u003eDefines use-case independent foundational expectations for exchange within a particular country or jurisdiction.  Should be accompanied by a jurisdiction.  Commonly used as a \u0027base\u0027 for more restrictive artifacts.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eknowledge\u003ca name\u003d\"usage-context-agreement-scope-knowledge\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eKnowledge\u003c/td\u003e\u003ctd\u003eDefines use-case-specific information or guidance that is relevant to a specific business or health domain but is not mandated for particular use.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edomain\u003ca name\u003d\"usage-context-agreement-scope-domain\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDomain\u003c/td\u003e\u003ctd\u003eDefines use-case-specific requirements for a specific business or health domain.  May vary in jurisdictional scope from international to small region and in business scope from broad to narrow.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecommunity\u003ca name\u003d\"usage-context-agreement-scope-community\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCommunity\u003c/td\u003e\u003ctd\u003eSets contractual or business expectations for systems participating in a particular exchange community.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esystem-design\u003ca name\u003d\"usage-context-agreement-scope-system-design\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSystem Design\u003c/td\u003e\u003ctd\u003eDocuments the specific capabilities of a single system as \u0027available\u0027 for purchase or use.  May have some variability reflecting options that can be configured.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esystem-implementation\u003ca name\u003d\"usage-context-agreement-scope-system-implementation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSystem Implementation\u003c/td\u003e\u003ctd\u003eDocuments the specific points of a single production system or endpoint.  This may be time-specific - i.e. reflecting the system \u0027as it is now\u0027 or \u0027as it was at some point in the past\u0027.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/usage-context-agreement-scope",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1798"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "UsageContextAgreementScope",
+  "title": "Usage Context Agreement Scope",
+  "status": "draft",
+  "experimental": false,
+  "publisher": "FHIR Infrastructure",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This codesystem defines codes describing the type of agreement represented by an artifact, for example for use in CanonicalResource.usageContext.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/usage-context-agreement-scope",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "realm-base",
+      "display": "Realm Base",
+      "definition": "Defines use-case independent foundational expectations for exchange within a particular country or jurisdiction.  Should be accompanied by a jurisdiction.  Commonly used as a \u0027base\u0027 for more restrictive artifacts."
+    },
+    {
+      "code": "knowledge",
+      "display": "Knowledge",
+      "definition": "Defines use-case-specific information or guidance that is relevant to a specific business or health domain but is not mandated for particular use."
+    },
+    {
+      "code": "domain",
+      "display": "Domain",
+      "definition": "Defines use-case-specific requirements for a specific business or health domain.  May vary in jurisdictional scope from international to small region and in business scope from broad to narrow."
+    },
+    {
+      "code": "community",
+      "display": "Community",
+      "definition": "Sets contractual or business expectations for systems participating in a particular exchange community."
+    },
+    {
+      "code": "system-design",
+      "display": "System Design",
+      "definition": "Documents the specific capabilities of a single system as \u0027available\u0027 for purchase or use.  May have some variability reflecting options that can be configured."
+    },
+    {
+      "code": "system-implementation",
+      "display": "System Implementation",
+      "definition": "Documents the specific points of a single production system or endpoint.  This may be time-specific - i.e. reflecting the system \u0027as it is now\u0027 or \u0027as it was at some point in the past\u0027."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "biologicallyderivedproductdispense-origin-relationship",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/biologicallyderivedproductdispense-origin-relationship\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eautologous\u003ca name\u003d\"biologicallyderivedproductdispense-origin-relationship-autologous\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAutologous\u003c/td\u003e\u003ctd\u003eThe product was pre-donated by the recipient\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erelated\u003ca name\u003d\"biologicallyderivedproductdispense-origin-relationship-related\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRelated\u003c/td\u003e\u003ctd\u003eThe product is from a blood relation of the recipient\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edirected\u003ca name\u003d\"biologicallyderivedproductdispense-origin-relationship-directed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDirected\u003c/td\u003e\u003ctd\u003eThe donor has been specifically selected to provide product for the recipient\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eallogeneic\u0026quot;\u003ca name\u003d\"biologicallyderivedproductdispense-origin-relationship-allogeneic.34\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAllogeneic\u003c/td\u003e\u003ctd\u003eThe donor and the recipient are unrelated\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003exenogenic\u003ca name\u003d\"biologicallyderivedproductdispense-origin-relationship-xenogenic\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eXenogenic\u003c/td\u003e\u003ctd\u003eThe product is from a different species to the recipient\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-origin-relationship",
+  "version": "5.0.0",
+  "name": "BiologicallyDerivedProductDispenseOriginRelationship",
+  "title": "Biologically derived product dispense - origin relationship",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-01-29T21:19:50+01:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Biologically derived product dispense - origin relationship",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship",
+  "content": "complete",
+  "count": 5,
+  "concept": [
+    {
+      "code": "autologous",
+      "display": "Autologous",
+      "definition": "The product was pre-donated by the recipient"
+    },
+    {
+      "code": "related",
+      "display": "Related",
+      "definition": "The product is from a blood relation of the recipient"
+    },
+    {
+      "code": "directed",
+      "display": "Directed",
+      "definition": "The donor has been specifically selected to provide product for the recipient"
+    },
+    {
+      "code": "allogeneic",
+      "display": "Allogeneic",
+      "definition": "The donor and the recipient are unrelated"
+    },
+    {
+      "code": "xenogenic",
+      "display": "Xenogenic",
+      "definition": "The product is from a different species to the recipient"
+    }
+  ]
+}

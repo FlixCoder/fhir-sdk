@@ -1,0 +1,123 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "artifactassessment-workflow-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/artifactassessment-workflow-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esubmitted\u003ca name\u003d\"artifactassessment-workflow-status-submitted\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSubmitted\u003c/td\u003e\u003ctd\u003eThe comment has been submitted, but the responsible party has not yet been determined, or the responsible party has not yet determined the next steps to be taken.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etriaged\u003ca name\u003d\"artifactassessment-workflow-status-triaged\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTriaged\u003c/td\u003e\u003ctd\u003eThe comment has been triaged, meaning the responsible party has been determined and next steps have been identified to address the comment.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewaiting-for-input\u003ca name\u003d\"artifactassessment-workflow-status-waiting-for-input\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWaiting for Input\u003c/td\u003e\u003ctd\u003eThe comment is waiting for input from a specific party before next steps can be taken.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eresolved-no-change\u003ca name\u003d\"artifactassessment-workflow-status-resolved-no-change\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eResolved - No Change\u003c/td\u003e\u003ctd\u003eThe comment has been resolved and no changes resulted from the resolution\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eresolved-change-required\u003ca name\u003d\"artifactassessment-workflow-status-resolved-change-required\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eResolved - Change Required\u003c/td\u003e\u003ctd\u003eThe comment has been resolved and changes are required to address the comment\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edeferred\u003ca name\u003d\"artifactassessment-workflow-status-deferred\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDeferred\u003c/td\u003e\u003ctd\u003eThe comment is acceptable, but resolution of the comment and application of any associated changes have been deferred\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eduplicate\u003ca name\u003d\"artifactassessment-workflow-status-duplicate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDuplicate\u003c/td\u003e\u003ctd\u003eThe comment is a duplicate of another comment already received\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eapplied\u003ca name\u003d\"artifactassessment-workflow-status-applied\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eApplied\u003c/td\u003e\u003ctd\u003eThe comment is resolved and any necessary changes have been applied\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epublished\u003ca name\u003d\"artifactassessment-workflow-status-published\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePublished\u003c/td\u003e\u003ctd\u003eThe necessary changes to the artifact have been published in a new version of the artifact\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eentered-in-error\u003ca name\u003d\"artifactassessment-workflow-status-entered-in-error\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEntered in Error\u003c/td\u003e\u003ctd\u003eThe assessment was entered in error\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/artifactassessment-workflow-status",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2023"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ArtifactAssessmentWorkflowStatus",
+  "title": "Artifact Assessment Workflow Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "submitted",
+      "display": "Submitted",
+      "definition": "The comment has been submitted, but the responsible party has not yet been determined, or the responsible party has not yet determined the next steps to be taken."
+    },
+    {
+      "code": "triaged",
+      "display": "Triaged",
+      "definition": "The comment has been triaged, meaning the responsible party has been determined and next steps have been identified to address the comment."
+    },
+    {
+      "code": "waiting-for-input",
+      "display": "Waiting for Input",
+      "definition": "The comment is waiting for input from a specific party before next steps can be taken."
+    },
+    {
+      "code": "resolved-no-change",
+      "display": "Resolved - No Change",
+      "definition": "The comment has been resolved and no changes resulted from the resolution"
+    },
+    {
+      "code": "resolved-change-required",
+      "display": "Resolved - Change Required",
+      "definition": "The comment has been resolved and changes are required to address the comment"
+    },
+    {
+      "code": "deferred",
+      "display": "Deferred",
+      "definition": "The comment is acceptable, but resolution of the comment and application of any associated changes have been deferred"
+    },
+    {
+      "code": "duplicate",
+      "display": "Duplicate",
+      "definition": "The comment is a duplicate of another comment already received"
+    },
+    {
+      "code": "applied",
+      "display": "Applied",
+      "definition": "The comment is resolved and any necessary changes have been applied"
+    },
+    {
+      "code": "published",
+      "display": "Published",
+      "definition": "The necessary changes to the artifact have been published in a new version of the artifact"
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The assessment was entered in error"
+    }
+  ]
+}

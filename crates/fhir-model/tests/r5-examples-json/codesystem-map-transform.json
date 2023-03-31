@@ -1,0 +1,280 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "map-transform",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eProperties\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eThis code system  defines the following properties for its concepts\u003c/b\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eName\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eFHIRPath Equivalent\u003c/td\u003e\u003ctd\u003efhirpath\u003c/td\u003e\u003ctd\u003estring\u003c/td\u003e\u003ctd\u003eFHIRPath equivalent for transform function\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eConcepts\u003c/b\u003e\u003c/p\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/map-transform\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eFHIRPath Equivalent\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecreate\u003ca name\u003d\"map-transform-create\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecreate(type : string) - type is passed through to the application on the standard API, and must be known by it.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecopy\u003ca name\u003d\"map-transform-copy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecopy(source).\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etruncate\u003ca name\u003d\"map-transform-truncate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003etruncate(source, length) - source must be stringy type.\u003c/td\u003e\u003ctd\u003esubstring\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eescape\u003ca name\u003d\"map-transform-escape\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eescape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecast\u003ca name\u003d\"map-transform-cast\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecast(source, type?) - cast (convert) source from one type to another. Target type can be left as implicit if there is one and only one target type known. The default namespace for the type is \u0027FHIR\u0027 (see [FHIRPath type specifiers](http://hl7.org/fhirpath/N1/#is-type-specifier))\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eappend\u003ca name\u003d\"map-transform-append\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eappend(source...) - source is element or string.\u003c/td\u003e\u003ctd\u003e\u0026amp; (String concatenation)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etranslate\u003ca name\u003d\"map-transform-translate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003etranslate(source, uri_of_map) - use the translate operation.\u003c/td\u003e\u003ctd\u003e%terminologies.translate()\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereference\u003ca name\u003d\"map-transform-reference\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ereference(source : object) - return a string that references the provided tree properly.\u003c/td\u003e\u003ctd\u003erelated to resolve() but returns the string pointer\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edateOp\u003ca name\u003d\"map-transform-dateOp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePerform a date operation. *Parameters to be documented*.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003euuid\u003ca name\u003d\"map-transform-uuid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGenerate a random UUID (in lowercase). No Parameters.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epointer\u003ca name\u003d\"map-transform-pointer\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReturn the appropriate string to put in a reference that refers to the resource provided as a parameter.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eevaluate\u003ca name\u003d\"map-transform-evaluate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eExecute the supplied FHIRPath expression and use the value returned by that.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecc\u003ca name\u003d\"map-transform-cc\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreate a CodeableConcept. Parameters \u003d (text) or (system. Code[, display]).\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ec\u003ca name\u003d\"map-transform-c\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreate a Coding. Parameters \u003d (system. Code[, display]).\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eqty\u003ca name\u003d\"map-transform-qty\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreate a quantity. Parameters \u003d (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eid\u003ca name\u003d\"map-transform-id\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreate an identifier. Parameters \u003d (system, value[, type]) where type is a code from the identifier type value set.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecp\u003ca name\u003d\"map-transform-cp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCreate a contact details. Parameters \u003d (value) or (system, value). If no system is provided, the system should be inferred from the content of the value.\u003c/td\u003e\u003ctd\u003en/a\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/map-transform",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.682"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.668"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "StructureMapTransform",
+  "title": "Structure Map Transform",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "How data is copied/created.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/map-transform",
+  "content": "complete",
+  "property": [
+    {
+      "code": "fhirpath",
+      "_code": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/rendered-value",
+            "valueString": "FHIRPath Equivalent"
+          }
+        ]
+      },
+      "description": "FHIRPath equivalent for transform function",
+      "type": "string"
+    }
+  ],
+  "concept": [
+    {
+      "code": "create",
+      "display": "create",
+      "definition": "create(type : string) - type is passed through to the application on the standard API, and must be known by it.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "copy",
+      "display": "copy",
+      "definition": "copy(source).",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "truncate",
+      "display": "truncate",
+      "definition": "truncate(source, length) - source must be stringy type.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "substring"
+        }
+      ]
+    },
+    {
+      "code": "escape",
+      "display": "escape",
+      "definition": "escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "cast",
+      "display": "cast",
+      "definition": "cast(source, type?) - cast (convert) source from one type to another. Target type can be left as implicit if there is one and only one target type known. The default namespace for the type is \u0027FHIR\u0027 (see [FHIRPath type specifiers](http://hl7.org/fhirpath/N1/#is-type-specifier))",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "append",
+      "display": "append",
+      "definition": "append(source...) - source is element or string.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "\u0026 (String concatenation)"
+        }
+      ]
+    },
+    {
+      "code": "translate",
+      "display": "translate",
+      "definition": "translate(source, uri_of_map) - use the translate operation.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "%terminologies.translate()"
+        }
+      ]
+    },
+    {
+      "code": "reference",
+      "display": "reference",
+      "definition": "reference(source : object) - return a string that references the provided tree properly.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "related to resolve() but returns the string pointer"
+        }
+      ]
+    },
+    {
+      "code": "dateOp",
+      "display": "dateOp",
+      "definition": "Perform a date operation. *Parameters to be documented*.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "uuid",
+      "display": "uuid",
+      "definition": "Generate a random UUID (in lowercase). No Parameters.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "pointer",
+      "display": "pointer",
+      "definition": "Return the appropriate string to put in a reference that refers to the resource provided as a parameter.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "evaluate",
+      "display": "evaluate",
+      "definition": "Execute the supplied FHIRPath expression and use the value returned by that.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "cc",
+      "display": "cc",
+      "definition": "Create a CodeableConcept. Parameters \u003d (text) or (system. Code[, display]).",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "c",
+      "display": "c",
+      "definition": "Create a Coding. Parameters \u003d (system. Code[, display]).",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "qty",
+      "display": "qty",
+      "definition": "Create a quantity. Parameters \u003d (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "id",
+      "display": "id",
+      "definition": "Create an identifier. Parameters \u003d (system, value[, type]) where type is a code from the identifier type value set.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    },
+    {
+      "code": "cp",
+      "display": "cp",
+      "definition": "Create a contact details. Parameters \u003d (value) or (system, value). If no system is provided, the system should be inferred from the content of the value.",
+      "property": [
+        {
+          "code": "fhirpath",
+          "valueString": "n/a"
+        }
+      ]
+    }
+  ]
+}

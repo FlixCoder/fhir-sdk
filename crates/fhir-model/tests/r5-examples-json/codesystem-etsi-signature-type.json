@@ -1,0 +1,71 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "etsi-signature-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://uri.etsi.org/01903/v1.2.2\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProofOfOrigin\u003ca name\u003d\"etsi-signature-type-ProofOfOrigin\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProof of origin\u003c/td\u003e\u003ctd\u003eindicates that the signer recognizes to have created, approved and sent the signed data object.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProofOfReceipt\u003ca name\u003d\"etsi-signature-type-ProofOfReceipt\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProof of receipt\u003c/td\u003e\u003ctd\u003eindicates that signer recognizes to have received the content of the signed data object.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProofOfDelivery\u003ca name\u003d\"etsi-signature-type-ProofOfDelivery\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProof of delivery\u003c/td\u003e\u003ctd\u003eindicates that the TSP providing that indication has delivered a signed data object in a local store accessible to the recipient of the signed data object.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProofOfSender\u003ca name\u003d\"etsi-signature-type-ProofOfSender\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProof of sender\u003c/td\u003e\u003ctd\u003eindicates that the entity providing that indication has sent the signed data object (but not necessarily created it).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProofOfapproval\u003ca name\u003d\"etsi-signature-type-ProofOfapproval\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProof of approval\u003c/td\u003e\u003ctd\u003eindicates that the signer has approved the content of the signed data object.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProofOfCreation\u003ca name\u003d\"etsi-signature-type-ProofOfCreation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProof of creation\u003c/td\u003e\u003ctd\u003eindicates that the signer has created the signed data object (but not necessarily approved, nor sent it).\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "url": "http://uri.etsi.org/01903/v1.2.2",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1808"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ETSISignatureTypeCodes",
+  "title": "ETSI Signature Type Codes",
+  "status": "active",
+  "experimental": false,
+  "publisher": "ETSI",
+  "description": "The ETSI TS 101 733 V2.2.1 (2013-04) - Electronic Signatures and Infrastructures (ESI) - defines a set of Commitment Types (Purpose of Signature). ETSI TS 101 903 V1.2.2 defines vocabulary identifiers for these Commitment Types. Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. ",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "These codes are excerpted from ETSI Standard for Digital Signatures and XAdES, Copyright by ETSI International. Copies of this standard are available through the ETSI Web Site at www.etsi.org.",
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "ProofOfOrigin",
+      "display": "Proof of origin",
+      "definition": "indicates that the signer recognizes to have created, approved and sent the signed data object."
+    },
+    {
+      "code": "ProofOfReceipt",
+      "display": "Proof of receipt",
+      "definition": "indicates that signer recognizes to have received the content of the signed data object."
+    },
+    {
+      "code": "ProofOfDelivery",
+      "display": "Proof of delivery",
+      "definition": "indicates that the TSP providing that indication has delivered a signed data object in a local store accessible to the recipient of the signed data object."
+    },
+    {
+      "code": "ProofOfSender",
+      "display": "Proof of sender",
+      "definition": "indicates that the entity providing that indication has sent the signed data object (but not necessarily created it)."
+    },
+    {
+      "code": "ProofOfapproval",
+      "display": "Proof of approval",
+      "definition": "indicates that the signer has approved the content of the signed data object."
+    },
+    {
+      "code": "ProofOfCreation",
+      "display": "Proof of creation",
+      "definition": "indicates that the signer has created the signed data object (but not necessarily approved, nor sent it)."
+    }
+  ]
+}

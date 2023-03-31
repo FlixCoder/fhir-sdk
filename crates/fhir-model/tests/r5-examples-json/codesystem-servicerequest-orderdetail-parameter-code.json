@@ -1,0 +1,87 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "servicerequest-orderdetail-parameter-code",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/servicerequest-orderdetail-parameter-code\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecatheter-insertion\u003ca name\u003d\"servicerequest-orderdetail-parameter-code-catheter-insertion\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCatheter Insertion\u003c/td\u003e\u003ctd\u003eDescribes insertion instructions.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebody-elevation\u003ca name\u003d\"servicerequest-orderdetail-parameter-code-body-elevation\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBody Elevation\u003c/td\u003e\u003ctd\u003eDescribes elevation instructions.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edevice-configuration\u003ca name\u003d\"servicerequest-orderdetail-parameter-code-device-configuration\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDevice Configuration\u003c/td\u003e\u003ctd\u003eDescribes configuration details\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edevice-settings\u003ca name\u003d\"servicerequest-orderdetail-parameter-code-device-settings\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDevice Settings\u003c/td\u003e\u003ctd\u003eDescribes setting details.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/servicerequest-orderdetail-parameter-code",
+  "version": "5.0.0",
+  "name": "ServiceRequestOrderDetailParameterCode",
+  "title": "Service Request Order Detail Parameter Code",
+  "status": "active",
+  "experimental": true,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes providing the parameter codes for service request details.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "catheter-insertion",
+      "display": "Catheter Insertion",
+      "definition": "Describes insertion instructions."
+    },
+    {
+      "code": "body-elevation",
+      "display": "Body Elevation",
+      "definition": "Describes elevation instructions."
+    },
+    {
+      "code": "device-configuration",
+      "display": "Device Configuration",
+      "definition": "Describes configuration details"
+    },
+    {
+      "code": "device-settings",
+      "display": "Device Settings",
+      "definition": "Describes setting details."
+    }
+  ]
+}

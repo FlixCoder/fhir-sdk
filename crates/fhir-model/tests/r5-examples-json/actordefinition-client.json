@@ -1,0 +1,21 @@
+{
+  "resourceType": "ActorDefinition",
+  "id": "client",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: ActorDefinition\u003c/b\u003e\u003ca name\u003d\"client\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource ActorDefinition \u0026quot;client\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eurl\u003c/b\u003e: \u003ccode\u003ehttp://hl7.org/fhir/ActorDefinition/client\u003c/code\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: urn:oid:2.16.840.1.113883.4.642.27.2\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: ClientActor\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Client Actor\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edate\u003c/b\u003e: 2021-11-02T14:31:30.239Z\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Client Actor\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: system\u003c/p\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ActorDefinition/client",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.27.2"
+    }
+  ],
+  "name": "ClientActor",
+  "title": "Client Actor",
+  "status": "active",
+  "date": "2021-11-02T14:31:30.239Z",
+  "description": "Client Actor",
+  "type": "system"
+}

@@ -1,0 +1,186 @@
+{
+  "resourceType": "NutritionIntake",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: NutritionIntake\u003c/b\u003e\u003ca name\u003d\"example\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource NutritionIntake \u0026quot;example\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: 1144223344\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: completed\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Inpatient \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003cspan\u003e: Paula Patient Chalmers\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eencounter\u003c/b\u003e: \u003ca href\u003d\"encounter-example.html\"\u003eEncounter/example\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eoccurrence\u003c/b\u003e: 2019-08-02T12:45:18+04:00\u003c/p\u003e\u003cp\u003e\u003cb\u003ereported\u003c/b\u003e: \u003ca href\u003d\"practitionerrole-example.html\"\u003ePractitionerRole/example\u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econsumedItem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: food \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eNutritionProducts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eGrill Sandwich \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 100 percent\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code % \u003d \u0027%\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econsumedItem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: food \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eNutritionProducts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eFrench Fries Spiral Battered \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 100 percent\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code % \u003d \u0027%\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econsumedItem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: food \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eNutritionProducts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eTomato Soup Healthy Request \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 50 percent\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code % \u003d \u0027%\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econsumedItem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: food \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eNutritionProducts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eSide Garden Salad \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 50 percent\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code % \u003d \u0027%\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econsumedItem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: fluid \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eNutritionProducts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIce Tea Unsweetened \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 100 percent\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code % \u003d \u0027%\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eingredientLabel\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eNutrients\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eTotal Calories \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 313 kilocalorie\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code kcal \u003d \u0027kcal\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eingredientLabel\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eNutrients\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eProtein \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 10.4 grams\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code g \u003d \u0027g\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eingredientLabel\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eNutrients\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eFat (Total) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 18.00 grams\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code g \u003d \u0027g\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eingredientLabel\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eNutrients\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eCarbohydrate \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 26.47 grams\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code g \u003d \u0027g\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eingredientLabel\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eNutrients\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eSodium \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e: 770 Milligrams\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mg \u003d \u0027mg\u0027)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "system": "http://example.org",
+      "value": "1144223344"
+    }
+  ],
+  "status": "completed",
+  "code": {
+    "text": "Inpatient"
+  },
+  "subject": {
+    "display": "Paula Patient Chalmers"
+  },
+  "encounter": {
+    "reference": "Encounter/example"
+  },
+  "occurrenceDateTime": "2019-08-02T12:45:18+04:00",
+  "reportedReference": {
+    "reference": "PractitionerRole/example"
+  },
+  "consumedItem": [
+    {
+      "type": {
+        "text": "food"
+      },
+      "nutritionProduct": {
+        "concept": {
+          "text": "Grill Sandwich"
+        }
+      },
+      "amount": {
+        "value": 100,
+        "unit": "percent",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    },
+    {
+      "type": {
+        "text": "food"
+      },
+      "nutritionProduct": {
+        "concept": {
+          "text": "French Fries Spiral Battered"
+        }
+      },
+      "amount": {
+        "value": 100,
+        "unit": "percent",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    },
+    {
+      "type": {
+        "text": "food"
+      },
+      "nutritionProduct": {
+        "concept": {
+          "text": "Tomato Soup Healthy Request"
+        }
+      },
+      "amount": {
+        "value": 50,
+        "unit": "percent",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    },
+    {
+      "type": {
+        "text": "food"
+      },
+      "nutritionProduct": {
+        "concept": {
+          "text": "Side Garden Salad"
+        }
+      },
+      "amount": {
+        "value": 50,
+        "unit": "percent",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    },
+    {
+      "type": {
+        "text": "fluid"
+      },
+      "nutritionProduct": {
+        "concept": {
+          "text": "Ice Tea Unsweetened"
+        }
+      },
+      "amount": {
+        "value": 100,
+        "unit": "percent",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    }
+  ],
+  "ingredientLabel": [
+    {
+      "nutrient": {
+        "concept": {
+          "text": "Total Calories"
+        }
+      },
+      "amount": {
+        "value": 313,
+        "unit": "kilocalorie",
+        "system": "http://unitsofmeasure.org",
+        "code": "kcal"
+      }
+    },
+    {
+      "nutrient": {
+        "concept": {
+          "text": "Protein"
+        }
+      },
+      "amount": {
+        "value": 10.4,
+        "unit": "grams",
+        "system": "http://unitsofmeasure.org",
+        "code": "g"
+      }
+    },
+    {
+      "nutrient": {
+        "concept": {
+          "text": "Fat (Total)"
+        }
+      },
+      "amount": {
+        "value": 18.00,
+        "unit": "grams",
+        "system": "http://unitsofmeasure.org",
+        "code": "g"
+      }
+    },
+    {
+      "nutrient": {
+        "concept": {
+          "text": "Carbohydrate"
+        }
+      },
+      "amount": {
+        "value": 26.47,
+        "unit": "grams",
+        "system": "http://unitsofmeasure.org",
+        "code": "g"
+      }
+    },
+    {
+      "nutrient": {
+        "concept": {
+          "text": "Sodium"
+        }
+      },
+      "amount": {
+        "value": 770,
+        "unit": "Milligrams",
+        "system": "http://unitsofmeasure.org",
+        "code": "mg"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

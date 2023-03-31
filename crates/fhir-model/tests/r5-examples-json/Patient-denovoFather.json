@@ -1,0 +1,52 @@
+{
+  "resourceType": "Patient",
+  "id": "denovoFather",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eJohn Father Doe (OFFICIAL)\u003c/b\u003e (no stated gender) 2000-01-01 ( Medical record number: 11113 (TEMP))\u003c/p\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "use": "temp",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR",
+            "display": "Medical record number"
+          }
+        ]
+      },
+      "system": "http://www.somesystemabc.net/identifiers/persons",
+      "value": "11113",
+      "period": {
+        "start": "2021-01-01"
+      },
+      "assigner": {
+        "display": "Child Hospital"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "John",
+        "Father"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2000-01-01",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

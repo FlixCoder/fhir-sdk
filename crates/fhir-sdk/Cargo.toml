@@ -16,8 +16,9 @@ version = "0.2.0"
 all-features = true
 
 [features]
-default = ["r4b"]
+default = ["r5"]
 r4b = ["fhir-model/r4b"]
+r5 = ["fhir-model/r5"]
 
 [dependencies]
 fhir-model = {path = "../fhir-model", version = "0.2.0"}

@@ -1,0 +1,80 @@
+{
+  "resourceType": "ValueSet",
+  "id": "security-source-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html\"\u003e\u003ccode\u003ehttp://terminology.hl7.org/CodeSystem/security-source-type\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-1\"\u003e1\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUser Device\u003c/td\u003e\u003ctd\u003eEnd-user display device, diagnostic device.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-2\"\u003e2\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eData Interface\u003c/td\u003e\u003ctd\u003eData acquisition device or instrument.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-3\"\u003e3\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWeb Server\u003c/td\u003e\u003ctd\u003eWeb Server process or thread.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-4\"\u003e4\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eApplication Server\u003c/td\u003e\u003ctd\u003eApplication Server process or thread.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-5\"\u003e5\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDatabase Server\u003c/td\u003e\u003ctd\u003eDatabase Server process or thread.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-6\"\u003e6\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSecurity Server\u003c/td\u003e\u003ctd\u003eSecurity server, e.g. a domain controller.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-7\"\u003e7\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNetwork Device\u003c/td\u003e\u003ctd\u003eISO level 1-3 network component.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-security-source-type.html#security-source-type-8\"\u003e8\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNetwork Router\u003c/td\u003e\u003ctd\u003eISO level 4-6 operating software.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "sec"
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/security-source-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.2981"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AuditEventSourceType",
+  "title": "Audit Event Source Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2010-08-26",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "The type of process where the audit event originated from. Use of these codes is not required but is encouraged to maintain translation with DICOM AuditMessage schema.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis",
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+        "concept": [
+          {
+            "code": "1"
+          },
+          {
+            "code": "2"
+          },
+          {
+            "code": "3"
+          },
+          {
+            "code": "4"
+          },
+          {
+            "code": "5"
+          },
+          {
+            "code": "6"
+          },
+          {
+            "code": "7"
+          },
+          {
+            "code": "8"
+          }
+        ]
+      }
+    ]
+  }
+}

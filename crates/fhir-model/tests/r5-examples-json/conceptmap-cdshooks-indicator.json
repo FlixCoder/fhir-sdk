@@ -1,0 +1,56 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cdshooks-indicator",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003ch2\u003eIndicatorToRequestPriority (http://cds-hooks.hl7.org/ConceptMap/indicator-to-request-priority)\u003c/h2\u003e\n      \u003cp\u003eMapping from http://cds-hooks.hl7.org/ValueSet/indicator to \n        \u003ca href\u003d\"valueset-request-priority.html\"\u003eRequestPriority\u003c/a\u003e\n      \u003c/p\u003e\n      \u003cp\u003eDRAFT. Published on ?ngen-10? by null. \u003c/p\u003e\n      \u003cdiv\u003e\n        \u003cp\u003eThis concept map defines a mapping from CDS Hooks indicator to request priority.\u003c/p\u003e\n\n      \u003c/div\u003e\n      \u003cbr/\u003e\n      \u003cp\u003e\n        \u003cb\u003eGroup 1\u003c/b\u003eMapping from \n        \u003ccode\u003eunspecified code system\u003c/code\u003e to \n        \u003ccode\u003eunspecified code system\u003c/code\u003e\n      \u003c/p\u003e\n      \u003ctable class\u003d\"grid\"\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003cb\u003eSource Code\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003eRelationship\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003eTarget Code\u003c/b\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003einfo\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eroutine\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003ewarning\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eurgent\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003ecritical\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003estat\u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://cds-hooks.hl7.org/ConceptMap/indicator-to-request-priority",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.14.6"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "IndicatorToRequestPriority",
+  "title": "Indicator To Request Priority",
+  "status": "draft",
+  "experimental": false,
+  "description": "This concept map defines a mapping from CDS Hooks indicator to request priority.",
+  "sourceScopeCanonical": "http://cds-hooks.hl7.org/ValueSet/indicator",
+  "targetScopeCanonical": "http://hl7.org/fhir/ValueSet/request-priority",
+  "group": [
+    {
+      "element": [
+        {
+          "code": "info",
+          "target": [
+            {
+              "code": "routine",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "warning",
+          "target": [
+            {
+              "code": "urgent",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "critical",
+          "target": [
+            {
+              "code": "stat",
+              "relationship": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

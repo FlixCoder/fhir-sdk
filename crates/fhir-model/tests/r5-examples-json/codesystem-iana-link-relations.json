@@ -1,0 +1,665 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "iana-link-relations",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/iana-link-relations\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eabout\u003ca name\u003d\"iana-link-relations-about\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that is the subject of the link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a resource that is the subject of the link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eacl\u003ca name\u003d\"iana-link-relations-acl\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAsserts that the link target provides an access control description for the link context.\u003c/td\u003e\u003ctd\u003eAsserts that the link target provides an access control description for the link context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ealternate\u003ca name\u003d\"iana-link-relations-alternate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a substitute for this context\u003c/td\u003e\u003ctd\u003eRefers to a substitute for this context\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eamphtml\u003ca name\u003d\"iana-link-relations-amphtml\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUsed to reference alternative content that uses the AMP profile of the HTML format.\u003c/td\u003e\u003ctd\u003eUsed to reference alternative content that uses the AMP profile of the HTML format.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eappendix\u003ca name\u003d\"iana-link-relations-appendix\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to an appendix.\u003c/td\u003e\u003ctd\u003eRefers to an appendix.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eapple-touch-icon\u003ca name\u003d\"iana-link-relations-apple-touch-icon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to an icon for the context. Synonym for icon.\u003c/td\u003e\u003ctd\u003eRefers to an icon for the context. Synonym for icon.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eapple-touch-startup-image\u003ca name\u003d\"iana-link-relations-apple-touch-startup-image\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a launch screen for the context.\u003c/td\u003e\u003ctd\u003eRefers to a launch screen for the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003earchives\u003ca name\u003d\"iana-link-relations-archives\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a collection of records, documents, or other\n      materials of historical interest.\u003c/td\u003e\u003ctd\u003eRefers to a collection of records, documents, or other\n      materials of historical interest.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eauthor\u003ca name\u003d\"iana-link-relations-author\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to the context\u0027s author.\u003c/td\u003e\u003ctd\u003eRefers to the context\u0027s author.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eblocked-by\u003ca name\u003d\"iana-link-relations-blocked-by\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies the entity that blocks access to a resource\n      following receipt of a legal demand.\u003c/td\u003e\u003ctd\u003eIdentifies the entity that blocks access to a resource\n      following receipt of a legal demand.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebookmark\u003ca name\u003d\"iana-link-relations-bookmark\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGives a permanent link to use for bookmarking purposes.\u003c/td\u003e\u003ctd\u003eGives a permanent link to use for bookmarking purposes.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecanonical\u003ca name\u003d\"iana-link-relations-canonical\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDesignates the preferred version of a resource (the IRI and its contents).\u003c/td\u003e\u003ctd\u003eDesignates the preferred version of a resource (the IRI and its contents).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echapter\u003ca name\u003d\"iana-link-relations-chapter\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a chapter in a collection of resources.\u003c/td\u003e\u003ctd\u003eRefers to a chapter in a collection of resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecite-as\u003ca name\u003d\"iana-link-relations-cite-as\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that the link target is preferred over the link context for the purpose of permanent citation.\u003c/td\u003e\u003ctd\u003eIndicates that the link target is preferred over the link context for the purpose of permanent citation.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecollection\u003ca name\u003d\"iana-link-relations-collection\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource which represents the collection resource for the context IRI.\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource which represents the collection resource for the context IRI.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econtents\u003ca name\u003d\"iana-link-relations-contents\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a table of contents.\u003c/td\u003e\u003ctd\u003eRefers to a table of contents.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003econvertedFrom\u003ca name\u003d\"iana-link-relations-convertedFrom\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe document linked to was later converted to the\n      document that contains this link relation.  For example, an RFC can\n      have a link to the Internet-Draft that became the RFC; in that case,\n      the link relation would be \u0026quot;convertedFrom\u0026quot;.\u003c/td\u003e\u003ctd\u003eThe document linked to was later converted to the\n      document that contains this link relation.  For example, an RFC can\n      have a link to the Internet-Draft that became the RFC; in that case,\n      the link relation would be \u0026quot;convertedFrom\u0026quot;.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecopyright\u003ca name\u003d\"iana-link-relations-copyright\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a copyright statement that applies to the\n    link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a copyright statement that applies to the\n    link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecreate-form\u003ca name\u003d\"iana-link-relations-create-form\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource where a submission form can be obtained.\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource where a submission form can be obtained.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecurrent\u003ca name\u003d\"iana-link-relations-current\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource containing the most recent\n      item(s) in a collection of resources.\u003c/td\u003e\u003ctd\u003eRefers to a resource containing the most recent\n      item(s) in a collection of resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edescribedby\u003ca name\u003d\"iana-link-relations-describedby\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource providing information about the\n      link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a resource providing information about the\n      link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edescribes\u003ca name\u003d\"iana-link-relations-describes\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe relationship A \u0027describes\u0027 B asserts that\n      resource A provides a description of resource B. There are no\n      constraints on the format or representation of either A or B,\n      neither are there any further constraints on either resource.\u003c/td\u003e\u003ctd\u003eThe relationship A \u0027describes\u0027 B asserts that\n      resource A provides a description of resource B. There are no\n      constraints on the format or representation of either A or B,\n      neither are there any further constraints on either resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edisclosure\u003ca name\u003d\"iana-link-relations-disclosure\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a list of patent disclosures made with respect to \n      material for which \u0027disclosure\u0027 relation is specified.\u003c/td\u003e\u003ctd\u003eRefers to a list of patent disclosures made with respect to \n      material for which \u0027disclosure\u0027 relation is specified.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edns-prefetch\u003ca name\u003d\"iana-link-relations-dns-prefetch\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUsed to indicate an origin that will be used to fetch required \n      resources for the link context, and that the user agent ought to resolve \n      as early as possible.\u003c/td\u003e\u003ctd\u003eUsed to indicate an origin that will be used to fetch required \n      resources for the link context, and that the user agent ought to resolve \n      as early as possible.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eduplicate\u003ca name\u003d\"iana-link-relations-duplicate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource whose available representations\n      are byte-for-byte identical with the corresponding representations of\n      the context IRI.\u003c/td\u003e\u003ctd\u003eRefers to a resource whose available representations\n      are byte-for-byte identical with the corresponding representations of\n      the context IRI.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eedit\u003ca name\u003d\"iana-link-relations-edit\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to edit the\n      link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to edit the\n      link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eedit-form\u003ca name\u003d\"iana-link-relations-edit-form\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource where a submission form for\n      editing associated resource can be obtained.\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource where a submission form for\n      editing associated resource can be obtained.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eedit-media\u003ca name\u003d\"iana-link-relations-edit-media\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to edit media\n      associated with the link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to edit media\n      associated with the link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eenclosure\u003ca name\u003d\"iana-link-relations-enclosure\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a related resource that is potentially\n      large and might require special handling.\u003c/td\u003e\u003ctd\u003eIdentifies a related resource that is potentially\n      large and might require special handling.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eexternal\u003ca name\u003d\"iana-link-relations-external\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that is not part of the same site as the current context.\u003c/td\u003e\u003ctd\u003eRefers to a resource that is not part of the same site as the current context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efirst\u003ca name\u003d\"iana-link-relations-first\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAn IRI that refers to the furthest preceding resource\n    in a series of resources.\u003c/td\u003e\u003ctd\u003eAn IRI that refers to the furthest preceding resource\n    in a series of resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eglossary\u003ca name\u003d\"iana-link-relations-glossary\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a glossary of terms.\u003c/td\u003e\u003ctd\u003eRefers to a glossary of terms.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehelp\u003ca name\u003d\"iana-link-relations-help\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to context-sensitive help.\u003c/td\u003e\u003ctd\u003eRefers to context-sensitive help.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehosts\u003ca name\u003d\"iana-link-relations-hosts\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource hosted by the server indicated by\n      the link context.\u003c/td\u003e\u003ctd\u003eRefers to a resource hosted by the server indicated by\n      the link context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehub\u003ca name\u003d\"iana-link-relations-hub\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a hub that enables registration for\n    notification of updates to the context.\u003c/td\u003e\u003ctd\u003eRefers to a hub that enables registration for\n    notification of updates to the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eicon\u003ca name\u003d\"iana-link-relations-icon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to an icon representing the link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to an icon representing the link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eindex\u003ca name\u003d\"iana-link-relations-index\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to an index.\u003c/td\u003e\u003ctd\u003eRefers to an index.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalAfter\u003ca name\u003d\"iana-link-relations-intervalAfter\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalBefore\u003ca name\u003d\"iana-link-relations-intervalBefore\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalContains\u003ca name\u003d\"iana-link-relations-intervalContains\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalDisjoint\u003ca name\u003d\"iana-link-relations-intervalDisjoint\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalDuring\u003ca name\u003d\"iana-link-relations-intervalDuring\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalEquals\u003ca name\u003d\"iana-link-relations-intervalEquals\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalFinishedBy\u003ca name\u003d\"iana-link-relations-intervalFinishedBy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalFinishes\u003ca name\u003d\"iana-link-relations-intervalFinishes\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalIn\u003ca name\u003d\"iana-link-relations-intervalIn\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalMeets\u003ca name\u003d\"iana-link-relations-intervalMeets\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalMetBy\u003ca name\u003d\"iana-link-relations-intervalMetBy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalOverlappedBy\u003ca name\u003d\"iana-link-relations-intervalOverlappedBy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalOverlaps\u003ca name\u003d\"iana-link-relations-intervalOverlaps\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalStartedBy\u003ca name\u003d\"iana-link-relations-intervalStartedBy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eintervalStarts\u003ca name\u003d\"iana-link-relations-intervalStarts\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource\u003c/td\u003e\u003ctd\u003erefers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eitem\u003ca name\u003d\"iana-link-relations-item\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource that is a member of the collection represented by the context IRI.\u003c/td\u003e\u003ctd\u003eThe target IRI points to a resource that is a member of the collection represented by the context IRI.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elast\u003ca name\u003d\"iana-link-relations-last\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAn IRI that refers to the furthest following resource\n      in a series of resources.\u003c/td\u003e\u003ctd\u003eAn IRI that refers to the furthest following resource\n      in a series of resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elatest-version\u003ca name\u003d\"iana-link-relations-latest-version\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoints to a resource containing the latest (e.g.,\n      current) version of the context.\u003c/td\u003e\u003ctd\u003ePoints to a resource containing the latest (e.g.,\n      current) version of the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elicense\u003ca name\u003d\"iana-link-relations-license\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a license associated with this context.\u003c/td\u003e\u003ctd\u003eRefers to a license associated with this context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elinkset\u003ca name\u003d\"iana-link-relations-linkset\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe link target of a link with the \u0026quot;linkset\u0026quot; relation\n      type provides a set of links, including links in which the link\n      context of the link participates.\n    \u003c/td\u003e\u003ctd\u003eThe link target of a link with the \u0026quot;linkset\u0026quot; relation\n      type provides a set of links, including links in which the link\n      context of the link participates.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003elrdd\u003ca name\u003d\"iana-link-relations-lrdd\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to further information about the link\u0027s context,\n      expressed as a LRDD (\u0026quot;Link-based Resource Descriptor Document\u0026quot;)\n      resource.  See  for information about\n      processing this relation type in host-meta documents. When used\n      elsewhere, it refers to additional links and other metadata.\n      Multiple instances indicate additional LRDD resources. LRDD\n      resources MUST have an \u0026quot;application/xrd+xml\u0026quot; representation, and\n      MAY have others.\u003c/td\u003e\u003ctd\u003eRefers to further information about the link\u0027s context,\n      expressed as a LRDD (\u0026quot;Link-based Resource Descriptor Document\u0026quot;)\n      resource.  See  for information about\n      processing this relation type in host-meta documents. When used\n      elsewhere, it refers to additional links and other metadata.\n      Multiple instances indicate additional LRDD resources. LRDD\n      resources MUST have an \u0026quot;application/xrd+xml\u0026quot; representation, and\n      MAY have others.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emanifest\u003ca name\u003d\"iana-link-relations-manifest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLinks to a manifest file for the context.\u003c/td\u003e\u003ctd\u003eLinks to a manifest file for the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emask-icon\u003ca name\u003d\"iana-link-relations-mask-icon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a mask that can be applied to the icon for the context.\u003c/td\u003e\u003ctd\u003eRefers to a mask that can be applied to the icon for the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emedia-feed\u003ca name\u003d\"iana-link-relations-media-feed\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a feed of personalised media recommendations relevant to the link context.\u003c/td\u003e\u003ctd\u003eRefers to a feed of personalised media recommendations relevant to the link context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ememento\u003ca name\u003d\"iana-link-relations-memento\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe Target IRI points to a Memento, a fixed resource that will not change state anymore.\u003c/td\u003e\u003ctd\u003eThe Target IRI points to a Memento, a fixed resource that will not change state anymore.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emicropub\u003ca name\u003d\"iana-link-relations-micropub\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLinks to the context\u0027s Micropub endpoint.\u003c/td\u003e\u003ctd\u003eLinks to the context\u0027s Micropub endpoint.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emodulepreload\u003ca name\u003d\"iana-link-relations-modulepreload\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a module that the user agent is to preemptively fetch and store for use in the current context.\u003c/td\u003e\u003ctd\u003eRefers to a module that the user agent is to preemptively fetch and store for use in the current context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emonitor\u003ca name\u003d\"iana-link-relations-monitor\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to monitor changes in an HTTP resource.\n    \u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to monitor changes in an HTTP resource.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emonitor-group\u003ca name\u003d\"iana-link-relations-monitor-group\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to monitor changes in a specified group of HTTP resources.\n    \u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to monitor changes in a specified group of HTTP resources.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enext\u003ca name\u003d\"iana-link-relations-next\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that the link\u0027s context is a part of a series, and\n      that the next in the series is the link target.\n    \u003c/td\u003e\u003ctd\u003eIndicates that the link\u0027s context is a part of a series, and\n      that the next in the series is the link target.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enext-archive\u003ca name\u003d\"iana-link-relations-next-archive\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to the immediately following archive resource.\u003c/td\u003e\u003ctd\u003eRefers to the immediately following archive resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enofollow\u003ca name\u003d\"iana-link-relations-nofollow\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that the context’s original author or publisher does not endorse the link target.\u003c/td\u003e\u003ctd\u003eIndicates that the context’s original author or publisher does not endorse the link target.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enoopener\u003ca name\u003d\"iana-link-relations-noopener\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context.\u003c/td\u003e\u003ctd\u003eIndicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enoreferrer\u003ca name\u003d\"iana-link-relations-noreferrer\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that no referrer information is to be leaked when following the link.\u003c/td\u003e\u003ctd\u003eIndicates that no referrer information is to be leaked when following the link.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eopener\u003ca name\u003d\"iana-link-relations-opener\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context.\u003c/td\u003e\u003ctd\u003eIndicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eopenid2.local_id\u003ca name\u003d\"iana-link-relations-openid2.46local_id\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier.\u003c/td\u003e\u003ctd\u003eRefers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eopenid2.provider\u003ca name\u003d\"iana-link-relations-openid2.46provider\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource which accepts OpenID Authentication protocol messages for the context.\u003c/td\u003e\u003ctd\u003eRefers to a resource which accepts OpenID Authentication protocol messages for the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoriginal\u003ca name\u003d\"iana-link-relations-original\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe Target IRI points to an Original Resource.\u003c/td\u003e\u003ctd\u003eThe Target IRI points to an Original Resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eP3Pv1\u003ca name\u003d\"iana-link-relations-P3Pv1\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a P3P privacy policy for the context.\u003c/td\u003e\u003ctd\u003eRefers to a P3P privacy policy for the context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epayment\u003ca name\u003d\"iana-link-relations-payment\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates a resource where payment is accepted.\u003c/td\u003e\u003ctd\u003eIndicates a resource where payment is accepted.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epingback\u003ca name\u003d\"iana-link-relations-pingback\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGives the address of the pingback resource for the link context.\u003c/td\u003e\u003ctd\u003eGives the address of the pingback resource for the link context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epreconnect\u003ca name\u003d\"iana-link-relations-preconnect\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUsed to indicate an origin that will be used to fetch required \n      resources for the link context. Initiating an early connection, which \n      includes the DNS lookup, TCP handshake, and optional TLS negotiation, \n      allows the user agent to mask the high latency costs of establishing a \n      connection.\u003c/td\u003e\u003ctd\u003eUsed to indicate an origin that will be used to fetch required \n      resources for the link context. Initiating an early connection, which \n      includes the DNS lookup, TCP handshake, and optional TLS negotiation, \n      allows the user agent to mask the high latency costs of establishing a \n      connection.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epredecessor-version\u003ca name\u003d\"iana-link-relations-predecessor-version\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoints to a resource containing the predecessor\n      version in the version history.\n    \u003c/td\u003e\u003ctd\u003ePoints to a resource containing the predecessor\n      version in the version history.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprefetch\u003ca name\u003d\"iana-link-relations-prefetch\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe prefetch link relation type is used to identify a resource \n      that might be required by the next navigation from the link context, and \n      that the user agent ought to fetch, such that the user agent can deliver a \n      faster response once the resource is requested in the future.\u003c/td\u003e\u003ctd\u003eThe prefetch link relation type is used to identify a resource \n      that might be required by the next navigation from the link context, and \n      that the user agent ought to fetch, such that the user agent can deliver a \n      faster response once the resource is requested in the future.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epreload\u003ca name\u003d\"iana-link-relations-preload\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that should be loaded early in the \n      processing of the link\u0027s context, without blocking rendering.\u003c/td\u003e\u003ctd\u003eRefers to a resource that should be loaded early in the \n      processing of the link\u0027s context, without blocking rendering.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprerender\u003ca name\u003d\"iana-link-relations-prerender\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUsed to identify a resource that might be required by the next \n      navigation from the link context, and that the user agent ought to fetch \n      and execute, such that the user agent can deliver a faster response once \n      the resource is requested in the future.\u003c/td\u003e\u003ctd\u003eUsed to identify a resource that might be required by the next \n      navigation from the link context, and that the user agent ought to fetch \n      and execute, such that the user agent can deliver a faster response once \n      the resource is requested in the future.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprev\u003ca name\u003d\"iana-link-relations-prev\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates that the link\u0027s context is a part of a series, and\n      that the previous in the series is the link target.\n    \u003c/td\u003e\u003ctd\u003eIndicates that the link\u0027s context is a part of a series, and\n      that the previous in the series is the link target.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epreview\u003ca name\u003d\"iana-link-relations-preview\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that provides a preview of the link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a resource that provides a preview of the link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprevious\u003ca name\u003d\"iana-link-relations-previous\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to the previous resource in an ordered series\n      of resources.  Synonym for \u0026quot;prev\u0026quot;.\u003c/td\u003e\u003ctd\u003eRefers to the previous resource in an ordered series\n      of resources.  Synonym for \u0026quot;prev\u0026quot;.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprev-archive\u003ca name\u003d\"iana-link-relations-prev-archive\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to the immediately preceding archive resource.\u003c/td\u003e\u003ctd\u003eRefers to the immediately preceding archive resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprivacy-policy\u003ca name\u003d\"iana-link-relations-privacy-policy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a privacy policy associated with the link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to a privacy policy associated with the link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eprofile\u003ca name\u003d\"iana-link-relations-profile\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifying that a resource representation conforms\nto a certain profile, without affecting the non-profile semantics\nof the resource representation.\u003c/td\u003e\u003ctd\u003eIdentifying that a resource representation conforms\nto a certain profile, without affecting the non-profile semantics\nof the resource representation.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epublication\u003ca name\u003d\"iana-link-relations-publication\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLinks to a publication manifest. A manifest represents \n      structured information about a publication, such as informative metadata, \n      a list of resources, and a default reading order.\u003c/td\u003e\u003ctd\u003eLinks to a publication manifest. A manifest represents \n      structured information about a publication, such as informative metadata, \n      a list of resources, and a default reading order.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erelated\u003ca name\u003d\"iana-link-relations-related\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a related resource.\u003c/td\u003e\u003ctd\u003eIdentifies a related resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erestconf\u003ca name\u003d\"iana-link-relations-restconf\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies the root of RESTCONF API as configured on this HTTP server.\n      The \u0026quot;restconf\u0026quot; relation defines the root of the API defined in RFC8040.\n      Subsequent revisions of RESTCONF will use alternate relation values to support \n      protocol versioning.\u003c/td\u003e\u003ctd\u003eIdentifies the root of RESTCONF API as configured on this HTTP server.\n      The \u0026quot;restconf\u0026quot; relation defines the root of the API defined in RFC8040.\n      Subsequent revisions of RESTCONF will use alternate relation values to support \n      protocol versioning.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereplies\u003ca name\u003d\"iana-link-relations-replies\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a resource that is a reply to the context\n      of the link.\n    \u003c/td\u003e\u003ctd\u003eIdentifies a resource that is a reply to the context\n      of the link.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eruleinput\u003ca name\u003d\"iana-link-relations-ruleinput\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe resource identified by the link target provides an input value to an \n    instance of a rule, where the resource which represents the rule instance is \n    identified by the link context.\n    \u003c/td\u003e\u003ctd\u003eThe resource identified by the link target provides an input value to an \n    instance of a rule, where the resource which represents the rule instance is \n    identified by the link context.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esearch\u003ca name\u003d\"iana-link-relations-search\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to search through\n      the link\u0027s context and related resources.\u003c/td\u003e\u003ctd\u003eRefers to a resource that can be used to search through\n      the link\u0027s context and related resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esection\u003ca name\u003d\"iana-link-relations-section\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a section in a collection of resources.\u003c/td\u003e\u003ctd\u003eRefers to a section in a collection of resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eself\u003ca name\u003d\"iana-link-relations-self\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eConveys an identifier for the link\u0027s context.\n    \u003c/td\u003e\u003ctd\u003eConveys an identifier for the link\u0027s context.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eservice\u003ca name\u003d\"iana-link-relations-service\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIndicates a URI that can be used to retrieve a\n      service document.\u003c/td\u003e\u003ctd\u003eIndicates a URI that can be used to retrieve a\n      service document.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eservice-desc\u003ca name\u003d\"iana-link-relations-service-desc\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies service description for the context that\n      is primarily intended for consumption by machines.\u003c/td\u003e\u003ctd\u003eIdentifies service description for the context that\n      is primarily intended for consumption by machines.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eservice-doc\u003ca name\u003d\"iana-link-relations-service-doc\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies service documentation for the context that\n      is primarily intended for human consumption.\u003c/td\u003e\u003ctd\u003eIdentifies service documentation for the context that\n      is primarily intended for human consumption.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eservice-meta\u003ca name\u003d\"iana-link-relations-service-meta\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies general metadata for the context that is\n      primarily intended for consumption by machines.\u003c/td\u003e\u003ctd\u003eIdentifies general metadata for the context that is\n      primarily intended for consumption by machines.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esponsored\u003ca name\u003d\"iana-link-relations-sponsored\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that is within a context that is \n\t\tsponsored (such as advertising or another compensation agreement).\u003c/td\u003e\u003ctd\u003eRefers to a resource that is within a context that is \n\t\tsponsored (such as advertising or another compensation agreement).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estart\u003ca name\u003d\"iana-link-relations-start\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to the first resource in a collection of\n      resources.\u003c/td\u003e\u003ctd\u003eRefers to the first resource in a collection of\n      resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estatus\u003ca name\u003d\"iana-link-relations-status\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a resource that represents the context\u0027s\n      status.\u003c/td\u003e\u003ctd\u003eIdentifies a resource that represents the context\u0027s\n      status.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estylesheet\u003ca name\u003d\"iana-link-relations-stylesheet\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a stylesheet.\u003c/td\u003e\u003ctd\u003eRefers to a stylesheet.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esubsection\u003ca name\u003d\"iana-link-relations-subsection\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource serving as a subsection in a\n      collection of resources.\u003c/td\u003e\u003ctd\u003eRefers to a resource serving as a subsection in a\n      collection of resources.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esuccessor-version\u003ca name\u003d\"iana-link-relations-successor-version\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoints to a resource containing the successor version\n      in the version history.\n    \u003c/td\u003e\u003ctd\u003ePoints to a resource containing the successor version\n      in the version history.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esunset\u003ca name\u003d\"iana-link-relations-sunset\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a resource that provides information about\n      the context\u0027s retirement policy.\n    \u003c/td\u003e\u003ctd\u003eIdentifies a resource that provides information about\n      the context\u0027s retirement policy.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etag\u003ca name\u003d\"iana-link-relations-tag\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGives a tag (identified by the given address) that applies to\n      the current document.\n    \u003c/td\u003e\u003ctd\u003eGives a tag (identified by the given address) that applies to\n      the current document.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eterms-of-service\u003ca name\u003d\"iana-link-relations-terms-of-service\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to the terms of service associated with the link\u0027s context.\u003c/td\u003e\u003ctd\u003eRefers to the terms of service associated with the link\u0027s context.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etimegate\u003ca name\u003d\"iana-link-relations-timegate\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe Target IRI points to a TimeGate for an Original Resource.\u003c/td\u003e\u003ctd\u003eThe Target IRI points to a TimeGate for an Original Resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etimemap\u003ca name\u003d\"iana-link-relations-timemap\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eThe Target IRI points to a TimeMap for an Original Resource.\u003c/td\u003e\u003ctd\u003eThe Target IRI points to a TimeMap for an Original Resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etype\u003ca name\u003d\"iana-link-relations-type\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource identifying the abstract semantic type of which the link\u0027s context is considered to be an instance.\u003c/td\u003e\u003ctd\u003eRefers to a resource identifying the abstract semantic type of which the link\u0027s context is considered to be an instance.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eugc\u003ca name\u003d\"iana-link-relations-ugc\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a resource that is within a context that is User Generated Content.\n    \u003c/td\u003e\u003ctd\u003eRefers to a resource that is within a context that is User Generated Content.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eup\u003ca name\u003d\"iana-link-relations-up\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRefers to a parent document in a hierarchy of\n      documents.\n    \u003c/td\u003e\u003ctd\u003eRefers to a parent document in a hierarchy of\n      documents.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eversion-history\u003ca name\u003d\"iana-link-relations-version-history\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoints to a resource containing the version history\n      for the context.\n    \u003c/td\u003e\u003ctd\u003ePoints to a resource containing the version history\n      for the context.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003evia\u003ca name\u003d\"iana-link-relations-via\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a resource that is the source of the\n      information in the link\u0027s context.\n    \u003c/td\u003e\u003ctd\u003eIdentifies a resource that is the source of the\n      information in the link\u0027s context.\n    \u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewebmention\u003ca name\u003d\"iana-link-relations-webmention\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIdentifies a target URI that supports the Webmention protocol.\n    This allows clients that mention a resource in some form of publishing process\n    to contact that endpoint and inform it that this resource has been mentioned.\u003c/td\u003e\u003ctd\u003eIdentifies a target URI that supports the Webmention protocol.\n    This allows clients that mention a resource in some form of publishing process\n    to contact that endpoint and inform it that this resource has been mentioned.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eworking-copy\u003ca name\u003d\"iana-link-relations-working-copy\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoints to a working copy for this resource.\u003c/td\u003e\u003ctd\u003ePoints to a working copy for this resource.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eworking-copy-of\u003ca name\u003d\"iana-link-relations-working-copy-of\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoints to the versioned resource from which this\n      working copy was obtained.\n    \u003c/td\u003e\u003ctd\u003ePoints to the versioned resource from which this\n      working copy was obtained.\n    \u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/iana-link-relations",
+  "version": "5.0.0",
+  "name": "LinkRelationTypes",
+  "title": "Link Relation Types",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Internet Assigned Numbers Authority (IANA)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"
+        }
+      ]
+    }
+  ],
+  "description": "Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "about",
+      "display": "Refers to a resource that is the subject of the link\u0027s context.",
+      "definition": "Refers to a resource that is the subject of the link\u0027s context."
+    },
+    {
+      "code": "acl",
+      "display": "Asserts that the link target provides an access control description for the link context.",
+      "definition": "Asserts that the link target provides an access control description for the link context."
+    },
+    {
+      "code": "alternate",
+      "display": "Refers to a substitute for this context",
+      "definition": "Refers to a substitute for this context"
+    },
+    {
+      "code": "amphtml",
+      "display": "Used to reference alternative content that uses the AMP profile of the HTML format.",
+      "definition": "Used to reference alternative content that uses the AMP profile of the HTML format."
+    },
+    {
+      "code": "appendix",
+      "display": "Refers to an appendix.",
+      "definition": "Refers to an appendix."
+    },
+    {
+      "code": "apple-touch-icon",
+      "display": "Refers to an icon for the context. Synonym for icon.",
+      "definition": "Refers to an icon for the context. Synonym for icon."
+    },
+    {
+      "code": "apple-touch-startup-image",
+      "display": "Refers to a launch screen for the context.",
+      "definition": "Refers to a launch screen for the context."
+    },
+    {
+      "code": "archives",
+      "display": "Refers to a collection of records, documents, or other\n      materials of historical interest.",
+      "definition": "Refers to a collection of records, documents, or other\n      materials of historical interest."
+    },
+    {
+      "code": "author",
+      "display": "Refers to the context\u0027s author.",
+      "definition": "Refers to the context\u0027s author."
+    },
+    {
+      "code": "blocked-by",
+      "display": "Identifies the entity that blocks access to a resource\n      following receipt of a legal demand.",
+      "definition": "Identifies the entity that blocks access to a resource\n      following receipt of a legal demand."
+    },
+    {
+      "code": "bookmark",
+      "display": "Gives a permanent link to use for bookmarking purposes.",
+      "definition": "Gives a permanent link to use for bookmarking purposes."
+    },
+    {
+      "code": "canonical",
+      "display": "Designates the preferred version of a resource (the IRI and its contents).",
+      "definition": "Designates the preferred version of a resource (the IRI and its contents)."
+    },
+    {
+      "code": "chapter",
+      "display": "Refers to a chapter in a collection of resources.",
+      "definition": "Refers to a chapter in a collection of resources."
+    },
+    {
+      "code": "cite-as",
+      "display": "Indicates that the link target is preferred over the link context for the purpose of permanent citation.",
+      "definition": "Indicates that the link target is preferred over the link context for the purpose of permanent citation."
+    },
+    {
+      "code": "collection",
+      "display": "The target IRI points to a resource which represents the collection resource for the context IRI.",
+      "definition": "The target IRI points to a resource which represents the collection resource for the context IRI."
+    },
+    {
+      "code": "contents",
+      "display": "Refers to a table of contents.",
+      "definition": "Refers to a table of contents."
+    },
+    {
+      "code": "convertedFrom",
+      "display": "The document linked to was later converted to the\n      document that contains this link relation.  For example, an RFC can\n      have a link to the Internet-Draft that became the RFC; in that case,\n      the link relation would be \"convertedFrom\".",
+      "definition": "The document linked to was later converted to the\n      document that contains this link relation.  For example, an RFC can\n      have a link to the Internet-Draft that became the RFC; in that case,\n      the link relation would be \"convertedFrom\"."
+    },
+    {
+      "code": "copyright",
+      "display": "Refers to a copyright statement that applies to the\n    link\u0027s context.",
+      "definition": "Refers to a copyright statement that applies to the\n    link\u0027s context."
+    },
+    {
+      "code": "create-form",
+      "display": "The target IRI points to a resource where a submission form can be obtained.",
+      "definition": "The target IRI points to a resource where a submission form can be obtained."
+    },
+    {
+      "code": "current",
+      "display": "Refers to a resource containing the most recent\n      item(s) in a collection of resources.",
+      "definition": "Refers to a resource containing the most recent\n      item(s) in a collection of resources."
+    },
+    {
+      "code": "describedby",
+      "display": "Refers to a resource providing information about the\n      link\u0027s context.",
+      "definition": "Refers to a resource providing information about the\n      link\u0027s context."
+    },
+    {
+      "code": "describes",
+      "display": "The relationship A \u0027describes\u0027 B asserts that\n      resource A provides a description of resource B. There are no\n      constraints on the format or representation of either A or B,\n      neither are there any further constraints on either resource.",
+      "definition": "The relationship A \u0027describes\u0027 B asserts that\n      resource A provides a description of resource B. There are no\n      constraints on the format or representation of either A or B,\n      neither are there any further constraints on either resource."
+    },
+    {
+      "code": "disclosure",
+      "display": "Refers to a list of patent disclosures made with respect to \n      material for which \u0027disclosure\u0027 relation is specified.",
+      "definition": "Refers to a list of patent disclosures made with respect to \n      material for which \u0027disclosure\u0027 relation is specified."
+    },
+    {
+      "code": "dns-prefetch",
+      "display": "Used to indicate an origin that will be used to fetch required \n      resources for the link context, and that the user agent ought to resolve \n      as early as possible.",
+      "definition": "Used to indicate an origin that will be used to fetch required \n      resources for the link context, and that the user agent ought to resolve \n      as early as possible."
+    },
+    {
+      "code": "duplicate",
+      "display": "Refers to a resource whose available representations\n      are byte-for-byte identical with the corresponding representations of\n      the context IRI.",
+      "definition": "Refers to a resource whose available representations\n      are byte-for-byte identical with the corresponding representations of\n      the context IRI."
+    },
+    {
+      "code": "edit",
+      "display": "Refers to a resource that can be used to edit the\n      link\u0027s context.",
+      "definition": "Refers to a resource that can be used to edit the\n      link\u0027s context."
+    },
+    {
+      "code": "edit-form",
+      "display": "The target IRI points to a resource where a submission form for\n      editing associated resource can be obtained.",
+      "definition": "The target IRI points to a resource where a submission form for\n      editing associated resource can be obtained."
+    },
+    {
+      "code": "edit-media",
+      "display": "Refers to a resource that can be used to edit media\n      associated with the link\u0027s context.",
+      "definition": "Refers to a resource that can be used to edit media\n      associated with the link\u0027s context."
+    },
+    {
+      "code": "enclosure",
+      "display": "Identifies a related resource that is potentially\n      large and might require special handling.",
+      "definition": "Identifies a related resource that is potentially\n      large and might require special handling."
+    },
+    {
+      "code": "external",
+      "display": "Refers to a resource that is not part of the same site as the current context.",
+      "definition": "Refers to a resource that is not part of the same site as the current context."
+    },
+    {
+      "code": "first",
+      "display": "An IRI that refers to the furthest preceding resource\n    in a series of resources.",
+      "definition": "An IRI that refers to the furthest preceding resource\n    in a series of resources."
+    },
+    {
+      "code": "glossary",
+      "display": "Refers to a glossary of terms.",
+      "definition": "Refers to a glossary of terms."
+    },
+    {
+      "code": "help",
+      "display": "Refers to context-sensitive help.",
+      "definition": "Refers to context-sensitive help."
+    },
+    {
+      "code": "hosts",
+      "display": "Refers to a resource hosted by the server indicated by\n      the link context.",
+      "definition": "Refers to a resource hosted by the server indicated by\n      the link context."
+    },
+    {
+      "code": "hub",
+      "display": "Refers to a hub that enables registration for\n    notification of updates to the context.",
+      "definition": "Refers to a hub that enables registration for\n    notification of updates to the context."
+    },
+    {
+      "code": "icon",
+      "display": "Refers to an icon representing the link\u0027s context.",
+      "definition": "Refers to an icon representing the link\u0027s context."
+    },
+    {
+      "code": "index",
+      "display": "Refers to an index.",
+      "definition": "Refers to an index."
+    },
+    {
+      "code": "intervalAfter",
+      "display": "refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalBefore",
+      "display": "refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalContains",
+      "display": "refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalDisjoint",
+      "display": "refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalDuring",
+      "display": "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalEquals",
+      "display": "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalFinishedBy",
+      "display": "refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalFinishes",
+      "display": "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalIn",
+      "display": "refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalMeets",
+      "display": "refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalMetBy",
+      "display": "refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalOverlappedBy",
+      "display": "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalOverlaps",
+      "display": "refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalStartedBy",
+      "display": "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "intervalStarts",
+      "display": "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource",
+      "definition": "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"
+    },
+    {
+      "code": "item",
+      "display": "The target IRI points to a resource that is a member of the collection represented by the context IRI.",
+      "definition": "The target IRI points to a resource that is a member of the collection represented by the context IRI."
+    },
+    {
+      "code": "last",
+      "display": "An IRI that refers to the furthest following resource\n      in a series of resources.",
+      "definition": "An IRI that refers to the furthest following resource\n      in a series of resources."
+    },
+    {
+      "code": "latest-version",
+      "display": "Points to a resource containing the latest (e.g.,\n      current) version of the context.",
+      "definition": "Points to a resource containing the latest (e.g.,\n      current) version of the context."
+    },
+    {
+      "code": "license",
+      "display": "Refers to a license associated with this context.",
+      "definition": "Refers to a license associated with this context."
+    },
+    {
+      "code": "linkset",
+      "display": "The link target of a link with the \"linkset\" relation\n      type provides a set of links, including links in which the link\n      context of the link participates.\n    ",
+      "definition": "The link target of a link with the \"linkset\" relation\n      type provides a set of links, including links in which the link\n      context of the link participates.\n    "
+    },
+    {
+      "code": "lrdd",
+      "display": "Refers to further information about the link\u0027s context,\n      expressed as a LRDD (\"Link-based Resource Descriptor Document\")\n      resource.  See  for information about\n      processing this relation type in host-meta documents. When used\n      elsewhere, it refers to additional links and other metadata.\n      Multiple instances indicate additional LRDD resources. LRDD\n      resources MUST have an \"application/xrd+xml\" representation, and\n      MAY have others.",
+      "definition": "Refers to further information about the link\u0027s context,\n      expressed as a LRDD (\"Link-based Resource Descriptor Document\")\n      resource.  See  for information about\n      processing this relation type in host-meta documents. When used\n      elsewhere, it refers to additional links and other metadata.\n      Multiple instances indicate additional LRDD resources. LRDD\n      resources MUST have an \"application/xrd+xml\" representation, and\n      MAY have others."
+    },
+    {
+      "code": "manifest",
+      "display": "Links to a manifest file for the context.",
+      "definition": "Links to a manifest file for the context."
+    },
+    {
+      "code": "mask-icon",
+      "display": "Refers to a mask that can be applied to the icon for the context.",
+      "definition": "Refers to a mask that can be applied to the icon for the context."
+    },
+    {
+      "code": "media-feed",
+      "display": "Refers to a feed of personalised media recommendations relevant to the link context.",
+      "definition": "Refers to a feed of personalised media recommendations relevant to the link context."
+    },
+    {
+      "code": "memento",
+      "display": "The Target IRI points to a Memento, a fixed resource that will not change state anymore.",
+      "definition": "The Target IRI points to a Memento, a fixed resource that will not change state anymore."
+    },
+    {
+      "code": "micropub",
+      "display": "Links to the context\u0027s Micropub endpoint.",
+      "definition": "Links to the context\u0027s Micropub endpoint."
+    },
+    {
+      "code": "modulepreload",
+      "display": "Refers to a module that the user agent is to preemptively fetch and store for use in the current context.",
+      "definition": "Refers to a module that the user agent is to preemptively fetch and store for use in the current context."
+    },
+    {
+      "code": "monitor",
+      "display": "Refers to a resource that can be used to monitor changes in an HTTP resource.\n    ",
+      "definition": "Refers to a resource that can be used to monitor changes in an HTTP resource.\n    "
+    },
+    {
+      "code": "monitor-group",
+      "display": "Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.\n    ",
+      "definition": "Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.\n    "
+    },
+    {
+      "code": "next",
+      "display": "Indicates that the link\u0027s context is a part of a series, and\n      that the next in the series is the link target.\n    ",
+      "definition": "Indicates that the link\u0027s context is a part of a series, and\n      that the next in the series is the link target.\n    "
+    },
+    {
+      "code": "next-archive",
+      "display": "Refers to the immediately following archive resource.",
+      "definition": "Refers to the immediately following archive resource."
+    },
+    {
+      "code": "nofollow",
+      "display": "Indicates that the context’s original author or publisher does not endorse the link target.",
+      "definition": "Indicates that the context’s original author or publisher does not endorse the link target."
+    },
+    {
+      "code": "noopener",
+      "display": "Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context.",
+      "definition": "Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context."
+    },
+    {
+      "code": "noreferrer",
+      "display": "Indicates that no referrer information is to be leaked when following the link.",
+      "definition": "Indicates that no referrer information is to be leaked when following the link."
+    },
+    {
+      "code": "opener",
+      "display": "Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context.",
+      "definition": "Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context."
+    },
+    {
+      "code": "openid2.local_id",
+      "display": "Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier.",
+      "definition": "Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier."
+    },
+    {
+      "code": "openid2.provider",
+      "display": "Refers to a resource which accepts OpenID Authentication protocol messages for the context.",
+      "definition": "Refers to a resource which accepts OpenID Authentication protocol messages for the context."
+    },
+    {
+      "code": "original",
+      "display": "The Target IRI points to an Original Resource.",
+      "definition": "The Target IRI points to an Original Resource."
+    },
+    {
+      "code": "P3Pv1",
+      "display": "Refers to a P3P privacy policy for the context.",
+      "definition": "Refers to a P3P privacy policy for the context."
+    },
+    {
+      "code": "payment",
+      "display": "Indicates a resource where payment is accepted.",
+      "definition": "Indicates a resource where payment is accepted."
+    },
+    {
+      "code": "pingback",
+      "display": "Gives the address of the pingback resource for the link context.",
+      "definition": "Gives the address of the pingback resource for the link context."
+    },
+    {
+      "code": "preconnect",
+      "display": "Used to indicate an origin that will be used to fetch required \n      resources for the link context. Initiating an early connection, which \n      includes the DNS lookup, TCP handshake, and optional TLS negotiation, \n      allows the user agent to mask the high latency costs of establishing a \n      connection.",
+      "definition": "Used to indicate an origin that will be used to fetch required \n      resources for the link context. Initiating an early connection, which \n      includes the DNS lookup, TCP handshake, and optional TLS negotiation, \n      allows the user agent to mask the high latency costs of establishing a \n      connection."
+    },
+    {
+      "code": "predecessor-version",
+      "display": "Points to a resource containing the predecessor\n      version in the version history.\n    ",
+      "definition": "Points to a resource containing the predecessor\n      version in the version history.\n    "
+    },
+    {
+      "code": "prefetch",
+      "display": "The prefetch link relation type is used to identify a resource \n      that might be required by the next navigation from the link context, and \n      that the user agent ought to fetch, such that the user agent can deliver a \n      faster response once the resource is requested in the future.",
+      "definition": "The prefetch link relation type is used to identify a resource \n      that might be required by the next navigation from the link context, and \n      that the user agent ought to fetch, such that the user agent can deliver a \n      faster response once the resource is requested in the future."
+    },
+    {
+      "code": "preload",
+      "display": "Refers to a resource that should be loaded early in the \n      processing of the link\u0027s context, without blocking rendering.",
+      "definition": "Refers to a resource that should be loaded early in the \n      processing of the link\u0027s context, without blocking rendering."
+    },
+    {
+      "code": "prerender",
+      "display": "Used to identify a resource that might be required by the next \n      navigation from the link context, and that the user agent ought to fetch \n      and execute, such that the user agent can deliver a faster response once \n      the resource is requested in the future.",
+      "definition": "Used to identify a resource that might be required by the next \n      navigation from the link context, and that the user agent ought to fetch \n      and execute, such that the user agent can deliver a faster response once \n      the resource is requested in the future."
+    },
+    {
+      "code": "prev",
+      "display": "Indicates that the link\u0027s context is a part of a series, and\n      that the previous in the series is the link target.\n    ",
+      "definition": "Indicates that the link\u0027s context is a part of a series, and\n      that the previous in the series is the link target.\n    "
+    },
+    {
+      "code": "preview",
+      "display": "Refers to a resource that provides a preview of the link\u0027s context.",
+      "definition": "Refers to a resource that provides a preview of the link\u0027s context."
+    },
+    {
+      "code": "previous",
+      "display": "Refers to the previous resource in an ordered series\n      of resources.  Synonym for \"prev\".",
+      "definition": "Refers to the previous resource in an ordered series\n      of resources.  Synonym for \"prev\"."
+    },
+    {
+      "code": "prev-archive",
+      "display": "Refers to the immediately preceding archive resource.",
+      "definition": "Refers to the immediately preceding archive resource."
+    },
+    {
+      "code": "privacy-policy",
+      "display": "Refers to a privacy policy associated with the link\u0027s context.",
+      "definition": "Refers to a privacy policy associated with the link\u0027s context."
+    },
+    {
+      "code": "profile",
+      "display": "Identifying that a resource representation conforms\nto a certain profile, without affecting the non-profile semantics\nof the resource representation.",
+      "definition": "Identifying that a resource representation conforms\nto a certain profile, without affecting the non-profile semantics\nof the resource representation."
+    },
+    {
+      "code": "publication",
+      "display": "Links to a publication manifest. A manifest represents \n      structured information about a publication, such as informative metadata, \n      a list of resources, and a default reading order.",
+      "definition": "Links to a publication manifest. A manifest represents \n      structured information about a publication, such as informative metadata, \n      a list of resources, and a default reading order."
+    },
+    {
+      "code": "related",
+      "display": "Identifies a related resource.",
+      "definition": "Identifies a related resource."
+    },
+    {
+      "code": "restconf",
+      "display": "Identifies the root of RESTCONF API as configured on this HTTP server.\n      The \"restconf\" relation defines the root of the API defined in RFC8040.\n      Subsequent revisions of RESTCONF will use alternate relation values to support \n      protocol versioning.",
+      "definition": "Identifies the root of RESTCONF API as configured on this HTTP server.\n      The \"restconf\" relation defines the root of the API defined in RFC8040.\n      Subsequent revisions of RESTCONF will use alternate relation values to support \n      protocol versioning."
+    },
+    {
+      "code": "replies",
+      "display": "Identifies a resource that is a reply to the context\n      of the link.\n    ",
+      "definition": "Identifies a resource that is a reply to the context\n      of the link.\n    "
+    },
+    {
+      "code": "ruleinput",
+      "display": "The resource identified by the link target provides an input value to an \n    instance of a rule, where the resource which represents the rule instance is \n    identified by the link context.\n    ",
+      "definition": "The resource identified by the link target provides an input value to an \n    instance of a rule, where the resource which represents the rule instance is \n    identified by the link context.\n    "
+    },
+    {
+      "code": "search",
+      "display": "Refers to a resource that can be used to search through\n      the link\u0027s context and related resources.",
+      "definition": "Refers to a resource that can be used to search through\n      the link\u0027s context and related resources."
+    },
+    {
+      "code": "section",
+      "display": "Refers to a section in a collection of resources.",
+      "definition": "Refers to a section in a collection of resources."
+    },
+    {
+      "code": "self",
+      "display": "Conveys an identifier for the link\u0027s context.\n    ",
+      "definition": "Conveys an identifier for the link\u0027s context.\n    "
+    },
+    {
+      "code": "service",
+      "display": "Indicates a URI that can be used to retrieve a\n      service document.",
+      "definition": "Indicates a URI that can be used to retrieve a\n      service document."
+    },
+    {
+      "code": "service-desc",
+      "display": "Identifies service description for the context that\n      is primarily intended for consumption by machines.",
+      "definition": "Identifies service description for the context that\n      is primarily intended for consumption by machines."
+    },
+    {
+      "code": "service-doc",
+      "display": "Identifies service documentation for the context that\n      is primarily intended for human consumption.",
+      "definition": "Identifies service documentation for the context that\n      is primarily intended for human consumption."
+    },
+    {
+      "code": "service-meta",
+      "display": "Identifies general metadata for the context that is\n      primarily intended for consumption by machines.",
+      "definition": "Identifies general metadata for the context that is\n      primarily intended for consumption by machines."
+    },
+    {
+      "code": "sponsored",
+      "display": "Refers to a resource that is within a context that is \n\t\tsponsored (such as advertising or another compensation agreement).",
+      "definition": "Refers to a resource that is within a context that is \n\t\tsponsored (such as advertising or another compensation agreement)."
+    },
+    {
+      "code": "start",
+      "display": "Refers to the first resource in a collection of\n      resources.",
+      "definition": "Refers to the first resource in a collection of\n      resources."
+    },
+    {
+      "code": "status",
+      "display": "Identifies a resource that represents the context\u0027s\n      status.",
+      "definition": "Identifies a resource that represents the context\u0027s\n      status."
+    },
+    {
+      "code": "stylesheet",
+      "display": "Refers to a stylesheet.",
+      "definition": "Refers to a stylesheet."
+    },
+    {
+      "code": "subsection",
+      "display": "Refers to a resource serving as a subsection in a\n      collection of resources.",
+      "definition": "Refers to a resource serving as a subsection in a\n      collection of resources."
+    },
+    {
+      "code": "successor-version",
+      "display": "Points to a resource containing the successor version\n      in the version history.\n    ",
+      "definition": "Points to a resource containing the successor version\n      in the version history.\n    "
+    },
+    {
+      "code": "sunset",
+      "display": "Identifies a resource that provides information about\n      the context\u0027s retirement policy.\n    ",
+      "definition": "Identifies a resource that provides information about\n      the context\u0027s retirement policy.\n    "
+    },
+    {
+      "code": "tag",
+      "display": "Gives a tag (identified by the given address) that applies to\n      the current document.\n    ",
+      "definition": "Gives a tag (identified by the given address) that applies to\n      the current document.\n    "
+    },
+    {
+      "code": "terms-of-service",
+      "display": "Refers to the terms of service associated with the link\u0027s context.",
+      "definition": "Refers to the terms of service associated with the link\u0027s context."
+    },
+    {
+      "code": "timegate",
+      "display": "The Target IRI points to a TimeGate for an Original Resource.",
+      "definition": "The Target IRI points to a TimeGate for an Original Resource."
+    },
+    {
+      "code": "timemap",
+      "display": "The Target IRI points to a TimeMap for an Original Resource.",
+      "definition": "The Target IRI points to a TimeMap for an Original Resource."
+    },
+    {
+      "code": "type",
+      "display": "Refers to a resource identifying the abstract semantic type of which the link\u0027s context is considered to be an instance.",
+      "definition": "Refers to a resource identifying the abstract semantic type of which the link\u0027s context is considered to be an instance."
+    },
+    {
+      "code": "ugc",
+      "display": "Refers to a resource that is within a context that is User Generated Content.\n    ",
+      "definition": "Refers to a resource that is within a context that is User Generated Content.\n    "
+    },
+    {
+      "code": "up",
+      "display": "Refers to a parent document in a hierarchy of\n      documents.\n    ",
+      "definition": "Refers to a parent document in a hierarchy of\n      documents.\n    "
+    },
+    {
+      "code": "version-history",
+      "display": "Points to a resource containing the version history\n      for the context.\n    ",
+      "definition": "Points to a resource containing the version history\n      for the context.\n    "
+    },
+    {
+      "code": "via",
+      "display": "Identifies a resource that is the source of the\n      information in the link\u0027s context.\n    ",
+      "definition": "Identifies a resource that is the source of the\n      information in the link\u0027s context.\n    "
+    },
+    {
+      "code": "webmention",
+      "display": "Identifies a target URI that supports the Webmention protocol.\n    This allows clients that mention a resource in some form of publishing process\n    to contact that endpoint and inform it that this resource has been mentioned.",
+      "definition": "Identifies a target URI that supports the Webmention protocol.\n    This allows clients that mention a resource in some form of publishing process\n    to contact that endpoint and inform it that this resource has been mentioned."
+    },
+    {
+      "code": "working-copy",
+      "display": "Points to a working copy for this resource.",
+      "definition": "Points to a working copy for this resource."
+    },
+    {
+      "code": "working-copy-of",
+      "display": "Points to the versioned resource from which this\n      working copy was obtained.\n    ",
+      "definition": "Points to the versioned resource from which this\n      working copy was obtained.\n    "
+    }
+  ]
+}

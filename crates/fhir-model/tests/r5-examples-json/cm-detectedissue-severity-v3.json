@@ -1,0 +1,74 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-detectedissue-severity-v3",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareableconceptmap"
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003ch2\u003eV3DetectedIssueSeverity (http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3)\u003c/h2\u003e\u003cp\u003eMapping from (not specified) to (not specified)\u003c/p\u003e\u003cp\u003eDRAFT. Published on 2020-12-24T21:13:15Z by HL7 (FHIR Project). \u003c/p\u003e\u003cdiv\u003e\u003cp\u003ev3 map for DetectedIssueSeverity\u003c/p\u003e\n\u003c/div\u003e\u003cbr/\u003e\u003cp\u003e\u003cb\u003eGroup 1\u003c/b\u003eMapping from \u003ca href\u003d\"codesystem-detectedissue-severity.html\"\u003eDetected Issue Severity\u003c/a\u003e to \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-ObservationValue.html\"\u003eObservationValue\u003c/a\u003e\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eSource Code\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRelationship\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eTarget Code\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ehigh\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eH (High)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003emoderate\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eM (Moderate)\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003elow\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eL (Low)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.14.10"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "V3DetectedIssueSeverity",
+  "title": "v3 map for DetectedIssueSeverity",
+  "status": "draft",
+  "experimental": false,
+  "date": "2020-12-24T21:13:15+00:00",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "v3 map for DetectedIssueSeverity",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/detectedissue-severity",
+      "target": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+      "element": [
+        {
+          "code": "high",
+          "target": [
+            {
+              "code": "H",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "moderate",
+          "target": [
+            {
+              "code": "M",
+              "relationship": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "low",
+          "target": [
+            {
+              "code": "L",
+              "relationship": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

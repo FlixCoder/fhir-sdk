@@ -1,0 +1,55 @@
+{
+  "resourceType": "ValueSet",
+  "id": "version-independent-all-resource-types",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"valueset-all-resource-types.html\"\u003eAll Resource Types\u003c/a\u003e\u003c/li\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"codesystem-fhir-old-types.html\"\u003e\u003ccode\u003ehttp://hl7.org/fhir/fhir-old-types\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/version-independent-all-resource-types",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.3324"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "VersionIndependentResourceTypesAll",
+  "title": "Version Independent Resource Types (All)",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7, International",
+  "description": "Current and past FHIR resource types (deleted or renamed), including abstract types",
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/all-resource-types"
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/fhir-old-types"
+      }
+    ]
+  }
+}

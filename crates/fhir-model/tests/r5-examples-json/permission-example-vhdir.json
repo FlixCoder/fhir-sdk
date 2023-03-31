@@ -1,0 +1,66 @@
+{
+  "resourceType": "Permission",
+  "id": "example-vhdir",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cp\u003e\n        VhDir has identified a need to identify specific entries in the Directory and indicate some restrictions upon use of that entry. \n        This example is the example from VhDir with some additional details added.\n      \u003c/p\u003e\n      \u003cp\u003e \n    womens-shelter : All entries related to Women\u0027s Shelter can only be read by members of a CareTeam \n    defined for councellors for womens abuse. \n    Uses the existing example CareTeam that is not actually about women abuse councellors, used as example only.\n    Presumes that directory entries related to womens shelter are marked with .meta.security of WSHELTER \n    sensitivity code, a code that is not standard so would exist in a domain using this example Permission.\n    \u003c/p\u003e\n    \u003cp\u003e\n      Thus the dataScope is for all data with .meta.security of WSHELTER.\n    \u003c/p\u003e\n    \u003cp\u003e\n      Activities by those in the CareTeam. \n      Explicit action and purpose are given, but they are likely not critical to the usecase.\n    \u003c/p\u003e\n    \u003c/div\u003e"
+  },
+  "status": "active",
+  "date": [
+    "2022-08-04"
+  ],
+  "combining": "deny-overrides",
+  "rule": [
+    {
+      "type": "permit",
+      "data": [
+        {
+          "security": [
+            {
+              "system": "https://example.org",
+              "code": "WSHELTER"
+            }
+          ]
+        }
+      ],
+      "activity": [
+        {
+          "actor": [
+            {
+              "reference": "CareTeam/example"
+            }
+          ],
+          "action": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/consentaction",
+                  "code": "access"
+                }
+              ]
+            }
+          ],
+          "purpose": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+                  "code": "HOPERAT"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

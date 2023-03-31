@@ -1,0 +1,76 @@
+{
+  "resourceType": "ResearchSubject",
+  "id": "example-crossover-placebo-to-drug",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: ResearchSubject\u003c/b\u003e\u003ca name\u003d\"example-crossover-placebo-to-drug\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource ResearchSubject \u0026quot;example-crossover-placebo-to-drug\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: ecsr45\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eprogress\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Enrollment status \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-subject-state-type.html\"\u003eResearchSubjectStateType\u003c/a\u003e#Enrollment)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eprogress\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Enrollment status \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-subject-state-type.html\"\u003eResearchSubjectStateType\u003c/a\u003e#Enrollment)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubjectState\u003c/b\u003e: On-study \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-subject-state.html\"\u003eResearchSubjectState\u003c/a\u003e#on-study)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ereason\u003c/b\u003e: Informed consent signed \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ([not stated]#informedConsentSigned)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estartDate\u003c/b\u003e: 2022-06-10\u003c/p\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003eperiod\u003c/b\u003e: 2022-06-10 --\u0026gt; (ongoing)\u003c/p\u003e\u003cp\u003e\u003cb\u003estudy\u003c/b\u003e: \u003ca href\u003d\"broken-link.html\"\u003eexample-ctgov-study-record\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca href\u003d\"broken-link.html\"\u003ecfsb1676546565857\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eassignedComparisonGroup\u003c/b\u003e: placebo\u003c/p\u003e\u003cp\u003e\u003cb\u003eactualComparisonGroup\u003c/b\u003e: ap303\u003c/p\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "value": "ecsr45"
+    }
+  ],
+  "status": "active",
+  "progress": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/research-subject-state-type",
+            "code": "Enrollment"
+          }
+        ],
+        "text": "Enrollment status"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/research-subject-state-type",
+            "code": "Enrollment"
+          }
+        ],
+        "text": "Enrollment status"
+      },
+      "subjectState": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/research-subject-state",
+            "code": "on-study"
+          }
+        ],
+        "text": "On-study"
+      },
+      "reason": {
+        "coding": [
+          {
+            "code": "informedConsentSigned"
+          }
+        ],
+        "text": "Informed consent signed"
+      },
+      "startDate": "2022-06-10"
+    }
+  ],
+  "period": {
+    "start": "2022-06-10"
+  },
+  "study": {
+    "reference": "example-ctgov-study-record"
+  },
+  "subject": {
+    "reference": "cfsb1676546565857"
+  },
+  "assignedComparisonGroup": "placebo",
+  "actualComparisonGroup": "ap303",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

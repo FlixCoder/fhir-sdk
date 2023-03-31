@@ -1,0 +1,107 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "imagingselection-3dgraphictype",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/imagingselection-3dgraphictype\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epoint\u003ca name\u003d\"imagingselection-3dgraphictype-point\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePOINT\u003c/td\u003e\u003ctd\u003eA single location denoted by a single (x,y,z) triplet.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emultipoint\u003ca name\u003d\"imagingselection-3dgraphictype-multipoint\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMULTIPOINT\u003c/td\u003e\u003ctd\u003emultiple locations each denoted by an (x,y,z) triplet; the points need not be coplanar.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epolyline\u003ca name\u003d\"imagingselection-3dgraphictype-polyline\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePOLYLINE\u003c/td\u003e\u003ctd\u003ea series of connected line segments with ordered vertices denoted by (x,y,z) triplets; the points need not be coplanar.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epolygon\u003ca name\u003d\"imagingselection-3dgraphictype-polygon\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePOLYGON\u003c/td\u003e\u003ctd\u003ea series of connected line segments with ordered vertices denoted by (x,y,z) triplets, where the first and last vertices shall be the same forming a polygon; the points shall be coplanar.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eellipse\u003ca name\u003d\"imagingselection-3dgraphictype-ellipse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eELLIPSE\u003c/td\u003e\u003ctd\u003ean ellipse defined by four (x,y,z) triplets, the first two triplets specifying the endpoints of the major axis and the second two triplets specifying the endpoints of the minor axis.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eellipsoid\u003ca name\u003d\"imagingselection-3dgraphictype-ellipsoid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eELLIPSOID\u003c/td\u003e\u003ctd\u003ea three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, \u0026quot;a\u0026quot;, \u0026quot;b\u0026quot;, and \u0026quot;c\u0026quot;; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis \u0026quot;a\u0026quot;, the third and fourth triplets specifying the endpoints of axis \u0026quot;b\u0026quot;, and the fifth and sixth triplets specifying the endpoints of axis \u0026quot;c\u0026quot;.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "ii"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "ii"
+    }
+  ],
+  "url": "http://hl7.org/fhir/imagingselection-3dgraphictype",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1983"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ImagingSelection3DGraphicType",
+  "title": "Imaging Selection3 D Graphic Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The type of coordinates describing an image region.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "point",
+      "display": "POINT",
+      "definition": "A single location denoted by a single (x,y,z) triplet."
+    },
+    {
+      "code": "multipoint",
+      "display": "MULTIPOINT",
+      "definition": "multiple locations each denoted by an (x,y,z) triplet; the points need not be coplanar."
+    },
+    {
+      "code": "polyline",
+      "display": "POLYLINE",
+      "definition": "a series of connected line segments with ordered vertices denoted by (x,y,z) triplets; the points need not be coplanar."
+    },
+    {
+      "code": "polygon",
+      "display": "POLYGON",
+      "definition": "a series of connected line segments with ordered vertices denoted by (x,y,z) triplets, where the first and last vertices shall be the same forming a polygon; the points shall be coplanar."
+    },
+    {
+      "code": "ellipse",
+      "display": "ELLIPSE",
+      "definition": "an ellipse defined by four (x,y,z) triplets, the first two triplets specifying the endpoints of the major axis and the second two triplets specifying the endpoints of the minor axis."
+    },
+    {
+      "code": "ellipsoid",
+      "display": "ELLIPSOID",
+      "definition": "a three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, \"a\", \"b\", and \"c\"; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis \"a\", the third and fourth triplets specifying the endpoints of axis \"b\", and the fifth and sixth triplets specifying the endpoints of axis \"c\"."
+    }
+  ]
+}

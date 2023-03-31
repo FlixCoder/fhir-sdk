@@ -1,0 +1,118 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "biologicallyderived-productcodes",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/biologicallyderived-productcodes\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ee0398\u003ca name\u003d\"biologicallyderived-productcodes-e0398\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRED BLOOD CELLS|CPD\u0026gt;AS5/450mL/refg|Irr|ResLeu\u003c/td\u003e\u003ctd\u003eRED BLOOD CELLS|CPD\u0026gt;AS5/450mL/refg|Irr|ResLeu\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003es1128\u003ca name\u003d\"biologicallyderived-productcodes-s1128\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHPC, APHERESIS/Citrate/XX/refg/Mobilized\u003c/td\u003e\u003ctd\u003eHPC, APHERESIS/Citrate/XX/refg/Mobilized\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003es1194\u003ca name\u003d\"biologicallyderived-productcodes-s1194\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHPC, APHERESIS|NS/XX/\u0026lt;\u003d-120C|10% DMSO|Cryopreserved|Mobilized\u003c/td\u003e\u003ctd\u003eHPC, Apheresis product, 10% DMSO, mobilized, cryopreserved at \u0026lt;\u003d-120C\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003es1195\u003ca name\u003d\"biologicallyderived-productcodes-s1195\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHPC, APHERESIS|NS/XX/\u0026lt;\u003d-120C|5% DMSO|Cryopreserved|Mobilized\u003c/td\u003e\u003ctd\u003eHPC, Apheresis product, 5% DMSO, mobilized, cryopreserved at \u0026lt;\u003d-120C\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003es1310\u003ca name\u003d\"biologicallyderived-productcodes-s1310\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHPC, APHERESIS|None/XX/refg|3rd Party Comp:Yes|Other Additives:Yes|Mobilized|CD34 enriched\u003c/td\u003e\u003ctd\u003eHPC, Apheresis product, third party components added, other additives added, mobilized, CD34 enriched, stored at refrigeration temperatures\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003es1398\u003ca name\u003d\"biologicallyderived-productcodes-s1398\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHPC, MARROW|NS/XX/rt|Plasma reduced\u003c/td\u003e\u003ctd\u003eHPC, Marrow, plasma reduced, stored at room temperature\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003es2598\u003ca name\u003d\"biologicallyderived-productcodes-s2598\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHPC, MARROW|NS/XX/\u0026lt;\u003d-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced\u003c/td\u003e\u003ctd\u003eHPC, MARROW|NS/XX/\u0026lt;\u003d-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ee4377\u003ca name\u003d\"biologicallyderived-productcodes-e4377\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eApheresis RED BLOOD CELLS|ACD-A/XX/refg|Irradiated|1st container\u003c/td\u003e\u003ctd\u003eRED BLOOD CELLS Apheresis product, ACD-A, Irradiated,1st container, stored at refrigeration temperatures\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003et1396\u003ca name\u003d\"biologicallyderived-productcodes-t1396\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBONE, FEMUR|Frozen|Right|Radiation sterilization\u003c/td\u003e\u003ctd\u003eBONE, FEMUR, Right, sterilized by radiation, stored at frozen temperatures\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/biologicallyderived-productcodes",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1998"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "BiologicallyDerivedProductCodes",
+  "title": "Biologically Derived Product Codes",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "e0398",
+      "display": "RED BLOOD CELLS|CPD\u003eAS5/450mL/refg|Irr|ResLeu",
+      "definition": "RED BLOOD CELLS|CPD\u003eAS5/450mL/refg|Irr|ResLeu"
+    },
+    {
+      "code": "s1128",
+      "display": "HPC, APHERESIS/Citrate/XX/refg/Mobilized",
+      "definition": "HPC, APHERESIS/Citrate/XX/refg/Mobilized"
+    },
+    {
+      "code": "s1194",
+      "display": "HPC, APHERESIS|NS/XX/\u003c\u003d-120C|10% DMSO|Cryopreserved|Mobilized",
+      "definition": "HPC, Apheresis product, 10% DMSO, mobilized, cryopreserved at \u003c\u003d-120C"
+    },
+    {
+      "code": "s1195",
+      "display": "HPC, APHERESIS|NS/XX/\u003c\u003d-120C|5% DMSO|Cryopreserved|Mobilized",
+      "definition": "HPC, Apheresis product, 5% DMSO, mobilized, cryopreserved at \u003c\u003d-120C"
+    },
+    {
+      "code": "s1310",
+      "display": "HPC, APHERESIS|None/XX/refg|3rd Party Comp:Yes|Other Additives:Yes|Mobilized|CD34 enriched",
+      "definition": "HPC, Apheresis product, third party components added, other additives added, mobilized, CD34 enriched, stored at refrigeration temperatures"
+    },
+    {
+      "code": "s1398",
+      "display": "HPC, MARROW|NS/XX/rt|Plasma reduced",
+      "definition": "HPC, Marrow, plasma reduced, stored at room temperature"
+    },
+    {
+      "code": "s2598",
+      "display": "HPC, MARROW|NS/XX/\u003c\u003d-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced",
+      "definition": "HPC, MARROW|NS/XX/\u003c\u003d-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced"
+    },
+    {
+      "code": "e4377",
+      "display": "Apheresis RED BLOOD CELLS|ACD-A/XX/refg|Irradiated|1st container",
+      "definition": "RED BLOOD CELLS Apheresis product, ACD-A, Irradiated,1st container, stored at refrigeration temperatures"
+    },
+    {
+      "code": "t1396",
+      "display": "BONE, FEMUR|Frozen|Right|Radiation sterilization",
+      "definition": "BONE, FEMUR, Right, sterilized by radiation, stored at frozen temperatures"
+    }
+  ]
+}

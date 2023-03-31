@@ -1,0 +1,64 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "questionnaire-answer-constraint",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/questionnaire-answer-constraint\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoptionsOnly\u003ca name\u003d\"questionnaire-answer-constraint-optionsOnly\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOptions only\u003c/td\u003e\u003ctd\u003eOnly values listed as answerOption or in the expansion of the answerValueSet are permitted\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoptionsOrType\u003ca name\u003d\"questionnaire-answer-constraint-optionsOrType\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOptions or \u0027type\u0027\u003c/td\u003e\u003ctd\u003eIn addition to the values listed as answerOption or in the expansion of the answerValueSet, any other values that correspond to the specified item.type are permitted\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoptionsOrString\u003ca name\u003d\"questionnaire-answer-constraint-optionsOrString\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOptions or string\u003c/td\u003e\u003ctd\u003eIn addition to the values listed as answerOption or in the expansion of the answerValueSet, free-text strings are permitted.  Answers will have a type of \u0027string\u0027.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/questionnaire-answer-constraint",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2019"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "QuestionnaireAnswerConstraint",
+  "title": "Questionnaire answer constraint codes",
+  "status": "active",
+  "experimental": true,
+  "publisher": "HL7 International",
+  "description": "Codes that describe the types of constraints possible on a question item that has a list of permitted answers",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "optionsOnly",
+      "display": "Options only",
+      "definition": "Only values listed as answerOption or in the expansion of the answerValueSet are permitted"
+    },
+    {
+      "code": "optionsOrType",
+      "display": "Options or \u0027type\u0027",
+      "definition": "In addition to the values listed as answerOption or in the expansion of the answerValueSet, any other values that correspond to the specified item.type are permitted"
+    },
+    {
+      "code": "optionsOrString",
+      "display": "Options or string",
+      "definition": "In addition to the values listed as answerOption or in the expansion of the answerValueSet, free-text strings are permitted.  Answers will have a type of \u0027string\u0027."
+    }
+  ]
+}

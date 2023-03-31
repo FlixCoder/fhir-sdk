@@ -1,0 +1,93 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "biologicallyderived-product-property-type-codes",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/biologicallyderived-product-property-type-codes\u003c/code\u003e defines some example codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecollectiontype\u003ca name\u003d\"biologicallyderived-product-property-type-codes-collectiontype\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCollection Type\u003c/td\u003e\u003ctd\u003eSee https://www.isbt128.org/uri/CollectionType\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eaborhd\u003ca name\u003d\"biologicallyderived-product-property-type-codes-aborhd\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eABORhD\u003c/td\u003e\u003ctd\u003eSee https://www.isbt128.org/uri/ABORhD\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esingleeuropeancode\u003ca name\u003d\"biologicallyderived-product-property-type-codes-singleeuropeancode\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSingle European Code\u003c/td\u003e\u003ctd\u003eSee https://www.isbt128.org/uri/SingleEuropeanCode\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eredcellantigen\u003ca name\u003d\"biologicallyderived-product-property-type-codes-redcellantigen\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRed Cell Antigen\u003c/td\u003e\u003ctd\u003eSee https://www.isbt128.org/uri/RedCellAntigen\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/biologicallyderived-product-property-type-codes",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1818"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "BiologicallyDerivedProductPropertyTypeCodes",
+  "title": "Biologically Derived Product Property Type Codes",
+  "status": "active",
+  "experimental": false,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Biologically Derived Product Property Type Code.  This code system http://hl7.org/fhir/biologicallyderived-product-property-type-codes is a subset of the codes defined in http://terminology.hl7.org/CodeSystem/ib",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes",
+  "content": "example",
+  "concept": [
+    {
+      "code": "collectiontype",
+      "display": "Collection Type",
+      "definition": "See https://www.isbt128.org/uri/CollectionType"
+    },
+    {
+      "code": "aborhd",
+      "display": "ABORhD",
+      "definition": "See https://www.isbt128.org/uri/ABORhD"
+    },
+    {
+      "code": "singleeuropeancode",
+      "display": "Single European Code",
+      "definition": "See https://www.isbt128.org/uri/SingleEuropeanCode"
+    },
+    {
+      "code": "redcellantigen",
+      "display": "Red Cell Antigen",
+      "definition": "See https://www.isbt128.org/uri/RedCellAntigen"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "conceptmap-properties",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/conceptmap-properties\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erelationshipRefinement\u003ca name\u003d\"conceptmap-properties-relationshipRefinement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRelationship Refinement\u003c/td\u003e\u003ctd\u003eProperty of type coding that indicates a specific refined relationship such as categorized by or grouped\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "vocab"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/conceptmap-properties",
+  "version": "5.0.0",
+  "name": "ConceptMapProperties",
+  "title": "FHIR Defined ConceptMap Properties",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project",
+  "description": "A set of common concept properties for use on ConceptMap",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "content": "complete",
+  "concept": [
+    {
+      "code": "relationshipRefinement",
+      "display": "Relationship Refinement",
+      "definition": "Property of type coding that indicates a specific refined relationship such as categorized by or grouped"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "device-category",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/device-category\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eactive\u003ca name\u003d\"device-category-active\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eActive\u003c/td\u003e\u003ctd\u003eDevice where the operation depends on a source of energy.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecommunicating\u003ca name\u003d\"device-category-communicating\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ecommunicating\u003c/td\u003e\u003ctd\u003eDevice communicates electronically to peer information systems or possibly another device.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003edme\u003ca name\u003d\"device-category-dme\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDurable Medical Equipment\u003c/td\u003e\u003ctd\u003eEquipment and supplies that provides therapeutic benefits to a patient.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ehome-use\u003ca name\u003d\"device-category-home-use\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMaintenance\u003c/td\u003e\u003ctd\u003eMedical device intended for users in a non-medical setting.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eimplantable\u003ca name\u003d\"device-category-implantable\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eImplantable\u003c/td\u003e\u003ctd\u003eA device that is placed into a surgically or naturally formed cavity of the human body.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ein-vitro\u003ca name\u003d\"device-category-in-vitro\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIn vitro\u003c/td\u003e\u003ctd\u003eTests done on samples such as blood or tissue that have been taken from the human body.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epoint-of-care\u003ca name\u003d\"device-category-point-of-care\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePoint of Care\u003c/td\u003e\u003ctd\u003ea class of communicating devices that are used by medical providers for various purposes (e.g., monitoring, delivering or measuring).\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esingle-use\u003ca name\u003d\"device-category-single-use\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSingle Use\u003c/td\u003e\u003ctd\u003eA device use on one individual during a single procedure.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereusable\u003ca name\u003d\"device-category-reusable\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReusable\u003c/td\u003e\u003ctd\u003eA device that healthcare providers can use to diagnose and treat one or more patients.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esoftware\u003ca name\u003d\"device-category-software\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSoftware\u003c/td\u003e\u003ctd\u003eA device that may include a software component or consist exclusively of software e.g. data transformer or converter, clinical support algorithms, clinical apps\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/device-category",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2105"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "FHIRDeviceCategory",
+  "title": "FHIR Device Category",
+  "status": "active",
+  "experimental": false,
+  "date": "2022-03-28T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The category of the device.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/device-category",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "active",
+      "display": "Active",
+      "definition": "Device where the operation depends on a source of energy."
+    },
+    {
+      "code": "communicating",
+      "display": "communicating",
+      "definition": "Device communicates electronically to peer information systems or possibly another device."
+    },
+    {
+      "code": "dme",
+      "display": "Durable Medical Equipment",
+      "definition": "Equipment and supplies that provides therapeutic benefits to a patient."
+    },
+    {
+      "code": "home-use",
+      "display": "Maintenance",
+      "definition": "Medical device intended for users in a non-medical setting."
+    },
+    {
+      "code": "implantable",
+      "display": "Implantable",
+      "definition": "A device that is placed into a surgically or naturally formed cavity of the human body."
+    },
+    {
+      "code": "in-vitro",
+      "display": "In vitro",
+      "definition": "Tests done on samples such as blood or tissue that have been taken from the human body."
+    },
+    {
+      "code": "point-of-care",
+      "display": "Point of Care",
+      "definition": "a class of communicating devices that are used by medical providers for various purposes (e.g., monitoring, delivering or measuring)."
+    },
+    {
+      "code": "single-use",
+      "display": "Single Use",
+      "definition": "A device use on one individual during a single procedure."
+    },
+    {
+      "code": "reusable",
+      "display": "Reusable",
+      "definition": "A device that healthcare providers can use to diagnose and treat one or more patients."
+    },
+    {
+      "code": "software",
+      "display": "Software",
+      "definition": "A device that may include a software component or consist exclusively of software e.g. data transformer or converter, clinical support algorithms, clinical apps"
+    }
+  ]
+}

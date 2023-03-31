@@ -1,0 +1,154 @@
+{
+  "resourceType": "OperationDefinition",
+  "id": "NamingSystem-translate-id",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eURL: [base]/NamingSystem/$translate-id\u003c/p\u003e\u003cp\u003eParameters\u003c/p\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eUse\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eName\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eScope\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCardinality\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eBinding\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDocumentation\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003eid\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#string\"\u003estring\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe server parses the provided identifier to see what type it is (e.g. a URI, an OID as a URI, a plain OID, or a v2 table 0396 code). If the server can\u0027t tell what type of identifier it is, it can try it as multiple types. It is an error if more than one system matches the provided identifier\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003esourceType\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#code\"\u003ecode\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"valueset-namingsystem-identifier-type.html\"\u003eNaming System Identifier Type\u003c/a\u003e (Required)\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003etargetType\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#code\"\u003ecode\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"valueset-namingsystem-identifier-type.html\"\u003eNaming System Identifier Type\u003c/a\u003e (Required)\u003c/td\u003e\u003ctd/\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003epreferredOnly\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#boolean\"\u003eboolean\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eIf preferredOnly \u003d true then return only the preferred identifier, or if preferredOnly \u003d false then return all available ids.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eIN\u003c/td\u003e\u003ctd\u003edate\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#dateTime\"\u003edateTime\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eIf \u0027date\u0027 is supplied return only ids that have a validity period that includes that date.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOUT\u003c/td\u003e\u003ctd\u003eresult\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e1..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#boolean\"\u003eboolean\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eTrue if the identifier could be translated successfully.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOUT\u003c/td\u003e\u003ctd\u003etargetIdentifier\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..*\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#string\"\u003estring\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe target identifer(s) of the requested type\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOUT\u003c/td\u003e\u003ctd\u003etargetIdentifer.preferred\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#boolean\"\u003eboolean\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eWhether the target identifier is preferred.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eOUT\u003c/td\u003e\u003ctd\u003etargetIdentifier.period\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e0..1\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"datatypes.html#Period\"\u003ePeriod\u003c/a\u003e\u003c/td\u003e\u003ctd/\u003e\u003ctd\u003e\u003cdiv\u003e\u003cp\u003eThe perioid when the target identifier is valid.\u003c/p\u003e\n\u003c/div\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cdiv\u003e\u003cp\u003eServers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type (\u003ca href\u003d\"namingsystem-definitions.html#NamingSystem.uniqueId.type\"\u003eNamingSystem.uniqueId.type\u003c/a\u003e).\u003c/p\u003e\n\u003cp\u003eIf the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier\u003c/p\u003e\n\u003c/div\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    }
+  ],
+  "url": "http://hl7.org/fhir/OperationDefinition/NamingSystem-translate-id",
+  "version": "5.0.0",
+  "name": "TranslateId",
+  "title": "Translate id",
+  "status": "draft",
+  "kind": "operation",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "This operation returns an identifier of the target type. The operation takes 5 parameters:     \n\n* a source identifier value - either a URI, an OID, or a v2 table 0396 (other) code  \n*  a code for what type of identifier the source identifier is     \n\n* a code for what kind of identifier is desired (URI, OID, v2 table 0396 identifier)     \n\n* an optional parameter preferredOnly for whether only the preferred identifier is desired     \n\n* an optional date to return only identifiers that have a validity period that includes that date   \n\nand returns either the requested identifier(s), or an HTTP errors response with an OperationOutcome because either the provided identifier was not recognized, or the requested identiifer type is not known.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "affectsState": false,
+  "code": "translate-id",
+  "comment": "Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([NamingSystem.uniqueId.type](namingsystem-definitions.html#NamingSystem.uniqueId.type)).  \n\nIf the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier",
+  "resource": [
+    "NamingSystem"
+  ],
+  "system": false,
+  "type": true,
+  "instance": false,
+  "parameter": [
+    {
+      "name": "id",
+      "use": "in",
+      "min": 1,
+      "max": "1",
+      "documentation": "The server parses the provided identifier to see what type it is (e.g. a URI, an OID as a URI, a plain OID, or a v2 table 0396 code). If the server can\u0027t tell what type of identifier it is, it can try it as multiple types. It is an error if more than one system matches the provided identifier",
+      "type": "string"
+    },
+    {
+      "name": "sourceType",
+      "use": "in",
+      "min": 1,
+      "max": "1",
+      "type": "code",
+      "binding": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString": "NamingSystemIdentifierType"
+          }
+        ],
+        "strength": "required",
+        "valueSet": "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|5.0.0"
+      }
+    },
+    {
+      "name": "targetType",
+      "use": "in",
+      "min": 1,
+      "max": "1",
+      "type": "code",
+      "binding": {
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString": "NamingSystemIdentifierType"
+          }
+        ],
+        "strength": "required",
+        "valueSet": "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type|5.0.0"
+      }
+    },
+    {
+      "name": "preferredOnly",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "If preferredOnly \u003d true then return only the preferred identifier, or if preferredOnly \u003d false then return all available ids.",
+      "type": "boolean"
+    },
+    {
+      "name": "date",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "documentation": "If \u0027date\u0027 is supplied return only ids that have a validity period that includes that date.",
+      "type": "dateTime"
+    },
+    {
+      "name": "result",
+      "use": "out",
+      "min": 1,
+      "max": "1",
+      "documentation": "True if the identifier could be translated successfully.",
+      "type": "boolean"
+    },
+    {
+      "name": "targetIdentifier",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "documentation": "The target identifer(s) of the requested type",
+      "type": "string"
+    },
+    {
+      "name": "targetIdentifer.preferred",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "documentation": "Whether the target identifier is preferred.",
+      "type": "boolean"
+    },
+    {
+      "name": "targetIdentifier.period",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "documentation": "The perioid when the target identifier is valid.",
+      "type": "Period"
+    }
+  ]
+}

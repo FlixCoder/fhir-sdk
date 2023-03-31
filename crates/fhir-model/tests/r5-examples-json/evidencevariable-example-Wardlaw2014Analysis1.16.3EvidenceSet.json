@@ -1,0 +1,85 @@
+{
+  "resourceType": "EvidenceVariable",
+  "id": "example-Wardlaw2014Analysis1.16.3EvidenceSet",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n\t\t  \n      \u003cp\u003e\n\t\t\t\u0026quot;Wardlaw 2014 Analysis 1.16.3 Evidence set\u0026quot; is a grouping of six Evidence results used in a meta-analysis.\n\t\t  \u003c/p\u003e\n\t\t\n    \u003c/div\u003e"
+  },
+  "name": "Wardlaw2014Analysis1163EvidenceSet",
+  "title": "Wardlaw 2014  Analysis 1.16.3  Evidence set",
+  "status": "draft",
+  "description": "Wardlaw 2014  Analysis 1.16.3  Evidence set",
+  "note": [
+    {
+      "text": "Short names for Evidence sources are detailed in \u0027References to studies included in this review\u0027"
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "citation",
+      "label": "Wardlaw 2014",
+      "display": "Analysis 1.16.3 from Wardlaw 2014",
+      "citation": "Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528",
+      "document": {
+        "url": "https://doi.org/10.1002/14651858.CD000213.pub3"
+      }
+    }
+  ],
+  "actual": true,
+  "characteristic": [
+    {
+      "description": "\u0027Wardlaw 2014 Analysis 1.16.3 Evidence set\u0027 is a grouping of six Evidence results used in a meta-analysis.",
+      "definitionByCombination": {
+        "code": "any-of",
+        "characteristic": [
+          {
+            "definitionReference": {
+              "type": "Evidence",
+              "display": "NINDS 1995"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Evidence",
+              "display": "ECASS 1995"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Evidence",
+              "display": "ECASS II 1998"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Evidence",
+              "display": "ATLANTIS B 1999"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Evidence",
+              "display": "ATLANTIS A 2000"
+            }
+          },
+          {
+            "definitionReference": {
+              "type": "Evidence",
+              "display": "IST3 2012"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "handling": "dichotomous",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

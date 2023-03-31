@@ -1,0 +1,152 @@
+{
+  "resourceType": "AuditEvent",
+  "id": "example-media",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: AuditEvent\u003c/b\u003e\u003ca name\u003d\"example-media\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource AuditEvent \u0026quot;example-media\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003ecategory\u003c/b\u003e: Export \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://dicom.nema.org/resources/ontology/DCM\"\u003eDICOM\u003c/a\u003e#110106)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Distribute Document Set on Media \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (unknown#ITI-32)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eaction\u003c/b\u003e: R\u003c/p\u003e\u003cp\u003e\u003cb\u003erecorded\u003c/b\u003e: 28 Aug 2015, 9:42:24 am\u003c/p\u003e\u003ch3\u003eOutcomes\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eSuccess (Details: http://terminology.hl7.org/CodeSystem/audit-event-outcome code 0 \u003d \u0027Success\u0027, stated as \u0027Success\u0027)\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eagent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: \u003cspan title\u003d\"  Source active participant, the software making the PIX query\n  UserId - The identity of the Patient Identifier Cross-reference Consumer Actor facility and sending application from the HL7 message; \n  concatenated together, separated by the | character. \n  AlternativeUserId - Process ID\n   \"\u003eSource Role ID \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://dicom.nema.org/resources/ontology/DCM\"\u003eDICOM\u003c/a\u003e#110153)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ewho\u003c/b\u003e: \u003cspan\u003e: ExportToMedia.app\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erequestor\u003c/b\u003e: false\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eagent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: \u003cspan title\u003d\"   The Human using the software, if known   \"\u003ehuman user \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-extra-security-role-type.html\"\u003eSecurity Role Type\u003c/a\u003e#humanuser)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ewho\u003c/b\u003e: \u003cspan\u003e: Grahame Grieve\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erequestor\u003c/b\u003e: true\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eagent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: \u003cspan title\u003d\"   The media exported onto   \"\u003eDestination Media \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://dicom.nema.org/resources/ontology/DCM\"\u003eDICOM\u003c/a\u003e#110154)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ewho\u003c/b\u003e: \u003cspan\u003e: Media title: Hello World\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erequestor\u003c/b\u003e: false\u003c/p\u003e\u003c/blockquote\u003e\u003ch3\u003eSources\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eObserver\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e\u003cspan\u003e: Cloud\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eentity\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ewhat\u003c/b\u003e: \u003cspan title\u003d\" \n  The Patient\n   \"\u003e\u003cspan/\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erole\u003c/b\u003e: Patient \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-object-role.html\"\u003eAuditEventEntityRole\u003c/a\u003e#1)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eentity\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ewhat\u003c/b\u003e: \u003cspan title\u003d\"  The SubmissionSet identifier  \"\u003e\u003cspan/\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erole\u003c/b\u003e: Job \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-object-role.html\"\u003eAuditEventEntityRole\u003c/a\u003e#20)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eentity\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ewhat\u003c/b\u003e: \u003cspan title\u003d\"  The Document Manifest exported  \"\u003e\u003ca href\u003d\"documentreference-example.html\"\u003eDocumentReference/example\u003c/a\u003e\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://dicom.nema.org/resources/ontology/DCM",
+          "code": "110106",
+          "display": "Export"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "urn:ihe:event-type-code",
+        "code": "ITI-32",
+        "display": "Distribute Document Set on Media"
+      }
+    ]
+  },
+  "action": "R",
+  "recorded": "2015-08-27T23:42:24Z",
+  "outcome": {
+    "code": {
+      "system": "http://terminology.hl7.org/CodeSystem/audit-event-outcome",
+      "code": "0",
+      "display": "Success"
+    }
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "110153",
+            "display": "Source Role ID"
+          }
+        ]
+      },
+      "who": {
+        "display": "ExportToMedia.app"
+      },
+      "requestor": false
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/extra-security-role-type",
+            "code": "humanuser",
+            "display": "human user"
+          }
+        ]
+      },
+      "who": {
+        "identifier": {
+          "value": "95"
+        },
+        "display": "Grahame Grieve"
+      },
+      "requestor": true
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "110154",
+            "display": "Destination Media"
+          }
+        ]
+      },
+      "who": {
+        "display": "Media title: Hello World"
+      },
+      "requestor": false
+    }
+  ],
+  "source": {
+    "observer": {
+      "identifier": {
+        "value": "hl7connect.healthintersections.com.au"
+      },
+      "display": "Cloud"
+    }
+  },
+  "entity": [
+    {
+      "what": {
+        "identifier": {
+          "value": "e3cdfc81a0d24bd^^^\u00262.16.840.1.113883.4.2\u0026ISO"
+        }
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/object-role",
+            "code": "1",
+            "display": "Patient"
+          }
+        ]
+      }
+    },
+    {
+      "what": {
+        "identifier": {
+          "type": {
+            "coding": [
+              {
+                "system": "urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd",
+                "code": "IHE XDS Metadata",
+                "display": "submission set classificationNode"
+              }
+            ]
+          },
+          "value": "e3cdfc81a0d24bd^^^\u00262.16.840.1.113883.4.2\u0026ISO"
+        }
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/object-role",
+            "code": "20",
+            "display": "Job"
+          }
+        ]
+      }
+    },
+    {
+      "what": {
+        "reference": "DocumentReference/example"
+      }
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

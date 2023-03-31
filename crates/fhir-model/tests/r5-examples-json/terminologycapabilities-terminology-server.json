@@ -1,0 +1,44 @@
+{
+  "resourceType": "TerminologyCapabilities",
+  "id": "example-terminology-server",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: TerminologyCapabilities\u003c/b\u003e\u003ca name\u003d\"example-terminology-server\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource TerminologyCapabilities \u0026quot;example-terminology-server\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eurl\u003c/b\u003e: \u003ccode\u003ehttp://hl7.org/fhir/TerminologyCapabilities/terminology-server\u003c/code\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: urn:oid:2.16.840.1.113883.4.642.6.1\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: ACMETerminologyServiceTerminologyCapabilities\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: ACME Terminology Service — Terminology Capabilities\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: draft\u003c/p\u003e\u003cp\u003e\u003cb\u003edate\u003c/b\u003e: 2022-09-01\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: ACME Terminology Service — Terminology Capabilities\u003c/p\u003e\u003cp\u003e\u003cb\u003ekind\u003c/b\u003e: instance\u003c/p\u003e\u003ch3\u003eImplementations\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eThe ACME FHIR Terminology Server\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecodeSystem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003euri\u003c/b\u003e: \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-snomed-CT.html\"\u003eSNOMED CT International Edition\u003c/a\u003e\u003c/p\u003e\u003ch3\u003eVersions\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003ehttp://snomed.info/sct/32506021000036107/version/20220831\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003econtent\u003c/b\u003e: complete\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecodeSystem\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003euri\u003c/b\u003e: \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-loinc.html\"\u003eLogical Observation Identifiers, Names and Codes (LOINC)\u003c/a\u003e\u003c/p\u003e\u003ch3\u003eVersions\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e2.73\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003econtent\u003c/b\u003e: complete\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/TerminologyCapabilities/terminology-server",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.6.1"
+    }
+  ],
+  "name": "ACMETerminologyServiceTerminologyCapabilities",
+  "title": "ACME Terminology Service — Terminology Capabilities",
+  "status": "draft",
+  "date": "2022-09-01",
+  "description": "ACME Terminology Service — Terminology Capabilities",
+  "kind": "instance",
+  "implementation": {
+    "description": "The ACME FHIR Terminology Server"
+  },
+  "codeSystem": [
+    {
+      "uri": "http://snomed.info/sct",
+      "version": [
+        {
+          "code": "http://snomed.info/sct/32506021000036107/version/20220831"
+        }
+      ],
+      "content": "complete"
+    },
+    {
+      "uri": "http://loinc.org",
+      "version": [
+        {
+          "code": "2.73"
+        }
+      ],
+      "content": "complete"
+    }
+  ]
+}

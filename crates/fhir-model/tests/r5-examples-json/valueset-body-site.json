@@ -1,0 +1,253 @@
+{
+  "resourceType": "ValueSet",
+  "id": "body-site",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/53075003\"\u003e53075003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal phalanx of hallux\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/76986006\"\u003e76986006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal phalanx of second toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/65258003\"\u003e65258003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal phalanx of third toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/54333003\"\u003e54333003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal phalanx of fourth toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/10770001\"\u003e10770001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal phalanx of fifth toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/363670009\"\u003e363670009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eInterphalangeal joint structure of great toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371216008\"\u003e371216008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal interphalangeal joint of second toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371219001\"\u003e371219001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal interphalangeal joint of third toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371205001\"\u003e371205001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal interphalangeal joint of fourth toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371203008\"\u003e371203008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDistal interphalangeal joint of fifth toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371292009\"\u003e371292009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProximal interphalangeal joint of second toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371255009\"\u003e371255009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProximal interphalangeal joint of third toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371288002\"\u003e371288002\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProximal interphalangeal joint of fourth toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/371284000\"\u003e371284000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eProximal interphalangeal joint of fifth toe\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/67169006\"\u003e67169006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHead of first metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/9677004\"\u003e9677004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHead of second metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/46971007\"\u003e46971007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHead of third metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/3134008\"\u003e3134008\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHead of fourth metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/71822005\"\u003e71822005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHead of fifth metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/89221001\"\u003e89221001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBase of first metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/90894004\"\u003e90894004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBase of second metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/89995006\"\u003e89995006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBase of third metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/15368009\"\u003e15368009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBase of fourth metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/30980004\"\u003e30980004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBase of fifth metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/38607000\"\u003e38607000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eStyloid process of fifth metatarsal bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/2979003\"\u003e2979003\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedial cuneiform bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/19193007\"\u003e19193007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIntermediate cuneiform bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/67411009\"\u003e67411009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLateral cuneiform bone\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/81012005\"\u003e81012005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBone structure of cuboid\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/75772009\"\u003e75772009\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBone structure of navicular\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/67453005\"\u003e67453005\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBone structure of talus\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/80144004\"\u003e80144004\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBone structure of calcaneum\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/6417001\"\u003e6417001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedial malleolus\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/113225006\"\u003e113225006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLateral malleolus of fibula\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/22457002\"\u003e22457002\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHead of fibula\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/45879002\"\u003e45879002\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTibial tuberosity\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/122474001\"\u003e122474001\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedial condyle of femur\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/122475000\"\u003e122475000\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLateral condyle of femur\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/69030007\"\u003e69030007\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIschial tuberosity\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"http://snomed.info/id/29850006\"\u003e29850006\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIliac crest\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  442083009 (Anatomical or acquired body structure)\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/body-site",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.141"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.653"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.78"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "SNOMEDCTBodyStructures",
+  "title": "SNOMED CT Body Structures",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes all codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 442083009 (Anatomical or acquired body site (body structure)).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": "53075003",
+            "display": "Distal phalanx of hallux"
+          },
+          {
+            "code": "76986006",
+            "display": "Distal phalanx of second toe"
+          },
+          {
+            "code": "65258003",
+            "display": "Distal phalanx of third toe"
+          },
+          {
+            "code": "54333003",
+            "display": "Distal phalanx of fourth toe"
+          },
+          {
+            "code": "10770001",
+            "display": "Distal phalanx of fifth toe"
+          },
+          {
+            "code": "363670009",
+            "display": "Interphalangeal joint structure of great toe"
+          },
+          {
+            "code": "371216008",
+            "display": "Distal interphalangeal joint of second toe"
+          },
+          {
+            "code": "371219001",
+            "display": "Distal interphalangeal joint of third toe"
+          },
+          {
+            "code": "371205001",
+            "display": "Distal interphalangeal joint of fourth toe"
+          },
+          {
+            "code": "371203008",
+            "display": "Distal interphalangeal joint of fifth toe"
+          },
+          {
+            "code": "371292009",
+            "display": "Proximal interphalangeal joint of second toe"
+          },
+          {
+            "code": "371255009",
+            "display": "Proximal interphalangeal joint of third toe"
+          },
+          {
+            "code": "371288002",
+            "display": "Proximal interphalangeal joint of fourth toe"
+          },
+          {
+            "code": "371284000",
+            "display": "Proximal interphalangeal joint of fifth toe"
+          },
+          {
+            "code": "67169006",
+            "display": "Head of first metatarsal bone"
+          },
+          {
+            "code": "9677004",
+            "display": "Head of second metatarsal bone"
+          },
+          {
+            "code": "46971007",
+            "display": "Head of third metatarsal bone"
+          },
+          {
+            "code": "3134008",
+            "display": "Head of fourth metatarsal bone"
+          },
+          {
+            "code": "71822005",
+            "display": "Head of fifth metatarsal bone"
+          },
+          {
+            "code": "89221001",
+            "display": "Base of first metatarsal bone"
+          },
+          {
+            "code": "90894004",
+            "display": "Base of second metatarsal bone"
+          },
+          {
+            "code": "89995006",
+            "display": "Base of third metatarsal bone"
+          },
+          {
+            "code": "15368009",
+            "display": "Base of fourth metatarsal bone"
+          },
+          {
+            "code": "30980004",
+            "display": "Base of fifth metatarsal bone"
+          },
+          {
+            "code": "38607000",
+            "display": "Styloid process of fifth metatarsal bone"
+          },
+          {
+            "code": "2979003",
+            "display": "Medial cuneiform bone"
+          },
+          {
+            "code": "19193007",
+            "display": "Intermediate cuneiform bone"
+          },
+          {
+            "code": "67411009",
+            "display": "Lateral cuneiform bone"
+          },
+          {
+            "code": "81012005",
+            "display": "Bone structure of cuboid"
+          },
+          {
+            "code": "75772009",
+            "display": "Bone structure of navicular"
+          },
+          {
+            "code": "67453005",
+            "display": "Bone structure of talus"
+          },
+          {
+            "code": "80144004",
+            "display": "Bone structure of calcaneum"
+          },
+          {
+            "code": "6417001",
+            "display": "Medial malleolus"
+          },
+          {
+            "code": "113225006",
+            "display": "Lateral malleolus of fibula"
+          },
+          {
+            "code": "22457002",
+            "display": "Head of fibula"
+          },
+          {
+            "code": "45879002",
+            "display": "Tibial tuberosity"
+          },
+          {
+            "code": "122474001",
+            "display": "Medial condyle of femur"
+          },
+          {
+            "code": "122475000",
+            "display": "Lateral condyle of femur"
+          },
+          {
+            "code": "69030007",
+            "display": "Ischial tuberosity"
+          },
+          {
+            "code": "29850006",
+            "display": "Iliac crest"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "442083009"
+          }
+        ]
+      }
+    ]
+  }
+}

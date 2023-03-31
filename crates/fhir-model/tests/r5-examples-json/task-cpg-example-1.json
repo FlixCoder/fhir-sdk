@@ -1,0 +1,34 @@
+{
+  "resourceType": "Task",
+  "id": "cpg-example-1",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Task\u003c/b\u003e\u003ca name\u003d\"cpg-example-1\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Task \u0026quot;cpg-example-1\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: \u003cspan title\u003d\" \u0026lt;instantiatesCanonical value\u003d\u0026quot;http://hl7.org/fhir/uv/cpg/ActivityDefinition/activity-example-collectinformation\u0026quot;/\u0026gt; \"\u003eready\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eintent\u003c/b\u003e: order\u003c/p\u003e\u003cp\u003e\u003cb\u003edoNotPerform\u003c/b\u003e: true\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Collect information \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efor\u003c/b\u003e: \u003ca href\u003d\"patient-example.html\"\u003ePatient/example\u003c/a\u003e \u0026quot;Peter CHALMERS\u0026quot;\u003c/p\u003e\u003ch3\u003eInputs\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eCollect information \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u003cspan title\u003d\" \u0026lt;valueCanonical value\u003d\u0026quot;http://hl7.org/fhir/uv/cpg/Questionnaire/activity-example-collectinformation\u0026quot;/\u0026gt; \"\u003e\u003ca href\u003d\"http://hl7.org/fhir/Questionnaire/f201\"\u003ehttp://hl7.org/fhir/Questionnaire/f201\u003c/a\u003e\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "status": "ready",
+  "intent": "order",
+  "doNotPerform": true,
+  "code": {
+    "text": "Collect information"
+  },
+  "for": {
+    "reference": "Patient/example"
+  },
+  "input": [
+    {
+      "type": {
+        "text": "Collect information"
+      },
+      "valueCanonical": "http://hl7.org/fhir/Questionnaire/f201"
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

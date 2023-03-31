@@ -1,0 +1,1292 @@
+{
+  "resourceType": "ResearchStudy",
+  "id": "example-ctgov-study-record",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: ResearchStudy\u003c/b\u003e\u003ca name\u003d\"example-ctgov-study-record\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource ResearchStudy \u0026quot;example-ctgov-study-record\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eurl\u003c/b\u003e: \u003ca href\u003d\"https://fevir.net/resources/ResearchStudy/112103\"\u003ehttps://fevir.net/resources/ResearchStudy/112103\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: FEvIR Object Identifier: 112103, id: NCT05503693 (use: OFFICIAL), id: AP303-PK-01\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_FHIR_Transform\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: A Safety, Tolerability, and Pharmacokinetics Study of AP303 in Healthy Subjects\u003c/p\u003e\u003ch3\u003eLabels\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eOfficial Title \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003ctd\u003eA Single-center Randomized Double-blind Placebo-controlled Study to Investigate the Safety Tolerability and PK of SAD and MAD of AP303 Following Oral Administration and the Effect of Food on the PK of AP303 in Healthy Subjects\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003erelatedArtifact\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: transforms\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edocument\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003erelatedArtifact\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: transformed-with\u003c/p\u003e\u003cp\u003e\u003cb\u003edisplay\u003c/b\u003e: Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003edocument\u003c/b\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003eprimaryPurposeType\u003c/b\u003e: Treatment \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-prim-purp-type.html\"\u003eResearchStudyPrimaryPurposeType\u003c/a\u003e#treatment)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ephase\u003c/b\u003e: Phase 1 \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-phase.html\"\u003eResearchStudyPhase\u003c/a\u003e#phase-1)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estudyDesign\u003c/b\u003e: Design Masking: Quadruple \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Design Who Masked: Participant \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Design Who Masked: Care Provider \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Design Who Masked: Investigator \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Design Who Masked: Outcomes Assessor \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Design Allocation: Randomized \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Design Intervention Model: Sequential Assignment \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, CT.gov StudyType: INTERVENTIONAL \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003econdition\u003c/b\u003e: Healthy Subjects \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ekeyword\u003c/b\u003e: Safety, Tolerability, Pharmacokinetics, AP303, Healthy Subjects \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescriptionSummary\u003c/b\u003e: This is a single-center, randomized, double-blind, placebo-controlled, first-in-human study in which the safety, tolerability, and pharmacokinetics of orally administered AP303 will be assessed in healthy adult subjects.\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: The study will consist of 2 parts: Part A is a single ascending doses (SAD) phase enrolling a total of 4 cohorts of healthy subjects; Part B is a multiple ascending doses (MAD) phase enrolling 3 cohorts of healthy subjects. One cohort of Part A will receive AP303 under both fasted and fed conditions to investigate the effect of food.\u003c/p\u003e\u003cp\u003e\u003cb\u003esite\u003c/b\u003e: \u003ca name\u003d\"NCT05503693-Location-0-ResearchStudy\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-Location-0-ResearchStudy\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003epartOf\u003c/b\u003e: \u003ca href\u003d\"#\"\u003e#\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003esite\u003c/b\u003e: \u003ca href\u003d\"#NCT05503693-Location-0\"\u003e#NCT05503693-Location-0\u003c/a\u003e\u003c/p\u003e\u003ch3\u003eProgressStatuses\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eState\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eRecruiting \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-research-study-status.html\"\u003eResearch Study Status\u003c/a\u003e#recruiting)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: Has Results: False \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Oversight Classifier: oversightHasDmc Yes \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Oversight Classifier: isFdaRegulatedDrug No \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e, Oversight Classifier: isFdaRegulatedDevice No \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eassociatedParty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Alebund Pharmaceuticals\u003c/p\u003e\u003cp\u003e\u003cb\u003erole\u003c/b\u003e: Sponsor \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-research-study-party-role.html\"\u003eResearch Study Party Role\u003c/a\u003e#sponsor)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: INDUSTRY \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eassociatedParty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Alebund Pty Ltd\u003c/p\u003e\u003cp\u003e\u003cb\u003erole\u003c/b\u003e: Lead Sponsor \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-research-study-party-role.html\"\u003eResearch Study Party Role\u003c/a\u003e#lead-sponsor)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: INDUSTRY \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eassociatedParty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Zhen LIU\u003c/p\u003e\u003cp\u003e\u003cb\u003erole\u003c/b\u003e: Recruitment Contact \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-research-study-party-role.html\"\u003eResearch Study Party Role\u003c/a\u003e#recruitment-contact)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclassifier\u003c/b\u003e: Contact \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eparty\u003c/b\u003e: \u003ca name\u003d\"NCT05503693-CentralContact-0\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-CentralContact-0\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Zhen LIU\u003c/p\u003e\u003cp\u003e\u003cb\u003etelecom\u003c/b\u003e: ph: 86 021-60836212, \u003ca href\u003d\"mailto:clinicaloperation@alebund.com\"\u003eclinicaloperation@alebund.com\u003c/a\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eassociatedParty\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Sam Francis, Doctor\u003c/p\u003e\u003cp\u003e\u003cb\u003erole\u003c/b\u003e: Principal Investigator \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eparty\u003c/b\u003e: \u003cspan\u003e: Nucleus Network\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eprogressStatus\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estate\u003c/b\u003e: Recruiting \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-research-study-status.html\"\u003eResearch Study Status\u003c/a\u003e#recruiting)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eprogressStatus\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003estate\u003c/b\u003e: Overall Study \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-research-study-status.html\"\u003eResearch Study Status\u003c/a\u003e#overall-study)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eactual\u003c/b\u003e: false\u003c/p\u003e\u003cp\u003e\u003cb\u003eperiod\u003c/b\u003e: 2022-12-06 --\u0026gt; 2023-06\u003c/p\u003e\u003c/blockquote\u003e\u003ch3\u003eRecruitments\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eTargetNumber\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEligibility\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e62\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"broken-link.html\"\u003ehttps://fevir.net/resources/EvidenceVariable/112075\u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomparisonGroup\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003elinkId\u003c/b\u003e: ap303\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: AP303\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Experimental \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: AP303\u003c/p\u003e\u003cp\u003e\u003cb\u003eintendedExposure\u003c/b\u003e: \u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-50-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-150-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-300-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-600-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-50-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______ap303_50_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: AP303 50 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: AP303 tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-150-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______ap303_150_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: AP303 150 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: AP303 tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-300-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______ap303_300_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: AP303 300 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: AP303 tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------ap303-600-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______ap303_600_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: AP303 600 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: AP303 tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ecomparisonGroup\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003elinkId\u003c/b\u003e: placebo\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Placebo\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Placebo Comparator \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Placebo\u003c/p\u003e\u003cp\u003e\u003cb\u003eintendedExposure\u003c/b\u003e: \u003c/p\u003e\u003cul\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-50-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-150-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-300-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003cli\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-600-g\"\u003e \u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-50-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______placebo_50_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Placebo 50 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Placebo tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-150-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______placebo_150_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Placebo 150 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Placebo tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-300-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______placebo_300_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Placebo 300 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Placebo tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp/\u003e\u003cp\u003e\u003ca name\u003d\"NCT05503693-drug------placebo-600-g\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: NCT05503693_drug______placebo_600_g\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Placebo 600 μg\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Placebo tablet\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eIntervention Type for CT.gov (Details: https://clinicaltrials.gov code interventionType \u003d \u0027interventionType\u0027, stated as \u0027Intervention Type for CT.gov\u0027)\u003c/td\u003e\u003ctd\u003eDRUG \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Single Dose and Food Effect Safety Outcome Measures\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Incidence and severity of adverse events (AEs), laboratory, ECG, and vital sign changes\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Multiple Dose Safety Outcome Measures\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Incidence and severity of AEs, laboratory, ECG, and vital sign changes.\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Cmax after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Tmax after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: AUC0-last after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: AUC0-inf after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: t1/2 after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: CL/F after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Ae and CLR (if warranted) after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: V/F after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after single dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Cmax after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Tmax after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: AUC0-τ after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Cav after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: t1/2 after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Rac after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Ae and CLR (if warranted) after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: V/F after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Ctrough after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Primary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#primary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: PK characteristics after multiple dose\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose Cmax\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose Tmax\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose AUC0-last\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose AUC0-inf\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose t1/2\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose CL/F\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose Ae and CLR (if warranted)\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eoutcomeMeasure\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: Effect of Food on the single dose V/F\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Secondary \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-research-study-objective-type.html\"\u003eResearchStudyObjectiveType\u003c/a\u003e#secondary)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Effect of food on the single dose PK\u003c/p\u003e\u003cp\u003e\u003cb\u003ereference\u003c/b\u003e: \u003cspan/\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "contained": [
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------ap303-50-g",
+      "name": "NCT05503693_drug______ap303_50_g",
+      "title": "AP303 50 μg",
+      "status": "active",
+      "description": "AP303 tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------ap303-150-g",
+      "name": "NCT05503693_drug______ap303_150_g",
+      "title": "AP303 150 μg",
+      "status": "active",
+      "description": "AP303 tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------ap303-300-g",
+      "name": "NCT05503693_drug______ap303_300_g",
+      "title": "AP303 300 μg",
+      "status": "active",
+      "description": "AP303 tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------ap303-600-g",
+      "name": "NCT05503693_drug______ap303_600_g",
+      "title": "AP303 600 μg",
+      "status": "active",
+      "description": "AP303 tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------placebo-50-g",
+      "name": "NCT05503693_drug______placebo_50_g",
+      "title": "Placebo 50 μg",
+      "status": "active",
+      "description": "Placebo tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------placebo-150-g",
+      "name": "NCT05503693_drug______placebo_150_g",
+      "title": "Placebo 150 μg",
+      "status": "active",
+      "description": "Placebo tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------placebo-300-g",
+      "name": "NCT05503693_drug______placebo_300_g",
+      "title": "Placebo 300 μg",
+      "status": "active",
+      "description": "Placebo tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "NCT05503693-drug------placebo-600-g",
+      "name": "NCT05503693_drug______placebo_600_g",
+      "title": "Placebo 600 μg",
+      "status": "active",
+      "description": "Placebo tablet",
+      "useContext": [
+        {
+          "code": {
+            "system": "https://clinicaltrials.gov",
+            "code": "interventionType",
+            "display": "Intervention Type for CT.gov"
+          },
+          "valueCodeableConcept": {
+            "text": "DRUG"
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Practitioner",
+      "id": "NCT05503693-CentralContact-0",
+      "name": [
+        {
+          "text": "Zhen LIU"
+        }
+      ],
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "86 021-60836212"
+        },
+        {
+          "system": "email",
+          "value": "clinicaloperation@alebund.com"
+        }
+      ]
+    },
+    {
+      "resourceType": "ResearchStudy",
+      "id": "NCT05503693-Location-0-ResearchStudy",
+      "partOf": [
+        {
+          "reference": "#",
+          "type": "ResearchStudy"
+        }
+      ],
+      "status": "active",
+      "site": [
+        {
+          "reference": "#NCT05503693-Location-0",
+          "type": "Location"
+        }
+      ],
+      "progressStatus": [
+        {
+          "state": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/research-study-status",
+                "code": "recruiting",
+                "display": "Recruiting"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "resourceType": "Location",
+      "id": "NCT05503693-Location-0",
+      "name": "Nucleus Network Pty Ltd",
+      "address": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "postalCode": "3004",
+        "country": "Australia"
+      },
+      "position": {
+        "longitude": 144.96332,
+        "latitude": -37.814
+      }
+    }
+  ],
+  "url": "https://fevir.net/resources/ResearchStudy/112103",
+  "identifier": [
+    {
+      "type": {
+        "text": "FEvIR Object Identifier"
+      },
+      "system": "https://fevir.net",
+      "value": "112103",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    },
+    {
+      "use": "official",
+      "system": "https://clinicaltrials.gov",
+      "value": "NCT05503693"
+    },
+    {
+      "value": "AP303-PK-01",
+      "assigner": {
+        "display": "Alebund Pharmaceuticals"
+      }
+    }
+  ],
+  "name": "NCT05503693_FHIR_Transform",
+  "title": "A Safety, Tolerability, and Pharmacokinetics Study of AP303 in Healthy Subjects",
+  "label": [
+    {
+      "type": {
+        "text": "Official Title"
+      },
+      "value": "A Single-center Randomized Double-blind Placebo-controlled Study to Investigate the Safety Tolerability and PK of SAD and MAD of AP303 Following Oral Administration and the Effect of Food on the PK of AP303 in Healthy Subjects"
+    }
+  ],
+  "relatedArtifact": [
+    {
+      "type": "transforms",
+      "document": {
+        "url": "https://beta.clinicaltrials.gov/api/v2/studies/NCT05503693"
+      }
+    },
+    {
+      "type": "transformed-with",
+      "display": "Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter",
+      "document": {
+        "url": "https://fevir.net/resources/Project/29885"
+      }
+    }
+  ],
+  "status": "active",
+  "primaryPurposeType": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type",
+        "code": "treatment",
+        "display": "Treatment"
+      }
+    ]
+  },
+  "phase": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/research-study-phase",
+        "code": "phase-1",
+        "display": "Phase 1"
+      }
+    ]
+  },
+  "studyDesign": [
+    {
+      "text": "Design Masking: Quadruple"
+    },
+    {
+      "text": "Design Who Masked: Participant"
+    },
+    {
+      "text": "Design Who Masked: Care Provider"
+    },
+    {
+      "text": "Design Who Masked: Investigator"
+    },
+    {
+      "text": "Design Who Masked: Outcomes Assessor"
+    },
+    {
+      "text": "Design Allocation: Randomized"
+    },
+    {
+      "text": "Design Intervention Model: Sequential Assignment"
+    },
+    {
+      "text": "CT.gov StudyType: INTERVENTIONAL"
+    }
+  ],
+  "condition": [
+    {
+      "text": "Healthy Subjects"
+    }
+  ],
+  "keyword": [
+    {
+      "text": "Safety, Tolerability, Pharmacokinetics, AP303, Healthy Subjects"
+    }
+  ],
+  "descriptionSummary": "This is a single-center, randomized, double-blind, placebo-controlled, first-in-human study in which the safety, tolerability, and pharmacokinetics of orally administered AP303 will be assessed in healthy adult subjects.",
+  "description": "The study will consist of 2 parts: Part A is a single ascending doses (SAD) phase enrolling a total of 4 cohorts of healthy subjects; Part B is a multiple ascending doses (MAD) phase enrolling 3 cohorts of healthy subjects. One cohort of Part A will receive AP303 under both fasted and fed conditions to investigate the effect of food.",
+  "site": [
+    {
+      "reference": "#NCT05503693-Location-0-ResearchStudy",
+      "type": "ResearchStudy"
+    }
+  ],
+  "classifier": [
+    {
+      "text": "Has Results: False"
+    },
+    {
+      "text": "Oversight Classifier: oversightHasDmc Yes"
+    },
+    {
+      "text": "Oversight Classifier: isFdaRegulatedDrug No"
+    },
+    {
+      "text": "Oversight Classifier: isFdaRegulatedDevice No"
+    }
+  ],
+  "associatedParty": [
+    {
+      "name": "Alebund Pharmaceuticals",
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-party-role",
+            "code": "sponsor",
+            "display": "Sponsor"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "INDUSTRY"
+        }
+      ]
+    },
+    {
+      "name": "Alebund Pty Ltd",
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-party-role",
+            "code": "lead-sponsor",
+            "display": "Lead Sponsor"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "INDUSTRY"
+        }
+      ]
+    },
+    {
+      "name": "Zhen LIU",
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-party-role",
+            "code": "recruitment-contact",
+            "display": "Recruitment Contact"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Contact"
+        }
+      ],
+      "party": {
+        "reference": "#NCT05503693-CentralContact-0",
+        "type": "Practitioner"
+      }
+    },
+    {
+      "name": "Sam Francis, Doctor",
+      "role": {
+        "text": "Principal Investigator"
+      },
+      "party": {
+        "display": "Nucleus Network"
+      }
+    }
+  ],
+  "progressStatus": [
+    {
+      "state": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-status",
+            "code": "recruiting",
+            "display": "Recruiting"
+          }
+        ]
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-status",
+            "code": "overall-study",
+            "display": "Overall Study"
+          }
+        ]
+      },
+      "actual": false,
+      "period": {
+        "start": "2022-12-06",
+        "end": "2023-06"
+      }
+    }
+  ],
+  "recruitment": {
+    "targetNumber": 62,
+    "eligibility": {
+      "reference": "https://fevir.net/resources/EvidenceVariable/112075",
+      "type": "EvidenceVariable",
+      "identifier": {
+        "type": {
+          "text": "FEvIR Linking Identifier"
+        },
+        "system": "https://fevir.net/FLI",
+        "value": "NCT05503693 Eligibility Criteria",
+        "assigner": {
+          "display": "Computable Publishing LLC"
+        }
+      }
+    }
+  },
+  "comparisonGroup": [
+    {
+      "linkId": "ap303",
+      "name": "AP303",
+      "type": {
+        "text": "Experimental"
+      },
+      "description": "AP303",
+      "intendedExposure": [
+        {
+          "reference": "#NCT05503693-drug------ap303-50-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: AP303 50 μg"
+        },
+        {
+          "reference": "#NCT05503693-drug------ap303-150-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: AP303 150 μg"
+        },
+        {
+          "reference": "#NCT05503693-drug------ap303-300-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: AP303 300 μg"
+        },
+        {
+          "reference": "#NCT05503693-drug------ap303-600-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: AP303 600 μg"
+        }
+      ]
+    },
+    {
+      "linkId": "placebo",
+      "name": "Placebo",
+      "type": {
+        "text": "Placebo Comparator"
+      },
+      "description": "Placebo",
+      "intendedExposure": [
+        {
+          "reference": "#NCT05503693-drug------placebo-50-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: Placebo 50 μg"
+        },
+        {
+          "reference": "#NCT05503693-drug------placebo-150-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: Placebo 150 μg"
+        },
+        {
+          "reference": "#NCT05503693-drug------placebo-300-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: Placebo 300 μg"
+        },
+        {
+          "reference": "#NCT05503693-drug------placebo-600-g",
+          "type": "EvidenceVariable",
+          "display": "Drug: Placebo 600 μg"
+        }
+      ]
+    }
+  ],
+  "outcomeMeasure": [
+    {
+      "name": "Single Dose and Food Effect Safety Outcome Measures",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "Incidence and severity of adverse events (AEs), laboratory, ECG, and vital sign changes",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-0",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Multiple Dose Safety Outcome Measures",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "Incidence and severity of AEs, laboratory, ECG, and vital sign changes.",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-1",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Cmax after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-2",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Tmax after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-3",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "AUC0-last after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-4",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "AUC0-inf after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-5",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "t1/2 after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-6",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "CL/F after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-7",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Ae and CLR (if warranted) after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-8",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "V/F after single dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after single dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-9",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Cmax after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-10",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Tmax after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-11",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "AUC0-τ after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-12",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Cav after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-13",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "t1/2 after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-14",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Rac after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-15",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Ae and CLR (if warranted) after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-16",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "V/F after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-17",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Ctrough after multiple dose",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "primary",
+              "display": "Primary"
+            }
+          ]
+        }
+      ],
+      "description": "PK characteristics after multiple dose",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-primaryOutcome-18",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose Cmax",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-0",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose Tmax",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-1",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose AUC0-last",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-2",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose AUC0-inf",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-3",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose t1/2",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-4",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose CL/F",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-5",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose Ae and CLR (if warranted)",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-6",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    },
+    {
+      "name": "Effect of Food on the single dose V/F",
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+              "code": "secondary",
+              "display": "Secondary"
+            }
+          ]
+        }
+      ],
+      "description": "Effect of food on the single dose PK",
+      "reference": {
+        "type": "EvidenceVariable",
+        "identifier": {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "system": "https://fevir.net/FLI",
+          "value": "NCT05503693-secondaryOutcome-7",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      }
+    }
+  ]
+}

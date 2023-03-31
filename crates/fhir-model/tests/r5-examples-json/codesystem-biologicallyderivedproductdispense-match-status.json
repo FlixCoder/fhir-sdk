@@ -1,0 +1,76 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "biologicallyderivedproductdispense-match-status",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/biologicallyderivedproductdispense-match-status\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecrossmatched\u003ca name\u003d\"biologicallyderivedproductdispense-match-status-crossmatched\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCrossmatched\u003c/td\u003e\u003ctd\u003eThe product has been serologically or electronically crossmatched for the recipient\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eselected\u003ca name\u003d\"biologicallyderivedproductdispense-match-status-selected\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSelected\u003c/td\u003e\u003ctd\u003eThe product has been selected for the specific use of the recipient\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eunmatched\u003ca name\u003d\"biologicallyderivedproductdispense-match-status-unmatched\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUnmatched\u003c/td\u003e\u003ctd\u003eNo specific matching has been carried out\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eleast-incompatible\u003ca name\u003d\"biologicallyderivedproductdispense-match-status-least-incompatible\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eleast incompatible\u003c/td\u003e\u003ctd\u003eThe product has been selected through crossmatching as least incompatible\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-match-status",
+  "version": "5.0.0",
+  "name": "BiologicallyDerivedProductDispenseMatchStatus",
+  "title": "Biologically derived product dispense - match status",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-01-29T21:19:50+01:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Biologically derived product dispense - match status",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status",
+  "content": "complete",
+  "count": 4,
+  "concept": [
+    {
+      "code": "crossmatched",
+      "display": "Crossmatched",
+      "definition": "The product has been serologically or electronically crossmatched for the recipient"
+    },
+    {
+      "code": "selected",
+      "display": "Selected",
+      "definition": "The product has been selected for the specific use of the recipient"
+    },
+    {
+      "code": "unmatched",
+      "display": "Unmatched",
+      "definition": "No specific matching has been carried out"
+    },
+    {
+      "code": "least-incompatible",
+      "display": "Least incompatible",
+      "definition": "The product has been selected through crossmatching as least incompatible"
+    }
+  ]
+}

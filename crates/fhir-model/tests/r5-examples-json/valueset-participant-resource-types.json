@@ -1,0 +1,108 @@
+{
+  "resourceType": "ValueSet",
+  "id": "participant-resource-types",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"codesystem-fhir-types.html\"\u003e\u003ccode\u003ehttp://hl7.org/fhir/fhir-types\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-CareTeam\"\u003eCareTeam\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCareTeam\u003c/td\u003e\u003ctd\u003eThe Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Device\"\u003eDevice\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eDevice\u003c/td\u003e\u003ctd\u003eThis resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the \u0027parent\u0027 element.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Group\"\u003eGroup\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGroup\u003c/td\u003e\u003ctd\u003eRepresents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn\u0027t an Organization.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-HealthcareService\"\u003eHealthcareService\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eHealthcareService\u003c/td\u003e\u003ctd\u003eThe details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -\u0026gt; Pathology -\u0026gt; Wound Cultures), this can be represented using a set of linked HealthcareServices.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Location\"\u003eLocation\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eLocation\u003c/td\u003e\u003ctd\u003eDetails and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Organization\"\u003eOrganization\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOrganization\u003c/td\u003e\u003ctd\u003eA formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Patient\"\u003ePatient\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePatient\u003c/td\u003e\u003ctd\u003eDemographics and other administrative information about an individual or animal receiving care or other health-related services.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-Practitioner\"\u003ePractitioner\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePractitioner\u003c/td\u003e\u003ctd\u003eA person who is directly or indirectly involved in the provisioning of healthcare or related services.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-PractitionerRole\"\u003ePractitionerRole\u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePractitionerRole\u003c/td\u003e\u003ctd\u003eA specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u003ca href\u003d\"codesystem-fhir-types.html#fhir-types-RelatedPerson\"\u003eRelatedPerson\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRelatedPerson\u003c/td\u003e\u003ctd\u003eInformation about a person that is involved in a patient\u0027s health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/participant-resource-types",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3301"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ParticipantResourceTypes",
+  "title": "Participant Resource Types",
+  "status": "active",
+  "experimental": true,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "All Resource Types that represent participant resources",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/fhir-types",
+        "concept": [
+          {
+            "code": "CareTeam"
+          },
+          {
+            "code": "Device"
+          },
+          {
+            "code": "Group"
+          },
+          {
+            "code": "HealthcareService"
+          },
+          {
+            "code": "Location"
+          },
+          {
+            "code": "Organization"
+          },
+          {
+            "code": "Patient"
+          },
+          {
+            "code": "Practitioner"
+          },
+          {
+            "code": "PractitionerRole"
+          },
+          {
+            "code": "RelatedPerson"
+          }
+        ]
+      }
+    ]
+  }
+}

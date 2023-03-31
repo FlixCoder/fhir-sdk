@@ -1,0 +1,91 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "biologicallyderivedproductdispense-performer-function",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/biologicallyderivedproductdispense-origin-relationship\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003egrouping\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-grouping\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eGrouping\u003c/td\u003e\u003ctd\u003eABO and RhD blood grouping procedure\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eantibody-screening\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-antibody-screening\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAntibody Screening\u003c/td\u003e\u003ctd\u003eAntibody screening procedure\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eantibody-identification\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-antibody-identification\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAntibody Identification\u003c/td\u003e\u003ctd\u003eAntibody identification procedure\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecrossmatch\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-crossmatch\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCrossmatch\u003c/td\u003e\u003ctd\u003eSerological or electronic crossmatch procedure\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erelease\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-release\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRelease\u003c/td\u003e\u003ctd\u003eApproval for release for clinical application\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003etransport\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-transport\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eTransport\u003c/td\u003e\u003ctd\u003eTransfer of product from the supply department to the site of clinical use\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ereceipt\u003ca name\u003d\"biologicallyderivedproductdispense-performer-function-receipt\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eReceipt\u003c/td\u003e\u003ctd\u003eReceipt of product for clinical application\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-performer-function",
+  "version": "5.0.0",
+  "name": "BiologicallyDerivedProductDispensePerformerFunction",
+  "title": "Biologically derived product dispense - performer function",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-01-29T21:19:50+01:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Biologically derived product dispense - performer function",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function",
+  "content": "complete",
+  "count": 7,
+  "concept": [
+    {
+      "code": "group-and-type",
+      "display": "Group and Type",
+      "definition": "ABO and RhD blood grouping procedure"
+    },
+    {
+      "code": "antibody-screen",
+      "display": "Antibody Screen",
+      "definition": "Antibody screening procedure"
+    },
+    {
+      "code": "antibody-identification",
+      "display": "Antibody Identification",
+      "definition": "Antibody identification procedure"
+    },
+    {
+      "code": "crossmatch",
+      "display": "Crossmatch",
+      "definition": "Serological or electronic crossmatch procedure"
+    },
+    {
+      "code": "release",
+      "display": "Release",
+      "definition": "Approval for release for clinical application"
+    },
+    {
+      "code": "transport",
+      "display": "Transport",
+      "definition": "Transfer of product from the supply department to the site of clinical use"
+    },
+    {
+      "code": "receipt",
+      "display": "Receipt",
+      "definition": "Receipt of product for clinical application"
+    }
+  ]
+}

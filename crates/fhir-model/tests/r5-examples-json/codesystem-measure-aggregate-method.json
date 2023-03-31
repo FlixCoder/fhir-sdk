@@ -1,0 +1,91 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "measure-aggregate-method",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/measure-aggregate-method\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003esum\u003ca name\u003d\"measure-aggregate-method-sum\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSum\u003c/td\u003e\u003ctd\u003eThe measure score is determined by adding together the observations derived from the measure population.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eaverage\u003ca name\u003d\"measure-aggregate-method-average\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAverage\u003c/td\u003e\u003ctd\u003eThe measure score is determined by taking the average of the observations derived from the measure population.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emedian\u003ca name\u003d\"measure-aggregate-method-median\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMedian\u003c/td\u003e\u003ctd\u003eThe measure score is determined by taking the median of the observations derived from the measure population.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eminimum\u003ca name\u003d\"measure-aggregate-method-minimum\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMinimum\u003c/td\u003e\u003ctd\u003eThe measure score is determined by taking the minimum of the observations derived from the measure population.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emaximum\u003ca name\u003d\"measure-aggregate-method-maximum\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMaximum\u003c/td\u003e\u003ctd\u003eThe measure score is determined by taking the maximum of the observations derived from the measure population.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecount\u003ca name\u003d\"measure-aggregate-method-count\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCount\u003c/td\u003e\u003ctd\u003eThe measure score is determined as the number of observations derived from the measure population.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cqi"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/measure-aggregate-method",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2044"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "MeasureAggregateMethod",
+  "title": "Measure Aggregate Method",
+  "status": "active",
+  "experimental": false,
+  "date": "2019-03-14T23:21:03-06:00",
+  "publisher": "Clinical Quality Information WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        }
+      ]
+    }
+  ],
+  "description": "Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/aggregate-method",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "sum",
+      "display": "Sum",
+      "definition": "The measure score is determined by adding together the observations derived from the measure population."
+    },
+    {
+      "code": "average",
+      "display": "Average",
+      "definition": "The measure score is determined by taking the average of the observations derived from the measure population."
+    },
+    {
+      "code": "median",
+      "display": "Median",
+      "definition": "The measure score is determined by taking the median of the observations derived from the measure population."
+    },
+    {
+      "code": "minimum",
+      "display": "Minimum",
+      "definition": "The measure score is determined by taking the minimum of the observations derived from the measure population."
+    },
+    {
+      "code": "maximum",
+      "display": "Maximum",
+      "definition": "The measure score is determined by taking the maximum of the observations derived from the measure population."
+    },
+    {
+      "code": "count",
+      "display": "Count",
+      "definition": "The measure score is determined as the number of observations derived from the measure population."
+    }
+  ]
+}

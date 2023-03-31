@@ -1,0 +1,103 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "guidance-module-code",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/guidance-module-code\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ebmi-calculator\u003ca name\u003d\"guidance-module-code-bmi-calculator\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eBMI Calculator\u003c/td\u003e\u003ctd\u003eA Body Mass Index (BMI) calculator.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003emme-calculator\u003ca name\u003d\"guidance-module-code-mme-calculator\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMME Calculator\u003c/td\u003e\u003ctd\u003eA Morphine Milligram Equivalent (MME) calculator.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eopioid-cds\u003ca name\u003d\"guidance-module-code-opioid-cds\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOpioid CDS\u003c/td\u003e\u003ctd\u003eClinical Decision Support for Opioid Prescribing.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eanc-cds\u003ca name\u003d\"guidance-module-code-anc-cds\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eANC CDS\u003c/td\u003e\u003ctd\u003eClinical Decision Support for Antenatal Care.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003echf-pathway\u003ca name\u003d\"guidance-module-code-chf-pathway\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCHF Pathway\u003c/td\u003e\u003ctd\u003eCongestive Heart Failure Pathway\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecovid-19-severity\u003ca name\u003d\"guidance-module-code-covid-19-severity\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCOVID-19 Severity Score\u003c/td\u003e\u003ctd\u003eA COVID-19 Severity Score Calculator.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "cds"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/guidance-module-code",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2103"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "GuidanceModuleCode",
+  "title": "Guidance Module Code",
+  "status": "active",
+  "experimental": true,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Example guidance module codes.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/guidance-module-code",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "bmi-calculator",
+      "display": "BMI Calculator",
+      "definition": "A Body Mass Index (BMI) calculator."
+    },
+    {
+      "code": "mme-calculator",
+      "display": "MME Calculator",
+      "definition": "A Morphine Milligram Equivalent (MME) calculator."
+    },
+    {
+      "code": "opioid-cds",
+      "display": "Opioid CDS",
+      "definition": "Clinical Decision Support for Opioid Prescribing."
+    },
+    {
+      "code": "anc-cds",
+      "display": "ANC CDS",
+      "definition": "Clinical Decision Support for Antenatal Care."
+    },
+    {
+      "code": "chf-pathway",
+      "display": "CHF Pathway",
+      "definition": "Congestive Heart Failure Pathway"
+    },
+    {
+      "code": "covid-19-severity",
+      "display": "COVID-19 Severity Score",
+      "definition": "A COVID-19 Severity Score Calculator."
+    }
+  ]
+}

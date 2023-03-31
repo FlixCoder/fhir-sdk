@@ -1,0 +1,143 @@
+{
+  "resourceType": "ValueSet",
+  "id": "appointment-recurrrence-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://unitsofmeasure.org\"\u003e\u003ccode\u003ehttp://unitsofmeasure.org\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003e中文 (Chinese, zh)\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ed\u003c/td\u003e\u003ctd\u003eday\u003c/td\u003e\u003ctd\u003eday\u003c/td\u003e\u003ctd\u003e天\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ewk\u003c/td\u003e\u003ctd\u003eweek\u003c/td\u003e\u003ctd\u003eweek\u003c/td\u003e\u003ctd\u003e星期\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003emo\u003c/td\u003e\u003ctd\u003emonth\u003c/td\u003e\u003ctd\u003emonth - Normal practice is to use the \u0027mo\u0027 code as a calendar month when calculating the            next occurrence.\u003c/td\u003e\u003ctd\u003e月\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003ea\u003c/td\u003e\u003ctd\u003eyear\u003c/td\u003e\u003ctd\u003eyear\u003c/td\u003e\u003ctd\u003e年\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/appointment-recurrrence-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.2995"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AppointmentRecurrenceType",
+  "title": "Appointment Recurrence Type",
+  "status": "draft",
+  "experimental": false,
+  "date": "2022-03-01",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The recurrence type of a recurring appointment.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "immutable": true,
+  "copyright": "The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://unitsofmeasure.org",
+        "concept": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+                "valueString": "day"
+              }
+            ],
+            "code": "d",
+            "display": "day",
+            "designation": [
+              {
+                "language": "zh",
+                "value": "天"
+              }
+            ]
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+                "valueString": "week"
+              }
+            ],
+            "code": "wk",
+            "display": "week",
+            "designation": [
+              {
+                "language": "zh",
+                "value": "星期"
+              }
+            ]
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+                "valueString": "month - Normal practice is to use the \u0027mo\u0027 code as a calendar month when calculating the            next occurrence."
+              }
+            ],
+            "code": "mo",
+            "display": "month",
+            "designation": [
+              {
+                "language": "zh",
+                "value": "月"
+              }
+            ]
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/valueset-concept-definition",
+                "valueString": "year"
+              }
+            ],
+            "code": "a",
+            "display": "year",
+            "designation": [
+              {
+                "language": "zh",
+                "value": "年"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "concept-map-relationship",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/concept-map-relationship\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erelated-to\u003ca name\u003d\"concept-map-relationship-related-to\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eRelated To\u003c/td\u003e\u003ctd\u003eThe concepts are related to each other, but the exact relationship is not known.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  equivalent\u003ca name\u003d\"concept-map-relationship-equivalent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eEquivalent\u003c/td\u003e\u003ctd\u003eThe definitions of the concepts mean the same thing.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  source-is-narrower-than-target\u003ca name\u003d\"concept-map-relationship-source-is-narrower-than-target\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSource Is Narrower Than Target\u003c/td\u003e\u003ctd\u003eThe source concept is narrower in meaning than the target concept.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  source-is-broader-than-target\u003ca name\u003d\"concept-map-relationship-source-is-broader-than-target\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSource Is Broader Than Target\u003c/td\u003e\u003ctd\u003eThe source concept is broader in meaning than the target concept.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003enot-related-to\u003ca name\u003d\"concept-map-relationship-not-related-to\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eNot Related To\u003c/td\u003e\u003ctd\u003eThis is an explicit assertion that the target concept is not related to the source concept.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    }
+  ],
+  "url": "http://hl7.org/fhir/concept-map-relationship",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1986"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "ConceptMapRelationship",
+  "title": "ConceptMapRelationship",
+  "status": "draft",
+  "experimental": false,
+  "date": "2023-03-26T15:21:02+11:00",
+  "description": "The relationship between concepts.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/concept-map-relationship",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "related-to",
+      "display": "Related To",
+      "definition": "The concepts are related to each other, but the exact relationship is not known.",
+      "concept": [
+        {
+          "code": "equivalent",
+          "display": "Equivalent",
+          "definition": "The definitions of the concepts mean the same thing."
+        },
+        {
+          "code": "source-is-narrower-than-target",
+          "display": "Source Is Narrower Than Target",
+          "definition": "The source concept is narrower in meaning than the target concept."
+        },
+        {
+          "code": "source-is-broader-than-target",
+          "display": "Source Is Broader Than Target",
+          "definition": "The source concept is broader in meaning than the target concept."
+        }
+      ]
+    },
+    {
+      "code": "not-related-to",
+      "display": "Not Related To",
+      "definition": "This is an explicit assertion that the target concept is not related to the source concept."
+    }
+  ]
+}

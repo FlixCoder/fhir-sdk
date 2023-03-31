@@ -1,0 +1,104 @@
+{
+  "resourceType": "SpecimenDefinition",
+  "id": "7",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: SpecimenDefinition\u003c/b\u003e\u003ca name\u003d\"7\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource SpecimenDefinition \u0026quot;7\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eurl\u003c/b\u003e: \u003ccode\u003ehttp://example-lab.com/specdef/123455\u003c/code\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: 123455\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Venous blood specimen\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003eexperimental\u003c/b\u003e: true\u003c/p\u003e\u003cp\u003e\u003cb\u003etypeCollected\u003c/b\u003e: Venous blood specimen (specimen) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#122555007)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003epatientPreparation\u003c/b\u003e: no strict fasting \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003etypeTested\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eisDerived\u003c/b\u003e: true\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: Serum specimen (specimen) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#119364003)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003epreference\u003c/b\u003e: preferred\u003c/p\u003e\u003ch3\u003eContainers\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eMaterial\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCap\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eMinimumVolume[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eglass \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003ctd\u003eEvacuated blood collection tube with thrombin and clot activator and gel separator \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#702281005)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003eyellow cap \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (CodeSystem-container-cap.html#yellow)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e2 ml\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mL \u003d \u0027mL\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ehandling\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etemperatureQualifier\u003c/b\u003e: room temperature \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ([not stated]#room)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etemperatureRange\u003c/b\u003e: 15-25 °C\u003c/p\u003e\u003ch3\u003eMaxDurations\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eSystem\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e12\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-ucum.html\"\u003eUnified Code for Units of Measure (UCUM)\u003c/a\u003e\u003c/td\u003e\u003ctd\u003eh\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "url": "http://example-lab.com/specdef/123455",
+  "identifier": {
+    "value": "123455"
+  },
+  "title": "Venous blood specimen",
+  "status": "active",
+  "experimental": true,
+  "typeCollected": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "122555007"
+      }
+    ],
+    "text": "Venous blood specimen (specimen)"
+  },
+  "patientPreparation": [
+    {
+      "text": "no strict fasting"
+    }
+  ],
+  "typeTested": [
+    {
+      "isDerived": true,
+      "type": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "119364003"
+          }
+        ],
+        "text": "Serum specimen (specimen)"
+      },
+      "preference": "preferred",
+      "container": {
+        "material": {
+          "text": "glass"
+        },
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "702281005",
+              "display": "Evacuated blood collection tube with thrombin and clot activator and gel separator"
+            }
+          ]
+        },
+        "cap": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/5.1.0/CodeSystem-container-cap.html",
+              "code": "yellow",
+              "display": "yellow cap"
+            }
+          ]
+        },
+        "minimumVolumeQuantity": {
+          "value": 2,
+          "unit": "ml",
+          "system": "http://unitsofmeasure.org",
+          "code": "mL"
+        }
+      },
+      "handling": [
+        {
+          "temperatureQualifier": {
+            "coding": [
+              {
+                "code": "room",
+                "display": "room temperature"
+              }
+            ]
+          },
+          "temperatureRange": {
+            "low": {
+              "value": 15,
+              "unit": "°C",
+              "system": "http://unitsofmeasure.org",
+              "code": "Cel"
+            },
+            "high": {
+              "value": 25,
+              "unit": "°C",
+              "system": "http://unitsofmeasure.org",
+              "code": "Cel"
+            }
+          },
+          "maxDuration": {
+            "value": 12,
+            "system": "http://unitsofmeasure.org",
+            "code": "h"
+          }
+        }
+      ]
+    }
+  ]
+}

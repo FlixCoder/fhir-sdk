@@ -1,0 +1,98 @@
+{
+  "resourceType": "Patient",
+  "id": "infant-twin-2",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp style\u003d\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\"\u003e\u003cb\u003eJacen Solo (OFFICIAL)\u003c/b\u003e male, DoB: 2017-05-15 ( Medical record number: MRN7465676978)\u003c/p\u003e\u003chr/\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd style\u003d\"background-color: #f3f5da\" title\u003d\"Known multipleBirth status of Patient\"\u003eMultiple Birth:\u003c/td\u003e\u003ctd colspan\u003d\"3\"\u003e2\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"background-color: #f3f5da\" title\u003d\"Other Ids (see the one above)\"\u003eOther Id:\u003c/td\u003e\u003ctd colspan\u003d\"3\"\u003eid: 7465676978\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"background-color: #f3f5da\" title\u003d\"Nominated Contact: Mother\"\u003eMother:\u003c/td\u003e\u003ctd colspan\u003d\"3\"\u003e\u003cul\u003e\u003cli\u003eLeia Organa (MAIDEN)\u003c/li\u003e\u003cli\u003e\u003ca href\u003d\"tel:+31201234567\"\u003e+31201234567\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"background-color: #f3f5da\" title\u003d\"Mother\u0027s maiden (unmarried) name, commonly collected to help verify patient identity.\"\u003e\u003ca href\u003d\"http://hl7.org/fhir/extensions/StructureDefinition-patient-mothersMaidenName.html\"\u003ePatient Mother\u0027s Maiden Name:\u003c/a\u003e\u003c/td\u003e\u003ctd colspan\u003d\"3\"\u003e\u003cul\u003e\u003cli\u003eOrgana\u003c/li\u003e\u003c/ul\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName",
+      "valueString": "Organa"
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "http://coruscanthealth.org/main-hospital/patient-identifier",
+      "value": "MRN7465676978"
+    },
+    {
+      "system": "http://new-republic.gov/galactic-citizen-identifier",
+      "value": "7465676978"
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Solo",
+      "given": [
+        "Jacen"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2017-05-15",
+  "_birthDate": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+        "valueDateTime": "2017-05-15T17:11:30+01:00"
+      }
+    ]
+  },
+  "multipleBirthInteger": 2,
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "72705000",
+              "display": "Mother"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0131",
+              "code": "N"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+              "code": "MTH"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "use": "maiden",
+        "family": "Organa",
+        "given": [
+          "Leia"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+31201234567",
+          "use": "mobile"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

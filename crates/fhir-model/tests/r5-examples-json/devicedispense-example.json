@@ -1,0 +1,33 @@
+{
+  "resourceType": "DeviceDispense",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e[Put rendering here]\u003c/div\u003e"
+  },
+  "status": "completed",
+  "device": {
+    "concept": {
+      "coding": [
+        {
+          "system": "https://www.gs1.org/gtin",
+          "code": "00613994223838",
+          "display": "ADAPTA (TM) Pacemaker"
+        }
+      ]
+    }
+  },
+  "subject": {
+    "reference": "Patient/pat1",
+    "display": "Donald Duck"
+  },
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

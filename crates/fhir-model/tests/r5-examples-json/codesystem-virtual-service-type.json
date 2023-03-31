@@ -1,0 +1,74 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "virtual-service-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/virtual-service-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ezoom\u003ca name\u003d\"virtual-service-type-zoom\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eZoom web conferencing\u003c/td\u003e\u003ctd\u003ethe amount is the base price used for calculating the total price before applying surcharges, discount or taxes.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ems-teams\u003ca name\u003d\"virtual-service-type-ms-teams\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eMicrosoft Teams\u003c/td\u003e\u003ctd\u003eMicrosoft Teams web conferencing meeting\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ewhatsapp\u003ca name\u003d\"virtual-service-type-whatsapp\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eWhatsApp conference call\u003c/td\u003e\u003ctd\u003eA conference call using the WhatsApp conference call service\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/virtual-service-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.1809"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "VirtualServiceType",
+  "title": "Virtual Service Type",
+  "status": "draft",
+  "experimental": true,
+  "date": "2021-01-05T10:01:24+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "Example codes for possible virtual service connection types.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/virtual-service-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "zoom",
+      "display": "Zoom web conferencing",
+      "definition": "the amount is the base price used for calculating the total price before applying surcharges, discount or taxes."
+    },
+    {
+      "code": "ms-teams",
+      "display": "Microsoft Teams",
+      "definition": "Microsoft Teams web conferencing meeting"
+    },
+    {
+      "code": "whatsapp",
+      "display": "WhatsApp conference call",
+      "definition": "A conference call using the WhatsApp conference call service"
+    }
+  ]
+}

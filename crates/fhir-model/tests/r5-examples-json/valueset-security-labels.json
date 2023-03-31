@@ -1,0 +1,112 @@
+{
+  "resourceType": "ValueSet",
+  "id": "security-labels",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/ValueSet-v3-Confidentiality.html\"\u003eConfidentiality\u003c/a\u003e\u003c/li\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/ValueSet-v3-InformationSensitivityPolicy.html\"\u003eInformationSensitivityPolicy\u003c/a\u003e\u003c/li\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/ValueSet-v3-Compartment.html\"\u003eCompartment\u003c/a\u003e\u003c/li\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/ValueSet-v3-SecurityIntegrityObservationValue.html\"\u003eSecurityIntegrityObservationValue\u003c/a\u003e\u003c/li\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/ValueSet-v3-SecurityControlObservationValue.html\"\u003eSecurityControlObservationValue\u003c/a\u003e\u003c/li\u003e\u003cli\u003eImport all the codes that are contained in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/ValueSet-v3-ActUSPrivacyLaw.html\"\u003eActUSPrivacyLaw\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/security-labels",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.47"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.46"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.31"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AllSecurityLabels",
+  "title": "All Security Labels",
+  "status": "active",
+  "experimental": false,
+  "date": "2014-07-28",
+  "publisher": "FHIR project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "A single value set for all security labels defined by FHIR.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://terminology.hl7.org/ValueSet/v3-Confidentiality"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://terminology.hl7.org/ValueSet/v3-InformationSensitivityPolicy"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://terminology.hl7.org/ValueSet/v3-Compartment"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://terminology.hl7.org/ValueSet/v3-SecurityIntegrityObservationValue"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://terminology.hl7.org/ValueSet/v3-SecurityControlObservationValue"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://terminology.hl7.org/ValueSet/v3-ActUSPrivacyLaw"
+        ]
+      }
+    ]
+  }
+}

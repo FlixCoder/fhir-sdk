@@ -1,0 +1,93 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "assert-manual-completion-codes",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/assert-manual-completion-codes\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003efail\u003ca name\u003d\"assert-manual-completion-codes-fail\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eFail\u003c/td\u003e\u003ctd\u003eMark the currently waiting test failed and proceed with the next assert if the stopTestOnFail is false or the next test in the TestScript if the stopTestOnFail is true.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epass\u003ca name\u003d\"assert-manual-completion-codes-pass\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePass\u003c/td\u003e\u003ctd\u003eMark the currently waiting test passed (if the test is not failed already) and proceed with the next action in the TestScript.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eskip\u003ca name\u003d\"assert-manual-completion-codes-skip\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eSkip\u003c/td\u003e\u003ctd\u003eMark this assert as skipped and proceed with the next action in the TestScript.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003estop\u003ca name\u003d\"assert-manual-completion-codes-stop\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eStop\u003c/td\u003e\u003ctd\u003eStop execution of this TestScript. The overall status of this TestScript is evaluated based on the status of the completed tests.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    }
+  ],
+  "url": "http://hl7.org/fhir/assert-manual-completion-codes",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.703"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AssertionManualCompletionType",
+  "title": "Assertion Manual Completion Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2022-12-20T09:24:24-05:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The type of manual completion to use for assertion.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/assert-manual-completion-codes",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "fail",
+      "display": "Fail",
+      "definition": "Mark the currently waiting test failed and proceed with the next assert if the stopTestOnFail is false or the next test in the TestScript if the stopTestOnFail is true."
+    },
+    {
+      "code": "pass",
+      "display": "Pass",
+      "definition": "Mark the currently waiting test passed (if the test is not failed already) and proceed with the next action in the TestScript."
+    },
+    {
+      "code": "skip",
+      "display": "Skip",
+      "definition": "Mark this assert as skipped and proceed with the next action in the TestScript."
+    },
+    {
+      "code": "stop",
+      "display": "Stop",
+      "definition": "Stop execution of this TestScript. The overall status of this TestScript is evaluated based on the status of the completed tests."
+    }
+  ]
+}

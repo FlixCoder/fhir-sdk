@@ -1,0 +1,82 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "administration-subpotent-reason",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/CodeSystem/administration-subpotent-reason\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd\u003e\u003cb\u003eLvl\u003c/b\u003e\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003epartialdose\u003ca name\u003d\"administration-subpotent-reason-partialdose\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003ePartial Dose\u003c/td\u003e\u003ctd\u003eThe full amount of the dose was not administered to the patient.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e2\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e  vomited\u003ca name\u003d\"administration-subpotent-reason-vomited\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eVomited\u003c/td\u003e\u003ctd\u003eThe patient vomited part of the dose.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ecoldchainbreak\u003ca name\u003d\"administration-subpotent-reason-coldchainbreak\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eCold Chain Break\u003c/td\u003e\u003ctd\u003eThe medication experienced a cold chain break.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003erecall\u003ca name\u003d\"administration-subpotent-reason-recall\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eManufacturer Recall\u003c/td\u003e\u003ctd\u003eThe medication was recalled by the manufacturer.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eadversestorage\u003ca name\u003d\"administration-subpotent-reason-adversestorage\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eAdverse Storage\u003c/td\u003e\u003ctd\u003eThe medication experienced adverse storage conditions.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e1\u003c/td\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eexpired\u003ca name\u003d\"administration-subpotent-reason-expired\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eExpired Product\u003c/td\u003e\u003ctd\u003eThe medication was expired at the time of administration.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/CodeSystem/administration-subpotent-reason",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2001"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AdministrationSubPotentReason",
+  "title": "Administration SubPotent Reason",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 International",
+  "description": "This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "hierarchyMeaning": "is-a",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "partialdose",
+      "display": "Partial Dose",
+      "definition": "The full amount of the dose was not administered to the patient.",
+      "concept": [
+        {
+          "code": "vomited",
+          "display": "Vomited",
+          "definition": "The patient vomited part of the dose."
+        }
+      ]
+    },
+    {
+      "code": "coldchainbreak",
+      "display": "Cold Chain Break",
+      "definition": "The medication experienced a cold chain break."
+    },
+    {
+      "code": "recall",
+      "display": "Manufacturer Recall",
+      "definition": "The medication was recalled by the manufacturer."
+    },
+    {
+      "code": "adversestorage",
+      "display": "Adverse Storage",
+      "definition": "The medication experienced adverse storage conditions."
+    },
+    {
+      "code": "expired",
+      "display": "Expired Product",
+      "definition": "The medication was expired at the time of administration."
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "resourceType": "ChargeItemDefinition",
+  "id": "device",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: ChargeItemDefinition\u003c/b\u003e\u003ca name\u003d\"device\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource ChargeItemDefinition \u0026quot;device\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eurl\u003c/b\u003e: \u003ccode\u003ehttp://sap.org/ChargeItemDefinition/device-123\u003c/code\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: urn:oid:2.16.840.1.113883.4.642.29.2\u003c/p\u003e\u003cp\u003e\u003cb\u003ename\u003c/b\u003e: CustomDevice345675\u003c/p\u003e\u003cp\u003e\u003cb\u003etitle\u003c/b\u003e: Financial details for custom made device (345675)\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003edate\u003c/b\u003e: 2023-02\u003c/p\u003e\u003cp\u003e\u003cb\u003epublisher\u003c/b\u003e: Example Publisher\u003c/p\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Financial details for custom made device\u003c/p\u003e\u003ch3\u003eUseContexts\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue[x]\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eClinical Venue (Details: http://terminology.hl7.org/CodeSystem/usage-context-type code venue \u003d \u0027Clinical Venue\u0027, stated as \u0027null\u0027)\u003c/td\u003e\u003ctd\u003eOutpatient environment \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#440655000)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eAge Range (Details: http://terminology.hl7.org/CodeSystem/usage-context-type code age \u003d \u0027Age Range\u0027, stated as \u0027null\u0027)\u003c/td\u003e\u003ctd\u003e\u0026gt;18 yrs\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code a \u003d \u0027a\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003ejurisdiction\u003c/b\u003e: World \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (m49.htm#001)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003einstance\u003c/b\u003e: \u003ca href\u003d\"device-example.html\"\u003eDevice/example\u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eapplicability\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eConditions\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDescription\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eLanguage\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eExpression\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eVerify ChargeItem pertains to Device 12345\u003c/td\u003e\u003ctd\u003etext/fhirpath\u003c/td\u003e\u003ctd\u003e\u003cspan title\u003d\"  syntax of expression may be incorrect, but you get the idea \"\u003e%context.service.suppliedItem.reference\u003d\u0027Device/12345\u0027\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003epropertyGroup\u003c/b\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003epriceComponent\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: base\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Verkaufspreis (netto) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (billing-attributes#VK)\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eamount\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cspan title\u003d\"Euro\"\u003e€67.44\u003c/span\u003e (EUR)\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003epropertyGroup\u003c/b\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eapplicability\u003c/b\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econdition\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cspan title\u003d\"text/fhirpath\"\u003e\u003ccode\u003e%context.occurenceDateTime \u0026gt; \u00272018-04-01\u0027\u003c/code\u003e\u003c/span\u003e(\u0026quot;Gültigkeit Steuersatz\u0026quot;)\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003ch3\u003ePriceComponents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eFactor\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003etax\u003c/td\u003e\u003ctd\u003eMehrwersteuersatz \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (billing-attributes#MWST)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e1.19\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003epropertyGroup\u003c/b\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eapplicability\u003c/b\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003econdition\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cspan title\u003d\"text/fhirpath\"\u003e\u003ccode\u003e%context.occurenceDateTime \u0026lt;\u003d \u00272018-04-01\u0027\u003c/code\u003e\u003c/span\u003e(\u0026quot;Gültigkeit Steuersatz\u0026quot;)\u003c/p\u003e\u003c/blockquote\u003e\u003c/blockquote\u003e\u003ch3\u003ePriceComponents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eFactor\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003etax\u003c/td\u003e\u003ctd\u003eMehrwersteuersatz \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (billing-attributes#MWST)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e1.07\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "url": "http://sap.org/ChargeItemDefinition/device-123",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.29.2"
+    }
+  ],
+  "name": "CustomDevice345675",
+  "title": "Financial details for custom made device (345675)",
+  "status": "active",
+  "date": "2023-02",
+  "publisher": "Example Publisher",
+  "description": "Financial details for custom made device",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "venue"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "440655000",
+            "display": "Outpatient environment"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "system": "http://terminology.hl7.org/CodeSystem/usage-context-type",
+        "code": "age"
+      },
+      "valueQuantity": {
+        "value": 18,
+        "comparator": "\u003e",
+        "unit": "yrs",
+        "system": "http://unitsofmeasure.org",
+        "code": "a"
+      }
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "instance": [
+    {
+      "reference": "Device/example"
+    }
+  ],
+  "applicability": [
+    {
+      "condition": {
+        "description": "Verify ChargeItem pertains to Device 12345",
+        "language": "text/fhirpath",
+        "expression": "%context.service.suppliedItem.reference\u003d\u0027Device/12345\u0027"
+      }
+    }
+  ],
+  "propertyGroup": [
+    {
+      "priceComponent": [
+        {
+          "type": "base",
+          "code": {
+            "coding": [
+              {
+                "system": "http://fhir.de/CodeSystem/billing-attributes",
+                "code": "VK",
+                "display": "Verkaufspreis (netto)"
+              }
+            ]
+          },
+          "amount": {
+            "value": 67.44,
+            "currency": "EUR"
+          }
+        }
+      ]
+    },
+    {
+      "applicability": [
+        {
+          "condition": {
+            "description": "Gültigkeit Steuersatz",
+            "language": "text/fhirpath",
+            "expression": "%context.occurenceDateTime \u003e \u00272018-04-01\u0027"
+          }
+        }
+      ],
+      "priceComponent": [
+        {
+          "type": "tax",
+          "code": {
+            "coding": [
+              {
+                "system": "http://fhir.de/CodeSystem/billing-attributes",
+                "code": "MWST",
+                "display": "Mehrwersteuersatz"
+              }
+            ]
+          },
+          "factor": 1.19
+        }
+      ]
+    },
+    {
+      "applicability": [
+        {
+          "condition": {
+            "description": "Gültigkeit Steuersatz",
+            "language": "text/fhirpath",
+            "expression": "%context.occurenceDateTime \u003c\u003d \u00272018-04-01\u0027"
+          }
+        }
+      ],
+      "priceComponent": [
+        {
+          "type": "tax",
+          "code": {
+            "coding": [
+              {
+                "system": "http://fhir.de/CodeSystem/billing-attributes",
+                "code": "MWST",
+                "display": "Mehrwersteuersatz"
+              }
+            ]
+          },
+          "factor": 1.07
+        }
+      ]
+    }
+  ]
+}

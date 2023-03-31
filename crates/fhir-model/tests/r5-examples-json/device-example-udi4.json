@@ -1,0 +1,28 @@
+{
+  "resourceType": "Device",
+  "id": "example-udi4",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Device\u003c/b\u003e\u003ca name\u003d\"example-udi4\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Device \u0026quot;example-udi4\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003ch3\u003eUdiCarriers\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDeviceIdentifier\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eIssuer\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eJurisdiction\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCarrierHRF\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eA4599XQZ990T0474\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://hl7.org/fhir/NamingSystem/iccbba-blood\"\u003ehttp://hl7.org/fhir/NamingSystem/iccbba-blood\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://hl7.org/fhir/NamingSystem/fda-udi\"\u003ehttp://hl7.org/fhir/NamingSystem/fda-udi\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003d)1TE123456A\u0026amp;)RZ12345678\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: inactive\u003c/p\u003e\u003cp\u003e\u003cb\u003emanufacturer\u003c/b\u003e: GlobalMed, Inc\u003c/p\u003e\u003cp\u003e\u003cb\u003elotNumber\u003c/b\u003e: RZ12345678\u003c/p\u003e\u003c/div\u003e"
+  },
+  "udiCarrier": [
+    {
+      "deviceIdentifier": "A4599XQZ990T0474",
+      "issuer": "http://hl7.org/fhir/NamingSystem/iccbba-blood",
+      "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi",
+      "carrierHRF": "\u003d)1TE123456A\u0026)RZ12345678"
+    }
+  ],
+  "status": "inactive",
+  "manufacturer": "GlobalMed, Inc",
+  "lotNumber": "RZ12345678",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

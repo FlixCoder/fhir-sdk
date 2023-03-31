@@ -1,0 +1,674 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "message-adt-a04-to-bundle",
+  "text": {
+    "status": "extensions",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003ch2\u003eMessageADT_A04toBundle (http://hl7.org/fhir/uv/v2mappings/message-adt-a04-to-bundle)\u003c/h2\u003e\n      \u003cp\u003eMapping from (not specified) to (not specified)\u003c/p\u003e\n      \u003cp\u003eACTIVE (not intended for production usage). Published on 2020-08-12 by HL7 International (HL7 Orders and Observations Workgroup: \n        \u003ca href\u003d\"http://hl7.org/Special/committees/orders/index.cfm\"\u003ehttp://hl7.org/Special/committ...\u003c/a\u003e, Keith W. Boone: \n        \u003ca href\u003d\"mailto:kboone@ainq.com\"\u003ekboone@ainq.com\u003c/a\u003e). Copyright (c) 2020, HL7 International, Inc., All Rights Reserved.\n      \u003c/p\u003e\n      \u003cdiv\u003e\n        \u003cp\u003eThis ConceptMap represents a mapping from the HL7 V2 Message ADT_A04 to the FHIR Message Bundle.\u003c/p\u003e\n\n      \u003c/div\u003e\n      \u003cbr/\u003e\n      \u003cp\u003e\n        \u003cb\u003eGroup 1\u003c/b\u003eMapping from \n        \u003ccode\u003eunspecified code system\u003c/code\u003e to \n        \u003ccode\u003eunspecified code system\u003c/code\u003e\n      \u003c/p\u003e\n      \u003ctable class\u003d\"grid\"\u003e\n        \u003ctr\u003e\n          \u003ctd\u003e\n            \u003cb\u003eSource Code\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003eRelationship\u003c/b\u003e\n          \u003c/td\u003e\n          \u003ctd\u003e\n            \u003cb\u003eTarget Code\u003c/b\u003e\n          \u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.MSH (Message Header)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eBundle\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.MSH (Message Header)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eMessageHeader[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.MSH (Message Header)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eProvenance[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.SFT (Software Segment)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eMessageHeader[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.EVN (Event Type)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eProvenance[3]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.PID (Patient Identification)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003ePatient[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.PD1 (Additional Demographics)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003ePatient[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04:follow:PID.ARV (Access Restrictions)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003ePatient[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04:follow:PID.ROL (Role)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003ePatient[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04:follow:PID.ROL (Role)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eRelatedPerson[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.NEXT_OF_KIN.NK1 (Next of Kin / Associated Parties)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eRelatedPerson[2]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.NEXT_OF_KIN.NK1 (Next of Kin / Associated Parties)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003ePatient[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.PV1 (Patient Visit)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEncounter[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.PV1 (Patient Visit)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003ePatient[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.PV2 (Patient Visit - Additional Info.)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEncounter[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04:follow:PV1.ARV (Access Restrictions)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEncounter[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.ROL (Role)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEncounter[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.OBSERVATIONADT_A04.OBX (Observation/Result)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eObservation\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.OBSERVATIONADT_A04.OBX (Observation/Result)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eObservation\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.AL1 (Allergy Information)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eAllergyIntolerance\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.DG1 (Diagnosis Information)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eCondition\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.DG1 (Diagnosis Information)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEncounter[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.DG1 (Diagnosis Information)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEncounter[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.DG1 (Diagnosis Information)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eEpisodeOfCare[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.PROCEDUREADT_A04.PR1 (Procedures)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eProcedure\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.INSURANCEADT_A04.IN1 (Insurance)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eCoverage[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.INSURANCEADT_A04.IN2 (Insurance Additional Info.)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eCoverage[1]\u003c/td\u003e\n        \u003c/tr\u003e\n        \u003ctr\u003e\n          \u003ctd\u003eADT_A04.INSURANCEADT_A04.IN3 (Insurance Additional Info - Cert.)\u003c/td\u003e\n          \u003ctd\u003e\n            \u003ca href\u003d\"codesystem-concept-map-relationship.html#equivalent\" title\u003d\"equivalent\"\u003eis equivalent to\u003c/a\u003e\n          \u003c/td\u003e\n          \u003ctd\u003eCoverage[1]\u003c/td\u003e\n        \u003c/tr\u003e\n      \u003c/table\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/uv/v2mappings/message-adt-a04-to-bundle",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.14.2"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "MessageADT_A04toBundle",
+  "title": "Message A D T_ A04to Bundle",
+  "status": "active",
+  "experimental": true,
+  "date": "2020-08-12",
+  "publisher": "HL7 International",
+  "contact": [
+    {
+      "name": "HL7 Orders and Observations Workgroup",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/Special/committees/orders/index.cfm"
+        }
+      ]
+    },
+    {
+      "name": "Keith W. Boone",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "kboone@ainq.com"
+        }
+      ]
+    }
+  ],
+  "description": "This ConceptMap represents a mapping from the HL7 V2 Message ADT_A04 to the FHIR Message Bundle.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001"
+        }
+      ]
+    }
+  ],
+  "copyright": "Copyright (c) 2020, HL7 International, Inc., All Rights Reserved.",
+  "property": [
+    {
+      "code": "segment-map",
+      "type": "string"
+    },
+    {
+      "code": "references",
+      "type": "string"
+    },
+    {
+      "code": "antlr",
+      "type": "string"
+    },
+    {
+      "code": "fhirpath",
+      "type": "string"
+    },
+    {
+      "code": "narrative",
+      "type": "string"
+    }
+  ],
+  "group": [
+    {
+      "element": [
+        {
+          "code": "ADT_A04.MSH",
+          "display": "Message Header",
+          "target": [
+            {
+              "code": "Bundle",
+              "display": "Bundle",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "MSH[Bundle]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.MSH",
+          "display": "Message Header",
+          "target": [
+            {
+              "code": "MessageHeader[1]",
+              "display": "MessageHeader[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "MSH[MessageHeader]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.MSH",
+          "display": "Message Header",
+          "target": [
+            {
+              "code": "Provenance[1]",
+              "display": "Provenance[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "MSH[Provenance]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Provenance.target\u003dBundle; Provenance.target\u003dMessageHeader[MSH]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.SFT",
+          "display": "Software Segment",
+          "target": [
+            {
+              "code": "MessageHeader[1]",
+              "display": "MessageHeader[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "SFT[MessageHeader]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.EVN",
+          "display": "Event Type",
+          "target": [
+            {
+              "code": "Provenance[3]",
+              "display": "Provenance[3]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "EVN[Provenance]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Provenance.target\u003dBundle; Provenance.target\u003dMessageHeader[MSH]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.PID",
+          "display": "Patient Identification",
+          "target": [
+            {
+              "code": "Patient[1]",
+              "display": "Patient[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "PID[Patient]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.PD1",
+          "display": "Additional Demographics",
+          "target": [
+            {
+              "code": "Patient[1]",
+              "display": "Patient[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "PD1[Patient]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04:follow:PID.ARV",
+          "display": "Access Restrictions",
+          "target": [
+            {
+              "code": "Patient[1]",
+              "display": "Patient[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "ARV[Patient]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Resource\u003dPatient[1]"
+                },
+                {
+                  "code": "antlr",
+                  "valueString": "IF ARV-1 IN (\"PID\", \"PD1\") AND ARV-3 NOT VALUED"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04:follow:PID.ROL",
+          "display": "Role",
+          "target": [
+            {
+              "code": "Patient[1]",
+              "display": "Patient[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "ROL[Patient-PractitionerRole]"
+                },
+                {
+                  "code": "antlr",
+                  "valueString": "IF ROL-3.1 EQUALS \"PP\" AND ROL-3.3 EQUALS \"HL70443\""
+                },
+                {
+                  "code": "fhirpath",
+                  "valueString": "(element(\"3.1\")\u003d\"PP\")and(element(\"3.3\")\u003d\"HL70443\")"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04:follow:PID.ROL",
+          "display": "Role",
+          "target": [
+            {
+              "code": "RelatedPerson[1]",
+              "display": "RelatedPerson[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "ROL[RelatedPerson]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "RelatedPerson[1].patient.reference\u003dPatient[1].id"
+                },
+                {
+                  "code": "antlr",
+                  "valueString": "IF ROL-3.1 NOT EQUALS  \"PP\" OR ROL-3.3 NOT EQUALS \"HL70443\""
+                },
+                {
+                  "code": "fhirpath",
+                  "valueString": "(element(\"3.1\")!\u003d\"PP\")or(element(\"3.3\")!\u003d\"HL70443\")"
+                },
+                {
+                  "code": "narrative",
+                  "valueString": "While most likely all other HL70443 values go to RelatedPerson, the implementation needs to determine whether that is fully accurate."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.NEXT_OF_KIN.NK1",
+          "display": "Next of Kin / Associated Parties",
+          "target": [
+            {
+              "code": "RelatedPerson[2]",
+              "display": "RelatedPerson[2]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "NK1[RelatedPerson]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "RelatedPerson[2].patient.reference\u003dPatient[1].id"
+                },
+                {
+                  "code": "narrative",
+                  "valueString": "The FHIR location will depend on the nature of the data being exchanged and how the systems use next of kin data"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.NEXT_OF_KIN.NK1",
+          "display": "Next of Kin / Associated Parties",
+          "target": [
+            {
+              "code": "Patient[1]",
+              "display": "Patient[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "NK1[Patient]"
+                },
+                {
+                  "code": "narrative",
+                  "valueString": "The FHIR location will depend on the nature of the data being exchanged and how the systems use next of kin data"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.PV1",
+          "display": "Patient Visit",
+          "target": [
+            {
+              "code": "Encounter[1]",
+              "display": "Encounter[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "PV1[Encounter]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Encounter[1].subject.reference\u003dPatient[1].id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.PV1",
+          "display": "Patient Visit",
+          "target": [
+            {
+              "code": "Patient[1]",
+              "display": "Patient[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "PV1[Patient]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.PV2",
+          "display": "Patient Visit - Additional Info.",
+          "target": [
+            {
+              "code": "Encounter[1]",
+              "display": "Encounter[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "PV2[Encounter]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04:follow:PV1.ARV",
+          "display": "Access Restrictions",
+          "target": [
+            {
+              "code": "Encounter[1]",
+              "display": "Encounter[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "ARV[Encounter]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Resource\u003dEncounter[1]"
+                },
+                {
+                  "code": "antlr",
+                  "valueString": "IF ARV-1 IN (\"PV1\", \"PV2\") AND ARV-3 NOT VALUED"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.ROL",
+          "display": "Role",
+          "target": [
+            {
+              "code": "Encounter[1]",
+              "display": "Encounter[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "ROL[Encounter-PractitionerRole]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.OBSERVATIONADT_A04.OBX",
+          "display": "Observation/Result",
+          "target": [
+            {
+              "code": "Observation",
+              "display": "Observation",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "OBX[Observation]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Observation.subject.reference\u003dPatient[1].id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.OBSERVATIONADT_A04.OBX",
+          "display": "Observation/Result",
+          "target": [
+            {
+              "code": "Observation",
+              "display": "Observation",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "OBX[Observation-Component]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Observation.subject.reference\u003dPatient[1].id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.AL1",
+          "display": "Allergy Information",
+          "target": [
+            {
+              "code": "AllergyIntolerance",
+              "display": "AllergyIntolerance",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "AL1[AllergyIntolerance]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "AllergyIntolerance.patient.reference\u003dPatient[1].id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.DG1",
+          "display": "Diagnosis Information",
+          "target": [
+            {
+              "code": "Condition",
+              "display": "Condition",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "DG1[Condition]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Condition.subject.reference\u003dPatient[1].id"
+                },
+                {
+                  "code": "narrative",
+                  "valueString": "If in context of the patient"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.DG1",
+          "display": "Diagnosis Information",
+          "target": [
+            {
+              "code": "Encounter[1]",
+              "display": "Encounter[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "DG1[Encounter]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Encounter[1].diagnosis.reference\u003dCondition[1].id"
+                },
+                {
+                  "code": "antlr",
+                  "valueString": "IF DG1-6 EQUALS \"admitting\""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.DG1",
+          "display": "Diagnosis Information",
+          "target": [
+            {
+              "code": "Encounter[1]",
+              "display": "Encounter[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "DG1[Encounter]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Encounter[1].diagnosis.reference\u003dCondition[1].id"
+                },
+                {
+                  "code": "narrative",
+                  "valueString": "If in context of an encounter"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.DG1",
+          "display": "Diagnosis Information",
+          "target": [
+            {
+              "code": "EpisodeOfCare[1]",
+              "display": "EpisodeOfCare[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "DG1[EpisodeOfCare]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "EpisodeOfCare.diagnosis.reference\u003dCondition[1].id"
+                },
+                {
+                  "code": "narrative",
+                  "valueString": "If in context of an episode of care"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.PROCEDUREADT_A04.PR1",
+          "display": "Procedures",
+          "target": [
+            {
+              "code": "Procedure",
+              "display": "Procedure",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "PR1[Procedure]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Procedure.subject.reference\u003dPatient[1].id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.INSURANCEADT_A04.IN1",
+          "display": "Insurance",
+          "target": [
+            {
+              "code": "Coverage[1]",
+              "display": "Coverage[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "IN1[Coverage]"
+                },
+                {
+                  "code": "references",
+                  "valueString": "Coverage.subscriber.reference\u003dPatient[1].id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.INSURANCEADT_A04.IN2",
+          "display": "Insurance Additional Info.",
+          "target": [
+            {
+              "code": "Coverage[1]",
+              "display": "Coverage[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "IN2[Coverage]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADT_A04.INSURANCEADT_A04.IN3",
+          "display": "Insurance Additional Info - Cert.",
+          "target": [
+            {
+              "code": "Coverage[1]",
+              "display": "Coverage[1]",
+              "relationship": "equivalent",
+              "property": [
+                {
+                  "code": "segment-map",
+                  "valueString": "IN3[Coverage]"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

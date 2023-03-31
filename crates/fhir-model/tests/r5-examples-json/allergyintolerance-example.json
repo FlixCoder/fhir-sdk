@@ -1,0 +1,164 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: AllergyIntolerance\u003c/b\u003e\u003ca name\u003d\"example\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource AllergyIntolerance \u0026quot;example\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: \u003cspan title\u003d\"  an identifier used for this allergic propensity (adverse reaction risk)  \"\u003eid: 49476534\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eclinicalStatus\u003c/b\u003e: \u003cspan title\u003d\"  this individual has had several reactions  \"\u003eActive \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-allergyintolerance-clinical.html\"\u003eAllergyIntolerance Clinical Status Codes\u003c/a\u003e#active)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003everificationStatus\u003c/b\u003e: Confirmed \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-allergyintolerance-verification.html\"\u003eAllergyIntolerance Verification Status\u003c/a\u003e#confirmed)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003etype\u003c/b\u003e: \u003cspan title\u003d\"  note: it\u0027s often unknown whether an allergy is mediated by an immune response, and not as significant as once thought  \"\u003eAllergy \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-allergy-intolerance-type.html\"\u003eAllergy Intolerance Type\u003c/a\u003e#allergy)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecategory\u003c/b\u003e: \u003cspan title\u003d\"  this categorization is implied by \u0026quot;cashew nut\u0026quot; and therefore basically \n    redundant, but many systems collect this field anyway, since it\u0027s either \n    useful when the substance is not coded, or it\u0027s quicker to sort/filter on\n    than using terminology based reasoning  \"\u003efood\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecriticality\u003c/b\u003e: \u003cspan title\u003d\"  there is no question that the allergy is real and serious  \"\u003ehigh\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: \u003cspan title\u003d\"  Allergy or intolerance code (substance, product, condition or negated/excluded statement) or text. A few times, \n    there\u0027s a full description of a complex substance/product - in these caes, use the\n    extension [url] to refer to a Substance resource.  \"\u003eCashew nuts \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#227493005)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003epatient\u003c/b\u003e: \u003cspan title\u003d\"  the patient that actually has the risk of adverse reaction  \"\u003e\u003ca href\u003d\"patient-example.html\"\u003ePatient/example\u003c/a\u003e \u0026quot;Peter CHALMERS\u0026quot;\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eonset\u003c/b\u003e: \u003cspan title\u003d\"  when the allergy was first noted (in this case the same as reaction.onset of the first occurrence)  \"\u003e2004\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erecordedDate\u003c/b\u003e: \u003cspan title\u003d\"  the date that this entry was recorded  \"\u003e2014-10-09T14:58:00+11:00\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eparticipant\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efunction\u003c/b\u003e: Author \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-provenance-participant-type.html\"\u003eProvenance participant type\u003c/a\u003e#author)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eactor\u003c/b\u003e: \u003ca href\u003d\"practitioner-example.html\"\u003ePractitioner/example\u003c/a\u003e \u0026quot;Adam CAREFUL\u0026quot;\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eparticipant\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efunction\u003c/b\u003e: Informant \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-provenance-participant-type.html\"\u003eProvenance participant type\u003c/a\u003e#informant)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eactor\u003c/b\u003e: \u003ca href\u003d\"patient-example.html\"\u003ePatient/example\u003c/a\u003e \u0026quot;Peter CHALMERS\u0026quot;\u003c/p\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003elastOccurrence\u003c/b\u003e: \u003cspan title\u003d\"  last happened June 2012. Typically, systems either track lastOccurrence,\n     or a list of events.  \"\u003e2012-06\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: \u003cspan title\u003d\"  an additional note about the allergy propensity by the recorder  \"\u003eThe criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract.\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ereaction\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubstance\u003c/b\u003e: \u003cspan title\u003d\"  \n      It\u0027s possible to list specific things to which the patient responded,\n      e.g. chocolate (that happened to contain cashew nuts). This event has\n      such a specific substance. Note that systems should ensure that what\n      goes in here does not conflict with the substance above, and systems\n      processing the data can be sure that what is here does not contravene\n      the substance above\n     \"\u003ecashew nut allergenic extract Injectable Product \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-rxNorm.html\"\u003eRxNorm\u003c/a\u003e#1160593)\u003c/span\u003e\u003c/span\u003e\u003c/p\u003e\u003ch3\u003eManifestations\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eAnaphylactic reaction \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#39579001)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003edescription\u003c/b\u003e: Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered\u003c/p\u003e\u003cp\u003e\u003cb\u003eonset\u003c/b\u003e: 2012-06-12\u003c/p\u003e\u003cp\u003e\u003cb\u003eseverity\u003c/b\u003e: severe\u003c/p\u003e\u003cp\u003e\u003cb\u003eexposureRoute\u003c/b\u003e: Subcutaneous route \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#34206005)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003ereaction\u003c/b\u003e\u003c/p\u003e\u003ch3\u003eManifestations\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eConcept\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eUrticaria \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#64305001)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eonset\u003c/b\u003e: 2004\u003c/p\u003e\u003cp\u003e\u003cb\u003eseverity\u003c/b\u003e: moderate\u003c/p\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: \u003cspan title\u003d\"  an additional note about the reaction by the recorder  \"\u003eThe patient reports that the onset of urticaria was within 15 minutes of eating cashews.\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "system": "http://acme.com/ids/patients/risks",
+      "value": "49476534"
+    }
+  ],
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "code": "active",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
+    ]
+  },
+  "type": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/allergy-intolerance-type",
+        "code": "allergy",
+        "display": "Allergy"
+      }
+    ]
+  },
+  "category": [
+    "food"
+  ],
+  "criticality": "high",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "227493005",
+        "display": "Cashew nuts"
+      }
+    ]
+  },
+  "patient": {
+    "reference": "Patient/example"
+  },
+  "onsetDateTime": "2004",
+  "recordedDate": "2014-10-09T14:58:00+11:00",
+  "participant": [
+    {
+      "function": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "actor": {
+        "reference": "Practitioner/example"
+      }
+    },
+    {
+      "function": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "informant",
+            "display": "Informant"
+          }
+        ]
+      },
+      "actor": {
+        "reference": "Patient/example"
+      }
+    }
+  ],
+  "lastOccurrence": "2012-06",
+  "note": [
+    {
+      "text": "The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract."
+    }
+  ],
+  "reaction": [
+    {
+      "substance": {
+        "coding": [
+          {
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "1160593",
+            "display": "cashew nut allergenic extract Injectable Product"
+          }
+        ]
+      },
+      "manifestation": [
+        {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "39579001",
+                "display": "Anaphylactic reaction"
+              }
+            ]
+          }
+        }
+      ],
+      "description": "Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered",
+      "onset": "2012-06-12",
+      "severity": "severe",
+      "exposureRoute": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "34206005",
+            "display": "Subcutaneous route"
+          }
+        ]
+      }
+    },
+    {
+      "manifestation": [
+        {
+          "concept": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "64305001",
+                "display": "Urticaria"
+              }
+            ]
+          }
+        }
+      ],
+      "onset": "2004",
+      "severity": "moderate",
+      "note": [
+        {
+          "text": "The patient reports that the onset of urticaria was within 15 minutes of eating cashews."
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

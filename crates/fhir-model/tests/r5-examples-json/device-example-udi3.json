@@ -1,0 +1,50 @@
+{
+  "resourceType": "Device",
+  "id": "example-udi3",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative: Device\u003c/b\u003e\u003ca name\u003d\"example-udi3\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource Device \u0026quot;example-udi3\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: Serial Number: XYZ456789012345678\u003c/p\u003e\u003ch3\u003eUdiCarriers\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDeviceIdentifier\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eIssuer\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eJurisdiction\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eCarrierHRF\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eEntryType\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e007444534255003288\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://hl7.org/fhir/NamingSystem/hibcc\"\u003ehttp://hl7.org/fhir/NamingSystem/hibcc\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"http://hl7.org/fhir/NamingSystem/fda-udi\"\u003ehttp://hl7.org/fhir/NamingSystem/fda-udi\u003c/a\u003e\u003c/td\u003e\u003ctd\u003e+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ456789012345678/16D20130202C\u003c/td\u003e\u003ctd\u003emanual\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: inactive\u003c/p\u003e\u003cp\u003e\u003cb\u003emanufacturer\u003c/b\u003e: GlobalMed, Inc\u003c/p\u003e\u003cp\u003e\u003cb\u003emanufactureDate\u003c/b\u003e: 2013-02-02\u003c/p\u003e\u003cp\u003e\u003cb\u003eexpirationDate\u003c/b\u003e: 2020-02-02\u003c/p\u003e\u003cp\u003e\u003cb\u003elotNumber\u003c/b\u003e: LOT123456789012345\u003c/p\u003e\u003ch3\u003eNames\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eValue\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eType\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eUltra Implantable\u003c/td\u003e\u003ctd\u003euser-friendly-name\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "SNO"
+          }
+        ]
+      },
+      "value": "XYZ456789012345678"
+    }
+  ],
+  "udiCarrier": [
+    {
+      "deviceIdentifier": "007444534255003288",
+      "issuer": "http://hl7.org/fhir/NamingSystem/hibcc",
+      "jurisdiction": "http://hl7.org/fhir/NamingSystem/fda-udi",
+      "carrierHRF": "+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ456789012345678/16D20130202C",
+      "entryType": "manual"
+    }
+  ],
+  "status": "inactive",
+  "manufacturer": "GlobalMed, Inc",
+  "manufactureDate": "2013-02-02",
+  "expirationDate": "2020-02-02",
+  "lotNumber": "LOT123456789012345",
+  "name": [
+    {
+      "value": "Ultra Implantable",
+      "type": "user-friendly-name"
+    }
+  ],
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "resourceType": "ValueSet",
+  "id": "signature-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"codesystem-etsi-signature-type.html\"\u003e\u003ccode\u003ehttp://uri.etsi.org/01903/v1.2.2\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"codesystem-astm-signature-type.html\"\u003e\u003ccode\u003eurn:iso-astm:E1762-95:2013\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/signature-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:1.2.840.10065.1.12"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "SignatureTypeCodes",
+  "title": "Signature Type Codes",
+  "status": "draft",
+  "experimental": true,
+  "date": "2023-03-26T15:21:02+11:00",
+  "publisher": "HL7 FHIR",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This value set includes contents from ASTM and ETSI which hold their own copyright.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://uri.etsi.org/01903/v1.2.2"
+      },
+      {
+        "system": "urn:iso-astm:E1762-95:2013"
+      }
+    ]
+  }
+}

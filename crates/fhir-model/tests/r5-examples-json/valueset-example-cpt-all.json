@@ -1,0 +1,58 @@
+{
+  "resourceType": "ValueSet",
+  "id": "example-cpt-all",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \u003cul\u003e\n        \u003cli\u003eInclude all codes defined in \n          \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-CPT.html\"\u003e\n            \u003ccode\u003ehttp://www.ama-assn.org/go/cpt\u003c/code\u003e\n          \u003c/a\u003e\n        \u003c/li\u003e\n      \u003c/ul\u003e\n    \u003c/div\u003e"
+  },
+  "url": "http://hl7.org/fhir/ValueSet/example-cpt-all",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.3138"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AllCPTCodes",
+  "title": "All CPT codes",
+  "status": "active",
+  "experimental": true,
+  "date": "2015-03-12",
+  "publisher": "Health Level Seven International (Vocabulary)",
+  "description": "A value set that includes all CPT codes",
+  "useContext": [
+    {
+      "code": {
+        "system": "http://example.org/fhir/CodeSystem/use-contexts",
+        "code": "species"
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "337915000",
+            "display": "Homo sapiens (organism)"
+          }
+        ]
+      }
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "copyright": "CPT Copyright © 2014 American Medical Association. All rights reserved.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://www.ama-assn.org/go/cpt"
+      }
+    ]
+  }
+}

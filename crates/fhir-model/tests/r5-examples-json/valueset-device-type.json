@@ -1,0 +1,200 @@
+{
+  "resourceType": "ValueSet",
+  "id": "device-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eInclude these codes as defined in \u003ca href\u003d\"http://terminology.hl7.org/5.1.0/CodeSystem-v3-mdc.html\"\u003e\u003ccode\u003eurn:iso:std:iso:11073:10101\u003c/code\u003e\u003c/a\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528391\u003c/td\u003e\u003ctd\u003eBlood Pressure Cuff\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528404\u003c/td\u003e\u003ctd\u003eBody Composition Analyzer\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528425\u003c/td\u003e\u003ctd\u003eCardiovascular Device\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528402\u003c/td\u003e\u003ctd\u003eCoagulation meter\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528409\u003c/td\u003e\u003ctd\u003eContinuous Glucose Monitor\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528390\u003c/td\u003e\u003ctd\u003eElectro cardiograph\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528457\u003c/td\u003e\u003ctd\u003eGeneric 20601 Device\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528401\u003c/td\u003e\u003ctd\u003eGlucose Monitor\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528455\u003c/td\u003e\u003ctd\u003eIndependent Activity/Living Hub\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528403\u003c/td\u003e\u003ctd\u003eInsulin Pump\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528405\u003c/td\u003e\u003ctd\u003ePeak Flow meter\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528388\u003c/td\u003e\u003ctd\u003ePulse Oximeter\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528397\u003c/td\u003e\u003ctd\u003eRespiration rate\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528408\u003c/td\u003e\u003ctd\u003eSleep Apnea Breathing Equipment\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528426\u003c/td\u003e\u003ctd\u003eStrength Equipment\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528392\u003c/td\u003e\u003ctd\u003eThermometer\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e528399\u003c/td\u003e\u003ctd\u003eWeight Scale\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003cli\u003eInclude these codes as defined in \u003ccode\u003eurn:oid:2.16.840.1.113883.6.276\u003c/code\u003e\u003ctable class\u003d\"none\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38017\u003c/td\u003e\u003ctd\u003eDry salt inhalation therapy device\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e38663\u003c/td\u003e\u003ctd\u003eFlexible video nephroscope\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e42347\u003c/td\u003e\u003ctd\u003eDental implant, endosseous, partially-embedded\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e46352\u003c/td\u003e\u003ctd\u003eBare-metal intracranial vascular stent\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e47264\u003c/td\u003e\u003ctd\u003eDual-chamber implantable pacemaker, demand\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e62163\u003c/td\u003e\u003ctd\u003eIntrauterine cannula, reusable\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e62260\u003c/td\u003e\u003ctd\u003eAir-conduction hearing aid acoustic tube\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e62423\u003c/td\u003e\u003ctd\u003eSpinal cord/peripheral nerve implantable analgesic electrical stimulation system lead, wired connection\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e62414\u003c/td\u003e\u003ctd\u003eBlue-light phototherapy lamp, home-use\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e64587\u003c/td\u003e\u003ctd\u003eUncoated knee femur prosthesis, ceramic\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e64992\u003c/td\u003e\u003ctd\u003eADAMTS13 activity IVD, kit, chemiluminescent immunoassay\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/li\u003e\u003cli\u003eInclude codes from \u003ca href\u003d\"http://www.snomed.org/\"\u003e\u003ccode\u003ehttp://snomed.info/sct\u003c/code\u003e\u003c/a\u003e where concept  is-a  49062001 (Device)\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/device-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.1376"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "DeviceType",
+  "title": "Device Type",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7 Orders and Observations Workgroup",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "Codes used to identify medical devices. Includes concepts from SNOMED CT (http://www.snomed.org/) where concept is-a 49062001 (Device)  and is provided as a suggestive example.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org",
+  "compose": {
+    "include": [
+      {
+        "system": "urn:iso:std:iso:11073:10101",
+        "concept": [
+          {
+            "code": "528391",
+            "display": "Blood Pressure Cuff"
+          },
+          {
+            "code": "528404",
+            "display": "Body Composition Analyzer"
+          },
+          {
+            "code": "528425",
+            "display": "Cardiovascular Device"
+          },
+          {
+            "code": "528402",
+            "display": "Coagulation meter"
+          },
+          {
+            "code": "528409",
+            "display": "Continuous Glucose Monitor"
+          },
+          {
+            "code": "528390",
+            "display": "Electro cardiograph"
+          },
+          {
+            "code": "528457",
+            "display": "Generic 20601 Device"
+          },
+          {
+            "code": "528401",
+            "display": "Glucose Monitor"
+          },
+          {
+            "code": "528455",
+            "display": "Independent Activity/Living Hub"
+          },
+          {
+            "code": "528403",
+            "display": "Insulin Pump"
+          },
+          {
+            "code": "528405",
+            "display": "Peak Flow meter"
+          },
+          {
+            "code": "528388",
+            "display": "Pulse Oximeter"
+          },
+          {
+            "code": "528397",
+            "display": "Respiration rate"
+          },
+          {
+            "code": "528408",
+            "display": "Sleep Apnea Breathing Equipment"
+          },
+          {
+            "code": "528426",
+            "display": "Strength Equipment"
+          },
+          {
+            "code": "528392",
+            "display": "Thermometer"
+          },
+          {
+            "code": "528399",
+            "display": "Weight Scale"
+          }
+        ]
+      },
+      {
+        "system": "urn:oid:2.16.840.1.113883.6.276",
+        "concept": [
+          {
+            "code": "38017",
+            "display": "Dry salt inhalation therapy device"
+          },
+          {
+            "code": "38663",
+            "display": "Flexible video nephroscope"
+          },
+          {
+            "code": "42347",
+            "display": "Dental implant, endosseous, partially-embedded"
+          },
+          {
+            "code": "46352",
+            "display": "Bare-metal intracranial vascular stent"
+          },
+          {
+            "code": "47264",
+            "display": "Dual-chamber implantable pacemaker, demand"
+          },
+          {
+            "code": "62163",
+            "display": "Intrauterine cannula, reusable"
+          },
+          {
+            "code": "62260",
+            "display": "Air-conduction hearing aid acoustic tube"
+          },
+          {
+            "code": "62423",
+            "display": "Spinal cord/peripheral nerve implantable analgesic electrical stimulation system lead, wired connection"
+          },
+          {
+            "code": "62414",
+            "display": "Blue-light phototherapy lamp, home-use"
+          },
+          {
+            "code": "64587",
+            "display": "Uncoated knee femur prosthesis, ceramic"
+          },
+          {
+            "code": "64992",
+            "display": "ADAMTS13 activity IVD, kit, chemiluminescent immunoassay"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "49062001"
+          }
+        ]
+      }
+    ]
+  }
+}

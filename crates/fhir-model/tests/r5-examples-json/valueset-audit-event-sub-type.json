@@ -1,0 +1,84 @@
+{
+  "resourceType": "ValueSet",
+  "id": "audit-event-sub-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis value set includes codes based on the following rules:\u003c/p\u003e\u003cul\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"http://dicom.nema.org/resources/ontology/DCM\"\u003e\u003ccode\u003ehttp://dicom.nema.org/resources/ontology/DCM\u003c/code\u003e\u003c/a\u003e, where the codes are contained in \u003ca href\u003d\"http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_401.html\"\u003eAuditEventTypeCode\u003c/a\u003e\u003c/li\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"http://dicom.nema.org/resources/ontology/DCM\"\u003e\u003ccode\u003ehttp://dicom.nema.org/resources/ontology/DCM\u003c/code\u003e\u003c/a\u003e, where the codes are contained in \u003ca href\u003d\"http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_403.html\"\u003eSecurityAlertTypeCode\u003c/a\u003e\u003c/li\u003e\u003cli\u003eInclude all codes defined in \u003ca href\u003d\"codesystem-restful-interaction.html\"\u003e\u003ccode\u003ehttp://hl7.org/fhir/restful-interaction\u003c/code\u003e\u003c/a\u003e\u003c/li\u003e\u003c/ul\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "sec"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/audit-event-sub-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.464"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.457"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.270"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "AuditEventSubType",
+  "title": "Audit Event Sub-Type",
+  "status": "active",
+  "experimental": true,
+  "date": "2020-08-04",
+  "publisher": "HL7 (FHIR Project)",
+  "description": "More detailed code concerning the type of the audit event - defined by DICOM with some additional FHIR, HL7, and other additions.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "copyright": "These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis",
+  "compose": {
+    "include": [
+      {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "valueSet": [
+          "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_401.html"
+        ]
+      },
+      {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "valueSet": [
+          "http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_403.html"
+        ]
+      },
+      {
+        "system": "http://hl7.org/fhir/restful-interaction"
+      }
+    ]
+  }
+}

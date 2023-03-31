@@ -1,0 +1,113 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "namingsystem-identifier-type",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/namingsystem-identifier-type\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDisplay\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDefinition\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eoid\u003ca name\u003d\"namingsystem-identifier-type-oid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOID\u003c/td\u003e\u003ctd\u003eAn ISO object identifier; e.g. 1.2.3.4.5.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003euuid\u003ca name\u003d\"namingsystem-identifier-type-uuid\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eUUID\u003c/td\u003e\u003ctd\u003eA universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003euri\u003ca name\u003d\"namingsystem-identifier-type-uri\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eURI\u003c/td\u003e\u003ctd\u003eA uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eiri-stem\u003ca name\u003d\"namingsystem-identifier-type-iri-stem\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eIRI stem\u003c/td\u003e\u003ctd\u003eAn IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See rdf.html#iri-stem for details on how this value may be used.\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003ev2csmnemonic\u003ca name\u003d\"namingsystem-identifier-type-v2csmnemonic\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eV2CSMNemonic\u003c/td\u003e\u003ctd\u003eA short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eother\u003ca name\u003d\"namingsystem-identifier-type-other\"\u003e \u003c/a\u003e\u003c/td\u003e\u003ctd\u003eOther\u003c/td\u003e\u003ctd\u003eSome other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "vocab"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "trial-use"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/namingsystem-identifier-type",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.493"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.1.486"
+    },
+    {
+      "use": "old",
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.2.293"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "NamingSystemIdentifierType",
+  "title": "Naming System Identifier Type",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-01-26T15:53:48Z",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Identifies the style of unique identifier used to identify a namespace.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "oid",
+      "display": "OID",
+      "definition": "An ISO object identifier; e.g. 1.2.3.4.5."
+    },
+    {
+      "code": "uuid",
+      "display": "UUID",
+      "definition": "A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11."
+    },
+    {
+      "code": "uri",
+      "display": "URI",
+      "definition": "A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."
+    },
+    {
+      "code": "iri-stem",
+      "display": "IRI stem",
+      "definition": "An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See rdf.html#iri-stem for details on how this value may be used."
+    },
+    {
+      "code": "v2csmnemonic",
+      "display": "V2CSMNemonic",
+      "definition": "A short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm"
+    },
+    {
+      "code": "other",
+      "display": "Other",
+      "definition": "Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC."
+    }
+  ]
+}

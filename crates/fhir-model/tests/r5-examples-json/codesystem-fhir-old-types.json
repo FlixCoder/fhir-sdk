@@ -1,0 +1,237 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "fhir-old-types",
+  "meta": {
+    "lastUpdated": "2023-03-26T15:21:02.749+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003eThis code system \u003ccode\u003ehttp://hl7.org/fhir/fhir-old-types\u003c/code\u003e defines the following codes:\u003c/p\u003e\u003ctable class\u003d\"codes\"\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003e\u003cb\u003eCode\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eBodySite\u003ca name\u003d\"fhir-old-types-BodySite\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eCatalogEntry\u003ca name\u003d\"fhir-old-types-CatalogEntry\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eConformance\u003ca name\u003d\"fhir-old-types-Conformance\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eDataElement\u003ca name\u003d\"fhir-old-types-DataElement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eDeviceComponent\u003ca name\u003d\"fhir-old-types-DeviceComponent\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eDeviceUseRequest\u003ca name\u003d\"fhir-old-types-DeviceUseRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eDeviceUseStatement\u003ca name\u003d\"fhir-old-types-DeviceUseStatement\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eDiagnosticOrder\u003ca name\u003d\"fhir-old-types-DiagnosticOrder\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eDocumentManifest\u003ca name\u003d\"fhir-old-types-DocumentManifest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eEffectEvidenceSynthesis\u003ca name\u003d\"fhir-old-types-EffectEvidenceSynthesis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eEligibilityRequest\u003ca name\u003d\"fhir-old-types-EligibilityRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eEligibilityResponse\u003ca name\u003d\"fhir-old-types-EligibilityResponse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eExpansionProfile\u003ca name\u003d\"fhir-old-types-ExpansionProfile\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eImagingManifest\u003ca name\u003d\"fhir-old-types-ImagingManifest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eImagingObjectSelection\u003ca name\u003d\"fhir-old-types-ImagingObjectSelection\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedia\u003ca name\u003d\"fhir-old-types-Media\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicationOrder\u003ca name\u003d\"fhir-old-types-MedicationOrder\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicationUsage\u003ca name\u003d\"fhir-old-types-MedicationUsage\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProduct\u003ca name\u003d\"fhir-old-types-MedicinalProduct\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductAuthorization\u003ca name\u003d\"fhir-old-types-MedicinalProductAuthorization\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductContraindication\u003ca name\u003d\"fhir-old-types-MedicinalProductContraindication\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductIndication\u003ca name\u003d\"fhir-old-types-MedicinalProductIndication\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductIngredient\u003ca name\u003d\"fhir-old-types-MedicinalProductIngredient\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductInteraction\u003ca name\u003d\"fhir-old-types-MedicinalProductInteraction\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductManufactured\u003ca name\u003d\"fhir-old-types-MedicinalProductManufactured\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductPackaged\u003ca name\u003d\"fhir-old-types-MedicinalProductPackaged\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductPharmaceutical\u003ca name\u003d\"fhir-old-types-MedicinalProductPharmaceutical\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eMedicinalProductUndesirableEffect\u003ca name\u003d\"fhir-old-types-MedicinalProductUndesirableEffect\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eOrder\u003ca name\u003d\"fhir-old-types-Order\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eOrderResponse\u003ca name\u003d\"fhir-old-types-OrderResponse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProcedureRequest\u003ca name\u003d\"fhir-old-types-ProcedureRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProcessRequest\u003ca name\u003d\"fhir-old-types-ProcessRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eProcessResponse\u003ca name\u003d\"fhir-old-types-ProcessResponse\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eReferralRequest\u003ca name\u003d\"fhir-old-types-ReferralRequest\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eRequestGroup\u003ca name\u003d\"fhir-old-types-RequestGroup\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eResearchDefinition\u003ca name\u003d\"fhir-old-types-ResearchDefinition\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eResearchElementDefinition\u003ca name\u003d\"fhir-old-types-ResearchElementDefinition\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eRiskEvidenceSynthesis\u003ca name\u003d\"fhir-old-types-RiskEvidenceSynthesis\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eSequence\u003ca name\u003d\"fhir-old-types-Sequence\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eServiceDefinition\u003ca name\u003d\"fhir-old-types-ServiceDefinition\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd style\u003d\"white-space:nowrap\"\u003eSubstanceSpecification\u003ca name\u003d\"fhir-old-types-SubstanceSpecification\"\u003e \u003c/a\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/div\u003e"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode": "normative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version",
+      "valueCode": "4.0.0"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    }
+  ],
+  "url": "http://hl7.org/fhir/fhir-old-types",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.4.2113"
+    }
+  ],
+  "version": "5.0.0",
+  "name": "FHIROldTypes",
+  "title": "Old FHIR Types",
+  "status": "active",
+  "experimental": false,
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "An old resource name no longer used in this version of FHIR (deleted or renamed).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+          "code": "001",
+          "display": "World"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/fhir-old-types",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "BodySite",
+      "display": "BodySite"
+    },
+    {
+      "code": "CatalogEntry",
+      "display": "CatalogEntry"
+    },
+    {
+      "code": "Conformance",
+      "display": "Conformance"
+    },
+    {
+      "code": "DataElement",
+      "display": "DataElement"
+    },
+    {
+      "code": "DeviceComponent",
+      "display": "DeviceComponent"
+    },
+    {
+      "code": "DeviceUseRequest",
+      "display": "DeviceUseRequest"
+    },
+    {
+      "code": "DeviceUseStatement",
+      "display": "DeviceUseStatement"
+    },
+    {
+      "code": "DiagnosticOrder",
+      "display": "DiagnosticOrder"
+    },
+    {
+      "code": "DocumentManifest",
+      "display": "DocumentManifest"
+    },
+    {
+      "code": "EffectEvidenceSynthesis",
+      "display": "EffectEvidenceSynthesis"
+    },
+    {
+      "code": "EligibilityRequest",
+      "display": "EligibilityRequest"
+    },
+    {
+      "code": "EligibilityResponse",
+      "display": "EligibilityResponse"
+    },
+    {
+      "code": "ExpansionProfile",
+      "display": "ExpansionProfile"
+    },
+    {
+      "code": "ImagingManifest",
+      "display": "ImagingManifest"
+    },
+    {
+      "code": "ImagingObjectSelection",
+      "display": "ImagingObjectSelection"
+    },
+    {
+      "code": "Media",
+      "display": "Media"
+    },
+    {
+      "code": "MedicationOrder",
+      "display": "MedicationOrder"
+    },
+    {
+      "code": "MedicationUsage",
+      "display": "MedicationUsage"
+    },
+    {
+      "code": "MedicinalProduct",
+      "display": "MedicinalProduct"
+    },
+    {
+      "code": "MedicinalProductAuthorization",
+      "display": "MedicinalProductAuthorization"
+    },
+    {
+      "code": "MedicinalProductContraindication",
+      "display": "MedicinalProductContraindication"
+    },
+    {
+      "code": "MedicinalProductIndication",
+      "display": "MedicinalProductIndication"
+    },
+    {
+      "code": "MedicinalProductIngredient",
+      "display": "MedicinalProductIngredient"
+    },
+    {
+      "code": "MedicinalProductInteraction",
+      "display": "MedicinalProductInteraction"
+    },
+    {
+      "code": "MedicinalProductManufactured",
+      "display": "MedicinalProductManufactured"
+    },
+    {
+      "code": "MedicinalProductPackaged",
+      "display": "MedicinalProductPackaged"
+    },
+    {
+      "code": "MedicinalProductPharmaceutical",
+      "display": "MedicinalProductPharmaceutical"
+    },
+    {
+      "code": "MedicinalProductUndesirableEffect",
+      "display": "MedicinalProductUndesirableEffect"
+    },
+    {
+      "code": "Order",
+      "display": "Order"
+    },
+    {
+      "code": "OrderResponse",
+      "display": "OrderResponse"
+    },
+    {
+      "code": "ProcedureRequest",
+      "display": "ProcedureRequest"
+    },
+    {
+      "code": "ProcessRequest",
+      "display": "ProcessRequest"
+    },
+    {
+      "code": "ProcessResponse",
+      "display": "ProcessResponse"
+    },
+    {
+      "code": "ReferralRequest",
+      "display": "ReferralRequest"
+    },
+    {
+      "code": "RequestGroup",
+      "display": "RequestGroup"
+    },
+    {
+      "code": "ResearchDefinition",
+      "display": "ResearchDefinition"
+    },
+    {
+      "code": "ResearchElementDefinition",
+      "display": "ResearchElementDefinition"
+    },
+    {
+      "code": "RiskEvidenceSynthesis",
+      "display": "RiskEvidenceSynthesis"
+    },
+    {
+      "code": "Sequence",
+      "display": "Sequence"
+    },
+    {
+      "code": "ServiceDefinition",
+      "display": "ServiceDefinition"
+    },
+    {
+      "code": "SubstanceSpecification",
+      "display": "SubstanceSpecification"
+    }
+  ]
+}

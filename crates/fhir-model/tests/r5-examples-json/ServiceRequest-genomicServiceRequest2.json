@@ -1,0 +1,51 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "genomicServiceRequest2",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative\u003c/b\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource \u0026quot;genomicServiceRequest2\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: Laboratory Accession ID: 111111112\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: active\u003c/p\u003e\u003cp\u003e\u003cb\u003eintent\u003c/b\u003e: plan\u003c/p\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Carrier detection, molecular genetics (procedure) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#3981005)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca href\u003d\"Patient-genomicPatient.html\"\u003ePatient/genomicPatient\u003c/a\u003e \u0026quot; DOE\u0026quot;\u003c/p\u003e\u003cp\u003e\u003cb\u003eencounter\u003c/b\u003e: \u003ca href\u003d\"Encounter-genomicEncounter.html\"\u003eEncounter/genomicEncounter\u003c/a\u003e\u003c/p\u003e\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "LACSN"
+          }
+        ],
+        "text": "Laboratory Accession ID"
+      },
+      "system": "http://www.somesystemabc.net/identifiers/serviceRequests",
+      "value": "111111112"
+    }
+  ],
+  "status": "active",
+  "intent": "plan",
+  "code": {
+    "concept": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "3981005",
+          "display": "Carrier detection, molecular genetics (procedure)"
+        }
+      ]
+    }
+  },
+  "subject": {
+    "reference": "Patient/genomicPatient"
+  },
+  "encounter": {
+    "reference": "Encounter/genomicEncounter"
+  },
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
+    ]
+  }
+}

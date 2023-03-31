@@ -249,10 +249,10 @@ fn map_type(ty: &str) -> Ident {
 		"id" | "string" | "code" | "markdown" | "xhtml" => format_ident!("String"),
 		"decimal" => format_ident!("f64"),
 		"unsignedInt" => format_ident!("u32"),
-		"integer" => format_ident!("i32"),
-		"integer64" => format_ident!("i64"),
 		"positiveInt" => format_ident!("NonZeroU32"),
+		"integer" => format_ident!("i32"),
 		// TODO: turn the following types into proper rust types.
+		"integer64" => format_ident!("String"), // JSON String, but i64 number
 		"date" => format_ident!("String"),
 		"dateTime" => format_ident!("String"),
 		"instant" => format_ident!("String"),

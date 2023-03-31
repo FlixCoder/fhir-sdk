@@ -4,10 +4,10 @@ use std::fs;
 
 use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
 use fhir_model::r5::{
-	codes::{RequestIntent, RequestStatus, RiskProbability},
+	codes::{CatalogType, RequestIntent, RequestStatus},
 	resources::{
-		Basic, IdentifiableResource, NamedResource, Patient, RequestGroup, RequestGroupAction,
-		RequestGroupActionTiming, Resource, WrongResourceType,
+		Basic, IdentifiableResource, NamedResource, Patient, RequestOrchestration,
+		RequestOrchestrationAction, RequestOrchestrationActionTiming, Resource, WrongResourceType,
 	},
 	types::{CodeableConcept, Coding, Identifier},
 };
@@ -35,12 +35,12 @@ fn serialization_deserialization() {
 
 #[test]
 fn builder_works() {
-	let _request_group = RequestGroup::builder()
+	let _request_group = RequestOrchestration::builder()
 		.status(RequestStatus::Active)
 		.intent(RequestIntent::Order)
 		.action(vec![Some(
-			RequestGroupAction::builder()
-				.timing(RequestGroupActionTiming::DateTime("2023".to_owned()))
+			RequestOrchestrationAction::builder()
+				.timing(RequestOrchestrationActionTiming::DateTime("2023".to_owned()))
 				.code(vec![Some(
 					CodeableConcept::builder()
 						.coding(vec![Some(
@@ -70,7 +70,7 @@ fn resource_conversion() {
 
 #[test]
 fn coding_concepts() {
-	let code = RiskProbability::_Custom("Test".to_owned());
+	let code = CatalogType::_Custom("Test".to_owned());
 	let coding = Coding::from(code.clone());
 	assert!(coding.code.is_some());
 	assert!(coding.system.is_some());

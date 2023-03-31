@@ -500,7 +500,10 @@ impl From<ElementDefinition> for CodeField {
 				ExtensionValue::String(s) => Some(s),
 				_ => panic!("unexpected extension value type"),
 			})
-			.expect("ElementDefinition.binding.extension.value");
+			.or(binding.value_set)
+			.expect(
+				"ElementDefinition.binding.extension.value or ElementDefinition.binding.valueSet",
+			);
 		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
 		let is_summary = element.is_summary.unwrap_or(false);
 

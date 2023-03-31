@@ -38,6 +38,21 @@ pub fn generate_code(version_folder: &str) -> Result<()> {
 		"{base_folder}/definitions/{version_folder}/profiles-resources.json"
 	))?;
 	let resources = structures::parse(&resources_file);
+
+	let identifiable = resources
+		.iter()
+		.filter(|ty| !ty.r#abstract)
+		.filter(|ty| ty.kind == fhir_model::r4b::codes::StructureDefinitionKind::Resource)
+		.filter_map(|ty| {
+			ty.elements
+				.fields
+				.iter()
+				.any(|field| field.name() == "identifier" && field.is_array())
+				.then_some(&ty.name)
+		})
+		.collect::<Vec<_>>();
+	println!("Identifiable resources: {identifiable:?}");
+
 	let generated_code = generate::generate_resources(resources, &generated_codes)?;
 	fs::write(
 		format!("{base_folder}/../fhir-model/src/{version_folder}/resources/generated.rs"),

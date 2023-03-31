@@ -237,6 +237,7 @@ fn map_field_ident(name: &str) -> Ident {
 		"ref" => format_ident!("r#ref"),
 		"for" => format_ident!("r#for"),
 		"mut" => format_ident!("r#mut"),
+		"const" => format_ident!("r#const"),
 		name => format_ident!("{name}"),
 	}
 }

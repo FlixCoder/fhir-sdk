@@ -1,6 +1,7 @@
 //! Generate traits for base resource types.
 
 use anyhow::{anyhow, Result};
+use fhir_model::r4b::codes::StructureDefinitionKind;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
@@ -8,7 +9,7 @@ use super::{
 	gen_types::{code_field_type_name, construct_field_type},
 	map_field_ident, map_type,
 };
-use crate::structures::{Field, Type, TypeKind};
+use crate::structures::{Field, Type};
 
 /// Generate the BaseResource trait and its implementations.
 pub fn generate_base_resource(
@@ -18,7 +19,7 @@ pub fn generate_base_resource(
 	let resource = resources
 		.iter()
 		.filter(|ty| ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.find(|ty| &ty.name == "Resource")
 		.ok_or(anyhow!("Could not find base Resource definition"))?;
 	let (field_names, field_types) =
@@ -30,14 +31,14 @@ pub fn generate_base_resource(
 	let trait_implementations: TokenStream = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.map(|ty| make_trait_implementation(ty, &field_names, &field_types, &ident))
 		.collect();
 
 	let filtered_resources: Vec<_> = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.map(|ty| format_ident!("{}", ty.name))
 		.collect();
 	let impl_resource_as_trait = quote! {
@@ -81,7 +82,7 @@ pub fn generate_domain_resource(
 	let resource = resources
 		.iter()
 		.filter(|ty| ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.find(|ty| &ty.name == "DomainResource")
 		.ok_or(anyhow!("Could not find DomainResource definition"))?;
 	let (field_names, field_types) =
@@ -93,7 +94,7 @@ pub fn generate_domain_resource(
 	let trait_implementations: TokenStream = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.filter(|ty| ty.base.as_ref().map_or(false, |base| base.ends_with("DomainResource")))
 		.map(|ty| make_trait_implementation(ty, &field_names, &field_types, &ident))
 		.collect();
@@ -101,7 +102,7 @@ pub fn generate_domain_resource(
 	let filtered_resources: Vec<_> = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.filter(|ty| ty.base.as_ref().map_or(false, |base| base.ends_with("DomainResource")))
 		.map(|ty| format_ident!("{}", ty.name))
 		.collect();
@@ -155,7 +156,7 @@ pub fn generate_named_resource(resources: &[Type]) -> Result<TokenStream> {
 	let trait_implementations: TokenStream = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.map(|ty| {
 			let name = format_ident!("{}", ty.name);
 			let version = &ty.version;

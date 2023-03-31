@@ -5,14 +5,12 @@ mod gen_traits;
 mod gen_types;
 
 use anyhow::Result;
+use fhir_model::r4b::codes::StructureDefinitionKind;
 use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
-use crate::{
-	codes::Code,
-	structures::{Type, TypeKind},
-};
+use crate::{codes::Code, structures::Type};
 
 /// Generate the Rust code for the FHIR codes.
 pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, Vec<String>)> {
@@ -53,7 +51,7 @@ pub fn generate_types(types: Vec<Type>, implemented_codes: &[String]) -> Result<
 	let types: Vec<TokenStream> = types
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::ComplexType)
+		.filter(|ty| ty.kind == StructureDefinitionKind::ComplexType)
 		.map(|ty| gen_types::generate_type_struct(ty, implemented_codes))
 		.collect::<Result<_, _>>()?;
 
@@ -97,14 +95,14 @@ pub fn generate_resources(
 	let resource_defs: Vec<TokenStream> = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.map(|ty| gen_types::generate_type_struct(ty, implemented_codes))
 		.collect::<Result<_, _>>()?;
 
 	let resource_names: Vec<_> = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == TypeKind::Resource)
+		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.map(|ty| &ty.name)
 		.map(|name| format_ident!("{name}"))
 		.collect();

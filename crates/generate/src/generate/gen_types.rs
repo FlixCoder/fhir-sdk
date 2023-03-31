@@ -1,14 +1,13 @@
 //! FHIR types generation.
 
 use anyhow::Result;
+use fhir_model::r4b::codes::StructureDefinitionKind;
 use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
 use super::{map_field_ident, map_type};
-use crate::structures::{
-	ChoiceField, CodeField, Field, ObjectField, StandardField, Type, TypeKind,
-};
+use crate::structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type};
 
 /// Generate struct definition for a FHIR type.
 pub fn generate_type_struct(ty: &Type, implemented_codes: &[String]) -> Result<TokenStream> {
@@ -30,7 +29,7 @@ pub fn generate_type_struct(ty: &Type, implemented_codes: &[String]) -> Result<T
 		doc_comment.push(' ');
 	}
 
-	let resource_type_field = (ty.kind == TypeKind::Resource).then(|| {
+	let resource_type_field = (ty.kind == StructureDefinitionKind::Resource).then(|| {
 		let serde_default = format!("{name}::resource_type");
 		quote! {
 			/// Type of this FHIR resource.
@@ -40,7 +39,7 @@ pub fn generate_type_struct(ty: &Type, implemented_codes: &[String]) -> Result<T
 			resource_type: ResourceType,
 		}
 	});
-	let resource_type_fn = (ty.kind == TypeKind::Resource).then_some(quote! {
+	let resource_type_fn = (ty.kind == StructureDefinitionKind::Resource).then_some(quote! {
 		impl #ident {
 			/// Get the resource type for this FHIR resource.
 			#[must_use]

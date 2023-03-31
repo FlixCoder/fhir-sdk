@@ -1,15 +1,13 @@
 //! FHIR type definition parsing.
 #![allow(clippy::fallible_impl_from)] // We want to panic on unexpected formats!
 
-use std::{collections::BTreeMap, str::FromStr};
+use std::collections::BTreeMap;
 
-use fhirbolt::model::r4b::{
-	resources::{Bundle, StructureDefinition, StructureDefinitionSnapshot},
+use fhir_model::r4b::{
+	codes::{PublicationStatus, StructureDefinitionKind},
+	resources::{Bundle, Resource, StructureDefinition, StructureDefinitionSnapshot},
 	types::{ElementDefinition, ElementDefinitionType, ExtensionValue},
-	Resource,
 };
-
-use crate::utils::Status;
 
 /// Type definition.
 #[derive(Debug)]
@@ -21,13 +19,13 @@ pub struct Type {
 	/// Description.
 	pub description: String,
 	/// Kind.
-	pub kind: TypeKind,
+	pub kind: StructureDefinitionKind,
 	/// Whether this is an abstract type.
 	pub r#abstract: bool,
 	/// Base definition.
 	pub base: Option<String>,
 	/// Status of the definition.
-	pub status: Status,
+	pub status: PublicationStatus,
 	/// Whether it is experimental.
 	pub experimental: bool,
 	/// Type of this type.
@@ -38,47 +36,27 @@ pub struct Type {
 
 impl From<StructureDefinition> for Type {
 	fn from(structure_definition: StructureDefinition) -> Self {
-		let name = structure_definition.name.value.expect("StructureDefinition.name");
-		let version = structure_definition
-			.version
-			.and_then(|v| v.value)
-			.expect("StructureDefinition.version");
+		let structure_definition = structure_definition.0;
+		let name = structure_definition.name;
+		let version = structure_definition.version.expect("StructureDefinition.version");
 		assert_eq!(
-			structure_definition
-				.fhir_version
-				.and_then(|v| v.value)
-				.expect("StructureDefinition.fhirVersion"),
+			structure_definition.fhir_version.expect("StructureDefinition.fhirVersion"),
 			version
 		);
-		let description = structure_definition
-			.description
-			.and_then(|d| d.value)
-			.expect("StructureDefinition.description");
-		let kind = structure_definition
-			.kind
-			.value
-			.expect("StructureDefinition.kind")
-			.parse()
-			.expect("parsing StructureDefinition.kind");
-		let r#abstract =
-			structure_definition.r#abstract.value.expect("StructureDefinition.abstract");
-		let base = structure_definition.base_definition.and_then(|v| v.value).map(|base| {
+		let description =
+			structure_definition.description.expect("StructureDefinition.description");
+		let kind = structure_definition.kind;
+		let r#abstract = structure_definition.r#abstract;
+		let base = structure_definition.base_definition.map(|base| {
 			base.split_once("http://hl7.org/fhir/StructureDefinition/")
 				.expect("parsing StructureDefinition.baseDefinition")
 				.1
 				.to_owned()
 		});
-		let status = structure_definition
-			.status
-			.value
-			.expect("StructureDefinition.status")
-			.parse()
-			.expect("parsing StructureDefinition.status");
-		let experimental = structure_definition
-			.experimental
-			.and_then(|v| v.value)
-			.expect("StructureDefinition.experimental");
-		let r#type = structure_definition.r#type.value.expect("StructureDefinition.type");
+		let status = structure_definition.status;
+		let experimental =
+			structure_definition.experimental.expect("StructureDefinition.experimental");
+		let r#type = structure_definition.r#type;
 		let elements =
 			ObjectField::from(structure_definition.snapshot.expect("StructureDefinition.snapshot"));
 
@@ -93,30 +71,6 @@ impl From<StructureDefinition> for Type {
 			experimental,
 			r#type,
 			elements,
-		}
-	}
-}
-
-/// Kind of the StructureDefinition.
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TypeKind {
-	/// Describes a resource.
-	Resource,
-	/// Describes a complex type.
-	ComplexType,
-	/// Describes a primitive type.
-	PrimitiveType,
-}
-
-impl FromStr for TypeKind {
-	type Err = String;
-
-	fn from_str(s: &str) -> Result<Self, Self::Err> {
-		match s {
-			"resource" => Ok(Self::Resource),
-			"complex-type" => Ok(Self::ComplexType),
-			"primitive-type" => Ok(Self::PrimitiveType),
-			_ => Err(format!("Unknown type kind: {s}")),
 		}
 	}
 }
@@ -211,9 +165,7 @@ impl Field {
 
 impl From<ElementDefinition> for Field {
 	fn from(element: ElementDefinition) -> Self {
-		if element.path.value.as_ref().map_or(false, |path| path.ends_with("[x]"))
-			|| element.r#type.len() > 1
-		{
+		if element.path.ends_with("[x]") || element.r#type.len() > 1 {
 			Self::Choice(ChoiceField::from(element))
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
@@ -315,22 +267,20 @@ impl ObjectField {
 
 impl From<StructureDefinitionSnapshot> for ObjectField {
 	fn from(snapshot: StructureDefinitionSnapshot) -> Self {
-		let mut elements = snapshot.element.into_iter();
-		let first = elements.next().expect("Found no ElementDefinition");
-		let name = first.path.value.expect("ElementDefinition.path");
+		let mut elements = snapshot.element.into_iter().flatten();
+		let first = elements.next().expect("Found no ElementDefinition").0;
+		let name = first.path;
 		assert!(!name.contains('.'));
-		let short = first.short.and_then(|v| v.value).expect("ElementDefinition.short");
-		let definition =
-			first.definition.and_then(|v| v.value).expect("ElementDefinition.definition");
-		let comment = first.comment.and_then(|v| v.value);
-		let min = first.min.and_then(|v| v.value).expect("ElementDefinition.min");
+		let short = first.short.expect("ElementDefinition.short");
+		let definition = first.definition.expect("ElementDefinition.definition");
+		let comment = first.comment;
+		let min = first.min.expect("ElementDefinition.min");
 		let optional = min == 0;
-		let max = first.max.and_then(|v| v.value).expect("ElementDefinition.max");
+		let max = first.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let r#type = first.r#type.into_iter().next().map(type_to_string);
-		let is_modifier =
-			first.is_modifier.and_then(|v| v.value).expect("ElementDefinition.isModifier");
-		let is_summary = first.is_summary.and_then(|v| v.value).unwrap_or(false);
+		let r#type = first.r#type.into_iter().flatten().next().map(type_to_string);
+		let is_modifier = first.is_modifier.expect("ElementDefinition.isModifier");
+		let is_summary = first.is_summary.unwrap_or(false);
 
 		let fields = Vec::new();
 		let field_map = BTreeMap::new();
@@ -353,13 +303,13 @@ impl From<StructureDefinitionSnapshot> for ObjectField {
 		};
 
 		for element in elements {
-			let path = element.path.value.clone().expect("ElementDefinition.path");
+			let path = element.path.clone();
 			let Some((top_name, remaining)) = path.split_once('.') else {
 				panic!("Multiple top-level fields defined?");
 			};
 			assert_eq!(top_name, &object.name);
 
-			let field = Field::from(*element);
+			let field = Field::from(element);
 			object.add_field(remaining, field);
 		}
 
@@ -369,34 +319,32 @@ impl From<StructureDefinitionSnapshot> for ObjectField {
 
 impl From<ElementDefinition> for ObjectField {
 	fn from(element: ElementDefinition) -> Self {
-		let name = element.path.value.as_ref().expect("ElementDefinition.path");
-		let name = name.rsplit_once('.').map_or(name.clone(), |(_, n)| n.to_owned());
-		let short = element.short.and_then(|v| v.value).expect("ElementDefinition.short");
-		let definition =
-			element.definition.and_then(|v| v.value).expect("ElementDefinition.definition");
-		let comment = element.comment.and_then(|v| v.value);
-		let min = element.min.and_then(|v| v.value).expect("ElementDefinition.min");
+		let element = element.0;
+		let name =
+			element.path.rsplit_once('.').map_or(element.path.clone(), |(_, n)| n.to_owned());
+		let short = element.short.expect("ElementDefinition.short");
+		let definition = element.definition.expect("ElementDefinition.definition");
+		let comment = element.comment;
+		let min = element.min.expect("ElementDefinition.min");
 		let optional = min == 0;
-		let max = element.max.and_then(|v| v.value).expect("ElementDefinition.max");
+		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field =
-			element.base.map_or(false, |base| base.path.value != element.path.value);
-		let r#type = element.r#type.into_iter().next().map(type_to_string);
+		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let r#type = element.r#type.into_iter().flatten().next().map(type_to_string);
 		let type_name = element
 			.extension
 			.into_iter()
 			.find(|extension| {
 				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 			})
-			.and_then(|extension| extension.value)
+			.and_then(|extension| extension.0.value)
 			.and_then(|value| match value {
-				ExtensionValue::String(s) => s.value,
+				ExtensionValue::String(s) => Some(s),
 				_ => panic!("Wrong value type in ElemenentDefinition.extension"),
 			});
-		let content_reference = element.content_reference.and_then(|v| v.value);
-		let is_modifier =
-			element.is_modifier.and_then(|v| v.value).expect("ElementDefinition.isModifier");
-		let is_summary = element.is_summary.and_then(|v| v.value).unwrap_or(false);
+		let content_reference = element.content_reference;
+		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
+		let is_summary = element.is_summary.unwrap_or(false);
 
 		let fields = Vec::new();
 		let field_map = BTreeMap::new();
@@ -447,32 +395,35 @@ pub struct StandardField {
 
 impl From<ElementDefinition> for StandardField {
 	fn from(element: ElementDefinition) -> Self {
+		let element = element.0;
 		if element.r#type.is_empty() {
 			panic!("Element without type: {element:#?}");
 		}
 
-		let name = element.path.value.as_ref().expect("ElementDefinition.path");
-		let name = name.rsplit_once('.').map_or(name.clone(), |(_, n)| n.to_owned());
-		let short = element.short.and_then(|v| v.value).expect("ElementDefinition.short");
-		let definition =
-			element.definition.and_then(|v| v.value).expect("ElementDefinition.definition");
-		let comment = element.comment.and_then(|v| v.value);
-		let min = element.min.and_then(|v| v.value).expect("ElementDefinition.min");
+		let name =
+			element.path.rsplit_once('.').map_or(element.path.clone(), |(_, n)| n.to_owned());
+		let short = element.short.expect("ElementDefinition.short");
+		let definition = element.definition.expect("ElementDefinition.definition");
+		let comment = element.comment;
+		let min = element.min.expect("ElementDefinition.min");
 		let optional = min == 0;
-		let max = element.max.and_then(|v| v.value).expect("ElementDefinition.max");
+		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field =
-			element.base.map_or(false, |base| base.path.value != element.path.value)
-				|| element
-					.r#type
-					.first()
-					.and_then(|ty| ty.code.value.as_ref())
-					.map_or(false, |ty| ty == "http://hl7.org/fhirpath/System.String");
-		let r#type =
-			element.r#type.into_iter().next().map(type_to_string).expect("ElementDefinition.type");
-		let is_modifier =
-			element.is_modifier.and_then(|v| v.value).expect("ElementDefinition.isModifier");
-		let is_summary = element.is_summary.and_then(|v| v.value).unwrap_or(false);
+		let is_base_field = element.base.map_or(false, |base| base.path != element.path)
+			|| element
+				.r#type
+				.first()
+				.and_then(Option::as_ref)
+				.map_or(false, |ty| &ty.code == "http://hl7.org/fhirpath/System.String");
+		let r#type = element
+			.r#type
+			.into_iter()
+			.flatten()
+			.next()
+			.map(type_to_string)
+			.expect("ElementDefinition.type");
+		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
+		let is_summary = element.is_summary.unwrap_or(false);
 
 		Self {
 			name,
@@ -518,20 +469,24 @@ pub struct CodeField {
 
 impl From<ElementDefinition> for CodeField {
 	fn from(element: ElementDefinition) -> Self {
-		let name = element.path.value.as_ref().expect("ElementDefinition.path");
-		let name = name.rsplit_once('.').map_or(name.clone(), |(_, n)| n.to_owned());
-		let short = element.short.and_then(|v| v.value).expect("ElementDefinition.short");
-		let definition =
-			element.definition.and_then(|v| v.value).expect("ElementDefinition.definition");
-		let comment = element.comment.and_then(|v| v.value);
-		let min = element.min.and_then(|v| v.value).expect("ElementDefinition.min");
+		let element = element.0;
+		let name =
+			element.path.rsplit_once('.').map_or(element.path.clone(), |(_, n)| n.to_owned());
+		let short = element.short.expect("ElementDefinition.short");
+		let definition = element.definition.expect("ElementDefinition.definition");
+		let comment = element.comment;
+		let min = element.min.expect("ElementDefinition.min");
 		let optional = min == 0;
-		let max = element.max.and_then(|v| v.value).expect("ElementDefinition.max");
+		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field =
-			element.base.map_or(false, |base| base.path.value != element.path.value);
-		let r#type =
-			element.r#type.into_iter().next().map(type_to_string).expect("ElementDefinition.type");
+		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let r#type = element
+			.r#type
+			.into_iter()
+			.flatten()
+			.next()
+			.map(type_to_string)
+			.expect("ElementDefinition.type");
 		let binding = element.binding.expect("ElementDefinition.binding");
 		let code = binding
 			.extension
@@ -540,15 +495,14 @@ impl From<ElementDefinition> for CodeField {
 				&extension.url
 					== "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName"
 			})
-			.and_then(|extension| extension.value)
+			.and_then(|extension| extension.0.value)
 			.and_then(|value| match value {
-				ExtensionValue::String(s) => s.value,
+				ExtensionValue::String(s) => Some(s),
 				_ => panic!("unexpected extension value type"),
 			})
 			.expect("ElementDefinition.binding.extension.value");
-		let is_modifier =
-			element.is_modifier.and_then(|v| v.value).expect("ElementDefinition.isModifier");
-		let is_summary = element.is_summary.and_then(|v| v.value).unwrap_or(false);
+		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
+		let is_summary = element.is_summary.unwrap_or(false);
 
 		Self {
 			name,
@@ -593,22 +547,20 @@ pub struct ChoiceField {
 
 impl From<ElementDefinition> for ChoiceField {
 	fn from(element: ElementDefinition) -> Self {
-		let name = element.path.value.as_ref().expect("ElementDefinition.path");
-		let name = name.rsplit_once('.').map_or(name.clone(), |(_, n)| n.to_owned());
-		let short = element.short.and_then(|v| v.value).expect("ElementDefinition.short");
-		let definition =
-			element.definition.and_then(|v| v.value).expect("ElementDefinition.definition");
-		let comment = element.comment.and_then(|v| v.value);
-		let min = element.min.and_then(|v| v.value).expect("ElementDefinition.min");
+		let element = element.0;
+		let name =
+			element.path.rsplit_once('.').map_or(element.path.clone(), |(_, n)| n.to_owned());
+		let short = element.short.expect("ElementDefinition.short");
+		let definition = element.definition.expect("ElementDefinition.definition");
+		let comment = element.comment;
+		let min = element.min.expect("ElementDefinition.min");
 		let optional = min == 0;
-		let max = element.max.and_then(|v| v.value).expect("ElementDefinition.max");
+		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field =
-			element.base.map_or(false, |base| base.path.value != element.path.value);
-		let types = element.r#type.into_iter().map(type_to_string).collect();
-		let is_modifier =
-			element.is_modifier.and_then(|v| v.value).expect("ElementDefinition.isModifier");
-		let is_summary = element.is_summary.and_then(|v| v.value).unwrap_or(false);
+		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let types = element.r#type.into_iter().flatten().map(type_to_string).collect();
+		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
+		let is_summary = element.is_summary.unwrap_or(false);
 
 		Self {
 			name,
@@ -633,9 +585,10 @@ fn type_to_string(r#type: ElementDefinitionType) -> String {
 				== "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type"
 			{
 				return extension
+					.0
 					.value
 					.and_then(|v| match v {
-						ExtensionValue::Url(url) => url.value,
+						ExtensionValue::Url(url) => Some(url),
 						_ => panic!("ElementDefinition.type.extension.value is not URL"),
 					})
 					.expect("ElementDefinition.type.extension.value");
@@ -643,23 +596,25 @@ fn type_to_string(r#type: ElementDefinitionType) -> String {
 		}
 	}
 
-	r#type.code.value.expect("ElementDefinition.type.code")
+	r#type.code
 }
 
 /// Parse a Bundle into Types.
 pub fn parse(input: &str) -> Vec<Type> {
 	let bundle: Bundle =
-		fhirbolt::json::from_str(input, None).expect("Deserializing StructureDefinition Bundle");
+		serde_json::from_str(input).expect("Deserializing StructureDefinition Bundle");
 
 	bundle
+		.0
 		.entry
 		.into_iter()
+		.flatten()
 		.map(|entry| entry.resource.expect("Bundle.entry.resource"))
-		.filter_map(|resource| match *resource {
+		.filter_map(|resource| match resource {
 			Resource::StructureDefinition(structure_definition) => Some(structure_definition),
 			_ => None,
 		})
-		.map(|structure_definition| Type::from(*structure_definition))
+		.map(Type::from)
 		.collect()
 }
 
@@ -672,6 +627,11 @@ mod tests {
 		let included_types = include_str!("../definitions/r4b/profiles-types.json");
 		parse(included_types);
 		let included_resources = include_str!("../definitions/r4b/profiles-resources.json");
+		parse(included_resources);
+
+		let included_types = include_str!("../definitions/r5/profiles-types.json");
+		parse(included_types);
+		let included_resources = include_str!("../definitions/r5/profiles-resources.json");
 		parse(included_resources);
 	}
 }

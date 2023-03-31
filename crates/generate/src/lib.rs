@@ -4,7 +4,6 @@
 mod codes;
 mod generate;
 mod structures;
-mod utils;
 
 use std::fs;
 

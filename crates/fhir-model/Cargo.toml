@@ -11,10 +11,7 @@ license = "MIT"
 name = "fhir-model"
 readme = "README.md"
 repository = "https://github.com/FlixCoder/fhir-sdk"
-version = "0.2.0"
-
-[package.metadata.docs.rs]
-all-features = true
+version = "0.3.0"
 
 [features]
 default = ["r5"]

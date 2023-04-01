@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0] - 2023-04-01
+
+### Bug Fixes
+
+- Integer64 is actually a JSON String
+- Add values for RelatedArtifactTypeExpanded
+- [**breaking**] Choice field extensions include the value type in the field name
+- Specimen.combined actually links to SpecimenCombined, not PublicationStatus
+
+### Features
+
+- Add FHIR R5 files
+- Generate R5 models
+
+### Refactor
+
+- Use own FHIR models for code generation
+
 ## [0.2.0] - 2023-03-26
 
 ### Features

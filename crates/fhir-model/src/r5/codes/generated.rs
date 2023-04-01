@@ -41268,6 +41268,106 @@ FHIR version: 5.0.0.*/
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RelatedArtifactTypeExpanded {
+    /** # amended-with
+
+Amended With. This artifact is amended with or changed by the target artifact. There is information in this artifact that should be functionally replaced with information in the target artifact. */
+    AmendedWith,
+    /** # amends
+
+Amends. This artifact amends or changes the target artifact. This artifact adds additional information that is functionally expected to replace information in the target artifact. This artifact replaces a part but not all of the target artifact. */
+    Amends,
+    /** # appended-with
+
+Appended With. This artifact has additional information in the target artifact. */
+    AppendedWith,
+    /** # appends
+
+Appends. This artifact adds additional information to the target artifact. The additional information does not replace or change information in the target artifact. */
+    Appends,
+    /** # citation
+
+Citation. Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource. */
+    Citation,
+    /** # cite-as
+
+Cite As. The related artifact is the citation for this artifact. */
+    CiteAs,
+    /** # cited-by
+
+Cited By. This artifact is cited by the target artifact. */
+    CitedBy,
+    /** # cites
+
+Cites. This artifact cites the target artifact. This may be a bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource. */
+    Cites,
+    /** # comment-in
+
+Has Comment In. This artifact has comments about it in the target artifact.  The type of comments may be expressed in the targetClassifier element such as reply, review, editorial, feedback, solicited, unsolicited, structured, unstructured. */
+    CommentIn,
+    /** # comments-on
+
+Is Comment On. This artifact contains comments about the target artifact. */
+    CommentsOn,
+    /** # composed-of
+
+Composed Of. This artifact is composed of the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.). */
+    ComposedOf,
+    /** # contained-in
+
+Contained In. This artifact is contained in the target artifact. The target artifact is a data structure whose instances are collections of other objects. */
+    ContainedIn,
+    /** # contains
+
+Contains. This artifact is a container in which the target artifact is contained. A container is a data structure whose instances are collections of other objects. (A database contains the dataset.). */
+    Contains,
+    /** # correction-in
+
+Correction In. This artifact has corrections to it in the target artifact. The target artifact identifies errors and replacement content for this artifact. */
+    CorrectionIn,
+    /** # corrects
+
+Corrects. This artifact identifies errors and replacement content for the target artifact. */
+    Corrects,
+    /** # created-with
+
+Created With. This artifact was created with the target artifact. The target artifact is a tool or support material used in the creation of the artifact, and not content that the artifact was derived from. */
+    CreatedWith,
+    /** # depends-on
+
+Depends On. This artifact depends on the target artifact. There is a requirement to use the target artifact in the creation or interpretation of this artifact. */
+    DependsOn,
+    /** # derived-from
+
+Derived From. This artifact is derived from the target artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting. The artifact may be derived from one or more target artifacts. */
+    DerivedFrom,
+    /** # documentation
+
+Documentation. Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness. */
+    Documentation,
+    /** # documents
+
+Documents. This artifact provides additional documentation for the target artifact. This could include additional instructions on usage as well as additional information on clinical context or appropriateness. */
+    Documents,
+    /** # justification
+
+Justification. The target artifact is a summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource. */
+    Justification,
+    /** # part-of
+
+Part Of. This artifact is a part of the target artifact. The target artifact is composed of this artifact (and possibly other artifacts). */
+    PartOf,
+    /** # predecessor
+
+Predecessor. The previous version of the knowledge artifact, used to establish an ordering of versions of an artifact, independent of the status of each version. */
+    Predecessor,
+    /** # replaced-with
+
+Replaced With. This artifact is replaced with or superseded by the target artifact. This artifact may be considered deprecated. */
+    ReplacedWith,
+    /** # replaces
+
+Replaces. This artifact replaces or supersedes the target artifact. The target artifact may be considered deprecated. */
+    Replaces,
     /** # reprint
 
 Reprint. A copy of the artifact in a publication with a different artifact identifier. */
@@ -41276,14 +41376,94 @@ Reprint. A copy of the artifact in a publication with a different artifact ident
 
 Reprint Of. The original version of record for which the current artifact is a copy. */
     ReprintOf,
+    /** # retracted-by
+
+Retracted By. This artifact is retracted by the target artifact. The content that was published in this artifact should be considered removed from publication and should no longer be considered part of the public record. */
+    RetractedBy,
+    /** # retracts
+
+Retracts. This artifact retracts the target artifact. The content that was published in the target artifact should be considered removed from publication and should no longer be considered part of the public record. */
+    Retracts,
+    /** # signs
+
+Signs. This artifact is a signature of the target artifact. */
+    Signs,
+    /** # similar-to
+
+Similar To. This artifact has characteristics in common with the target artifact. This relationship may be used in systems to “deduplicate” knowledge artifacts from different sources, or in systems to show “similar items”. */
+    SimilarTo,
+    /** # specification-of
+
+Specification Of. The target artifact is a precise description of a concept in this artifact. This may be used when the RelatedArtifact datatype is used in elements contained in this artifact. */
+    SpecificationOf,
+    /** # successor
+
+Successor. The subsequent version of the knowledge artfact, used to establish an ordering of versions of an artifact, independent of the status of each version. */
+    Successor,
+    /** # supported-with
+
+Supported With. The target artifact contains additional information related to the knowledge artifact but is not documentation as the additional information does not describe, explain, or instruct regarding the knowledge artifact content or application. This could include an associated dataset. */
+    SupportedWith,
+    /** # supports
+
+Supports. This artifact provides additional support for the target artifact. The type of support  is not documentation as it does not describe, explain, or instruct regarding the target artifact. */
+    Supports,
+    /** # transformed-into
+
+Transformed Into. This artifact was transformed into the target artifact (e.g., by format or language conversion). */
+    TransformedInto,
+    /** # transformed-with
+
+Transformed With. This artifact was generated by transforming a related artifact (e.g., format or language conversion), noted separately with the “transforms” relationship type. This transformation used the target artifact to inform the transformation. The target artifact may be a conversion script or translation guide. */
+    TransformedWith,
+    /** # transforms
+
+Transforms. This artifact was generated by transforming the target artifact (e.g., format or language conversion). This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but changes are only apparent in form and there is only one target artifact with the “transforms” relationship type. */
+    Transforms,
 }
 impl ::core::str::FromStr for RelatedArtifactTypeExpanded {
     type Err = String;
     #[allow(clippy::match_single_binding)]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
+            "amended-with" => Ok(Self::AmendedWith),
+            "amends" => Ok(Self::Amends),
+            "appended-with" => Ok(Self::AppendedWith),
+            "appends" => Ok(Self::Appends),
+            "citation" => Ok(Self::Citation),
+            "cite-as" => Ok(Self::CiteAs),
+            "cited-by" => Ok(Self::CitedBy),
+            "cites" => Ok(Self::Cites),
+            "comment-in" => Ok(Self::CommentIn),
+            "comments-on" => Ok(Self::CommentsOn),
+            "composed-of" => Ok(Self::ComposedOf),
+            "contained-in" => Ok(Self::ContainedIn),
+            "contains" => Ok(Self::Contains),
+            "correction-in" => Ok(Self::CorrectionIn),
+            "corrects" => Ok(Self::Corrects),
+            "created-with" => Ok(Self::CreatedWith),
+            "depends-on" => Ok(Self::DependsOn),
+            "derived-from" => Ok(Self::DerivedFrom),
+            "documentation" => Ok(Self::Documentation),
+            "documents" => Ok(Self::Documents),
+            "justification" => Ok(Self::Justification),
+            "part-of" => Ok(Self::PartOf),
+            "predecessor" => Ok(Self::Predecessor),
+            "replaced-with" => Ok(Self::ReplacedWith),
+            "replaces" => Ok(Self::Replaces),
             "reprint" => Ok(Self::Reprint),
             "reprint-of" => Ok(Self::ReprintOf),
+            "retracted-by" => Ok(Self::RetractedBy),
+            "retracts" => Ok(Self::Retracts),
+            "signs" => Ok(Self::Signs),
+            "similar-to" => Ok(Self::SimilarTo),
+            "specification-of" => Ok(Self::SpecificationOf),
+            "successor" => Ok(Self::Successor),
+            "supported-with" => Ok(Self::SupportedWith),
+            "supports" => Ok(Self::Supports),
+            "transformed-into" => Ok(Self::TransformedInto),
+            "transformed-with" => Ok(Self::TransformedWith),
+            "transforms" => Ok(Self::Transforms),
             _ => Err(format!("Unknown value: {s}")),
         }
     }
@@ -41291,16 +41471,88 @@ impl ::core::str::FromStr for RelatedArtifactTypeExpanded {
 impl AsRef<str> for RelatedArtifactTypeExpanded {
     fn as_ref(&self) -> &str {
         match self {
+            Self::AmendedWith => "amended-with",
+            Self::Amends => "amends",
+            Self::AppendedWith => "appended-with",
+            Self::Appends => "appends",
+            Self::Citation => "citation",
+            Self::CiteAs => "cite-as",
+            Self::CitedBy => "cited-by",
+            Self::Cites => "cites",
+            Self::CommentIn => "comment-in",
+            Self::CommentsOn => "comments-on",
+            Self::ComposedOf => "composed-of",
+            Self::ContainedIn => "contained-in",
+            Self::Contains => "contains",
+            Self::CorrectionIn => "correction-in",
+            Self::Corrects => "corrects",
+            Self::CreatedWith => "created-with",
+            Self::DependsOn => "depends-on",
+            Self::DerivedFrom => "derived-from",
+            Self::Documentation => "documentation",
+            Self::Documents => "documents",
+            Self::Justification => "justification",
+            Self::PartOf => "part-of",
+            Self::Predecessor => "predecessor",
+            Self::ReplacedWith => "replaced-with",
+            Self::Replaces => "replaces",
             Self::Reprint => "reprint",
             Self::ReprintOf => "reprint-of",
+            Self::RetractedBy => "retracted-by",
+            Self::Retracts => "retracts",
+            Self::Signs => "signs",
+            Self::SimilarTo => "similar-to",
+            Self::SpecificationOf => "specification-of",
+            Self::Successor => "successor",
+            Self::SupportedWith => "supported-with",
+            Self::Supports => "supports",
+            Self::TransformedInto => "transformed-into",
+            Self::TransformedWith => "transformed-with",
+            Self::Transforms => "transforms",
         }
     }
 }
 impl ::std::fmt::Display for RelatedArtifactTypeExpanded {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         let s = match self {
+            Self::AmendedWith => "Amended With",
+            Self::Amends => "Amends",
+            Self::AppendedWith => "Appended With",
+            Self::Appends => "Appends",
+            Self::Citation => "Citation",
+            Self::CiteAs => "Cite As",
+            Self::CitedBy => "Cited By",
+            Self::Cites => "Cites",
+            Self::CommentIn => "Has Comment In",
+            Self::CommentsOn => "Is Comment On",
+            Self::ComposedOf => "Composed Of",
+            Self::ContainedIn => "Contained In",
+            Self::Contains => "Contains",
+            Self::CorrectionIn => "Correction In",
+            Self::Corrects => "Corrects",
+            Self::CreatedWith => "Created With",
+            Self::DependsOn => "Depends On",
+            Self::DerivedFrom => "Derived From",
+            Self::Documentation => "Documentation",
+            Self::Documents => "Documents",
+            Self::Justification => "Justification",
+            Self::PartOf => "Part Of",
+            Self::Predecessor => "Predecessor",
+            Self::ReplacedWith => "Replaced With",
+            Self::Replaces => "Replaces",
             Self::Reprint => "Reprint",
             Self::ReprintOf => "Reprint Of",
+            Self::RetractedBy => "Retracted By",
+            Self::Retracts => "Retracts",
+            Self::Signs => "Signs",
+            Self::SimilarTo => "Similar To",
+            Self::SpecificationOf => "Specification Of",
+            Self::Successor => "Successor",
+            Self::SupportedWith => "Supported With",
+            Self::Supports => "Supports",
+            Self::TransformedInto => "Transformed Into",
+            Self::TransformedWith => "Transformed With",
+            Self::Transforms => "Transforms",
         };
         write!(f, "{s}")
     }

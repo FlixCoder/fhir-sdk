@@ -85,7 +85,8 @@ pub struct AddressInner {
     #[serde(rename = "use")]
     pub r#use: Option<codes::AddressUse>,
     /// Extension field.
-    #[serde(rename = "_use", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
     /** # AddressType; postal | physical | both
@@ -103,7 +104,8 @@ pub struct AddressInner {
     #[serde(rename = "type")]
     pub r#type: Option<codes::AddressType>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # Text representation of the address
@@ -121,7 +123,8 @@ pub struct AddressInner {
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
-    #[serde(rename = "_text", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_text")]
     #[builder(default, setter(doc = "Field extension."))]
     pub text_ext: Option<FieldExtension>,
     /** # Street name, number, direction & P.O. Box etc.
@@ -139,7 +142,8 @@ pub struct AddressInner {
     #[serde(rename = "line")]
     pub line: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_line", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_line")]
     #[builder(default, setter(doc = "Field extension."))]
     pub line_ext: Vec<Option<FieldExtension>>,
     /** # Name of city, town etc.
@@ -157,7 +161,8 @@ pub struct AddressInner {
     #[serde(rename = "city")]
     pub city: Option<String>,
     /// Extension field.
-    #[serde(rename = "_city", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_city")]
     #[builder(default, setter(doc = "Field extension."))]
     pub city_ext: Option<FieldExtension>,
     /** # District name (aka county)
@@ -175,7 +180,8 @@ pub struct AddressInner {
     #[serde(rename = "district")]
     pub district: Option<String>,
     /// Extension field.
-    #[serde(rename = "_district", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_district")]
     #[builder(default, setter(doc = "Field extension."))]
     pub district_ext: Option<FieldExtension>,
     /** # Sub-unit of country (abbreviations ok)
@@ -193,7 +199,8 @@ pub struct AddressInner {
     #[serde(rename = "state")]
     pub state: Option<String>,
     /// Extension field.
-    #[serde(rename = "_state", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_state")]
     #[builder(default, setter(doc = "Field extension."))]
     pub state_ext: Option<FieldExtension>,
     /** # Postal code for area
@@ -211,7 +218,8 @@ pub struct AddressInner {
     #[serde(rename = "postalCode")]
     pub postal_code: Option<String>,
     /// Extension field.
-    #[serde(rename = "_postalCode", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_postalCode")]
     #[builder(default, setter(doc = "Field extension."))]
     pub postal_code_ext: Option<FieldExtension>,
     /** # Country (e.g. may be ISO 3166 2 or 3 letter code)
@@ -229,7 +237,8 @@ pub struct AddressInner {
     #[serde(rename = "country")]
     pub country: Option<String>,
     /// Extension field.
-    #[serde(rename = "_country", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_country")]
     #[builder(default, setter(doc = "Field extension."))]
     pub country_ext: Option<FieldExtension>,
     /** # Time period when address was/is in use
@@ -247,7 +256,8 @@ pub struct AddressInner {
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_period")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_ext: Option<FieldExtension>,
 }
@@ -505,9 +515,10 @@ pub struct AnnotationInner {
     #[serde(flatten)]
     pub author: Option<AnnotationAuthor>,
     /// Extension field.
-    #[serde(rename = "_author", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub author_ext: Option<FieldExtension>,
+    pub author_ext: Option<AnnotationAuthorExtension>,
     /** # When the annotation was made
 
  Indicates when this particular annotation was made.
@@ -523,7 +534,8 @@ pub struct AnnotationInner {
     #[serde(rename = "time")]
     pub time: Option<String>,
     /// Extension field.
-    #[serde(rename = "_time", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_time")]
     #[builder(default, setter(doc = "Field extension."))]
     pub time_ext: Option<FieldExtension>,
     /** # The annotation  - text content (as markdown)
@@ -534,7 +546,8 @@ pub struct AnnotationInner {
     #[serde(rename = "text")]
     pub text: String,
     /// Extension field.
-    #[serde(rename = "_text", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_text")]
     #[builder(default, setter(doc = "Field extension."))]
     pub text_ext: Option<FieldExtension>,
 }
@@ -570,6 +583,17 @@ pub enum AnnotationAuthor {
     /// Variant accepting the String type.
     #[serde(rename = "authorString")]
     String(String),
+}
+/// Extension value for AnnotationAuthor.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum AnnotationAuthorExtension {
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_authorReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_authorString")]
+    String(FieldExtension),
 }
 /** # Attachment
 
@@ -648,7 +672,8 @@ pub struct AttachmentInner {
     #[serde(rename = "contentType")]
     pub content_type: Option<String>,
     /// Extension field.
-    #[serde(rename = "_contentType", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_contentType")]
     #[builder(default, setter(doc = "Field extension."))]
     pub content_type_ext: Option<FieldExtension>,
     /** # Language; Human language of the content (BCP-47)
@@ -666,7 +691,8 @@ pub struct AttachmentInner {
     #[serde(rename = "language")]
     pub language: Option<String>,
     /// Extension field.
-    #[serde(rename = "_language", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_language")]
     #[builder(default, setter(doc = "Field extension."))]
     pub language_ext: Option<FieldExtension>,
     /** # Data inline, base64ed
@@ -684,7 +710,8 @@ pub struct AttachmentInner {
     #[serde(rename = "data")]
     pub data: Option<String>,
     /// Extension field.
-    #[serde(rename = "_data", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_data")]
     #[builder(default, setter(doc = "Field extension."))]
     pub data_ext: Option<FieldExtension>,
     /** # Uri where the data can be found
@@ -702,7 +729,8 @@ pub struct AttachmentInner {
     #[serde(rename = "url")]
     pub url: Option<String>,
     /// Extension field.
-    #[serde(rename = "_url", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_url")]
     #[builder(default, setter(doc = "Field extension."))]
     pub url_ext: Option<FieldExtension>,
     /** # Number of bytes of content (if url provided)
@@ -720,7 +748,8 @@ pub struct AttachmentInner {
     #[serde(rename = "size")]
     pub size: Option<String>,
     /// Extension field.
-    #[serde(rename = "_size", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_size")]
     #[builder(default, setter(doc = "Field extension."))]
     pub size_ext: Option<FieldExtension>,
     /** # Hash of the data (sha-1, base64ed)
@@ -738,7 +767,8 @@ pub struct AttachmentInner {
     #[serde(rename = "hash")]
     pub hash: Option<String>,
     /// Extension field.
-    #[serde(rename = "_hash", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_hash")]
     #[builder(default, setter(doc = "Field extension."))]
     pub hash_ext: Option<FieldExtension>,
     /** # Label to display in place of the data
@@ -756,7 +786,8 @@ pub struct AttachmentInner {
     #[serde(rename = "title")]
     pub title: Option<String>,
     /// Extension field.
-    #[serde(rename = "_title", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_title")]
     #[builder(default, setter(doc = "Field extension."))]
     pub title_ext: Option<FieldExtension>,
     /** # Date attachment was first created
@@ -774,7 +805,8 @@ pub struct AttachmentInner {
     #[serde(rename = "creation")]
     pub creation: Option<String>,
     /// Extension field.
-    #[serde(rename = "_creation", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_creation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub creation_ext: Option<FieldExtension>,
     /** # Height of the image in pixels (photo/video)
@@ -792,7 +824,8 @@ pub struct AttachmentInner {
     #[serde(rename = "height")]
     pub height: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_height", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_height")]
     #[builder(default, setter(doc = "Field extension."))]
     pub height_ext: Option<FieldExtension>,
     /** # Width of the image in pixels (photo/video)
@@ -810,7 +843,8 @@ pub struct AttachmentInner {
     #[serde(rename = "width")]
     pub width: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_width", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_width")]
     #[builder(default, setter(doc = "Field extension."))]
     pub width_ext: Option<FieldExtension>,
     /** # Number of frames if > 1 (photo)
@@ -828,7 +862,8 @@ pub struct AttachmentInner {
     #[serde(rename = "frames")]
     pub frames: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_frames", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_frames")]
     #[builder(default, setter(doc = "Field extension."))]
     pub frames_ext: Option<FieldExtension>,
     /** # Length in seconds (audio / video)
@@ -846,7 +881,8 @@ pub struct AttachmentInner {
     #[serde(rename = "duration")]
     pub duration: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_duration", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_duration")]
     #[builder(default, setter(doc = "Field extension."))]
     pub duration_ext: Option<FieldExtension>,
     /** # Number of printed pages
@@ -864,7 +900,8 @@ pub struct AttachmentInner {
     #[serde(rename = "pages")]
     pub pages: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_pages", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_pages")]
     #[builder(default, setter(doc = "Field extension."))]
     pub pages_ext: Option<FieldExtension>,
 }
@@ -967,7 +1004,8 @@ pub struct AvailabilityInner {
     #[serde(rename = "availableTime")]
     pub available_time: Vec<Option<AvailabilityAvailableTime>>,
     /// Extension field.
-    #[serde(rename = "_availableTime", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_availableTime")]
     #[builder(default, setter(doc = "Field extension."))]
     pub available_time_ext: Vec<Option<FieldExtension>>,
     /** # Not available during this time due to provided reason
@@ -985,11 +1023,8 @@ pub struct AvailabilityInner {
     #[serde(rename = "notAvailableTime")]
     pub not_available_time: Vec<Option<AvailabilityNotAvailableTime>>,
     /// Extension field.
-    #[serde(
-        rename = "_notAvailableTime",
-        default,
-        skip_serializing_if = "Vec::is_empty"
-    )]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_notAvailableTime")]
     #[builder(default, setter(doc = "Field extension."))]
     pub not_available_time_ext: Vec<Option<FieldExtension>>,
 }
@@ -1063,7 +1098,8 @@ pub struct AvailabilityAvailableTime {
     #[serde(rename = "daysOfWeek")]
     pub days_of_week: Vec<Option<codes::DaysOfWeek>>,
     /// Extension field.
-    #[serde(rename = "_daysOfWeek", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_daysOfWeek")]
     #[builder(default, setter(doc = "Field extension."))]
     pub days_of_week_ext: Vec<Option<FieldExtension>>,
     /** # Always available? i.e. 24 hour service
@@ -1081,7 +1117,8 @@ pub struct AvailabilityAvailableTime {
     #[serde(rename = "allDay")]
     pub all_day: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_allDay", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_allDay")]
     #[builder(default, setter(doc = "Field extension."))]
     pub all_day_ext: Option<FieldExtension>,
     /** # Opening time of day (ignored if allDay = true)
@@ -1099,11 +1136,8 @@ pub struct AvailabilityAvailableTime {
     #[serde(rename = "availableStartTime")]
     pub available_start_time: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_availableStartTime",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_availableStartTime")]
     #[builder(default, setter(doc = "Field extension."))]
     pub available_start_time_ext: Option<FieldExtension>,
     /** # Closing time of day (ignored if allDay = true)
@@ -1121,11 +1155,8 @@ pub struct AvailabilityAvailableTime {
     #[serde(rename = "availableEndTime")]
     pub available_end_time: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_availableEndTime",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_availableEndTime")]
     #[builder(default, setter(doc = "Field extension."))]
     pub available_end_time_ext: Option<FieldExtension>,
 }
@@ -1179,7 +1210,8 @@ e.g.2: 'Closed for maintenance over the summer' for this example you would want 
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
-    #[serde(rename = "_description", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_description")]
     #[builder(default, setter(doc = "Field extension."))]
     pub description_ext: Option<FieldExtension>,
     /** # Service not available during this period
@@ -1197,7 +1229,8 @@ e.g.2: 'Closed for maintenance over the summer' for this example you would want 
     #[serde(rename = "during")]
     pub during: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_during", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_during")]
     #[builder(default, setter(doc = "Field extension."))]
     pub during_ext: Option<FieldExtension>,
 }
@@ -1278,7 +1311,8 @@ pub struct CodeableConceptInner {
     #[serde(rename = "coding")]
     pub coding: Vec<Option<Coding>>,
     /// Extension field.
-    #[serde(rename = "_coding", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_coding")]
     #[builder(default, setter(doc = "Field extension."))]
     pub coding_ext: Vec<Option<FieldExtension>>,
     /** # Plain text representation of the concept
@@ -1296,7 +1330,8 @@ pub struct CodeableConceptInner {
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
-    #[serde(rename = "_text", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_text")]
     #[builder(default, setter(doc = "Field extension."))]
     pub text_ext: Option<FieldExtension>,
 }
@@ -1399,7 +1434,8 @@ pub struct CodeableReferenceInner {
     #[serde(rename = "concept")]
     pub concept: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_concept", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_concept")]
     #[builder(default, setter(doc = "Field extension."))]
     pub concept_ext: Option<FieldExtension>,
     /** # Reference to a resource (by instance)
@@ -1417,7 +1453,8 @@ pub struct CodeableReferenceInner {
     #[serde(rename = "reference")]
     pub reference: Option<Reference>,
     /// Extension field.
-    #[serde(rename = "_reference", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_reference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub reference_ext: Option<FieldExtension>,
 }
@@ -1520,7 +1557,8 @@ pub struct CodingInner {
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
-    #[serde(rename = "_system", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_system")]
     #[builder(default, setter(doc = "Field extension."))]
     pub system_ext: Option<FieldExtension>,
     /** # Version of the system - if relevant
@@ -1538,7 +1576,8 @@ pub struct CodingInner {
     #[serde(rename = "version")]
     pub version: Option<String>,
     /// Extension field.
-    #[serde(rename = "_version", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_version")]
     #[builder(default, setter(doc = "Field extension."))]
     pub version_ext: Option<FieldExtension>,
     /** # Symbol in syntax defined by the system
@@ -1556,7 +1595,8 @@ pub struct CodingInner {
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
     /** # Representation defined by the system
@@ -1574,7 +1614,8 @@ pub struct CodingInner {
     #[serde(rename = "display")]
     pub display: Option<String>,
     /// Extension field.
-    #[serde(rename = "_display", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_display")]
     #[builder(default, setter(doc = "Field extension."))]
     pub display_ext: Option<FieldExtension>,
     /** # If this coding was chosen directly by the user
@@ -1592,7 +1633,8 @@ pub struct CodingInner {
     #[serde(rename = "userSelected")]
     pub user_selected: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_userSelected", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_userSelected")]
     #[builder(default, setter(doc = "Field extension."))]
     pub user_selected_ext: Option<FieldExtension>,
 }
@@ -1695,7 +1737,8 @@ pub struct ContactDetailInner {
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
-    #[serde(rename = "_name", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
     /** # Contact details for individual or organization
@@ -1713,7 +1756,8 @@ pub struct ContactDetailInner {
     #[serde(rename = "telecom")]
     pub telecom: Vec<Option<ContactPoint>>,
     /// Extension field.
-    #[serde(rename = "_telecom", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_telecom")]
     #[builder(default, setter(doc = "Field extension."))]
     pub telecom_ext: Vec<Option<FieldExtension>>,
 }
@@ -1816,7 +1860,8 @@ pub struct ContactPointInner {
     #[serde(rename = "system")]
     pub system: Option<codes::ContactPointSystem>,
     /// Extension field.
-    #[serde(rename = "_system", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_system")]
     #[builder(default, setter(doc = "Field extension."))]
     pub system_ext: Option<FieldExtension>,
     /** # The actual contact point details
@@ -1834,7 +1879,8 @@ pub struct ContactPointInner {
     #[serde(rename = "value")]
     pub value: Option<String>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
     /** # ContactPointUse; home | work | temp | old | mobile - purpose of this contact point
@@ -1852,7 +1898,8 @@ pub struct ContactPointInner {
     #[serde(rename = "use")]
     pub r#use: Option<codes::ContactPointUse>,
     /// Extension field.
-    #[serde(rename = "_use", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
     /** # Specify preferred order of use (1 = highest)
@@ -1874,7 +1921,8 @@ Ranks need not be sequential and not all repetitions must have a rank.  For exam
     #[serde(rename = "rank")]
     pub rank: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_rank", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_rank")]
     #[builder(default, setter(doc = "Field extension."))]
     pub rank_ext: Option<FieldExtension>,
     /** # Time period when the contact point was/is in use
@@ -1892,7 +1940,8 @@ Ranks need not be sequential and not all repetitions must have a rank.  For exam
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_period")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_ext: Option<FieldExtension>,
 }
@@ -1988,7 +2037,8 @@ pub struct ContributorInner {
     #[serde(rename = "type")]
     pub r#type: codes::ContributorType,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # Who contributed the content
@@ -1999,7 +2049,8 @@ pub struct ContributorInner {
     #[serde(rename = "name")]
     pub name: String,
     /// Extension field.
-    #[serde(rename = "_name", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
     /** # Contact details of the contributor
@@ -2017,7 +2068,8 @@ pub struct ContributorInner {
     #[serde(rename = "contact")]
     pub contact: Vec<Option<ContactDetail>>,
     /// Extension field.
-    #[serde(rename = "_contact", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_contact")]
     #[builder(default, setter(doc = "Field extension."))]
     pub contact_ext: Vec<Option<FieldExtension>>,
 }
@@ -2268,7 +2320,8 @@ pub struct DataRequirementInner {
     #[serde(rename = "type")]
     pub r#type: String,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # The profile of the required data
@@ -2286,7 +2339,8 @@ pub struct DataRequirementInner {
     #[serde(rename = "profile")]
     pub profile: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_profile", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_profile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub profile_ext: Vec<Option<FieldExtension>>,
     /** # E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device
@@ -2304,9 +2358,10 @@ pub struct DataRequirementInner {
     #[serde(flatten)]
     pub subject: Option<DataRequirementSubject>,
     /// Extension field.
-    #[serde(rename = "_subject", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub subject_ext: Option<FieldExtension>,
+    pub subject_ext: Option<DataRequirementSubjectExtension>,
     /** # Indicates specific structure elements that are referenced by the knowledge module
 
  Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.
@@ -2324,7 +2379,8 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
     #[serde(rename = "mustSupport")]
     pub must_support: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_mustSupport", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_mustSupport")]
     #[builder(default, setter(doc = "Field extension."))]
     pub must_support_ext: Vec<Option<FieldExtension>>,
     /** # What codes are expected
@@ -2342,7 +2398,8 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
     #[serde(rename = "codeFilter")]
     pub code_filter: Vec<Option<DataRequirementCodeFilter>>,
     /// Extension field.
-    #[serde(rename = "_codeFilter", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_codeFilter")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_filter_ext: Vec<Option<FieldExtension>>,
     /** # What dates/date ranges are expected
@@ -2360,7 +2417,8 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
     #[serde(rename = "dateFilter")]
     pub date_filter: Vec<Option<DataRequirementDateFilter>>,
     /// Extension field.
-    #[serde(rename = "_dateFilter", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_dateFilter")]
     #[builder(default, setter(doc = "Field extension."))]
     pub date_filter_ext: Vec<Option<FieldExtension>>,
     /** # What values are expected
@@ -2378,7 +2436,8 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
     #[serde(rename = "valueFilter")]
     pub value_filter: Vec<Option<DataRequirementValueFilter>>,
     /// Extension field.
-    #[serde(rename = "_valueFilter", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_valueFilter")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_filter_ext: Vec<Option<FieldExtension>>,
     /** # Number of results
@@ -2396,7 +2455,8 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
     #[serde(rename = "limit")]
     pub limit: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_limit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_limit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub limit_ext: Option<FieldExtension>,
     /** # Order of the results
@@ -2414,7 +2474,8 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
     #[serde(rename = "sort")]
     pub sort: Vec<Option<DataRequirementSort>>,
     /// Extension field.
-    #[serde(rename = "_sort", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_sort")]
     #[builder(default, setter(doc = "Field extension."))]
     pub sort_ext: Vec<Option<FieldExtension>>,
 }
@@ -2450,6 +2511,17 @@ pub enum DataRequirementSubject {
     /// Variant accepting the Reference type.
     #[serde(rename = "subjectReference")]
     Reference(Reference),
+}
+/// Extension value for DataRequirementSubject.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum DataRequirementSubjectExtension {
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_subjectCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_subjectReference")]
+    Reference(FieldExtension),
 }
 /// Sub-fields of the codeFilter field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
@@ -2499,7 +2571,8 @@ pub struct DataRequirementCodeFilter {
     #[serde(rename = "path")]
     pub path: Option<String>,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
     /** # A coded (token) parameter to search on
@@ -2517,7 +2590,8 @@ pub struct DataRequirementCodeFilter {
     #[serde(rename = "searchParam")]
     pub search_param: Option<String>,
     /// Extension field.
-    #[serde(rename = "_searchParam", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_searchParam")]
     #[builder(default, setter(doc = "Field extension."))]
     pub search_param_ext: Option<FieldExtension>,
     /** # ValueSet for the filter
@@ -2535,7 +2609,8 @@ pub struct DataRequirementCodeFilter {
     #[serde(rename = "valueSet")]
     pub value_set: Option<String>,
     /// Extension field.
-    #[serde(rename = "_valueSet", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_valueSet")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_set_ext: Option<FieldExtension>,
     /** # What code is expected
@@ -2553,7 +2628,8 @@ pub struct DataRequirementCodeFilter {
     #[serde(rename = "code")]
     pub code: Vec<Option<Coding>>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Vec<Option<FieldExtension>>,
 }
@@ -2605,7 +2681,8 @@ pub struct DataRequirementDateFilter {
     #[serde(rename = "path")]
     pub path: Option<String>,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
     /** # A date valued parameter to search on
@@ -2623,7 +2700,8 @@ pub struct DataRequirementDateFilter {
     #[serde(rename = "searchParam")]
     pub search_param: Option<String>,
     /// Extension field.
-    #[serde(rename = "_searchParam", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_searchParam")]
     #[builder(default, setter(doc = "Field extension."))]
     pub search_param_ext: Option<FieldExtension>,
     /** # The value of the filter, as a Period, DateTime, or Duration value
@@ -2641,9 +2719,10 @@ pub struct DataRequirementDateFilter {
     #[serde(flatten)]
     pub value: Option<DataRequirementDateFilterValue>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub value_ext: Option<FieldExtension>,
+    pub value_ext: Option<DataRequirementDateFilterValueExtension>,
 }
 /// Choice of types for the value[x] field in DataRequirementDateFilter
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2658,6 +2737,20 @@ pub enum DataRequirementDateFilterValue {
     /// Variant accepting the Duration type.
     #[serde(rename = "valueDuration")]
     Duration(Duration),
+}
+/// Extension value for DataRequirementDateFilterValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum DataRequirementDateFilterValueExtension {
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_valueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_valuePeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_valueDuration")]
+    Duration(FieldExtension),
 }
 /// Sub-fields of the valueFilter field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
@@ -2707,7 +2800,8 @@ pub struct DataRequirementValueFilter {
     #[serde(rename = "path")]
     pub path: Option<String>,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
     /** # A parameter to search on
@@ -2725,7 +2819,8 @@ pub struct DataRequirementValueFilter {
     #[serde(rename = "searchParam")]
     pub search_param: Option<String>,
     /// Extension field.
-    #[serde(rename = "_searchParam", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_searchParam")]
     #[builder(default, setter(doc = "Field extension."))]
     pub search_param_ext: Option<FieldExtension>,
     /** # ValueFilterComparator; eq | gt | lt | ge | le | sa | eb
@@ -2743,7 +2838,8 @@ pub struct DataRequirementValueFilter {
     #[serde(rename = "comparator")]
     pub comparator: Option<String>,
     /// Extension field.
-    #[serde(rename = "_comparator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_comparator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub comparator_ext: Option<FieldExtension>,
     /** # The value of the filter, as a Period, DateTime, or Duration value
@@ -2761,9 +2857,10 @@ pub struct DataRequirementValueFilter {
     #[serde(flatten)]
     pub value: Option<DataRequirementValueFilterValue>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub value_ext: Option<FieldExtension>,
+    pub value_ext: Option<DataRequirementValueFilterValueExtension>,
 }
 /// Choice of types for the value[x] field in DataRequirementValueFilter
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2778,6 +2875,20 @@ pub enum DataRequirementValueFilterValue {
     /// Variant accepting the Duration type.
     #[serde(rename = "valueDuration")]
     Duration(Duration),
+}
+/// Extension value for DataRequirementValueFilterValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum DataRequirementValueFilterValueExtension {
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_valueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_valuePeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_valueDuration")]
+    Duration(FieldExtension),
 }
 /// Sub-fields of the sort field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
@@ -2820,7 +2931,8 @@ pub struct DataRequirementSort {
     #[serde(rename = "path")]
     pub path: String,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
     /** # SortDirection; ascending | descending
@@ -2831,7 +2943,8 @@ pub struct DataRequirementSort {
     #[serde(rename = "direction")]
     pub direction: codes::SortDirection,
     /// Extension field.
-    #[serde(rename = "_direction", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_direction")]
     #[builder(default, setter(doc = "Field extension."))]
     pub direction_ext: Option<FieldExtension>,
 }
@@ -3083,7 +3196,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "sequence")]
     pub sequence: Option<i32>,
     /// Extension field.
-    #[serde(rename = "_sequence", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_sequence")]
     #[builder(default, setter(doc = "Field extension."))]
     pub sequence_ext: Option<FieldExtension>,
     /** # Free text dosage instructions e.g. SIG
@@ -3101,7 +3215,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
-    #[serde(rename = "_text", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_text")]
     #[builder(default, setter(doc = "Field extension."))]
     pub text_ext: Option<FieldExtension>,
     /** # AdditionalInstruction; Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness"
@@ -3119,11 +3234,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "additionalInstruction")]
     pub additional_instruction: Vec<Option<CodeableConcept>>,
     /// Extension field.
-    #[serde(
-        rename = "_additionalInstruction",
-        default,
-        skip_serializing_if = "Vec::is_empty"
-    )]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_additionalInstruction")]
     #[builder(default, setter(doc = "Field extension."))]
     pub additional_instruction_ext: Vec<Option<FieldExtension>>,
     /** # Patient or consumer oriented instructions
@@ -3141,11 +3253,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "patientInstruction")]
     pub patient_instruction: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_patientInstruction",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_patientInstruction")]
     #[builder(default, setter(doc = "Field extension."))]
     pub patient_instruction_ext: Option<FieldExtension>,
     /** # When medication should be administered
@@ -3163,7 +3272,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "timing")]
     pub timing: Option<Timing>,
     /// Extension field.
-    #[serde(rename = "_timing", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_timing")]
     #[builder(default, setter(doc = "Field extension."))]
     pub timing_ext: Option<FieldExtension>,
     /** # Take "as needed"
@@ -3181,7 +3291,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "asNeeded")]
     pub as_needed: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_asNeeded", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_asNeeded")]
     #[builder(default, setter(doc = "Field extension."))]
     pub as_needed_ext: Option<FieldExtension>,
     /** # MedicationAsNeededReason; Take "as needed" (for x)
@@ -3199,7 +3310,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "asNeededFor")]
     pub as_needed_for: Vec<Option<CodeableConcept>>,
     /// Extension field.
-    #[serde(rename = "_asNeededFor", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_asNeededFor")]
     #[builder(default, setter(doc = "Field extension."))]
     pub as_needed_for_ext: Vec<Option<FieldExtension>>,
     /** # MedicationAdministrationSite; Body site to administer to
@@ -3217,7 +3329,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "site")]
     pub site: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_site", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_site")]
     #[builder(default, setter(doc = "Field extension."))]
     pub site_ext: Option<FieldExtension>,
     /** # RouteOfAdministration; How drug should enter body
@@ -3235,7 +3348,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "route")]
     pub route: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_route", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_route")]
     #[builder(default, setter(doc = "Field extension."))]
     pub route_ext: Option<FieldExtension>,
     /** # MedicationAdministrationMethod; Technique for administering medication
@@ -3253,7 +3367,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "method")]
     pub method: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_method", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_method")]
     #[builder(default, setter(doc = "Field extension."))]
     pub method_ext: Option<FieldExtension>,
     /** # Amount of medication administered, to be administered or typical amount to be administered
@@ -3271,7 +3386,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "doseAndRate")]
     pub dose_and_rate: Vec<Option<DosageDoseAndRate>>,
     /// Extension field.
-    #[serde(rename = "_doseAndRate", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_doseAndRate")]
     #[builder(default, setter(doc = "Field extension."))]
     pub dose_and_rate_ext: Vec<Option<FieldExtension>>,
     /** # Upper limit on medication per unit of time
@@ -3289,11 +3405,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "maxDosePerPeriod")]
     pub max_dose_per_period: Vec<Option<Ratio>>,
     /// Extension field.
-    #[serde(
-        rename = "_maxDosePerPeriod",
-        default,
-        skip_serializing_if = "Vec::is_empty"
-    )]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_maxDosePerPeriod")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_dose_per_period_ext: Vec<Option<FieldExtension>>,
     /** # Upper limit on medication per administration
@@ -3311,11 +3424,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "maxDosePerAdministration")]
     pub max_dose_per_administration: Option<Quantity>,
     /// Extension field.
-    #[serde(
-        rename = "_maxDosePerAdministration",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_maxDosePerAdministration")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_dose_per_administration_ext: Option<FieldExtension>,
     /** # Upper limit on medication per lifetime of the patient
@@ -3333,11 +3443,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "maxDosePerLifetime")]
     pub max_dose_per_lifetime: Option<Quantity>,
     /// Extension field.
-    #[serde(
-        rename = "_maxDosePerLifetime",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_maxDosePerLifetime")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_dose_per_lifetime_ext: Option<FieldExtension>,
 }
@@ -3411,7 +3518,8 @@ pub struct DosageDoseAndRate {
     #[serde(rename = "type")]
     pub r#type: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # Amount of medication per dose
@@ -3429,9 +3537,10 @@ pub struct DosageDoseAndRate {
     #[serde(flatten)]
     pub dose: Option<DosageDoseAndRateDose>,
     /// Extension field.
-    #[serde(rename = "_dose", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub dose_ext: Option<FieldExtension>,
+    pub dose_ext: Option<DosageDoseAndRateDoseExtension>,
     /** # Amount of medication per unit of time
 
  Amount of medication per unit of time.
@@ -3449,9 +3558,10 @@ It is possible to specify a rate over time (for example, 100 ml/hour) using eith
     #[serde(flatten)]
     pub rate: Option<DosageDoseAndRateRate>,
     /// Extension field.
-    #[serde(rename = "_rate", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub rate_ext: Option<FieldExtension>,
+    pub rate_ext: Option<DosageDoseAndRateRateExtension>,
 }
 /// Choice of types for the dose[x] field in DosageDoseAndRate
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -3463,6 +3573,17 @@ pub enum DosageDoseAndRateDose {
     /// Variant accepting the Quantity type.
     #[serde(rename = "doseQuantity")]
     Quantity(Quantity),
+}
+/// Extension value for DosageDoseAndRateDose.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum DosageDoseAndRateDoseExtension {
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_doseRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_doseQuantity")]
+    Quantity(FieldExtension),
 }
 /// Choice of types for the rate[x] field in DosageDoseAndRate
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -3477,6 +3598,20 @@ pub enum DosageDoseAndRateRate {
     /// Variant accepting the Quantity type.
     #[serde(rename = "rateQuantity")]
     Quantity(Quantity),
+}
+/// Extension value for DosageDoseAndRateRate.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum DosageDoseAndRateRateExtension {
+    /// Variant accepting the Ratio extension.
+    #[serde(rename = "_rateRatio")]
+    Ratio(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_rateRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_rateQuantity")]
+    Quantity(FieldExtension),
 }
 /** # Duration
 
@@ -3719,7 +3854,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "path")]
     pub path: String,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
     /** # PropertyRepresentation; xmlAttr | xmlText | typeAttr | cdaText | xhtml
@@ -3737,7 +3873,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "representation")]
     pub representation: Vec<Option<codes::PropertyRepresentation>>,
     /// Extension field.
-    #[serde(rename = "_representation", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_representation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub representation_ext: Vec<Option<FieldExtension>>,
     /** # Name for this particular element (in a set of slices)
@@ -3755,7 +3892,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "sliceName")]
     pub slice_name: Option<String>,
     /// Extension field.
-    #[serde(rename = "_sliceName", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_sliceName")]
     #[builder(default, setter(doc = "Field extension."))]
     pub slice_name_ext: Option<FieldExtension>,
     /** # If this slice definition constrains an inherited slice definition (or not)
@@ -3773,11 +3911,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "sliceIsConstraining")]
     pub slice_is_constraining: Option<bool>,
     /// Extension field.
-    #[serde(
-        rename = "_sliceIsConstraining",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_sliceIsConstraining")]
     #[builder(default, setter(doc = "Field extension."))]
     pub slice_is_constraining_ext: Option<FieldExtension>,
     /** # Name for element to display with or prompt for element
@@ -3795,7 +3930,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "label")]
     pub label: Option<String>,
     /// Extension field.
-    #[serde(rename = "_label", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_label")]
     #[builder(default, setter(doc = "Field extension."))]
     pub label_ext: Option<FieldExtension>,
     /** # ElementDefinitionCode; Corresponding codes in terminologies
@@ -3813,7 +3949,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "code")]
     pub code: Vec<Option<Coding>>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Vec<Option<FieldExtension>>,
     /** # This element is sliced - slices follow
@@ -3831,7 +3968,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "slicing")]
     pub slicing: Option<ElementDefinitionSlicing>,
     /// Extension field.
-    #[serde(rename = "_slicing", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_slicing")]
     #[builder(default, setter(doc = "Field extension."))]
     pub slicing_ext: Option<FieldExtension>,
     /** # Concise definition for space-constrained presentation
@@ -3849,7 +3987,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "short")]
     pub short: Option<String>,
     /// Extension field.
-    #[serde(rename = "_short", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_short")]
     #[builder(default, setter(doc = "Field extension."))]
     pub short_ext: Option<FieldExtension>,
     /** # Full formal definition as narrative text
@@ -3867,7 +4006,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "definition")]
     pub definition: Option<String>,
     /// Extension field.
-    #[serde(rename = "_definition", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_definition")]
     #[builder(default, setter(doc = "Field extension."))]
     pub definition_ext: Option<FieldExtension>,
     /** # Comments about the use of this element
@@ -3885,7 +4025,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "comment")]
     pub comment: Option<String>,
     /// Extension field.
-    #[serde(rename = "_comment", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_comment")]
     #[builder(default, setter(doc = "Field extension."))]
     pub comment_ext: Option<FieldExtension>,
     /** # Why this resource has been created
@@ -3903,7 +4044,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "requirements")]
     pub requirements: Option<String>,
     /// Extension field.
-    #[serde(rename = "_requirements", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_requirements")]
     #[builder(default, setter(doc = "Field extension."))]
     pub requirements_ext: Option<FieldExtension>,
     /** # Other names
@@ -3921,7 +4063,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "alias")]
     pub alias: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_alias", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_alias")]
     #[builder(default, setter(doc = "Field extension."))]
     pub alias_ext: Vec<Option<FieldExtension>>,
     /** # Minimum Cardinality
@@ -3939,7 +4082,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "min")]
     pub min: Option<u32>,
     /// Extension field.
-    #[serde(rename = "_min", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_min")]
     #[builder(default, setter(doc = "Field extension."))]
     pub min_ext: Option<FieldExtension>,
     /** # Maximum Cardinality (a number or *)
@@ -3957,7 +4101,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "max")]
     pub max: Option<String>,
     /// Extension field.
-    #[serde(rename = "_max", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_max")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_ext: Option<FieldExtension>,
     /** # Base definition information for tools
@@ -3975,7 +4120,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "base")]
     pub base: Option<ElementDefinitionBase>,
     /// Extension field.
-    #[serde(rename = "_base", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_base")]
     #[builder(default, setter(doc = "Field extension."))]
     pub base_ext: Option<FieldExtension>,
     /** # Reference to definition of content for the element
@@ -3993,11 +4139,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "contentReference")]
     pub content_reference: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_contentReference",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_contentReference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub content_reference_ext: Option<FieldExtension>,
     /** # Data type and Profile for this element
@@ -4015,7 +4158,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "type")]
     pub r#type: Vec<Option<ElementDefinitionType>>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Vec<Option<FieldExtension>>,
     /** # Specified value if missing from instance
@@ -4035,9 +4179,10 @@ No default values are ever defined in the FHIR specification, nor can they be de
     #[serde(flatten)]
     pub default_value: Option<ElementDefinitionDefaultValue>,
     /// Extension field.
-    #[serde(rename = "_defaultValue", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub default_value_ext: Option<FieldExtension>,
+    pub default_value_ext: Option<ElementDefinitionDefaultValueExtension>,
     /** # Implicit meaning when this element is missing
 
  The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing').
@@ -4053,11 +4198,8 @@ No default values are ever defined in the FHIR specification, nor can they be de
     #[serde(rename = "meaningWhenMissing")]
     pub meaning_when_missing: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_meaningWhenMissing",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_meaningWhenMissing")]
     #[builder(default, setter(doc = "Field extension."))]
     pub meaning_when_missing_ext: Option<FieldExtension>,
     /** # What the order of the elements means
@@ -4075,7 +4217,8 @@ No default values are ever defined in the FHIR specification, nor can they be de
     #[serde(rename = "orderMeaning")]
     pub order_meaning: Option<String>,
     /// Extension field.
-    #[serde(rename = "_orderMeaning", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_orderMeaning")]
     #[builder(default, setter(doc = "Field extension."))]
     pub order_meaning_ext: Option<FieldExtension>,
     /** # Value must be exactly this
@@ -4093,9 +4236,10 @@ No default values are ever defined in the FHIR specification, nor can they be de
     #[serde(flatten)]
     pub fixed: Option<ElementDefinitionFixed>,
     /// Extension field.
-    #[serde(rename = "_fixed", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub fixed_ext: Option<FieldExtension>,
+    pub fixed_ext: Option<ElementDefinitionFixedExtension>,
     /** # Value must have at least these property values
 
  Specifies a value that each occurrence of the element in the instance SHALL follow - that is, any value in the pattern must be found in the instance, if the element has a value. Other additional values may be found too. This is effectively constraint by example.
@@ -4123,9 +4267,10 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(flatten)]
     pub pattern: Option<ElementDefinitionPattern>,
     /// Extension field.
-    #[serde(rename = "_pattern", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub pattern_ext: Option<FieldExtension>,
+    pub pattern_ext: Option<ElementDefinitionPatternExtension>,
     /** # Example value (as defined for type)
 
  A sample value for this element demonstrating the type of information that would typically be found in the element.
@@ -4141,7 +4286,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "example")]
     pub example: Vec<Option<ElementDefinitionExample>>,
     /// Extension field.
-    #[serde(rename = "_example", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_example")]
     #[builder(default, setter(doc = "Field extension."))]
     pub example_ext: Vec<Option<FieldExtension>>,
     /** # Minimum Allowed Value (for some types)
@@ -4159,9 +4305,10 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(flatten)]
     pub min_value: Option<ElementDefinitionMinValue>,
     /// Extension field.
-    #[serde(rename = "_minValue", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub min_value_ext: Option<FieldExtension>,
+    pub min_value_ext: Option<ElementDefinitionMinValueExtension>,
     /** # Maximum Allowed Value (for some types)
 
  The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
@@ -4177,9 +4324,10 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(flatten)]
     pub max_value: Option<ElementDefinitionMaxValue>,
     /// Extension field.
-    #[serde(rename = "_maxValue", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub max_value_ext: Option<FieldExtension>,
+    pub max_value_ext: Option<ElementDefinitionMaxValueExtension>,
     /** # Max length for string type data
 
  Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element. ```maxLength``` SHOULD only be used on primitive data types that have a string representation (see [http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics](http://hl7.org/fhir/extensions/StructureDefinition-structuredefinition-type-characteristics.html)).
@@ -4195,7 +4343,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "maxLength")]
     pub max_length: Option<i32>,
     /// Extension field.
-    #[serde(rename = "_maxLength", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_maxLength")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_length_ext: Option<FieldExtension>,
     /** # Reference to invariant about presence
@@ -4213,7 +4362,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "condition")]
     pub condition: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_condition", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_condition")]
     #[builder(default, setter(doc = "Field extension."))]
     pub condition_ext: Vec<Option<FieldExtension>>,
     /** # Condition that must evaluate to true
@@ -4231,7 +4381,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "constraint")]
     pub constraint: Vec<Option<ElementDefinitionConstraint>>,
     /// Extension field.
-    #[serde(rename = "_constraint", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_constraint")]
     #[builder(default, setter(doc = "Field extension."))]
     pub constraint_ext: Vec<Option<FieldExtension>>,
     /** # For primitives, that a value must be present - not replaced by an extension
@@ -4249,7 +4400,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "mustHaveValue")]
     pub must_have_value: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_mustHaveValue", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_mustHaveValue")]
     #[builder(default, setter(doc = "Field extension."))]
     pub must_have_value_ext: Option<FieldExtension>,
     /** # Extensions that are allowed to replace a primitive value
@@ -4267,11 +4419,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "valueAlternatives")]
     pub value_alternatives: Vec<Option<String>>,
     /// Extension field.
-    #[serde(
-        rename = "_valueAlternatives",
-        default,
-        skip_serializing_if = "Vec::is_empty"
-    )]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_valueAlternatives")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_alternatives_ext: Vec<Option<FieldExtension>>,
     /** # If the element must be supported (discouraged - see obligations)
@@ -4289,7 +4438,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "mustSupport")]
     pub must_support: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_mustSupport", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_mustSupport")]
     #[builder(default, setter(doc = "Field extension."))]
     pub must_support_ext: Option<FieldExtension>,
     /** # If this modifies the meaning of other elements
@@ -4307,7 +4457,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "isModifier")]
     pub is_modifier: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_isModifier", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_isModifier")]
     #[builder(default, setter(doc = "Field extension."))]
     pub is_modifier_ext: Option<FieldExtension>,
     /** # Reason that this element is marked as a modifier
@@ -4325,11 +4476,8 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
     #[serde(rename = "isModifierReason")]
     pub is_modifier_reason: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_isModifierReason",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_isModifierReason")]
     #[builder(default, setter(doc = "Field extension."))]
     pub is_modifier_reason_ext: Option<FieldExtension>,
     /** # Include when _summary = true?
@@ -4355,7 +4503,8 @@ The following datatype properties are exceptions, and are not marked as isSummar
     #[serde(rename = "isSummary")]
     pub is_summary: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_isSummary", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_isSummary")]
     #[builder(default, setter(doc = "Field extension."))]
     pub is_summary_ext: Option<FieldExtension>,
     /** # ValueSet details if this is coded
@@ -4373,7 +4522,8 @@ The following datatype properties are exceptions, and are not marked as isSummar
     #[serde(rename = "binding")]
     pub binding: Option<ElementDefinitionBinding>,
     /// Extension field.
-    #[serde(rename = "_binding", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_binding")]
     #[builder(default, setter(doc = "Field extension."))]
     pub binding_ext: Option<FieldExtension>,
     /** # Map element to another set of definitions
@@ -4391,7 +4541,8 @@ The following datatype properties are exceptions, and are not marked as isSummar
     #[serde(rename = "mapping")]
     pub mapping: Vec<Option<ElementDefinitionMapping>>,
     /// Extension field.
-    #[serde(rename = "_mapping", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_mapping")]
     #[builder(default, setter(doc = "Field extension."))]
     pub mapping_ext: Vec<Option<FieldExtension>>,
 }
@@ -4465,7 +4616,8 @@ pub struct ElementDefinitionSlicing {
     #[serde(rename = "discriminator")]
     pub discriminator: Vec<Option<ElementDefinitionSlicingDiscriminator>>,
     /// Extension field.
-    #[serde(rename = "_discriminator", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_discriminator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub discriminator_ext: Vec<Option<FieldExtension>>,
     /** # Text description of how slicing works (or not)
@@ -4483,7 +4635,8 @@ pub struct ElementDefinitionSlicing {
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
-    #[serde(rename = "_description", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_description")]
     #[builder(default, setter(doc = "Field extension."))]
     pub description_ext: Option<FieldExtension>,
     /** # If elements must be in same order as slices
@@ -4501,7 +4654,8 @@ pub struct ElementDefinitionSlicing {
     #[serde(rename = "ordered")]
     pub ordered: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_ordered", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_ordered")]
     #[builder(default, setter(doc = "Field extension."))]
     pub ordered_ext: Option<FieldExtension>,
     /** # SlicingRules; closed | open | openAtEnd
@@ -4512,7 +4666,8 @@ pub struct ElementDefinitionSlicing {
     #[serde(rename = "rules")]
     pub rules: codes::SlicingRules,
     /// Extension field.
-    #[serde(rename = "_rules", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_rules")]
     #[builder(default, setter(doc = "Field extension."))]
     pub rules_ext: Option<FieldExtension>,
 }
@@ -4557,7 +4712,8 @@ pub struct ElementDefinitionSlicingDiscriminator {
     #[serde(rename = "type")]
     pub r#type: codes::DiscriminatorType,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # Path to element value
@@ -4568,7 +4724,8 @@ pub struct ElementDefinitionSlicingDiscriminator {
     #[serde(rename = "path")]
     pub path: String,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
 }
@@ -4613,7 +4770,8 @@ pub struct ElementDefinitionBase {
     #[serde(rename = "path")]
     pub path: String,
     /// Extension field.
-    #[serde(rename = "_path", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
     /** # Min cardinality of the base element
@@ -4624,7 +4782,8 @@ pub struct ElementDefinitionBase {
     #[serde(rename = "min")]
     pub min: u32,
     /// Extension field.
-    #[serde(rename = "_min", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_min")]
     #[builder(default, setter(doc = "Field extension."))]
     pub min_ext: Option<FieldExtension>,
     /** # Max cardinality of the base element
@@ -4635,7 +4794,8 @@ pub struct ElementDefinitionBase {
     #[serde(rename = "max")]
     pub max: String,
     /// Extension field.
-    #[serde(rename = "_max", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_max")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_ext: Option<FieldExtension>,
 }
@@ -4680,7 +4840,8 @@ pub struct ElementDefinitionType {
     #[serde(rename = "code")]
     pub code: String,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
     /** # Profiles (StructureDefinition or IG) - one must apply
@@ -4698,7 +4859,8 @@ pub struct ElementDefinitionType {
     #[serde(rename = "profile")]
     pub profile: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_profile", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_profile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub profile_ext: Vec<Option<FieldExtension>>,
     /** # Profile (StructureDefinition or IG) on the Reference/canonical target - one must apply
@@ -4716,7 +4878,8 @@ pub struct ElementDefinitionType {
     #[serde(rename = "targetProfile")]
     pub target_profile: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_targetProfile", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_targetProfile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub target_profile_ext: Vec<Option<FieldExtension>>,
     /** # AggregationMode; contained | referenced | bundled - how aggregated
@@ -4734,7 +4897,8 @@ pub struct ElementDefinitionType {
     #[serde(rename = "aggregation")]
     pub aggregation: Vec<Option<codes::AggregationMode>>,
     /// Extension field.
-    #[serde(rename = "_aggregation", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_aggregation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub aggregation_ext: Vec<Option<FieldExtension>>,
     /** # ReferenceVersionRules; either | independent | specific
@@ -4752,7 +4916,8 @@ pub struct ElementDefinitionType {
     #[serde(rename = "versioning")]
     pub versioning: Option<codes::ReferenceVersionRules>,
     /// Extension field.
-    #[serde(rename = "_versioning", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_versioning")]
     #[builder(default, setter(doc = "Field extension."))]
     pub versioning_ext: Option<FieldExtension>,
 }
@@ -4923,6 +5088,173 @@ pub enum ElementDefinitionDefaultValue {
     #[serde(rename = "defaultValueMeta")]
     Meta(Meta),
 }
+/// Extension value for ElementDefinitionDefaultValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ElementDefinitionDefaultValueExtension {
+    /// Variant accepting the Base64Binary extension.
+    #[serde(rename = "_defaultValueBase64Binary")]
+    Base64Binary(FieldExtension),
+    /// Variant accepting the Boolean extension.
+    #[serde(rename = "_defaultValueBoolean")]
+    Boolean(FieldExtension),
+    /// Variant accepting the Canonical extension.
+    #[serde(rename = "_defaultValueCanonical")]
+    Canonical(FieldExtension),
+    /// Variant accepting the Code extension.
+    #[serde(rename = "_defaultValueCode")]
+    Code(FieldExtension),
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_defaultValueDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_defaultValueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_defaultValueDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Id extension.
+    #[serde(rename = "_defaultValueId")]
+    Id(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_defaultValueInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_defaultValueInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_defaultValueInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the Markdown extension.
+    #[serde(rename = "_defaultValueMarkdown")]
+    Markdown(FieldExtension),
+    /// Variant accepting the Oid extension.
+    #[serde(rename = "_defaultValueOid")]
+    Oid(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_defaultValuePositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_defaultValueString")]
+    String(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_defaultValueTime")]
+    Time(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_defaultValueUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Uri extension.
+    #[serde(rename = "_defaultValueUri")]
+    Uri(FieldExtension),
+    /// Variant accepting the Url extension.
+    #[serde(rename = "_defaultValueUrl")]
+    Url(FieldExtension),
+    /// Variant accepting the Uuid extension.
+    #[serde(rename = "_defaultValueUuid")]
+    Uuid(FieldExtension),
+    /// Variant accepting the Address extension.
+    #[serde(rename = "_defaultValueAddress")]
+    Address(FieldExtension),
+    /// Variant accepting the Age extension.
+    #[serde(rename = "_defaultValueAge")]
+    Age(FieldExtension),
+    /// Variant accepting the Annotation extension.
+    #[serde(rename = "_defaultValueAnnotation")]
+    Annotation(FieldExtension),
+    /// Variant accepting the Attachment extension.
+    #[serde(rename = "_defaultValueAttachment")]
+    Attachment(FieldExtension),
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_defaultValueCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the CodeableReference extension.
+    #[serde(rename = "_defaultValueCodeableReference")]
+    CodeableReference(FieldExtension),
+    /// Variant accepting the Coding extension.
+    #[serde(rename = "_defaultValueCoding")]
+    Coding(FieldExtension),
+    /// Variant accepting the ContactPoint extension.
+    #[serde(rename = "_defaultValueContactPoint")]
+    ContactPoint(FieldExtension),
+    /// Variant accepting the Count extension.
+    #[serde(rename = "_defaultValueCount")]
+    Count(FieldExtension),
+    /// Variant accepting the Distance extension.
+    #[serde(rename = "_defaultValueDistance")]
+    Distance(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_defaultValueDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the HumanName extension.
+    #[serde(rename = "_defaultValueHumanName")]
+    HumanName(FieldExtension),
+    /// Variant accepting the Identifier extension.
+    #[serde(rename = "_defaultValueIdentifier")]
+    Identifier(FieldExtension),
+    /// Variant accepting the Money extension.
+    #[serde(rename = "_defaultValueMoney")]
+    Money(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_defaultValuePeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_defaultValueQuantity")]
+    Quantity(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_defaultValueRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Ratio extension.
+    #[serde(rename = "_defaultValueRatio")]
+    Ratio(FieldExtension),
+    /// Variant accepting the RatioRange extension.
+    #[serde(rename = "_defaultValueRatioRange")]
+    RatioRange(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_defaultValueReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the SampledData extension.
+    #[serde(rename = "_defaultValueSampledData")]
+    SampledData(FieldExtension),
+    /// Variant accepting the Signature extension.
+    #[serde(rename = "_defaultValueSignature")]
+    Signature(FieldExtension),
+    /// Variant accepting the Timing extension.
+    #[serde(rename = "_defaultValueTiming")]
+    Timing(FieldExtension),
+    /// Variant accepting the ContactDetail extension.
+    #[serde(rename = "_defaultValueContactDetail")]
+    ContactDetail(FieldExtension),
+    /// Variant accepting the DataRequirement extension.
+    #[serde(rename = "_defaultValueDataRequirement")]
+    DataRequirement(FieldExtension),
+    /// Variant accepting the Expression extension.
+    #[serde(rename = "_defaultValueExpression")]
+    Expression(FieldExtension),
+    /// Variant accepting the ParameterDefinition extension.
+    #[serde(rename = "_defaultValueParameterDefinition")]
+    ParameterDefinition(FieldExtension),
+    /// Variant accepting the RelatedArtifact extension.
+    #[serde(rename = "_defaultValueRelatedArtifact")]
+    RelatedArtifact(FieldExtension),
+    /// Variant accepting the TriggerDefinition extension.
+    #[serde(rename = "_defaultValueTriggerDefinition")]
+    TriggerDefinition(FieldExtension),
+    /// Variant accepting the UsageContext extension.
+    #[serde(rename = "_defaultValueUsageContext")]
+    UsageContext(FieldExtension),
+    /// Variant accepting the Availability extension.
+    #[serde(rename = "_defaultValueAvailability")]
+    Availability(FieldExtension),
+    /// Variant accepting the ExtendedContactDetail extension.
+    #[serde(rename = "_defaultValueExtendedContactDetail")]
+    ExtendedContactDetail(FieldExtension),
+    /// Variant accepting the Dosage extension.
+    #[serde(rename = "_defaultValueDosage")]
+    Dosage(FieldExtension),
+    /// Variant accepting the Meta extension.
+    #[serde(rename = "_defaultValueMeta")]
+    Meta(FieldExtension),
+}
 /// Choice of types for the fixed[x] field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -5089,6 +5421,173 @@ pub enum ElementDefinitionFixed {
     /// Variant accepting the Meta type.
     #[serde(rename = "fixedMeta")]
     Meta(Meta),
+}
+/// Extension value for ElementDefinitionFixed.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ElementDefinitionFixedExtension {
+    /// Variant accepting the Base64Binary extension.
+    #[serde(rename = "_fixedBase64Binary")]
+    Base64Binary(FieldExtension),
+    /// Variant accepting the Boolean extension.
+    #[serde(rename = "_fixedBoolean")]
+    Boolean(FieldExtension),
+    /// Variant accepting the Canonical extension.
+    #[serde(rename = "_fixedCanonical")]
+    Canonical(FieldExtension),
+    /// Variant accepting the Code extension.
+    #[serde(rename = "_fixedCode")]
+    Code(FieldExtension),
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_fixedDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_fixedDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_fixedDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Id extension.
+    #[serde(rename = "_fixedId")]
+    Id(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_fixedInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_fixedInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_fixedInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the Markdown extension.
+    #[serde(rename = "_fixedMarkdown")]
+    Markdown(FieldExtension),
+    /// Variant accepting the Oid extension.
+    #[serde(rename = "_fixedOid")]
+    Oid(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_fixedPositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_fixedString")]
+    String(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_fixedTime")]
+    Time(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_fixedUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Uri extension.
+    #[serde(rename = "_fixedUri")]
+    Uri(FieldExtension),
+    /// Variant accepting the Url extension.
+    #[serde(rename = "_fixedUrl")]
+    Url(FieldExtension),
+    /// Variant accepting the Uuid extension.
+    #[serde(rename = "_fixedUuid")]
+    Uuid(FieldExtension),
+    /// Variant accepting the Address extension.
+    #[serde(rename = "_fixedAddress")]
+    Address(FieldExtension),
+    /// Variant accepting the Age extension.
+    #[serde(rename = "_fixedAge")]
+    Age(FieldExtension),
+    /// Variant accepting the Annotation extension.
+    #[serde(rename = "_fixedAnnotation")]
+    Annotation(FieldExtension),
+    /// Variant accepting the Attachment extension.
+    #[serde(rename = "_fixedAttachment")]
+    Attachment(FieldExtension),
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_fixedCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the CodeableReference extension.
+    #[serde(rename = "_fixedCodeableReference")]
+    CodeableReference(FieldExtension),
+    /// Variant accepting the Coding extension.
+    #[serde(rename = "_fixedCoding")]
+    Coding(FieldExtension),
+    /// Variant accepting the ContactPoint extension.
+    #[serde(rename = "_fixedContactPoint")]
+    ContactPoint(FieldExtension),
+    /// Variant accepting the Count extension.
+    #[serde(rename = "_fixedCount")]
+    Count(FieldExtension),
+    /// Variant accepting the Distance extension.
+    #[serde(rename = "_fixedDistance")]
+    Distance(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_fixedDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the HumanName extension.
+    #[serde(rename = "_fixedHumanName")]
+    HumanName(FieldExtension),
+    /// Variant accepting the Identifier extension.
+    #[serde(rename = "_fixedIdentifier")]
+    Identifier(FieldExtension),
+    /// Variant accepting the Money extension.
+    #[serde(rename = "_fixedMoney")]
+    Money(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_fixedPeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_fixedQuantity")]
+    Quantity(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_fixedRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Ratio extension.
+    #[serde(rename = "_fixedRatio")]
+    Ratio(FieldExtension),
+    /// Variant accepting the RatioRange extension.
+    #[serde(rename = "_fixedRatioRange")]
+    RatioRange(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_fixedReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the SampledData extension.
+    #[serde(rename = "_fixedSampledData")]
+    SampledData(FieldExtension),
+    /// Variant accepting the Signature extension.
+    #[serde(rename = "_fixedSignature")]
+    Signature(FieldExtension),
+    /// Variant accepting the Timing extension.
+    #[serde(rename = "_fixedTiming")]
+    Timing(FieldExtension),
+    /// Variant accepting the ContactDetail extension.
+    #[serde(rename = "_fixedContactDetail")]
+    ContactDetail(FieldExtension),
+    /// Variant accepting the DataRequirement extension.
+    #[serde(rename = "_fixedDataRequirement")]
+    DataRequirement(FieldExtension),
+    /// Variant accepting the Expression extension.
+    #[serde(rename = "_fixedExpression")]
+    Expression(FieldExtension),
+    /// Variant accepting the ParameterDefinition extension.
+    #[serde(rename = "_fixedParameterDefinition")]
+    ParameterDefinition(FieldExtension),
+    /// Variant accepting the RelatedArtifact extension.
+    #[serde(rename = "_fixedRelatedArtifact")]
+    RelatedArtifact(FieldExtension),
+    /// Variant accepting the TriggerDefinition extension.
+    #[serde(rename = "_fixedTriggerDefinition")]
+    TriggerDefinition(FieldExtension),
+    /// Variant accepting the UsageContext extension.
+    #[serde(rename = "_fixedUsageContext")]
+    UsageContext(FieldExtension),
+    /// Variant accepting the Availability extension.
+    #[serde(rename = "_fixedAvailability")]
+    Availability(FieldExtension),
+    /// Variant accepting the ExtendedContactDetail extension.
+    #[serde(rename = "_fixedExtendedContactDetail")]
+    ExtendedContactDetail(FieldExtension),
+    /// Variant accepting the Dosage extension.
+    #[serde(rename = "_fixedDosage")]
+    Dosage(FieldExtension),
+    /// Variant accepting the Meta extension.
+    #[serde(rename = "_fixedMeta")]
+    Meta(FieldExtension),
 }
 /// Choice of types for the pattern[x] field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -5257,6 +5756,173 @@ pub enum ElementDefinitionPattern {
     #[serde(rename = "patternMeta")]
     Meta(Meta),
 }
+/// Extension value for ElementDefinitionPattern.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ElementDefinitionPatternExtension {
+    /// Variant accepting the Base64Binary extension.
+    #[serde(rename = "_patternBase64Binary")]
+    Base64Binary(FieldExtension),
+    /// Variant accepting the Boolean extension.
+    #[serde(rename = "_patternBoolean")]
+    Boolean(FieldExtension),
+    /// Variant accepting the Canonical extension.
+    #[serde(rename = "_patternCanonical")]
+    Canonical(FieldExtension),
+    /// Variant accepting the Code extension.
+    #[serde(rename = "_patternCode")]
+    Code(FieldExtension),
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_patternDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_patternDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_patternDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Id extension.
+    #[serde(rename = "_patternId")]
+    Id(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_patternInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_patternInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_patternInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the Markdown extension.
+    #[serde(rename = "_patternMarkdown")]
+    Markdown(FieldExtension),
+    /// Variant accepting the Oid extension.
+    #[serde(rename = "_patternOid")]
+    Oid(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_patternPositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_patternString")]
+    String(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_patternTime")]
+    Time(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_patternUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Uri extension.
+    #[serde(rename = "_patternUri")]
+    Uri(FieldExtension),
+    /// Variant accepting the Url extension.
+    #[serde(rename = "_patternUrl")]
+    Url(FieldExtension),
+    /// Variant accepting the Uuid extension.
+    #[serde(rename = "_patternUuid")]
+    Uuid(FieldExtension),
+    /// Variant accepting the Address extension.
+    #[serde(rename = "_patternAddress")]
+    Address(FieldExtension),
+    /// Variant accepting the Age extension.
+    #[serde(rename = "_patternAge")]
+    Age(FieldExtension),
+    /// Variant accepting the Annotation extension.
+    #[serde(rename = "_patternAnnotation")]
+    Annotation(FieldExtension),
+    /// Variant accepting the Attachment extension.
+    #[serde(rename = "_patternAttachment")]
+    Attachment(FieldExtension),
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_patternCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the CodeableReference extension.
+    #[serde(rename = "_patternCodeableReference")]
+    CodeableReference(FieldExtension),
+    /// Variant accepting the Coding extension.
+    #[serde(rename = "_patternCoding")]
+    Coding(FieldExtension),
+    /// Variant accepting the ContactPoint extension.
+    #[serde(rename = "_patternContactPoint")]
+    ContactPoint(FieldExtension),
+    /// Variant accepting the Count extension.
+    #[serde(rename = "_patternCount")]
+    Count(FieldExtension),
+    /// Variant accepting the Distance extension.
+    #[serde(rename = "_patternDistance")]
+    Distance(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_patternDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the HumanName extension.
+    #[serde(rename = "_patternHumanName")]
+    HumanName(FieldExtension),
+    /// Variant accepting the Identifier extension.
+    #[serde(rename = "_patternIdentifier")]
+    Identifier(FieldExtension),
+    /// Variant accepting the Money extension.
+    #[serde(rename = "_patternMoney")]
+    Money(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_patternPeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_patternQuantity")]
+    Quantity(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_patternRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Ratio extension.
+    #[serde(rename = "_patternRatio")]
+    Ratio(FieldExtension),
+    /// Variant accepting the RatioRange extension.
+    #[serde(rename = "_patternRatioRange")]
+    RatioRange(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_patternReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the SampledData extension.
+    #[serde(rename = "_patternSampledData")]
+    SampledData(FieldExtension),
+    /// Variant accepting the Signature extension.
+    #[serde(rename = "_patternSignature")]
+    Signature(FieldExtension),
+    /// Variant accepting the Timing extension.
+    #[serde(rename = "_patternTiming")]
+    Timing(FieldExtension),
+    /// Variant accepting the ContactDetail extension.
+    #[serde(rename = "_patternContactDetail")]
+    ContactDetail(FieldExtension),
+    /// Variant accepting the DataRequirement extension.
+    #[serde(rename = "_patternDataRequirement")]
+    DataRequirement(FieldExtension),
+    /// Variant accepting the Expression extension.
+    #[serde(rename = "_patternExpression")]
+    Expression(FieldExtension),
+    /// Variant accepting the ParameterDefinition extension.
+    #[serde(rename = "_patternParameterDefinition")]
+    ParameterDefinition(FieldExtension),
+    /// Variant accepting the RelatedArtifact extension.
+    #[serde(rename = "_patternRelatedArtifact")]
+    RelatedArtifact(FieldExtension),
+    /// Variant accepting the TriggerDefinition extension.
+    #[serde(rename = "_patternTriggerDefinition")]
+    TriggerDefinition(FieldExtension),
+    /// Variant accepting the UsageContext extension.
+    #[serde(rename = "_patternUsageContext")]
+    UsageContext(FieldExtension),
+    /// Variant accepting the Availability extension.
+    #[serde(rename = "_patternAvailability")]
+    Availability(FieldExtension),
+    /// Variant accepting the ExtendedContactDetail extension.
+    #[serde(rename = "_patternExtendedContactDetail")]
+    ExtendedContactDetail(FieldExtension),
+    /// Variant accepting the Dosage extension.
+    #[serde(rename = "_patternDosage")]
+    Dosage(FieldExtension),
+    /// Variant accepting the Meta extension.
+    #[serde(rename = "_patternMeta")]
+    Meta(FieldExtension),
+}
 /// Sub-fields of the example field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
 #[builder(field_defaults(setter(into)))]
@@ -5298,7 +5964,8 @@ pub struct ElementDefinitionExample {
     #[serde(rename = "label")]
     pub label: String,
     /// Extension field.
-    #[serde(rename = "_label", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_label")]
     #[builder(default, setter(doc = "Field extension."))]
     pub label_ext: Option<FieldExtension>,
     /** # Value of Example (one of allowed types)
@@ -5309,9 +5976,10 @@ pub struct ElementDefinitionExample {
     #[serde(flatten)]
     pub value: ElementDefinitionExampleValue,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub value_ext: Option<FieldExtension>,
+    pub value_ext: Option<ElementDefinitionExampleValueExtension>,
 }
 /// Choice of types for the value[x] field in ElementDefinitionExample
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -5480,6 +6148,173 @@ pub enum ElementDefinitionExampleValue {
     #[serde(rename = "valueMeta")]
     Meta(Meta),
 }
+/// Extension value for ElementDefinitionExampleValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ElementDefinitionExampleValueExtension {
+    /// Variant accepting the Base64Binary extension.
+    #[serde(rename = "_valueBase64Binary")]
+    Base64Binary(FieldExtension),
+    /// Variant accepting the Boolean extension.
+    #[serde(rename = "_valueBoolean")]
+    Boolean(FieldExtension),
+    /// Variant accepting the Canonical extension.
+    #[serde(rename = "_valueCanonical")]
+    Canonical(FieldExtension),
+    /// Variant accepting the Code extension.
+    #[serde(rename = "_valueCode")]
+    Code(FieldExtension),
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_valueDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_valueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_valueDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Id extension.
+    #[serde(rename = "_valueId")]
+    Id(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_valueInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_valueInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_valueInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the Markdown extension.
+    #[serde(rename = "_valueMarkdown")]
+    Markdown(FieldExtension),
+    /// Variant accepting the Oid extension.
+    #[serde(rename = "_valueOid")]
+    Oid(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_valuePositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_valueString")]
+    String(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_valueTime")]
+    Time(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_valueUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Uri extension.
+    #[serde(rename = "_valueUri")]
+    Uri(FieldExtension),
+    /// Variant accepting the Url extension.
+    #[serde(rename = "_valueUrl")]
+    Url(FieldExtension),
+    /// Variant accepting the Uuid extension.
+    #[serde(rename = "_valueUuid")]
+    Uuid(FieldExtension),
+    /// Variant accepting the Address extension.
+    #[serde(rename = "_valueAddress")]
+    Address(FieldExtension),
+    /// Variant accepting the Age extension.
+    #[serde(rename = "_valueAge")]
+    Age(FieldExtension),
+    /// Variant accepting the Annotation extension.
+    #[serde(rename = "_valueAnnotation")]
+    Annotation(FieldExtension),
+    /// Variant accepting the Attachment extension.
+    #[serde(rename = "_valueAttachment")]
+    Attachment(FieldExtension),
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_valueCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the CodeableReference extension.
+    #[serde(rename = "_valueCodeableReference")]
+    CodeableReference(FieldExtension),
+    /// Variant accepting the Coding extension.
+    #[serde(rename = "_valueCoding")]
+    Coding(FieldExtension),
+    /// Variant accepting the ContactPoint extension.
+    #[serde(rename = "_valueContactPoint")]
+    ContactPoint(FieldExtension),
+    /// Variant accepting the Count extension.
+    #[serde(rename = "_valueCount")]
+    Count(FieldExtension),
+    /// Variant accepting the Distance extension.
+    #[serde(rename = "_valueDistance")]
+    Distance(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_valueDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the HumanName extension.
+    #[serde(rename = "_valueHumanName")]
+    HumanName(FieldExtension),
+    /// Variant accepting the Identifier extension.
+    #[serde(rename = "_valueIdentifier")]
+    Identifier(FieldExtension),
+    /// Variant accepting the Money extension.
+    #[serde(rename = "_valueMoney")]
+    Money(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_valuePeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_valueQuantity")]
+    Quantity(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_valueRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Ratio extension.
+    #[serde(rename = "_valueRatio")]
+    Ratio(FieldExtension),
+    /// Variant accepting the RatioRange extension.
+    #[serde(rename = "_valueRatioRange")]
+    RatioRange(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_valueReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the SampledData extension.
+    #[serde(rename = "_valueSampledData")]
+    SampledData(FieldExtension),
+    /// Variant accepting the Signature extension.
+    #[serde(rename = "_valueSignature")]
+    Signature(FieldExtension),
+    /// Variant accepting the Timing extension.
+    #[serde(rename = "_valueTiming")]
+    Timing(FieldExtension),
+    /// Variant accepting the ContactDetail extension.
+    #[serde(rename = "_valueContactDetail")]
+    ContactDetail(FieldExtension),
+    /// Variant accepting the DataRequirement extension.
+    #[serde(rename = "_valueDataRequirement")]
+    DataRequirement(FieldExtension),
+    /// Variant accepting the Expression extension.
+    #[serde(rename = "_valueExpression")]
+    Expression(FieldExtension),
+    /// Variant accepting the ParameterDefinition extension.
+    #[serde(rename = "_valueParameterDefinition")]
+    ParameterDefinition(FieldExtension),
+    /// Variant accepting the RelatedArtifact extension.
+    #[serde(rename = "_valueRelatedArtifact")]
+    RelatedArtifact(FieldExtension),
+    /// Variant accepting the TriggerDefinition extension.
+    #[serde(rename = "_valueTriggerDefinition")]
+    TriggerDefinition(FieldExtension),
+    /// Variant accepting the UsageContext extension.
+    #[serde(rename = "_valueUsageContext")]
+    UsageContext(FieldExtension),
+    /// Variant accepting the Availability extension.
+    #[serde(rename = "_valueAvailability")]
+    Availability(FieldExtension),
+    /// Variant accepting the ExtendedContactDetail extension.
+    #[serde(rename = "_valueExtendedContactDetail")]
+    ExtendedContactDetail(FieldExtension),
+    /// Variant accepting the Dosage extension.
+    #[serde(rename = "_valueDosage")]
+    Dosage(FieldExtension),
+    /// Variant accepting the Meta extension.
+    #[serde(rename = "_valueMeta")]
+    Meta(FieldExtension),
+}
 /// Choice of types for the minValue[x] field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -5515,6 +6350,41 @@ pub enum ElementDefinitionMinValue {
     #[serde(rename = "minValueQuantity")]
     Quantity(Quantity),
 }
+/// Extension value for ElementDefinitionMinValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ElementDefinitionMinValueExtension {
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_minValueDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_minValueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_minValueInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_minValueTime")]
+    Time(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_minValueDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_minValueInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_minValueInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_minValuePositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_minValueUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_minValueQuantity")]
+    Quantity(FieldExtension),
+}
 /// Choice of types for the maxValue[x] field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -5549,6 +6419,41 @@ pub enum ElementDefinitionMaxValue {
     /// Variant accepting the Quantity type.
     #[serde(rename = "maxValueQuantity")]
     Quantity(Quantity),
+}
+/// Extension value for ElementDefinitionMaxValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ElementDefinitionMaxValueExtension {
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_maxValueDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_maxValueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_maxValueInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_maxValueTime")]
+    Time(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_maxValueDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_maxValueInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_maxValueInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_maxValuePositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_maxValueUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_maxValueQuantity")]
+    Quantity(FieldExtension),
 }
 /// Sub-fields of the constraint field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
@@ -5591,7 +6496,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "key")]
     pub key: String,
     /// Extension field.
-    #[serde(rename = "_key", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_key")]
     #[builder(default, setter(doc = "Field extension."))]
     pub key_ext: Option<FieldExtension>,
     /** # Why this constraint is necessary or appropriate
@@ -5609,7 +6515,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "requirements")]
     pub requirements: Option<String>,
     /// Extension field.
-    #[serde(rename = "_requirements", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_requirements")]
     #[builder(default, setter(doc = "Field extension."))]
     pub requirements_ext: Option<FieldExtension>,
     /** # ConstraintSeverity; error | warning
@@ -5620,7 +6527,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "severity")]
     pub severity: codes::ConstraintSeverity,
     /// Extension field.
-    #[serde(rename = "_severity", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_severity")]
     #[builder(default, setter(doc = "Field extension."))]
     pub severity_ext: Option<FieldExtension>,
     /** # Suppress warning or hint in profile
@@ -5638,7 +6546,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "suppress")]
     pub suppress: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_suppress", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_suppress")]
     #[builder(default, setter(doc = "Field extension."))]
     pub suppress_ext: Option<FieldExtension>,
     /** # Human description of constraint
@@ -5649,7 +6558,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "human")]
     pub human: String,
     /// Extension field.
-    #[serde(rename = "_human", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_human")]
     #[builder(default, setter(doc = "Field extension."))]
     pub human_ext: Option<FieldExtension>,
     /** # FHIRPath expression of constraint
@@ -5667,7 +6577,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "expression")]
     pub expression: Option<String>,
     /// Extension field.
-    #[serde(rename = "_expression", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_expression")]
     #[builder(default, setter(doc = "Field extension."))]
     pub expression_ext: Option<FieldExtension>,
     /** # Reference to original source of constraint
@@ -5685,7 +6596,8 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "source")]
     pub source: Option<String>,
     /// Extension field.
-    #[serde(rename = "_source", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_source")]
     #[builder(default, setter(doc = "Field extension."))]
     pub source_ext: Option<FieldExtension>,
 }
@@ -5730,7 +6642,8 @@ pub struct ElementDefinitionBinding {
     #[serde(rename = "strength")]
     pub strength: codes::BindingStrength,
     /// Extension field.
-    #[serde(rename = "_strength", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_strength")]
     #[builder(default, setter(doc = "Field extension."))]
     pub strength_ext: Option<FieldExtension>,
     /** # Intended use of codes in the bound value set
@@ -5748,7 +6661,8 @@ pub struct ElementDefinitionBinding {
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
-    #[serde(rename = "_description", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_description")]
     #[builder(default, setter(doc = "Field extension."))]
     pub description_ext: Option<FieldExtension>,
     /** # Source of value set
@@ -5766,7 +6680,8 @@ pub struct ElementDefinitionBinding {
     #[serde(rename = "valueSet")]
     pub value_set: Option<String>,
     /// Extension field.
-    #[serde(rename = "_valueSet", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_valueSet")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_set_ext: Option<FieldExtension>,
     /** # Additional Bindings - more rules about the binding
@@ -5784,7 +6699,8 @@ pub struct ElementDefinitionBinding {
     #[serde(rename = "additional")]
     pub additional: Vec<Option<ElementDefinitionBindingAdditional>>,
     /// Extension field.
-    #[serde(rename = "_additional", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_additional")]
     #[builder(default, setter(doc = "Field extension."))]
     pub additional_ext: Vec<Option<FieldExtension>>,
 }
@@ -5829,7 +6745,8 @@ pub struct ElementDefinitionBindingAdditional {
     #[serde(rename = "purpose")]
     pub purpose: String,
     /// Extension field.
-    #[serde(rename = "_purpose", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_purpose")]
     #[builder(default, setter(doc = "Field extension."))]
     pub purpose_ext: Option<FieldExtension>,
     /** # The value set for the additional binding
@@ -5840,7 +6757,8 @@ pub struct ElementDefinitionBindingAdditional {
     #[serde(rename = "valueSet")]
     pub value_set: String,
     /// Extension field.
-    #[serde(rename = "_valueSet", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_valueSet")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_set_ext: Option<FieldExtension>,
     /** # Documentation of the purpose of use of the binding
@@ -5858,7 +6776,8 @@ pub struct ElementDefinitionBindingAdditional {
     #[serde(rename = "documentation")]
     pub documentation: Option<String>,
     /// Extension field.
-    #[serde(rename = "_documentation", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_documentation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub documentation_ext: Option<FieldExtension>,
     /** # Concise documentation - for summary tables
@@ -5876,7 +6795,8 @@ pub struct ElementDefinitionBindingAdditional {
     #[serde(rename = "shortDoco")]
     pub short_doco: Option<String>,
     /// Extension field.
-    #[serde(rename = "_shortDoco", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_shortDoco")]
     #[builder(default, setter(doc = "Field extension."))]
     pub short_doco_ext: Option<FieldExtension>,
     /** # Qualifies the usage - jurisdiction, gender, workflow status etc.
@@ -5894,7 +6814,8 @@ pub struct ElementDefinitionBindingAdditional {
     #[serde(rename = "usage")]
     pub usage: Vec<Option<UsageContext>>,
     /// Extension field.
-    #[serde(rename = "_usage", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_usage")]
     #[builder(default, setter(doc = "Field extension."))]
     pub usage_ext: Vec<Option<FieldExtension>>,
     /** # Whether binding can applies to all repeats, or just one
@@ -5912,7 +6833,8 @@ pub struct ElementDefinitionBindingAdditional {
     #[serde(rename = "any")]
     pub any: Option<bool>,
     /// Extension field.
-    #[serde(rename = "_any", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_any")]
     #[builder(default, setter(doc = "Field extension."))]
     pub any_ext: Option<FieldExtension>,
 }
@@ -5957,7 +6879,8 @@ pub struct ElementDefinitionMapping {
     #[serde(rename = "identity")]
     pub identity: String,
     /// Extension field.
-    #[serde(rename = "_identity", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_identity")]
     #[builder(default, setter(doc = "Field extension."))]
     pub identity_ext: Option<FieldExtension>,
     /** # MimeType; Computable language of mapping
@@ -5975,7 +6898,8 @@ pub struct ElementDefinitionMapping {
     #[serde(rename = "language")]
     pub language: Option<String>,
     /// Extension field.
-    #[serde(rename = "_language", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_language")]
     #[builder(default, setter(doc = "Field extension."))]
     pub language_ext: Option<FieldExtension>,
     /** # Details of the mapping
@@ -5986,7 +6910,8 @@ pub struct ElementDefinitionMapping {
     #[serde(rename = "map")]
     pub map: String,
     /// Extension field.
-    #[serde(rename = "_map", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_map")]
     #[builder(default, setter(doc = "Field extension."))]
     pub map_ext: Option<FieldExtension>,
     /** # Comments about the mapping or its use
@@ -6004,7 +6929,8 @@ pub struct ElementDefinitionMapping {
     #[serde(rename = "comment")]
     pub comment: Option<String>,
     /// Extension field.
-    #[serde(rename = "_comment", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_comment")]
     #[builder(default, setter(doc = "Field extension."))]
     pub comment_ext: Option<FieldExtension>,
 }
@@ -6085,7 +7011,8 @@ pub struct ExpressionInner {
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
-    #[serde(rename = "_description", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_description")]
     #[builder(default, setter(doc = "Field extension."))]
     pub description_ext: Option<FieldExtension>,
     /** # Short name assigned to expression for reuse
@@ -6103,7 +7030,8 @@ pub struct ExpressionInner {
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
-    #[serde(rename = "_name", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
     /** # ExpressionLanguage; text/cql | text/fhirpath | application/x-fhir-query | etc.
@@ -6121,7 +7049,8 @@ pub struct ExpressionInner {
     #[serde(rename = "language")]
     pub language: Option<String>,
     /// Extension field.
-    #[serde(rename = "_language", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_language")]
     #[builder(default, setter(doc = "Field extension."))]
     pub language_ext: Option<FieldExtension>,
     /** # Expression in specified language
@@ -6139,7 +7068,8 @@ pub struct ExpressionInner {
     #[serde(rename = "expression")]
     pub expression: Option<String>,
     /// Extension field.
-    #[serde(rename = "_expression", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_expression")]
     #[builder(default, setter(doc = "Field extension."))]
     pub expression_ext: Option<FieldExtension>,
     /** # Where the expression is found
@@ -6157,7 +7087,8 @@ pub struct ExpressionInner {
     #[serde(rename = "reference")]
     pub reference: Option<String>,
     /// Extension field.
-    #[serde(rename = "_reference", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_reference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub reference_ext: Option<FieldExtension>,
 }
@@ -6260,7 +7191,8 @@ pub struct ExtendedContactDetailInner {
     #[serde(rename = "purpose")]
     pub purpose: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_purpose", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_purpose")]
     #[builder(default, setter(doc = "Field extension."))]
     pub purpose_ext: Option<FieldExtension>,
     /** # Name of an individual to contact
@@ -6278,7 +7210,8 @@ pub struct ExtendedContactDetailInner {
     #[serde(rename = "name")]
     pub name: Vec<Option<HumanName>>,
     /// Extension field.
-    #[serde(rename = "_name", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Vec<Option<FieldExtension>>,
     /** # Contact details (e.g.phone/fax/url)
@@ -6296,7 +7229,8 @@ pub struct ExtendedContactDetailInner {
     #[serde(rename = "telecom")]
     pub telecom: Vec<Option<ContactPoint>>,
     /// Extension field.
-    #[serde(rename = "_telecom", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_telecom")]
     #[builder(default, setter(doc = "Field extension."))]
     pub telecom_ext: Vec<Option<FieldExtension>>,
     /** # Address for the contact
@@ -6314,7 +7248,8 @@ pub struct ExtendedContactDetailInner {
     #[serde(rename = "address")]
     pub address: Option<Address>,
     /// Extension field.
-    #[serde(rename = "_address", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_address")]
     #[builder(default, setter(doc = "Field extension."))]
     pub address_ext: Option<FieldExtension>,
     /** # This contact detail is handled/monitored by a specific organization
@@ -6332,7 +7267,8 @@ pub struct ExtendedContactDetailInner {
     #[serde(rename = "organization")]
     pub organization: Option<Reference>,
     /// Extension field.
-    #[serde(rename = "_organization", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_organization")]
     #[builder(default, setter(doc = "Field extension."))]
     pub organization_ext: Option<FieldExtension>,
     /** # Period that this contact was valid for usage
@@ -6350,7 +7286,8 @@ pub struct ExtendedContactDetailInner {
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_period")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_ext: Option<FieldExtension>,
 }
@@ -6460,9 +7397,10 @@ pub struct ExtensionInner {
     #[serde(flatten)]
     pub value: Option<ExtensionValue>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub value_ext: Option<FieldExtension>,
+    pub value_ext: Option<ExtensionValueExtension>,
 }
 impl From<ExtensionInner> for Extension {
     fn from(inner: ExtensionInner) -> Self {
@@ -6653,6 +7591,173 @@ pub enum ExtensionValue {
     #[serde(rename = "valueMeta")]
     Meta(Meta),
 }
+/// Extension value for ExtensionValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ExtensionValueExtension {
+    /// Variant accepting the Base64Binary extension.
+    #[serde(rename = "_valueBase64Binary")]
+    Base64Binary(FieldExtension),
+    /// Variant accepting the Boolean extension.
+    #[serde(rename = "_valueBoolean")]
+    Boolean(FieldExtension),
+    /// Variant accepting the Canonical extension.
+    #[serde(rename = "_valueCanonical")]
+    Canonical(FieldExtension),
+    /// Variant accepting the Code extension.
+    #[serde(rename = "_valueCode")]
+    Code(FieldExtension),
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_valueDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_valueDateTime")]
+    DateTime(FieldExtension),
+    /// Variant accepting the Decimal extension.
+    #[serde(rename = "_valueDecimal")]
+    Decimal(FieldExtension),
+    /// Variant accepting the Id extension.
+    #[serde(rename = "_valueId")]
+    Id(FieldExtension),
+    /// Variant accepting the Instant extension.
+    #[serde(rename = "_valueInstant")]
+    Instant(FieldExtension),
+    /// Variant accepting the Integer extension.
+    #[serde(rename = "_valueInteger")]
+    Integer(FieldExtension),
+    /// Variant accepting the Integer64 extension.
+    #[serde(rename = "_valueInteger64")]
+    Integer64(FieldExtension),
+    /// Variant accepting the Markdown extension.
+    #[serde(rename = "_valueMarkdown")]
+    Markdown(FieldExtension),
+    /// Variant accepting the Oid extension.
+    #[serde(rename = "_valueOid")]
+    Oid(FieldExtension),
+    /// Variant accepting the PositiveInt extension.
+    #[serde(rename = "_valuePositiveInt")]
+    PositiveInt(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_valueString")]
+    String(FieldExtension),
+    /// Variant accepting the Time extension.
+    #[serde(rename = "_valueTime")]
+    Time(FieldExtension),
+    /// Variant accepting the UnsignedInt extension.
+    #[serde(rename = "_valueUnsignedInt")]
+    UnsignedInt(FieldExtension),
+    /// Variant accepting the Uri extension.
+    #[serde(rename = "_valueUri")]
+    Uri(FieldExtension),
+    /// Variant accepting the Url extension.
+    #[serde(rename = "_valueUrl")]
+    Url(FieldExtension),
+    /// Variant accepting the Uuid extension.
+    #[serde(rename = "_valueUuid")]
+    Uuid(FieldExtension),
+    /// Variant accepting the Address extension.
+    #[serde(rename = "_valueAddress")]
+    Address(FieldExtension),
+    /// Variant accepting the Age extension.
+    #[serde(rename = "_valueAge")]
+    Age(FieldExtension),
+    /// Variant accepting the Annotation extension.
+    #[serde(rename = "_valueAnnotation")]
+    Annotation(FieldExtension),
+    /// Variant accepting the Attachment extension.
+    #[serde(rename = "_valueAttachment")]
+    Attachment(FieldExtension),
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_valueCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the CodeableReference extension.
+    #[serde(rename = "_valueCodeableReference")]
+    CodeableReference(FieldExtension),
+    /// Variant accepting the Coding extension.
+    #[serde(rename = "_valueCoding")]
+    Coding(FieldExtension),
+    /// Variant accepting the ContactPoint extension.
+    #[serde(rename = "_valueContactPoint")]
+    ContactPoint(FieldExtension),
+    /// Variant accepting the Count extension.
+    #[serde(rename = "_valueCount")]
+    Count(FieldExtension),
+    /// Variant accepting the Distance extension.
+    #[serde(rename = "_valueDistance")]
+    Distance(FieldExtension),
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_valueDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the HumanName extension.
+    #[serde(rename = "_valueHumanName")]
+    HumanName(FieldExtension),
+    /// Variant accepting the Identifier extension.
+    #[serde(rename = "_valueIdentifier")]
+    Identifier(FieldExtension),
+    /// Variant accepting the Money extension.
+    #[serde(rename = "_valueMoney")]
+    Money(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_valuePeriod")]
+    Period(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_valueQuantity")]
+    Quantity(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_valueRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Ratio extension.
+    #[serde(rename = "_valueRatio")]
+    Ratio(FieldExtension),
+    /// Variant accepting the RatioRange extension.
+    #[serde(rename = "_valueRatioRange")]
+    RatioRange(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_valueReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the SampledData extension.
+    #[serde(rename = "_valueSampledData")]
+    SampledData(FieldExtension),
+    /// Variant accepting the Signature extension.
+    #[serde(rename = "_valueSignature")]
+    Signature(FieldExtension),
+    /// Variant accepting the Timing extension.
+    #[serde(rename = "_valueTiming")]
+    Timing(FieldExtension),
+    /// Variant accepting the ContactDetail extension.
+    #[serde(rename = "_valueContactDetail")]
+    ContactDetail(FieldExtension),
+    /// Variant accepting the DataRequirement extension.
+    #[serde(rename = "_valueDataRequirement")]
+    DataRequirement(FieldExtension),
+    /// Variant accepting the Expression extension.
+    #[serde(rename = "_valueExpression")]
+    Expression(FieldExtension),
+    /// Variant accepting the ParameterDefinition extension.
+    #[serde(rename = "_valueParameterDefinition")]
+    ParameterDefinition(FieldExtension),
+    /// Variant accepting the RelatedArtifact extension.
+    #[serde(rename = "_valueRelatedArtifact")]
+    RelatedArtifact(FieldExtension),
+    /// Variant accepting the TriggerDefinition extension.
+    #[serde(rename = "_valueTriggerDefinition")]
+    TriggerDefinition(FieldExtension),
+    /// Variant accepting the UsageContext extension.
+    #[serde(rename = "_valueUsageContext")]
+    UsageContext(FieldExtension),
+    /// Variant accepting the Availability extension.
+    #[serde(rename = "_valueAvailability")]
+    Availability(FieldExtension),
+    /// Variant accepting the ExtendedContactDetail extension.
+    #[serde(rename = "_valueExtendedContactDetail")]
+    ExtendedContactDetail(FieldExtension),
+    /// Variant accepting the Dosage extension.
+    #[serde(rename = "_valueDosage")]
+    Dosage(FieldExtension),
+    /// Variant accepting the Meta extension.
+    #[serde(rename = "_valueMeta")]
+    Meta(FieldExtension),
+}
 /** # HumanName
 
  HumanName Type: A name, normally of a human, that can be used for other living entities (e.g. animals but not organizations) that have been assigned names by a human and may need the use of name parts or the need for usage information.
@@ -6730,7 +7835,8 @@ pub struct HumanNameInner {
     #[serde(rename = "use")]
     pub r#use: Option<codes::NameUse>,
     /// Extension field.
-    #[serde(rename = "_use", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
     /** # Text representation of the full name
@@ -6748,7 +7854,8 @@ pub struct HumanNameInner {
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
-    #[serde(rename = "_text", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_text")]
     #[builder(default, setter(doc = "Field extension."))]
     pub text_ext: Option<FieldExtension>,
     /** # Family name (often called 'Surname')
@@ -6766,7 +7873,8 @@ pub struct HumanNameInner {
     #[serde(rename = "family")]
     pub family: Option<String>,
     /// Extension field.
-    #[serde(rename = "_family", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_family")]
     #[builder(default, setter(doc = "Field extension."))]
     pub family_ext: Option<FieldExtension>,
     /** # Given names (not always 'first'). Includes middle names
@@ -6784,7 +7892,8 @@ pub struct HumanNameInner {
     #[serde(rename = "given")]
     pub given: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_given", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_given")]
     #[builder(default, setter(doc = "Field extension."))]
     pub given_ext: Vec<Option<FieldExtension>>,
     /** # Parts that come before the name
@@ -6802,7 +7911,8 @@ pub struct HumanNameInner {
     #[serde(rename = "prefix")]
     pub prefix: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_prefix", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_prefix")]
     #[builder(default, setter(doc = "Field extension."))]
     pub prefix_ext: Vec<Option<FieldExtension>>,
     /** # Parts that come after the name
@@ -6820,7 +7930,8 @@ pub struct HumanNameInner {
     #[serde(rename = "suffix")]
     pub suffix: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_suffix", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_suffix")]
     #[builder(default, setter(doc = "Field extension."))]
     pub suffix_ext: Vec<Option<FieldExtension>>,
     /** # Time period when name was/is in use
@@ -6838,7 +7949,8 @@ pub struct HumanNameInner {
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_period")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_ext: Option<FieldExtension>,
 }
@@ -6941,7 +8053,8 @@ pub struct IdentifierInner {
     #[serde(rename = "use")]
     pub r#use: Option<codes::IdentifierUse>,
     /// Extension field.
-    #[serde(rename = "_use", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
     /** # IdentifierType; Description of identifier
@@ -6959,7 +8072,8 @@ pub struct IdentifierInner {
     #[serde(rename = "type")]
     pub r#type: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # The namespace for the identifier value
@@ -6977,7 +8091,8 @@ pub struct IdentifierInner {
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
-    #[serde(rename = "_system", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_system")]
     #[builder(default, setter(doc = "Field extension."))]
     pub system_ext: Option<FieldExtension>,
     /** # The value that is unique
@@ -6995,7 +8110,8 @@ pub struct IdentifierInner {
     #[serde(rename = "value")]
     pub value: Option<String>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
     /** # Time period when id is/was valid for use
@@ -7013,7 +8129,8 @@ pub struct IdentifierInner {
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_period")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_ext: Option<FieldExtension>,
     /** # Organization that issued id (may be just text)
@@ -7031,7 +8148,8 @@ pub struct IdentifierInner {
     #[serde(rename = "assigner")]
     pub assigner: Option<Reference>,
     /// Extension field.
-    #[serde(rename = "_assigner", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_assigner")]
     #[builder(default, setter(doc = "Field extension."))]
     pub assigner_ext: Option<FieldExtension>,
 }
@@ -7150,7 +8268,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "country")]
     pub country: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_country", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_country")]
     #[builder(default, setter(doc = "Field extension."))]
     pub country_ext: Option<FieldExtension>,
     /** # Where a Medicines Regulatory Agency has granted a marketing authorization for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified
@@ -7168,7 +8287,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "jurisdiction")]
     pub jurisdiction: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_jurisdiction", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_jurisdiction")]
     #[builder(default, setter(doc = "Field extension."))]
     pub jurisdiction_ext: Option<FieldExtension>,
     /** # This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples
@@ -7179,7 +8299,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "status")]
     pub status: CodeableConcept,
     /// Extension field.
-    #[serde(rename = "_status", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_status")]
     #[builder(default, setter(doc = "Field extension."))]
     pub status_ext: Option<FieldExtension>,
     /** # The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
@@ -7197,7 +8318,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "dateRange")]
     pub date_range: Option<Period>,
     /// Extension field.
-    #[serde(rename = "_dateRange", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_dateRange")]
     #[builder(default, setter(doc = "Field extension."))]
     pub date_range_ext: Option<FieldExtension>,
     /** # The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain
@@ -7215,7 +8337,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "restoreDate")]
     pub restore_date: Option<String>,
     /// Extension field.
-    #[serde(rename = "_restoreDate", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_restoreDate")]
     #[builder(default, setter(doc = "Field extension."))]
     pub restore_date_ext: Option<FieldExtension>,
 }
@@ -7318,7 +8441,8 @@ pub struct MetaInner {
     #[serde(rename = "versionId")]
     pub version_id: Option<String>,
     /// Extension field.
-    #[serde(rename = "_versionId", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_versionId")]
     #[builder(default, setter(doc = "Field extension."))]
     pub version_id_ext: Option<FieldExtension>,
     /** # When the resource version last changed
@@ -7336,7 +8460,8 @@ pub struct MetaInner {
     #[serde(rename = "lastUpdated")]
     pub last_updated: Option<String>,
     /// Extension field.
-    #[serde(rename = "_lastUpdated", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_lastUpdated")]
     #[builder(default, setter(doc = "Field extension."))]
     pub last_updated_ext: Option<FieldExtension>,
     /** # Identifies where the resource comes from
@@ -7356,7 +8481,8 @@ This element can be used to indicate where the current master source of a resour
     #[serde(rename = "source")]
     pub source: Option<String>,
     /// Extension field.
-    #[serde(rename = "_source", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_source")]
     #[builder(default, setter(doc = "Field extension."))]
     pub source_ext: Option<FieldExtension>,
     /** # Profiles this resource claims to conform to
@@ -7374,7 +8500,8 @@ This element can be used to indicate where the current master source of a resour
     #[serde(rename = "profile")]
     pub profile: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_profile", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_profile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub profile_ext: Vec<Option<FieldExtension>>,
     /** # SecurityLabels; Security Labels applied to this resource
@@ -7392,7 +8519,8 @@ This element can be used to indicate where the current master source of a resour
     #[serde(rename = "security")]
     pub security: Vec<Option<Coding>>,
     /// Extension field.
-    #[serde(rename = "_security", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_security")]
     #[builder(default, setter(doc = "Field extension."))]
     pub security_ext: Vec<Option<FieldExtension>>,
     /** # Tags; Tags applied to this resource
@@ -7410,7 +8538,8 @@ This element can be used to indicate where the current master source of a resour
     #[serde(rename = "tag")]
     pub tag: Vec<Option<Coding>>,
     /// Extension field.
-    #[serde(rename = "_tag", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_tag")]
     #[builder(default, setter(doc = "Field extension."))]
     pub tag_ext: Vec<Option<FieldExtension>>,
 }
@@ -7506,7 +8635,8 @@ pub struct MonetaryComponentInner {
     #[serde(rename = "type")]
     pub r#type: codes::PriceComponentType,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # PriceComponentCode; Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
@@ -7524,7 +8654,8 @@ pub struct MonetaryComponentInner {
     #[serde(rename = "code")]
     pub code: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
     /** # Factor used for calculating this component
@@ -7542,7 +8673,8 @@ pub struct MonetaryComponentInner {
     #[serde(rename = "factor")]
     pub factor: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_factor", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_factor")]
     #[builder(default, setter(doc = "Field extension."))]
     pub factor_ext: Option<FieldExtension>,
     /** # Explicit value amount to be used
@@ -7560,7 +8692,8 @@ pub struct MonetaryComponentInner {
     #[serde(rename = "amount")]
     pub amount: Option<Money>,
     /// Extension field.
-    #[serde(rename = "_amount", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_amount")]
     #[builder(default, setter(doc = "Field extension."))]
     pub amount_ext: Option<FieldExtension>,
 }
@@ -7663,7 +8796,8 @@ pub struct MoneyInner {
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
     /** # CurrencyCode; ISO 4217 Currency Code
@@ -7681,7 +8815,8 @@ pub struct MoneyInner {
     #[serde(rename = "currency")]
     pub currency: Option<String>,
     /// Extension field.
-    #[serde(rename = "_currency", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_currency")]
     #[builder(default, setter(doc = "Field extension."))]
     pub currency_ext: Option<FieldExtension>,
 }
@@ -7777,7 +8912,8 @@ pub struct NarrativeInner {
     #[serde(rename = "status")]
     pub status: codes::NarrativeStatus,
     /// Extension field.
-    #[serde(rename = "_status", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_status")]
     #[builder(default, setter(doc = "Field extension."))]
     pub status_ext: Option<FieldExtension>,
     /** # Limited xhtml content
@@ -7788,7 +8924,8 @@ pub struct NarrativeInner {
     #[serde(rename = "div")]
     pub div: String,
     /// Extension field.
-    #[serde(rename = "_div", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_div")]
     #[builder(default, setter(doc = "Field extension."))]
     pub div_ext: Option<FieldExtension>,
 }
@@ -7891,7 +9028,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
-    #[serde(rename = "_name", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
     /** # ParameterUse; in | out
@@ -7902,7 +9040,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "use")]
     pub r#use: String,
     /// Extension field.
-    #[serde(rename = "_use", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
     /** # Minimum cardinality
@@ -7920,7 +9059,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "min")]
     pub min: Option<i32>,
     /// Extension field.
-    #[serde(rename = "_min", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_min")]
     #[builder(default, setter(doc = "Field extension."))]
     pub min_ext: Option<FieldExtension>,
     /** # Maximum cardinality (a number of *)
@@ -7938,7 +9078,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "max")]
     pub max: Option<String>,
     /// Extension field.
-    #[serde(rename = "_max", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_max")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_ext: Option<FieldExtension>,
     /** # A brief description of the parameter
@@ -7956,7 +9097,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "documentation")]
     pub documentation: Option<String>,
     /// Extension field.
-    #[serde(rename = "_documentation", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_documentation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub documentation_ext: Option<FieldExtension>,
     /** # FHIRTypes; What type of value
@@ -7967,7 +9109,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "type")]
     pub r#type: String,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # What profile the value is expected to be
@@ -7985,7 +9128,8 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "profile")]
     pub profile: Option<String>,
     /// Extension field.
-    #[serde(rename = "_profile", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_profile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub profile_ext: Option<FieldExtension>,
 }
@@ -8092,7 +9236,8 @@ pub struct PeriodInner {
     #[serde(rename = "start")]
     pub start: Option<String>,
     /// Extension field.
-    #[serde(rename = "_start", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_start")]
     #[builder(default, setter(doc = "Field extension."))]
     pub start_ext: Option<FieldExtension>,
     /** # End time with inclusive boundary, if not ongoing
@@ -8110,7 +9255,8 @@ pub struct PeriodInner {
     #[serde(rename = "end")]
     pub end: Option<String>,
     /// Extension field.
-    #[serde(rename = "_end", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_end")]
     #[builder(default, setter(doc = "Field extension."))]
     pub end_ext: Option<FieldExtension>,
 }
@@ -8229,7 +9375,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "type")]
     pub r#type: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used
@@ -8247,9 +9394,10 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(flatten)]
     pub period: Option<ProductShelfLifePeriod>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub period_ext: Option<FieldExtension>,
+    pub period_ext: Option<ProductShelfLifePeriodExtension>,
     /** # Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified
 
  Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified.
@@ -8265,11 +9413,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "specialPrecautionsForStorage")]
     pub special_precautions_for_storage: Vec<Option<CodeableConcept>>,
     /// Extension field.
-    #[serde(
-        rename = "_specialPrecautionsForStorage",
-        default,
-        skip_serializing_if = "Vec::is_empty"
-    )]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_specialPrecautionsForStorage")]
     #[builder(default, setter(doc = "Field extension."))]
     pub special_precautions_for_storage_ext: Vec<Option<FieldExtension>>,
 }
@@ -8305,6 +9450,17 @@ pub enum ProductShelfLifePeriod {
     /// Variant accepting the String type.
     #[serde(rename = "periodString")]
     String(String),
+}
+/// Extension value for ProductShelfLifePeriod.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum ProductShelfLifePeriodExtension {
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_periodDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_periodString")]
+    String(FieldExtension),
 }
 /** # Quantity
 
@@ -8383,7 +9539,8 @@ pub struct QuantityInner {
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
     /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
@@ -8401,7 +9558,8 @@ pub struct QuantityInner {
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /// Extension field.
-    #[serde(rename = "_comparator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_comparator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub comparator_ext: Option<FieldExtension>,
     /** # Unit representation
@@ -8419,7 +9577,8 @@ pub struct QuantityInner {
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /// Extension field.
-    #[serde(rename = "_unit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_unit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub unit_ext: Option<FieldExtension>,
     /** # System that defines coded unit form
@@ -8437,7 +9596,8 @@ pub struct QuantityInner {
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
-    #[serde(rename = "_system", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_system")]
     #[builder(default, setter(doc = "Field extension."))]
     pub system_ext: Option<FieldExtension>,
     /** # Coded form of the unit
@@ -8455,7 +9615,8 @@ pub struct QuantityInner {
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
 }
@@ -8558,7 +9719,8 @@ pub struct RangeInner {
     #[serde(rename = "low")]
     pub low: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_low", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_low")]
     #[builder(default, setter(doc = "Field extension."))]
     pub low_ext: Option<FieldExtension>,
     /** # High limit
@@ -8576,7 +9738,8 @@ pub struct RangeInner {
     #[serde(rename = "high")]
     pub high: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_high", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_high")]
     #[builder(default, setter(doc = "Field extension."))]
     pub high_ext: Option<FieldExtension>,
 }
@@ -8677,7 +9840,8 @@ pub struct RatioInner {
     #[serde(rename = "numerator")]
     pub numerator: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_numerator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_numerator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub numerator_ext: Option<FieldExtension>,
     /** # Denominator value
@@ -8693,7 +9857,8 @@ pub struct RatioInner {
     #[serde(rename = "denominator")]
     pub denominator: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_denominator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_denominator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub denominator_ext: Option<FieldExtension>,
 }
@@ -8796,7 +9961,8 @@ pub struct RatioRangeInner {
     #[serde(rename = "lowNumerator")]
     pub low_numerator: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_lowNumerator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_lowNumerator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub low_numerator_ext: Option<FieldExtension>,
     /** # High Numerator limit
@@ -8814,7 +9980,8 @@ pub struct RatioRangeInner {
     #[serde(rename = "highNumerator")]
     pub high_numerator: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_highNumerator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_highNumerator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub high_numerator_ext: Option<FieldExtension>,
     /** # Denominator value
@@ -8830,7 +9997,8 @@ pub struct RatioRangeInner {
     #[serde(rename = "denominator")]
     pub denominator: Option<Quantity>,
     /// Extension field.
-    #[serde(rename = "_denominator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_denominator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub denominator_ext: Option<FieldExtension>,
 }
@@ -8933,7 +10101,8 @@ pub struct ReferenceInner {
     #[serde(rename = "reference")]
     pub reference: Option<String>,
     /// Extension field.
-    #[serde(rename = "_reference", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_reference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub reference_ext: Option<FieldExtension>,
     /** # FHIRResourceTypeExt; Type the reference refers to (e.g. "Patient") - must be a resource in resources
@@ -8953,7 +10122,8 @@ The type is the Canonical URL of Resource Definition that is the type this refer
     #[serde(rename = "type")]
     pub r#type: Option<String>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # Logical reference, when literal reference is not known
@@ -8979,7 +10149,8 @@ This element only allows for a single identifier. In the case where additional i
     #[serde(rename = "identifier")]
     pub identifier: Option<Identifier>,
     /// Extension field.
-    #[serde(rename = "_identifier", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_identifier")]
     #[builder(default, setter(doc = "Field extension."))]
     pub identifier_ext: Option<FieldExtension>,
     /** # Text alternative for the resource
@@ -8997,7 +10168,8 @@ This element only allows for a single identifier. In the case where additional i
     #[serde(rename = "display")]
     pub display: Option<String>,
     /// Extension field.
-    #[serde(rename = "_display", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_display")]
     #[builder(default, setter(doc = "Field extension."))]
     pub display_ext: Option<FieldExtension>,
 }
@@ -9093,7 +10265,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "type")]
     pub r#type: codes::RelatedArtifactType,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # RelatedArtifactClassifier; Additional classifiers
@@ -9111,7 +10284,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "classifier")]
     pub classifier: Vec<Option<CodeableConcept>>,
     /// Extension field.
-    #[serde(rename = "_classifier", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_classifier")]
     #[builder(default, setter(doc = "Field extension."))]
     pub classifier_ext: Vec<Option<FieldExtension>>,
     /** # Short label
@@ -9129,7 +10303,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "label")]
     pub label: Option<String>,
     /// Extension field.
-    #[serde(rename = "_label", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_label")]
     #[builder(default, setter(doc = "Field extension."))]
     pub label_ext: Option<FieldExtension>,
     /** # Brief description of the related artifact
@@ -9147,7 +10322,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "display")]
     pub display: Option<String>,
     /// Extension field.
-    #[serde(rename = "_display", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_display")]
     #[builder(default, setter(doc = "Field extension."))]
     pub display_ext: Option<FieldExtension>,
     /** # Bibliographic citation for the artifact
@@ -9165,7 +10341,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "citation")]
     pub citation: Option<String>,
     /// Extension field.
-    #[serde(rename = "_citation", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_citation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub citation_ext: Option<FieldExtension>,
     /** # What document is being referenced
@@ -9183,7 +10360,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "document")]
     pub document: Option<Attachment>,
     /// Extension field.
-    #[serde(rename = "_document", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_document")]
     #[builder(default, setter(doc = "Field extension."))]
     pub document_ext: Option<FieldExtension>,
     /** # What artifact is being referenced
@@ -9201,7 +10379,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "resource")]
     pub resource: Option<String>,
     /// Extension field.
-    #[serde(rename = "_resource", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_resource")]
     #[builder(default, setter(doc = "Field extension."))]
     pub resource_ext: Option<FieldExtension>,
     /** # What artifact, if not a conformance resource
@@ -9219,11 +10398,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "resourceReference")]
     pub resource_reference: Option<Reference>,
     /// Extension field.
-    #[serde(
-        rename = "_resourceReference",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_resourceReference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub resource_reference_ext: Option<FieldExtension>,
     /** # RelatedArtifactPublicationStatus; draft | active | retired | unknown
@@ -9241,11 +10417,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "publicationStatus")]
     pub publication_status: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_publicationStatus",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_publicationStatus")]
     #[builder(default, setter(doc = "Field extension."))]
     pub publication_status_ext: Option<FieldExtension>,
     /** # Date of publication of the artifact being referred to
@@ -9263,11 +10436,8 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "publicationDate")]
     pub publication_date: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_publicationDate",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_publicationDate")]
     #[builder(default, setter(doc = "Field extension."))]
     pub publication_date_ext: Option<FieldExtension>,
 }
@@ -9363,7 +10533,8 @@ pub struct SampledDataInner {
     #[serde(rename = "origin")]
     pub origin: Quantity,
     /// Extension field.
-    #[serde(rename = "_origin", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_origin")]
     #[builder(default, setter(doc = "Field extension."))]
     pub origin_ext: Option<FieldExtension>,
     /** # Number of intervalUnits between samples
@@ -9381,7 +10552,8 @@ pub struct SampledDataInner {
     #[serde(rename = "interval")]
     pub interval: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_interval", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_interval")]
     #[builder(default, setter(doc = "Field extension."))]
     pub interval_ext: Option<FieldExtension>,
     /** # Units; The measurement unit of the interval between samples
@@ -9392,7 +10564,8 @@ pub struct SampledDataInner {
     #[serde(rename = "intervalUnit")]
     pub interval_unit: String,
     /// Extension field.
-    #[serde(rename = "_intervalUnit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_intervalUnit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub interval_unit_ext: Option<FieldExtension>,
     /** # Multiply data by this before adding to origin
@@ -9410,7 +10583,8 @@ pub struct SampledDataInner {
     #[serde(rename = "factor")]
     pub factor: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_factor", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_factor")]
     #[builder(default, setter(doc = "Field extension."))]
     pub factor_ext: Option<FieldExtension>,
     /** # Lower limit of detection
@@ -9428,7 +10602,8 @@ pub struct SampledDataInner {
     #[serde(rename = "lowerLimit")]
     pub lower_limit: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_lowerLimit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_lowerLimit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub lower_limit_ext: Option<FieldExtension>,
     /** # Upper limit of detection
@@ -9446,7 +10621,8 @@ pub struct SampledDataInner {
     #[serde(rename = "upperLimit")]
     pub upper_limit: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_upperLimit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_upperLimit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub upper_limit_ext: Option<FieldExtension>,
     /** # Number of sample points at each time point
@@ -9457,7 +10633,8 @@ pub struct SampledDataInner {
     #[serde(rename = "dimensions")]
     pub dimensions: NonZeroU32,
     /// Extension field.
-    #[serde(rename = "_dimensions", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_dimensions")]
     #[builder(default, setter(doc = "Field extension."))]
     pub dimensions_ext: Option<FieldExtension>,
     /** # Defines the codes used in the data
@@ -9475,7 +10652,8 @@ pub struct SampledDataInner {
     #[serde(rename = "codeMap")]
     pub code_map: Option<String>,
     /// Extension field.
-    #[serde(rename = "_codeMap", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_codeMap")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_map_ext: Option<FieldExtension>,
     /** # Offsets, typically in time, at which data values were taken
@@ -9493,7 +10671,8 @@ pub struct SampledDataInner {
     #[serde(rename = "offsets")]
     pub offsets: Option<String>,
     /// Extension field.
-    #[serde(rename = "_offsets", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_offsets")]
     #[builder(default, setter(doc = "Field extension."))]
     pub offsets_ext: Option<FieldExtension>,
     /** # Decimal values with spaces, or "E" | "U" | "L", or another code
@@ -9511,7 +10690,8 @@ pub struct SampledDataInner {
     #[serde(rename = "data")]
     pub data: Option<String>,
     /// Extension field.
-    #[serde(rename = "_data", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_data")]
     #[builder(default, setter(doc = "Field extension."))]
     pub data_ext: Option<FieldExtension>,
 }
@@ -9614,7 +10794,8 @@ pub struct SignatureInner {
     #[serde(rename = "type")]
     pub r#type: Vec<Option<Coding>>,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Vec<Option<FieldExtension>>,
     /** # When the signature was created
@@ -9632,7 +10813,8 @@ pub struct SignatureInner {
     #[serde(rename = "when")]
     pub when: Option<String>,
     /// Extension field.
-    #[serde(rename = "_when", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_when")]
     #[builder(default, setter(doc = "Field extension."))]
     pub when_ext: Option<FieldExtension>,
     /** # Who signed
@@ -9650,7 +10832,8 @@ pub struct SignatureInner {
     #[serde(rename = "who")]
     pub who: Option<Reference>,
     /// Extension field.
-    #[serde(rename = "_who", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_who")]
     #[builder(default, setter(doc = "Field extension."))]
     pub who_ext: Option<FieldExtension>,
     /** # The party represented
@@ -9668,7 +10851,8 @@ pub struct SignatureInner {
     #[serde(rename = "onBehalfOf")]
     pub on_behalf_of: Option<Reference>,
     /// Extension field.
-    #[serde(rename = "_onBehalfOf", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_onBehalfOf")]
     #[builder(default, setter(doc = "Field extension."))]
     pub on_behalf_of_ext: Option<FieldExtension>,
     /** # MimeType; The technical format of the signed resources
@@ -9686,7 +10870,8 @@ pub struct SignatureInner {
     #[serde(rename = "targetFormat")]
     pub target_format: Option<String>,
     /// Extension field.
-    #[serde(rename = "_targetFormat", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_targetFormat")]
     #[builder(default, setter(doc = "Field extension."))]
     pub target_format_ext: Option<FieldExtension>,
     #[doc = " # MimeType; The technical format of the signature \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "]
@@ -9700,7 +10885,8 @@ pub struct SignatureInner {
     #[serde(rename = "sigFormat")]
     pub sig_format: Option<String>,
     /// Extension field.
-    #[serde(rename = "_sigFormat", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_sigFormat")]
     #[builder(default, setter(doc = "Field extension."))]
     pub sig_format_ext: Option<FieldExtension>,
     /** # The actual signature content (XML DigSig. JWS, picture, etc.)
@@ -9718,7 +10904,8 @@ pub struct SignatureInner {
     #[serde(rename = "data")]
     pub data: Option<String>,
     /// Extension field.
-    #[serde(rename = "_data", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_data")]
     #[builder(default, setter(doc = "Field extension."))]
     pub data_ext: Option<FieldExtension>,
 }
@@ -9841,7 +11028,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "event")]
     pub event: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_event", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_event")]
     #[builder(default, setter(doc = "Field extension."))]
     pub event_ext: Vec<Option<FieldExtension>>,
     /** # When the event is to occur
@@ -9859,7 +11047,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "repeat")]
     pub repeat: Option<TimingRepeat>,
     /// Extension field.
-    #[serde(rename = "_repeat", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_repeat")]
     #[builder(default, setter(doc = "Field extension."))]
     pub repeat_ext: Option<FieldExtension>,
     /** # TimingAbbreviation; C | BID | TID | QID | AM | PM | QD | QOD | +
@@ -9877,7 +11066,8 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "code")]
     pub code: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
 }
@@ -9951,9 +11141,10 @@ pub struct TimingRepeat {
     #[serde(flatten)]
     pub bounds: Option<TimingRepeatBounds>,
     /// Extension field.
-    #[serde(rename = "_bounds", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub bounds_ext: Option<FieldExtension>,
+    pub bounds_ext: Option<TimingRepeatBoundsExtension>,
     /** # Number of times to repeat
 
  A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values.
@@ -9969,7 +11160,8 @@ pub struct TimingRepeat {
     #[serde(rename = "count")]
     pub count: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_count", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_count")]
     #[builder(default, setter(doc = "Field extension."))]
     pub count_ext: Option<FieldExtension>,
     /** # Maximum number of times to repeat
@@ -9987,7 +11179,8 @@ pub struct TimingRepeat {
     #[serde(rename = "countMax")]
     pub count_max: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_countMax", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_countMax")]
     #[builder(default, setter(doc = "Field extension."))]
     pub count_max_ext: Option<FieldExtension>,
     /** # How long when it happens
@@ -10005,7 +11198,8 @@ pub struct TimingRepeat {
     #[serde(rename = "duration")]
     pub duration: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_duration", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_duration")]
     #[builder(default, setter(doc = "Field extension."))]
     pub duration_ext: Option<FieldExtension>,
     /** # How long when it happens (Max)
@@ -10023,7 +11217,8 @@ pub struct TimingRepeat {
     #[serde(rename = "durationMax")]
     pub duration_max: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_durationMax", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_durationMax")]
     #[builder(default, setter(doc = "Field extension."))]
     pub duration_max_ext: Option<FieldExtension>,
     /** # UnitsOfTime; s | min | h | d | wk | mo | a - unit of time (UCUM)
@@ -10042,7 +11237,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "durationUnit")]
     pub duration_unit: Option<String>,
     /// Extension field.
-    #[serde(rename = "_durationUnit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_durationUnit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub duration_unit_ext: Option<FieldExtension>,
     /** # Indicates the number of repetitions that should occur within a period. I.e. Event occurs frequency times per period
@@ -10060,7 +11256,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "frequency")]
     pub frequency: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_frequency", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_frequency")]
     #[builder(default, setter(doc = "Field extension."))]
     pub frequency_ext: Option<FieldExtension>,
     /** # Event occurs up to frequencyMax times per period
@@ -10078,7 +11275,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "frequencyMax")]
     pub frequency_max: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(rename = "_frequencyMax", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_frequencyMax")]
     #[builder(default, setter(doc = "Field extension."))]
     pub frequency_max_ext: Option<FieldExtension>,
     /** # The duration to which the frequency applies. I.e. Event occurs frequency times per period
@@ -10096,7 +11294,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "period")]
     pub period: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_period", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_period")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_ext: Option<FieldExtension>,
     /** # Upper limit of period (3-4 hours)
@@ -10114,7 +11313,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "periodMax")]
     pub period_max: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_periodMax", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_periodMax")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_max_ext: Option<FieldExtension>,
     /** # UnitsOfTime; s | min | h | d | wk | mo | a - unit of time (UCUM)
@@ -10133,7 +11333,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "periodUnit")]
     pub period_unit: Option<String>,
     /// Extension field.
-    #[serde(rename = "_periodUnit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_periodUnit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_unit_ext: Option<FieldExtension>,
     /** # DayOfWeek; mon | tue | wed | thu | fri | sat | sun
@@ -10151,7 +11352,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "dayOfWeek")]
     pub day_of_week: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_dayOfWeek", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_dayOfWeek")]
     #[builder(default, setter(doc = "Field extension."))]
     pub day_of_week_ext: Vec<Option<FieldExtension>>,
     /** # Time of day for action
@@ -10169,7 +11371,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "timeOfDay")]
     pub time_of_day: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_timeOfDay", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_timeOfDay")]
     #[builder(default, setter(doc = "Field extension."))]
     pub time_of_day_ext: Vec<Option<FieldExtension>>,
     /** # EventTiming; Code for time period of occurrence
@@ -10187,7 +11390,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "when")]
     pub when: Vec<Option<codes::EventTiming>>,
     /// Extension field.
-    #[serde(rename = "_when", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_when")]
     #[builder(default, setter(doc = "Field extension."))]
     pub when_ext: Vec<Option<FieldExtension>>,
     /** # Minutes from event (before or after)
@@ -10205,7 +11409,8 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "offset")]
     pub offset: Option<u32>,
     /// Extension field.
-    #[serde(rename = "_offset", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_offset")]
     #[builder(default, setter(doc = "Field extension."))]
     pub offset_ext: Option<FieldExtension>,
 }
@@ -10222,6 +11427,20 @@ pub enum TimingRepeatBounds {
     /// Variant accepting the Period type.
     #[serde(rename = "boundsPeriod")]
     Period(Period),
+}
+/// Extension value for TimingRepeatBounds.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum TimingRepeatBoundsExtension {
+    /// Variant accepting the Duration extension.
+    #[serde(rename = "_boundsDuration")]
+    Duration(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_boundsRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Period extension.
+    #[serde(rename = "_boundsPeriod")]
+    Period(FieldExtension),
 }
 /** # TriggerDefinition
 
@@ -10293,7 +11512,8 @@ pub struct TriggerDefinitionInner {
     #[serde(rename = "type")]
     pub r#type: codes::TriggerType,
     /// Extension field.
-    #[serde(rename = "_type", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
     /** # Name or URI that identifies the event
@@ -10311,7 +11531,8 @@ pub struct TriggerDefinitionInner {
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
-    #[serde(rename = "_name", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
     /** # Coded definition of the event
@@ -10329,7 +11550,8 @@ pub struct TriggerDefinitionInner {
     #[serde(rename = "code")]
     pub code: Option<CodeableConcept>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
     /** # What event
@@ -10347,11 +11569,8 @@ pub struct TriggerDefinitionInner {
     #[serde(rename = "subscriptionTopic")]
     pub subscription_topic: Option<String>,
     /// Extension field.
-    #[serde(
-        rename = "_subscriptionTopic",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_subscriptionTopic")]
     #[builder(default, setter(doc = "Field extension."))]
     pub subscription_topic_ext: Option<FieldExtension>,
     /** # Timing of the event
@@ -10369,9 +11588,10 @@ pub struct TriggerDefinitionInner {
     #[serde(flatten)]
     pub timing: Option<TriggerDefinitionTiming>,
     /// Extension field.
-    #[serde(rename = "_timing", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub timing_ext: Option<FieldExtension>,
+    pub timing_ext: Option<TriggerDefinitionTimingExtension>,
     /** # Triggering data of the event (multiple = 'and')
 
  The triggering data of the event (if this is a data trigger). If more than one data is requirement is specified, then all the data requirements must be true.
@@ -10387,7 +11607,8 @@ pub struct TriggerDefinitionInner {
     #[serde(rename = "data")]
     pub data: Vec<Option<DataRequirement>>,
     /// Extension field.
-    #[serde(rename = "_data", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_data")]
     #[builder(default, setter(doc = "Field extension."))]
     pub data_ext: Vec<Option<FieldExtension>>,
     /** # Whether the event triggers (boolean expression)
@@ -10405,7 +11626,8 @@ pub struct TriggerDefinitionInner {
     #[serde(rename = "condition")]
     pub condition: Option<Expression>,
     /// Extension field.
-    #[serde(rename = "_condition", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_condition")]
     #[builder(default, setter(doc = "Field extension."))]
     pub condition_ext: Option<FieldExtension>,
 }
@@ -10447,6 +11669,23 @@ pub enum TriggerDefinitionTiming {
     /// Variant accepting the DateTime type.
     #[serde(rename = "timingDateTime")]
     DateTime(String),
+}
+/// Extension value for TriggerDefinitionTiming.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum TriggerDefinitionTimingExtension {
+    /// Variant accepting the Timing extension.
+    #[serde(rename = "_timingTiming")]
+    Timing(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_timingReference")]
+    Reference(FieldExtension),
+    /// Variant accepting the Date extension.
+    #[serde(rename = "_timingDate")]
+    Date(FieldExtension),
+    /// Variant accepting the DateTime extension.
+    #[serde(rename = "_timingDateTime")]
+    DateTime(FieldExtension),
 }
 /** # UsageContext
 
@@ -10518,7 +11757,8 @@ pub struct UsageContextInner {
     #[serde(rename = "code")]
     pub code: Coding,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
     /** # Value that defines the context
@@ -10529,9 +11769,10 @@ pub struct UsageContextInner {
     #[serde(flatten)]
     pub value: UsageContextValue,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub value_ext: Option<FieldExtension>,
+    pub value_ext: Option<UsageContextValueExtension>,
 }
 impl From<UsageContextInner> for UsageContext {
     fn from(inner: UsageContextInner) -> Self {
@@ -10571,6 +11812,23 @@ pub enum UsageContextValue {
     /// Variant accepting the Reference type.
     #[serde(rename = "valueReference")]
     Reference(Reference),
+}
+/// Extension value for UsageContextValue.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum UsageContextValueExtension {
+    /// Variant accepting the CodeableConcept extension.
+    #[serde(rename = "_valueCodeableConcept")]
+    CodeableConcept(FieldExtension),
+    /// Variant accepting the Quantity extension.
+    #[serde(rename = "_valueQuantity")]
+    Quantity(FieldExtension),
+    /// Variant accepting the Range extension.
+    #[serde(rename = "_valueRange")]
+    Range(FieldExtension),
+    /// Variant accepting the Reference extension.
+    #[serde(rename = "_valueReference")]
+    Reference(FieldExtension),
 }
 /** # VirtualServiceDetail
 
@@ -10651,7 +11909,8 @@ Some profiles could be used for specific types to define what the other values c
     #[serde(rename = "channelType")]
     pub channel_type: Option<Coding>,
     /// Extension field.
-    #[serde(rename = "_channelType", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_channelType")]
     #[builder(default, setter(doc = "Field extension."))]
     pub channel_type_ext: Option<FieldExtension>,
     /** # Contact address/number
@@ -10669,9 +11928,10 @@ Some profiles could be used for specific types to define what the other values c
     #[serde(flatten)]
     pub address: Option<VirtualServiceDetailAddress>,
     /// Extension field.
-    #[serde(rename = "_address", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(flatten)]
     #[builder(default, setter(doc = "Field extension."))]
-    pub address_ext: Option<FieldExtension>,
+    pub address_ext: Option<VirtualServiceDetailAddressExtension>,
     /** # Address to see alternative connection details
 
  Address to see alternative connection details.
@@ -10687,7 +11947,8 @@ Some profiles could be used for specific types to define what the other values c
     #[serde(rename = "additionalInfo")]
     pub additional_info: Vec<Option<String>>,
     /// Extension field.
-    #[serde(rename = "_additionalInfo", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_additionalInfo")]
     #[builder(default, setter(doc = "Field extension."))]
     pub additional_info_ext: Vec<Option<FieldExtension>>,
     /** # Maximum number of participants supported by the virtual service
@@ -10707,11 +11968,8 @@ Typically on-demand services might not have these restrictions. */
     #[serde(rename = "maxParticipants")]
     pub max_participants: Option<NonZeroU32>,
     /// Extension field.
-    #[serde(
-        rename = "_maxParticipants",
-        default,
-        skip_serializing_if = "Option::is_none"
-    )]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_maxParticipants")]
     #[builder(default, setter(doc = "Field extension."))]
     pub max_participants_ext: Option<FieldExtension>,
     /** # Session Key required by the virtual service
@@ -10731,7 +11989,8 @@ This could be in cases where a shared number is used, and a session key is added
     #[serde(rename = "sessionKey")]
     pub session_key: Option<String>,
     /// Extension field.
-    #[serde(rename = "_sessionKey", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_sessionKey")]
     #[builder(default, setter(doc = "Field extension."))]
     pub session_key_ext: Option<FieldExtension>,
 }
@@ -10773,6 +12032,23 @@ pub enum VirtualServiceDetailAddress {
     /// Variant accepting the ExtendedContactDetail type.
     #[serde(rename = "addressExtendedContactDetail")]
     ExtendedContactDetail(ExtendedContactDetail),
+}
+/// Extension value for VirtualServiceDetailAddress.
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub enum VirtualServiceDetailAddressExtension {
+    /// Variant accepting the Url extension.
+    #[serde(rename = "_addressUrl")]
+    Url(FieldExtension),
+    /// Variant accepting the String extension.
+    #[serde(rename = "_addressString")]
+    String(FieldExtension),
+    /// Variant accepting the ContactPoint extension.
+    #[serde(rename = "_addressContactPoint")]
+    ContactPoint(FieldExtension),
+    /// Variant accepting the ExtendedContactDetail extension.
+    #[serde(rename = "_addressExtendedContactDetail")]
+    ExtendedContactDetail(FieldExtension),
 }
 /** # MoneyQuantity
 
@@ -10851,7 +12127,8 @@ pub struct MoneyQuantityInner {
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
     /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
@@ -10869,7 +12146,8 @@ pub struct MoneyQuantityInner {
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /// Extension field.
-    #[serde(rename = "_comparator", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_comparator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub comparator_ext: Option<FieldExtension>,
     /** # Unit representation
@@ -10887,7 +12165,8 @@ pub struct MoneyQuantityInner {
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /// Extension field.
-    #[serde(rename = "_unit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_unit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub unit_ext: Option<FieldExtension>,
     /** # System that defines coded unit form
@@ -10905,7 +12184,8 @@ pub struct MoneyQuantityInner {
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
-    #[serde(rename = "_system", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_system")]
     #[builder(default, setter(doc = "Field extension."))]
     pub system_ext: Option<FieldExtension>,
     /** # Coded form of the unit
@@ -10923,7 +12203,8 @@ pub struct MoneyQuantityInner {
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
 }
@@ -11026,7 +12307,8 @@ pub struct SimpleQuantityInner {
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
-    #[serde(rename = "_value", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
     /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
@@ -11044,7 +12326,8 @@ pub struct SimpleQuantityInner {
     #[serde(rename = "comparator")]
     pub comparator: Vec<Option<codes::QuantityComparator>>,
     /// Extension field.
-    #[serde(rename = "_comparator", default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[serde(rename = "_comparator")]
     #[builder(default, setter(doc = "Field extension."))]
     pub comparator_ext: Vec<Option<FieldExtension>>,
     /** # Unit representation
@@ -11062,7 +12345,8 @@ pub struct SimpleQuantityInner {
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /// Extension field.
-    #[serde(rename = "_unit", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_unit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub unit_ext: Option<FieldExtension>,
     /** # System that defines coded unit form
@@ -11080,7 +12364,8 @@ pub struct SimpleQuantityInner {
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
-    #[serde(rename = "_system", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_system")]
     #[builder(default, setter(doc = "Field extension."))]
     pub system_ext: Option<FieldExtension>,
     /** # Coded form of the unit
@@ -11098,7 +12383,8 @@ pub struct SimpleQuantityInner {
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
-    #[serde(rename = "_code", default, skip_serializing_if = "Option::is_none")]
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "_code")]
     #[builder(default, setter(doc = "Field extension."))]
     pub code_ext: Option<FieldExtension>,
 }

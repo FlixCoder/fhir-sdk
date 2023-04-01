@@ -124,7 +124,7 @@ fn generate_field(
 	base_type: &Type,
 	implemented_codes: &[String],
 ) -> (TokenStream, TokenStream) {
-	let (doc_comment, field_type, structs) = match field {
+	let (doc_comment, (field_type, extension_type), structs) = match field {
 		Field::Standard(f) => generate_standard_field(f),
 		Field::Code(f) => generate_code_field(f, implemented_codes),
 		Field::Choice(f) => generate_choice_field(f, type_ident),
@@ -152,21 +152,28 @@ fn generate_field(
 
 	let extension_field = (!field.is_base_field()).then(|| {
 		let ident_ext = format_ident!("{ident}_ext");
-		let rename_ext = format!("_{name}");
+		let serde_ext = if matches!(field, Field::Choice(_)) {
+			quote!(#[serde(flatten)])
+		} else {
+			let rename_ext = format!("_{name}");
+			quote!(#[serde(rename = #rename_ext)])
+		};
 
 		if field.is_array() {
 			quote! {
 				/// Extension field.
-				#[serde(rename = #rename_ext, default, skip_serializing_if = "Vec::is_empty")]
+				#[serde(default, skip_serializing_if = "Vec::is_empty")]
+				#serde_ext
 				#[builder(default, setter(doc = "Field extension."))]
-				pub #ident_ext: Vec<Option<FieldExtension>>,
+				pub #ident_ext: Vec<Option<#extension_type>>,
 			}
 		} else {
 			quote! {
 				/// Extension field.
-				#[serde(rename = #rename_ext, default, skip_serializing_if = "Option::is_none")]
+				#[serde(default, skip_serializing_if = "Option::is_none")]
+				#serde_ext
 				#[builder(default, setter(doc = "Field extension."))]
-				pub #ident_ext: Option<FieldExtension>,
+				pub #ident_ext: Option<#extension_type>,
 			}
 		}
 	});
@@ -183,7 +190,7 @@ fn generate_field(
 }
 
 /// Generate field information and sub-structs for a standard field.
-fn generate_standard_field(field: &StandardField) -> (String, TokenStream, TokenStream) {
+fn generate_standard_field(field: &StandardField) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
 		" # {} \n\n {} \n\n ",
 		field.short.replace('\r', "\n"),
@@ -196,14 +203,14 @@ fn generate_standard_field(field: &StandardField) -> (String, TokenStream, Token
 
 	let mapped_type = map_type(&field.r#type);
 
-	(doc_comment, quote!(#mapped_type), quote!())
+	(doc_comment, (quote!(#mapped_type), format_ident!("FieldExtension")), quote!())
 }
 
 /// Generate field information and sub-structs for a code field.
 fn generate_code_field(
 	field: &CodeField,
 	implemented_codes: &[String],
-) -> (String, TokenStream, TokenStream) {
+) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
 		" # {}; {} \n\n {} \n\n ",
 		field.code,
@@ -217,14 +224,14 @@ fn generate_code_field(
 
 	let mapped_type = code_field_type_name(field, implemented_codes);
 
-	(doc_comment, mapped_type, quote!())
+	(doc_comment, (mapped_type, format_ident!("FieldExtension")), quote!())
 }
 
 /// Generate field information and sub-structs for a choice field.
 fn generate_choice_field(
 	field: &ChoiceField,
 	type_ident: &Ident,
-) -> (String, TokenStream, TokenStream) {
+) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
 		" # {} \n\n {} \n\n ",
 		field.short.replace('\r', "\n"),
@@ -251,6 +258,20 @@ fn generate_choice_field(
 		}
 	});
 
+	let extension_type = format_ident!("{enum_type}Extension");
+	let extension_doc = format!(" Extension value for {enum_type}.");
+	let extension_variants = field.types.iter().map(|ty| {
+		let variant_ident = format_ident!("{}", ty.to_pascal_case());
+		let variant_doc = format!(" Variant accepting the {variant_ident} extension.");
+		let rename = format!("_{}", field.name.replace("[x]", &variant_ident.to_string()));
+
+		quote! {
+			#[doc = #variant_doc]
+			#[serde(rename = #rename)]
+			#variant_ident(FieldExtension),
+		}
+	});
+
 	let choice_enum = quote! {
 		#[doc = #enum_doc]
 		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -258,8 +279,15 @@ fn generate_choice_field(
 		pub enum #enum_type {
 			#(#variants)*
 		}
+
+		#[doc = #extension_doc]
+		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+		#[serde(rename_all = "camelCase")]
+		pub enum #extension_type {
+			#(#extension_variants)*
+		}
 	};
-	(doc_comment, quote!(#enum_type), choice_enum)
+	(doc_comment, (quote!(#enum_type), extension_type), choice_enum)
 }
 
 /// Generate field information and sub-structs for a object field.
@@ -268,7 +296,7 @@ fn generate_object_field(
 	type_ident: &Ident,
 	base_type: &Type,
 	implemented_codes: &[String],
-) -> (String, TokenStream, TokenStream) {
+) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
 		" # {} \n\n {} \n\n ",
 		field.short.replace('\r', "\n"),
@@ -282,7 +310,7 @@ fn generate_object_field(
 	if let Some(content_reference) = &field.content_reference {
 		let field_type_name = content_reference.trim_start_matches('#').to_pascal_case();
 		let ty = format_ident!("{field_type_name}");
-		return (doc_comment, quote!(#ty), quote!());
+		return (doc_comment, (quote!(#ty), format_ident!("FieldExtension")), quote!());
 	}
 
 	let struct_type = format_ident!("{type_ident}{}", field.name.to_pascal_case());
@@ -312,7 +340,7 @@ fn generate_object_field(
 			l
 		})
 		.expect("Cannot fail");
-	(doc_comment, quote!(#struct_type), structs)
+	(doc_comment, (quote!(#struct_type), format_ident!("FieldExtension")), structs)
 }
 
 /// Construct the type of a field.

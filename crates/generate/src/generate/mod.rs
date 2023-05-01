@@ -211,7 +211,7 @@ fn resource_conversion_impls(names: &[Ident]) -> TokenStream {
 	}
 }
 
-/// Implementations for the Resource enum.
+/// Implementations for the Resource and ResourceType enum.
 fn resource_impls(names: &[Ident]) -> TokenStream {
 	quote! {
 		impl Resource {
@@ -221,6 +221,18 @@ fn resource_impls(names: &[Ident]) -> TokenStream {
 				match self {
 					#(
 						Self::#names(_) => ResourceType::#names,
+					)*
+				}
+			}
+		}
+
+		impl ResourceType {
+			/// Get the resource type as str.
+			#[must_use]
+			pub const fn as_str(&self) -> &'static str {
+				match self {
+					#(
+						Self::#names => stringify!(#names),
 					)*
 				}
 			}

@@ -24,6 +24,11 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] DomainResource
   - [x] IdentifiableResource
 - [ ] REST client implementation
+  - [x] Create, Read, Update, Delete
+  - [x] Raw search
+  - [ ] Typed search
+  - [ ] Patch
+  - [ ] Batch operations / Transactions
 - [ ] Search parameters
 - [ ] FHIRpath implementation
 - [ ] Resource validation using FHIRpath

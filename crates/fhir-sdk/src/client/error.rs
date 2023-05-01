@@ -1,0 +1,68 @@
+//! Client errors.
+
+use reqwest::StatusCode;
+use thiserror::Error;
+
+use super::model::resources::OperationOutcome;
+
+/// FHIR REST Client Error.
+#[derive(Debug, Error)]
+pub enum Error {
+	/// Request was not clonable.
+	#[error("Was not able to clone HTTP Request")]
+	RequestNotClone,
+
+	/// URL cannot be a base URL.
+	#[error("Given base URL cannot be a base URL")]
+	UrlCannotBeBase,
+
+	/// Missing resource ID.
+	#[error("Resource is missing ID")]
+	MissingId,
+
+	/// Missing resource version ID.
+	#[error("Resource is missing version ID")]
+	MissingVersionId,
+
+	/// HTTP Request error.
+	#[error("Request error: {0}")]
+	Request(#[from] reqwest::Error),
+
+	/// HTTP error response.
+	#[error("Got error response ({0}): {1}")]
+	Response(StatusCode, String),
+
+	/// OperationOutcome.
+	#[error("OperationOutcome: {0:?}")]
+	OperationOutcome(OperationOutcome),
+
+	/// Error parsing ETag to version ID, i.e. missing ETag or wrong format.
+	#[error("Missing or wrong ETag in response")]
+	EtagFailure,
+
+	/// Response did not provide `Location` header or it failed to parse.
+	#[error("Missing or wrong Location header in response")]
+	LocationFailure,
+}
+
+impl Error {
+	/// Whether the error should likely be retried.
+	#[must_use]
+	pub fn should_retry(&self) -> bool {
+		match self {
+			Self::Request(err) => err.is_connect() || err.is_request() || err.is_timeout(),
+			_ => false,
+		}
+	}
+
+	/// Extract the error from a response.
+	pub(crate) async fn from_response(response: reqwest::Response) -> Self {
+		let status = response.status();
+		let body = response.text().await.unwrap_or_default();
+		if let Ok(outcome) = serde_json::from_str(&body) {
+			Self::OperationOutcome(outcome)
+		} else {
+			Self::Response(status, body)
+		}
+	}
+}

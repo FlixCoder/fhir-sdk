@@ -20,7 +20,7 @@ r5 = []
 
 [dependencies]
 serde = {version = "1.0.158", features = ["derive"]}
-typed-builder = "0.14.0"
+typed-builder = "0.15.2"
 
 [dev-dependencies]
 assert-json-diff = "2.0.2"

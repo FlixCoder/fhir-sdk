@@ -1,7 +1,7 @@
 //! ValueSets (CodeSystems) parsing for FHIR codes.
 
 use fhir_model::r4b::{
-	codes::PublicationStatus,
+	codes::{CodeSystemContentMode, PublicationStatus},
 	resources::{Bundle, CodeSystem, CodeSystemConcept, Resource},
 };
 
@@ -23,8 +23,10 @@ pub struct Code {
 	/// Whether this code is a value set (controls whether there are custom
 	/// values allowed I think?).
 	pub is_value_set: bool,
-	/// Code system.
+	/// Code ValueSet or system URL.
 	pub system: String,
+	/// Content mode.
+	pub content: CodeSystemContentMode,
 	/// Code items:
 	pub items: Vec<CodeItem>,
 }
@@ -43,6 +45,10 @@ impl From<CodeSystem> for Code {
 			.value_set
 			.or(code_system.url)
 			.expect("CodeSystem.valueSet or CodeSystem.url");
+		// Split off version string at the end (|5.0.0).
+		let system =
+			system.split_once('|').map_or(system.as_str(), |(start, _end)| start).to_owned();
+		let content = code_system.content;
 
 		let items = code_system
 			.concept
@@ -76,6 +82,7 @@ impl From<CodeSystem> for Code {
 			case_sensitive,
 			is_value_set,
 			system,
+			content,
 			items,
 		}
 	}

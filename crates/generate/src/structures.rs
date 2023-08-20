@@ -338,8 +338,8 @@ impl From<ElementDefinition> for ObjectField {
 				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 			})
 			.and_then(|extension| extension.0.value)
-			.and_then(|value| match value {
-				ExtensionValue::String(s) => Some(s),
+			.map(|value| match value {
+				ExtensionValue::String(s) => s,
 				_ => panic!("Wrong value type in ElemenentDefinition.extension"),
 			});
 		let content_reference = element.content_reference;
@@ -496,8 +496,8 @@ impl From<ElementDefinition> for CodeField {
 					== "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName"
 			})
 			.and_then(|extension| extension.0.value)
-			.and_then(|value| match value {
-				ExtensionValue::String(s) => Some(s),
+			.map(|value| match value {
+				ExtensionValue::String(s) => s,
 				_ => panic!("unexpected extension value type"),
 			})
 			.or(binding.value_set)
@@ -590,8 +590,8 @@ fn type_to_string(r#type: ElementDefinitionType) -> String {
 				return extension
 					.0
 					.value
-					.and_then(|v| match v {
-						ExtensionValue::Url(url) => Some(url),
+					.map(|v| match v {
+						ExtensionValue::Url(url) => url,
 						_ => panic!("ElementDefinition.type.extension.value is not URL"),
 					})
 					.expect("ElementDefinition.type.extension.value");

@@ -460,7 +460,9 @@ pub struct CodeField {
 	/// Name of the type.
 	pub r#type: String,
 	/// Name of the code.
-	pub code: String,
+	pub code_name: Option<String>,
+	/// ValueSet URL of the code.
+	pub code_url: Option<String>,
 	/// Whether this field is a modifier field.
 	pub is_modifier: bool,
 	/// Whether this field is part of the summary.
@@ -488,7 +490,7 @@ impl From<ElementDefinition> for CodeField {
 			.map(type_to_string)
 			.expect("ElementDefinition.type");
 		let binding = element.binding.expect("ElementDefinition.binding");
-		let code = binding
+		let code_name = binding
 			.extension
 			.into_iter()
 			.find(|extension| {
@@ -499,11 +501,11 @@ impl From<ElementDefinition> for CodeField {
 			.map(|value| match value {
 				ExtensionValue::String(s) => s,
 				_ => panic!("unexpected extension value type"),
-			})
-			.or(binding.value_set)
-			.expect(
-				"ElementDefinition.binding.extension.value or ElementDefinition.binding.valueSet",
-			);
+			});
+		// Remove version string at the end (|5.0.0).
+		let code_url = binding.value_set.map(|code_url| {
+			code_url.split_once('|').map_or(code_url.as_str(), |(start, _end)| start).to_owned()
+		});
 		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
 		let is_summary = element.is_summary.unwrap_or(false);
 
@@ -516,7 +518,8 @@ impl From<ElementDefinition> for CodeField {
 			is_array,
 			is_base_field,
 			r#type,
-			code,
+			code_name,
+			code_url,
 			is_modifier,
 			is_summary,
 		}

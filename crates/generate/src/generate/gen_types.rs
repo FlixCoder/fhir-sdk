@@ -1,5 +1,7 @@
 //! FHIR types generation.
 
+use std::collections::HashMap;
+
 use anyhow::Result;
 use fhir_model::r4b::codes::StructureDefinitionKind;
 use inflector::Inflector;
@@ -10,7 +12,10 @@ use super::{map_field_ident, map_type};
 use crate::structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type};
 
 /// Generate struct definition for a FHIR type.
-pub fn generate_type_struct(ty: &Type, implemented_codes: &[String]) -> Result<TokenStream> {
+pub fn generate_type_struct(
+	ty: &Type,
+	implemented_codes: &HashMap<String, String>,
+) -> Result<TokenStream> {
 	let name = &ty.name;
 	let ident = format_ident!("{name}");
 	let ident_inner = format_ident!("{name}Inner");
@@ -122,7 +127,7 @@ fn generate_field(
 	field: &Field,
 	type_ident: &Ident,
 	base_type: &Type,
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> (TokenStream, TokenStream) {
 	let (doc_comment, (field_type, extension_type), structs) = match field {
 		Field::Standard(f) => generate_standard_field(f),
@@ -209,11 +214,12 @@ fn generate_standard_field(field: &StandardField) -> (String, (TokenStream, Iden
 /// Generate field information and sub-structs for a code field.
 fn generate_code_field(
 	field: &CodeField,
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
-		" # {}; {} \n\n {} \n\n ",
-		field.code,
+		" # {} ({}); {} \n\n {} \n\n ",
+		field.code_name.as_deref().unwrap_or_default(),
+		field.code_url.as_deref().unwrap_or_default(),
 		field.short.replace('\r', "\n"),
 		field.definition.replace('\r', "\n")
 	);
@@ -295,7 +301,7 @@ fn generate_object_field(
 	field: &ObjectField,
 	type_ident: &Ident,
 	base_type: &Type,
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
 		" # {} \n\n {} \n\n ",
@@ -359,9 +365,24 @@ pub fn construct_field_type(field: &Field, field_type: TokenStream) -> TokenStre
 }
 
 /// Compute the type name of a CodeField.
-pub fn code_field_type_name(field: &CodeField, implemented_codes: &[String]) -> TokenStream {
-	if field.r#type.as_str() == "code" && implemented_codes.contains(&field.code) {
-		let ty = format_ident!("{}", field.code);
+pub fn code_field_type_name(
+	field: &CodeField,
+	implemented_codes: &HashMap<String, String>,
+) -> TokenStream {
+	let contains_name = field
+		.code_name
+		.as_ref()
+		.map_or(false, |code_name| implemented_codes.values().any(|value| value == code_name));
+	let contains_url =
+		field.code_url.as_ref().map_or(false, |code_url| implemented_codes.contains_key(code_url));
+	if field.r#type.as_str() == "code" && (contains_name || contains_url) {
+		let type_name = field
+			.code_url
+			.as_ref()
+			.and_then(|code_url| implemented_codes.get(code_url))
+			.or(field.code_name.as_ref())
+			.expect("Could not get FHIR code name to generate the field's type");
+		let ty = format_ident!("{type_name}");
 		quote!(codes::#ty)
 	} else {
 		let mapped_type = map_type(&field.r#type);

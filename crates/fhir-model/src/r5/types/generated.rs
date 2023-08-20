@@ -70,7 +70,7 @@ pub struct AddressInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # AddressUse; home | work | temp | old | billing - purpose of this address
+    /** # AddressUse (http://hl7.org/fhir/ValueSet/address-use); home | work | temp | old | billing - purpose of this address
 
  The purpose of this address.
 
@@ -79,7 +79,7 @@ pub struct AddressInner {
     #[builder(
         default,
         setter(
-            doc = " # AddressUse; home | work | temp | old | billing - purpose of this address \n\n The purpose of this address. \n\n Applications can assume that an address is current unless it explicitly says that it is temporary or old. "
+            doc = " # AddressUse (http://hl7.org/fhir/ValueSet/address-use); home | work | temp | old | billing - purpose of this address \n\n The purpose of this address. \n\n Applications can assume that an address is current unless it explicitly says that it is temporary or old. "
         )
     )]
     #[serde(rename = "use")]
@@ -89,7 +89,7 @@ pub struct AddressInner {
     #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
-    /** # AddressType; postal | physical | both
+    /** # AddressType (http://hl7.org/fhir/ValueSet/address-type); postal | physical | both
 
  Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
 
@@ -98,7 +98,7 @@ pub struct AddressInner {
     #[builder(
         default,
         setter(
-            doc = " # AddressType; postal | physical | both \n\n Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both. \n\n The definition of Address states that \"address is intended to describe postal addresses, not physical locations\". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource). "
+            doc = " # AddressType (http://hl7.org/fhir/ValueSet/address-type); postal | physical | both \n\n Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both. \n\n The definition of Address states that \"address is intended to describe postal addresses, not physical locations\". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource). "
         )
     )]
     #[serde(rename = "type")]
@@ -359,7 +359,7 @@ pub struct AgeInner {
     )]
     #[serde(rename = "value")]
     pub value: Option<f64>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
 
@@ -368,7 +368,7 @@ pub struct AgeInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -657,7 +657,7 @@ pub struct AttachmentInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # MimeType; Mime type of the content, with charset etc.
+    /** # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); Mime type of the content, with charset etc.
 
  Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
 
@@ -666,7 +666,7 @@ pub struct AttachmentInner {
     #[builder(
         default,
         setter(
-            doc = " # MimeType; Mime type of the content, with charset etc. \n\n Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate. \n\n "
+            doc = " # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); Mime type of the content, with charset etc. \n\n Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate. \n\n "
         )
     )]
     #[serde(rename = "contentType")]
@@ -676,7 +676,7 @@ pub struct AttachmentInner {
     #[serde(rename = "_contentType")]
     #[builder(default, setter(doc = "Field extension."))]
     pub content_type_ext: Option<FieldExtension>,
-    /** # Language; Human language of the content (BCP-47)
+    /** # Language (http://hl7.org/fhir/ValueSet/all-languages); Human language of the content (BCP-47)
 
  The human language of the content. The value can be any valid value according to BCP 47.
 
@@ -685,7 +685,7 @@ pub struct AttachmentInner {
     #[builder(
         default,
         setter(
-            doc = " # Language; Human language of the content (BCP-47) \n\n The human language of the content. The value can be any valid value according to BCP 47. \n\n "
+            doc = " # Language (http://hl7.org/fhir/ValueSet/all-languages); Human language of the content (BCP-47) \n\n The human language of the content. The value can be any valid value according to BCP 47. \n\n "
         )
     )]
     #[serde(rename = "language")]
@@ -1083,7 +1083,7 @@ pub struct AvailabilityAvailableTime {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # DaysOfWeek; mon | tue | wed | thu | fri | sat | sun
+    /** # DaysOfWeek (http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun
 
  mon | tue | wed | thu | fri | sat | sun.
 
@@ -1092,7 +1092,7 @@ pub struct AvailabilityAvailableTime {
     #[builder(
         default,
         setter(
-            doc = " # DaysOfWeek; mon | tue | wed | thu | fri | sat | sun \n\n mon | tue | wed | thu | fri | sat | sun. \n\n "
+            doc = " # DaysOfWeek (http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun \n\n mon | tue | wed | thu | fri | sat | sun. \n\n "
         )
     )]
     #[serde(rename = "daysOfWeek")]
@@ -1845,7 +1845,7 @@ pub struct ContactPointInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # ContactPointSystem; phone | fax | email | pager | url | sms | other
+    /** # ContactPointSystem (http://hl7.org/fhir/ValueSet/contact-point-system); phone | fax | email | pager | url | sms | other
 
  Telecommunications form for contact point - what communications system is required to make use of the contact.
 
@@ -1854,7 +1854,7 @@ pub struct ContactPointInner {
     #[builder(
         default,
         setter(
-            doc = " # ContactPointSystem; phone | fax | email | pager | url | sms | other \n\n Telecommunications form for contact point - what communications system is required to make use of the contact. \n\n "
+            doc = " # ContactPointSystem (http://hl7.org/fhir/ValueSet/contact-point-system); phone | fax | email | pager | url | sms | other \n\n Telecommunications form for contact point - what communications system is required to make use of the contact. \n\n "
         )
     )]
     #[serde(rename = "system")]
@@ -1883,7 +1883,7 @@ pub struct ContactPointInner {
     #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
-    /** # ContactPointUse; home | work | temp | old | mobile - purpose of this contact point
+    /** # ContactPointUse (http://hl7.org/fhir/ValueSet/contact-point-use); home | work | temp | old | mobile - purpose of this contact point
 
  Identifies the purpose for the contact point.
 
@@ -1892,7 +1892,7 @@ pub struct ContactPointInner {
     #[builder(
         default,
         setter(
-            doc = " # ContactPointUse; home | work | temp | old | mobile - purpose of this contact point \n\n Identifies the purpose for the contact point. \n\n Applications can assume that a contact is current unless it explicitly says that it is temporary or old. "
+            doc = " # ContactPointUse (http://hl7.org/fhir/ValueSet/contact-point-use); home | work | temp | old | mobile - purpose of this contact point \n\n Identifies the purpose for the contact point. \n\n Applications can assume that a contact is current unless it explicitly says that it is temporary or old. "
         )
     )]
     #[serde(rename = "use")]
@@ -2029,7 +2029,7 @@ pub struct ContributorInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # ContributorType; author | editor | reviewer | endorser
+    /** # ContributorType (http://hl7.org/fhir/ValueSet/contributor-type); author | editor | reviewer | endorser
 
  The type of contributor.
 
@@ -2171,7 +2171,7 @@ pub struct CountInner {
     )]
     #[serde(rename = "value")]
     pub value: Option<f64>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
 
@@ -2180,7 +2180,7 @@ pub struct CountInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -2312,7 +2312,7 @@ pub struct DataRequirementInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # FHIRTypes; The type of the required data
+    /** # FHIRTypes (http://hl7.org/fhir/ValueSet/fhir-types); The type of the required data
 
  The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.
 
@@ -2823,7 +2823,7 @@ pub struct DataRequirementValueFilter {
     #[serde(rename = "_searchParam")]
     #[builder(default, setter(doc = "Field extension."))]
     pub search_param_ext: Option<FieldExtension>,
-    /** # ValueFilterComparator; eq | gt | lt | ge | le | sa | eb
+    /** # ValueFilterComparator (http://hl7.org/fhir/ValueSet/value-filter-comparator); eq | gt | lt | ge | le | sa | eb
 
  The comparator to be used to determine whether the value is matching.
 
@@ -2832,7 +2832,7 @@ pub struct DataRequirementValueFilter {
     #[builder(
         default,
         setter(
-            doc = " # ValueFilterComparator; eq | gt | lt | ge | le | sa | eb \n\n The comparator to be used to determine whether the value is matching. \n\n "
+            doc = " # ValueFilterComparator (http://hl7.org/fhir/ValueSet/value-filter-comparator); eq | gt | lt | ge | le | sa | eb \n\n The comparator to be used to determine whether the value is matching. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -2935,7 +2935,7 @@ pub struct DataRequirementSort {
     #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
-    /** # SortDirection; ascending | descending
+    /** # SortDirection (http://hl7.org/fhir/ValueSet/sort-direction); ascending | descending
 
  The direction of the sort, ascending or descending.
 
@@ -3024,7 +3024,7 @@ pub struct DistanceInner {
     )]
     #[serde(rename = "value")]
     pub value: Option<f64>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
 
@@ -3033,7 +3033,7 @@ pub struct DistanceInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -3219,7 +3219,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_text")]
     #[builder(default, setter(doc = "Field extension."))]
     pub text_ext: Option<FieldExtension>,
-    /** # AdditionalInstruction; Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness"
+    /** # AdditionalInstruction (http://hl7.org/fhir/ValueSet/additional-instruction-codes); Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness"
 
  Supplemental instructions to the patient on how to take the medication  (e.g. "with meals" or"take half to one hour before food") or warnings for the patient about the medication (e.g. "may cause drowsiness" or "avoid exposure of skin to direct sunlight or sunlamps").
 
@@ -3228,7 +3228,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # AdditionalInstruction; Supplemental instruction or warnings to the patient - e.g. \"with meals\", \"may cause drowsiness\" \n\n Supplemental instructions to the patient on how to take the medication  (e.g. \"with meals\" or\"take half to one hour before food\") or warnings for the patient about the medication (e.g. \"may cause drowsiness\" or \"avoid exposure of skin to direct sunlight or sunlamps\"). \n\n Information about administration or preparation of the medication (e.g. \"infuse as rapidly as possibly via intraperitoneal port\" or take \"immediately following drug x\") should be populated in dosage.text. "
+            doc = " # AdditionalInstruction (http://hl7.org/fhir/ValueSet/additional-instruction-codes); Supplemental instruction or warnings to the patient - e.g. \"with meals\", \"may cause drowsiness\" \n\n Supplemental instructions to the patient on how to take the medication  (e.g. \"with meals\" or\"take half to one hour before food\") or warnings for the patient about the medication (e.g. \"may cause drowsiness\" or \"avoid exposure of skin to direct sunlight or sunlamps\"). \n\n Information about administration or preparation of the medication (e.g. \"infuse as rapidly as possibly via intraperitoneal port\" or take \"immediately following drug x\") should be populated in dosage.text. "
         )
     )]
     #[serde(rename = "additionalInstruction")]
@@ -3295,7 +3295,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_asNeeded")]
     #[builder(default, setter(doc = "Field extension."))]
     pub as_needed_ext: Option<FieldExtension>,
-    /** # MedicationAsNeededReason; Take "as needed" (for x)
+    /** # MedicationAsNeededReason (http://hl7.org/fhir/ValueSet/medication-as-needed-reason); Take "as needed" (for x)
 
  Indicates whether the Medication is only taken based on a precondition for taking the Medication (CodeableConcept).
 
@@ -3304,7 +3304,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # MedicationAsNeededReason; Take \"as needed\" (for x) \n\n Indicates whether the Medication is only taken based on a precondition for taking the Medication (CodeableConcept). \n\n Can express \"as needed\" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be False, then the dose is given according to the schedule and is not \"prn\" or \"as needed\". "
+            doc = " # MedicationAsNeededReason (http://hl7.org/fhir/ValueSet/medication-as-needed-reason); Take \"as needed\" (for x) \n\n Indicates whether the Medication is only taken based on a precondition for taking the Medication (CodeableConcept). \n\n Can express \"as needed\" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be False, then the dose is given according to the schedule and is not \"prn\" or \"as needed\". "
         )
     )]
     #[serde(rename = "asNeededFor")]
@@ -3314,7 +3314,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_asNeededFor")]
     #[builder(default, setter(doc = "Field extension."))]
     pub as_needed_for_ext: Vec<Option<FieldExtension>>,
-    /** # MedicationAdministrationSite; Body site to administer to
+    /** # MedicationAdministrationSite (http://hl7.org/fhir/ValueSet/approach-site-codes); Body site to administer to
 
  Body site to administer to.
 
@@ -3323,7 +3323,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # MedicationAdministrationSite; Body site to administer to \n\n Body site to administer to. \n\n If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [http://hl7.org/fhir/StructureDefinition/bodySite](http://hl7.org/fhir/extensions/StructureDefinition-bodySite.html).  May be a summary code, or a reference to a very precise definition of the location, or both. "
+            doc = " # MedicationAdministrationSite (http://hl7.org/fhir/ValueSet/approach-site-codes); Body site to administer to \n\n Body site to administer to. \n\n If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [http://hl7.org/fhir/StructureDefinition/bodySite](http://hl7.org/fhir/extensions/StructureDefinition-bodySite.html).  May be a summary code, or a reference to a very precise definition of the location, or both. "
         )
     )]
     #[serde(rename = "site")]
@@ -3333,7 +3333,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_site")]
     #[builder(default, setter(doc = "Field extension."))]
     pub site_ext: Option<FieldExtension>,
-    /** # RouteOfAdministration; How drug should enter body
+    /** # RouteOfAdministration (http://hl7.org/fhir/ValueSet/route-codes); How drug should enter body
 
  How drug should enter body.
 
@@ -3342,7 +3342,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # RouteOfAdministration; How drug should enter body \n\n How drug should enter body. \n\n "
+            doc = " # RouteOfAdministration (http://hl7.org/fhir/ValueSet/route-codes); How drug should enter body \n\n How drug should enter body. \n\n "
         )
     )]
     #[serde(rename = "route")]
@@ -3352,7 +3352,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_route")]
     #[builder(default, setter(doc = "Field extension."))]
     pub route_ext: Option<FieldExtension>,
-    /** # MedicationAdministrationMethod; Technique for administering medication
+    /** # MedicationAdministrationMethod (http://hl7.org/fhir/ValueSet/administration-method-codes); Technique for administering medication
 
  Technique for administering medication.
 
@@ -3361,7 +3361,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # MedicationAdministrationMethod; Technique for administering medication \n\n Technique for administering medication. \n\n Terminologies used often pre-coordinate this term with the route and or form of administration. "
+            doc = " # MedicationAdministrationMethod (http://hl7.org/fhir/ValueSet/administration-method-codes); Technique for administering medication \n\n Technique for administering medication. \n\n Terminologies used often pre-coordinate this term with the route and or form of administration. "
         )
     )]
     #[serde(rename = "method")]
@@ -3503,7 +3503,7 @@ pub struct DosageDoseAndRate {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # DoseAndRateType; The kind of dose or rate specified
+    /** # DoseAndRateType (http://terminology.hl7.org/ValueSet/dose-rate-type); The kind of dose or rate specified
 
  The kind of dose or rate specified, for example, ordered or calculated.
 
@@ -3512,7 +3512,7 @@ pub struct DosageDoseAndRate {
     #[builder(
         default,
         setter(
-            doc = " # DoseAndRateType; The kind of dose or rate specified \n\n The kind of dose or rate specified, for example, ordered or calculated. \n\n "
+            doc = " # DoseAndRateType (http://terminology.hl7.org/ValueSet/dose-rate-type); The kind of dose or rate specified \n\n The kind of dose or rate specified, for example, ordered or calculated. \n\n "
         )
     )]
     #[serde(rename = "type")]
@@ -3689,7 +3689,7 @@ pub struct DurationInner {
     )]
     #[serde(rename = "value")]
     pub value: Option<f64>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
 
@@ -3698,7 +3698,7 @@ pub struct DurationInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -3858,7 +3858,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_path")]
     #[builder(default, setter(doc = "Field extension."))]
     pub path_ext: Option<FieldExtension>,
-    /** # PropertyRepresentation; xmlAttr | xmlText | typeAttr | cdaText | xhtml
+    /** # PropertyRepresentation (http://hl7.org/fhir/ValueSet/property-representation); xmlAttr | xmlText | typeAttr | cdaText | xhtml
 
  Codes that define how this element is represented in instances, when the deviation varies from the normal case. No extensions are allowed on elements with a representation of 'xmlAttr', no matter what FHIR serialization format is used.
 
@@ -3867,7 +3867,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # PropertyRepresentation; xmlAttr | xmlText | typeAttr | cdaText | xhtml \n\n Codes that define how this element is represented in instances, when the deviation varies from the normal case. No extensions are allowed on elements with a representation of 'xmlAttr', no matter what FHIR serialization format is used. \n\n In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc.). "
+            doc = " # PropertyRepresentation (http://hl7.org/fhir/ValueSet/property-representation); xmlAttr | xmlText | typeAttr | cdaText | xhtml \n\n Codes that define how this element is represented in instances, when the deviation varies from the normal case. No extensions are allowed on elements with a representation of 'xmlAttr', no matter what FHIR serialization format is used. \n\n In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc.). "
         )
     )]
     #[serde(rename = "representation")]
@@ -3934,7 +3934,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_label")]
     #[builder(default, setter(doc = "Field extension."))]
     pub label_ext: Option<FieldExtension>,
-    /** # ElementDefinitionCode; Corresponding codes in terminologies
+    /** # ElementDefinitionCode (http://loinc.org/vs); Corresponding codes in terminologies
 
  A code that has the same meaning as the element in a particular terminology.
 
@@ -3943,7 +3943,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # ElementDefinitionCode; Corresponding codes in terminologies \n\n A code that has the same meaning as the element in a particular terminology. \n\n The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system. "
+            doc = " # ElementDefinitionCode (http://loinc.org/vs); Corresponding codes in terminologies \n\n A code that has the same meaning as the element in a particular terminology. \n\n The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system. "
         )
     )]
     #[serde(rename = "code")]
@@ -4658,7 +4658,7 @@ pub struct ElementDefinitionSlicing {
     #[serde(rename = "_ordered")]
     #[builder(default, setter(doc = "Field extension."))]
     pub ordered_ext: Option<FieldExtension>,
-    /** # SlicingRules; closed | open | openAtEnd
+    /** # SlicingRules (http://hl7.org/fhir/ValueSet/resource-slicing-rules); closed | open | openAtEnd
 
  Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.
 
@@ -4704,7 +4704,7 @@ pub struct ElementDefinitionSlicingDiscriminator {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # DiscriminatorType; value | exists | type | profile | position
+    /** # DiscriminatorType (http://hl7.org/fhir/ValueSet/discriminator-type); value | exists | type | profile | position
 
  How the element value is interpreted when discrimination is evaluated.
 
@@ -4832,7 +4832,7 @@ pub struct ElementDefinitionType {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # ElementDefinitionTypes; Data type or Resource (reference to definition)
+    /** # ElementDefinitionTypes (http://hl7.org/fhir/ValueSet/elementdefinition-types); Data type or Resource (reference to definition)
 
  URL of Data type or Resource that is a(or the) type used for this element. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. "string" is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models.
 
@@ -4882,7 +4882,7 @@ pub struct ElementDefinitionType {
     #[serde(rename = "_targetProfile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub target_profile_ext: Vec<Option<FieldExtension>>,
-    /** # AggregationMode; contained | referenced | bundled - how aggregated
+    /** # AggregationMode (http://hl7.org/fhir/ValueSet/resource-aggregation-mode); contained | referenced | bundled - how aggregated
 
  If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
 
@@ -4891,7 +4891,7 @@ pub struct ElementDefinitionType {
     #[builder(
         default,
         setter(
-            doc = " # AggregationMode; contained | referenced | bundled - how aggregated \n\n If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle. \n\n See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. "
+            doc = " # AggregationMode (http://hl7.org/fhir/ValueSet/resource-aggregation-mode); contained | referenced | bundled - how aggregated \n\n If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle. \n\n See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. "
         )
     )]
     #[serde(rename = "aggregation")]
@@ -4901,7 +4901,7 @@ pub struct ElementDefinitionType {
     #[serde(rename = "_aggregation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub aggregation_ext: Vec<Option<FieldExtension>>,
-    /** # ReferenceVersionRules; either | independent | specific
+    /** # ReferenceVersionRules (http://hl7.org/fhir/ValueSet/reference-version-rules); either | independent | specific
 
  Whether this reference needs to be version specific or version independent, or whether either can be used.
 
@@ -4910,7 +4910,7 @@ pub struct ElementDefinitionType {
     #[builder(
         default,
         setter(
-            doc = " # ReferenceVersionRules; either | independent | specific \n\n Whether this reference needs to be version specific or version independent, or whether either can be used. \n\n The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. "
+            doc = " # ReferenceVersionRules (http://hl7.org/fhir/ValueSet/reference-version-rules); either | independent | specific \n\n Whether this reference needs to be version specific or version independent, or whether either can be used. \n\n The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. "
         )
     )]
     #[serde(rename = "versioning")]
@@ -6519,7 +6519,7 @@ pub struct ElementDefinitionConstraint {
     #[serde(rename = "_requirements")]
     #[builder(default, setter(doc = "Field extension."))]
     pub requirements_ext: Option<FieldExtension>,
-    /** # ConstraintSeverity; error | warning
+    /** # ConstraintSeverity (http://hl7.org/fhir/ValueSet/constraint-severity); error | warning
 
  Identifies the impact constraint violation has on the conformance of the instance.
 
@@ -6634,7 +6634,7 @@ pub struct ElementDefinitionBinding {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # BindingStrength; required | extensible | preferred | example
+    /** # BindingStrength (http://hl7.org/fhir/ValueSet/binding-strength); required | extensible | preferred | example
 
  Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
 
@@ -6737,13 +6737,13 @@ pub struct ElementDefinitionBindingAdditional {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # AdditionalBindingPurpose; maximum | minimum | required | extensible | candidate | current | preferred | ui | starter | component
+    /** # AdditionalBindingPurpose (http://hl7.org/fhir/ValueSet/additional-binding-purpose); maximum | minimum | required | extensible | candidate | current | preferred | ui | starter | component
 
  The use of this additional binding.
 
  Conformance bindings are in addition to the base binding, not instead of it. */
     #[serde(rename = "purpose")]
-    pub purpose: String,
+    pub purpose: codes::AdditionalBindingPurposeCodes,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_purpose")]
@@ -6883,7 +6883,7 @@ pub struct ElementDefinitionMapping {
     #[serde(rename = "_identity")]
     #[builder(default, setter(doc = "Field extension."))]
     pub identity_ext: Option<FieldExtension>,
-    /** # MimeType; Computable language of mapping
+    /** # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); Computable language of mapping
 
  Identifies the computable language in which mapping.map is expressed.
 
@@ -6892,7 +6892,7 @@ pub struct ElementDefinitionMapping {
     #[builder(
         default,
         setter(
-            doc = " # MimeType; Computable language of mapping \n\n Identifies the computable language in which mapping.map is expressed. \n\n If omitted, then there can be no expectation of computational interpretation of the mapping. "
+            doc = " # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); Computable language of mapping \n\n Identifies the computable language in which mapping.map is expressed. \n\n If omitted, then there can be no expectation of computational interpretation of the mapping. "
         )
     )]
     #[serde(rename = "language")]
@@ -7034,7 +7034,7 @@ pub struct ExpressionInner {
     #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
-    /** # ExpressionLanguage; text/cql | text/fhirpath | application/x-fhir-query | etc.
+    /** # ExpressionLanguage (http://hl7.org/fhir/ValueSet/expression-language); text/cql | text/fhirpath | application/x-fhir-query | etc.
 
  The media type of the language for the expression.
 
@@ -7043,7 +7043,7 @@ pub struct ExpressionInner {
     #[builder(
         default,
         setter(
-            doc = " # ExpressionLanguage; text/cql | text/fhirpath | application/x-fhir-query | etc. \n\n The media type of the language for the expression. \n\n "
+            doc = " # ExpressionLanguage (http://hl7.org/fhir/ValueSet/expression-language); text/cql | text/fhirpath | application/x-fhir-query | etc. \n\n The media type of the language for the expression. \n\n "
         )
     )]
     #[serde(rename = "language")]
@@ -7176,7 +7176,7 @@ pub struct ExtendedContactDetailInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # Purpose; The type of contact
+    /** # Purpose (http://terminology.hl7.org/ValueSet/contactentity-type); The type of contact
 
  The purpose/type of contact.
 
@@ -7185,7 +7185,7 @@ pub struct ExtendedContactDetailInner {
     #[builder(
         default,
         setter(
-            doc = " # Purpose; The type of contact \n\n The purpose/type of contact. \n\n If no purpose is defined, then these contact details may be used for any purpose. "
+            doc = " # Purpose (http://terminology.hl7.org/ValueSet/contactentity-type); The type of contact \n\n The purpose/type of contact. \n\n If no purpose is defined, then these contact details may be used for any purpose. "
         )
     )]
     #[serde(rename = "purpose")]
@@ -7820,7 +7820,7 @@ pub struct HumanNameInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # NameUse; usual | official | temp | nickname | anonymous | old | maiden
+    /** # NameUse (http://hl7.org/fhir/ValueSet/name-use); usual | official | temp | nickname | anonymous | old | maiden
 
  Identifies the purpose for this name.
 
@@ -7829,7 +7829,7 @@ pub struct HumanNameInner {
     #[builder(
         default,
         setter(
-            doc = " # NameUse; usual | official | temp | nickname | anonymous | old | maiden \n\n Identifies the purpose for this name. \n\n Applications can assume that a name is current unless it explicitly says that it is temporary or old. "
+            doc = " # NameUse (http://hl7.org/fhir/ValueSet/name-use); usual | official | temp | nickname | anonymous | old | maiden \n\n Identifies the purpose for this name. \n\n Applications can assume that a name is current unless it explicitly says that it is temporary or old. "
         )
     )]
     #[serde(rename = "use")]
@@ -8038,7 +8038,7 @@ pub struct IdentifierInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # IdentifierUse; usual | official | temp | secondary | old (If known)
+    /** # IdentifierUse (http://hl7.org/fhir/ValueSet/identifier-use); usual | official | temp | secondary | old (If known)
 
  The purpose of this identifier.
 
@@ -8047,7 +8047,7 @@ pub struct IdentifierInner {
     #[builder(
         default,
         setter(
-            doc = " # IdentifierUse; usual | official | temp | secondary | old (If known) \n\n The purpose of this identifier. \n\n Applications can assume that an identifier is permanent unless it explicitly says that it is temporary. "
+            doc = " # IdentifierUse (http://hl7.org/fhir/ValueSet/identifier-use); usual | official | temp | secondary | old (If known) \n\n The purpose of this identifier. \n\n Applications can assume that an identifier is permanent unless it explicitly says that it is temporary. "
         )
     )]
     #[serde(rename = "use")]
@@ -8057,7 +8057,7 @@ pub struct IdentifierInner {
     #[serde(rename = "_use")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#use_ext: Option<FieldExtension>,
-    /** # IdentifierType; Description of identifier
+    /** # IdentifierType (http://hl7.org/fhir/ValueSet/identifier-type); Description of identifier
 
  A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.
 
@@ -8066,7 +8066,7 @@ pub struct IdentifierInner {
     #[builder(
         default,
         setter(
-            doc = " # IdentifierType; Description of identifier \n\n A coded type for the identifier that can be used to determine which identifier to use for a specific purpose. \n\n This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type. "
+            doc = " # IdentifierType (http://hl7.org/fhir/ValueSet/identifier-type); Description of identifier \n\n A coded type for the identifier that can be used to determine which identifier to use for a specific purpose. \n\n This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type. "
         )
     )]
     #[serde(rename = "type")]
@@ -8504,7 +8504,7 @@ This element can be used to indicate where the current master source of a resour
     #[serde(rename = "_profile")]
     #[builder(default, setter(doc = "Field extension."))]
     pub profile_ext: Vec<Option<FieldExtension>>,
-    /** # SecurityLabels; Security Labels applied to this resource
+    /** # SecurityLabels (http://hl7.org/fhir/ValueSet/security-labels); Security Labels applied to this resource
 
  Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.
 
@@ -8513,7 +8513,7 @@ This element can be used to indicate where the current master source of a resour
     #[builder(
         default,
         setter(
-            doc = " # SecurityLabels; Security Labels applied to this resource \n\n Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure. \n\n The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored. "
+            doc = " # SecurityLabels (http://hl7.org/fhir/ValueSet/security-labels); Security Labels applied to this resource \n\n Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure. \n\n The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored. "
         )
     )]
     #[serde(rename = "security")]
@@ -8523,7 +8523,7 @@ This element can be used to indicate where the current master source of a resour
     #[serde(rename = "_security")]
     #[builder(default, setter(doc = "Field extension."))]
     pub security_ext: Vec<Option<FieldExtension>>,
-    /** # Tags; Tags applied to this resource
+    /** # Tags (http://hl7.org/fhir/ValueSet/common-tags); Tags applied to this resource
 
  Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.
 
@@ -8532,7 +8532,7 @@ This element can be used to indicate where the current master source of a resour
     #[builder(
         default,
         setter(
-            doc = " # Tags; Tags applied to this resource \n\n Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource. \n\n The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored. "
+            doc = " # Tags (http://hl7.org/fhir/ValueSet/common-tags); Tags applied to this resource \n\n Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource. \n\n The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored. "
         )
     )]
     #[serde(rename = "tag")]
@@ -8627,7 +8627,7 @@ pub struct MonetaryComponentInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # PriceComponentType; base | surcharge | deduction | discount | tax | informational
+    /** # PriceComponentType (http://hl7.org/fhir/ValueSet/price-component-type); base | surcharge | deduction | discount | tax | informational
 
  base | surcharge | deduction | discount | tax | informational.
 
@@ -8639,7 +8639,7 @@ pub struct MonetaryComponentInner {
     #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
-    /** # PriceComponentCode; Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
+    /** # PriceComponentCode (); Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
 
  Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.
 
@@ -8648,7 +8648,7 @@ pub struct MonetaryComponentInner {
     #[builder(
         default,
         setter(
-            doc = " # PriceComponentCode; Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc. \n\n Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc. \n\n "
+            doc = " # PriceComponentCode (); Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc. \n\n Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc. \n\n "
         )
     )]
     #[serde(rename = "code")]
@@ -8800,7 +8800,7 @@ pub struct MoneyInner {
     #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
-    /** # CurrencyCode; ISO 4217 Currency Code
+    /** # CurrencyCode (http://hl7.org/fhir/ValueSet/currencies); ISO 4217 Currency Code
 
  ISO 4217 Currency Code.
 
@@ -8809,7 +8809,7 @@ pub struct MoneyInner {
     #[builder(
         default,
         setter(
-            doc = " # CurrencyCode; ISO 4217 Currency Code \n\n ISO 4217 Currency Code. \n\n "
+            doc = " # CurrencyCode (http://hl7.org/fhir/ValueSet/currencies); ISO 4217 Currency Code \n\n ISO 4217 Currency Code. \n\n "
         )
     )]
     #[serde(rename = "currency")]
@@ -8904,7 +8904,7 @@ pub struct NarrativeInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # NarrativeStatus; generated | extensions | additional | empty
+    /** # NarrativeStatus (http://hl7.org/fhir/ValueSet/narrative-status); generated | extensions | additional | empty
 
  The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.
 
@@ -9032,13 +9032,13 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "_name")]
     #[builder(default, setter(doc = "Field extension."))]
     pub name_ext: Option<FieldExtension>,
-    /** # ParameterUse; in | out
+    /** # ParameterUse (http://hl7.org/fhir/ValueSet/operation-parameter-use); in | out
 
  Whether the parameter is input or output for the module.
 
  */
     #[serde(rename = "use")]
-    pub r#use: String,
+    pub r#use: codes::OperationParameterUse,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_use")]
@@ -9101,7 +9101,7 @@ pub struct ParameterDefinitionInner {
     #[serde(rename = "_documentation")]
     #[builder(default, setter(doc = "Field extension."))]
     pub documentation_ext: Option<FieldExtension>,
-    /** # FHIRTypes; What type of value
+    /** # FHIRTypes (http://hl7.org/fhir/ValueSet/fhir-types); What type of value
 
  The type of the parameter.
 
@@ -9543,7 +9543,7 @@ pub struct QuantityInner {
     #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
 
@@ -9552,7 +9552,7 @@ pub struct QuantityInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -10105,7 +10105,7 @@ pub struct ReferenceInner {
     #[serde(rename = "_reference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub reference_ext: Option<FieldExtension>,
-    /** # FHIRResourceTypeExt; Type the reference refers to (e.g. "Patient") - must be a resource in resources
+    /** # FHIRResourceTypeExt (http://hl7.org/fhir/ValueSet/resource-types); Type the reference refers to (e.g. "Patient") - must be a resource in resources
 
  The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.
 
@@ -10116,7 +10116,7 @@ The type is the Canonical URL of Resource Definition that is the type this refer
     #[builder(
         default,
         setter(
-            doc = " # FHIRResourceTypeExt; Type the reference refers to (e.g. \"Patient\") - must be a resource in resources \n\n The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources). \n\n This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a known RESTful URL) or by resolving the target of the reference. "
+            doc = " # FHIRResourceTypeExt (http://hl7.org/fhir/ValueSet/resource-types); Type the reference refers to (e.g. \"Patient\") - must be a resource in resources \n\n The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources). \n\n This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a known RESTful URL) or by resolving the target of the reference. "
         )
     )]
     #[serde(rename = "type")]
@@ -10257,7 +10257,7 @@ pub struct RelatedArtifactInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # RelatedArtifactType; documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as
+    /** # RelatedArtifactType (http://hl7.org/fhir/ValueSet/related-artifact-type); documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as
 
  The type of relationship to the related artifact.
 
@@ -10269,7 +10269,7 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "_type")]
     #[builder(default, setter(doc = "Field extension."))]
     pub r#type_ext: Option<FieldExtension>,
-    /** # RelatedArtifactClassifier; Additional classifiers
+    /** # RelatedArtifactClassifier (http://hl7.org/fhir/ValueSet/citation-artifact-classifier); Additional classifiers
 
  Provides additional classifiers of the related artifact.
 
@@ -10278,7 +10278,7 @@ pub struct RelatedArtifactInner {
     #[builder(
         default,
         setter(
-            doc = " # RelatedArtifactClassifier; Additional classifiers \n\n Provides additional classifiers of the related artifact. \n\n "
+            doc = " # RelatedArtifactClassifier (http://hl7.org/fhir/ValueSet/citation-artifact-classifier); Additional classifiers \n\n Provides additional classifiers of the related artifact. \n\n "
         )
     )]
     #[serde(rename = "classifier")]
@@ -10402,7 +10402,7 @@ pub struct RelatedArtifactInner {
     #[serde(rename = "_resourceReference")]
     #[builder(default, setter(doc = "Field extension."))]
     pub resource_reference_ext: Option<FieldExtension>,
-    /** # RelatedArtifactPublicationStatus; draft | active | retired | unknown
+    /** # RelatedArtifactPublicationStatus (http://hl7.org/fhir/ValueSet/publication-status); draft | active | retired | unknown
 
  The publication status of the artifact being referred to.
 
@@ -10411,11 +10411,11 @@ pub struct RelatedArtifactInner {
     #[builder(
         default,
         setter(
-            doc = " # RelatedArtifactPublicationStatus; draft | active | retired | unknown \n\n The publication status of the artifact being referred to. \n\n "
+            doc = " # RelatedArtifactPublicationStatus (http://hl7.org/fhir/ValueSet/publication-status); draft | active | retired | unknown \n\n The publication status of the artifact being referred to. \n\n "
         )
     )]
     #[serde(rename = "publicationStatus")]
-    pub publication_status: Option<String>,
+    pub publication_status: Option<codes::PublicationStatus>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_publicationStatus")]
@@ -10556,7 +10556,7 @@ pub struct SampledDataInner {
     #[serde(rename = "_interval")]
     #[builder(default, setter(doc = "Field extension."))]
     pub interval_ext: Option<FieldExtension>,
-    /** # Units; The measurement unit of the interval between samples
+    /** # Units (http://hl7.org/fhir/ValueSet/ucum-units); The measurement unit of the interval between samples
 
  The measurement unit in which the sample interval is expressed.
 
@@ -10779,7 +10779,7 @@ pub struct SignatureInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # SignatureType; Indication of the reason the entity signed the object(s)
+    /** # SignatureType (http://hl7.org/fhir/ValueSet/signature-type); Indication of the reason the entity signed the object(s)
 
  An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
 
@@ -10788,7 +10788,7 @@ pub struct SignatureInner {
     #[builder(
         default,
         setter(
-            doc = " # SignatureType; Indication of the reason the entity signed the object(s) \n\n An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document. \n\n Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;. "
+            doc = " # SignatureType (http://hl7.org/fhir/ValueSet/signature-type); Indication of the reason the entity signed the object(s) \n\n An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document. \n\n Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;. "
         )
     )]
     #[serde(rename = "type")]
@@ -10855,7 +10855,7 @@ pub struct SignatureInner {
     #[serde(rename = "_onBehalfOf")]
     #[builder(default, setter(doc = "Field extension."))]
     pub on_behalf_of_ext: Option<FieldExtension>,
-    /** # MimeType; The technical format of the signed resources
+    /** # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signed resources
 
  A mime type that indicates the technical format of the target resources signed by the signature.
 
@@ -10864,7 +10864,7 @@ pub struct SignatureInner {
     #[builder(
         default,
         setter(
-            doc = " # MimeType; The technical format of the signed resources \n\n A mime type that indicates the technical format of the target resources signed by the signature. \n\n \"xml\", \"json\" and \"ttl\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here. "
+            doc = " # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signed resources \n\n A mime type that indicates the technical format of the target resources signed by the signature. \n\n \"xml\", \"json\" and \"ttl\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here. "
         )
     )]
     #[serde(rename = "targetFormat")]
@@ -10874,12 +10874,12 @@ pub struct SignatureInner {
     #[serde(rename = "_targetFormat")]
     #[builder(default, setter(doc = "Field extension."))]
     pub target_format_ext: Option<FieldExtension>,
-    #[doc = " # MimeType; The technical format of the signature \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "]
+    #[doc = " # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signature \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "]
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[builder(
         default,
         setter(
-            doc = " # MimeType; The technical format of the signature \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "
+            doc = " # MimeType (http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signature \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "
         )
     )]
     #[serde(rename = "sigFormat")]
@@ -11051,7 +11051,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[serde(rename = "_repeat")]
     #[builder(default, setter(doc = "Field extension."))]
     pub repeat_ext: Option<FieldExtension>,
-    /** # TimingAbbreviation; C | BID | TID | QID | AM | PM | QD | QOD | +
+    /** # TimingAbbreviation (http://hl7.org/fhir/ValueSet/timing-abbreviation); C | BID | TID | QID | AM | PM | QD | QOD | +
 
  A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
 
@@ -11060,7 +11060,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     #[builder(
         default,
         setter(
-            doc = " # TimingAbbreviation; C | BID | TID | QID | AM | PM | QD | QOD | + \n\n A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code). \n\n BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is \"always at 7am and 6pm\".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times). "
+            doc = " # TimingAbbreviation (http://hl7.org/fhir/ValueSet/timing-abbreviation); C | BID | TID | QID | AM | PM | QD | QOD | + \n\n A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code). \n\n BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is \"always at 7am and 6pm\".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times). "
         )
     )]
     #[serde(rename = "code")]
@@ -11221,7 +11221,7 @@ pub struct TimingRepeat {
     #[serde(rename = "_durationMax")]
     #[builder(default, setter(doc = "Field extension."))]
     pub duration_max_ext: Option<FieldExtension>,
-    /** # UnitsOfTime; s | min | h | d | wk | mo | a - unit of time (UCUM)
+    /** # UnitsOfTime (http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM)
 
  The units of time for the duration, in UCUM units
 Normal practice is to use the 'mo' code as a calendar month when calculating the next occurrence.
@@ -11231,7 +11231,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[builder(
         default,
         setter(
-            doc = " # UnitsOfTime; s | min | h | d | wk | mo | a - unit of time (UCUM) \n\n The units of time for the duration, in UCUM units\nNormal practice is to use the 'mo' code as a calendar month when calculating the next occurrence. \n\n "
+            doc = " # UnitsOfTime (http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM) \n\n The units of time for the duration, in UCUM units\nNormal practice is to use the 'mo' code as a calendar month when calculating the next occurrence. \n\n "
         )
     )]
     #[serde(rename = "durationUnit")]
@@ -11317,7 +11317,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "_periodMax")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_max_ext: Option<FieldExtension>,
-    /** # UnitsOfTime; s | min | h | d | wk | mo | a - unit of time (UCUM)
+    /** # UnitsOfTime (http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM)
 
  The units of time for the period in UCUM units
 Normal practice is to use the 'mo' code as a calendar month when calculating the next occurrence.
@@ -11327,7 +11327,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[builder(
         default,
         setter(
-            doc = " # UnitsOfTime; s | min | h | d | wk | mo | a - unit of time (UCUM) \n\n The units of time for the period in UCUM units\nNormal practice is to use the 'mo' code as a calendar month when calculating the next occurrence. \n\n "
+            doc = " # UnitsOfTime (http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM) \n\n The units of time for the period in UCUM units\nNormal practice is to use the 'mo' code as a calendar month when calculating the next occurrence. \n\n "
         )
     )]
     #[serde(rename = "periodUnit")]
@@ -11337,7 +11337,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "_periodUnit")]
     #[builder(default, setter(doc = "Field extension."))]
     pub period_unit_ext: Option<FieldExtension>,
-    /** # DayOfWeek; mon | tue | wed | thu | fri | sat | sun
+    /** # DayOfWeek (http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun
 
  If one or more days of week is provided, then the action happens only on the specified day(s).
 
@@ -11346,11 +11346,11 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[builder(
         default,
         setter(
-            doc = " # DayOfWeek; mon | tue | wed | thu | fri | sat | sun \n\n If one or more days of week is provided, then the action happens only on the specified day(s). \n\n If no days are specified, the action is assumed to happen every day as otherwise specified. "
+            doc = " # DayOfWeek (http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun \n\n If one or more days of week is provided, then the action happens only on the specified day(s). \n\n If no days are specified, the action is assumed to happen every day as otherwise specified. "
         )
     )]
     #[serde(rename = "dayOfWeek")]
-    pub day_of_week: Vec<Option<String>>,
+    pub day_of_week: Vec<Option<codes::DaysOfWeek>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_dayOfWeek")]
@@ -11375,7 +11375,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[serde(rename = "_timeOfDay")]
     #[builder(default, setter(doc = "Field extension."))]
     pub time_of_day_ext: Vec<Option<FieldExtension>>,
-    /** # EventTiming; Code for time period of occurrence
+    /** # EventTiming (http://hl7.org/fhir/ValueSet/event-timing); Code for time period of occurrence
 
  An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur.
 
@@ -11384,7 +11384,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
     #[builder(
         default,
         setter(
-            doc = " # EventTiming; Code for time period of occurrence \n\n An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur. \n\n When more than one event is listed, the event is tied to the union of the specified events. "
+            doc = " # EventTiming (http://hl7.org/fhir/ValueSet/event-timing); Code for time period of occurrence \n\n An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur. \n\n When more than one event is listed, the event is tied to the union of the specified events. "
         )
     )]
     #[serde(rename = "when")]
@@ -11504,7 +11504,7 @@ pub struct TriggerDefinitionInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # TriggerType; named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended
+    /** # TriggerType (http://hl7.org/fhir/ValueSet/trigger-type); named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended
 
  The type of triggering event.
 
@@ -11749,7 +11749,7 @@ pub struct UsageContextInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # UsageContextType; Type of context being specified
+    /** # UsageContextType (http://terminology.hl7.org/ValueSet/usage-context-type); Type of context being specified
 
  A code that identifies the type of context being specified by this usage context.
 
@@ -11892,7 +11892,7 @@ pub struct VirtualServiceDetailInner {
     )]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
-    /** # VirtualServiceType; Channel Type
+    /** # VirtualServiceType (http://hl7.org/fhir/ValueSet/virtual-service-type); Channel Type
 
  The type of virtual service to connect to (i.e. Teams, Zoom, Specific VMR technology, WhatsApp).
 
@@ -11903,7 +11903,7 @@ Some profiles could be used for specific types to define what the other values c
     #[builder(
         default,
         setter(
-            doc = " # VirtualServiceType; Channel Type \n\n The type of virtual service to connect to (i.e. Teams, Zoom, Specific VMR technology, WhatsApp). \n\n As this type defines what the virtual service is, it then defines what address and additional information might be relevant.\n\nSome profiles could be used for specific types to define what the other values could/should be. "
+            doc = " # VirtualServiceType (http://hl7.org/fhir/ValueSet/virtual-service-type); Channel Type \n\n The type of virtual service to connect to (i.e. Teams, Zoom, Specific VMR technology, WhatsApp). \n\n As this type defines what the virtual service is, it then defines what address and additional information might be relevant.\n\nSome profiles could be used for specific types to define what the other values could/should be. "
         )
     )]
     #[serde(rename = "channelType")]
@@ -12131,7 +12131,7 @@ pub struct MoneyQuantityInner {
     #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is "<" , then the real value is < stated value.
 
@@ -12140,7 +12140,7 @@ pub struct MoneyQuantityInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
         )
     )]
     #[serde(rename = "comparator")]
@@ -12311,7 +12311,7 @@ pub struct SimpleQuantityInner {
     #[serde(rename = "_value")]
     #[builder(default, setter(doc = "Field extension."))]
     pub value_ext: Option<FieldExtension>,
-    /** # QuantityComparator; < | <= | >= | > | ad - how to understand the value
+    /** # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value
 
  Not allowed to be used in this context
 
@@ -12320,7 +12320,7 @@ pub struct SimpleQuantityInner {
     #[builder(
         default,
         setter(
-            doc = " # QuantityComparator; < | <= | >= | > | ad - how to understand the value \n\n Not allowed to be used in this context \n\n "
+            doc = " # QuantityComparator (http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value \n\n Not allowed to be used in this context \n\n "
         )
     )]
     #[serde(rename = "comparator")]

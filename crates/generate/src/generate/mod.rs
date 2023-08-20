@@ -4,8 +4,10 @@ mod gen_codes;
 mod gen_traits;
 mod gen_types;
 
+use std::collections::HashMap;
+
 use anyhow::Result;
-use fhir_model::r4b::codes::StructureDefinitionKind;
+use fhir_model::r4b::codes::{CodeSystemContentMode, StructureDefinitionKind};
 use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
@@ -13,8 +15,10 @@ use quote::{format_ident, quote};
 use crate::{codes::Code, structures::Type};
 
 /// Generate the Rust code for the FHIR codes.
-pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, Vec<String>)> {
-	let mut generated_codes = Vec::new();
+pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, HashMap<String, String>)> {
+	// Collect a map of system URLs to code names to know which codes we have
+	// implemented.
+	let mut generated_codes = HashMap::new();
 
 	// Deduplicate and sort the codes..
 	codes.sort_by_key(|code| code.name.clone());
@@ -26,7 +30,10 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, Vec<String>)
 	let codes: Vec<TokenStream> = codes
 		.into_iter()
 		.filter(|code| code.name.is_pascal_case())
-		.inspect(|code| generated_codes.push(code.name.clone()))
+		.filter(|code| code.content == CodeSystemContentMode::Complete)
+		.inspect(|code| {
+			generated_codes.insert(code.system.clone(), code.name.clone());
+		})
 		.map(gen_codes::generate_code_enum)
 		.collect::<Result<_, _>>()?;
 
@@ -44,7 +51,10 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, Vec<String>)
 }
 
 /// Generate the Rust code for the FHIR types.
-pub fn generate_types(types: Vec<Type>, implemented_codes: &[String]) -> Result<TokenStream> {
+pub fn generate_types(
+	types: Vec<Type>,
+	implemented_codes: &HashMap<String, String>,
+) -> Result<TokenStream> {
 	// Set generation variables.
 	let module_doc = " Generated code! Take a look at the generator-crate for changing this file!";
 
@@ -87,25 +97,20 @@ pub fn generate_types(types: Vec<Type>, implemented_codes: &[String]) -> Result<
 /// Generate the Rust code for the FHIR resources.
 pub fn generate_resources(
 	resources: Vec<Type>,
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> Result<TokenStream> {
 	// Set generation variables.
 	let module_doc = " Generated code! Take a look at the generator-crate for changing this file!";
 
+	let mut resource_names = Vec::new();
 	let resource_defs: Vec<TokenStream> = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
 		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
+		.inspect(|ty| resource_names.push(format_ident!("{}", ty.name)))
 		.map(|ty| gen_types::generate_type_struct(ty, implemented_codes))
 		.collect::<Result<_, _>>()?;
 
-	let resource_names: Vec<_> = resources
-		.iter()
-		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
-		.map(|ty| &ty.name)
-		.map(|name| format_ident!("{name}"))
-		.collect();
 	let resource_conversions = resource_conversion_impls(&resource_names);
 	let resource_impls = resource_impls(&resource_names);
 
@@ -259,7 +264,7 @@ fn map_type(ty: &str) -> Ident {
 	match ty {
 		"boolean" => format_ident!("bool"),
 		"id" | "string" | "code" | "markdown" | "xhtml" => format_ident!("String"),
-		"decimal" => format_ident!("f64"),
+		"decimal" => format_ident!("f64"), // Doesn't preserve precision :/
 		"unsignedInt" => format_ident!("u32"),
 		"positiveInt" => format_ident!("NonZeroU32"),
 		"integer" => format_ident!("i32"),

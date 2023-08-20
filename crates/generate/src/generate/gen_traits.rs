@@ -1,5 +1,7 @@
 //! Generate traits for base resource types.
 
+use std::collections::HashMap;
+
 use anyhow::{anyhow, Result};
 use fhir_model::r4b::codes::StructureDefinitionKind;
 use proc_macro2::{Ident, TokenStream};
@@ -14,7 +16,7 @@ use crate::structures::{Field, Type};
 /// Generate the BaseResource trait and its implementations.
 pub fn generate_base_resource(
 	resources: &[Type],
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> Result<TokenStream> {
 	let resource = resources
 		.iter()
@@ -77,7 +79,7 @@ pub fn generate_base_resource(
 /// Generate the DomainResource trait and its implementations.
 pub fn generate_domain_resource(
 	resources: &[Type],
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> Result<TokenStream> {
 	let resource = resources
 		.iter()
@@ -179,7 +181,7 @@ pub fn generate_named_resource(resources: &[Type]) -> Result<TokenStream> {
 /// Get field names and types from the elements.
 fn get_field_names_and_types(
 	fields: &[Field],
-	implemented_codes: &[String],
+	implemented_codes: &HashMap<String, String>,
 ) -> (Vec<Ident>, Vec<TokenStream>) {
 	fields
 		.iter()

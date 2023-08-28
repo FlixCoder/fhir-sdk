@@ -92,8 +92,15 @@ impl RequestSettings {
 		if let Some(timeout) = self.timeout {
 			request = request.timeout(timeout);
 		}
-		request = request.headers(self.headers.clone());
 
+		// Add or override default headers with request headers.
+		let (client, request_result) = request.build_split();
+		let mut request = request_result?;
+		let mut headers = self.headers.clone();
+		headers.extend(request.headers().clone());
+		*request.headers_mut() = headers;
+
+		// Construct the dynamic retry strategy iterator.
 		let strategy: Box<dyn Iterator<Item = Duration> + Send + Sync> = if self.exp_backoff {
 			let mut exp_backoff =
 				ExponentialBackoff::from_millis(self.retry_time.as_millis() as u64);
@@ -105,11 +112,12 @@ impl RequestSettings {
 			Box::new(FixedInterval::from_millis(self.retry_time.as_millis() as u64))
 		};
 
+		// Send the request, but retry on specific failures.
 		RetryIf::spawn(
 			strategy.take(self.retries),
 			|| async {
 				let request = request.try_clone().ok_or(Error::RequestNotClone)?;
-				let response = request.send().await?;
+				let response = client.execute(request).await?;
 				Ok(response)
 			},
 			Error::should_retry,

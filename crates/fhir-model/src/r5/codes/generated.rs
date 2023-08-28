@@ -2,21 +2,19 @@
 #![allow(clippy::too_many_lines)]
 use serde::{Serialize, Deserialize};
 use super::super::types::{Coding, CodeableConcept};
-/**FHIR Code `AccountAggregate`. Indicates who is expected to pay a part of the account balance.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AccountAggregate](http://hl7.org/fhir/ValueSet/account-aggregate)**. Indicates who is expected to pay a part of the account balance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountAggregate {
-    /** # insurance
+    /** **insurance**
 
 Insurance. This (aggregated) balance is expected to be paid by Insurance coverage(s) */
     Insurance,
-    /** # patient
+    /** **patient**
 
 Patient. This (aggregated) balance is expected to be paid by the Patient */
     Patient,
-    /** # total
+    /** **total**
 
 Total. There is no aggregation on this balance */
     Total,
@@ -86,29 +84,27 @@ impl From<AccountAggregate> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AccountBalanceTerm`. Indicates the account balance's age
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AccountBalanceTerm](http://hl7.org/fhir/ValueSet/account-payment-terms)**. Indicates the account balance's age\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountBalanceTerm {
-    /** # 120
+    /** **120**
 
 120 day. This balance is outstanding over 120 days */
     N120,
-    /** # 30
+    /** **30**
 
 30 day. This balance is outstanding over 30 days */
     N30,
-    /** # 60
+    /** **60**
 
 60 day. This balance is outstanding over 60 days */
     N60,
-    /** # 90
+    /** **90**
 
 90 day. This balance is outstanding over 90 days */
     N90,
-    /** # current
+    /** **current**
 
 Current. This balance is the current balance */
     Current,
@@ -184,37 +180,35 @@ impl From<AccountBalanceTerm> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AccountBillingStatus`. Indicates whether the account is available to be used for billing purposes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AccountBillingStatus](http://hl7.org/fhir/ValueSet/account-billing-status)**. Indicates whether the account is available to be used for billing purposes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountBillingStatus {
-    /** # billing
+    /** **billing**
 
 Billing. Indicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc. During this time any new charges will not be included in the current billing run/cycle. (account.status is active) */
     Billing,
-    /** # carecomplete-notbilled
+    /** **carecomplete-notbilled**
 
 CareComplete/Not Billed. The account.status is still active and may have charges recorded against it (only for events in the servicePeriod), however the encounters associated are completed. (Also known as Discharged not billed) This BillingStatus is often not used in ongoing accounts. (account.status is active) */
     CarecompleteNotbilled,
-    /** # closed-baddebt
+    /** **closed-baddebt**
 
 Closed-Bad Debt. The balance of this debt has not been able to be recovered, and the organization has decided not to persue debt recovery. (account.status is in-active) */
     ClosedBaddebt,
-    /** # closed-combined
+    /** **closed-combined**
 
 Closed-Combined. This account has been merged into another account, all charged have been migrated. This account should no longer be used, and will not be billed. (account.status is i n-active) */
     ClosedCombined,
-    /** # closed-completed
+    /** **closed-completed**
 
 Closed-Completed. The account is closed and all charges are processed and accounted for. (account.status is i n-active) */
     ClosedCompleted,
-    /** # closed-voided
+    /** **closed-voided**
 
 Closed-Voided. The account was not created in error, however the organization has decided that it will not be charging any transactions associated. (account.status is i n-active) */
     ClosedVoided,
-    /** # open
+    /** **open**
 
 Open. The account is open for charging transactions (account.status is active) */
     Open,
@@ -296,17 +290,15 @@ impl From<AccountBillingStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AccountRelationship`. Relationship between accounts
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AccountRelationship](http://hl7.org/fhir/ValueSet/account-relationship)**. Relationship between accounts\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountRelationship {
-    /** # guarantor
+    /** **guarantor**
 
 Guarantor. */
     Guarantor,
-    /** # parent
+    /** **parent**
 
 Parent. */
     Parent,
@@ -373,29 +365,27 @@ impl From<AccountRelationship> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AccountStatus`. Indicates whether the account is available to be used.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AccountStatus](http://hl7.org/fhir/ValueSet/account-status)**. Indicates whether the account is available to be used.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountStatus {
-    /** # active
+    /** **active**
 
 Active. This account is active and may be used. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. This account is inactive and should not be used to track financial information. */
     Inactive,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. This account is on hold. */
     OnHold,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The account status is unknown. */
     Unknown,
@@ -471,17 +461,15 @@ impl From<AccountStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionCardinalityBehavior`. Defines behavior for an action or a group for how many times that item may be repeated.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionCardinalityBehavior](http://hl7.org/fhir/ValueSet/action-cardinality-behavior)**. Defines behavior for an action or a group for how many times that item may be repeated.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionCardinalityBehavior {
-    /** # multiple
+    /** **multiple**
 
 Multiple. The action may be selected multiple times. */
     Multiple,
-    /** # single
+    /** **single**
 
 Single. The action may only be selected one time. */
     Single,
@@ -550,45 +538,43 @@ impl From<ActionCardinalityBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionCode`. Provides examples of actions to be performed.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionCode](http://hl7.org/fhir/ValueSet/action-code)**. Provides examples of actions to be performed.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionCode {
-    /** # collect-information
+    /** **collect-information**
 
 Collect information. The action indicates that information should be collected from a participant in the process. */
     CollectInformation,
-    /** # order-service
+    /** **order-service**
 
 Order a service. The action indicates that a particular service should be provided. */
     OrderService,
-    /** # prescribe-medication
+    /** **prescribe-medication**
 
 Prescribe a medication. The action indicates that a particular medication should be prescribed to the patient. */
     PrescribeMedication,
-    /** # propose-diagnosis
+    /** **propose-diagnosis**
 
 Propose a diagnosis. The action indicates that a particular diagnosis should be proposed. */
     ProposeDiagnosis,
-    /** # recommend-immunization
+    /** **recommend-immunization**
 
 Recommend an immunization. The action indicates that a particular immunization should be performed. */
     RecommendImmunization,
-    /** # record-detected-issue
+    /** **record-detected-issue**
 
 Record a detected issue. The action indicates that a particular detected issue should be recorded. */
     RecordDetectedIssue,
-    /** # record-inference
+    /** **record-inference**
 
 Record an inference. The action indicates that a particular inference should be recorded. */
     RecordInference,
-    /** # report-flag
+    /** **report-flag**
 
 Report a flag. The action indicates that a particular flag should be reported. */
     ReportFlag,
-    /** # send-message
+    /** **send-message**
 
 Send a message. The action indicates that a particular message should be sent to a participant in the process. */
     SendMessage,
@@ -676,21 +662,19 @@ impl From<ActionCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionConditionKind`. Defines the kinds of conditions that can appear on actions.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionConditionKind](http://hl7.org/fhir/ValueSet/action-condition-kind)**. Defines the kinds of conditions that can appear on actions.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionConditionKind {
-    /** # applicability
+    /** **applicability**
 
 Applicability. The condition describes whether or not a given action is applicable. */
     Applicability,
-    /** # start
+    /** **start**
 
 Start. The condition is a starting condition for the action. */
     Start,
-    /** # stop
+    /** **stop**
 
 Stop. The condition is a stop, or exit condition for the action. */
     Stop,
@@ -760,21 +744,19 @@ impl From<ActionConditionKind> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionGroupingBehavior`. Defines organization behavior of a group.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionGroupingBehavior](http://hl7.org/fhir/ValueSet/action-grouping-behavior)**. Defines organization behavior of a group.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionGroupingBehavior {
-    /** # logical-group
+    /** **logical-group**
 
 Logical Group. A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so. */
     LogicalGroup,
-    /** # sentence-group
+    /** **sentence-group**
 
 Sentence Group. A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are "aspirin, 500 mg, 2 times per day" and "aspirin, 300 mg, 3 times per day". In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of "AtMostOne", unless it's a required action, in which case, it would be "ExactlyOne". */
     SentenceGroup,
-    /** # visual-group
+    /** **visual-group**
 
 Visual Group. Any group marked with this behavior should be displayed as a visual group to the end user. */
     VisualGroup,
@@ -844,25 +826,23 @@ impl From<ActionGroupingBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionParticipantFunction`. The function performed by the participant for the action.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionParticipantFunction](http://hl7.org/fhir/ValueSet/action-participant-function)**. The function performed by the participant for the action.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionParticipantFunction {
-    /** # author
+    /** **author**
 
 Author. The participant is the author of the result of the action. */
     Author,
-    /** # performer
+    /** **performer**
 
 Performer. The participant is the performer of the action. */
     Performer,
-    /** # reviewer
+    /** **reviewer**
 
 Reviewer. The participant is reviewing the result of the action. */
     Reviewer,
-    /** # witness
+    /** **witness**
 
 Witness. The participant is a witness to the action being performed. */
     Witness,
@@ -937,49 +917,47 @@ impl From<ActionParticipantFunction> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionParticipantType`. The type of participant for the action.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionParticipantType](http://hl7.org/fhir/ValueSet/action-participant-type)**. The type of participant for the action.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionParticipantType {
-    /** # careteam
+    /** **careteam**
 
 CareTeam. The participant is a care team caring for the patient under evaluation. */
     Careteam,
-    /** # device
+    /** **device**
 
 Device. The participant is a system or device used in the care of the patient. */
     Device,
-    /** # group
+    /** **group**
 
 Group. The participant is a group of participants involved in the care of the patient. */
     Group,
-    /** # healthcareservice
+    /** **healthcareservice**
 
 HealthcareService. The participant is an institution that can provide the given healthcare service used in the care of the patient. */
     Healthcareservice,
-    /** # location
+    /** **location**
 
 Location. The participant is a location involved in the care of the patient. */
     Location,
-    /** # organization
+    /** **organization**
 
 Organization. The participant is an organization involved in the care of the patient. */
     Organization,
-    /** # patient
+    /** **patient**
 
 Patient. The participant is the patient under evaluation. */
     Patient,
-    /** # practitioner
+    /** **practitioner**
 
 Practitioner. The participant is a practitioner involved in the patient's care. */
     Practitioner,
-    /** # practitionerrole
+    /** **practitionerrole**
 
 PractitionerRole. The participant is a particular practitioner role involved in the patient's care. */
     Practitionerrole,
-    /** # relatedperson
+    /** **relatedperson**
 
 RelatedPerson. The participant is a person related to the patient. */
     Relatedperson,
@@ -1070,17 +1048,15 @@ impl From<ActionParticipantType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionPrecheckBehavior`. Defines selection frequency behavior for an action or group.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionPrecheckBehavior](http://hl7.org/fhir/ValueSet/action-precheck-behavior)**. Defines selection frequency behavior for an action or group.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionPrecheckBehavior {
-    /** # no
+    /** **no**
 
 No. An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not "pre-check" such an action. */
     No,
-    /** # yes
+    /** **yes**
 
 Yes. An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider "pre-checking" such an action as a convenience for the user. */
     Yes,
@@ -1147,29 +1123,27 @@ impl From<ActionPrecheckBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionReasonCode`. Provides examples of reasons for actions to be performed.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionReasonCode](http://hl7.org/fhir/ValueSet/action-reason-code)**. Provides examples of reasons for actions to be performed.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionReasonCode {
-    /** # care-gap
+    /** **care-gap**
 
 Care gap detected. The action should be performed to address a detected care gap. */
     CareGap,
-    /** # drug-drug-interaction
+    /** **drug-drug-interaction**
 
 Drug-drug interaction. The action should be performed to address a detected potential drug-drug interaction. */
     DrugDrugInteraction,
-    /** # off-pathway
+    /** **off-pathway**
 
 Off pathway. The action should be performed because the patient was determined to be off pathway. */
     OffPathway,
-    /** # quality-measure
+    /** **quality-measure**
 
 Quality measure. The action should be performed to bring the patient's care in line with a quality measure. */
     QualityMeasure,
-    /** # risk-assessment
+    /** **risk-assessment**
 
 Risk assessment. The action should be performed based on a particular risk assessment. */
     RiskAssessment,
@@ -1245,45 +1219,43 @@ impl From<ActionReasonCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionRelationshipType`. Defines the types of relationships between actions.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionRelationshipType](http://hl7.org/fhir/ValueSet/action-relationship-type)**. Defines the types of relationships between actions.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionRelationshipType {
-    /** # after
+    /** **after**
 
 After. The action must be performed after the related action. */
     After,
-    /** # after-end
+    /** **after-end**
 
 After End. The action must be performed after the end of the related action. */
     AfterEnd,
-    /** # after-start
+    /** **after-start**
 
 After Start. The action must be performed after the start of the related action. */
     AfterStart,
-    /** # before
+    /** **before**
 
 Before. The action must be performed before the related action. */
     Before,
-    /** # before-end
+    /** **before-end**
 
 Before End. The action must be performed before the end of the related action. */
     BeforeEnd,
-    /** # before-start
+    /** **before-start**
 
 Before Start. The action must be performed before the start of the related action. */
     BeforeStart,
-    /** # concurrent
+    /** **concurrent**
 
 Concurrent. The action must be performed concurrent with the related action. */
     Concurrent,
-    /** # concurrent-with-end
+    /** **concurrent-with-end**
 
 Concurrent With End. The action must be performed concurrent with the end of the related action. */
     ConcurrentWithEnd,
-    /** # concurrent-with-start
+    /** **concurrent-with-start**
 
 Concurrent With Start. The action must be performed concurrent with the start of the related action. */
     ConcurrentWithStart,
@@ -1371,21 +1343,19 @@ impl From<ActionRelationshipType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionRequiredBehavior`. Defines expectations around whether an action or action group is required.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionRequiredBehavior](http://hl7.org/fhir/ValueSet/action-required-behavior)**. Defines expectations around whether an action or action group is required.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionRequiredBehavior {
-    /** # could
+    /** **could**
 
 Could. An action with this behavior may be included in the set of actions processed by the end user. */
     Could,
-    /** # must
+    /** **must**
 
 Must. An action with this behavior must be included in the actions processed by the end user; the end user SHALL NOT choose not to include this action. */
     Must,
-    /** # must-unless-documented
+    /** **must-unless-documented**
 
 Must Unless Documented. An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included. */
     MustUnlessDocumented,
@@ -1455,33 +1425,31 @@ impl From<ActionRequiredBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ActionSelectionBehavior`. Defines selection behavior of a group.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ActionSelectionBehavior](http://hl7.org/fhir/ValueSet/action-selection-behavior)**. Defines selection behavior of a group.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionSelectionBehavior {
-    /** # all
+    /** **all**
 
 All. All the actions in the group must be selected as a single unit. */
     All,
-    /** # all-or-none
+    /** **all-or-none**
 
 All Or None. All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected. */
     AllOrNone,
-    /** # any
+    /** **any**
 
 Any. Any number of the actions in the group may be chosen, from zero to all. */
     Any,
-    /** # at-most-one
+    /** **at-most-one**
 
 At Most One. The end user may choose zero or at most one of the actions in the group. */
     AtMostOne,
-    /** # exactly-one
+    /** **exactly-one**
 
 Exactly One. The end user must choose one and only one of the selectable actions in the group. The user SHALL NOT choose none of the actions in the group. */
     ExactlyOne,
-    /** # one-or-more
+    /** **one-or-more**
 
 One Or More. The end user must choose a minimum of one, and as many additional as desired. */
     OneOrMore,
@@ -1560,49 +1528,47 @@ impl From<ActionSelectionBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AdditionalBindingPurposeCodes`. Additional Binding Purpose
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AdditionalBindingPurposeCodes](http://hl7.org/fhir/ValueSet/additional-binding-purpose)**. Additional Binding Purpose\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdditionalBindingPurposeCodes {
-    /** # candidate
+    /** **candidate**
 
 Candidate Binding. This value set is a candidate to substitute for the overall conformance value set in some situations; usually these are defined in the documentation */
     Candidate,
-    /** # component
+    /** **component**
 
 Component Binding. This value set is a component of the base value set. Usually this is called out so that documentation can be written about a portion of the value set */
     Component,
-    /** # current
+    /** **current**
 
 Current Binding. New records are required to use this value set, but legacy records may use other codes. The definition of 'new record' is difficult, since systems often create new records based on pre-existing data. Usually 'current' bindings are mandated by an external authority that makes clear rules around this */
     Current,
-    /** # extensible
+    /** **extensible**
 
 Conformance Binding. This value set is used as an extensible binding (in addition to the base binding (not a replacement), usually in a particular usage context) */
     Extensible,
-    /** # maximum
+    /** **maximum**
 
 Maximum Binding. A required binding, for use when the binding strength is 'extensible' or 'preferred' */
     Maximum,
-    /** # minimum
+    /** **minimum**
 
 Minimum Binding. The minimum allowable value set - any conformant system SHALL support all these codes */
     Minimum,
-    /** # preferred
+    /** **preferred**
 
 Preferred Binding. This is the value set that is preferred in a given context (documentation should explain why) */
     Preferred,
-    /** # required
+    /** **required**
 
 Required Binding. This value set is used as a required binding (in addition to the base binding (not a replacement), usually in a particular usage context) */
     Required,
-    /** # starter
+    /** **starter**
 
 Starter Binding. This value set is a good set of codes to start with when designing your system */
     Starter,
-    /** # ui
+    /** **ui**
 
 UI Suggested Binding. This value set is provided for user look up in a given context. Typically, these valuesets only include a subset of codes relevant for input in a context */
     Ui,
@@ -1693,13 +1659,11 @@ impl From<AdditionalBindingPurposeCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AdditionalMonitoring`. Extra monitoring defined for a Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AdditionalMonitoring](http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring)**. Extra monitoring defined for a Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdditionalMonitoring {
-    /** # BlackTriangleMonitoring
+    /** **BlackTriangleMonitoring**
 
 Requirement for Black Triangle Monitoring. Requirement for Black Triangle Monitoring */
     BlackTriangleMonitoring,
@@ -1766,21 +1730,19 @@ impl From<AdditionalMonitoring> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AddressType`. The type of an address (physical / postal).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AddressType](http://hl7.org/fhir/ValueSet/address-type)**. The type of an address (physical / postal).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AddressType {
-    /** # both
+    /** **both**
 
 Postal & Physical. An address that is both physical and postal. */
     Both,
-    /** # physical
+    /** **physical**
 
 Physical. A physical address that can be visited. */
     Physical,
-    /** # postal
+    /** **postal**
 
 Postal. Mailing addresses - PO Boxes and care-of addresses. */
     Postal,
@@ -1850,29 +1812,27 @@ impl From<AddressType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AddressUse`. The use of an address.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AddressUse](http://hl7.org/fhir/ValueSet/address-use)**. The use of an address.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AddressUse {
-    /** # billing
+    /** **billing**
 
 Billing. An address to be used to send bills, invoices, receipts etc. */
     Billing,
-    /** # home
+    /** **home**
 
 Home. A communication address at a home. */
     Home,
-    /** # old
+    /** **old**
 
 Old / Incorrect. This address is no longer in use (or was never correct but retained for records). */
     Old,
-    /** # temp
+    /** **temp**
 
 Temporary. A temporary address. The period can provide more detailed information. */
     Temp,
-    /** # work
+    /** **work**
 
 Work. An office address. First choice for business related contacts during business hours. */
     Work,
@@ -1948,813 +1908,811 @@ impl From<AddressUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AdministrableDoseForm`. Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AdministrableDoseForm](http://hl7.org/fhir/ValueSet/administrable-dose-form)**. Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdministrableDoseForm {
-    /** # 100000073362
+    /** **100000073362**
 
 Oral suspension. */
     N100000073362,
-    /** # 100000073363
+    /** **100000073363**
 
 Oral gel. */
     N100000073363,
-    /** # 100000073364
+    /** **100000073364**
 
 Powder for oral solution. */
     N100000073364,
-    /** # 100000073365
+    /** **100000073365**
 
 Granules for oral solution. */
     N100000073365,
-    /** # 100000073367
+    /** **100000073367**
 
 Lyophilisate for suspension. */
     N100000073367,
-    /** # 100000073368
+    /** **100000073368**
 
 Powder for syrup. */
     N100000073368,
-    /** # 100000073369
+    /** **100000073369**
 
 Soluble tablet. */
     N100000073369,
-    /** # 100000073370
+    /** **100000073370**
 
 Herbal tea. */
     N100000073370,
-    /** # 100000073371
+    /** **100000073371**
 
 Instant herbal tea. */
     N100000073371,
-    /** # 100000073372
+    /** **100000073372**
 
 Granules. */
     N100000073372,
-    /** # 100000073373
+    /** **100000073373**
 
 Gastro-resistant granules. */
     N100000073373,
-    /** # 100000073374
+    /** **100000073374**
 
 Modified-release granules. */
     N100000073374,
-    /** # 100000073375
+    /** **100000073375**
 
 Capsule, hard. */
     N100000073375,
-    /** # 100000073376
+    /** **100000073376**
 
 Gastro-resistant capsule, hard. */
     N100000073376,
-    /** # 100000073377
+    /** **100000073377**
 
 Chewable capsule, soft. */
     N100000073377,
-    /** # 100000073378
+    /** **100000073378**
 
 Prolonged-release capsule, soft. */
     N100000073378,
-    /** # 100000073379
+    /** **100000073379**
 
 Modified-release capsule, soft. */
     N100000073379,
-    /** # 100000073380
+    /** **100000073380**
 
 Coated tablet. */
     N100000073380,
-    /** # 100000073642
+    /** **100000073642**
 
 Oral drops, solution. */
     N100000073642,
-    /** # 100000073643
+    /** **100000073643**
 
 Oral drops, suspension. */
     N100000073643,
-    /** # 100000073644
+    /** **100000073644**
 
 Oral drops, emulsion. */
     N100000073644,
-    /** # 100000073645
+    /** **100000073645**
 
 Oral liquid. */
     N100000073645,
-    /** # 100000073646
+    /** **100000073646**
 
 Oral solution. */
     N100000073646,
-    /** # 100000073647
+    /** **100000073647**
 
 Oral emulsion. */
     N100000073647,
-    /** # 100000073648
+    /** **100000073648**
 
 Oral paste. */
     N100000073648,
-    /** # 100000073649
+    /** **100000073649**
 
 Powder for oral suspension. */
     N100000073649,
-    /** # 100000073650
+    /** **100000073650**
 
 Granules for oral suspension. */
     N100000073650,
-    /** # 100000073652
+    /** **100000073652**
 
 Syrup. */
     N100000073652,
-    /** # 100000073653
+    /** **100000073653**
 
 Granules for syrup. */
     N100000073653,
-    /** # 100000073654
+    /** **100000073654**
 
 Dispersible tablet. */
     N100000073654,
-    /** # 100000073655
+    /** **100000073655**
 
 Oral powder. */
     N100000073655,
-    /** # 100000073656
+    /** **100000073656**
 
 Effervescent powder. */
     N100000073656,
-    /** # 100000073657
+    /** **100000073657**
 
 Effervescent granules. */
     N100000073657,
-    /** # 100000073658
+    /** **100000073658**
 
 Prolonged-release granules. */
     N100000073658,
-    /** # 100000073659
+    /** **100000073659**
 
 Cachet. */
     N100000073659,
-    /** # 100000073660
+    /** **100000073660**
 
 Capsule, soft. */
     N100000073660,
-    /** # 100000073661
+    /** **100000073661**
 
 Gastro-resistant capsule, soft. */
     N100000073661,
-    /** # 100000073662
+    /** **100000073662**
 
 Prolonged-release capsule, hard. */
     N100000073662,
-    /** # 100000073663
+    /** **100000073663**
 
 Modified-release capsule, hard. */
     N100000073663,
-    /** # 100000073664
+    /** **100000073664**
 
 Tablet. */
     N100000073664,
-    /** # 100000073665
+    /** **100000073665**
 
 Film-coated tablet. */
     N100000073665,
-    /** # 100000073666
+    /** **100000073666**
 
 Orodispersible tablet. */
     N100000073666,
-    /** # 100000073667
+    /** **100000073667**
 
 Gastro-resistant tablet. */
     N100000073667,
-    /** # 100000073668
+    /** **100000073668**
 
 Modified-release tablet. */
     N100000073668,
-    /** # 100000073669
+    /** **100000073669**
 
 Medicated chewing-gum. */
     N100000073669,
-    /** # 100000073670
+    /** **100000073670**
 
 Pillules. */
     N100000073670,
-    /** # 100000073671
+    /** **100000073671**
 
 Pulsatile-release intraruminal device. */
     N100000073671,
-    /** # 100000073672
+    /** **100000073672**
 
 Premix for medicated feeding stuff. */
     N100000073672,
-    /** # 100000073673
+    /** **100000073673**
 
 Gargle. */
     N100000073673,
-    /** # 100000073674
+    /** **100000073674**
 
 Gargle, powder for solution. */
     N100000073674,
-    /** # 100000073675
+    /** **100000073675**
 
 Oromucosal suspension. */
     N100000073675,
-    /** # 100000073676
+    /** **100000073676**
 
 Oromucosal spray. */
     N100000073676,
-    /** # 100000073677
+    /** **100000073677**
 
 Mouthwash. */
     N100000073677,
-    /** # 100000073678
+    /** **100000073678**
 
 Gingival solution. */
     N100000073678,
-    /** # 100000073679
+    /** **100000073679**
 
 Oromucosal paste. */
     N100000073679,
-    /** # 100000073680
+    /** **100000073680**
 
 Gingival gel. */
     N100000073680,
-    /** # 100000073681
+    /** **100000073681**
 
 Effervescent tablet. */
     N100000073681,
-    /** # 100000073682
+    /** **100000073682**
 
 Oral lyophilisate. */
     N100000073682,
-    /** # 100000073683
+    /** **100000073683**
 
 Prolonged-release tablet. */
     N100000073683,
-    /** # 100000073684
+    /** **100000073684**
 
 Chewable tablet. */
     N100000073684,
-    /** # 100000073685
+    /** **100000073685**
 
 Oral gum. */
     N100000073685,
-    /** # 100000073686
+    /** **100000073686**
 
 Continuous-release intraruminal device. */
     N100000073686,
-    /** # 100000073687
+    /** **100000073687**
 
 Lick block. */
     N100000073687,
-    /** # 100000073688
+    /** **100000073688**
 
 Medicated pellets. */
     N100000073688,
-    /** # 100000073689
+    /** **100000073689**
 
 Concentrate for gargle. */
     N100000073689,
-    /** # 100000073690
+    /** **100000073690**
 
 Gargle, tablet for solution. */
     N100000073690,
-    /** # 100000073691
+    /** **100000073691**
 
 Oromucosal solution. */
     N100000073691,
-    /** # 100000073692
+    /** **100000073692**
 
 Oromucosal drops. */
     N100000073692,
-    /** # 100000073693
+    /** **100000073693**
 
 Sublingual spray. */
     N100000073693,
-    /** # 100000073694
+    /** **100000073694**
 
 Mouthwash, tablet for solution. */
     N100000073694,
-    /** # 100000073695
+    /** **100000073695**
 
 Oromucosal gel. */
     N100000073695,
-    /** # 100000073696
+    /** **100000073696**
 
 Oromucosal cream. */
     N100000073696,
-    /** # 100000073697
+    /** **100000073697**
 
 Gingival paste. */
     N100000073697,
-    /** # 100000073698
+    /** **100000073698**
 
 Sublingual tablet. */
     N100000073698,
-    /** # 100000073699
+    /** **100000073699**
 
 Buccal tablet. */
     N100000073699,
-    /** # 100000073700
+    /** **100000073700**
 
 Compressed lozenge. */
     N100000073700,
-    /** # 100000073701
+    /** **100000073701**
 
 Oromucosal capsule. */
     N100000073701,
-    /** # 100000073702
+    /** **100000073702**
 
 Muco-adhesive buccal tablet. */
     N100000073702,
-    /** # 100000073703
+    /** **100000073703**
 
 Lozenge. */
     N100000073703,
-    /** # 100000073704
+    /** **100000073704**
 
 Pastille. */
     N100000073704,
-    /** # 100000073705
+    /** **100000073705**
 
 Dental gel. */
     N100000073705,
-    /** # 100000073706
+    /** **100000073706**
 
 Dental insert. */
     N100000073706,
-    /** # 100000073707
+    /** **100000073707**
 
 Dental powder. */
     N100000073707,
-    /** # 100000073708
+    /** **100000073708**
 
 Dental suspension. */
     N100000073708,
-    /** # 100000073709
+    /** **100000073709**
 
 Toothpaste. */
     N100000073709,
-    /** # 100000073710
+    /** **100000073710**
 
 Periodontal gel. */
     N100000073710,
-    /** # 100000073711
+    /** **100000073711**
 
 Bath additive. */
     N100000073711,
-    /** # 100000073712
+    /** **100000073712**
 
 Cream. */
     N100000073712,
-    /** # 100000073713
+    /** **100000073713**
 
 Ointment. */
     N100000073713,
-    /** # 100000073714
+    /** **100000073714**
 
 Medicated plaster. */
     N100000073714,
-    /** # 100000073715
+    /** **100000073715**
 
 Shampoo. */
     N100000073715,
-    /** # 100000073716
+    /** **100000073716**
 
 Cutaneous spray, suspension. */
     N100000073716,
-    /** # 100000073717
+    /** **100000073717**
 
 Cutaneous liquid. */
     N100000073717,
-    /** # 100000073718
+    /** **100000073718**
 
 Concentrate for cutaneous solution. */
     N100000073718,
-    /** # 100000073719
+    /** **100000073719**
 
 Cutaneous emulsion. */
     N100000073719,
-    /** # 100000073720
+    /** **100000073720**
 
 Cutaneous patch. */
     N100000073720,
-    /** # 100000073721
+    /** **100000073721**
 
 Periodontal powder. */
     N100000073721,
-    /** # 100000073722
+    /** **100000073722**
 
 Dental stick. */
     N100000073722,
-    /** # 100000073723
+    /** **100000073723**
 
 Dental solution. */
     N100000073723,
-    /** # 100000073724
+    /** **100000073724**
 
 Dental emulsion. */
     N100000073724,
-    /** # 100000073725
+    /** **100000073725**
 
 Periodontal insert. */
     N100000073725,
-    /** # 100000073726
+    /** **100000073726**
 
 Gel. */
     N100000073726,
-    /** # 100000073727
+    /** **100000073727**
 
 Cutaneous paste. */
     N100000073727,
-    /** # 100000073728
+    /** **100000073728**
 
 Cutaneous foam. */
     N100000073728,
-    /** # 100000073729
+    /** **100000073729**
 
 Cutaneous spray, solution. */
     N100000073729,
-    /** # 100000073730
+    /** **100000073730**
 
 Cutaneous spray, powder. */
     N100000073730,
-    /** # 100000073731
+    /** **100000073731**
 
 Cutaneous solution. */
     N100000073731,
-    /** # 100000073732
+    /** **100000073732**
 
 Cutaneous suspension. */
     N100000073732,
-    /** # 100000073733
+    /** **100000073733**
 
 Cutaneous powder. */
     N100000073733,
-    /** # 100000073734
+    /** **100000073734**
 
 Solution for iontophoresis. */
     N100000073734,
-    /** # 100000073735
+    /** **100000073735**
 
 Collodion. */
     N100000073735,
-    /** # 100000073736
+    /** **100000073736**
 
 Poultice. */
     N100000073736,
-    /** # 100000073737
+    /** **100000073737**
 
 Cutaneous sponge. */
     N100000073737,
-    /** # 100000073738
+    /** **100000073738**
 
 Collar. */
     N100000073738,
-    /** # 100000073739
+    /** **100000073739**
 
 Ear tag. */
     N100000073739,
-    /** # 100000073740
+    /** **100000073740**
 
 Dip suspension. */
     N100000073740,
-    /** # 100000073741
+    /** **100000073741**
 
 Transdermal patch. */
     N100000073741,
-    /** # 100000073742
+    /** **100000073742**
 
 Medicated nail lacquer. */
     N100000073742,
-    /** # 100000073743
+    /** **100000073743**
 
 Cutaneous stick. */
     N100000073743,
-    /** # 100000073744
+    /** **100000073744**
 
 Impregnated dressing. */
     N100000073744,
-    /** # 100000073745
+    /** **100000073745**
 
 Medicated pendant. */
     N100000073745,
-    /** # 100000073746
+    /** **100000073746**
 
 Dip solution. */
     N100000073746,
-    /** # 100000073747
+    /** **100000073747**
 
 Dip emulsion. */
     N100000073747,
-    /** # 100000073748
+    /** **100000073748**
 
 Concentrate for dip suspension. */
     N100000073748,
-    /** # 100000073749
+    /** **100000073749**
 
 Powder for dip solution. */
     N100000073749,
-    /** # 100000073750
+    /** **100000073750**
 
 Powder for suspension for fish treatment. */
     N100000073750,
-    /** # 100000073751
+    /** **100000073751**
 
 Pour-on suspension. */
     N100000073751,
-    /** # 100000073752
+    /** **100000073752**
 
 Spot-on solution. */
     N100000073752,
-    /** # 100000073753
+    /** **100000073753**
 
 Spot-on emulsion. */
     N100000073753,
-    /** # 100000073754
+    /** **100000073754**
 
 Teat dip suspension. */
     N100000073754,
-    /** # 100000073755
+    /** **100000073755**
 
 Teat spray solution. */
     N100000073755,
-    /** # 100000073756
+    /** **100000073756**
 
 Solution for skin-prick test. */
     N100000073756,
-    /** # 100000073757
+    /** **100000073757**
 
 Plaster for provocation test. */
     N100000073757,
-    /** # 100000073758
+    /** **100000073758**
 
 Eye gel. */
     N100000073758,
-    /** # 100000073759
+    /** **100000073759**
 
 Eye drops, solution. */
     N100000073759,
-    /** # 100000073760
+    /** **100000073760**
 
 Eye drops, suspension. */
     N100000073760,
-    /** # 100000073761
+    /** **100000073761**
 
 Concentrate for dip solution. */
     N100000073761,
-    /** # 100000073762
+    /** **100000073762**
 
 Concentrate for dip emulsion. */
     N100000073762,
-    /** # 100000073763
+    /** **100000073763**
 
 Concentrate for solution for fish treatment. */
     N100000073763,
-    /** # 100000073764
+    /** **100000073764**
 
 Pour-on solution. */
     N100000073764,
-    /** # 100000073765
+    /** **100000073765**
 
 Pour-on emulsion. */
     N100000073765,
-    /** # 100000073766
+    /** **100000073766**
 
 Spot-on suspension. */
     N100000073766,
-    /** # 100000073767
+    /** **100000073767**
 
 Teat dip solution. */
     N100000073767,
-    /** # 100000073768
+    /** **100000073768**
 
 Teat dip emulsion. */
     N100000073768,
-    /** # 100000073769
+    /** **100000073769**
 
 Transdermal system. */
     N100000073769,
-    /** # 100000073770
+    /** **100000073770**
 
 Solution for skin-scratch test. */
     N100000073770,
-    /** # 100000073771
+    /** **100000073771**
 
 Eye cream. */
     N100000073771,
-    /** # 100000073772
+    /** **100000073772**
 
 Eye ointment. */
     N100000073772,
-    /** # 100000073773
+    /** **100000073773**
 
 Eye drops, emulsion. */
     N100000073773,
-    /** # 100000073775
+    /** **100000073775**
 
 Eye drops, solvent for reconstitution. */
     N100000073775,
-    /** # 100000073776
+    /** **100000073776**
 
 Eye lotion. */
     N100000073776,
-    /** # 100000073777
+    /** **100000073777**
 
 Ophthalmic insert. */
     N100000073777,
-    /** # 100000073778
+    /** **100000073778**
 
 Ear cream. */
     N100000073778,
-    /** # 100000073779
+    /** **100000073779**
 
 Ear ointment. */
     N100000073779,
-    /** # 100000073780
+    /** **100000073780**
 
 Ear drops, suspension. */
     N100000073780,
-    /** # 100000073782
+    /** **100000073782**
 
 Eye drops, prolonged-release. */
     N100000073782,
-    /** # 100000073783
+    /** **100000073783**
 
 Eye lotion, solvent for reconstitution. */
     N100000073783,
-    /** # 100000073784
+    /** **100000073784**
 
 Ophthalmic strip. */
     N100000073784,
-    /** # 100000073785
+    /** **100000073785**
 
 Ear gel. */
     N100000073785,
-    /** # 100000073786
+    /** **100000073786**
 
 Ear drops, solution. */
     N100000073786,
-    /** # 100000073787
+    /** **100000073787**
 
 Ear drops, emulsion. */
     N100000073787,
-    /** # 100000073788
+    /** **100000073788**
 
 Ear powder. */
     N100000073788,
-    /** # 100000073789
+    /** **100000073789**
 
 Ear spray, suspension. */
     N100000073789,
-    /** # 100000073790
+    /** **100000073790**
 
 Ear wash, solution. */
     N100000073790,
-    /** # 100000073791
+    /** **100000073791**
 
 Ear tampon. */
     N100000073791,
-    /** # 100000073792
+    /** **100000073792**
 
 Nasal cream. */
     N100000073792,
-    /** # 100000073793
+    /** **100000073793**
 
 Nasal gel. */
     N100000073793,
-    /** # 100000073794
+    /** **100000073794**
 
 Nasal drops, solution. */
     N100000073794,
-    /** # 100000073795
+    /** **100000073795**
 
 Nasal drops, emulsion. */
     N100000073795,
-    /** # 100000073796
+    /** **100000073796**
 
 Nasal spray, solution. */
     N100000073796,
-    /** # 100000073797
+    /** **100000073797**
 
 Nasal spray, emulsion. */
     N100000073797,
-    /** # 100000073798
+    /** **100000073798**
 
 Nasal stick. */
     N100000073798,
-    /** # 100000073799
+    /** **100000073799**
 
 Vaginal gel. */
     N100000073799,
-    /** # 100000073800
+    /** **100000073800**
 
 Vaginal foam. */
     N100000073800,
-    /** # 100000073802
+    /** **100000073802**
 
 Ear spray, solution. */
     N100000073802,
-    /** # 100000073803
+    /** **100000073803**
 
 Ear spray, emulsion. */
     N100000073803,
-    /** # 100000073804
+    /** **100000073804**
 
 Ear wash, emulsion. */
     N100000073804,
-    /** # 100000073805
+    /** **100000073805**
 
 Ear stick. */
     N100000073805,
-    /** # 100000073806
+    /** **100000073806**
 
 Nasal ointment. */
     N100000073806,
-    /** # 100000073807
+    /** **100000073807**
 
 Nasal drops, suspension. */
     N100000073807,
-    /** # 100000073808
+    /** **100000073808**
 
 Nasal powder. */
     N100000073808,
-    /** # 100000073809
+    /** **100000073809**
 
 Nasal spray, suspension. */
     N100000073809,
-    /** # 100000073810
+    /** **100000073810**
 
 Nasal wash. */
     N100000073810,
-    /** # 100000073811
+    /** **100000073811**
 
 Vaginal cream. */
     N100000073811,
-    /** # 100000073812
+    /** **100000073812**
 
 Vaginal ointment. */
     N100000073812,
-    /** # 100000073813
+    /** **100000073813**
 
 Vaginal solution. */
     N100000073813,
-    /** # 100000073814
+    /** **100000073814**
 
 Vaginal emulsion. */
     N100000073814,
-    /** # 100000073815
+    /** **100000073815**
 
 Pessary. */
     N100000073815,
-    /** # 100000073816
+    /** **100000073816**
 
 Vaginal capsule, soft. */
     N100000073816,
-    /** # 100000073817
+    /** **100000073817**
 
 Effervescent vaginal tablet. */
     N100000073817,
-    /** # 100000073818
+    /** **100000073818**
 
 Vaginal delivery system. */
     N100000073818,
-    /** # 100000073819
+    /** **100000073819**
 
 Rectal cream. */
     N100000073819,
-    /** # 100000073820
+    /** **100000073820**
 
 Rectal foam. */
     N100000073820,
-    /** # 100000073821
+    /** **100000073821**
 
 Vaginal suspension. */
     N100000073821,
-    /** # 100000073822
+    /** **100000073822**
 
 Tablet for vaginal solution. */
     N100000073822,
-    /** # 100000073823
+    /** **100000073823**
 
 Vaginal capsule, hard. */
     N100000073823,
-    /** # 100000073824
+    /** **100000073824**
 
 Vaginal tablet. */
     N100000073824,
-    /** # 100000073825
+    /** **100000073825**
 
 Medicated vaginal tampon. */
     N100000073825,
-    /** # 100000073826
+    /** **100000073826**
 
 Vaginal sponge. */
     N100000073826,
-    /** # 100000073827
+    /** **100000073827**
 
 Rectal gel. */
     N100000073827,
-    /** # 100000073863
+    /** **100000073863**
 
 Solution for injection. */
     N100000073863,
@@ -3418,32 +3376,30 @@ impl From<AdministrableDoseForm> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AdministrationSubPotentReason`. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AdministrationSubPotentReason](http://hl7.org/fhir/CodeSystem/administration-subpotent-reason)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AdministrationSubPotentReason {
-    /** # adversestorage
+    /** **adversestorage**
 
 Adverse Storage. The medication experienced adverse storage conditions. */
     Adversestorage,
-    /** # coldchainbreak
+    /** **coldchainbreak**
 
 Cold Chain Break. The medication experienced a cold chain break. */
     Coldchainbreak,
-    /** # expired
+    /** **expired**
 
 Expired Product. The medication was expired at the time of administration. */
     Expired,
-    /** # partialdose
+    /** **partialdose**
 
 Partial Dose. The full amount of the dose was not administered to the patient. */
     Partialdose,
-    /** # recall
+    /** **recall**
 
 Manufacturer Recall. The medication was recalled by the manufacturer. */
     Recall,
-    /** # vomited
+    /** **vomited**
 
 Vomited. The patient vomited part of the dose. */
     Vomited,
@@ -3529,25 +3485,23 @@ impl From<AdministrationSubPotentReason> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AdministrativeGender`. The gender of a person used for administrative purposes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AdministrativeGender](http://hl7.org/fhir/ValueSet/administrative-gender)**. The gender of a person used for administrative purposes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdministrativeGender {
-    /** # female
+    /** **female**
 
 Female. Female. */
     Female,
-    /** # male
+    /** **male**
 
 Male. Male. */
     Male,
-    /** # other
+    /** **other**
 
 Other. Other. */
     Other,
-    /** # unknown
+    /** **unknown**
 
 Unknown. Unknown. */
     Unknown,
@@ -3620,17 +3574,15 @@ impl From<AdministrativeGender> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AdverseEventActuality`. Overall nature of the adverse event, e.g. real or potential.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AdverseEventActuality](http://hl7.org/fhir/ValueSet/adverse-event-actuality)**. Overall nature of the adverse event, e.g. real or potential.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdverseEventActuality {
-    /** # actual
+    /** **actual**
 
 Adverse Event. The adverse event actually happened regardless of whether anyone was affected or harmed. */
     Actual,
-    /** # potential
+    /** **potential**
 
 Potential Adverse Event. A potential adverse event. */
     Potential,
@@ -3697,21 +3649,19 @@ impl From<AdverseEventActuality> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AggregationMode`. How resource references can be aggregated.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AggregationMode](http://hl7.org/fhir/ValueSet/resource-aggregation-mode)**. How resource references can be aggregated.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AggregationMode {
-    /** # bundled
+    /** **bundled**
 
 Bundled. When the resource is in a Bundle, the resource the reference points to will be found in the same bundle as the resource that includes the reference. */
     Bundled,
-    /** # contained
+    /** **contained**
 
 Contained. The reference is a local reference to a contained resource. */
     Contained,
-    /** # referenced
+    /** **referenced**
 
 Referenced. The reference to a resource that has to be resolved externally to the resource that includes the reference. */
     Referenced,
@@ -3781,25 +3731,23 @@ impl From<AggregationMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AllergyIntoleranceCategory`. Category of an identified substance associated with allergies or intolerances.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AllergyIntoleranceCategory](http://hl7.org/fhir/ValueSet/allergy-intolerance-category)**. Category of an identified substance associated with allergies or intolerances.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCategory {
-    /** # biologic
+    /** **biologic**
 
 Biologic. A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, which are not typically associated with allergies. */
     Biologic,
-    /** # environment
+    /** **environment**
 
 Environment. Any substances that are encountered in the environment, including any substance not already classified as food, medication, or biologic. */
     Environment,
-    /** # food
+    /** **food**
 
 Food. Any substance consumed to provide nutritional support for the body. */
     Food,
-    /** # medication
+    /** **medication**
 
 Medication. Substances administered to achieve a physiological effect. */
     Medication,
@@ -3874,21 +3822,19 @@ impl From<AllergyIntoleranceCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AllergyIntoleranceCriticality`. Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AllergyIntoleranceCriticality](http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality)**. Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCriticality {
-    /** # high
+    /** **high**
 
 High Risk. Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure. */
     High,
-    /** # low
+    /** **low**
 
 Low Risk. Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure. */
     Low,
-    /** # unable-to-assess
+    /** **unable-to-assess**
 
 Unable to Assess Risk. Unable to assess the worst case result of a future exposure. */
     UnableToAssess,
@@ -3960,21 +3906,19 @@ impl From<AllergyIntoleranceCriticality> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AllergyIntoleranceSeverity`. Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AllergyIntoleranceSeverity](http://hl7.org/fhir/ValueSet/reaction-event-severity)**. Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceSeverity {
-    /** # mild
+    /** **mild**
 
 Mild. Causes mild physiological effects. */
     Mild,
-    /** # moderate
+    /** **moderate**
 
 Moderate. Causes moderate physiological effects. */
     Moderate,
-    /** # severe
+    /** **severe**
 
 Severe. Causes severe physiological effects. */
     Severe,
@@ -4044,17 +3988,15 @@ impl From<AllergyIntoleranceSeverity> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AllergyIntoleranceType`. Identification of the underlying physiological mechanism for a Reaction Risk.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AllergyIntoleranceType](http://hl7.org/fhir/ValueSet/allergy-intolerance-type)**. Identification of the underlying physiological mechanism for a Reaction Risk.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceType {
-    /** # allergy
+    /** **allergy**
 
 Allergy. A propensity for hypersensitive reaction(s) to a substance.  These reactions are most typically type I hypersensitivity, plus other "allergy-like" reactions, including pseudoallergy. */
     Allergy,
-    /** # intolerance
+    /** **intolerance**
 
 Intolerance. A propensity for adverse reactions to a substance that is judged to be not allergic or "allergy-like".  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or patient-specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances). */
     Intolerance,
@@ -4121,765 +4063,763 @@ impl From<AllergyIntoleranceType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AnimalTissueType`. A tissue type of an animal.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AnimalTissueType](http://hl7.org/fhir/ValueSet/animal-tissue-type)**. A tissue type of an animal.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AnimalTissueType {
-    /** # 100000072091
+    /** **100000072091**
 
 All relevant tissues. */
     N100000072091,
-    /** # 100000072092
+    /** **100000072092**
 
 Fat. */
     N100000072092,
-    /** # 100000072093
+    /** **100000072093**
 
 Honey. */
     N100000072093,
-    /** # 100000072094
+    /** **100000072094**
 
 Liver. */
     N100000072094,
-    /** # 100000072095
+    /** **100000072095**
 
 Fresh Milk. */
     N100000072095,
-    /** # 100000072096
+    /** **100000072096**
 
 Muscle and skin in natural proportions. */
     N100000072096,
-    /** # 100000072104
+    /** **100000072104**
 
 Eggs. */
     N100000072104,
-    /** # 100000072105
+    /** **100000072105**
 
 Skin and fat. */
     N100000072105,
-    /** # 100000072106
+    /** **100000072106**
 
 Kidney. */
     N100000072106,
-    /** # 100000072107
+    /** **100000072107**
 
 Meat and offal. */
     N100000072107,
-    /** # 100000072108
+    /** **100000072108**
 
 Muscle. */
     N100000072108,
-    /** # 100000072109
+    /** **100000072109**
 
 Unspecified. */
     N100000072109,
-    /** # 100000111053
+    /** **100000111053**
 
 Adipose tissue. */
     N100000111053,
-    /** # 100000111054
+    /** **100000111054**
 
 Adrenal. */
     N100000111054,
-    /** # 100000111055
+    /** **100000111055**
 
 Blood vessels. */
     N100000111055,
-    /** # 100000111056
+    /** **100000111056**
 
 Bone. */
     N100000111056,
-    /** # 100000111057
+    /** **100000111057**
 
 Bone marrow. */
     N100000111057,
-    /** # 100000111058
+    /** **100000111058**
 
 Brain. */
     N100000111058,
-    /** # 100000111059
+    /** **100000111059**
 
 Connective tissue. */
     N100000111059,
-    /** # 100000111060
+    /** **100000111060**
 
 Cornea. */
     N100000111060,
-    /** # 100000111061
+    /** **100000111061**
 
 Dental pulp. */
     N100000111061,
-    /** # 100000111062
+    /** **100000111062**
 
 Duodenum. */
     N100000111062,
-    /** # 100000111063
+    /** **100000111063**
 
 Dura mater. */
     N100000111063,
-    /** # 100000111064
+    /** **100000111064**
 
 Egg, embryonated. */
     N100000111064,
-    /** # 100000111065
+    /** **100000111065**
 
 Egg. */
     N100000111065,
-    /** # 100000111066
+    /** **100000111066**
 
 Egg white. */
     N100000111066,
-    /** # 100000111067
+    /** **100000111067**
 
 Egg yolk. */
     N100000111067,
-    /** # 100000111068
+    /** **100000111068**
 
 Embryos. */
     N100000111068,
-    /** # 100000111069
+    /** **100000111069**
 
 Enteric plexuses. */
     N100000111069,
-    /** # 100000111070
+    /** **100000111070**
 
 Esophagus. */
     N100000111070,
-    /** # 100000111071
+    /** **100000111071**
 
 Feathers. */
     N100000111071,
-    /** # 100000111072
+    /** **100000111072**
 
 Foetus. */
     N100000111072,
-    /** # 100000111073
+    /** **100000111073**
 
 Fore-stomach (ruminants only). */
     N100000111073,
-    /** # 100000111074
+    /** **100000111074**
 
 Gingival tissue. */
     N100000111074,
-    /** # 100000111075
+    /** **100000111075**
 
 Hair. */
     N100000111075,
-    /** # 100000111076
+    /** **100000111076**
 
 Heart/pericardium. */
     N100000111076,
-    /** # 100000111077
+    /** **100000111077**
 
 Hide. */
     N100000111077,
-    /** # 100000111078
+    /** **100000111078**
 
 Hooves. */
     N100000111078,
-    /** # 100000111079
+    /** **100000111079**
 
 Ileum. */
     N100000111079,
-    /** # 100000111080
+    /** **100000111080**
 
 Jejunum. */
     N100000111080,
-    /** # 100000111081
+    /** **100000111081**
 
 Kidney. */
     N100000111081,
-    /** # 100000111082
+    /** **100000111082**
 
 Lard/lard oil. */
     N100000111082,
-    /** # 100000111083
+    /** **100000111083**
 
 Large intestine. */
     N100000111083,
-    /** # 100000111084
+    /** **100000111084**
 
 Liver. */
     N100000111084,
-    /** # 100000111085
+    /** **100000111085**
 
 Lung. */
     N100000111085,
-    /** # 100000111086
+    /** **100000111086**
 
 Lymph nodes. */
     N100000111086,
-    /** # 100000111087
+    /** **100000111087**
 
 Mammary gland. */
     N100000111087,
-    /** # 100000111088
+    /** **100000111088**
 
 Udder. */
     N100000111088,
-    /** # 100000111089
+    /** **100000111089**
 
 Mammary tumour. */
     N100000111089,
-    /** # 100000111090
+    /** **100000111090**
 
 Meat extract. */
     N100000111090,
-    /** # 100000111091
+    /** **100000111091**
 
 Nasopharyngeal. */
     N100000111091,
-    /** # 100000111092
+    /** **100000111092**
 
 Nictitating membrane. */
     N100000111092,
-    /** # 100000111093
+    /** **100000111093**
 
 Nasal mucosa. */
     N100000111093,
-    /** # 100000111094
+    /** **100000111094**
 
 Ovary. */
     N100000111094,
-    /** # 100000111095
+    /** **100000111095**
 
 Pancreas. */
     N100000111095,
-    /** # 100000111096
+    /** **100000111096**
 
 Peripheral nerves. */
     N100000111096,
-    /** # 100000111097
+    /** **100000111097**
 
 Pituitary gland. */
     N100000111097,
-    /** # 100000111098
+    /** **100000111098**
 
 Placenta. */
     N100000111098,
-    /** # 100000111099
+    /** **100000111099**
 
 Prostate. */
     N100000111099,
-    /** # 100000111100
+    /** **100000111100**
 
 Epididymis. */
     N100000111100,
-    /** # 100000111101
+    /** **100000111101**
 
 Seminal vesicle. */
     N100000111101,
-    /** # 100000111102
+    /** **100000111102**
 
 Rennet, calf. */
     N100000111102,
-    /** # 100000111103
+    /** **100000111103**
 
 Retina. */
     N100000111103,
-    /** # 100000111104
+    /** **100000111104**
 
 Optic nerve. */
     N100000111104,
-    /** # 100000111105
+    /** **100000111105**
 
 Salivary gland. */
     N100000111105,
-    /** # 100000111106
+    /** **100000111106**
 
 Shank. */
     N100000111106,
-    /** # 100000111107
+    /** **100000111107**
 
 Skeletal muscle. */
     N100000111107,
-    /** # 100000111108
+    /** **100000111108**
 
 Skin. */
     N100000111108,
-    /** # 100000111109
+    /** **100000111109**
 
 Spinal ganglia. */
     N100000111109,
-    /** # 100000111110
+    /** **100000111110**
 
 Spinal cord. */
     N100000111110,
-    /** # 100000111111
+    /** **100000111111**
 
 Spleen. */
     N100000111111,
-    /** # 100000111112
+    /** **100000111112**
 
 Stomach. */
     N100000111112,
-    /** # 100000111113
+    /** **100000111113**
 
 Abomasum. */
     N100000111113,
-    /** # 100000111114
+    /** **100000111114**
 
 Submaxillary glands. */
     N100000111114,
-    /** # 100000111115
+    /** **100000111115**
 
 Tallow. */
     N100000111115,
-    /** # 100000111116
+    /** **100000111116**
 
 Tendon. */
     N100000111116,
-    /** # 100000111117
+    /** **100000111117**
 
 Testis. */
     N100000111117,
-    /** # 100000111118
+    /** **100000111118**
 
 Thymus. */
     N100000111118,
-    /** # 100000111119
+    /** **100000111119**
 
 Thyroid gland. */
     N100000111119,
-    /** # 100000111120
+    /** **100000111120**
 
 Tongue. */
     N100000111120,
-    /** # 100000111121
+    /** **100000111121**
 
 Tonsil. */
     N100000111121,
-    /** # 100000111122
+    /** **100000111122**
 
 Trachea. */
     N100000111122,
-    /** # 100000111123
+    /** **100000111123**
 
 Trigeminal ganglia. */
     N100000111123,
-    /** # 100000111124
+    /** **100000111124**
 
 Tripe. */
     N100000111124,
-    /** # 100000111125
+    /** **100000111125**
 
 Uterus (Non-gravid). */
     N100000111125,
-    /** # 100000111126
+    /** **100000111126**
 
 Wool. */
     N100000111126,
-    /** # 100000111127
+    /** **100000111127**
 
 Ascites fluid. */
     N100000111127,
-    /** # 100000111128
+    /** **100000111128**
 
 Bile. */
     N100000111128,
-    /** # 100000111129
+    /** **100000111129**
 
 Blood1. */
     N100000111129,
-    /** # 100000111130
+    /** **100000111130**
 
 Blood, foetal. */
     N100000111130,
-    /** # 100000111131
+    /** **100000111131**
 
 Colostrum. */
     N100000111131,
-    /** # 100000111132
+    /** **100000111132**
 
 Cord blood. */
     N100000111132,
-    /** # 100000111133
+    /** **100000111133**
 
 CSF. */
     N100000111133,
-    /** # 100000111134
+    /** **100000111134**
 
 Faeces. */
     N100000111134,
-    /** # 100000111135
+    /** **100000111135**
 
 Milk. */
     N100000111135,
-    /** # 100000111136
+    /** **100000111136**
 
 Nasal mucus. */
     N100000111136,
-    /** # 100000111137
+    /** **100000111137**
 
 Placenta fluids. */
     N100000111137,
-    /** # 100000111138
+    /** **100000111138**
 
 Plasma. */
     N100000111138,
-    /** # 100000111139
+    /** **100000111139**
 
 Saliva. */
     N100000111139,
-    /** # 100000111140
+    /** **100000111140**
 
 Secretion from bees. */
     N100000111140,
-    /** # 100000111141
+    /** **100000111141**
 
 Semen. */
     N100000111141,
-    /** # 100000111142
+    /** **100000111142**
 
 Serum, calf. */
     N100000111142,
-    /** # 100000111143
+    /** **100000111143**
 
 Serum, donor adult bovine. */
     N100000111143,
-    /** # 100000111144
+    /** **100000111144**
 
 Serum, donor calf. */
     N100000111144,
-    /** # 100000111145
+    /** **100000111145**
 
 Serum, foetal bovine. */
     N100000111145,
-    /** # 100000111146
+    /** **100000111146**
 
 Serum, newborn calf. */
     N100000111146,
-    /** # 100000111147
+    /** **100000111147**
 
 Serum/plasma derivate, adult bovine. */
     N100000111147,
-    /** # 100000111148
+    /** **100000111148**
 
 Serum/plasma, adult bovine. */
     N100000111148,
-    /** # 100000111149
+    /** **100000111149**
 
 Sweat. */
     N100000111149,
-    /** # 100000111150
+    /** **100000111150**
 
 Tears. */
     N100000111150,
-    /** # 100000111151
+    /** **100000111151**
 
 Urine. */
     N100000111151,
-    /** # 100000111152
+    /** **100000111152**
 
 Venom. */
     N100000111152,
-    /** # 100000111153
+    /** **100000111153**
 
 Whey. */
     N100000111153,
-    /** # 100000111154
+    /** **100000111154**
 
 Casein. */
     N100000111154,
-    /** # 100000111155
+    /** **100000111155**
 
 Fermentation products. */
     N100000111155,
-    /** # 100000111156
+    /** **100000111156**
 
 Gelatin. */
     N100000111156,
-    /** # 100000111157
+    /** **100000111157**
 
 Lactose. */
     N100000111157,
-    /** # 100000111158
+    /** **100000111158**
 
 Protein. */
     N100000111158,
-    /** # 100000111159
+    /** **100000111159**
 
 Insulin. */
     N100000111159,
-    /** # 100000111160
+    /** **100000111160**
 
 Collagen. */
     N100000111160,
-    /** # 100000111161
+    /** **100000111161**
 
 Animal Charcoal. */
     N100000111161,
-    /** # 100000111162
+    /** **100000111162**
 
 Peptones. */
     N100000111162,
-    /** # 100000111163
+    /** **100000111163**
 
 Fatty acids. */
     N100000111163,
-    /** # 100000111164
+    /** **100000111164**
 
 Glycerol. */
     N100000111164,
-    /** # 100000125717
+    /** **100000125717**
 
 Not applicable. */
     N100000125717,
-    /** # 100000136180
+    /** **100000136180**
 
 Meat and offal, milk. */
     N100000136180,
-    /** # 100000136181
+    /** **100000136181**
 
 Agar blood. */
     N100000136181,
-    /** # 100000136182
+    /** **100000136182**
 
 Casamino acid. */
     N100000136182,
-    /** # 100000136183
+    /** **100000136183**
 
 Casein, hydrolysate. */
     N100000136183,
-    /** # 100000136184
+    /** **100000136184**
 
 Casein, pancreatic digest. */
     N100000136184,
-    /** # 100000136185
+    /** **100000136185**
 
 Casein, peptides N3. */
     N100000136185,
-    /** # 100000136186
+    /** **100000136186**
 
 Cells. */
     N100000136186,
-    /** # 100000136187
+    /** **100000136187**
 
 Cells, BHK21. */
     N100000136187,
-    /** # 100000136188
+    /** **100000136188**
 
 Cells, CHO. */
     N100000136188,
-    /** # 100000136189
+    /** **100000136189**
 
 Cells, CRFK. */
     N100000136189,
-    /** # 100000136190
+    /** **100000136190**
 
 Cells, embryo SPF. */
     N100000136190,
-    /** # 100000136191
+    /** **100000136191**
 
 Cells, IRC5. */
     N100000136191,
-    /** # 100000136192
+    /** **100000136192**
 
 Cells, kidney. */
     N100000136192,
-    /** # 100000136193
+    /** **100000136193**
 
 Cells, MDCK. */
     N100000136193,
-    /** # 100000136194
+    /** **100000136194**
 
 Cells, red blood. */
     N100000136194,
-    /** # 100000136195
+    /** **100000136195**
 
 Collagen, hydrolysate. */
     N100000136195,
-    /** # 100000136196
+    /** **100000136196**
 
 Cholesterol. */
     N100000136196,
-    /** # 100000136197
+    /** **100000136197**
 
 Egg, SPF embryonated. */
     N100000136197,
-    /** # 100000136198
+    /** **100000136198**
 
 Enzyme. */
     N100000136198,
-    /** # 100000136199
+    /** **100000136199**
 
 Enzyme, pancreatic enzymes. */
     N100000136199,
-    /** # 100000136200
+    /** **100000136200**
 
 Enzyme, pancreatin 6NF. */
     N100000136200,
-    /** # 100000136201
+    /** **100000136201**
 
 Enzyme, pepsin. */
     N100000136201,
-    /** # 100000136202
+    /** **100000136202**
 
 Enzyme, pronase. */
     N100000136202,
-    /** # 100000136203
+    /** **100000136203**
 
 Enzyme, trypsin. */
     N100000136203,
-    /** # 100000136204
+    /** **100000136204**
 
 Heart, digest. */
     N100000136204,
-    /** # 100000136205
+    /** **100000136205**
 
 Heart, extract. */
     N100000136205,
-    /** # 100000136206
+    /** **100000136206**
 
 Intestinal mucosae. */
     N100000136206,
-    /** # 100000136207
+    /** **100000136207**
 
 Lactalbumin hydrolysate. */
     N100000136207,
-    /** # 100000136208
+    /** **100000136208**
 
 Liver, digest. */
     N100000136208,
-    /** # 100000136209
+    /** **100000136209**
 
 Lymphocytes. */
     N100000136209,
-    /** # 100000136210
+    /** **100000136210**
 
 Meat. */
     N100000136210,
-    /** # 100000136211
+    /** **100000136211**
 
 Meat, enzymic hydrolysate. */
     N100000136211,
-    /** # 100000136212
+    /** **100000136212**
 
 Medium, cooked meat. */
     N100000136212,
-    /** # 100000136213
+    /** **100000136213**
 
 Medium, F10-199 medium. */
     N100000136213,
-    /** # 100000136214
+    /** **100000136214**
 
 Medium, FMD culture medium. */
     N100000136214,
-    /** # 100000136215
+    /** **100000136215**
 
 Medium, Glasgow MEM culture. */
     N100000136215,
-    /** # 100000136216
+    /** **100000136216**
 
 Medium, LB Agar Lennox. */
     N100000136216,
-    /** # 100000136217
+    /** **100000136217**
 
 Medium, LB Broth Lennox. */
     N100000136217,
-    /** # 100000136218
+    /** **100000136218**
 
 Medium, modified thioglycolate medium. */
     N100000136218,
-    /** # 100000136219
+    /** **100000136219**
 
 Medium, trypticase soy broth. */
     N100000136219,
-    /** # 100000136220
+    /** **100000136220**
 
 Medium, tryptose phosphate broth. */
     N100000136220,
-    /** # 100000136221
+    /** **100000136221**
 
 Milk, skimmed. */
     N100000136221,
-    /** # 100000136222
+    /** **100000136222**
 
 Pancreas, extract. */
     N100000136222,
-    /** # 100000136223
+    /** **100000136223**
 
 Peptones, casein hydrochloric peptone. */
     N100000136223,
-    /** # 100000136224
+    /** **100000136224**
 
 Peptones, casein tryptic peptone. */
     N100000136224,
-    /** # 100000136225
+    /** **100000136225**
 
 Pituitary extract. */
     N100000136225,
-    /** # 100000136226
+    /** **100000136226**
 
 Rennet. */
     N100000136226,
-    /** # 100000136227
+    /** **100000136227**
 
 Medium, nutrient broth. */
     N100000136227,
-    /** # 100000136228
+    /** **100000136228**
 
 Medium, NZ-Amine. */
     N100000136228,
-    /** # 100000136229
+    /** **100000136229**
 
 Medium, thioglycolate medium. */
     N100000136229,
-    /** # 100000136230
+    /** **100000136230**
 
 Peptones, proteose peptone. */
     N100000136230,
-    /** # 100000136231
+    /** **100000136231**
 
 Serum. */
     N100000136231,
-    /** # 100000136232
+    /** **100000136232**
 
 Serum, albumin. */
     N100000136232,
-    /** # 100000136233
+    /** **100000136233**
 
 Serum, Iron fortified calf. */
     N100000136233,
-    /** # 100000136234
+    /** **100000136234**
 
 Skin, connective tissue and bone. */
     N100000136234,
-    /** # 100000136235
+    /** **100000136235**
 
 Sperm. */
     N100000136235,
-    /** # 100000136236
+    /** **100000136236**
 
 Tryptone. */
     N100000136236,
-    /** # 100000136237
+    /** **100000136237**
 
 Meat, extract desiccated. */
     N100000136237,
-    /** # 100000136247
+    /** **100000136247**
 
 Stomach mucosa. */
     N100000136247,
-    /** # 100000136248
+    /** **100000136248**
 
 Transferin. */
     N100000136248,
-    /** # 100000136554
+    /** **100000136554**
 
 Non-neural. */
     N100000136554,
-    /** # 100000136555
+    /** **100000136555**
 
 Not specified. */
     N100000136555,
-    /** # 100000136556
+    /** **100000136556**
 
 Organ tissue. */
     N100000136556,
-    /** # 100000142485
+    /** **100000142485**
 
 Skin and fat in natural proportions. */
     N100000142485,
@@ -5507,49 +5447,47 @@ impl From<AnimalTissueType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AppointmentStatus`. The free/busy status of an appointment.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AppointmentStatus](http://hl7.org/fhir/ValueSet/appointmentstatus)**. The free/busy status of an appointment.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AppointmentStatus {
-    /** # arrived
+    /** **arrived**
 
 Arrived. The patient/patients has/have arrived and is/are waiting to be seen. */
     Arrived,
-    /** # booked
+    /** **booked**
 
 Booked. All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified. */
     Booked,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The appointment has been cancelled. */
     Cancelled,
-    /** # checked-in
+    /** **checked-in**
 
 Checked In. When checked in, all pre-encounter administrative work is complete, and the encounter may begin. (where multiple patients are involved, they are all present). */
     CheckedIn,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # fulfilled
+    /** **fulfilled**
 
 Fulfilled. The planning stages of the appointment are now complete, the encounter resource will exist and will track further status changes. Note that an encounter may exist before the appointment status is fulfilled for many reasons. */
     Fulfilled,
-    /** # noshow
+    /** **noshow**
 
 No Show. Some or all of the participant(s) have not/did not appear for the appointment (usually the patient). */
     Noshow,
-    /** # pending
+    /** **pending**
 
 Pending. Some or all of the participant(s) have not finalized their acceptance of the appointment request. */
     Pending,
-    /** # proposed
+    /** **proposed**
 
 Proposed. None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time might not be set yet. */
     Proposed,
-    /** # waitlist
+    /** **waitlist**
 
 Waitlisted. The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.
 A specific time might or might not be pre-allocated. */
@@ -5641,29 +5579,27 @@ impl From<AppointmentStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ArtifactAssessmentDisposition`. Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ArtifactAssessmentDisposition](http://hl7.org/fhir/ValueSet/artifactassessment-disposition)**. Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactAssessmentDisposition {
-    /** # not-persuasive
+    /** **not-persuasive**
 
 Not Persuasive. The comment is not persuasive (rejected in full) */
     NotPersuasive,
-    /** # not-persuasive-with-modification
+    /** **not-persuasive-with-modification**
 
 Not Persuasive with Modification. The comment is not persuasive with modification (partially rejected) */
     NotPersuasiveWithModification,
-    /** # persuasive
+    /** **persuasive**
 
 Persuasive. The comment is persuasive (accepted in full) */
     Persuasive,
-    /** # persuasive-with-modification
+    /** **persuasive-with-modification**
 
 Persuasive with Modification. The comment is persuasive with modification (partially accepted) */
     PersuasiveWithModification,
-    /** # unresolved
+    /** **unresolved**
 
 Unresolved. The comment is unresolved */
     Unresolved,
@@ -5741,33 +5677,31 @@ impl From<ArtifactAssessmentDisposition> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ArtifactAssessmentInformationType`. The type of information contained in a component of an artifact assessment.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ArtifactAssessmentInformationType](http://hl7.org/fhir/ValueSet/artifactassessment-information-type)**. The type of information contained in a component of an artifact assessment.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactAssessmentInformationType {
-    /** # change-request
+    /** **change-request**
 
 Change Request. A change request for the artifact */
     ChangeRequest,
-    /** # classifier
+    /** **classifier**
 
 Classifier. A classifier of the artifact */
     Classifier,
-    /** # comment
+    /** **comment**
 
 Comment. A comment on the artifact */
     Comment,
-    /** # container
+    /** **container**
 
 Container. A container for multiple components */
     Container,
-    /** # rating
+    /** **rating**
 
 Rating. A rating of the artifact */
     Rating,
-    /** # response
+    /** **response**
 
 Response. A response to a comment */
     Response,
@@ -5849,49 +5783,47 @@ impl From<ArtifactAssessmentInformationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ArtifactAssessmentWorkflowStatus`. Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ArtifactAssessmentWorkflowStatus](http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status)**. Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactAssessmentWorkflowStatus {
-    /** # applied
+    /** **applied**
 
 Applied. The comment is resolved and any necessary changes have been applied */
     Applied,
-    /** # deferred
+    /** **deferred**
 
 Deferred. The comment is acceptable, but resolution of the comment and application of any associated changes have been deferred */
     Deferred,
-    /** # duplicate
+    /** **duplicate**
 
 Duplicate. The comment is a duplicate of another comment already received */
     Duplicate,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The assessment was entered in error */
     EnteredInError,
-    /** # published
+    /** **published**
 
 Published. The necessary changes to the artifact have been published in a new version of the artifact */
     Published,
-    /** # resolved-change-required
+    /** **resolved-change-required**
 
 Resolved - Change Required. The comment has been resolved and changes are required to address the comment */
     ResolvedChangeRequired,
-    /** # resolved-no-change
+    /** **resolved-no-change**
 
 Resolved - No Change. The comment has been resolved and no changes resulted from the resolution */
     ResolvedNoChange,
-    /** # submitted
+    /** **submitted**
 
 Submitted. The comment has been submitted, but the responsible party has not yet been determined, or the responsible party has not yet determined the next steps to be taken. */
     Submitted,
-    /** # triaged
+    /** **triaged**
 
 Triaged. The comment has been triaged, meaning the responsible party has been determined and next steps have been identified to address the comment. */
     Triaged,
-    /** # waiting-for-input
+    /** **waiting-for-input**
 
 Waiting for Input. The comment is waiting for input from a specific party before next steps can be taken. */
     WaitingForInput,
@@ -5985,21 +5917,19 @@ impl From<ArtifactAssessmentWorkflowStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ArtifactContributionInstanceType`. Artifact Contribution Instance Type
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ArtifactContributionInstanceType](http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type)**. Artifact Contribution Instance Type\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactContributionInstanceType {
-    /** # approved
+    /** **approved**
 
 Approved. Approved */
     Approved,
-    /** # edited
+    /** **edited**
 
 Edited. Edited */
     Edited,
-    /** # reviewed
+    /** **reviewed**
 
 Reviewed. Reviewed */
     Reviewed,
@@ -6072,65 +6002,63 @@ impl From<ArtifactContributionInstanceType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ArtifactContributionType`. Citation contribution.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ArtifactContributionType](http://hl7.org/fhir/ValueSet/artifact-contribution-type)**. Citation contribution.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactContributionType {
-    /** # conceptualization
+    /** **conceptualization**
 
 Conceptualization. Conceptualization (see https://jats4r.org/credit-taxonomy). */
     Conceptualization,
-    /** # data-curation
+    /** **data-curation**
 
 Data curation. Data curation (see https://jats4r.org/credit-taxonomy). */
     DataCuration,
-    /** # formal-analysis
+    /** **formal-analysis**
 
 Formal analysis. Formal analysis (see https://jats4r.org/credit-taxonomy). */
     FormalAnalysis,
-    /** # funding-acquisition
+    /** **funding-acquisition**
 
 Funding acquisition. Funding acquisition (see https://jats4r.org/credit-taxonomy). */
     FundingAcquisition,
-    /** # investigation
+    /** **investigation**
 
 Investigation. Investigation (see https://jats4r.org/credit-taxonomy). */
     Investigation,
-    /** # methodology
+    /** **methodology**
 
 Methodology. Methodology (see https://jats4r.org/credit-taxonomy). */
     Methodology,
-    /** # project-administration
+    /** **project-administration**
 
 Project administration. Project administration (see https://jats4r.org/credit-taxonomy). */
     ProjectAdministration,
-    /** # resources
+    /** **resources**
 
 Resources. Resources (see https://jats4r.org/credit-taxonomy). */
     Resources,
-    /** # software
+    /** **software**
 
 Software. Software (see https://jats4r.org/credit-taxonomy). */
     Software,
-    /** # supervision
+    /** **supervision**
 
 Supervision. Supervision (see https://jats4r.org/credit-taxonomy). */
     Supervision,
-    /** # validation
+    /** **validation**
 
 Validation. Validation (see https://jats4r.org/credit-taxonomy). */
     Validation,
-    /** # visualization
+    /** **visualization**
 
 Visualization. Visualization (see https://jats4r.org/credit-taxonomy). */
     Visualization,
-    /** # writing-original-draft
+    /** **writing-original-draft**
 
 Writing - original draft. Writing - original draft (see https://jats4r.org/credit-taxonomy). */
     WritingOriginalDraft,
-    /** # writing-review-editing
+    /** **writing-review-editing**
 
 Writing - review & editing. Writing - review & editing (see https://jats4r.org/credit-taxonomy). */
     WritingReviewEditing,
@@ -6233,69 +6161,67 @@ impl From<ArtifactContributionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ArtifactUrlClassifier`. Code the reason for different URLs, eg abstract and full-text.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ArtifactUrlClassifier](http://hl7.org/fhir/ValueSet/artifact-url-classifier)**. Code the reason for different URLs, eg abstract and full-text.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactUrlClassifier {
-    /** # abstract
+    /** **abstract**
 
 Abstract. The URL will reach a brief summary for the article. */
     Abstract,
-    /** # code-repository
+    /** **code-repository**
 
 Code repository. File archive and web hosting facility for source code of software, documentation, web pages, and other works. */
     CodeRepository,
-    /** # compressed-file
+    /** **compressed-file**
 
 Compressed file. Compressed archive file (e.g. a zip file) that contains multiple files */
     CompressedFile,
-    /** # computable-resource
+    /** **computable-resource**
 
 Computable resource. The URL will reach content that is machine-interpretable. */
     ComputableResource,
-    /** # doi-based
+    /** **doi-based**
 
 DOI Based. The URL is derived from the Digital Object Identifier (DOI). */
     DoiBased,
-    /** # file-directory
+    /** **file-directory**
 
 File directory. The URL will reach a file directory. */
     FileDirectory,
-    /** # full-text
+    /** **full-text**
 
 Full-Text. The URL will reach the full-text of the article. */
     FullText,
-    /** # json
+    /** **json**
 
 JSON. The URL will reach content in JSON format. */
     Json,
-    /** # not-specified
+    /** **not-specified**
 
 Not Specified. Used when URL classifier is not specified but expected in a system. */
     NotSpecified,
-    /** # pdf
+    /** **pdf**
 
 PDF. The URL will reach content in PDF form. */
     Pdf,
-    /** # restricted
+    /** **restricted**
 
 Restricted. The URL content has restricted access (e.g. subcription required). */
     Restricted,
-    /** # supplement
+    /** **supplement**
 
 Supplement. The URL will reach a supplement, appendix, or additional supporting information for the article. */
     Supplement,
-    /** # version-specific
+    /** **version-specific**
 
 Version Specific. The URL will reach content that is a specific version of the article. */
     VersionSpecific,
-    /** # webpage
+    /** **webpage**
 
 Webpage. The URL will reach a webpage related to the article, where the content is not easily classified as abstract, full-text or supplement. */
     Webpage,
-    /** # xml
+    /** **xml**
 
 XML. The URL will reach content in XML format. */
     Xml,
@@ -6401,17 +6327,15 @@ impl From<ArtifactUrlClassifier> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AssertionDirectionType`. The type of direction to use for assertion.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AssertionDirectionType](http://hl7.org/fhir/ValueSet/assert-direction-codes)**. The type of direction to use for assertion.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionDirectionType {
-    /** # request
+    /** **request**
 
 request. The assertion is evaluated on the request. */
     Request,
-    /** # response
+    /** **response**
 
 response. The assertion is evaluated on the response. This is the default value. */
     Response,
@@ -6478,25 +6402,23 @@ impl From<AssertionDirectionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AssertionManualCompletionType`. The type of manual completion to use for assertion.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AssertionManualCompletionType](http://hl7.org/fhir/ValueSet/assert-manual-completion-codes)**. The type of manual completion to use for assertion.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionManualCompletionType {
-    /** # fail
+    /** **fail**
 
 Fail. Mark the currently waiting test failed and proceed with the next assert if the stopTestOnFail is false or the next test in the TestScript if the stopTestOnFail is true. */
     Fail,
-    /** # pass
+    /** **pass**
 
 Pass. Mark the currently waiting test passed (if the test is not failed already) and proceed with the next action in the TestScript. */
     Pass,
-    /** # skip
+    /** **skip**
 
 Skip. Mark this assert as skipped and proceed with the next action in the TestScript. */
     Skip,
-    /** # stop
+    /** **stop**
 
 Stop. Stop execution of this TestScript. The overall status of this TestScript is evaluated based on the status of the completed tests. */
     Stop,
@@ -6571,57 +6493,55 @@ impl From<AssertionManualCompletionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AssertionOperatorType`. The type of operator to use for assertion.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AssertionOperatorType](http://hl7.org/fhir/ValueSet/assert-operator-codes)**. The type of operator to use for assertion.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionOperatorType {
-    /** # contains
+    /** **contains**
 
 contains. Compare value string contains a known value. */
     Contains,
-    /** # empty
+    /** **empty**
 
 empty. Compare value is empty. */
     Empty,
-    /** # equals
+    /** **equals**
 
 equals. Default value. Equals comparison. */
     Equals,
-    /** # eval
+    /** **eval**
 
 evaluate. Evaluate the FHIRPath expression as a boolean condition. */
     Eval,
-    /** # greaterThan
+    /** **greaterThan**
 
 greaterThan. Compare value to be greater than a known value. */
     GreaterThan,
-    /** # in
+    /** **in**
 
 in. Compare value within a known set of values. */
     In,
-    /** # lessThan
+    /** **lessThan**
 
 lessThan. Compare value to be less than a known value. */
     LessThan,
-    /** # manualEval
+    /** **manualEval**
 
 manualEvaluate. Manually evaluate the condition described by this assert. The test engine SHALL pause and provide an input mechanism to set the outcome of this assert to 'pass', 'fail', 'skip' or 'stop'. */
     ManualEval,
-    /** # notContains
+    /** **notContains**
 
 notContains. Compare value string does not contain a known value. */
     NotContains,
-    /** # notEmpty
+    /** **notEmpty**
 
 notEmpty. Compare value is not empty. */
     NotEmpty,
-    /** # notEquals
+    /** **notEquals**
 
 notEquals. Not equals comparison. */
     NotEquals,
-    /** # notIn
+    /** **notIn**
 
 notIn. Compare value not within a known set of values. */
     NotIn,
@@ -6718,185 +6638,183 @@ impl From<AssertionOperatorType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AssertionResponseTypes`. The type of response code to use for assertion.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AssertionResponseTypes](http://hl7.org/fhir/ValueSet/assert-response-code-types)**. The type of response code to use for assertion.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionResponseTypes {
-    /** # accepted
+    /** **accepted**
 
 Accepted. Response code is 202. */
     Accepted,
-    /** # badGateway
+    /** **badGateway**
 
 Bad Gateway. Response code is 502. */
     BadGateway,
-    /** # badRequest
+    /** **badRequest**
 
 Bad Request. Response code is 400. */
     BadRequest,
-    /** # conflict
+    /** **conflict**
 
 Conflict. Response code is 409. */
     Conflict,
-    /** # contentTooLarge
+    /** **contentTooLarge**
 
 Content Too Large. Response code is 413. */
     ContentTooLarge,
-    /** # continue
+    /** **continue**
 
 Continue. Response code is 100. */
     Continue,
-    /** # created
+    /** **created**
 
 Created. Response code is 201. */
     Created,
-    /** # expectationFailed
+    /** **expectationFailed**
 
 Expectation Failed. Response code is 417. */
     ExpectationFailed,
-    /** # forbidden
+    /** **forbidden**
 
 Forbidden. Response code is 403. */
     Forbidden,
-    /** # found
+    /** **found**
 
 Found. Response code is 302. */
     Found,
-    /** # gatewayTimeout
+    /** **gatewayTimeout**
 
 Gateway Timeout. Response code is 504. */
     GatewayTimeout,
-    /** # gone
+    /** **gone**
 
 Gone. Response code is 410. */
     Gone,
-    /** # httpVersionNotSupported
+    /** **httpVersionNotSupported**
 
 HTTP Version Not Supported. Response code is 505. */
     HttpVersionNotSupported,
-    /** # internalServerError
+    /** **internalServerError**
 
 Internal Server Error. Response code is 500. */
     InternalServerError,
-    /** # lengthRequired
+    /** **lengthRequired**
 
 Length Required. Response code is 411. */
     LengthRequired,
-    /** # methodNotAllowed
+    /** **methodNotAllowed**
 
 Method Not Allowed. Response code is 405. */
     MethodNotAllowed,
-    /** # misdirectedRequest
+    /** **misdirectedRequest**
 
 Misdirected Request. Response code is 421. */
     MisdirectedRequest,
-    /** # movedPermanently
+    /** **movedPermanently**
 
 Moved Permanently. Response code is 301. */
     MovedPermanently,
-    /** # multipleChoices
+    /** **multipleChoices**
 
 Multiple Choices. Response code is 300. */
     MultipleChoices,
-    /** # noContent
+    /** **noContent**
 
 No Content. Response code is 204. */
     NoContent,
-    /** # nonAuthoritativeInformation
+    /** **nonAuthoritativeInformation**
 
 Non-Authoritative Information. Response code is 203. */
     NonAuthoritativeInformation,
-    /** # notAcceptable
+    /** **notAcceptable**
 
 Not Acceptable. Response code is 406. */
     NotAcceptable,
-    /** # notFound
+    /** **notFound**
 
 Not Found. Response code is 404. */
     NotFound,
-    /** # notImplemented
+    /** **notImplemented**
 
 Not Implemented. Response code is 501. */
     NotImplemented,
-    /** # notModified
+    /** **notModified**
 
 Not Modified. Response code is 304. */
     NotModified,
-    /** # okay
+    /** **okay**
 
 OK. Response code is 200. */
     Okay,
-    /** # partialContent
+    /** **partialContent**
 
 Partial Content. Response code is 206. */
     PartialContent,
-    /** # paymentRequired
+    /** **paymentRequired**
 
 Payment Required. Response code is 402. */
     PaymentRequired,
-    /** # permanentRedirect
+    /** **permanentRedirect**
 
 Permanent Redirect. Response code is 308. */
     PermanentRedirect,
-    /** # preconditionFailed
+    /** **preconditionFailed**
 
 Precondition Failed. Response code is 412. */
     PreconditionFailed,
-    /** # proxyAuthenticationRequired
+    /** **proxyAuthenticationRequired**
 
 Proxy Authentication Required. Response code is 407. */
     ProxyAuthenticationRequired,
-    /** # rangeNotSatisfiable
+    /** **rangeNotSatisfiable**
 
 Range Not Satisfiable. Response code is 416. */
     RangeNotSatisfiable,
-    /** # requestTimeout
+    /** **requestTimeout**
 
 Request Timeout. Response code is 408. */
     RequestTimeout,
-    /** # resetContent
+    /** **resetContent**
 
 Reset Content. Response code is 205. */
     ResetContent,
-    /** # seeOther
+    /** **seeOther**
 
 See Other. Response code is 303. */
     SeeOther,
-    /** # serviceUnavailable
+    /** **serviceUnavailable**
 
 Service Unavailable. Response code is 503. */
     ServiceUnavailable,
-    /** # switchingProtocols
+    /** **switchingProtocols**
 
 Switching Protocols. Response code is 101. */
     SwitchingProtocols,
-    /** # temporaryRedirect
+    /** **temporaryRedirect**
 
 Temporary Redirect. Response code is 307. */
     TemporaryRedirect,
-    /** # unauthorized
+    /** **unauthorized**
 
 Unauthorized. Response code is 401. */
     Unauthorized,
-    /** # unprocessableContent
+    /** **unprocessableContent**
 
 Unprocessable Content. Response code is 422. */
     UnprocessableContent,
-    /** # unsupportedMediaType
+    /** **unsupportedMediaType**
 
 Unsupported Media Type. Response code is 415. */
     UnsupportedMediaType,
-    /** # upgradeRequired
+    /** **upgradeRequired**
 
 Upgrade Required. Response code is 426. */
     UpgradeRequired,
-    /** # uriTooLong
+    /** **uriTooLong**
 
 URI Too Long. Response code is 414. */
     UriTooLong,
-    /** # useProxy
+    /** **useProxy**
 
 Use Proxy. Response code is 305. */
     UseProxy,
@@ -7089,29 +7007,27 @@ impl From<AssertionResponseTypes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AuditEventAction`. Indicator for type of action performed during the event that generated the event.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AuditEventAction](http://hl7.org/fhir/ValueSet/audit-event-action)**. Indicator for type of action performed during the event that generated the event.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AuditEventAction {
-    /** # C
+    /** **C**
 
 Create. Create a new database object, such as placing an order. */
     C,
-    /** # D
+    /** **D**
 
 Delete. Delete items, such as a doctor master file record. */
     D,
-    /** # E
+    /** **E**
 
 Execute. Perform a system or application function such as log-on, program execution or use of an object's method, or perform a query/search operation. */
     E,
-    /** # R
+    /** **R**
 
 Read. Read data, such as to print or display to a doctor. */
     R,
-    /** # U
+    /** **U**
 
 Update. Update data, such as revise patient information. */
     U,
@@ -7187,41 +7103,39 @@ impl From<AuditEventAction> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `AuditEventSeverity`. The severity of the audit entry.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[AuditEventSeverity](http://hl7.org/fhir/ValueSet/audit-event-severity)**. The severity of the audit entry.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AuditEventSeverity {
-    /** # alert
+    /** **alert**
 
 Alert. Notification should be sent to trigger action be taken. e.g., Loss of the primary network connection needing attention. */
     Alert,
-    /** # critical
+    /** **critical**
 
 Critical. Critical conditions. e.g., A failure in the system's primary application that will reset automatically. */
     Critical,
-    /** # debug
+    /** **debug**
 
 Debug. Debug-level messages. Information useful to developers for debugging the application. */
     Debug,
-    /** # emergency
+    /** **emergency**
 
 Emergency. System is unusable. e.g., This level should only be reported by infrastructure and should not be used by applications. */
     Emergency,
-    /** # error
+    /** **error**
 
 Error. Error conditions. e.g., An application has exceeded its file storage limit and attempts to write are failing.  */
     Error,
-    /** # informational
+    /** **informational**
 
 Informational. Normal operational messages that require no action. e.g., An application has started, paused, or ended successfully. */
     Informational,
-    /** # notice
+    /** **notice**
 
 Notice. Notice messages. Normal but significant condition. Events that are unusual, but not error conditions. */
     Notice,
-    /** # warning
+    /** **warning**
 
 Warning. Warning conditions. May indicate that an error will occur if action is not taken. e.g., A non-root file system has only 2GB remaining. */
     Warning,
@@ -7306,29 +7220,27 @@ impl From<AuditEventSeverity> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BeneficiaryRelationshipCodes`. This value set includes the Patient to subscriber relationship codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BeneficiaryRelationshipCodes](http://hl7.org/fhir/ValueSet/relationship)**. This value set includes the Patient to subscriber relationship codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BeneficiaryRelationshipCodes {
-    /** # 1
+    /** **1**
 
 Self. The patient is the subscriber (policy holder) */
     N1,
-    /** # 2
+    /** **2**
 
 Spouse. The patient is the spouse or equivalent of the subscriber (policy holder) */
     N2,
-    /** # 3
+    /** **3**
 
 Child. The patient is the child of the subscriber (policy holder) */
     N3,
-    /** # 4
+    /** **4**
 
 Common Law Spouse. The patient is the common law spouse of the subscriber (policy holder) */
     N4,
-    /** # 5
+    /** **5**
 
 Other. The patient has some other relationship, such as parent, to the subscriber (policy holder) */
     N5,
@@ -7404,25 +7316,23 @@ impl From<BeneficiaryRelationshipCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BindingStrength`. Indication of the degree of conformance expectations associated with a binding.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BindingStrength](http://hl7.org/fhir/ValueSet/binding-strength)**. Indication of the degree of conformance expectations associated with a binding.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BindingStrength {
-    /** # example
+    /** **example**
 
 Example. Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included. */
     Example,
-    /** # extensible
+    /** **extensible**
 
 Extensible. To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead. */
     Extensible,
-    /** # preferred
+    /** **preferred**
 
 Preferred. Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant. */
     Preferred,
-    /** # required
+    /** **required**
 
 Required. To be conformant, the concept in this element SHALL be from the specified value set. */
     Required,
@@ -7495,29 +7405,27 @@ impl From<BindingStrength> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductCategory`. Biologically Derived Product Category.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductCategory](http://hl7.org/fhir/ValueSet/product-category)**. Biologically Derived Product Category.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductCategory {
-    /** # biologicalAgent
+    /** **biologicalAgent**
 
 BiologicalAgent. Biological agent of unspecified type. */
     BiologicalAgent,
-    /** # cells
+    /** **cells**
 
 Cells. Collection of cells. */
     Cells,
-    /** # fluid
+    /** **fluid**
 
 Fluid. Body fluid. */
     Fluid,
-    /** # organ
+    /** **organ**
 
 Organ. A collection of tissues joined in a structural unit to serve a common function. */
     Organ,
-    /** # tissue
+    /** **tissue**
 
 Tissue. An ensemble of similar cells and their extracellular matrix from the same origin that together carry out a specific function. */
     Tissue,
@@ -7593,45 +7501,43 @@ impl From<BiologicallyDerivedProductCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductCodes`. This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductCodes](http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes)**. This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductCodes {
-    /** # e0398
+    /** **e0398**
 
 RED BLOOD CELLS|CPD>AS5/450mL/refg|Irr|ResLeu. RED BLOOD CELLS|CPD>AS5/450mL/refg|Irr|ResLeu */
     E0398,
-    /** # e4377
+    /** **e4377**
 
 Apheresis RED BLOOD CELLS|ACD-A/XX/refg|Irradiated|1st container. RED BLOOD CELLS Apheresis product, ACD-A, Irradiated,1st container, stored at refrigeration temperatures */
     E4377,
-    /** # s1128
+    /** **s1128**
 
 HPC, APHERESIS/Citrate/XX/refg/Mobilized. HPC, APHERESIS/Citrate/XX/refg/Mobilized */
     S1128,
-    /** # s1194
+    /** **s1194**
 
 HPC, APHERESIS|NS/XX/<=-120C|10% DMSO|Cryopreserved|Mobilized. HPC, Apheresis product, 10% DMSO, mobilized, cryopreserved at <=-120C */
     S1194,
-    /** # s1195
+    /** **s1195**
 
 HPC, APHERESIS|NS/XX/<=-120C|5% DMSO|Cryopreserved|Mobilized. HPC, Apheresis product, 5% DMSO, mobilized, cryopreserved at <=-120C */
     S1195,
-    /** # s1310
+    /** **s1310**
 
 HPC, APHERESIS|None/XX/refg|3rd Party Comp:Yes|Other Additives:Yes|Mobilized|CD34 enriched. HPC, Apheresis product, third party components added, other additives added, mobilized, CD34 enriched, stored at refrigeration temperatures */
     S1310,
-    /** # s1398
+    /** **s1398**
 
 HPC, MARROW|NS/XX/rt|Plasma reduced. HPC, Marrow, plasma reduced, stored at room temperature */
     S1398,
-    /** # s2598
+    /** **s2598**
 
 HPC, MARROW|NS/XX/<=-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced. HPC, MARROW|NS/XX/<=-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced */
     S2598,
-    /** # t1396
+    /** **t1396**
 
 BONE, FEMUR|Frozen|Right|Radiation sterilization. BONE, FEMUR, Right, sterilized by radiation, stored at frozen temperatures */
     T1396,
@@ -7730,41 +7636,39 @@ impl From<BiologicallyDerivedProductCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductDispense`. BiologicallyDerivedProductDispense Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductDispense](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status)**. BiologicallyDerivedProductDispense Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispense {
-    /** # allocated
+    /** **allocated**
 
 Allocated. The requested product has been allocated and is ready for transport. */
     Allocated,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The dispense was entered in error and therefore nullified. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The dispense process is in progress. */
     InProgress,
-    /** # issued
+    /** **issued**
 
 Issued. The dispensed product has been picked up. */
     Issued,
-    /** # preparation
+    /** **preparation**
 
 Preparation. The dispense process has started but not yet completed. */
     Preparation,
-    /** # returned
+    /** **returned**
 
 Returned. The dispensed product was returned. */
     Returned,
-    /** # unfulfilled
+    /** **unfulfilled**
 
 Unfulfilled. The dispense could not be completed. */
     Unfulfilled,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring system does not know which of the status values applies for this dispense. Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -7852,25 +7756,23 @@ impl From<BiologicallyDerivedProductDispense> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductDispenseMatchStatus`. Biologically derived product dispense - match status
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductDispenseMatchStatus](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status)**. Biologically derived product dispense - match status\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispenseMatchStatus {
-    /** # crossmatched
+    /** **crossmatched**
 
 Crossmatched. The product has been serologically or electronically crossmatched for the recipient */
     Crossmatched,
-    /** # least-incompatible
+    /** **least-incompatible**
 
 Least incompatible. The product has been selected through crossmatching as least incompatible */
     LeastIncompatible,
-    /** # selected
+    /** **selected**
 
 Selected. The product has been selected for the specific use of the recipient */
     Selected,
-    /** # unmatched
+    /** **unmatched**
 
 Unmatched. No specific matching has been carried out */
     Unmatched,
@@ -7946,29 +7848,27 @@ impl From<BiologicallyDerivedProductDispenseMatchStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductDispenseOriginRelationship`. Biologically derived product dispense - origin relationship
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductDispenseOriginRelationship](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship)**. Biologically derived product dispense - origin relationship\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispenseOriginRelationship {
-    /** # allogeneic
+    /** **allogeneic**
 
 Allogeneic. The donor and the recipient are unrelated */
     Allogeneic,
-    /** # autologous
+    /** **autologous**
 
 Autologous. The product was pre-donated by the recipient */
     Autologous,
-    /** # directed
+    /** **directed**
 
 Directed. The donor has been specifically selected to provide product for the recipient */
     Directed,
-    /** # related
+    /** **related**
 
 Related. The product is from a blood relation of the recipient */
     Related,
-    /** # xenogenic
+    /** **xenogenic**
 
 Xenogenic. The product is from a different species to the recipient */
     Xenogenic,
@@ -8047,37 +7947,35 @@ impl From<BiologicallyDerivedProductDispenseOriginRelationship> for CodeableConc
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductDispensePerformerFunction`. Biologically derived product dispense - performer function
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductDispensePerformerFunction](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function)**. Biologically derived product dispense - performer function\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispensePerformerFunction {
-    /** # antibody-identification
+    /** **antibody-identification**
 
 Antibody Identification. Antibody identification procedure */
     AntibodyIdentification,
-    /** # antibody-screen
+    /** **antibody-screen**
 
 Antibody Screen. Antibody screening procedure */
     AntibodyScreen,
-    /** # crossmatch
+    /** **crossmatch**
 
 Crossmatch. Serological or electronic crossmatch procedure */
     Crossmatch,
-    /** # group-and-type
+    /** **group-and-type**
 
 Group and Type. ABO and RhD blood grouping procedure */
     GroupAndType,
-    /** # receipt
+    /** **receipt**
 
 Receipt. Receipt of product for clinical application */
     Receipt,
-    /** # release
+    /** **release**
 
 Release. Approval for release for clinical application */
     Release,
-    /** # transport
+    /** **transport**
 
 Transport. Transfer of product from the supply department to the site of clinical use */
     Transport,
@@ -8162,17 +8060,15 @@ impl From<BiologicallyDerivedProductDispensePerformerFunction> for CodeableConce
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BiologicallyDerivedProductStatus`. Biologically Derived Product Status.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BiologicallyDerivedProductStatus](http://hl7.org/fhir/ValueSet/biologicallyderived-product-status)**. Biologically Derived Product Status.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductStatus {
-    /** # available
+    /** **available**
 
 Available. Product is currently available for use. */
     Available,
-    /** # unavailable
+    /** **unavailable**
 
 Unavailable. Product is not currently available for use. */
     Unavailable,
@@ -8242,49 +8138,47 @@ impl From<BiologicallyDerivedProductStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `BundleType`. Indicates the purpose of a bundle - how it is intended to be used.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[BundleType](http://hl7.org/fhir/ValueSet/bundle-type)**. Indicates the purpose of a bundle - how it is intended to be used.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BundleType {
-    /** # batch
+    /** **batch**
 
 Batch. The bundle is a set of actions - intended to be processed by a server as a group of independent actions. */
     Batch,
-    /** # batch-response
+    /** **batch-response**
 
 Batch Response. The bundle is a batch response. Note that as a batch, some responses may indicate failure and others success. */
     BatchResponse,
-    /** # collection
+    /** **collection**
 
 Collection. The bundle is a set of resources collected into a single package for ease of distribution that imposes no processing obligations or behavioral rules beyond persistence. */
     Collection,
-    /** # document
+    /** **document**
 
 Document. The bundle is a document. The first resource is a Composition. */
     Document,
-    /** # history
+    /** **history**
 
 History List. The bundle is a list of resources from a history interaction on a server. */
     History,
-    /** # message
+    /** **message**
 
 Message. The bundle is a message. The first resource is a MessageHeader. */
     Message,
-    /** # searchset
+    /** **searchset**
 
 Search Results. The bundle is a list of resources returned as a result of a search/query interaction, operation, or message. */
     Searchset,
-    /** # subscription-notification
+    /** **subscription-notification**
 
 Subscription Notification. The bundle has been generated by a Subscription to communicate information to a client. */
     SubscriptionNotification,
-    /** # transaction
+    /** **transaction**
 
 Transaction. The bundle is a transaction - intended to be processed by a server as an atomic commit. */
     Transaction,
-    /** # transaction-response
+    /** **transaction-response**
 
 Transaction Response. The bundle is a transaction response. Because the response is a transaction response, the transaction has succeeded, and all responses are error free. */
     TransactionResponse,
@@ -8375,21 +8269,19 @@ impl From<BundleType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CapabilityStatementKind`. How a capability statement is intended to be used.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CapabilityStatementKind](http://hl7.org/fhir/ValueSet/capability-statement-kind)**. How a capability statement is intended to be used.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CapabilityStatementKind {
-    /** # capability
+    /** **capability**
 
 Capability. The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation. */
     Capability,
-    /** # instance
+    /** **instance**
 
 Instance. The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point. */
     Instance,
-    /** # requirements
+    /** **requirements**
 
 Requirements. The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'. */
     Requirements,
@@ -8459,29 +8351,27 @@ impl From<CapabilityStatementKind> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CareTeamStatus`. Indicates the status of the care team.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CareTeamStatus](http://hl7.org/fhir/ValueSet/care-team-status)**. Indicates the status of the care team.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CareTeamStatus {
-    /** # active
+    /** **active**
 
 Active. The care team is currently participating in the coordination and delivery of care. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The care team should have never existed. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The care team was, but is no longer, participating in the coordination and delivery of care. */
     Inactive,
-    /** # proposed
+    /** **proposed**
 
 Proposed. The care team has been drafted and proposed, but not yet participating in the coordination and delivery of patient care. */
     Proposed,
-    /** # suspended
+    /** **suspended**
 
 Suspended. The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care. */
     Suspended,
@@ -8557,20 +8447,18 @@ impl From<CareTeamStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CatalogType`. CatalogType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CatalogType](http://hl7.org/fhir/catalogType)**. CatalogType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum CatalogType {
-    /** # device
+    /** **device**
 
 Device Catalog. Device Catalog. */
     Device,
-    /** # medication
+    /** **medication**
 
 Medication Catalog. Medication Catalog. */
     Medication,
-    /** # protocol
+    /** **protocol**
 
 Protocol List. Protocol List. */
     Protocol,
@@ -8644,37 +8532,35 @@ impl From<CatalogType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CharacteristicCombination`. Logical grouping of characteristics.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CharacteristicCombination](http://hl7.org/fhir/ValueSet/characteristic-combination)**. Logical grouping of characteristics.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CharacteristicCombination {
-    /** # all-of
+    /** **all-of**
 
 All of. Combine characteristics with AND. */
     AllOf,
-    /** # any-of
+    /** **any-of**
 
 Any of. Combine characteristics with OR. */
     AnyOf,
-    /** # at-least
+    /** **at-least**
 
 At least. Meet at least the threshold number of characteristics for definition. */
     AtLeast,
-    /** # at-most
+    /** **at-most**
 
 At most. Meet at most the threshold number of characteristics for definition. */
     AtMost,
-    /** # dataset
+    /** **dataset**
 
 Dataset. Combine characteristics as a collection used as the dataset. */
     Dataset,
-    /** # net-effect
+    /** **net-effect**
 
 Net effect. Combine characteristics by addition of benefits and subtraction of harms. */
     NetEffect,
-    /** # statistical
+    /** **statistical**
 
 Statistical. Combine characteristics statistically. Use method to specify the statistical method. */
     Statistical,
@@ -8756,17 +8642,15 @@ impl From<CharacteristicCombination> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CharacteristicOffset`. Reference point for characteristic.valueQuantity.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CharacteristicOffset](http://hl7.org/fhir/ValueSet/characteristic-offset)**. Reference point for characteristic.valueQuantity.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CharacteristicOffset {
-    /** # LNL
+    /** **LNL**
 
 Lower Normal Limit. The lower bound of the reference range. */
     Lnl,
-    /** # UNL
+    /** **UNL**
 
 Upper Normal Limit. The upper bound of the reference range. */
     Unl,
@@ -8833,37 +8717,35 @@ impl From<CharacteristicOffset> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ChargeItemStatus`. Codes identifying the lifecycle stage of a ChargeItem.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ChargeItemStatus](http://hl7.org/fhir/ValueSet/chargeitem-status)**. Codes identifying the lifecycle stage of a ChargeItem.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ChargeItemStatus {
-    /** # aborted
+    /** **aborted**
 
 Aborted. The processing of the charge was aborted. */
     Aborted,
-    /** # billable
+    /** **billable**
 
 Billable. The charge item is ready for billing. */
     Billable,
-    /** # billed
+    /** **billed**
 
 Billed. The charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices. */
     Billed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The charge item has been entered in error and should not be processed for billing. */
     EnteredInError,
-    /** # not-billable
+    /** **not-billable**
 
 Not billable. The charge item has been determined to be not billable (e.g. due to rules associated with the billing code). */
     NotBillable,
-    /** # planned
+    /** **planned**
 
 Planned. The charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization. */
     Planned,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring system does not know which of the status values currently applies for this charge item  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -8945,133 +8827,131 @@ impl From<ChargeItemStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitationArtifactClassifier`. Citation artifact classifier
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitationArtifactClassifier](http://hl7.org/fhir/ValueSet/citation-artifact-classifier)**. Citation artifact classifier\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationArtifactClassifier {
-    /** # D000076942
+    /** **D000076942**
 
 Preprint. Scientific manuscript made available prior to PEER REVIEW. */
     D000076942,
-    /** # D001877
+    /** **D001877**
 
 Book. Non-periodical written or printed works consisting of sheets of pages fastened or bound together within covers. */
     D001877,
-    /** # D016420
+    /** **D016420**
 
 Comment. Comment */
     D016420,
-    /** # D016422
+    /** **D016422**
 
 Letter. Letter */
     D016422,
-    /** # D016425
+    /** **D016425**
 
 Published Erratum. Published Erratum */
     D016425,
-    /** # D016428
+    /** **D016428**
 
 Journal Article. Journal Article */
     D016428,
-    /** # D019991
+    /** **D019991**
 
 Database. A structured file of information or a set of logically related data stored and retrieved using computer-based means. */
     D019991,
-    /** # D059040
+    /** **D059040**
 
 Video-Audio Media. Used with articles which include video files or clips, or for articles which are entirely video. */
     D059040,
-    /** # D064886
+    /** **D064886**
 
 Dataset. Works consisting of organized collections of data, which have been stored permanently in a formalized manner suitable for communication, interpretation, or processing. */
     D064886,
-    /** # Electronic
+    /** **Electronic**
 
 Electronic. the journal is published in electronic format only */
     Electronic,
-    /** # Electronic-Print
+    /** **Electronic-Print**
 
 Electronic-Print. the journal is published first in electronic format followed by print (this value is currently used for just one journal, Nucleic Acids Research) */
     ElectronicPrint,
-    /** # Electronic-eCollection
+    /** **Electronic-eCollection**
 
 Electronic-eCollection. used for electronic-only journals that publish individual articles first and then later collect them into an "issue" date that is typically called an eCollection. */
     ElectronicECollection,
-    /** # Print
+    /** **Print**
 
 Print. the journal is published in print format only */
     Print,
-    /** # Print-Electronic
+    /** **Print-Electronic**
 
 Print Electronic. the journal is published in both print and electronic format */
     PrintElectronic,
-    /** # audio
+    /** **audio**
 
 Audio file. The article cited is an audio file. */
     Audio,
-    /** # cds-artifact
+    /** **cds-artifact**
 
 Clinical Decision Support Artifact. The artifact is used for decision support for healthcare decisions. */
     CdsArtifact,
-    /** # common-share
+    /** **common-share**
 
 Common Share. Citation Resource containing value added data that is openly shared */
     CommonShare,
-    /** # dataset-unpublished
+    /** **dataset-unpublished**
 
 Dataset Unpublished. An organized collection of data that is not stored permanently for communication. */
     DatasetUnpublished,
-    /** # executable-app
+    /** **executable-app**
 
 Executable app. Executable app */
     ExecutableApp,
-    /** # fhir-resource
+    /** **fhir-resource**
 
 FHIR Resource. The article cited is a FHIR resource. */
     FhirResource,
-    /** # image
+    /** **image**
 
 Image file. The article cited is an image file. */
     Image,
-    /** # interactive-form
+    /** **interactive-form**
 
 Interactive Form. A user interface that supports data entry and data display. */
     InteractiveForm,
-    /** # machine-code
+    /** **machine-code**
 
 Machine code. The article cited is machine code. */
     MachineCode,
-    /** # medline-base
+    /** **medline-base**
 
 Medline Base. Citation Resource containing only data from Medline */
     MedlineBase,
-    /** # prediction-model
+    /** **prediction-model**
 
 Prediction Model. A formula or expression used to calculate an outcome representing a predicted result. */
     PredictionModel,
-    /** # project-specific
+    /** **project-specific**
 
 Project Specific. Citation Resource containing value added data specific to a project */
     ProjectSpecific,
-    /** # protocol
+    /** **protocol**
 
 Protocol. The article cited is the protocol of an activity and not the results or findings. */
     Protocol,
-    /** # pseudocode
+    /** **pseudocode**
 
 PseudoCode. A non-executable, human-readable representation of software code. */
     Pseudocode,
-    /** # standard-specification
+    /** **standard-specification**
 
 Standard Specification. An explicit set of requirements for an item, material, component, system or service, often used to define a technical standard which is an established norm or requirement for a repeatable technical task. */
     StandardSpecification,
-    /** # terminology
+    /** **terminology**
 
 Terminology. A structured set of codes and display values, which may be subtyped as a code system, value set, taxonomy, or ontology. */
     Terminology,
-    /** # webpage
+    /** **webpage**
 
 Webpage. Webpage */
     Webpage,
@@ -9227,21 +9107,19 @@ impl From<CitationArtifactClassifier> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitationClassificationType`. Citation classification type
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitationClassificationType](http://hl7.org/fhir/ValueSet/citation-classification-type)**. Citation classification type\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationClassificationType {
-    /** # citation-source
+    /** **citation-source**
 
 Citation Source. Citation repository where this citation was created or copied from */
     CitationSource,
-    /** # fevir-platform-use
+    /** **fevir-platform-use**
 
 FEvIR Platform Use. Used for Citation sharing on the Fast Evidence Interoperability Resources (FEvIR) Platform */
     FevirPlatformUse,
-    /** # medline-owner
+    /** **medline-owner**
 
 MEDLINE Citation Owner. The party responsible for creating and validating the MEDLINE citation */
     MedlineOwner,
@@ -9313,117 +9191,115 @@ impl From<CitationClassificationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitationStatusType`. Citation status type
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitationStatusType](http://hl7.org/fhir/ValueSet/citation-status-type)**. Citation status type\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationStatusType {
-    /** # medline-completed
+    /** **medline-completed**
 
 Medline Citation Status of Completed. Medline Citation Status of Completed */
     MedlineCompleted,
-    /** # medline-in-data-review
+    /** **medline-in-data-review**
 
 Medline Citation Status of In-Data-Review. Medline Citation Status of In-Data-Review */
     MedlineInDataReview,
-    /** # medline-in-process
+    /** **medline-in-process**
 
 Medline Citation Status of In-Process. Medline Citation Status of In-Process */
     MedlineInProcess,
-    /** # medline-medline
+    /** **medline-medline**
 
 Medline Citation Status of MEDLINE. Medline Citation Status of MEDLINE */
     MedlineMedline,
-    /** # medline-oldmedline
+    /** **medline-oldmedline**
 
 Medline Citation Status of OLDMEDLINE. Medline Citation Status of OLDMEDLINE */
     MedlineOldmedline,
-    /** # medline-publisher
+    /** **medline-publisher**
 
 Medline Citation Status of Publisher. Medline Citation Status of Publisher */
     MedlinePublisher,
-    /** # medline-pubmed-not-medline
+    /** **medline-pubmed-not-medline**
 
 Medline Citation Status of PubMed-not-MEDLINE. Medline Citation Status of PubMed-not-MEDLINE */
     MedlinePubmedNotMedline,
-    /** # pubmed-publication-status-aheadofprint
+    /** **pubmed-publication-status-aheadofprint**
 
 PubMed PublicationStatus of aheadofprint. electronically published, but followed by print */
     PubmedPublicationStatusAheadofprint,
-    /** # pubmed-publication-status-epublish
+    /** **pubmed-publication-status-epublish**
 
 PubMed PublicationStatus of epublish. electronically published only, never published in print */
     PubmedPublicationStatusEpublish,
-    /** # pubmed-publication-status-ppublish
+    /** **pubmed-publication-status-ppublish**
 
 PubMed PublicationStatus of ppublish. published in print */
     PubmedPublicationStatusPpublish,
-    /** # pubmed-pubstatus-accepted
+    /** **pubmed-pubstatus-accepted**
 
 PubMed Pubstatus of Accepted. PubMed Pubstatus of Accepted */
     PubmedPubstatusAccepted,
-    /** # pubmed-pubstatus-aheadofprint
+    /** **pubmed-pubstatus-aheadofprint**
 
 PubMed Pubstatus of aheadofprint. PubMed Pubstatus of aheadofprint */
     PubmedPubstatusAheadofprint,
-    /** # pubmed-pubstatus-ecollection
+    /** **pubmed-pubstatus-ecollection**
 
 PubMed Pubstatus of Ecollection. PubMed Pubstatus of Ecollection */
     PubmedPubstatusEcollection,
-    /** # pubmed-pubstatus-entrez
+    /** **pubmed-pubstatus-entrez**
 
 PubMed Pubstatus of Entrez. PubMed Pubstatus of Entrez */
     PubmedPubstatusEntrez,
-    /** # pubmed-pubstatus-epublish
+    /** **pubmed-pubstatus-epublish**
 
 PubMed Pubstatus of Epublish. PubMed Pubstatus of Epublish */
     PubmedPubstatusEpublish,
-    /** # pubmed-pubstatus-medline
+    /** **pubmed-pubstatus-medline**
 
 PubMed Pubstatus of Medline. PubMed Pubstatus of Medline */
     PubmedPubstatusMedline,
-    /** # pubmed-pubstatus-medliner
+    /** **pubmed-pubstatus-medliner**
 
 PubMed Pubstatus of Medliner. PubMed Pubstatus of Medliner */
     PubmedPubstatusMedliner,
-    /** # pubmed-pubstatus-pmc
+    /** **pubmed-pubstatus-pmc**
 
 PubMed Pubstatus of PMC. PubMed Pubstatus of PMC */
     PubmedPubstatusPmc,
-    /** # pubmed-pubstatus-pmc-release
+    /** **pubmed-pubstatus-pmc-release**
 
 PubMed Pubstatus of PMC release. PubMed Pubstatus of PMC release */
     PubmedPubstatusPmcRelease,
-    /** # pubmed-pubstatus-pmcr
+    /** **pubmed-pubstatus-pmcr**
 
 PubMed Pubstatus of PMCr. PubMed Pubstatus of PMCr */
     PubmedPubstatusPmcr,
-    /** # pubmed-pubstatus-ppublish
+    /** **pubmed-pubstatus-ppublish**
 
 PubMed Pubstatus of Ppublish. PubMed Pubstatus of Ppublish */
     PubmedPubstatusPpublish,
-    /** # pubmed-pubstatus-premedline
+    /** **pubmed-pubstatus-premedline**
 
 PubMed Pubstatus of Premedline. PubMed Pubstatus of Premedline */
     PubmedPubstatusPremedline,
-    /** # pubmed-pubstatus-pubmed
+    /** **pubmed-pubstatus-pubmed**
 
 PubMed Pubstatus of PubMed. PubMed Pubstatus of PubMed */
     PubmedPubstatusPubmed,
-    /** # pubmed-pubstatus-pubmedr
+    /** **pubmed-pubstatus-pubmedr**
 
 PubMed Pubstatus of PubMedr. PubMed Pubstatus of PubMedr */
     PubmedPubstatusPubmedr,
-    /** # pubmed-pubstatus-received
+    /** **pubmed-pubstatus-received**
 
 PubMed Pubstatus of Received. PubMed Pubstatus of Received */
     PubmedPubstatusReceived,
-    /** # pubmed-pubstatus-retracted
+    /** **pubmed-pubstatus-retracted**
 
 PubMed Pubstatus of Retracted. PubMed Pubstatus of Retracted */
     PubmedPubstatusRetracted,
-    /** # pubmed-pubstatus-revised
+    /** **pubmed-pubstatus-revised**
 
 PubMed Pubstatus of Revised. PubMed Pubstatus of Revised */
     PubmedPubstatusRevised,
@@ -9581,65 +9457,63 @@ impl From<CitationStatusType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitationSummaryStyle`. The format for display of the citation.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitationSummaryStyle](http://hl7.org/fhir/ValueSet/citation-summary-style)**. The format for display of the citation.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationSummaryStyle {
-    /** # acs
+    /** **acs**
 
 American Chemical Society. Chemistry. */
     Acs,
-    /** # ama11
+    /** **ama11**
 
 American Medical Association 11th edition. Medicine. */
     Ama11,
-    /** # apa6
+    /** **apa6**
 
 American Psychological Association 6th edition. APA 6th edition used by Education, Psychology and Sciences. */
     Apa6,
-    /** # apa7
+    /** **apa7**
 
 American Psychological Association 7th edition. APA 7th edition (October 2019) used by Education, Psychology and Sciences. */
     Apa7,
-    /** # asa6
+    /** **asa6**
 
 American Sociological Association 6th edition. Sociology. */
     Asa6,
-    /** # chicago-a-17
+    /** **chicago-a-17**
 
 Chicago Style Version 17 Author Date. Used by Business, History and the Fine Arts. */
     ChicagoA17,
-    /** # chicago-b-17
+    /** **chicago-b-17**
 
 Chicago Style Version 17 Full note. Used by Business, History and the Fine Arts. */
     ChicagoB17,
-    /** # cochrane
+    /** **cochrane**
 
 Cochrane Style. Used by Cochrane reviews, example: Huang, M, Tang T, Pang, P, Li, M, Ma R, Lu, J, et al. Treating COVID-19 with Chloroquine. J Mol Cell Biol 2020; 12(4):322–5. */
     Cochrane,
-    /** # comppub
+    /** **comppub**
 
 Computable Publishing. Citation style to report human-readable and/or machine-readable access paths, example: Alper BS, Dehnbostel J, Shahin K. 14-day mortality remdesivir vs placebo meta-analysis (ACTT-1, Wang et al, WHO SOLIDARITY).  Fast Evidence Interoperability Resources (FEvIR) Platform, entry 55, version 4. Created 2020 Dec 17. Revised 2020 Dec 21. Accessed 2021 Mar 13. Computable resource at: https://fevir.net/resources/Evidence/55. */
     Comppub,
-    /** # elsevier-harvard
+    /** **elsevier-harvard**
 
 Elsevier-Harvard Style. Biology ecology. */
     ElsevierHarvard,
-    /** # ieee
+    /** **ieee**
 
 Institute of Electrical and Electronics Engineers. IT, Engineering. */
     Ieee,
-    /** # mla8
+    /** **mla8**
 
 Modern Language Association 8th edition. MLA 8th edition used by the Humanities. */
     Mla8,
-    /** # nature
+    /** **nature**
 
 Nature Referencing style. Biology. */
     Nature,
-    /** # vancouver
+    /** **vancouver**
 
 Vancouver style. Citation style used by International Committee of Medical Journal Editors and maintained by US National Library of Medicine. */
     Vancouver,
@@ -9742,53 +9616,51 @@ impl From<CitationSummaryStyle> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitedArtifactAbstractType`. Used to express the reason and specific aspect for the variant abstract, such as language and specific language
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitedArtifactAbstractType](http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type)**. Used to express the reason and specific aspect for the variant abstract, such as language and specific language\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactAbstractType {
-    /** # autotranslated
+    /** **autotranslated**
 
 Different language derived from autotranslation. Machine translated form of abstract in a different language, language element codes the language into which it was translated by machine */
     Autotranslated,
-    /** # different-publisher
+    /** **different-publisher**
 
 Different publisher for abstract. Abstract produced by a different publisher than the cited artifact */
     DifferentPublisher,
-    /** # duplicate-pmid
+    /** **duplicate-pmid**
 
 Different text in additional Medline entry. Alternative form of abstract in two or more Medline entries */
     DuplicatePmid,
-    /** # earlier-abstract
+    /** **earlier-abstract**
 
 Different text in an earlier version. Alternative form of abstract in an earlier version such as epub ahead of print */
     EarlierAbstract,
-    /** # language
+    /** **language**
 
 Different language. Additional form of abstract in a different language */
     Language,
-    /** # long-abstract
+    /** **long-abstract**
 
 Long abstract. Long version of the abstract, for use when abstracts are provided in different sizes or lengths */
     LongAbstract,
-    /** # plain-language
+    /** **plain-language**
 
 Plain language. Additional form of abstract written for the general public */
     PlainLanguage,
-    /** # primary-human-use
+    /** **primary-human-use**
 
 Primary human use. Human-friendly main or official abstract */
     PrimaryHumanUse,
-    /** # primary-machine-use
+    /** **primary-machine-use**
 
 Primary machine use. Machine-friendly main or official abstract */
     PrimaryMachineUse,
-    /** # short-abstract
+    /** **short-abstract**
 
 Short abstract. Brief abstract, for use when abstracts are provided in different sizes or lengths */
     ShortAbstract,
-    /** # truncated
+    /** **truncated**
 
 Truncated. Truncated abstract */
     Truncated,
@@ -9884,53 +9756,51 @@ impl From<CitedArtifactAbstractType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitedArtifactClassificationType`. Cited Artifact Classification Type
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitedArtifactClassificationType](http://hl7.org/fhir/ValueSet/cited-artifact-classification-type)**. Cited Artifact Classification Type\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactClassificationType {
-    /** # chemical
+    /** **chemical**
 
 Chemical. Chemical */
     Chemical,
-    /** # citation-subset
+    /** **citation-subset**
 
 Citation subset. Citation subset */
     CitationSubset,
-    /** # coverage
+    /** **coverage**
 
 Coverage. The spatial or temporal topic of the resource, spatial applicability of the resource, or jurisdiction under which the resource is relevant */
     Coverage,
-    /** # keyword
+    /** **keyword**
 
 Keyword. Keyword */
     Keyword,
-    /** # knowledge-artifact-type
+    /** **knowledge-artifact-type**
 
 Knowledge Artifact Type. Knowledge Artifact Type */
     KnowledgeArtifactType,
-    /** # mesh-heading
+    /** **mesh-heading**
 
 MeSH heading. MeSH heading */
     MeshHeading,
-    /** # publication-type
+    /** **publication-type**
 
 Publication type. Publication type */
     PublicationType,
-    /** # publishing-model
+    /** **publishing-model**
 
 Publishing Model. Used for PubModel attribute in Medline */
     PublishingModel,
-    /** # supplemental-mesh-disease
+    /** **supplemental-mesh-disease**
 
 Supplemental MeSH for Disease. Supplemental MeSH for Disease */
     SupplementalMeshDisease,
-    /** # supplemental-mesh-organism
+    /** **supplemental-mesh-organism**
 
 Supplemental MeSH for Organism. Supplemental MeSH for Organism */
     SupplementalMeshOrganism,
-    /** # supplemental-mesh-protocol
+    /** **supplemental-mesh-protocol**
 
 Supplemental MeSH for Protocol. Supplemental MeSH for Protocol */
     SupplementalMeshProtocol,
@@ -10027,45 +9897,43 @@ impl From<CitedArtifactClassificationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitedArtifactPartType`. To describe the reason for the variant citation, such as version number or subpart specification.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitedArtifactPartType](http://hl7.org/fhir/ValueSet/cited-artifact-part-type)**. To describe the reason for the variant citation, such as version number or subpart specification.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactPartType {
-    /** # article-set
+    /** **article-set**
 
 Part of an article set. Used to distinguish an individual article within an article set where the article set is a base citation. */
     ArticleSet,
-    /** # figures
+    /** **figures**
 
 figures. Denotes specific figure or figures of an article or artifact. */
     Figures,
-    /** # lines
+    /** **lines**
 
 lines. Denotes specific line or lines of an article or artifact. */
     Lines,
-    /** # pages
+    /** **pages**
 
 pages. Denotes specific page or pages of an article or artifact. */
     Pages,
-    /** # paragraphs
+    /** **paragraphs**
 
 paragraphs. Denotes specific paragraph or paragraphs of an article or artifact. */
     Paragraphs,
-    /** # sections
+    /** **sections**
 
 sections. Denotes specific section or sections of an article or artifact. */
     Sections,
-    /** # supplement
+    /** **supplement**
 
 Supplement or Appendix. Used to denote a supplementary file, appendix, or additional part that is not a subpart of the primary article. */
     Supplement,
-    /** # supplement-subpart
+    /** **supplement-subpart**
 
 Supplement or Appendix Subpart. Used to denote a subpart within a supplementary file or appendix. */
     SupplementSubpart,
-    /** # tables
+    /** **tables**
 
 tables. Denotes specific table or tables of an article or artifact. */
     Tables,
@@ -10153,73 +10021,71 @@ impl From<CitedArtifactPartType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitedArtifactStatusType`. Cited Artifact Status Type
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitedArtifactStatusType](http://hl7.org/fhir/ValueSet/cited-artifact-status-type)**. Cited Artifact Status Type\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactStatusType {
-    /** # accepted
+    /** **accepted**
 
 Accepted. The content that was not published yet has been approved for publication by the publisher and/or editor. */
     Accepted,
-    /** # active
+    /** **active**
 
 Active. The content is considered complete for its current state by the content creator. */
     Active,
-    /** # approved
+    /** **approved**
 
 Approved. The content has been approved for a state transition, with the focus of approval described in the text associated with this coding. */
     Approved,
-    /** # archived
+    /** **archived**
 
 Archived. The content is retired or considered no longer current but still available as part of the public record. */
     Archived,
-    /** # created
+    /** **created**
 
 Created. The content was originally constructed or composed. */
     Created,
-    /** # draft
+    /** **draft**
 
 Draft. The content is considered unfinished or incomplete and not representative of the current state desired by the content creator. */
     Draft,
-    /** # post-review-pre-published
+    /** **post-review-pre-published**
 
 Post review pre published. The content is in a state between the review(s) being completed and being published. */
     PostReviewPrePublished,
-    /** # pre-review
+    /** **pre-review**
 
 Pre review. The content is awaiting assignment and delivery to reviewer(s). */
     PreReview,
-    /** # published-early-form
+    /** **published-early-form**
 
 Published early form. The content is published but future changes to the published version are expected. */
     PublishedEarlyForm,
-    /** # published-final-form
+    /** **published-final-form**
 
 Published final form. The content is published and further changes to the content are not expected. */
     PublishedFinalForm,
-    /** # rejected
+    /** **rejected**
 
 Rejected. The content that was not published has been removed from consideration for publishing by a publisher or editor. */
     Rejected,
-    /** # retracted
+    /** **retracted**
 
 Retracted. The content that was published is removed from publication and should no longer be considered part of the public record. */
     Retracted,
-    /** # submitted
+    /** **submitted**
 
 Submitted. The content was sent to the publisher for consideration of publication. */
     Submitted,
-    /** # under-review
+    /** **under-review**
 
 Under review. The content is in a state of being reviewed. */
     UnderReview,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The status of the content is not recorded in the metadata. */
     Unknown,
-    /** # withdrawn
+    /** **withdrawn**
 
 Withdrawn. The content that was not published has been removed from consideration for publishing by the submitter. */
     Withdrawn,
@@ -10328,33 +10194,31 @@ impl From<CitedArtifactStatusType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CitedMedium`. NLM codes Internet or Print.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CitedMedium](http://hl7.org/fhir/ValueSet/cited-medium)**. NLM codes Internet or Print.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedMedium {
-    /** # internet
+    /** **internet**
 
 Internet. Online publication in a periodic release. Used to match NLM JournalIssue CitedMedium code for online version. */
     Internet,
-    /** # internet-without-issue
+    /** **internet-without-issue**
 
 Internet without issue. Online publication without any periodic release. Used for article specific publication date which could be the same as or different from journal issue publication date. */
     InternetWithoutIssue,
-    /** # offline-digital-storage
+    /** **offline-digital-storage**
 
 Offline Digital Storage. Publication in a physical device for electronic data storage, organized in issues for periodic release. */
     OfflineDigitalStorage,
-    /** # offline-digital-storage-without-issue
+    /** **offline-digital-storage-without-issue**
 
 Offline Digital Storage without issue. Publication in a physical device for electronic data storage, without any periodic release. */
     OfflineDigitalStorageWithoutIssue,
-    /** # print
+    /** **print**
 
 Print. Print publication in a periodic release. Used to match NLM JournalIssue CitedMedium code for print version. */
     Print,
-    /** # print-without-issue
+    /** **print-without-issue**
 
 Print without issue. Print publication without any periodic release. */
     PrintWithoutIssue,
@@ -10439,24 +10303,22 @@ impl From<CitedMedium> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ClaimAdjudicationDecisionCodes`. This value set provides Claim Adjudication Decision codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ClaimAdjudicationDecisionCodes](http://hl7.org/fhir/claim-decision)**. This value set provides Claim Adjudication Decision codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ClaimAdjudicationDecisionCodes {
-    /** # approved
+    /** **approved**
 
 Approved. The claim, or individual services, are approved as submitted. */
     Approved,
-    /** # denied
+    /** **denied**
 
 Denied. The claim, or individual services, are not approved for any payment. This may also be known as 'rejected'. */
     Denied,
-    /** # partial
+    /** **partial**
 
 Partial. The claim, or individual services, are approved at an amount less than as submitted. */
     Partial,
-    /** # pending
+    /** **pending**
 
 Pending. The adjudication processing is not complete. This may be due to requiring manual review or receipt of additional information. */
     Pending,
@@ -10533,28 +10395,26 @@ impl From<ClaimAdjudicationDecisionCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ClaimAdjudicationDecisionReasonCodes`. This value set provides example Claim Adjudication Decision Reason codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ClaimAdjudicationDecisionReasonCodes](http://hl7.org/fhir/claim-decision-reason)**. This value set provides example Claim Adjudication Decision Reason codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ClaimAdjudicationDecisionReasonCodes {
-    /** # 0001
+    /** **0001**
 
 Not medically necessary. The payer has determined this product, service, or procedure as not medically necessary. */
     N0001,
-    /** # 0002
+    /** **0002**
 
 Prior authorization not obtained. Prior authorization was not obtained prior to providing the product, service, or procedure. */
     N0002,
-    /** # 0003
+    /** **0003**
 
 Provider out-of-network. This provider is considered out-of-network by the payer for this plan. */
     N0003,
-    /** # 0004
+    /** **0004**
 
 Service inconsistent with patient age. The payer has determined this product, service, or procedure is not consistent with the patient's age. */
     N0004,
-    /** # 0005
+    /** **0005**
 
 Benefit limits exceeded. The patient or subscriber benefit's have been exceeded. */
     N0005,
@@ -10634,25 +10494,23 @@ impl From<ClaimAdjudicationDecisionReasonCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ClaimProcessingCodes`. This value set includes Claim Processing Outcome codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ClaimProcessingCodes](http://hl7.org/fhir/ValueSet/eligibility-outcome)**. This value set includes Claim Processing Outcome codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ClaimProcessingCodes {
-    /** # complete
+    /** **complete**
 
 Processing Complete. The processing has completed without errors */
     Complete,
-    /** # error
+    /** **error**
 
 Error. One or more errors have been detected in the Claim */
     Error,
-    /** # partial
+    /** **partial**
 
 Partial Processing. No errors have been detected in the Claim and some of the adjudication has been performed. */
     Partial,
-    /** # queued
+    /** **queued**
 
 Queued. The Claim/Pre-authorization/Pre-determination has been received but processing has not begun. */
     Queued,
@@ -10725,24 +10583,22 @@ impl From<ClaimProcessingCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ClaimProcessingOutcomeCodes`. This value set includes Claim Processing Outcome codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ClaimProcessingOutcomeCodes](http://hl7.org/fhir/claim-outcome)**. This value set includes Claim Processing Outcome codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ClaimProcessingOutcomeCodes {
-    /** # complete
+    /** **complete**
 
 Processing Complete. The processing has completed without errors */
     Complete,
-    /** # error
+    /** **error**
 
 Error. One or more errors have been detected in the Claim */
     Error,
-    /** # partial
+    /** **partial**
 
 Partial Processing. No errors have been detected in the Claim and some of the adjudication has been performed. */
     Partial,
-    /** # queued
+    /** **queued**
 
 Queued. The Claim/Pre-authorization/Pre-determination has been received but processing has not begun. */
     Queued,
@@ -10819,21 +10675,19 @@ impl From<ClaimProcessingOutcomeCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ClinicalUseDefinitionCategory`. ClinicalUseDefinitionCategory
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ClinicalUseDefinitionCategory](http://hl7.org/fhir/ValueSet/clinical-use-definition-category)**. ClinicalUseDefinitionCategory\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ClinicalUseDefinitionCategory {
-    /** # DriveAndMachines
+    /** **DriveAndMachines**
 
 Effects on Ability to Drive and Use Machines. */
     DriveAndMachines,
-    /** # Overdose
+    /** **Overdose**
 
 Overdose. */
     Overdose,
-    /** # Pregnancy
+    /** **Pregnancy**
 
 Pregnancy and Lactation. */
     Pregnancy,
@@ -10906,29 +10760,27 @@ impl From<ClinicalUseDefinitionCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ClinicalUseDefinitionType`. Overall defining type of this clinical use definition.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ClinicalUseDefinitionType](http://hl7.org/fhir/ValueSet/clinical-use-definition-type)**. Overall defining type of this clinical use definition.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ClinicalUseDefinitionType {
-    /** # contraindication
+    /** **contraindication**
 
 Contraindication. A reason for not giving the medication. */
     Contraindication,
-    /** # indication
+    /** **indication**
 
 Indication. A reason for giving the medication. */
     Indication,
-    /** # interaction
+    /** **interaction**
 
 Interaction. Interactions between the medication and other substances. */
     Interaction,
-    /** # undesirable-effect
+    /** **undesirable-effect**
 
 Undesirable Effect. Side effects or adverse effects associated with the medication. */
     UndesirableEffect,
-    /** # warning
+    /** **warning**
 
 Warning. A general warning or issue that is not specifically one of the other types. */
     Warning,
@@ -11006,21 +10858,19 @@ impl From<ClinicalUseDefinitionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CodeSearchSupport`. The degree to which the server supports the code search parameter on ValueSet, if it is supported.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CodeSearchSupport](http://hl7.org/fhir/ValueSet/code-search-support)**. The degree to which the server supports the code search parameter on ValueSet, if it is supported.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CodeSearchSupport {
-    /** # in-compose
+    /** **in-compose**
 
 In Compose. The search for code on ValueSet returns ValueSet resources where the code is included in the extensional definition of the ValueSet. */
     InCompose,
-    /** # in-compose-or-expansion
+    /** **in-compose-or-expansion**
 
 In Compose Or Expansion. The search for code on ValueSet returns ValueSet resources where the code is included in the extensional definition or contained in the ValueSet expansion. */
     InComposeOrExpansion,
-    /** # in-expansion
+    /** **in-expansion**
 
 In Expansion. The search for code on ValueSet returns ValueSet resources where the code is contained in the  ValueSet expansion. */
     InExpansion,
@@ -11090,29 +10940,27 @@ impl From<CodeSearchSupport> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CodeSystemContentMode`. The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CodeSystemContentMode](http://hl7.org/fhir/ValueSet/codesystem-content-mode)**. The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CodeSystemContentMode {
-    /** # complete
+    /** **complete**
 
 Complete. All the concepts defined by the code system are included in the code system resource. */
     Complete,
-    /** # example
+    /** **example**
 
 Example. A subset of the valid externally defined concepts are included in the code system resource. There is no specific purpose or documented intent other than for illustrative purposes. */
     Example,
-    /** # fragment
+    /** **fragment**
 
 Fragment. A subset of the code system concepts are included in the code system resource. This is a curated subset released for a specific purpose under the governance of the code system steward, and that the intent, bounds and consequences of the fragmentation are clearly defined in the fragment or the code system documentation. Fragments are also known as partitions. */
     Fragment,
-    /** # not-present
+    /** **not-present**
 
 Not Present. None of the concepts defined by the code system are included in the code system resource. */
     NotPresent,
-    /** # supplement
+    /** **supplement**
 
 Supplement. The resource doesn't define any new concepts; it just provides additional designations and properties to another code system. */
     Supplement,
@@ -11188,25 +11036,23 @@ impl From<CodeSystemContentMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CodeSystemHierarchyMeaning`. The meaning of the hierarchy of concepts in a code system.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CodeSystemHierarchyMeaning](http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning)**. The meaning of the hierarchy of concepts in a code system.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CodeSystemHierarchyMeaning {
-    /** # classified-with
+    /** **classified-with**
 
 Classified With. Child concepts in the hierarchy may have only one parent, and there is a presumption that the code system is a "closed world" meaning all things must be in the hierarchy. This results in concepts such as "not otherwise classified.". */
     ClassifiedWith,
-    /** # grouped-by
+    /** **grouped-by**
 
 Grouped By. No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the hierarchy have different meanings). */
     GroupedBy,
-    /** # is-a
+    /** **is-a**
 
 Is-A. A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts. Not that is-a is a property of the concepts, so additional subsumption relationships may be defined using properties. */
     IsA,
-    /** # part-of
+    /** **part-of**
 
 Part Of. Child elements list the individual parts of a composite whole (e.g. body site). */
     PartOf,
@@ -11281,600 +11127,598 @@ impl From<CodeSystemHierarchyMeaning> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ColorCodes`. This code system represents that named RGB colors found in the [CSS4 specification](https://www.w3.org/TR/css-color-4/). The names are not case sensitive and different cases are encountered in common use (e.g. AliceBlue vs aliceblue.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ColorCodes](http://hl7.org/fhir/color-names)**. This code system represents that named RGB colors found in the [CSS4 specification](https://www.w3.org/TR/css-color-4/). The names are not case sensitive and different cases are encountered in common use (e.g. AliceBlue vs aliceblue.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ColorCodes {
-    /** # aliceblue
+    /** **aliceblue**
 
 aliceblue. */
     Aliceblue,
-    /** # antiquewhite
+    /** **antiquewhite**
 
 antiquewhite. */
     Antiquewhite,
-    /** # aqua
+    /** **aqua**
 
 aqua. */
     Aqua,
-    /** # aquamarine
+    /** **aquamarine**
 
 aquamarine. */
     Aquamarine,
-    /** # azure
+    /** **azure**
 
 azure. */
     Azure,
-    /** # beige
+    /** **beige**
 
 beige. */
     Beige,
-    /** # bisque
+    /** **bisque**
 
 bisque. */
     Bisque,
-    /** # black
+    /** **black**
 
 black. */
     Black,
-    /** # blanchedalmond
+    /** **blanchedalmond**
 
 blanchedalmond. */
     Blanchedalmond,
-    /** # blue
+    /** **blue**
 
 blue. */
     Blue,
-    /** # blueviolet
+    /** **blueviolet**
 
 blueviolet. */
     Blueviolet,
-    /** # brown
+    /** **brown**
 
 brown. */
     Brown,
-    /** # burlywood
+    /** **burlywood**
 
 burlywood. */
     Burlywood,
-    /** # cadetblue
+    /** **cadetblue**
 
 cadetblue. */
     Cadetblue,
-    /** # chartreuse
+    /** **chartreuse**
 
 chartreuse. */
     Chartreuse,
-    /** # chocolate
+    /** **chocolate**
 
 chocolate. */
     Chocolate,
-    /** # coral
+    /** **coral**
 
 coral. */
     Coral,
-    /** # cornflowerblue
+    /** **cornflowerblue**
 
 cornflowerblue. */
     Cornflowerblue,
-    /** # cornsilk
+    /** **cornsilk**
 
 cornsilk. */
     Cornsilk,
-    /** # crimson
+    /** **crimson**
 
 crimson. */
     Crimson,
-    /** # cyan
+    /** **cyan**
 
 cyan. */
     Cyan,
-    /** # darkblue
+    /** **darkblue**
 
 darkblue. */
     Darkblue,
-    /** # darkcyan
+    /** **darkcyan**
 
 darkcyan. */
     Darkcyan,
-    /** # darkgoldenrod
+    /** **darkgoldenrod**
 
 darkgoldenrod. */
     Darkgoldenrod,
-    /** # darkgray
+    /** **darkgray**
 
 darkgray. */
     Darkgray,
-    /** # darkgreen
+    /** **darkgreen**
 
 darkgreen. */
     Darkgreen,
-    /** # darkgrey
+    /** **darkgrey**
 
 darkgrey. */
     Darkgrey,
-    /** # darkkhaki
+    /** **darkkhaki**
 
 darkkhaki. */
     Darkkhaki,
-    /** # darkmagenta
+    /** **darkmagenta**
 
 darkmagenta. */
     Darkmagenta,
-    /** # darkolivegreen
+    /** **darkolivegreen**
 
 darkolivegreen. */
     Darkolivegreen,
-    /** # darkorange
+    /** **darkorange**
 
 darkorange. */
     Darkorange,
-    /** # darkorchid
+    /** **darkorchid**
 
 darkorchid. */
     Darkorchid,
-    /** # darkred
+    /** **darkred**
 
 darkred. */
     Darkred,
-    /** # darksalmon
+    /** **darksalmon**
 
 darksalmon. */
     Darksalmon,
-    /** # darkseagreen
+    /** **darkseagreen**
 
 darkseagreen. */
     Darkseagreen,
-    /** # darkslateblue
+    /** **darkslateblue**
 
 darkslateblue. */
     Darkslateblue,
-    /** # darkslategray
+    /** **darkslategray**
 
 darkslategray. */
     Darkslategray,
-    /** # darkslategrey
+    /** **darkslategrey**
 
 darkslategrey. */
     Darkslategrey,
-    /** # darkturquoise
+    /** **darkturquoise**
 
 darkturquoise. */
     Darkturquoise,
-    /** # darkviolet
+    /** **darkviolet**
 
 darkviolet. */
     Darkviolet,
-    /** # deeppink
+    /** **deeppink**
 
 deeppink. */
     Deeppink,
-    /** # deepskyblue
+    /** **deepskyblue**
 
 deepskyblue. */
     Deepskyblue,
-    /** # dimgray
+    /** **dimgray**
 
 dimgray. */
     Dimgray,
-    /** # dimgrey
+    /** **dimgrey**
 
 dimgrey. */
     Dimgrey,
-    /** # dodgerblue
+    /** **dodgerblue**
 
 dodgerblue. */
     Dodgerblue,
-    /** # firebrick
+    /** **firebrick**
 
 firebrick. */
     Firebrick,
-    /** # floralwhite
+    /** **floralwhite**
 
 floralwhite. */
     Floralwhite,
-    /** # forestgreen
+    /** **forestgreen**
 
 forestgreen. */
     Forestgreen,
-    /** # fuchsia
+    /** **fuchsia**
 
 fuchsia. */
     Fuchsia,
-    /** # gainsboro
+    /** **gainsboro**
 
 gainsboro. */
     Gainsboro,
-    /** # ghostwhite
+    /** **ghostwhite**
 
 ghostwhite. */
     Ghostwhite,
-    /** # gold
+    /** **gold**
 
 gold. */
     Gold,
-    /** # goldenrod
+    /** **goldenrod**
 
 goldenrod. */
     Goldenrod,
-    /** # gray
+    /** **gray**
 
 gray. */
     Gray,
-    /** # green
+    /** **green**
 
 green. */
     Green,
-    /** # greenyellow
+    /** **greenyellow**
 
 greenyellow. */
     Greenyellow,
-    /** # grey
+    /** **grey**
 
 grey. */
     Grey,
-    /** # honeydew
+    /** **honeydew**
 
 honeydew. */
     Honeydew,
-    /** # hotpink
+    /** **hotpink**
 
 hotpink. */
     Hotpink,
-    /** # indianred
+    /** **indianred**
 
 indianred. */
     Indianred,
-    /** # indigo
+    /** **indigo**
 
 indigo. */
     Indigo,
-    /** # ivory
+    /** **ivory**
 
 ivory. */
     Ivory,
-    /** # khaki
+    /** **khaki**
 
 khaki. */
     Khaki,
-    /** # lavender
+    /** **lavender**
 
 lavender. */
     Lavender,
-    /** # lavenderblush
+    /** **lavenderblush**
 
 lavenderblush. */
     Lavenderblush,
-    /** # lawngreen
+    /** **lawngreen**
 
 lawngreen. */
     Lawngreen,
-    /** # lemonchiffon
+    /** **lemonchiffon**
 
 lemonchiffon. */
     Lemonchiffon,
-    /** # lightblue
+    /** **lightblue**
 
 lightblue. */
     Lightblue,
-    /** # lightcoral
+    /** **lightcoral**
 
 lightcoral. */
     Lightcoral,
-    /** # lightcyan
+    /** **lightcyan**
 
 lightcyan. */
     Lightcyan,
-    /** # lightgoldenrodyellow
+    /** **lightgoldenrodyellow**
 
 lightgoldenrodyellow. */
     Lightgoldenrodyellow,
-    /** # lightgray
+    /** **lightgray**
 
 lightgray. */
     Lightgray,
-    /** # lightgreen
+    /** **lightgreen**
 
 lightgreen. */
     Lightgreen,
-    /** # lightgrey
+    /** **lightgrey**
 
 lightgrey. */
     Lightgrey,
-    /** # lightpink
+    /** **lightpink**
 
 lightpink. */
     Lightpink,
-    /** # lightsalmon
+    /** **lightsalmon**
 
 lightsalmon. */
     Lightsalmon,
-    /** # lightseagreen
+    /** **lightseagreen**
 
 lightseagreen. */
     Lightseagreen,
-    /** # lightskyblue
+    /** **lightskyblue**
 
 lightskyblue. */
     Lightskyblue,
-    /** # lightslategray
+    /** **lightslategray**
 
 lightslategray. */
     Lightslategray,
-    /** # lightslategrey
+    /** **lightslategrey**
 
 lightslategrey. */
     Lightslategrey,
-    /** # lightsteelblue
+    /** **lightsteelblue**
 
 lightsteelblue. */
     Lightsteelblue,
-    /** # lightyellow
+    /** **lightyellow**
 
 lightyellow. */
     Lightyellow,
-    /** # lime
+    /** **lime**
 
 lime. */
     Lime,
-    /** # limegreen
+    /** **limegreen**
 
 limegreen. */
     Limegreen,
-    /** # linen
+    /** **linen**
 
 linen. */
     Linen,
-    /** # magenta
+    /** **magenta**
 
 magenta. */
     Magenta,
-    /** # maroon
+    /** **maroon**
 
 maroon. */
     Maroon,
-    /** # mediumaquamarine
+    /** **mediumaquamarine**
 
 mediumaquamarine. */
     Mediumaquamarine,
-    /** # mediumblue
+    /** **mediumblue**
 
 mediumblue. */
     Mediumblue,
-    /** # mediumorchid
+    /** **mediumorchid**
 
 mediumorchid. */
     Mediumorchid,
-    /** # mediumpurple
+    /** **mediumpurple**
 
 mediumpurple. */
     Mediumpurple,
-    /** # mediumseagreen
+    /** **mediumseagreen**
 
 mediumseagreen. */
     Mediumseagreen,
-    /** # mediumslateblue
+    /** **mediumslateblue**
 
 mediumslateblue. */
     Mediumslateblue,
-    /** # mediumspringgreen
+    /** **mediumspringgreen**
 
 mediumspringgreen. */
     Mediumspringgreen,
-    /** # mediumturquoise
+    /** **mediumturquoise**
 
 mediumturquoise. */
     Mediumturquoise,
-    /** # mediumvioletred
+    /** **mediumvioletred**
 
 mediumvioletred. */
     Mediumvioletred,
-    /** # midnightblue
+    /** **midnightblue**
 
 midnightblue. */
     Midnightblue,
-    /** # mintcream
+    /** **mintcream**
 
 mintcream. */
     Mintcream,
-    /** # mistyrose
+    /** **mistyrose**
 
 mistyrose. */
     Mistyrose,
-    /** # moccasin
+    /** **moccasin**
 
 moccasin. */
     Moccasin,
-    /** # navajowhite
+    /** **navajowhite**
 
 navajowhite. */
     Navajowhite,
-    /** # navy
+    /** **navy**
 
 navy. */
     Navy,
-    /** # oldlace
+    /** **oldlace**
 
 oldlace. */
     Oldlace,
-    /** # olive
+    /** **olive**
 
 olive. */
     Olive,
-    /** # olivedrab
+    /** **olivedrab**
 
 olivedrab. */
     Olivedrab,
-    /** # orange
+    /** **orange**
 
 orange. */
     Orange,
-    /** # orangered
+    /** **orangered**
 
 orangered. */
     Orangered,
-    /** # orchid
+    /** **orchid**
 
 orchid. */
     Orchid,
-    /** # palegoldenrod
+    /** **palegoldenrod**
 
 palegoldenrod. */
     Palegoldenrod,
-    /** # palegreen
+    /** **palegreen**
 
 palegreen. */
     Palegreen,
-    /** # paleturquoise
+    /** **paleturquoise**
 
 paleturquoise. */
     Paleturquoise,
-    /** # palevioletred
+    /** **palevioletred**
 
 palevioletred. */
     Palevioletred,
-    /** # papayawhip
+    /** **papayawhip**
 
 papayawhip. */
     Papayawhip,
-    /** # peachpuff
+    /** **peachpuff**
 
 peachpuff. */
     Peachpuff,
-    /** # peru
+    /** **peru**
 
 peru. */
     Peru,
-    /** # pink
+    /** **pink**
 
 pink. */
     Pink,
-    /** # plum
+    /** **plum**
 
 plum. */
     Plum,
-    /** # powderblue
+    /** **powderblue**
 
 powderblue. */
     Powderblue,
-    /** # purple
+    /** **purple**
 
 purple. */
     Purple,
-    /** # rebeccapurple
+    /** **rebeccapurple**
 
 rebeccapurple. */
     Rebeccapurple,
-    /** # red
+    /** **red**
 
 red. */
     Red,
-    /** # rosybrown
+    /** **rosybrown**
 
 rosybrown. */
     Rosybrown,
-    /** # royalblue
+    /** **royalblue**
 
 royalblue. */
     Royalblue,
-    /** # saddlebrown
+    /** **saddlebrown**
 
 saddlebrown. */
     Saddlebrown,
-    /** # salmon
+    /** **salmon**
 
 salmon. */
     Salmon,
-    /** # sandybrown
+    /** **sandybrown**
 
 sandybrown. */
     Sandybrown,
-    /** # seagreen
+    /** **seagreen**
 
 seagreen. */
     Seagreen,
-    /** # seashell
+    /** **seashell**
 
 seashell. */
     Seashell,
-    /** # sienna
+    /** **sienna**
 
 sienna. */
     Sienna,
-    /** # silver
+    /** **silver**
 
 silver. */
     Silver,
-    /** # skyblue
+    /** **skyblue**
 
 skyblue. */
     Skyblue,
-    /** # slateblue
+    /** **slateblue**
 
 slateblue. */
     Slateblue,
-    /** # slategray
+    /** **slategray**
 
 slategray. */
     Slategray,
-    /** # slategrey
+    /** **slategrey**
 
 slategrey. */
     Slategrey,
-    /** # snow
+    /** **snow**
 
 snow. */
     Snow,
-    /** # springgreen
+    /** **springgreen**
 
 springgreen. */
     Springgreen,
-    /** # steelblue
+    /** **steelblue**
 
 steelblue. */
     Steelblue,
-    /** # tan
+    /** **tan**
 
 tan. */
     Tan,
-    /** # teal
+    /** **teal**
 
 teal. */
     Teal,
-    /** # thistle
+    /** **thistle**
 
 thistle. */
     Thistle,
-    /** # tomato
+    /** **tomato**
 
 tomato. */
     Tomato,
-    /** # turquoise
+    /** **turquoise**
 
 turquoise. */
     Turquoise,
-    /** # violet
+    /** **violet**
 
 violet. */
     Violet,
-    /** # wheat
+    /** **wheat**
 
 wheat. */
     Wheat,
-    /** # white
+    /** **white**
 
 white. */
     White,
-    /** # whitesmoke
+    /** **whitesmoke**
 
 whitesmoke. */
     Whitesmoke,
-    /** # yellow
+    /** **yellow**
 
 yellow. */
     Yellow,
-    /** # yellowgreen
+    /** **yellowgreen**
 
 yellowgreen. */
     Yellowgreen,
@@ -12383,317 +12227,315 @@ impl From<ColorCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CombinedDoseForm`. Dose forms for a product as a whole, considering all individual parts, but before any mixing
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CombinedDoseForm](http://hl7.org/fhir/ValueSet/combined-dose-form)**. Dose forms for a product as a whole, considering all individual parts, but before any mixing\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CombinedDoseForm {
-    /** # 100000073366
+    /** **100000073366**
 
 Powder and solvent for oral solution. */
     N100000073366,
-    /** # 100000073651
+    /** **100000073651**
 
 Powder and solvent for oral suspension. */
     N100000073651,
-    /** # 100000073774
+    /** **100000073774**
 
 Eye drops, powder and solvent for solution. */
     N100000073774,
-    /** # 100000073781
+    /** **100000073781**
 
 Eye drops, powder and solvent for suspension. */
     N100000073781,
-    /** # 100000073801
+    /** **100000073801**
 
 Ear drops, powder and solvent for suspension. */
     N100000073801,
-    /** # 100000073860
+    /** **100000073860**
 
 Powder and solvent for solution for infusion. */
     N100000073860,
-    /** # 100000073868
+    /** **100000073868**
 
 Powder and solvent for solution for injection. */
     N100000073868,
-    /** # 100000073869
+    /** **100000073869**
 
 Powder and solvent for suspension for injection. */
     N100000073869,
-    /** # 100000073884
+    /** **100000073884**
 
 Powder and solvent for implantation paste. */
     N100000073884,
-    /** # 100000073891
+    /** **100000073891**
 
 Endotracheopulmonary instillation, powder and solvent for solution. */
     N100000073891,
-    /** # 100000073892
+    /** **100000073892**
 
 Powder and solvent for endocervical gel. */
     N100000073892,
-    /** # 100000073941
+    /** **100000073941**
 
 Powder and solvent for sealant. */
     N100000073941,
-    /** # 100000073972
+    /** **100000073972**
 
 Concentrate and solvent for concentrate for solution for infusion. */
     N100000073972,
-    /** # 100000073973
+    /** **100000073973**
 
 Concentrate and solvent for cutaneous use. */
     N100000073973,
-    /** # 100000073974
+    /** **100000073974**
 
 Concentrate and solvent for injection. */
     N100000073974,
-    /** # 100000073975
+    /** **100000073975**
 
 Concentrate and solvent for solution for infusion. */
     N100000073975,
-    /** # 100000073987
+    /** **100000073987**
 
 Concentrate and diluent for solution for infusion. */
     N100000073987,
-    /** # 100000073988
+    /** **100000073988**
 
 Concentrate and solvent for cutaneous solution. */
     N100000073988,
-    /** # 100000073989
+    /** **100000073989**
 
 Concentrate and solvent for solution for injection. */
     N100000073989,
-    /** # 100000073990
+    /** **100000073990**
 
 Concentrate and solvent for suspension for injection. */
     N100000073990,
-    /** # 100000073999
+    /** **100000073999**
 
 Granules and solvent for suspension for injection. */
     N100000073999,
-    /** # 100000074015
+    /** **100000074015**
 
 Powder and solvent for concentrate for solution for infusion. */
     N100000074015,
-    /** # 100000074016
+    /** **100000074016**
 
 Powder and solvent for cutaneous solution. */
     N100000074016,
-    /** # 100000074017
+    /** **100000074017**
 
 Powder and solvent for gingival gel. */
     N100000074017,
-    /** # 100000074018
+    /** **100000074018**
 
 Powder and solvent for prolonged-release suspension for injection. */
     N100000074018,
-    /** # 100000074030
+    /** **100000074030**
 
 Powder and solvent for endosinusial solution. */
     N100000074030,
-    /** # 100000074031
+    /** **100000074031**
 
 Powder and solvent for intraocular instillation solution. */
     N100000074031,
-    /** # 100000074032
+    /** **100000074032**
 
 Powder and suspension for suspension for injection. */
     N100000074032,
-    /** # 100000074048
+    /** **100000074048**
 
 Suspension and effervescent granules for oral suspension. */
     N100000074048,
-    /** # 100000074051
+    /** **100000074051**
 
 Tablet and solvent for rectal suspension. */
     N100000074051,
-    /** # 100000074053
+    /** **100000074053**
 
 Powder and solvent for dental gel. */
     N100000074053,
-    /** # 100000074056
+    /** **100000074056**
 
 Gas and solvent for dispersion for injection/infusion. */
     N100000074056,
-    /** # 100000074057
+    /** **100000074057**
 
 Powder and solvent for solution for injection/infusion. */
     N100000074057,
-    /** # 100000074061
+    /** **100000074061**
 
 Suspension and solution for spray. */
     N100000074061,
-    /** # 100000074064
+    /** **100000074064**
 
 Tablet and powder for oral solution. */
     N100000074064,
-    /** # 100000075580
+    /** **100000075580**
 
 Emulsion and suspension for emulsion for injection. */
     N100000075580,
-    /** # 100000075584
+    /** **100000075584**
 
 Powder and solvent for dispersion for injection. */
     N100000075584,
-    /** # 100000075587
+    /** **100000075587**
 
 Powder for mouth wash. */
     N100000075587,
-    /** # 100000116137
+    /** **100000116137**
 
 Lyophilisate and solvent for solution for injection. */
     N100000116137,
-    /** # 100000116141
+    /** **100000116141**
 
 Fibrin sealant-powder and solvent for fibrin sealant. */
     N100000116141,
-    /** # 100000116155
+    /** **100000116155**
 
 Granules and solvent for oral suspension. */
     N100000116155,
-    /** # 100000116160
+    /** **100000116160**
 
 Lyophilisate and solvent for suspension for injection. */
     N100000116160,
-    /** # 100000116172
+    /** **100000116172**
 
 Powder and gel for gel. */
     N100000116172,
-    /** # 100000116173
+    /** **100000116173**
 
 Powder and solution for solution for injection. */
     N100000116173,
-    /** # 100000116174
+    /** **100000116174**
 
 Powder and solvent for epilesional solution. */
     N100000116174,
-    /** # 100000116175
+    /** **100000116175**
 
 Powder and solvent for intravesical solution. */
     N100000116175,
-    /** # 100000116176
+    /** **100000116176**
 
 Powder and solvent for intravesical suspension. */
     N100000116176,
-    /** # 100000116177
+    /** **100000116177**
 
 Powder and solvent for nebuliser solution. */
     N100000116177,
-    /** # 100000116179
+    /** **100000116179**
 
 Powder, dispersion and solvent for concentrate for dispersion for infusion. */
     N100000116179,
-    /** # 100000125746
+    /** **100000125746**
 
 Powder and solvent for emulsion for injection. */
     N100000125746,
-    /** # 100000125747
+    /** **100000125747**
 
 Nasal drops, powder and solvent for solution. */
     N100000125747,
-    /** # 100000125777
+    /** **100000125777**
 
 Suspension and solvent for suspension for injection. */
     N100000125777,
-    /** # 100000136318
+    /** **100000136318**
 
 Concentrate and solvent for solution for injection/infusion. */
     N100000136318,
-    /** # 100000136325
+    /** **100000136325**
 
 Powder and solvent for solution for injection/skin-prick test. */
     N100000136325,
-    /** # 100000136558
+    /** **100000136558**
 
 Lyophilisate and solvent for suspension for nasal administration. */
     N100000136558,
-    /** # 100000136560
+    /** **100000136560**
 
 Powder and solvent for solution for sealant. */
     N100000136560,
-    /** # 100000136907
+    /** **100000136907**
 
 Solution for dispersion for injection/infusion. */
     N100000136907,
-    /** # 100000143502
+    /** **100000143502**
 
 Powder and solution for dental cement. */
     N100000143502,
-    /** # 100000143546
+    /** **100000143546**
 
 Endotracheopulmonary instillation, powder and solvent for suspension. */
     N100000143546,
-    /** # 100000143552
+    /** **100000143552**
 
 Powder, solvent and matrix for implantation matrix. */
     N100000143552,
-    /** # 100000156068
+    /** **100000156068**
 
 Nasal drops, lyophilisate and solvent for suspension. */
     N100000156068,
-    /** # 100000157796
+    /** **100000157796**
 
 Lyophilisate and suspension for suspension for injection. */
     N100000157796,
-    /** # 100000164467
+    /** **100000164467**
 
 Powder for concentrate and solution for solution for infusion. */
     N100000164467,
-    /** # 100000169997
+    /** **100000169997**
 
 Powder and solution for bee-hive solution. */
     N100000169997,
-    /** # 100000170588
+    /** **100000170588**
 
 Suspension and solvent for oral spray. */
     N100000170588,
-    /** # 100000171127
+    /** **100000171127**
 
 Lyophilisate and solvent for oral suspension. */
     N100000171127,
-    /** # 100000171193
+    /** **100000171193**
 
 Concentrate and solvent for concentrate for oral spray, suspension. */
     N100000171193,
-    /** # 100000171238
+    /** **100000171238**
 
 Lyophilisate and solvent for oculonasal suspension. */
     N100000171238,
-    /** # 100000171935
+    /** **100000171935**
 
 Emulsion and lyophilisate for suspension for injection. */
     N100000171935,
-    /** # 100000174065
+    /** **100000174065**
 
 Powder and solvent for syrup. */
     N100000174065,
-    /** # 200000002161
+    /** **200000002161**
 
 Nasal spray, lyophilisate and solvent for suspension. */
     N200000002161,
-    /** # 200000002287
+    /** **200000002287**
 
 Powder and solution for bee-hive dispersion. */
     N200000002287,
-    /** # 200000004201
+    /** **200000004201**
 
 Solution and dispersion for nebuliser dispersion. */
     N200000004201,
-    /** # 200000004819
+    /** **200000004819**
 
 Effervescent powder and powder for oral suspension. */
     N200000004819,
-    /** # 200000004820
+    /** **200000004820**
 
 Lyophilisate and solvent for emulsion for injection. */
     N200000004820,
-    /** # 200000005547
+    /** **200000005547**
 
 Powder and solution for suspension for injection. */
     N200000005547,
-    /** # 200000010382
+    /** **200000010382**
 
 Lyophilisate and solvent for suspension for nasal spray or injection. */
     N200000010382,
@@ -13023,33 +12865,31 @@ impl From<CombinedDoseForm> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CompartmentType`. Which type a compartment definition describes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CompartmentType](http://hl7.org/fhir/ValueSet/compartment-type)**. Which type a compartment definition describes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CompartmentType {
-    /** # Device
+    /** **Device**
 
 Device. The compartment definition is for the device compartment. */
     Device,
-    /** # Encounter
+    /** **Encounter**
 
 Encounter. The compartment definition is for the encounter compartment. */
     Encounter,
-    /** # EpisodeOfCare
+    /** **EpisodeOfCare**
 
 EpisodeOfCare. The compartment definition is for the episodeofcare compartment. */
     EpisodeOfCare,
-    /** # Patient
+    /** **Patient**
 
 Patient. The compartment definition is for the patient compartment. */
     Patient,
-    /** # Practitioner
+    /** **Practitioner**
 
 Practitioner. The compartment definition is for the practitioner compartment. */
     Practitioner,
-    /** # RelatedPerson
+    /** **RelatedPerson**
 
 RelatedPerson. The compartment definition is for the related-person compartment. */
     RelatedPerson,
@@ -13128,25 +12968,23 @@ impl From<CompartmentType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CompositionAttestationMode`. The way in which a person authenticated a composition.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CompositionAttestationMode](http://hl7.org/fhir/ValueSet/composition-attestation-mode)**. The way in which a person authenticated a composition.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CompositionAttestationMode {
-    /** # legal
+    /** **legal**
 
 Legal. The person authenticated the content and accepted legal responsibility for its content. */
     Legal,
-    /** # official
+    /** **official**
 
 Official. The organization authenticated the content as consistent with their policies and procedures. */
     Official,
-    /** # personal
+    /** **personal**
 
 Personal. The person authenticated the content in their personal capacity. */
     Personal,
-    /** # professional
+    /** **professional**
 
 Professional. The person authenticated the content in their professional capacity. */
     Professional,
@@ -13221,53 +13059,51 @@ impl From<CompositionAttestationMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CompositionStatus`. The workflow/clinical status of the composition.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CompositionStatus](http://hl7.org/fhir/ValueSet/composition-status)**. The workflow/clinical status of the composition.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CompositionStatus {
-    /** # amended
+    /** **amended**
 
 Amended. The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as "final" and the composition is complete and verified by an authorized person. */
     Amended,
-    /** # appended
+    /** **appended**
 
 Appended. Subsequent to being final, the composition content has been modified by adding new content. The existing content is unchanged. */
     Appended,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The composition is unavailable because the measurement was not started or not completed (also sometimes called "aborted"). */
     Cancelled,
-    /** # corrected
+    /** **corrected**
 
 Corrected. Subsequent to being final, the composition content has been modified to correct an error in the composition or referenced results. */
     Corrected,
-    /** # deprecated
+    /** **deprecated**
 
 Deprecated. This composition has been withdrawn or superseded and should no longer be used. */
     Deprecated,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid. */
     EnteredInError,
-    /** # final
+    /** **final**
 
 Final. This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition. */
     Final,
-    /** # partial
+    /** **partial**
 
 Partial. This is a partial (e.g. initial, interim or preliminary) composition: data in the composition may be incomplete or unverified. */
     Partial,
-    /** # preliminary
+    /** **preliminary**
 
 Preliminary. Verified early results are available, but not all results are final. */
     Preliminary,
-    /** # registered
+    /** **registered**
 
 Registered. The existence of the composition is registered, but there is nothing yet available. */
     Registered,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which. */
     Unknown,
@@ -13361,29 +13197,27 @@ impl From<CompositionStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptMapAttributeType`. The type of a ConceptMap map attribute value.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptMapAttributeType](http://hl7.org/fhir/ValueSet/conceptmap-attribute-type)**. The type of a ConceptMap map attribute value.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapAttributeType {
-    /** # Coding
+    /** **Coding**
 
 Coding. The attribute value is a code defined in a code system. */
     Coding,
-    /** # Quantity
+    /** **Quantity**
 
 Quantity. The attribute is a Quantity (may represent an integer or a decimal with no units). */
     Quantity,
-    /** # boolean
+    /** **boolean**
 
 boolean. The attribute value is a boolean true | false. */
     Boolean,
-    /** # code
+    /** **code**
 
 code. The attribute value is a code defined in the code system in context. */
     Code,
-    /** # string
+    /** **string**
 
 string. The attribute value is a string. */
     String,
@@ -13459,21 +13293,19 @@ impl From<ConceptMapAttributeType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptMapGroupUnmappedMode`. Defines which action to take if there is no match in the group.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptMapGroupUnmappedMode](http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode)**. Defines which action to take if there is no match in the group.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapGroupUnmappedMode {
-    /** # fixed
+    /** **fixed**
 
 Fixed Code. Use the code(s) explicitly provided in the group.unmapped 'code' or 'valueSet' element. */
     Fixed,
-    /** # other-map
+    /** **other-map**
 
 Other Map. Use the map identified by the canonical URL in the url element. */
     OtherMap,
-    /** # use-source-code
+    /** **use-source-code**
 
 Use Provided Source Code. Use the code as provided in the $translate request in one of the following input parameters: sourceCode, sourceCoding, sourceCodeableConcept. */
     UseSourceCode,
@@ -13543,12 +13375,10 @@ impl From<ConceptMapGroupUnmappedMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptMapProperties`. A set of common concept properties for use on ConceptMap
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptMapProperties](http://hl7.org/fhir/conceptmap-properties)**. A set of common concept properties for use on ConceptMap\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ConceptMapProperties {
-    /** # relationshipRefinement
+    /** **relationshipRefinement**
 
 Relationship Refinement. Property of type coding that indicates a specific refined relationship such as categorized by or grouped */
     RelationshipRefinement,
@@ -13616,37 +13446,35 @@ impl From<ConceptMapProperties> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptMapPropertyType`. The type of a ConceptMap mapping property value.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptMapPropertyType](http://hl7.org/fhir/ValueSet/conceptmap-property-type)**. The type of a ConceptMap mapping property value.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapPropertyType {
-    /** # Coding
+    /** **Coding**
 
 Coding (external reference). The property  value is a code defined in an external code system. This may be used for translations, but is not the intent. */
     Coding,
-    /** # boolean
+    /** **boolean**
 
 boolean. The property value is a boolean true | false. */
     Boolean,
-    /** # code
+    /** **code**
 
 code. The property value is a code as defined in the CodeSystem in ConceptMap.property.system. */
     Code,
-    /** # dateTime
+    /** **dateTime**
 
 dateTime. The property is a date or a date + time. */
     DateTime,
-    /** # decimal
+    /** **decimal**
 
 decimal. The property value is a decimal number. */
     Decimal,
-    /** # integer
+    /** **integer**
 
 integer. The property value is an integer (often used to assign ranking values to concepts for supporting score assessments). */
     Integer,
-    /** # string
+    /** **string**
 
 string. The property value is a string. */
     String,
@@ -13728,29 +13556,27 @@ impl From<ConceptMapPropertyType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptMapRelationship`. The relationship between concepts.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptMapRelationship](http://hl7.org/fhir/ValueSet/concept-map-relationship)**. The relationship between concepts.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapRelationship {
-    /** # equivalent
+    /** **equivalent**
 
 Equivalent. The definitions of the concepts mean the same thing. */
     Equivalent,
-    /** # not-related-to
+    /** **not-related-to**
 
 Not Related To. This is an explicit assertion that the target concept is not related to the source concept. */
     NotRelatedTo,
-    /** # related-to
+    /** **related-to**
 
 Related To. The concepts are related to each other, but the exact relationship is not known. */
     RelatedTo,
-    /** # source-is-broader-than-target
+    /** **source-is-broader-than-target**
 
 Source Is Broader Than Target. The source concept is broader in meaning than the target concept. */
     SourceIsBroaderThanTarget,
-    /** # source-is-narrower-than-target
+    /** **source-is-narrower-than-target**
 
 Source Is Narrower Than Target. The source concept is narrower in meaning than the target concept. */
     SourceIsNarrowerThanTarget,
@@ -13826,61 +13652,59 @@ impl From<ConceptMapRelationship> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptProperties`. A set of common concept properties for use on coded systems throughout the FHIR eco-system.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptProperties](http://hl7.org/fhir/ValueSet/concept-properties)**. A set of common concept properties for use on coded systems throughout the FHIR eco-system.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptProperties {
-    /** # child
+    /** **child**
 
 Child. The concept identified in this property is a child of the concept on which it is a property. The property type will be 'code'. The meaning of 'child' is defined by the hierarchyMeaning attribute */
     Child,
-    /** # comment
+    /** **comment**
 
 Comment. A string that provides additional detail pertinent to the use or understanding of the concept */
     Comment,
-    /** # deprecated
+    /** **deprecated**
 
 Deprecated. The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated */
     Deprecated,
-    /** # deprecationDate
+    /** **deprecationDate**
 
 Deprecation Date. The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated */
     DeprecationDate,
-    /** # effectiveDate
+    /** **effectiveDate**
 
 effectiveDate. The date at which the concept status was last changed */
     EffectiveDate,
-    /** # inactive
+    /** **inactive**
 
 Inactive. True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false. Note that the status property may also be used to indicate that a concept is inactive */
     Inactive,
-    /** # itemWeight
+    /** **itemWeight**
 
 itemWeight. A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores. In questionnaires, the item weight may be represented using the [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]] extension */
     ItemWeight,
-    /** # notSelectable
+    /** **notSelectable**
 
 Not Selectable. The concept is not intended to be chosen by the user - only intended to be used as a selector for other concepts. Note, though, that the interpretation of this is highly contextual; all concepts are selectable in some context. Property type is boolean */
     NotSelectable,
-    /** # parent
+    /** **parent**
 
 Parent. The concept identified in this property is a parent of the concept on which it is a property. The property type will be 'code'. The meaning of 'parent' is defined by the hierarchyMeaning attribute */
     Parent,
-    /** # partOf
+    /** **partOf**
 
 Part Of. The concept identified in this property (by its code) contains this concept as a component (i.e. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm */
     PartOf,
-    /** # retirementDate
+    /** **retirementDate**
 
 Retirement Date. The date at which a concept was retired */
     RetirementDate,
-    /** # status
+    /** **status**
 
 Status. A code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired */
     Status,
-    /** # synonym
+    /** **synonym**
 
 Synonym. This property contains an alternative code that may be used to identify this concept instead of the primary code */
     Synonym,
@@ -13980,24 +13804,22 @@ impl From<ConceptProperties> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConceptSubsumptionOutcome`. Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConceptSubsumptionOutcome](http://hl7.org/fhir/concept-subsumption-outcome)**. Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ConceptSubsumptionOutcome {
-    /** # equivalent
+    /** **equivalent**
 
 Equivalent. A equivalent to B if A subsumes B and B subsumes A */
     Equivalent,
-    /** # not-subsumed
+    /** **not-subsumed**
 
 Not-Subsumed. Neither A subsumes B nor B subsumes A */
     NotSubsumed,
-    /** # subsumed-by
+    /** **subsumed-by**
 
 Subsumed-By. A subsumed by B if B subsumes A */
     SubsumedBy,
-    /** # subsumes
+    /** **subsumes**
 
 Subsumes. A subsumes B if there is a subsumption relationship between A and B */
     Subsumes,
@@ -14074,17 +13896,15 @@ impl From<ConceptSubsumptionOutcome> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConditionPreconditionType`. Kind of precondition for the condition.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConditionPreconditionType](http://hl7.org/fhir/ValueSet/condition-precondition-type)**. Kind of precondition for the condition.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionPreconditionType {
-    /** # sensitive
+    /** **sensitive**
 
 Sensitive. The observation is very sensitive for the condition, but may also indicate other conditions. */
     Sensitive,
-    /** # specific
+    /** **specific**
 
 Specific. The observation is very specific for this condition, but not particularly sensitive. */
     Specific,
@@ -14153,21 +13973,19 @@ impl From<ConditionPreconditionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConditionQuestionnairePurpose`. The use of a questionnaire.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConditionQuestionnairePurpose](http://hl7.org/fhir/ValueSet/condition-questionnaire-purpose)**. The use of a questionnaire.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionQuestionnairePurpose {
-    /** # diff-diagnosis
+    /** **diff-diagnosis**
 
 Diff Diagnosis. A questionnaire that helps with diferential diagnosis. */
     DiffDiagnosis,
-    /** # outcome
+    /** **outcome**
 
 Outcome. A questionnaire to check on outcomes for the patient. */
     Outcome,
-    /** # preadmit
+    /** **preadmit**
 
 Pre-admit. A pre-admit questionnaire. */
     Preadmit,
@@ -14239,21 +14057,19 @@ impl From<ConditionQuestionnairePurpose> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConditionalDeleteStatus`. A code that indicates how the server supports conditional delete.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConditionalDeleteStatus](http://hl7.org/fhir/ValueSet/conditional-delete-status)**. A code that indicates how the server supports conditional delete.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionalDeleteStatus {
-    /** # multiple
+    /** **multiple**
 
 Multiple Deletes Supported. Conditional deletes are supported, and multiple resources can be deleted in a single interaction. */
     Multiple,
-    /** # not-supported
+    /** **not-supported**
 
 Not Supported. No support for conditional deletes. */
     NotSupported,
-    /** # single
+    /** **single**
 
 Single Deletes Supported. Conditional deletes are supported, but only single resources at a time. */
     Single,
@@ -14323,25 +14139,23 @@ impl From<ConditionalDeleteStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConditionalReadStatus`. A code that indicates how the server supports conditional read.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConditionalReadStatus](http://hl7.org/fhir/ValueSet/conditional-read-status)**. A code that indicates how the server supports conditional read.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionalReadStatus {
-    /** # full-support
+    /** **full-support**
 
 Full Support. Conditional reads are supported, with both If-Modified-Since and If-None-Match HTTP Headers. */
     FullSupport,
-    /** # modified-since
+    /** **modified-since**
 
 If-Modified-Since. Conditional reads are supported, but only with the If-Modified-Since HTTP Header. */
     ModifiedSince,
-    /** # not-match
+    /** **not-match**
 
 If-None-Match. Conditional reads are supported, but only with the If-None-Match HTTP Header. */
     NotMatch,
-    /** # not-supported
+    /** **not-supported**
 
 Not Supported. No support for conditional reads. */
     NotSupported,
@@ -14414,25 +14228,23 @@ impl From<ConditionalReadStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConformanceExpectation`. ConformanceExpectation
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConformanceExpectation](http://hl7.org/fhir/ValueSet/conformance-expectation)**. ConformanceExpectation\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConformanceExpectation {
-    /** # MAY
+    /** **MAY**
 
 MAY. Support for the specified capability is not necessary to be considered conformant, and the requirement should be considered strictly optional. */
     May,
-    /** # SHALL
+    /** **SHALL**
 
 SHALL. Support for the specified capability is required to be considered conformant. */
     Shall,
-    /** # SHOULD
+    /** **SHOULD**
 
 SHOULD. Support for the specified capability is strongly encouraged, and failure to support it should only occur after careful consideration. */
     Should,
-    /** # SHOULD-NOT
+    /** **SHOULD-NOT**
 
 SHOULD-NOT. Support for the specified capability is strongly discouraged and should occur only after careful consideration. */
     ShouldNot,
@@ -14505,25 +14317,23 @@ impl From<ConformanceExpectation> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConsentDataMeaning`. How a resource reference is interpreted when testing consent restrictions.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConsentDataMeaning](http://hl7.org/fhir/ValueSet/consent-data-meaning)**. How a resource reference is interpreted when testing consent restrictions.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConsentDataMeaning {
-    /** # authoredby
+    /** **authoredby**
 
 AuthoredBy. The consent applies to instances of resources that are authored by. */
     Authoredby,
-    /** # dependents
+    /** **dependents**
 
 Dependents. The consent applies directly to the instance of the resource and instances that refer to it. */
     Dependents,
-    /** # instance
+    /** **instance**
 
 Instance. The consent applies directly to the instance of the resource. */
     Instance,
-    /** # related
+    /** **related**
 
 Related. The consent applies directly to the instance of the resource and instances it refers to. */
     Related,
@@ -14596,17 +14406,15 @@ impl From<ConsentDataMeaning> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConsentProvisionType`. How a rule statement is applied, such as adding additional consent or removing consent.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConsentProvisionType](http://hl7.org/fhir/ValueSet/consent-provision-type)**. How a rule statement is applied, such as adding additional consent or removing consent.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConsentProvisionType {
-    /** # deny
+    /** **deny**
 
 Deny. Consent is denied for actions meeting these rules. */
     Deny,
-    /** # permit
+    /** **permit**
 
 Permit. Consent is provided for actions meeting these rules. */
     Permit,
@@ -14673,33 +14481,31 @@ impl From<ConsentProvisionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConsentState`. Indicates the state of the consent.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConsentState](http://hl7.org/fhir/ValueSet/consent-state-codes)**. Indicates the state of the consent.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConsentState {
-    /** # active
+    /** **active**
 
 Active. The consent is to be followed and enforced. */
     Active,
-    /** # draft
+    /** **draft**
 
 Pending. The consent is in development or awaiting use but is not yet intended to be acted upon. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The consent was created wrongly (e.g. wrong patient) and should be ignored. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The consent is terminated or replaced. */
     Inactive,
-    /** # not-done
+    /** **not-done**
 
 Abandoned. The consent development has been terminated prior to completion. */
     NotDone,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The resource is in an indeterminate state. */
     Unknown,
@@ -14778,17 +14584,15 @@ impl From<ConsentState> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ConstraintSeverity`. SHALL applications comply with this constraint?
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ConstraintSeverity](http://hl7.org/fhir/ValueSet/constraint-severity)**. SHALL applications comply with this constraint?\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConstraintSeverity {
-    /** # error
+    /** **error**
 
 Error. If the constraint is violated, the resource is not conformant. */
     Error,
-    /** # warning
+    /** **warning**
 
 Warning. If the constraint is violated, the resource is conformant, but it is not necessarily following best practice. */
     Warning,
@@ -14855,37 +14659,35 @@ impl From<ConstraintSeverity> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContactPointSystem`. Telecommunications form for contact point.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContactPointSystem](http://hl7.org/fhir/ValueSet/contact-point-system)**. Telecommunications form for contact point.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContactPointSystem {
-    /** # email
+    /** **email**
 
 Email. The value is an email address. */
     Email,
-    /** # fax
+    /** **fax**
 
 Fax. The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required. */
     Fax,
-    /** # other
+    /** **other**
 
 Other. A contact that is not a phone, fax, page or email address and is not expressible as a URL.  E.g. Internal mail address.  This SHOULD NOT be used for contacts that are expressible as a URL (e.g. Skype, Twitter, Facebook, etc.)  Extensions may be used to distinguish "other" contact types. */
     Other,
-    /** # pager
+    /** **pager**
 
 Pager. The value is a pager number. These may be local pager numbers that are only usable on a particular pager system. */
     Pager,
-    /** # phone
+    /** **phone**
 
 Phone. The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required. */
     Phone,
-    /** # sms
+    /** **sms**
 
 SMS. A contact that can be used for sending a sms message (e.g. mobile phones, some landlines). */
     Sms,
-    /** # url
+    /** **url**
 
 URL. A contact that is not a phone, fax, pager or email address and is expressed as a URL.  This is intended for various institutional or personal contacts including web sites, blogs, Skype, Twitter, Facebook, etc. Do not use for email addresses. */
     Url,
@@ -14967,29 +14769,27 @@ impl From<ContactPointSystem> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContactPointUse`. Use of contact point.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContactPointUse](http://hl7.org/fhir/ValueSet/contact-point-use)**. Use of contact point.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContactPointUse {
-    /** # home
+    /** **home**
 
 Home. A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available. */
     Home,
-    /** # mobile
+    /** **mobile**
 
 Mobile. A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business. */
     Mobile,
-    /** # old
+    /** **old**
 
 Old. This contact point is no longer in use (or was never correct, but retained for records). */
     Old,
-    /** # temp
+    /** **temp**
 
 Temp. A temporary contact point. The period can provide more detailed information. */
     Temp,
-    /** # work
+    /** **work**
 
 Work. An office contact point. First choice for business related contacts during business hours. */
     Work,
@@ -15065,12 +14865,10 @@ impl From<ContactPointUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractActionStatus`. This CodeSystem contains FHIR-defined contract action status types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractActionStatus](http://hl7.org/fhir/contract-action-status)**. This CodeSystem contains FHIR-defined contract action status types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractActionStatus {
-    /** # complete
+    /** **complete**
 
 Complete. To be completed */
     Complete,
@@ -15138,12 +14936,10 @@ impl From<ContractActionStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractAssetAvailability`. This CodeSystem contains FHIR-defined contract asset availability types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractAssetAvailability](http://hl7.org/fhir/asset-availability)**. This CodeSystem contains FHIR-defined contract asset availability types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractAssetAvailability {
-    /** # lease
+    /** **lease**
 
 Lease. To be completed */
     Lease,
@@ -15211,12 +15007,10 @@ impl From<ContractAssetAvailability> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractAssetContext`. This CodeSystem contains FHIR-defined contract asset context types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractAssetContext](http://hl7.org/fhir/contract-asset-context)**. This CodeSystem contains FHIR-defined contract asset context types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractAssetContext {
-    /** # custodian
+    /** **custodian**
 
 Custodian. To be completed */
     Custodian,
@@ -15284,12 +15078,10 @@ impl From<ContractAssetContext> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractAssetScope`. This CodeSystem contains FHIR-defined contract asset scope types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractAssetScope](http://hl7.org/fhir/contract-asset-scope)**. This CodeSystem contains FHIR-defined contract asset scope types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractAssetScope {
-    /** # thing
+    /** **thing**
 
 Thing. To be completed */
     Thing,
@@ -15357,12 +15149,10 @@ impl From<ContractAssetScope> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractAssetSubtype`. This CodeSystem contains FHIR-defined contract asset type sub-types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractAssetSubtype](http://hl7.org/fhir/contract-asset-subtype)**. This CodeSystem contains FHIR-defined contract asset type sub-types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractAssetSubtype {
-    /** # participation
+    /** **participation**
 
 Participation. To be completed */
     Participation,
@@ -15430,12 +15220,10 @@ impl From<ContractAssetSubtype> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractAssetType`. This CodeSystem contains FHIR-defined contract asset type types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractAssetType](http://hl7.org/fhir/contract-asset-type)**. This CodeSystem contains FHIR-defined contract asset type types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractAssetType {
-    /** # participation
+    /** **participation**
 
 Participation. To be completed */
     Participation,
@@ -15503,12 +15291,10 @@ impl From<ContractAssetType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractDecisionMode`. This CodeSystem contains FHIR-defined contract decision mode types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractDecisionMode](http://hl7.org/fhir/contract-decision-mode)**. This CodeSystem contains FHIR-defined contract decision mode types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractDecisionMode {
-    /** # policy
+    /** **policy**
 
 Policy. To be completed */
     Policy,
@@ -15576,12 +15362,10 @@ impl From<ContractDecisionMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractDefinitionSubtype`. This CodeSystem contains FHIR-defined contract definition subtypes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractDefinitionSubtype](http://hl7.org/fhir/contract-definition-subtype)**. This CodeSystem contains FHIR-defined contract definition subtypes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractDefinitionSubtype {
-    /** # temp
+    /** **temp**
 
 Temporary Value. To be completed */
     Temp,
@@ -15649,12 +15433,10 @@ impl From<ContractDefinitionSubtype> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractDefinitionType`. This CodeSystem contains FHIR-defined contract definition types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractDefinitionType](http://hl7.org/fhir/contract-definition-type)**. This CodeSystem contains FHIR-defined contract definition types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractDefinitionType {
-    /** # temp
+    /** **temp**
 
 Temporary Value. To be completed */
     Temp,
@@ -15722,12 +15504,10 @@ impl From<ContractDefinitionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractExpirationType`. This CodeSystem contains FHIR-defined contract Expiration types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractExpirationType](http://hl7.org/fhir/contract-expiration-type)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractExpirationType {
-    /** # breach
+    /** **breach**
 
 Breach. To be completed */
     Breach,
@@ -15795,68 +15575,66 @@ impl From<ContractExpirationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractLegalState`. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in the [Status Codes Grid](sc.html).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractLegalState](http://hl7.org/fhir/contract-legalstate)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in the [Status Codes Grid](sc.html).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractLegalState {
-    /** # amended
+    /** **amended**
 
 Amended. Contract is augmented with additional information to correct errors in a predecessor or to updated values in a predecessor. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: revised; replaced. */
     Amended,
-    /** # appended
+    /** **appended**
 
 Appended. Contract is augmented with additional information that was missing from a predecessor Contract. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: updated, replaced. */
     Appended,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. Contract is terminated due to failure of the Grantor and/or the Grantee to fulfil one or more contract provisions. Usage: Abnormal contract termination. Precedence Order = 10. Comparable FHIR and v.3 status codes: stopped; failed; aborted. */
     Cancelled,
-    /** # disputed
+    /** **disputed**
 
 Disputed. Contract is pended to rectify failure of the Grantor or the Grantee to fulfil contract provision(s). E.g., Grantee complaint about Grantor's failure to comply with contract provisions. Usage: Contract pended. Precedence Order = 7. Comparable FHIR and v.3 status codes: on hold; pended; suspended. */
     Disputed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. Contract was created in error. No Precedence Order.  Status may be applied to a Contract with any status. */
     EnteredInError,
-    /** # executable
+    /** **executable**
 
 Executable. Contract execution pending; may be executed when either the Grantor or the Grantee accepts the contract provisions by signing. I.e., where either the Grantor or the Grantee has signed, but not both. E.g., when an insurance applicant signs the insurers application, which references the policy. Usage: Optional first step of contract execution activity.  May be skipped and contracting activity moves directly to executed state. Precedence Order = 3. Comparable FHIR and v.3 status codes: draft; preliminary; planned; intended; active. */
     Executable,
-    /** # executed
+    /** **executed**
 
 Executed. Contract is activated for period stipulated when both the Grantor and Grantee have signed it. Usage: Required state for normal completion of contracting activity.  Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted; completed. */
     Executed,
-    /** # negotiable
+    /** **negotiable**
 
 Negotiable. Contract execution is suspended while either or both the Grantor and Grantee propose and consider new or revised contract provisions. I.e., where the party which has not signed proposes changes to the terms.  E .g., a life insurer declines to agree to the signed application because the life insurer has evidence that the applicant, who asserted to being younger or a non-smoker to get a lower premium rate - but offers instead to agree to a higher premium based on the applicants actual age or smoking status. Usage: Optional contract activity between executable and executed state. Precedence Order = 4. Comparable FHIR and v.3 status codes: in progress; review; held. */
     Negotiable,
-    /** # offered
+    /** **offered**
 
 Offered. Contract is a proposal by either the Grantor or the Grantee. Aka - A Contract hard copy or electronic 'template', 'form' or 'application'. E.g., health insurance application; consent directive form. Usage: Beginning of contract negotiation, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 2. Comparable FHIR and v.3 status codes: requested; new. */
     Offered,
-    /** # policy
+    /** **policy**
 
 Policy. Contract template is available as the basis for an application or offer by the Grantor or Grantee. E.g., health insurance policy; consent directive policy.  Usage: Required initial contract activity, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 1. Comparable FHIR and v.3 status codes: proposed; intended. */
     Policy,
-    /** # rejected
+    /** **rejected**
 
 Rejected.  Execution of the Contract is not completed because either or both the Grantor and Grantee decline to accept some or all of the contract provisions. Usage: Optional contract activity between executable and abnormal termination. Precedence Order = 5. Comparable FHIR and v.3 status codes:  stopped; cancelled. */
     Rejected,
-    /** # renewed
+    /** **renewed**
 
 Renewed. Beginning of a successor Contract at the termination of predecessor Contract lifecycle. Usage: Follows termination of a preceding Contract that has reached its expiry date. Precedence Order = 13. Comparable FHIR and v.3 status codes: superseded. */
     Renewed,
-    /** # resolved
+    /** **resolved**
 
 Resolved. Contract is reactivated after being pended because of faulty execution. *E.g., competency of the signer(s), or where the policy is substantially different from and did not accompany the application/form so that the applicant could not compare them. Aka - ''reactivated''. Usage: Optional stage where a pended contract is reactivated. Precedence Order = 8. Comparable FHIR and v.3 status codes: reactivated. */
     Resolved,
-    /** # revoked
+    /** **revoked**
 
 Revoked. A Contract that is rescinded.  May be required prior to replacing with an updated Contract. Comparable FHIR and v.3 status codes: nullified. */
     Revoked,
-    /** # terminated
+    /** **terminated**
 
 Terminated. Contract reaches its expiry date. It might or might not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted. */
     Terminated,
@@ -15966,12 +15744,10 @@ impl From<ContractLegalState> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractPartyRole`. This CodeSystem contains FHIR-defined contract party role types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractPartyRole](http://hl7.org/fhir/contract-party-role)**. This CodeSystem contains FHIR-defined contract party role types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractPartyRole {
-    /** # flunky
+    /** **flunky**
 
 FLunky. To be completed */
     Flunky,
@@ -16039,68 +15815,66 @@ impl From<ContractPartyRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractPublicationStatus`. This CodeSystem contains FHIR-defined contract publication status types. Each definition includes usage notes explaining the precedence order in contract publication lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractPublicationStatus](http://hl7.org/fhir/contract-publicationstatus)**. This CodeSystem contains FHIR-defined contract publication status types. Each definition includes usage notes explaining the precedence order in contract publication lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractPublicationStatus {
-    /** # amended
+    /** **amended**
 
 Amended. Contract is augmented with additional information to correct errors in a predecessor or to updated values in a predecessor. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: revised; replaced. */
     Amended,
-    /** # appended
+    /** **appended**
 
 Appended. Contract is augmented with additional information that was missing from a predecessor Contract. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: updated, replaced. */
     Appended,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. Contract is terminated due to failure of the Grantor and/or the Grantee to fulfil one or more contract provisions. Usage: Abnormal contract termination. Precedence Order = 10. Comparable FHIR and v.3 status codes: stopped; failed; aborted. */
     Cancelled,
-    /** # disputed
+    /** **disputed**
 
 Disputed. Contract is pended to rectify failure of the Grantor or the Grantee to fulfil contract provision(s). E.g., Grantee complaint about Grantor's failure to comply with contract provisions. Usage: Contract pended. Precedence Order = 7. Comparable FHIR and v.3 status codes: on hold; pended; suspended. */
     Disputed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. Contract was created in error. No Precedence Order.  Status may be applied to a Contract with any status. */
     EnteredInError,
-    /** # executable
+    /** **executable**
 
 Executable. Contract execution pending; may be executed when either the Grantor or the Grantee accepts the contract provisions by signing. I.e., where either the Grantor or the Grantee has signed, but not both. E.g., when an insurance applicant signs the insurers application, which references the policy. Usage: Optional first step of contract execution activity.  May be skipped and contracting activity moves directly to executed state. Precedence Order = 3. Comparable FHIR and v.3 status codes: draft; preliminary; planned; intended; active. */
     Executable,
-    /** # executed
+    /** **executed**
 
 Executed. Contract is activated for period stipulated when both the Grantor and Grantee have signed it. Usage: Required state for normal completion of contracting activity.  Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted; completed. */
     Executed,
-    /** # negotiable
+    /** **negotiable**
 
 Negotiable. Contract execution is suspended while either or both the Grantor and Grantee propose and consider new or revised contract provisions. I.e., where the party which has not signed proposes changes to the terms.  E .g., a life insurer declines to agree to the signed application because the life insurer has evidence that the applicant, who asserted to being younger or a non-smoker to get a lower premium rate - but offers instead to agree to a higher premium based on the applicants actual age or smoking status. Usage: Optional contract activity between executable and executed state. Precedence Order = 4. Comparable FHIR and v.3 status codes: in progress; review; held. */
     Negotiable,
-    /** # offered
+    /** **offered**
 
 Offered. Contract is a proposal by either the Grantor or the Grantee. Aka - A Contract hard copy or electronic 'template', 'form' or 'application'. E.g., health insurance application; consent directive form. Usage: Beginning of contract negotiation, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 2. Comparable FHIR and v.3 status codes: requested; new. */
     Offered,
-    /** # policy
+    /** **policy**
 
 Policy. Contract template is available as the basis for an application or offer by the Grantor or Grantee. E.g., health insurance policy; consent directive policy.  Usage: Required initial contract activity, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 1. Comparable FHIR and v.3 status codes: proposed; intended. */
     Policy,
-    /** # rejected
+    /** **rejected**
 
 Rejected.  Execution of the Contract is not completed because either or both the Grantor and Grantee decline to accept some or all of the contract provisions. Usage: Optional contract activity between executable and abnormal termination. Precedence Order = 5. Comparable FHIR and v.3 status codes:  stopped; cancelled. */
     Rejected,
-    /** # renewed
+    /** **renewed**
 
 Renewed. Beginning of a successor Contract at the termination of predecessor Contract lifecycle. Usage: Follows termination of a preceding Contract that has reached its expiry date. Precedence Order = 13. Comparable FHIR and v.3 status codes: superseded. */
     Renewed,
-    /** # resolved
+    /** **resolved**
 
 Resolved. Contract is reactivated after being pended because of faulty execution. *E.g., competency of the signer(s), or where the policy is substantially different from and did not accompany the application/form so that the applicant could not compare them. Aka - ''reactivated''. Usage: Optional stage where a pended contract is reactivated. Precedence Order = 8. Comparable FHIR and v.3 status codes: reactivated. */
     Resolved,
-    /** # revoked
+    /** **revoked**
 
 Revoked. A Contract that is rescinded.  May be required prior to replacing with an updated Contract. Comparable FHIR and v.3 status codes: nullified. */
     Revoked,
-    /** # terminated
+    /** **terminated**
 
 Terminated. Contract reaches its expiry date. It might or might not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted. */
     Terminated,
@@ -16210,12 +15984,10 @@ impl From<ContractPublicationStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractScope`. This CodeSystem contains FHIR-defined contract Expiration types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractScope](http://hl7.org/fhir/contract-scope)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractScope {
-    /** # policy
+    /** **policy**
 
 Policy. To be completed */
     Policy,
@@ -16283,12 +16055,10 @@ impl From<ContractScope> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractSecurityCategory`. This CodeSystem contains FHIR-defined contract security category types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractSecurityCategory](http://hl7.org/fhir/contract-security-category)**. This CodeSystem contains FHIR-defined contract security category types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractSecurityCategory {
-    /** # policy
+    /** **policy**
 
 Policy. To be completed */
     Policy,
@@ -16356,12 +16126,10 @@ impl From<ContractSecurityCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractSecurityClassification`. This CodeSystem contains FHIR-defined contract security classification types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractSecurityClassification](http://hl7.org/fhir/contract-security-classification)**. This CodeSystem contains FHIR-defined contract security classification types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractSecurityClassification {
-    /** # policy
+    /** **policy**
 
 Policy. To be completed */
     Policy,
@@ -16429,12 +16197,10 @@ impl From<ContractSecurityClassification> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractSecurityControl`. This CodeSystem contains FHIR-defined contract security control types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractSecurityControl](http://hl7.org/fhir/contract-security-control)**. This CodeSystem contains FHIR-defined contract security control types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractSecurityControl {
-    /** # policy
+    /** **policy**
 
 Policy. To be completed */
     Policy,
@@ -16502,68 +16268,66 @@ impl From<ContractSecurityControl> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContractStatus`. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in [the Status Codes Grid](sc.html).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContractStatus](http://hl7.org/fhir/contract-status)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in [the Status Codes Grid](sc.html).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ContractStatus {
-    /** # amended
+    /** **amended**
 
 Amended. Contract is augmented with additional information to correct errors in a predecessor or to updated values in a predecessor. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: revised; replaced. */
     Amended,
-    /** # appended
+    /** **appended**
 
 Appended. Contract is augmented with additional information that was missing from a predecessor Contract. Usage: Contract altered within effective time. Precedence Order = 9. Comparable FHIR and v.3 status codes: updated, replaced. */
     Appended,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. Contract is terminated due to failure of the Grantor and/or the Grantee to fulfil one or more contract provisions. Usage: Abnormal contract termination. Precedence Order = 10. Comparable FHIR and v.3 status codes: stopped; failed; aborted. */
     Cancelled,
-    /** # disputed
+    /** **disputed**
 
 Disputed. Contract is pended to rectify failure of the Grantor or the Grantee to fulfil contract provision(s). E.g., Grantee complaint about Grantor's failure to comply with contract provisions. Usage: Contract pended. Precedence Order = 7. Comparable FHIR and v.3 status codes: on hold; pended; suspended. */
     Disputed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. Contract was created in error. No Precedence Order.  Status may be applied to a Contract with any status. */
     EnteredInError,
-    /** # executable
+    /** **executable**
 
 Executable. Contract execution pending; may be executed when either the Grantor or the Grantee accepts the contract provisions by signing. I.e., where either the Grantor or the Grantee has signed, but not both. E.g., when an insurance applicant signs the insurers application, which references the policy. Usage: Optional first step of contract execution activity.  May be skipped and contracting activity moves directly to executed state. Precedence Order = 3. Comparable FHIR and v.3 status codes: draft; preliminary; planned; intended; active. */
     Executable,
-    /** # executed
+    /** **executed**
 
 Executed. Contract is activated for period stipulated when both the Grantor and Grantee have signed it. Usage: Required state for normal completion of contracting activity.  Precedence Order = 6. Comparable FHIR and v.3 status codes: accepted; completed. */
     Executed,
-    /** # negotiable
+    /** **negotiable**
 
 Negotiable. Contract execution is suspended while either or both the Grantor and Grantee propose and consider new or revised contract provisions. I.e., where the party which has not signed proposes changes to the terms.  E .g., a life insurer declines to agree to the signed application because the life insurer has evidence that the applicant, who asserted to being younger or a non-smoker to get a lower premium rate - but offers instead to agree to a higher premium based on the applicants actual age or smoking status. Usage: Optional contract activity between executable and executed state. Precedence Order = 4. Comparable FHIR and v.3 status codes: in progress; review; held. */
     Negotiable,
-    /** # offered
+    /** **offered**
 
 Offered. Contract is a proposal by either the Grantor or the Grantee. Aka - A Contract hard copy or electronic 'template', 'form' or 'application'. E.g., health insurance application; consent directive form. Usage: Beginning of contract negotiation, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 2. Comparable FHIR and v.3 status codes: requested; new. */
     Offered,
-    /** # policy
+    /** **policy**
 
 Policy. Contract template is available as the basis for an application or offer by the Grantor or Grantee. E.g., health insurance policy; consent directive policy.  Usage: Required initial contract activity, which may have been completed as a precondition because used for 0..* contracts. Precedence Order = 1. Comparable FHIR and v.3 status codes: proposed; intended. */
     Policy,
-    /** # rejected
+    /** **rejected**
 
 Rejected.  Execution of the Contract is not completed because either or both the Grantor and Grantee decline to accept some or all of the contract provisions. Usage: Optional contract activity between executable and abnormal termination. Precedence Order = 5. Comparable FHIR and v.3 status codes:  stopped; cancelled. */
     Rejected,
-    /** # renewed
+    /** **renewed**
 
 Renewed. Beginning of a successor Contract at the termination of predecessor Contract lifecycle. Usage: Follows termination of a preceding Contract that has reached its expiry date. Precedence Order = 13. Comparable FHIR and v.3 status codes: superseded. */
     Renewed,
-    /** # resolved
+    /** **resolved**
 
 Resolved. Contract is reactivated after being pended because of faulty execution. *E.g., competency of the signer(s), or where the policy is substantially different from and did not accompany the application/form so that the applicant could not compare them. Aka - ''reactivated''. Usage: Optional stage where a pended contract is reactivated. Precedence Order = 8. Comparable FHIR and v.3 status codes: reactivated. */
     Resolved,
-    /** # revoked
+    /** **revoked**
 
 Revoked. A Contract that is rescinded.  May be required prior to replacing with an updated Contract. Comparable FHIR and v.3 status codes: nullified. */
     Revoked,
-    /** # terminated
+    /** **terminated**
 
 Terminated. Contract reaches its expiry date. It might or might not be renewed or renegotiated. Usage: Normal end of contract period. Precedence Order = 12. Comparable FHIR and v.3 status codes: Obsoleted. */
     Terminated,
@@ -16673,37 +16437,35 @@ impl From<ContractStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContributorRole`. Used to code the format of the display string.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContributorRole](http://hl7.org/fhir/ValueSet/contributor-role)**. Used to code the format of the display string.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorRole {
-    /** # author
+    /** **author**
 
 Author/Creator. An entity primarily responsible for making the resource, often called author or creator */
     Author,
-    /** # editor
+    /** **editor**
 
 Editor. Entity that revises or has authority to control the content */
     Editor,
-    /** # endorser
+    /** **endorser**
 
 Endorser. Entity that supports, approves, or advocates for the content */
     Endorser,
-    /** # funder
+    /** **funder**
 
 Funder. Entity that supplies financial support */
     Funder,
-    /** # informant
+    /** **informant**
 
 Informant. Entity that supplies information */
     Informant,
-    /** # publisher
+    /** **publisher**
 
 Publisher. Entity that makes the content available for public use */
     Publisher,
-    /** # reviewer
+    /** **reviewer**
 
 Reviewer. Entity that examines the content, formally or informally, and suggests revisions or comments */
     Reviewer,
@@ -16785,25 +16547,23 @@ impl From<ContributorRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContributorSummarySource`. Used to code the producer or rule for creating the display string.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContributorSummarySource](http://hl7.org/fhir/ValueSet/contributor-summary-source)**. Used to code the producer or rule for creating the display string.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorSummarySource {
-    /** # article-copy
+    /** **article-copy**
 
 Copied from article. Data copied by human from article text. */
     ArticleCopy,
-    /** # citation-manager
+    /** **citation-manager**
 
 Reported by citation manager. Data copied by machine from citation manager data. */
     CitationManager,
-    /** # custom
+    /** **custom**
 
 custom format. Custom format (may be described in text note). */
     Custom,
-    /** # publisher-data
+    /** **publisher-data**
 
 Publisher provided. Data copied by machine from publisher data. */
     PublisherData,
@@ -16876,73 +16636,71 @@ impl From<ContributorSummarySource> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContributorSummaryStyle`. Used to code the format of the display string.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContributorSummaryStyle](http://hl7.org/fhir/ValueSet/contributor-summary-style)**. Used to code the format of the display string.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorSummaryStyle {
-    /** # a1full
+    /** **a1full**
 
 First author (full name) et al. Example: Jennifer Laskowski et al. */
     A1Full,
-    /** # a1init
+    /** **a1init**
 
 First author (last name first initials) et al. Example: Laskowski J et al. */
     A1Init,
-    /** # a3full
+    /** **a3full**
 
 First 3 authors (full name) et al. Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, et al. */
     A3Full,
-    /** # a3init
+    /** **a3init**
 
 First 3 authors (last name first initials) et al. Example:  Laskowski J, Renner B, Pickering MC, et al. */
     A3Init,
-    /** # a6full
+    /** **a6full**
 
 First 6 authors (full name) et al. Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, et al. */
     A6Full,
-    /** # a6init
+    /** **a6init**
 
 First 6 authors (last name first initials) et al. Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, et al. */
     A6Init,
-    /** # aallfull
+    /** **aallfull**
 
 All authors (full name). Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, Raphael A. Nemenoff, Joshua M. Thurman. */
     Aallfull,
-    /** # aallfullwithampersand
+    /** **aallfullwithampersand**
 
 All authors (full name) with an ampersand before last author. Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, Raphael A. Nemenoff, & Joshua M. Thurman. */
     Aallfullwithampersand,
-    /** # aallfullwithand
+    /** **aallfullwithand**
 
 All authors (full name) with and before last author. Example: Jennifer Laskowski, Brandon Renner, Matthew C. Pickering, Natalie J. Serkova, Peter M. Smith-Jones, Eric T. Clambey, Raphael A. Nemenoff, and Joshua M. Thurman. */
     Aallfullwithand,
-    /** # aallinit
+    /** **aallinit**
 
 All authors (last name first initials). Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, Nemenoff RA, Thurman JM. */
     Aallinit,
-    /** # aallinitwithampersand
+    /** **aallinitwithampersand**
 
 All authors (last name first initials) with an ampersand before last author. Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, Nemenoff RA, & Thurman JM. */
     Aallinitwithampersand,
-    /** # aallinitwithand
+    /** **aallinitwithand**
 
 All authors (last name first initials) with and before last author. Example: Laskowski J, Renner B, Pickering MC, Serkova NJ, Smith-Jones PM, Clambey ET, Nemenoff RA, and Thurman JM. */
     Aallinitwithand,
-    /** # contr-full-by-contr
+    /** **contr-full-by-contr**
 
 Contributorship statement listed by contribution with full names. Project design by Jennnifer Laskowski (JL), Experiment design by JL and Joshua M. Thurman (JMT), technical advice and study design contribution by Matthew C. Pickering, experiments performed by JL, data collection and analysis by JL, PET imaging and associated analyses by Natalie J. Serkova and Peter M. Smith-Jones, conceptual and technical guidance by Eric T. Clambey (etc.) and Raphael A. Nemenoff (RAN), manuscript writing by JL and JMT, manuscript revised critically by JL, Brandon Renner, etc., and RAN. */
     ContrFullByContr,
-    /** # contr-full-by-person
+    /** **contr-full-by-person**
 
 Contributorship statement listed by person with full names. Jennnifer Laskowski designed project; developed and performed experiments; collected and analyzed data; wrote and revised manuscript. Brandon Renner performed critical review of manuscript. Matthew C. Pickering provided technical advice and contributed to study design. Natalie J. Serkova and Peter M. Smith-Jones performed PET imaging and associated analyses. Eric T. Clambey and Raphael A. Nemenoff provided conceptual and technical guidance and critical review of manuscript. Joshua M. Thurman contributed to experimental design and wrote manuscript. */
     ContrFullByPerson,
-    /** # contr-init-by-contr
+    /** **contr-init-by-contr**
 
 Contributorship statement listed by contribution with initials. Project design by JL, Experiment design by JL and JMT, technical advice and study design contribution by MCP, experiments performed by JL, data collection and analysis by JL, PET imaging and associated analyses by NJS and PMS-J, conceptual and technical guidance by etc. and RAN, manuscript writing by JL and JMT, manuscript revised critically by JL, BR, etc., and RAN. */
     ContrInitByContr,
-    /** # contr-init-by-person
+    /** **contr-init-by-person**
 
 Contributorship statement listed by person with initials. J.L. designed project; developed and performed experiments; collected and analyzed data; wrote and revised manuscript. B.R. performed critical review of manuscript. M.C.P. provided technical advice and contributed to study design. N.J.S and P.M.S.-J. performed PET imaging and associated analyses. E.T.C. and R.A.N provided conceptual and technical guidance and critical review of manuscript. J.M.T contributed to experimental design and wrote manuscript. */
     ContrInitByPerson,
@@ -17067,37 +16825,35 @@ impl From<ContributorSummaryStyle> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContributorSummaryType`. Used to code author list statement, contributorship statement, and such.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContributorSummaryType](http://hl7.org/fhir/ValueSet/contributor-summary-type)**. Used to code author list statement, contributorship statement, and such.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorSummaryType {
-    /** # acknowledgement-list
+    /** **acknowledgement-list**
 
 Acknowledgment list. Display of the list of acknowledged parties as a complete string. */
     AcknowledgementList,
-    /** # acknowledgment-statement
+    /** **acknowledgment-statement**
 
 Acknowledgment statement. Statement of acknowledgment of contributions beyond those compiled for formal contributorship statements. */
     AcknowledgmentStatement,
-    /** # author-string
+    /** **author-string**
 
 Author string. Display of the author list as a complete string. */
     AuthorString,
-    /** # competing-interests-statement
+    /** **competing-interests-statement**
 
 Competing interests statement. Statement of completing interests related to the creation of the cited artifact. Also called conflicts of interest or declaration of interests. */
     CompetingInterestsStatement,
-    /** # contributorship-list
+    /** **contributorship-list**
 
 Contributorship list. Display of the list of contributors as a complete string. */
     ContributorshipList,
-    /** # contributorship-statement
+    /** **contributorship-statement**
 
 Contributorship statement. Compiled summary of contributions. */
     ContributorshipStatement,
-    /** # funding-statement
+    /** **funding-statement**
 
 Funding statement. Statement of financial support for the creation of the cited artifact. */
     FundingStatement,
@@ -17179,25 +16935,23 @@ impl From<ContributorSummaryType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ContributorType`. The type of contributor.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ContributorType](http://hl7.org/fhir/ValueSet/contributor-type)**. The type of contributor.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorType {
-    /** # author
+    /** **author**
 
 Author. An author of the content of the module. */
     Author,
-    /** # editor
+    /** **editor**
 
 Editor. An editor of the content of the module. */
     Editor,
-    /** # endorser
+    /** **endorser**
 
 Endorser. An endorser of the content of the module. */
     Endorser,
-    /** # reviewer
+    /** **reviewer**
 
 Reviewer. A reviewer of the content of the module. */
     Reviewer,
@@ -17270,17 +17024,15 @@ impl From<ContributorType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `CriteriaNotExistsBehavior`. Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[CriteriaNotExistsBehavior](http://hl7.org/fhir/ValueSet/subscriptiontopic-cr-behavior)**. Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CriteriaNotExistsBehavior {
-    /** # test-fails
+    /** **test-fails**
 
 Test fails. The requested conditional statement will fail if a matching state does not exist (e.g., previous state during create). */
     TestFails,
-    /** # test-passes
+    /** **test-passes**
 
 Test passes. The requested conditional statement will pass if a matching state does not exist (e.g., previous state during create). */
     TestPasses,
@@ -17349,20 +17101,18 @@ impl From<CriteriaNotExistsBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DatesEventTypeCodes`. This value set includes sample Dates Event Type codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DatesEventTypeCodes](http://hl7.org/fhir/datestype)**. This value set includes sample Dates Event Type codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DatesEventTypeCodes {
-    /** # card-issued
+    /** **card-issued**
 
 Card Issued. The date when an insurance card was issued. */
     CardIssued,
-    /** # claim-received
+    /** **claim-received**
 
 Claim Received. The date when an insurer nreceived a claim, pre-authorization or predetermination. */
     ClaimReceived,
-    /** # service-expected
+    /** **service-expected**
 
 Service Expected. The date or period on or during which the services are expected to be performed. */
     ServiceExpected,
@@ -17436,37 +17186,35 @@ impl From<DatesEventTypeCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DaysOfWeek`. The days of the week.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DaysOfWeek](http://hl7.org/fhir/ValueSet/days-of-week)**. The days of the week.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DaysOfWeek {
-    /** # fri
+    /** **fri**
 
 Friday. Friday. */
     Fri,
-    /** # mon
+    /** **mon**
 
 Monday. Monday. */
     Mon,
-    /** # sat
+    /** **sat**
 
 Saturday. Saturday. */
     Sat,
-    /** # sun
+    /** **sun**
 
 Sunday. Sunday. */
     Sun,
-    /** # thu
+    /** **thu**
 
 Thursday. Thursday. */
     Thu,
-    /** # tue
+    /** **tue**
 
 Tuesday. Tuesday. */
     Tue,
-    /** # wed
+    /** **wed**
 
 Wednesday. Wednesday. */
     Wed,
@@ -17548,41 +17296,39 @@ impl From<DaysOfWeek> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DefinitionMethod`. The method used to define, describe, or determine a characteristic value.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DefinitionMethod](http://hl7.org/fhir/ValueSet/definition-method)**. The method used to define, describe, or determine a characteristic value.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DefinitionMethod {
-    /** # mean
+    /** **mean**
 
 Mean. Aggregated using mean of observed values. */
     Mean,
-    /** # mean-of-mean
+    /** **mean-of-mean**
 
 Mean of Means. Aggregated using mean of means (e.g. study mean values). */
     MeanOfMean,
-    /** # mean-of-median
+    /** **mean-of-median**
 
 Mean of Medians. Aggregated using mean of medians (e.g. study median values). */
     MeanOfMedian,
-    /** # median
+    /** **median**
 
 Median. Aggregated using median of observed values. */
     Median,
-    /** # median-of-mean
+    /** **median-of-mean**
 
 Median of Means. Aggregated using median of means (e.g. study mean values). */
     MedianOfMean,
-    /** # median-of-median
+    /** **median-of-median**
 
 Median of Medians. Aggregated using median of medians (e.g. study median values). */
     MedianOfMedian,
-    /** # non-systematic-assessment
+    /** **non-systematic-assessment**
 
 Non-Systematic Assessment. Any non-systematic method for determining whether or not adverse events have occurred, such as self-reporting by participants or occasional assessment/testing */
     NonSystematicAssessment,
-    /** # systematic-assessment
+    /** **systematic-assessment**
 
 Systematic Assessment. Any method of routinely determining whether or not specific outcomes (e.g. adverse events) have occurred, for example through a standard questionnaire, regular investigator assessment, regular laboratory testing, or other method */
     SystematicAssessment,
@@ -17667,21 +17413,19 @@ impl From<DefinitionMethod> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DetectedIssueSeverity`. Indicates the potential degree of impact of the identified issue on the patient.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DetectedIssueSeverity](http://hl7.org/fhir/ValueSet/detectedissue-severity)**. Indicates the potential degree of impact of the identified issue on the patient.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DetectedIssueSeverity {
-    /** # high
+    /** **high**
 
 High. Indicates the issue may be life-threatening or has the potential to cause permanent injury. */
     High,
-    /** # low
+    /** **low**
 
 Low. Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subject. */
     Low,
-    /** # moderate
+    /** **moderate**
 
 Moderate. Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or cause permanent injury. */
     Moderate,
@@ -17751,12 +17495,10 @@ impl From<DetectedIssueSeverity> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DetectedIssueStatus`. Indicates the status of the detected issue. This code system contains only status codes that are not already defined and used from the ObservationStatus code system.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DetectedIssueStatus](http://hl7.org/fhir/detectedissue-status)**. Indicates the status of the detected issue. This code system contains only status codes that are not already defined and used from the ObservationStatus code system.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DetectedIssueStatus {
-    /** # mitigated
+    /** **mitigated**
 
 Mitigated. Indicates the detected issue has been mitigated */
     Mitigated,
@@ -17824,29 +17566,27 @@ impl From<DetectedIssueStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceAssociation`. DeviceAssociation Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceAssociation](http://hl7.org/fhir/ValueSet/deviceassociation-status)**. DeviceAssociation Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceAssociation {
-    /** # attached
+    /** **attached**
 
 Attached. The device is attached to the patient but not implanted in the patient. */
     Attached,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The association was entered in error and therefore nullified. */
     EnteredInError,
-    /** # explanted
+    /** **explanted**
 
 Explanted. The device is no longer implanted in the patient. Note that this is not the value to be used for devices that have never been implanted. In those cases, no value or a specific value can be used. */
     Explanted,
-    /** # implanted
+    /** **implanted**
 
 Implanted. The device is implanted in the patient. */
     Implanted,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The association status of the device has not been determined. */
     Unknown,
@@ -17922,21 +17662,19 @@ impl From<DeviceAssociation> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceCorrectiveActionScope`. The type of relation between devices.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceCorrectiveActionScope](http://hl7.org/fhir/ValueSet/device-correctiveactionscope)**. The type of relation between devices.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceCorrectiveActionScope {
-    /** # lot-numbers
+    /** **lot-numbers**
 
 Lot Numbers. The corrective action was intended for a specific batch of units identified by a lot number. */
     LotNumbers,
-    /** # model
+    /** **model**
 
 Model. The corrective action was intended for all units of the same model. */
     Model,
-    /** # serial-numbers
+    /** **serial-numbers**
 
 Serial Numbers. The corrective action was intended for an individual unit (or a set of units) individually identified by serial number. */
     SerialNumbers,
@@ -18008,21 +17746,19 @@ impl From<DeviceCorrectiveActionScope> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceDefinitionRelationType`. The type of relation between devices.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceDefinitionRelationType](http://hl7.org/fhir/ValueSet/device-relationtype)**. The type of relation between devices.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceDefinitionRelationType {
-    /** # gateway
+    /** **gateway**
 
 Gateway. Gateway. */
     Gateway,
-    /** # previous
+    /** **previous**
 
 Previous. The current device is a previous device and has been replaced by the linked device. */
     Previous,
-    /** # replaces
+    /** **replaces**
 
 Replaces. The current device replaces the linked device. */
     Replaces,
@@ -18092,45 +17828,43 @@ impl From<DeviceDefinitionRelationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceDispenseStatusCodes`. DeviceDispense Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceDispenseStatusCodes](http://hl7.org/fhir/ValueSet/devicedispense-status)**. DeviceDispense Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceDispenseStatusCodes {
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The dispensed product was not and will never be picked up by the patient. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. The dispensed product has been picked up. */
     Completed,
-    /** # declined
+    /** **declined**
 
 Declined. The dispense was declined and not performed. */
     Declined,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The dispense was entered in error and therefore nullified. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The dispensed product is ready for pickup. */
     InProgress,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new stock has arrived or the prescriber has called. */
     OnHold,
-    /** # preparation
+    /** **preparation**
 
 Preparation. The core event has not started yet, but some staging activities have begun (e.g. initial preparing of the device. Preparation stages may be tracked e.g. for planning, supply or billing purposes. */
     Preparation,
-    /** # stopped
+    /** **stopped**
 
 Stopped. Actions implied by the dispense have been permanently halted, before all of them occurred. */
     Stopped,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring system does not know which of the status values applies for this dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which one. */
     Unknown,
@@ -18218,32 +17952,30 @@ impl From<DeviceDispenseStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceDispenseStatusReasonCodes`. DeviceDispense Status Reason Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceDispenseStatusReasonCodes](http://hl7.org/fhir/CodeSystem/devicedispense-status-reason)**. DeviceDispense Status Reason Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DeviceDispenseStatusReasonCodes {
-    /** # contraindication
+    /** **contraindication**
 
 Contraindication. The device was not dispensed because a contraindication was found - for example pregnancy, allergy to a device component... */
     Contraindication,
-    /** # incompatible-device
+    /** **incompatible-device**
 
 Incompatible device. The device was not dispensed because an incompatibility has been found with the device or between the device and other devices being used in the same context. */
     IncompatibleDevice,
-    /** # off-market
+    /** **off-market**
 
 Off market. The device was not dispensed because it is of-market - for example not authorized, withdrawn or recalled. */
     OffMarket,
-    /** # order-expired
+    /** **order-expired**
 
 Order expired. The device was not dispensed because the order has expired or been invalidated. */
     OrderExpired,
-    /** # out-of-stock
+    /** **out-of-stock**
 
 Out of Stock. The device was not dispensed because it was not available. */
     OutOfStock,
-    /** # verbal-order
+    /** **verbal-order**
 
 Verbal order. The device not dispensed because there was a verbal order. */
     VerbalOrder,
@@ -18328,25 +18060,23 @@ impl From<DeviceDispenseStatusReasonCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceMetricCalibrationState`. Describes the state of a metric calibration.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceMetricCalibrationState](http://hl7.org/fhir/ValueSet/metric-calibration-state)**. Describes the state of a metric calibration.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricCalibrationState {
-    /** # calibrated
+    /** **calibrated**
 
 Calibrated. The metric has been calibrated. */
     Calibrated,
-    /** # calibration-required
+    /** **calibration-required**
 
 Calibration Required. The metric needs to be calibrated. */
     CalibrationRequired,
-    /** # not-calibrated
+    /** **not-calibrated**
 
 Not Calibrated. The metric has not been calibrated. */
     NotCalibrated,
-    /** # unspecified
+    /** **unspecified**
 
 Unspecified. The state of calibration of this metric is unspecified. */
     Unspecified,
@@ -18419,25 +18149,23 @@ impl From<DeviceMetricCalibrationState> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceMetricCalibrationType`. Describes the type of a metric calibration.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceMetricCalibrationType](http://hl7.org/fhir/ValueSet/metric-calibration-type)**. Describes the type of a metric calibration.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricCalibrationType {
-    /** # gain
+    /** **gain**
 
 Gain. Gain metric calibration method. */
     Gain,
-    /** # offset
+    /** **offset**
 
 Offset. Offset metric calibration method. */
     Offset,
-    /** # two-point
+    /** **two-point**
 
 Two Point. Two-point metric calibration method. */
     TwoPoint,
-    /** # unspecified
+    /** **unspecified**
 
 Unspecified. Metric calibration method has not been identified. */
     Unspecified,
@@ -18510,25 +18238,23 @@ impl From<DeviceMetricCalibrationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceMetricCategory`. Describes the category of the metric.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceMetricCategory](http://hl7.org/fhir/ValueSet/metric-category)**. Describes the category of the metric.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricCategory {
-    /** # calculation
+    /** **calculation**
 
 Calculation. Observations generated for this DeviceMetric are calculated. */
     Calculation,
-    /** # measurement
+    /** **measurement**
 
 Measurement. Observations generated for this DeviceMetric are measured. */
     Measurement,
-    /** # setting
+    /** **setting**
 
 Setting. Observations generated for this DeviceMetric is a setting that will influence the behavior of the Device. */
     Setting,
-    /** # unspecified
+    /** **unspecified**
 
 Unspecified. The category of this DeviceMetric is unspecified. */
     Unspecified,
@@ -18601,25 +18327,23 @@ impl From<DeviceMetricCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceMetricOperationalStatus`. Describes the operational status of the DeviceMetric.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceMetricOperationalStatus](http://hl7.org/fhir/ValueSet/metric-operational-status)**. Describes the operational status of the DeviceMetric.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricOperationalStatus {
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. The DeviceMetric was entered in error. */
     EnteredInError,
-    /** # off
+    /** **off**
 
 Off. The DeviceMetric is not operating. */
     Off,
-    /** # on
+    /** **on**
 
 On. The DeviceMetric is operating and will generate Observations. */
     On,
-    /** # standby
+    /** **standby**
 
 Standby. The DeviceMetric is operating, but will not generate any Observations. */
     Standby,
@@ -18692,21 +18416,19 @@ impl From<DeviceMetricOperationalStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceNameType`. The type of name the device is referred by.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceNameType](http://hl7.org/fhir/ValueSet/device-nametype)**. The type of name the device is referred by.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceNameType {
-    /** # patient-reported-name
+    /** **patient-reported-name**
 
 Patient Reported name. the term used by the patient associated with the device when describing the device, for example 'knee implant', when documented as a self-reported device. */
     PatientReportedName,
-    /** # registered-name
+    /** **registered-name**
 
 Registered name. The term assigned to a medical device by the entity who registers or submits information about it to a jurisdiction or its databases. This may be considered the manufacturer assigned name (e.g., brand name assigned by the labeler or manufacturer in US, or device name assigned by the manufacturer in EU) and may also be synonymous with proprietary name or trade name of the device. */
     RegisteredName,
-    /** # user-friendly-name
+    /** **user-friendly-name**
 
 User Friendly name. The term that generically describes the device by a name as assigned by the manufacturer that is recognized by lay person.  This common or generic name may be printed on the package it came in or some combination of that name with the model number, serial number, or other attribute that makes the name easy to understand for the user of that device. It is often exposed in communicating devices transport protocols. It is provided to help users identify the device when reported in discovery operations. */
     UserFriendlyName,
@@ -18776,32 +18498,30 @@ impl From<DeviceNameType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceProductionIdentifierInUDI`. The production identifier(s) that are expected to appear in the UDI carrier.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceProductionIdentifierInUDI](http://hl7.org/fhir/device-productidentifierinudi)**. The production identifier(s) that are expected to appear in the UDI carrier.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DeviceProductionIdentifierInUDI {
-    /** # biological-source
+    /** **biological-source**
 
 Biological source. The label includes the biological source identifier. */
     BiologicalSource,
-    /** # expiration-date
+    /** **expiration-date**
 
 Expiration date. The label includes the expiration date. */
     ExpirationDate,
-    /** # lot-number
+    /** **lot-number**
 
 Lot Number. The label includes the lot number. */
     LotNumber,
-    /** # manufactured-date
+    /** **manufactured-date**
 
 Manufactured date. The label includes the manufacture date. */
     ManufacturedDate,
-    /** # serial-number
+    /** **serial-number**
 
 Serial Number. The label includes the serial number. */
     SerialNumber,
-    /** # software-version
+    /** **software-version**
 
 Software Version. The label includes the software version. */
     SoftwareVersion,
@@ -18884,20 +18604,18 @@ impl From<DeviceProductionIdentifierInUDI> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceRegulatoryIdentifierType`. The type of regulatory identifier.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceRegulatoryIdentifierType](http://hl7.org/fhir/devicedefinition-regulatory-identifier-type)**. The type of regulatory identifier.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum DeviceRegulatoryIdentifierType {
-    /** # basic
+    /** **basic**
 
 Basic. EUDAMED's basic UDI-DI identifier. */
     Basic,
-    /** # license
+    /** **license**
 
 License. The identifier is a license number. */
     License,
-    /** # master
+    /** **master**
 
 Master. EUDAMED's master UDI-DI identifier. */
     Master,
@@ -18974,21 +18692,19 @@ impl From<DeviceRegulatoryIdentifierType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceUsageAdherenceCode`. A coded concept indicating the usage of the device.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceUsageAdherenceCode](http://hl7.org/fhir/ValueSet/deviceusage-adherence-code)**. A coded concept indicating the usage of the device.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceUsageAdherenceCode {
-    /** # always
+    /** **always**
 
 Always. The device is always used. */
     Always,
-    /** # never
+    /** **never**
 
 Never. The device is never used. */
     Never,
-    /** # sometimes
+    /** **sometimes**
 
 Sometimes. The device is sometimes used. */
     Sometimes,
@@ -19058,33 +18774,31 @@ impl From<DeviceUsageAdherenceCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceUsageAdherenceReason`. A coded concept indicating the reason for the usage of the device.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceUsageAdherenceReason](http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason)**. A coded concept indicating the reason for the usage of the device.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceUsageAdherenceReason {
-    /** # broken
+    /** **broken**
 
 Broken. The device is broken. */
     Broken,
-    /** # burned
+    /** **burned**
 
 Burned. The device is burned. */
     Burned,
-    /** # forgot
+    /** **forgot**
 
 Forgot. The device is forgotten. */
     Forgot,
-    /** # lost
+    /** **lost**
 
 Lost. The device is lost. */
     Lost,
-    /** # prescribed
+    /** **prescribed**
 
 Prescribed. The device is prescribed. */
     Prescribed,
-    /** # stolen
+    /** **stolen**
 
 Stolen. The device is stolen. */
     Stolen,
@@ -19165,37 +18879,35 @@ impl From<DeviceUsageAdherenceReason> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DeviceUsageStatus`. A coded concept indicating the current status of the Device Usage.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DeviceUsageStatus](http://hl7.org/fhir/ValueSet/deviceusage-status)**. A coded concept indicating the current status of the Device Usage.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceUsageStatus {
-    /** # active
+    /** **active**
 
 Active. The device is still being used. */
     Active,
-    /** # completed
+    /** **completed**
 
 Completed. The device is no longer being used. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The statement was recorded incorrectly. */
     EnteredInError,
-    /** # intended
+    /** **intended**
 
 Intended. The device may be used at some time in the future. */
     Intended,
-    /** # not-done
+    /** **not-done**
 
 Not done. The device was not used. */
     NotDone,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called "suspended". */
     OnHold,
-    /** # stopped
+    /** **stopped**
 
 Stopped. Actions implied by the statement have been permanently halted, before all of them occurred. */
     Stopped,
@@ -19277,53 +18989,51 @@ impl From<DeviceUsageStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DiagnosticReportStatus`. The status of the diagnostic report.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DiagnosticReportStatus](http://hl7.org/fhir/ValueSet/diagnostic-report-status)**. The status of the diagnostic report.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DiagnosticReportStatus {
-    /** # amended
+    /** **amended**
 
 Amended. Subsequent to being final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a report that has been issued. */
     Amended,
-    /** # appended
+    /** **appended**
 
 Appended. Subsequent to being final, the report has been modified by adding new content. The existing content is unchanged. */
     Appended,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The report is unavailable because the measurement was not started or not completed (also sometimes called "aborted"). */
     Cancelled,
-    /** # corrected
+    /** **corrected**
 
 Corrected. Subsequent to being final, the report has been modified to correct an error in the report or referenced results. */
     Corrected,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # final
+    /** **final**
 
 Final. The report is complete and verified by an authorized person. */
     Final,
-    /** # modified
+    /** **modified**
 
 Modified. Prior to being final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a non-finalized (e.g., preliminary) report that has been issued. */
     Modified,
-    /** # partial
+    /** **partial**
 
 Partial. This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified. */
     Partial,
-    /** # preliminary
+    /** **preliminary**
 
 Preliminary. Verified early results are available, but not all results are final. */
     Preliminary,
-    /** # registered
+    /** **registered**
 
 Registered. The existence of the report is registered, but there is nothing yet available. */
     Registered,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which. */
     Unknown,
@@ -19417,33 +19127,31 @@ impl From<DiagnosticReportStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DiscriminatorType`. How an element value is interpreted when discrimination is evaluated.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DiscriminatorType](http://hl7.org/fhir/ValueSet/discriminator-type)**. How an element value is interpreted when discrimination is evaluated.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DiscriminatorType {
-    /** # exists
+    /** **exists**
 
 Exists. The slices are differentiated by the presence or absence of the nominated element. There SHALL be no more than two slices. The slices are differentiated by the fact that one must have a max of 0 and the other must have a min of 1 (or more).  The order in which the slices are declared doesn't matter. */
     Exists,
-    /** # pattern
+    /** **pattern**
 
 Pattern. The slices have different values in the nominated element, as determined by the applicable fixed value, pattern, or required ValueSet binding. This has the same meaning as 'value' and is deprecated. */
     Pattern,
-    /** # position
+    /** **position**
 
 Position. The slices are differentiated by their index. This is only possible if all but the last slice have min=max cardinality, and the (optional) last slice contains other undifferentiated elements. */
     Position,
-    /** # profile
+    /** **profile**
 
 Profile. The slices are differentiated by conformance of the nominated element to a specified profile. Note that if the path specifies .resolve() then the profile is the target profile on the reference. In this case, validation by the possible profiles is required to differentiate the slices. */
     Profile,
-    /** # type
+    /** **type**
 
 Type. The slices are differentiated by type of the nominated element. */
     Type,
-    /** # value
+    /** **value**
 
 Value. The slices have different values in the nominated element, as determined by the applicable fixed value, pattern, or required ValueSet binding. */
     Value,
@@ -19522,17 +19230,15 @@ impl From<DiscriminatorType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DocumentMode`. Whether the application produces or consumes documents.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DocumentMode](http://hl7.org/fhir/ValueSet/document-mode)**. Whether the application produces or consumes documents.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DocumentMode {
-    /** # consumer
+    /** **consumer**
 
 Consumer. The application consumes documents of the specified type. */
     Consumer,
-    /** # producer
+    /** **producer**
 
 Producer. The application produces documents of the specified type. */
     Producer,
@@ -19599,21 +19305,19 @@ impl From<DocumentMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DocumentReferenceStatus`. The status of the document reference.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DocumentReferenceStatus](http://hl7.org/fhir/ValueSet/document-reference-status)**. The status of the document reference.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DocumentReferenceStatus {
-    /** # current
+    /** **current**
 
 Current. This is the current reference for this document. */
     Current,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This reference was created in error. */
     EnteredInError,
-    /** # superseded
+    /** **superseded**
 
 Superseded. This reference has been superseded by another reference. */
     Superseded,
@@ -19683,33 +19387,31 @@ impl From<DocumentReferenceStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `DocumentRelationshipType`. The type of relationship between documents.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[DocumentRelationshipType](http://hl7.org/fhir/ValueSet/document-relationship-type)**. The type of relationship between documents.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DocumentRelationshipType {
-    /** # appends
+    /** **appends**
 
 Appends. This document adds additional information to the target document. */
     Appends,
-    /** # incorporates
+    /** **incorporates**
 
 Incorporates. This document embeds the content from the (source) target document. */
     Incorporates,
-    /** # replaces
+    /** **replaces**
 
 Replaces. This document logically replaces or supersedes the target document. */
     Replaces,
-    /** # signs
+    /** **signs**
 
 Signs. This document is a signature of the target document. */
     Signs,
-    /** # summarizes
+    /** **summarizes**
 
 Summarizes. This document summarizes the content from the (source) target document. */
     Summarizes,
-    /** # transforms
+    /** **transforms**
 
 Transforms. This document was generated by transforming the target document (e.g. format or language conversion). */
     Transforms,
@@ -19788,25 +19490,23 @@ impl From<DocumentRelationshipType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EligibilityRequestPurpose`. A code specifying the types of information being requested.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EligibilityRequestPurpose](http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EligibilityRequestPurpose {
-    /** # auth-requirements
+    /** **auth-requirements**
 
 Coverage auth-requirements. The prior authorization requirements for the listed, or discovered if specified, converages for the categories of service and/or specifed biling codes are requested. */
     AuthRequirements,
-    /** # benefits
+    /** **benefits**
 
 Coverage benefits. The plan benefits and optionally benefits consumed  for the listed, or discovered if specified, converages are requested. */
     Benefits,
-    /** # discovery
+    /** **discovery**
 
 Coverage Discovery. The insurer is requested to report on any coverages which they are aware of in addition to any specifed. */
     Discovery,
-    /** # validation
+    /** **validation**
 
 Coverage Validation. A check that the specified coverages are in-force is requested. */
     Validation,
@@ -19879,25 +19579,23 @@ impl From<EligibilityRequestPurpose> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EligibilityResponsePurpose`. A code specifying the types of information being requested.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EligibilityResponsePurpose](http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EligibilityResponsePurpose {
-    /** # auth-requirements
+    /** **auth-requirements**
 
 Coverage auth-requirements. The prior authorization requirements for the listed, or discovered if specified, converages for the categories of service and/or specifed biling codes are requested. */
     AuthRequirements,
-    /** # benefits
+    /** **benefits**
 
 Coverage benefits. The plan benefits and optionally benefits consumed  for the listed, or discovered if specified, converages are requested. */
     Benefits,
-    /** # discovery
+    /** **discovery**
 
 Coverage Discovery. The insurer is requested to report on any coverages which they are aware of in addition to any specifed. */
     Discovery,
-    /** # validation
+    /** **validation**
 
 Coverage Validation. A check that the specified coverages are in-force is requested. */
     Validation,
@@ -19972,17 +19670,15 @@ impl From<EligibilityResponsePurpose> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EnableWhenBehavior`. Controls how multiple enableWhen values are interpreted -  whether all or any must be true.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EnableWhenBehavior](http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior)**. Controls how multiple enableWhen values are interpreted -  whether all or any must be true.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EnableWhenBehavior {
-    /** # all
+    /** **all**
 
 All. Enable the question when all the enableWhen criteria are satisfied. */
     All,
-    /** # any
+    /** **any**
 
 Any. Enable the question when any of the enableWhen criteria are satisfied. */
     Any,
@@ -20051,16 +19747,14 @@ impl From<EnableWhenBehavior> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EncounterDiagnosisUse`. Encounter Condition Use
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EncounterDiagnosisUse](http://hl7.org/fhir/encounter-diagnosis-use)**. Encounter Condition Use\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EncounterDiagnosisUse {
-    /** # final
+    /** **final**
 
 Final. */
     Final,
-    /** # working
+    /** **working**
 
 Working. */
     Working,
@@ -20131,29 +19825,27 @@ impl From<EncounterDiagnosisUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EncounterLocationStatus`. The status of the location.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EncounterLocationStatus](http://hl7.org/fhir/ValueSet/encounter-location-status)**. The status of the location.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EncounterLocationStatus {
-    /** # active
+    /** **active**
 
 Active. The patient is currently at this location, or was between the period specified.
 
 A system may update these records when the patient leaves the location to either reserved, or completed. */
     Active,
-    /** # completed
+    /** **completed**
 
 Completed. The patient was at this location during the period specified.
 
 Not to be used when the patient is currently at the location. */
     Completed,
-    /** # planned
+    /** **planned**
 
 Planned. The patient is planned to be moved to this location at some point in the future. */
     Planned,
-    /** # reserved
+    /** **reserved**
 
 Reserved. This location is held empty for this patient. */
     Reserved,
@@ -20226,29 +19918,27 @@ impl From<EncounterLocationStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EncounterReasonUse`. Encounter Reason Use
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EncounterReasonUse](http://hl7.org/fhir/ValueSet/encounter-reason-use)**. Encounter Reason Use\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EncounterReasonUse {
-    /** # AD
+    /** **AD**
 
 Admitting Diagnosis. */
     Ad,
-    /** # CC
+    /** **CC**
 
 Chief Complaint. */
     Cc,
-    /** # HC
+    /** **HC**
 
 Health Concern. */
     Hc,
-    /** # HM
+    /** **HM**
 
 Health Maintenance (including screening). */
     Hm,
-    /** # RV
+    /** **RV**
 
 Reason for Visit. */
     Rv,
@@ -20324,45 +20014,43 @@ impl From<EncounterReasonUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EncounterStatus`. Current state of the encounter.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EncounterStatus](http://hl7.org/fhir/ValueSet/encounter-status)**. Current state of the encounter.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EncounterStatus {
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The Encounter has ended before it has begun. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. The Encounter has ended. */
     Completed,
-    /** # discharged
+    /** **discharged**
 
 Discharged. The Encounter has been clinically completed, the patient has been discharged from the facility or the visit has ended, and the patient may have departed (refer to subjectStatus). While the encounter is in this status, administrative activities are usually performed, collating all required documentation and charge information before being released for billing, at which point the status will move to completed. */
     Discharged,
-    /** # discontinued
+    /** **discontinued**
 
 Discontinued. The Encounter has started, but was not able to be completed. Further action may need to be performed, such as rescheduling appointments related to this encounter. */
     Discontinued,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The Encounter has begun and the patient is present / the practitioner and the patient are meeting. */
     InProgress,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The Encounter has begun, but is currently on hold, e.g. because the patient is temporarily on leave. */
     OnHold,
-    /** # planned
+    /** **planned**
 
 Planned. The Encounter has not yet started. */
     Planned,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The encounter status is unknown. Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown". */
     Unknown,
@@ -20450,29 +20138,27 @@ impl From<EncounterStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EndpointEnvironment`. The environment type of the endpoint.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EndpointEnvironment](http://hl7.org/fhir/ValueSet/endpoint-environment)**. The environment type of the endpoint.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EndpointEnvironment {
-    /** # dev
+    /** **dev**
 
 Development. Development environment used while building systems */
     Dev,
-    /** # prod
+    /** **prod**
 
 Production. Production environment and is expected to contain real data and should be protected appropriately */
     Prod,
-    /** # staging
+    /** **staging**
 
 Staging. Staging environment typically used while preparing for a release to production */
     Staging,
-    /** # test
+    /** **test**
 
 Test. Test environment, it is not intended for production usage. */
     Test,
-    /** # train
+    /** **train**
 
 Training. Training environment, it is not intended for production usage and typically contains data specifically prepared for training usage. */
     Train,
@@ -20548,29 +20234,27 @@ impl From<EndpointEnvironment> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EndpointStatus`. The status of the endpoint.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EndpointStatus](http://hl7.org/fhir/ValueSet/endpoint-status)**. The status of the endpoint.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EndpointStatus {
-    /** # active
+    /** **active**
 
 Active. This endpoint is expected to be active and can be used. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # error
+    /** **error**
 
 Error. This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken. */
     Error,
-    /** # off
+    /** **off**
 
 Off. This endpoint is no longer to be used. */
     Off,
-    /** # suspended
+    /** **suspended**
 
 Suspended. This endpoint is temporarily unavailable. */
     Suspended,
@@ -20646,37 +20330,35 @@ impl From<EndpointStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EpisodeOfCareStatus`. The status of the episode of care.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EpisodeOfCareStatus](http://hl7.org/fhir/ValueSet/episode-of-care-status)**. The status of the episode of care.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EpisodeOfCareStatus {
-    /** # active
+    /** **active**
 
 Active. This episode of care is current. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow. */
     Cancelled,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # finished
+    /** **finished**
 
 Finished. This episode of care is finished and the organization is not expecting to be providing further care to the patient. Can also be known as "closed", "completed" or other similar terms. */
     Finished,
-    /** # onhold
+    /** **onhold**
 
 On Hold. This episode of care is on hold; the organization has limited responsibility for the patient (such as while on respite). */
     Onhold,
-    /** # planned
+    /** **planned**
 
 Planned. This episode of care is planned to start at the date specified in the period.start. During this status, an organization may perform assessments to determine if the patient is eligible to receive services, or be organizing to make resources available to provide care services. */
     Planned,
-    /** # waitlist
+    /** **waitlist**
 
 Waitlist. This episode has been placed on a waitlist, pending the episode being made active (or cancelled). */
     Waitlist,
@@ -20758,17 +20440,15 @@ impl From<EpisodeOfCareStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EventCapabilityMode`. The mode of a message capability statement.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EventCapabilityMode](http://hl7.org/fhir/ValueSet/event-capability-mode)**. The mode of a message capability statement.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EventCapabilityMode {
-    /** # receiver
+    /** **receiver**
 
 Receiver. The application receives requests and sends responses. */
     Receiver,
-    /** # sender
+    /** **sender**
 
 Sender. The application sends requests and receives responses. */
     Sender,
@@ -20835,41 +20515,39 @@ impl From<EventCapabilityMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EventStatus`. Codes identifying the lifecycle stage of an event.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EventStatus](http://hl7.org/fhir/ValueSet/event-status)**. Codes identifying the lifecycle stage of an event.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EventStatus {
-    /** # completed
+    /** **completed**
 
 Completed. The event has now concluded. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "stopped" rather than "entered-in-error".). */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The event is currently occurring. */
     InProgress,
-    /** # not-done
+    /** **not-done**
 
 Not Done. The event was terminated prior to any activity beyond preparation.  I.e. The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific. */
     NotDone,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The event has been temporarily stopped but is expected to resume in the future. */
     OnHold,
-    /** # preparation
+    /** **preparation**
 
 Preparation. The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes. */
     Preparation,
-    /** # stopped
+    /** **stopped**
 
 Stopped. The event was terminated prior to the full completion of the intended activity but after at least some of the 'main' activity (beyond preparation) has occurred. */
     Stopped,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this event.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which. */
     Unknown,
@@ -20954,60 +20632,58 @@ impl From<EventStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EventTiming`. Real-world event relating to the schedule.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EventTiming](http://hl7.org/fhir/event-timing)**. Real-world event relating to the schedule.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EventTiming {
-    /** # AFT
+    /** **AFT**
 
 Afternoon. Event occurs during the afternoon. The exact time is unspecified and established by institution convention or patient interpretation. */
     Aft,
-    /** # AFT.early
+    /** **AFT.early**
 
 Early Afternoon. Event occurs during the early afternoon. The exact time is unspecified and established by institution convention or patient interpretation. */
     AftEarly,
-    /** # AFT.late
+    /** **AFT.late**
 
 Late Afternoon. Event occurs during the late afternoon. The exact time is unspecified and established by institution convention or patient interpretation. */
     AftLate,
-    /** # EVE
+    /** **EVE**
 
 Evening. Event occurs during the evening. The exact time is unspecified and established by institution convention or patient interpretation. */
     Eve,
-    /** # EVE.early
+    /** **EVE.early**
 
 Early Evening. Event occurs during the early evening. The exact time is unspecified and established by institution convention or patient interpretation. */
     EveEarly,
-    /** # EVE.late
+    /** **EVE.late**
 
 Late Evening. Event occurs during the late evening. The exact time is unspecified and established by institution convention or patient interpretation. */
     EveLate,
-    /** # IMD
+    /** **IMD**
 
 Immediate. Event occurs a single time (with no repetitions) as soon as possible after the scheduled or actual start of the overall event. */
     Imd,
-    /** # MORN
+    /** **MORN**
 
 Morning. Event occurs during the morning. The exact time is unspecified and established by institution convention or patient interpretation. */
     Morn,
-    /** # MORN.early
+    /** **MORN.early**
 
 Early Morning. Event occurs during the early morning. The exact time is unspecified and established by institution convention or patient interpretation. */
     MornEarly,
-    /** # MORN.late
+    /** **MORN.late**
 
 Late Morning. Event occurs during the late morning. The exact time is unspecified and established by institution convention or patient interpretation. */
     MornLate,
-    /** # NIGHT
+    /** **NIGHT**
 
 Night. Event occurs during the night. The exact time is unspecified and established by institution convention or patient interpretation. */
     Night,
-    /** # NOON
+    /** **NOON**
 
 Noon. Event occurs around 12:00pm. The exact time is unspecified and established by institution convention or patient interpretation. */
     Noon,
-    /** # PHS
+    /** **PHS**
 
 After Sleep. Event occurs [offset] after subject goes to sleep. The exact time is unspecified and established by institution convention or patient interpretation. */
     Phs,
@@ -21111,73 +20787,71 @@ impl From<EventTiming> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EvidenceCertaintyRating`. The assessment of quality, confidence, or certainty.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EvidenceCertaintyRating](http://hl7.org/fhir/ValueSet/certainty-rating)**. The assessment of quality, confidence, or certainty.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceCertaintyRating {
-    /** # absent
+    /** **absent**
 
 absent. possible reason for increasing quality rating was checked and found to be absent. */
     Absent,
-    /** # downcode1
+    /** **downcode1**
 
 reduce rating: -1. reduce quality rating by 1. */
     Downcode1,
-    /** # downcode2
+    /** **downcode2**
 
 reduce rating: -2. reduce quality rating by 2. */
     Downcode2,
-    /** # downcode3
+    /** **downcode3**
 
 reduce rating: -3. reduce quality rating by 3. */
     Downcode3,
-    /** # extremely-serious-concern
+    /** **extremely-serious-concern**
 
 extremely serious concern. extremely serious concern. */
     ExtremelySeriousConcern,
-    /** # high
+    /** **high**
 
 High quality. High quality evidence. */
     High,
-    /** # low
+    /** **low**
 
 Low quality. Low quality evidence. */
     Low,
-    /** # moderate
+    /** **moderate**
 
 Moderate quality. Moderate quality evidence. */
     Moderate,
-    /** # no-change
+    /** **no-change**
 
 no change to rating. no change to quality rating. */
     NoChange,
-    /** # no-concern
+    /** **no-concern**
 
 no serious concern. no serious concern. */
     NoConcern,
-    /** # present
+    /** **present**
 
 present. possible reason for increasing quality rating was checked and found to be present. */
     Present,
-    /** # serious-concern
+    /** **serious-concern**
 
 serious concern. serious concern. */
     SeriousConcern,
-    /** # upcode1
+    /** **upcode1**
 
 increase rating: +1. increase quality rating by 1. */
     Upcode1,
-    /** # upcode2
+    /** **upcode2**
 
 increase rating: +2. increase quality rating by 2. */
     Upcode2,
-    /** # very-low
+    /** **very-low**
 
 Very low quality. Very low quality evidence. */
     VeryLow,
-    /** # very-serious-concern
+    /** **very-serious-concern**
 
 very serious concern. very serious concern. */
     VerySeriousConcern,
@@ -21286,45 +20960,43 @@ impl From<EvidenceCertaintyRating> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EvidenceCertaintyType`. The aspect of quality, confidence, or certainty.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EvidenceCertaintyType](http://hl7.org/fhir/ValueSet/certainty-type)**. The aspect of quality, confidence, or certainty.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceCertaintyType {
-    /** # DoseResponseGradient
+    /** **DoseResponseGradient**
 
 Dose response gradient. higher certainty due to dose response relationship. */
     DoseResponseGradient,
-    /** # Imprecision
+    /** **Imprecision**
 
 Imprecision. fuzzy or wide variability. */
     Imprecision,
-    /** # Inconsistency
+    /** **Inconsistency**
 
 Inconsistency. concerns that findings are not similar enough to support certainty. */
     Inconsistency,
-    /** # Indirectness
+    /** **Indirectness**
 
 Indirectness. concerns reducing external validity. */
     Indirectness,
-    /** # LargeEffect
+    /** **LargeEffect**
 
 Large effect. higher certainty due to large effect size. */
     LargeEffect,
-    /** # Overall
+    /** **Overall**
 
 Overall certainty. Overall certainty of evidence (quality of evidence). */
     Overall,
-    /** # PlausibleConfounding
+    /** **PlausibleConfounding**
 
 Plausible confounding. higher certainty due to risk of bias in opposite direction. */
     PlausibleConfounding,
-    /** # PublicationBias
+    /** **PublicationBias**
 
 Publication bias. likelihood that what is published misrepresents what is available to publish. */
     PublicationBias,
-    /** # RiskOfBias
+    /** **RiskOfBias**
 
 Risk of bias. methodologic concerns reducing internal validity. */
     RiskOfBias,
@@ -21412,133 +21084,131 @@ impl From<EvidenceCertaintyType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EvidenceClassifier`. Commonly used classifiers for evidence sets.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EvidenceClassifier](http://hl7.org/fhir/ValueSet/evidence-classifier-code)**. Commonly used classifiers for evidence sets.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceClassifier {
-    /** # AllocConcealNotStated
+    /** **AllocConcealNotStated**
 
 Allocation concealment not stated. Allocation concealment not stated. */
     AllocConcealNotStated,
-    /** # BaselineImbalance
+    /** **BaselineImbalance**
 
 Baseline imbalances. Differences between groups at start of trial may confound or bias the findings. */
     BaselineImbalance,
-    /** # COVID19HumanResearch
+    /** **COVID19HumanResearch**
 
 COVID-19 human data in population, exposure, or outcome. contains human COVID-19 disease in the research data as any variable (population, exposure or outcome). */
     Covid19HumanResearch,
-    /** # COVID19Relevant
+    /** **COVID19Relevant**
 
 COVID-19 relevant (but not specific) article. Not about COVID-19 but relevant to COVID-19 management or understanding. */
     Covid19Relevant,
-    /** # COVID19Specific
+    /** **COVID19Specific**
 
 COVID-19 specific article. About COVID-19. */
     Covid19Specific,
-    /** # Diagnosis
+    /** **Diagnosis**
 
 Article about diagnosis. about methods to distinguish having or not having a condition. */
     Diagnosis,
-    /** # EarlyTrialTermination
+    /** **EarlyTrialTermination**
 
 Early trial termination. Early trial termination. */
     EarlyTrialTermination,
-    /** # Guideline
+    /** **Guideline**
 
 Article includes guideline. for clinical practice guidelines. */
     Guideline,
-    /** # NoBlinding
+    /** **NoBlinding**
 
 No blinding. No blinding. */
     NoBlinding,
-    /** # NoITT
+    /** **NoITT**
 
 No intention-to-treat analysis. No intention-to-treat analysis. */
     NoITT,
-    /** # NotAssessed
+    /** **NotAssessed**
 
 Not rated, not assessed. Neither rated as yes nor rated as no. */
     NotAssessed,
-    /** # NotResearchNotGuideline
+    /** **NotResearchNotGuideline**
 
 Article is neither research nor guideline. for things that are not research reports, research protocols or guidelines. */
     NotResearchNotGuideline,
-    /** # OriginalResearch
+    /** **OriginalResearch**
 
 Article includes original research. such as randomized trial, observational study. */
     OriginalResearch,
-    /** # PreliminaryAnalysis
+    /** **PreliminaryAnalysis**
 
 Preliminary analysis. Preliminary analysis. */
     PreliminaryAnalysis,
-    /** # Preprint
+    /** **Preprint**
 
 Preprint (not final publication). Results presented in preprint (pre-final publication) form. */
     Preprint,
-    /** # PreventionAndControl
+    /** **PreventionAndControl**
 
 Article about prevention and control. about preventive care and interventions. */
     PreventionAndControl,
-    /** # PrognosisPrediction
+    /** **PrognosisPrediction**
 
 Article about prognosis or prediction. about predicting risk for something or risk factors for it. */
     PrognosisPrediction,
-    /** # RatedAsCaseControl
+    /** **RatedAsCaseControl**
 
 classified as case-control study. classified as case-control study. */
     RatedAsCaseControl,
-    /** # RatedAsComparativeCohort
+    /** **RatedAsComparativeCohort**
 
 classified as comparative cohort study (observational). classified as comparative cohort study (observational). */
     RatedAsComparativeCohort,
-    /** # RatedAsControlledTrial
+    /** **RatedAsControlledTrial**
 
 classified as nonrandomized controlled trial (experimental). classified as nonrandomized controlled trial (experimental). */
     RatedAsControlledTrial,
-    /** # RatedAsMixedMethods
+    /** **RatedAsMixedMethods**
 
 classified as mixed-methods study. classified as mixed-methods study. */
     RatedAsMixedMethods,
-    /** # RatedAsNo
+    /** **RatedAsNo**
 
 Rated as no, negative, absent, or exclude. Rated as no, negative, absent, or exclude. */
     RatedAsNo,
-    /** # RatedAsOther
+    /** **RatedAsOther**
 
 classified as other concept (not elsewhere classified). classified as other concept (not elsewhere classified). */
     RatedAsOther,
-    /** # RatedAsRCT
+    /** **RatedAsRCT**
 
 classified as randomized controlled trial. classified as randomized controlled trial. */
     RatedAsRCT,
-    /** # RatedAsUncontrolledSeries
+    /** **RatedAsUncontrolledSeries**
 
 classified as uncontrolled cohort (case series). classified as uncontrolled cohort (case series). */
     RatedAsUncontrolledSeries,
-    /** # RatedAsYes
+    /** **RatedAsYes**
 
 Rated as yes, affirmative, positive, present, or include. */
     RatedAsYes,
-    /** # ResearchProtocol
+    /** **ResearchProtocol**
 
 Article provides protocol without results. for research protocols. */
     ResearchProtocol,
-    /** # ResearchSynthesis
+    /** **ResearchSynthesis**
 
 Article includes synthesis of research. such as systematic review, meta-analysis, rapid review. */
     ResearchSynthesis,
-    /** # RiskOfBias
+    /** **RiskOfBias**
 
 Risk of bias assessment. Risk of bias assessment. */
     RiskOfBias,
-    /** # SubgroupAnalysis
+    /** **SubgroupAnalysis**
 
 Subgroup analysis. Subgroup analysis. */
     SubgroupAnalysis,
-    /** # Treatment
+    /** **Treatment**
 
 Article about treatment. about therapeutic interventions. */
     Treatment,
@@ -21704,25 +21374,23 @@ impl From<EvidenceClassifier> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EvidenceReportType`. The kind of report, such as grouping of classifiers, search results, or human-compiled expression.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EvidenceReportType](http://hl7.org/fhir/ValueSet/evidence-report-type)**. The kind of report, such as grouping of classifiers, search results, or human-compiled expression.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceReportType {
-    /** # classification
+    /** **classification**
 
 Classification. The report is primarily a listing of classifiers about the report subject. */
     Classification,
-    /** # resources-compiled
+    /** **resources-compiled**
 
 Resource Compilation. The report is a composition containing one or more FHIR resources in the content. */
     ResourcesCompiled,
-    /** # search-results
+    /** **search-results**
 
 Search Results. The report is a composition of results generated in response to a search query. */
     SearchResults,
-    /** # text-structured
+    /** **text-structured**
 
 Structured Text. The report is a structured representation of text. */
     TextStructured,
@@ -21795,37 +21463,35 @@ impl From<EvidenceReportType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EvidenceVariableEvent`. The event used as a base point (reference point) in time.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EvidenceVariableEvent](http://hl7.org/fhir/ValueSet/evidence-variable-event)**. The event used as a base point (reference point) in time.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceVariableEvent {
-    /** # condition-detection
+    /** **condition-detection**
 
 Detection of Condition. The time of first detection of the condition */
     ConditionDetection,
-    /** # condition-treatment
+    /** **condition-treatment**
 
 Treatment of Condition. The time of first treatment of the condition */
     ConditionTreatment,
-    /** # hospital-admission
+    /** **hospital-admission**
 
 Hospital Admission. The time of admission to the hospital */
     HospitalAdmission,
-    /** # hospital-discharge
+    /** **hospital-discharge**
 
 Hospital Discharge. The time of discharge from the hospital */
     HospitalDischarge,
-    /** # operative-procedure
+    /** **operative-procedure**
 
 Operative Procedure. The time of surgery */
     OperativeProcedure,
-    /** # study-start
+    /** **study-start**
 
 Study Start. The time of enrollment for the study participant */
     StudyStart,
-    /** # treatment-start
+    /** **treatment-start**
 
 Start of Treatment. The time of initiation of the treatment */
     TreatmentStart,
@@ -21907,25 +21573,23 @@ impl From<EvidenceVariableEvent> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `EvidenceVariableHandling`. The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[EvidenceVariableHandling](http://hl7.org/fhir/ValueSet/variable-handling)**. The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceVariableHandling {
-    /** # continuous
+    /** **continuous**
 
 continuous variable. A continuous variable is one for which, within the limits the variable ranges, any value is possible (from STATO http://purl.obolibrary.org/obo/STATO_0000251). */
     Continuous,
-    /** # dichotomous
+    /** **dichotomous**
 
 dichotomous variable. A dichotomous variable is a categorical variable which is defined to have only 2 categories or possible values (from STATO http://purl.obolibrary.org/obo/STATO_0000090). */
     Dichotomous,
-    /** # ordinal
+    /** **ordinal**
 
 ordinal variable. An ordinal variable is a categorical variable where the discrete possible values are ordered or correspond to an implicit ranking (from STATO http://purl.obolibrary.org/obo/STATO_0000228). */
     Ordinal,
-    /** # polychotomous
+    /** **polychotomous**
 
 polychotomous variable. A polychotomous variable is a categorical variable which is defined to have minimally 2 categories or possible values. (from STATO  http://purl.obolibrary.org/obo/STATO_0000087).  Suggestion to limit code use to situations when neither dichotomous nor ordinal variables apply. */
     Polychotomous,
@@ -21998,20 +21662,18 @@ impl From<EvidenceVariableHandling> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ExampleMetadata`. This is an example code system that illustrates usage of the metadata resource elements introduced in R5
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ExampleMetadata](http://hl7.org/fhir/CodeSystem/example-metadata)**. This is an example code system that illustrates usage of the metadata resource elements introduced in R5\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ExampleMetadata {
-    /** # A
+    /** **A**
 
 A. A */
     A,
-    /** # B
+    /** **B**
 
 B. B */
     B,
-    /** # C
+    /** **C**
 
 C. C */
     C,
@@ -22085,17 +21747,15 @@ impl From<ExampleMetadata> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ExampleScenarioActorType`. The type of actor - system or human.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ExampleScenarioActorType](http://hl7.org/fhir/ValueSet/examplescenario-actor-type)**. The type of actor - system or human.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ExampleScenarioActorType {
-    /** # person
+    /** **person**
 
 Person. A human actor */
     Person,
-    /** # system
+    /** **system**
 
 System. A software application or other system */
     System,
@@ -22162,25 +21822,23 @@ impl From<ExampleScenarioActorType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ExplanationOfBenefitStatus`. A code specifying the state of the resource instance.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ExplanationOfBenefitStatus](http://hl7.org/fhir/ValueSet/explanationofbenefit-status)**. A code specifying the state of the resource instance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ExplanationOfBenefitStatus {
-    /** # active
+    /** **active**
 
 Active. The resource instance is currently in-force. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The resource instance is withdrawn, rescinded or reversed. */
     Cancelled,
-    /** # draft
+    /** **draft**
 
 Draft. A new resource instance the contents of which is not complete. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. The resource instance was entered in error. */
     EnteredInError,
@@ -22255,21 +21913,19 @@ impl From<ExplanationOfBenefitStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ExtensionContextType`. How an extension context is interpreted.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ExtensionContextType](http://hl7.org/fhir/ValueSet/extension-context-type)**. How an extension context is interpreted.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ExtensionContextType {
-    /** # element
+    /** **element**
 
 Element ID. The context is any element that has an ElementDefinition.id that matches that found in the expression. This includes ElementDefinition Ids that have slicing identifiers. The full path for the element is [url]#[elementid]. If there is no #, the Element id is one defined in the base specification. */
     Element,
-    /** # extension
+    /** **extension**
 
 Extension URL. The context is a particular extension from a particular StructureDefinition, and the expression is just a uri that identifies the extension. */
     Extension,
-    /** # fhirpath
+    /** **fhirpath**
 
 FHIRPath. The context is all elements that match the FHIRPath query found in the expression. */
     Fhirpath,
@@ -22339,20 +21995,18 @@ impl From<ExtensionContextType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ExtraActivityType`. This value set includes coded concepts not well covered in any of the included valuesets.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ExtraActivityType](http://hl7.org/fhir/extra-activity-type)**. This value set includes coded concepts not well covered in any of the included valuesets.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ExtraActivityType {
-    /** # aggregate
+    /** **aggregate**
 
 aggregate. Activity resulting in a structured collection of preexisting content that does not necessarily result in an integral object with semantic context making it more than the sum of component parts, from which components could be disaggregated without loss of semantic context, e.g., the assembly of multiple stand-alone documents. */
     Aggregate,
-    /** # compose
+    /** **compose**
 
 compose. Activity resulting in the structured compilation of new and preexisting content for the purposes of forming an integral object with  semantic context making it more than the sum of component parts, which would be lost if decomposed. For example, the composition of a document that includes in whole or part other documents along with new content that result in a new document that has unique semantic meaning. */
     Compose,
-    /** # label
+    /** **label**
 
 label. The means used to associate a set of security attributes with a specific information object as part of the data structure for that object. [ISO-10181-3 Access Control] */
     Label,
@@ -22426,25 +22080,23 @@ impl From<ExtraActivityType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `FamilyHistoryStatus`. A code that identifies the status of the family history record.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[FamilyHistoryStatus](http://hl7.org/fhir/ValueSet/history-status)**. A code that identifies the status of the family history record.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FamilyHistoryStatus {
-    /** # completed
+    /** **completed**
 
 Completed. All available related health information is captured as of the date (and possibly time) when the family member history was taken. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # health-unknown
+    /** **health-unknown**
 
 Health Unknown. Health information for this family member is unavailable/unknown. */
     HealthUnknown,
-    /** # partial
+    /** **partial**
 
 Partial. Some health information is known and captured, but not complete - see notes for details. */
     Partial,
@@ -22517,53 +22169,51 @@ impl From<FamilyHistoryStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `FilterOperator`. The kind of operation to perform as a part of a property based filter.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[FilterOperator](http://hl7.org/fhir/ValueSet/filter-operator)**. The kind of operation to perform as a part of a property based filter.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FilterOperator {
-    /** # =
+    /** **=**
 
 Equals. The specified property of the code equals the provided value. */
     Equal,
-    /** # child-of
+    /** **child-of**
 
 Child Of. Only concepts with a direct hierarchical relationship to the index code and no other concepts. This does not include the index code in the output. */
     ChildOf,
-    /** # descendent-leaf
+    /** **descendent-leaf**
 
 Descendent Leaf. Includes concept ids that have a transitive is-a relationship with the concept Id provided as the value, but which do not have any concept ids with transitive is-a relationships with themselves. */
     DescendentLeaf,
-    /** # descendent-of
+    /** **descendent-of**
 
 Descendent Of (by subsumption). Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only). */
     DescendentOf,
-    /** # exists
+    /** **exists**
 
 Exists. The specified property of the code has at least one value (if the specified value is true; if the specified value is false, then matches when the specified property of the code has no values). */
     Exists,
-    /** # generalizes
+    /** **generalizes**
 
 Generalizes (by Subsumption). Includes all concept ids that have a transitive is-a relationship from the concept Id provided as the value, including the provided concept itself (i.e. include ancestor codes and self). */
     Generalizes,
-    /** # in
+    /** **in**
 
 In Set. The specified property of the code is in the set of codes or concepts specified in the provided value (comma-separated list). */
     In,
-    /** # is-a
+    /** **is-a**
 
 Is A (by subsumption). Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself (include descendant codes and self). */
     IsA,
-    /** # is-not-a
+    /** **is-not-a**
 
 Not (Is A) (by subsumption). The specified property of the code does not have an is-a relationship with the provided value. */
     IsNotA,
-    /** # not-in
+    /** **not-in**
 
 Not in Set. The specified property of the code is not in the set of codes or concepts specified in the provided value (comma-separated list). */
     NotIn,
-    /** # regex
+    /** **regex**
 
 Regular Expression. The specified property of the code  matches the regex specified in the provided value. */
     Regex,
@@ -22657,24 +22307,22 @@ impl From<FilterOperator> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `FinancialResourceStatusCodes`. This value set includes Status codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[FinancialResourceStatusCodes](http://hl7.org/fhir/fm-status)**. This value set includes Status codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FinancialResourceStatusCodes {
-    /** # active
+    /** **active**
 
 Active. The instance is currently in-force. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The instance is withdrawn, rescinded or reversed. */
     Cancelled,
-    /** # draft
+    /** **draft**
 
 Draft. A new instance the contents of which is not complete. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The instance was entered in error. */
     EnteredInError,
@@ -22751,21 +22399,19 @@ impl From<FinancialResourceStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `FlagStatus`. Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[FlagStatus](http://hl7.org/fhir/ValueSet/flag-status)**. Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FlagStatus {
-    /** # active
+    /** **active**
 
 Active. A current flag that should be displayed to a user. A system may use the category to determine which user roles should view the flag. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The flag was added in error and should no longer be displayed. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The flag no longer needs to be displayed. */
     Inactive,
@@ -22835,41 +22481,39 @@ impl From<FlagStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `FocusCharacteristicCode`. Evidence focus characteristic code.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[FocusCharacteristicCode](http://hl7.org/fhir/ValueSet/focus-characteristic-code)**. Evidence focus characteristic code.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FocusCharacteristicCode {
-    /** # citation
+    /** **citation**
 
 Citation. Used to reference a specific article. */
     Citation,
-    /** # clinical-outcomes-observed
+    /** **clinical-outcomes-observed**
 
 Observed outcomes are clinical outcomes. Used to denote a focus on clinical outcomes, ie evidence variable in role of outcome (measured variable) as observed is considered a "clinical outcome" (patient-important outcome such as mortality, symptoms, function or quality of life). */
     ClinicalOutcomesObserved,
-    /** # comparator
+    /** **comparator**
 
 Comparator. The comparator (intervention or control state) of interest. */
     Comparator,
-    /** # exposure
+    /** **exposure**
 
 Exposure. The exposure of interest, such as an intervention. */
     Exposure,
-    /** # medication-exposures
+    /** **medication-exposures**
 
 Medication exposures. Any medication exposures. A subset of exposures or interventions that are medications. */
     MedicationExposures,
-    /** # outcome
+    /** **outcome**
 
 Outcome. the outcome of interest. */
     Outcome,
-    /** # population
+    /** **population**
 
 Population. The population of interest. */
     Population,
-    /** # study-type
+    /** **study-type**
 
 Study type. Type of research study, such as randomized trial or case-control study. */
     StudyType,
@@ -22954,21 +22598,19 @@ impl From<FocusCharacteristicCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `FormularyItemStatusCodes`. FormularyItem Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[FormularyItemStatusCodes](http://hl7.org/fhir/ValueSet/formularyitem-status)**. FormularyItem Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FormularyItemStatusCodes {
-    /** # active
+    /** **active**
 
 Active. The service or product referred to by this FormularyItem is in active use within the drug database or inventory system. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The service or product referred to by this FormularyItem was entered in error within the drug database or inventory system. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The service or product referred to by this FormularyItem is not in active use within the drug database or inventory system. */
     Inactive,
@@ -23038,29 +22680,27 @@ impl From<FormularyItemStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GenomicStudyChangeType`. The change type relevant to GenomicStudy analysis.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GenomicStudyChangeType](http://hl7.org/fhir/ValueSet/genomicstudy-changetype)**. The change type relevant to GenomicStudy analysis.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyChangeType {
-    /** # AA
+    /** **AA**
 
 Protein/amino Acids change . Change that involves Amino Acid (AA) or protein sequences. */
     Aa,
-    /** # CHR
+    /** **CHR**
 
 Chromosomal changes. Change that involves number or strcture of chromosomes. */
     Chr,
-    /** # CNV
+    /** **CNV**
 
 Copy number variations. Change that involves copy number variations among various genomes. */
     Cnv,
-    /** # DNA
+    /** **DNA**
 
 DNA change. Change that involves Deoxyribonucleic acid (DNA) sequences. */
     Dna,
-    /** # RNA
+    /** **RNA**
 
 RNA change. Change that involves Ribonucleic Acid (RNA) sequences. */
     Rna,
@@ -23136,169 +22776,167 @@ impl From<GenomicStudyChangeType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GenomicStudyDataFormat`. The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GenomicStudyDataFormat](http://hl7.org/fhir/ValueSet/genomicstudy-dataformat)**. The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyDataFormat {
-    /** # bam
+    /** **bam**
 
 BAM. */
     Bam,
-    /** # bed
+    /** **bed**
 
 BED. */
     Bed,
-    /** # bedgraph
+    /** **bedgraph**
 
 BedGraph. */
     Bedgraph,
-    /** # bedpe
+    /** **bedpe**
 
 BEDPE. */
     Bedpe,
-    /** # bigWig
+    /** **bigWig**
 
 bigWig. */
     BigWig,
-    /** # bigbed
+    /** **bigbed**
 
 bigBed. */
     Bigbed,
-    /** # birdsuite-files
+    /** **birdsuite-files**
 
 Birdsuite-Files. */
     BirdsuiteFiles,
-    /** # broadpeak
+    /** **broadpeak**
 
 broadPeak. */
     Broadpeak,
-    /** # cbs
+    /** **cbs**
 
 CBS. */
     Cbs,
-    /** # chemical-reactivity-probing-profiles
+    /** **chemical-reactivity-probing-profiles**
 
 Chemical-Reactivity-Probing-Profiles. */
     ChemicalReactivityProbingProfiles,
-    /** # chrom-sizes
+    /** **chrom-sizes**
 
 chrom-sizes. */
     ChromSizes,
-    /** # cn
+    /** **cn**
 
 CN. */
     Cn,
-    /** # cram
+    /** **cram**
 
 CRAM. */
     Cram,
-    /** # custom-file-formats
+    /** **custom-file-formats**
 
 Custom-File-Formats. */
     CustomFileFormats,
-    /** # cytoband
+    /** **cytoband**
 
 Cytoband. */
     Cytoband,
-    /** # fasta
+    /** **fasta**
 
 FASTA. */
     Fasta,
-    /** # gct
+    /** **gct**
 
 GCT. */
     Gct,
-    /** # genepred
+    /** **genepred**
 
 genePred. */
     Genepred,
-    /** # gff-gtf
+    /** **gff-gtf**
 
 GFF/GTF. */
     GffGtf,
-    /** # gistic
+    /** **gistic**
 
 GISTIC. */
     Gistic,
-    /** # goby
+    /** **goby**
 
 Goby. */
     Goby,
-    /** # gwas
+    /** **gwas**
 
 GWAS. */
     Gwas,
-    /** # igv
+    /** **igv**
 
 IGV. */
     Igv,
-    /** # loh
+    /** **loh**
 
 LOH. */
     Loh,
-    /** # maf-multiple-alignment-format
+    /** **maf-multiple-alignment-format**
 
 MAF-Multiple Alignment Format. */
     MafMultipleAlignmentFormat,
-    /** # maf-mutation-annotation-format
+    /** **maf-mutation-annotation-format**
 
 MAF-Mutation-Annotation-Format. */
     MafMutationAnnotationFormat,
-    /** # merged-bam-file
+    /** **merged-bam-file**
 
 Merged BAM File. */
     MergedBamFile,
-    /** # mut
+    /** **mut**
 
 MUT. */
     Mut,
-    /** # narrowpeak
+    /** **narrowpeak**
 
 narrowPeak. */
     Narrowpeak,
-    /** # psl
+    /** **psl**
 
 PSL. */
     Psl,
-    /** # res
+    /** **res**
 
 RES. */
     Res,
-    /** # rna-secondary-structure-formats
+    /** **rna-secondary-structure-formats**
 
 RNA-Secondary-Structure-Formats. */
     RnaSecondaryStructureFormats,
-    /** # sam
+    /** **sam**
 
 SAM. */
     Sam,
-    /** # sample-info-attributes-file
+    /** **sample-info-attributes-file**
 
 Sample-Info-Attributes-file. */
     SampleInfoAttributesFile,
-    /** # seg
+    /** **seg**
 
 SEG. */
     Seg,
-    /** # tdf
+    /** **tdf**
 
 TDF. */
     Tdf,
-    /** # track-line
+    /** **track-line**
 
 Track Line. */
     TrackLine,
-    /** # type-line
+    /** **type-line**
 
 Type Line. */
     TypeLine,
-    /** # vcf
+    /** **vcf**
 
 VCF. */
     Vcf,
-    /** # wig
+    /** **wig**
 
 WIG. */
     Wig,
@@ -23485,333 +23123,331 @@ impl From<GenomicStudyDataFormat> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GenomicStudyMethodType`. The method type of the GenomicStudy analysis. These method types and relevant codes were pulled from [National Library of Medicine-Genetic Testing Registry](https://www.ncbi.nlm.nih.gov/gtr/) (NCBI-GTR) values of describing different testing methods on various levels: [major method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt), [method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt), and [primary methodology](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt)
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GenomicStudyMethodType](http://hl7.org/fhir/ValueSet/genomicstudy-methodtype)**. The method type of the GenomicStudy analysis. These method types and relevant codes were pulled from [National Library of Medicine-Genetic Testing Registry](https://www.ncbi.nlm.nih.gov/gtr/) (NCBI-GTR) values of describing different testing methods on various levels: [major method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt), [method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt), and [primary methodology](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt)\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyMethodType {
-    /** # alternative-splicing-detection
+    /** **alternative-splicing-detection**
 
 Alternative splicing detection. */
     AlternativeSplicingDetection,
-    /** # analyte
+    /** **analyte**
 
 Analyte. */
     Analyte,
-    /** # aspe
+    /** **aspe**
 
 Allele-specific primer extension (ASPE). */
     Aspe,
-    /** # bi-directional-sanger-sequence-analysis
+    /** **bi-directional-sanger-sequence-analysis**
 
 Bi-directional Sanger Sequence Analysis. */
     BiDirectionalSangerSequenceAnalysis,
-    /** # biochemical-genetics
+    /** **biochemical-genetics**
 
 Biochemical Genetics. */
     BiochemicalGenetics,
-    /** # c-banding
+    /** **c-banding**
 
 C-banding. */
     CBanding,
-    /** # chromatin-immunoprecipitation-on-chip
+    /** **chromatin-immunoprecipitation-on-chip**
 
 Chromatin Immunoprecipitation on ChIP. */
     ChromatinImmunoprecipitationOnChip,
-    /** # chromosome-breakage-studies
+    /** **chromosome-breakage-studies**
 
 Chromosome breakage studies. */
     ChromosomeBreakageStudies,
-    /** # cia
+    /** **cia**
 
 Chemiluminescent Immunoassay (CIA). */
     Cia,
-    /** # comparative-genomic-hybridization
+    /** **comparative-genomic-hybridization**
 
 Comparative Genomic Hybridization. */
     ComparativeGenomicHybridization,
-    /** # cytogenetics
+    /** **cytogenetics**
 
 Cytogenetics. */
     Cytogenetics,
-    /** # damid
+    /** **damid**
 
 DamID. */
     Damid,
-    /** # deletion-duplication-analysis
+    /** **deletion-duplication-analysis**
 
 Deletion/duplication analysis. */
     DeletionDuplicationAnalysis,
-    /** # detection-of-homozygosity
+    /** **detection-of-homozygosity**
 
 Detection of homozygosity. */
     DetectionOfHomozygosity,
-    /** # digital-microfluidic-microspheres
+    /** **digital-microfluidic-microspheres**
 
 Digital microfluidic microspheres. */
     DigitalMicrofluidicMicrospheres,
-    /** # digital-virtual-karyotyping
+    /** **digital-virtual-karyotyping**
 
 Digital / Virtual karyotyping. */
     DigitalVirtualKaryotyping,
-    /** # elisa
+    /** **elisa**
 
 Enzyme-Linked Immunosorbent Assays (ELISA). */
     Elisa,
-    /** # enzymatic-levels
+    /** **enzymatic-levels**
 
 Enzymatic levels. */
     EnzymaticLevels,
-    /** # enzyme-activity
+    /** **enzyme-activity**
 
 Enzyme activity. */
     EnzymeActivity,
-    /** # enzyme-assay
+    /** **enzyme-assay**
 
 Enzyme assay. */
     EnzymeAssay,
-    /** # fish
+    /** **fish**
 
 Fluorescence in situ hybridization (FISH). */
     Fish,
-    /** # fish-interphase
+    /** **fish-interphase**
 
 FISH-interphase. */
     FishInterphase,
-    /** # fish-metaphase
+    /** **fish-metaphase**
 
 FISH-metaphase. */
     FishMetaphase,
-    /** # flow-cytometry
+    /** **flow-cytometry**
 
 Flow cytometry. */
     FlowCytometry,
-    /** # fluorometry
+    /** **fluorometry**
 
 Fluorometry. */
     Fluorometry,
-    /** # fusion-genes-microarrays
+    /** **fusion-genes-microarrays**
 
 Fusion genes microarrays. */
     FusionGenesMicroarrays,
-    /** # g-banding
+    /** **g-banding**
 
 G-banding. */
     GBanding,
-    /** # gc-ms
+    /** **gc-ms**
 
 Gas chromatographyâ€“mass spectrometry (GC-MS). */
     GcMs,
-    /** # gene-expression-profiling
+    /** **gene-expression-profiling**
 
 Gene expression profiling. */
     GeneExpressionProfiling,
-    /** # gene-id
+    /** **gene-id**
 
 GeneID. */
     GeneId,
-    /** # gold-nanoparticle-probe-technology
+    /** **gold-nanoparticle-probe-technology**
 
 Gold nanoparticle probe technology. */
     GoldNanoparticleProbeTechnology,
-    /** # hplc
+    /** **hplc**
 
 High-performance liquid chromatography (HPLC). */
     Hplc,
-    /** # immunohistochemistry
+    /** **immunohistochemistry**
 
 Immunohistochemistry. */
     Immunohistochemistry,
-    /** # karyotyping
+    /** **karyotyping**
 
 Karyotyping. */
     Karyotyping,
-    /** # lc-ms
+    /** **lc-ms**
 
 Liquid chromatography mass spectrometry (LC-MS). */
     LcMs,
-    /** # lc-ms-ms
+    /** **lc-ms-ms**
 
 Liquid chromatography-tandem mass spectrometry (LC-MS/MS). */
     LcMsMs,
-    /** # linkage-analysis
+    /** **linkage-analysis**
 
 Linkage analysis. */
     LinkageAnalysis,
-    /** # m-fish
+    /** **m-fish**
 
 Multicolor FISH (M-FISH). */
     MFish,
-    /** # metabolite-levels
+    /** **metabolite-levels**
 
 Metabolite levels. */
     MetaboliteLevels,
-    /** # methylation-analysis
+    /** **methylation-analysis**
 
 Methylation analysis. */
     MethylationAnalysis,
-    /** # methylation-specific-pcr
+    /** **methylation-specific-pcr**
 
 Methylation-specific PCR. */
     MethylationSpecificPcr,
-    /** # microarray
+    /** **microarray**
 
 Microarray. */
     Microarray,
-    /** # mlpa
+    /** **mlpa**
 
 Multiplex Ligation-dependent Probe Amplification (MLPA). */
     Mlpa,
-    /** # molecular-genetics
+    /** **molecular-genetics**
 
 Molecular Genetics. */
     MolecularGenetics,
-    /** # ms-ms
+    /** **ms-ms**
 
 Tandem mass spectrometry (MS/MS). */
     MsMs,
-    /** # msi
+    /** **msi**
 
 Microsatellite instability testing (MSI). */
     Msi,
-    /** # mutation-scanning-of-select-exons
+    /** **mutation-scanning-of-select-exons**
 
 Mutation scanning of select exons. */
     MutationScanningOfSelectExons,
-    /** # mutation-scanning-of-the-entire-coding-region
+    /** **mutation-scanning-of-the-entire-coding-region**
 
 Mutation scanning of the entire coding region. */
     MutationScanningOfTheEntireCodingRegion,
-    /** # ngs-mps
+    /** **ngs-mps**
 
 Next-Generation (NGS)/Massively parallel sequencing (MPS). */
     NgsMps,
-    /** # ola
+    /** **ola**
 
 Oligonucleotide Ligation Assay (OLA). */
     Ola,
-    /** # oligonucleotide-hybridization-based-dna-sequencing
+    /** **oligonucleotide-hybridization-based-dna-sequencing**
 
 Oligonucleotide hybridization-based DNA sequencing. */
     OligonucleotideHybridizationBasedDnaSequencing,
-    /** # other
+    /** **other**
 
 Other. */
     Other,
-    /** # pcr
+    /** **pcr**
 
 PCR. */
     Pcr,
-    /** # pcr-rflp-with-southern-hybridization
+    /** **pcr-rflp-with-southern-hybridization**
 
 PCR-RFLP with Southern hybridization. */
     PcrRflpWithSouthernHybridization,
-    /** # pcr-with-allele-specific-hybridization
+    /** **pcr-with-allele-specific-hybridization**
 
 PCR with allele specific hybridization. */
     PcrWithAlleleSpecificHybridization,
-    /** # protein-analysis
+    /** **protein-analysis**
 
 Protein analysis. */
     ProteinAnalysis,
-    /** # protein-expression
+    /** **protein-expression**
 
 Protein expression. */
     ProteinExpression,
-    /** # protein-truncation-test
+    /** **protein-truncation-test**
 
 Protein truncation test. */
     ProteinTruncationTest,
-    /** # pyrosequencing
+    /** **pyrosequencing**
 
 Pyrosequencing. */
     Pyrosequencing,
-    /** # q-banding
+    /** **q-banding**
 
 Q-banding. */
     QBanding,
-    /** # qpcr
+    /** **qpcr**
 
 Quantitative PCR (qPCR). */
     Qpcr,
-    /** # r-banding
+    /** **r-banding**
 
 R-banding. */
     RBanding,
-    /** # rflp
+    /** **rflp**
 
 RFLP. */
     Rflp,
-    /** # rna-analysis
+    /** **rna-analysis**
 
 RNA analysis. */
     RnaAnalysis,
-    /** # rt-lamp
+    /** **rt-lamp**
 
 RT-LAMP. */
     RtLamp,
-    /** # rt-pcr
+    /** **rt-pcr**
 
 RT-PCR. */
     RtPcr,
-    /** # rt-pcr-with-gel-analysis
+    /** **rt-pcr-with-gel-analysis**
 
 RT-PCR with gel analysis. */
     RtPcrWithGelAnalysis,
-    /** # rt-qpcr
+    /** **rt-qpcr**
 
 RT-qPCR. */
     RtQpcr,
-    /** # sequence-analysis-of-select-exons
+    /** **sequence-analysis-of-select-exons**
 
 Sequence analysis of select exons. */
     SequenceAnalysisOfSelectExons,
-    /** # sequence-analysis-of-the-entire-coding-region
+    /** **sequence-analysis-of-the-entire-coding-region**
 
 Sequence analysis of the entire coding region. */
     SequenceAnalysisOfTheEntireCodingRegion,
-    /** # silver-staining
+    /** **silver-staining**
 
 Silver staining. */
     SilverStaining,
-    /** # sister-chromatid-exchange
+    /** **sister-chromatid-exchange**
 
 Sister chromatid exchange. */
     SisterChromatidExchange,
-    /** # sky
+    /** **sky**
 
 Spectral karyotyping (SKY). */
     Sky,
-    /** # snp-detection
+    /** **snp-detection**
 
 SNP Detection. */
     SnpDetection,
-    /** # t-banding
+    /** **t-banding**
 
 T-banding. */
     TBanding,
-    /** # targeted-variant-analysis
+    /** **targeted-variant-analysis**
 
 Targeted variant analysis. */
     TargetedVariantAnalysis,
-    /** # tetra-nucleotide-repeat-by-pcr-or-southern-blot
+    /** **tetra-nucleotide-repeat-by-pcr-or-southern-blot**
 
 Tetra-nucleotide repeat by PCR or Southern Blot. */
     TetraNucleotideRepeatByPcrOrSouthernBlot,
-    /** # tiling-arrays
+    /** **tiling-arrays**
 
 Tiling Arrays. */
     TilingArrays,
-    /** # trinucleotide-repeat-by-pcr-or-southern-blot
+    /** **trinucleotide-repeat-by-pcr-or-southern-blot**
 
 Trinucleotide repeat by PCR or Southern Blot. */
     TrinucleotideRepeatByPcrOrSouthernBlot,
-    /** # udp
+    /** **udp**
 
 Uniparental disomy study (UPD). */
     Udp,
-    /** # uni-directional-sanger-sequencing
+    /** **uni-directional-sanger-sequencing**
 
 Uni-directional Sanger sequencing. */
     UniDirectionalSangerSequencing,
@@ -24181,29 +23817,27 @@ impl From<GenomicStudyMethodType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GenomicStudyStatus`. The status of the GenomicStudy.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GenomicStudyStatus](http://hl7.org/fhir/ValueSet/genomicstudy-status)**. The status of the GenomicStudy.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyStatus {
-    /** # available
+    /** **available**
 
 Available. At least one instance has been associated with this genomic study. */
     Available,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The genomic study is unavailable because the genomic study was not started or not completed (also sometimes called "aborted"). */
     Cancelled,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The genomic study has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # registered
+    /** **registered**
 
 Registered. The existence of the genomic study is registered, but there is nothing yet available. */
     Registered,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -24279,57 +23913,55 @@ impl From<GenomicStudyStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GenomicStudyType`. The type relevant to GenomicStudy.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GenomicStudyType](http://hl7.org/fhir/ValueSet/genomicstudy-type)**. The type relevant to GenomicStudy.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyType {
-    /** # alt-splc
+    /** **alt-splc**
 
 Alternative splicing detection. Identification of multiple different processed mRNA transcripts from the same DNA template */
     AltSplc,
-    /** # chromatin
+    /** **chromatin**
 
 Chromatin conformation. Analysis of the spacial organization of chromatin within a cell */
     Chromatin,
-    /** # cnv
+    /** **cnv**
 
 CNV detection. Detection of a change in the number of copies of a defined region of genomic DNA sequence resulting in structural variation when compared to the reference sequence */
     Cnv,
-    /** # epi-alt-dna
+    /** **epi-alt-dna**
 
 Epigenetic Alterations -DNA methylation. Detection of the presence of an additional methyl group on a DNA nucleobase, which may alter gene transcription */
     EpiAltDna,
-    /** # epi-alt-hist
+    /** **epi-alt-hist**
 
 Epigenetic Alterations - histone modifications. Detection of biochemical modifications covalently bound to the N-terminal tail of a histone protein. These modifications may alter chromatin compaction and gene expression */
     EpiAltHist,
-    /** # fam-var-segr
+    /** **fam-var-segr**
 
 Familial variant segregation. Determining if a variant identified in an individual is present in other family members */
     FamVarSegr,
-    /** # func-var
+    /** **func-var**
 
 Functional variation detection. Detection of sequence variants which may alter gene expression or gene product function when compared to the reference sequence */
     FuncVar,
-    /** # gene-expression
+    /** **gene-expression**
 
 Gene expression profiling. Measurement and characterization of activity from all gene products */
     GeneExpression,
-    /** # post-trans-mod
+    /** **post-trans-mod**
 
 Post-translational Modification Identification. Detection of biochemical modifications covalently bound to the amino acid monomers of a processed protein */
     PostTransMod,
-    /** # snp
+    /** **snp**
 
 SNP Detection. Determination of which nucleotide is base present at a known variable location of the genomic sequence */
     Snp,
-    /** # str
+    /** **str**
 
 STR count. Quantification of the number of sequential microsatellite units in a repetitive sequence region */
     Str,
-    /** # struc-var
+    /** **struc-var**
 
 Structural variation detection. Detection of deletions, insertions, or rearrangements of DNA segments compared to the reference sequence */
     StrucVar,
@@ -24426,45 +24058,43 @@ impl From<GenomicStudyType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GoalLifecycleStatus`. Codes that reflect the current state of a goal and whether the goal is still being targeted.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GoalLifecycleStatus](http://hl7.org/fhir/ValueSet/goal-status)**. Codes that reflect the current state of a goal and whether the goal is still being targeted.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GoalLifecycleStatus {
-    /** # accepted
+    /** **accepted**
 
 Accepted. A proposed goal was accepted or acknowledged. */
     Accepted,
-    /** # active
+    /** **active**
 
 Active. The goal is being sought actively. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The goal has been abandoned. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. The goal is no longer being sought. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The goal was entered in error and voided. */
     EnteredInError,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The goal remains a long term objective but is no longer being actively pursued for a temporary period of time. */
     OnHold,
-    /** # planned
+    /** **planned**
 
 Planned. A goal is planned for this patient. */
     Planned,
-    /** # proposed
+    /** **proposed**
 
 Proposed. A goal is proposed for this patient. */
     Proposed,
-    /** # rejected
+    /** **rejected**
 
 Rejected. A proposed goal was rejected. */
     Rejected,
@@ -24552,25 +24182,23 @@ impl From<GoalLifecycleStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GraphCompartmentRule`. How a compartment must be linked.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GraphCompartmentRule](http://hl7.org/fhir/ValueSet/graph-compartment-rule)**. How a compartment must be linked.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GraphCompartmentRule {
-    /** # custom
+    /** **custom**
 
 Custom. The compartment rule is defined in the accompanying FHIRPath expression. */
     Custom,
-    /** # different
+    /** **different**
 
 Different. The compartment must be different. */
     Different,
-    /** # identical
+    /** **identical**
 
 Identical. The compartment must be identical (the same literal reference). */
     Identical,
-    /** # matching
+    /** **matching**
 
 Matching. The compartment must be the same - the record must be about the same patient, but the reference may be different. */
     Matching,
@@ -24643,17 +24271,15 @@ impl From<GraphCompartmentRule> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GraphCompartmentUse`. Defines how a compartment rule is used.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GraphCompartmentUse](http://hl7.org/fhir/ValueSet/graph-compartment-use)**. Defines how a compartment rule is used.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GraphCompartmentUse {
-    /** # requires
+    /** **requires**
 
 requires. This compartment rule is enforced on any relationships that meet the conditions. */
     Requires,
-    /** # where
+    /** **where**
 
 Where. This compartment rule is a condition for whether the rule applies. */
     Where,
@@ -24720,17 +24346,15 @@ impl From<GraphCompartmentUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GroupMembershipBasis`. Basis for membership in a group
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GroupMembershipBasis](http://hl7.org/fhir/ValueSet/group-membership-basis)**. Basis for membership in a group\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GroupMembershipBasis {
-    /** # definitional
+    /** **definitional**
 
 Definitional. The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete. */
     Definitional,
-    /** # enumerated
+    /** **enumerated**
 
 Enumerated. The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member. */
     Enumerated,
@@ -24797,49 +24421,47 @@ impl From<GroupMembershipBasis> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GroupType`. Types of resources that are part of group.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GroupType](http://hl7.org/fhir/ValueSet/group-type)**. Types of resources that are part of group.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GroupType {
-    /** # animal
+    /** **animal**
 
 Animal. Group contains "animal" Patient resources. */
     Animal,
-    /** # careteam
+    /** **careteam**
 
 CareTeam. Group contains CareTeam resources. */
     Careteam,
-    /** # device
+    /** **device**
 
 Device. Group contains Device resources. */
     Device,
-    /** # healthcareservice
+    /** **healthcareservice**
 
 HealthcareService. Group contains HealthcareService resources. */
     Healthcareservice,
-    /** # location
+    /** **location**
 
 Location. Group contains Location resources. */
     Location,
-    /** # organization
+    /** **organization**
 
 Organization. Group contains Organization resources. */
     Organization,
-    /** # person
+    /** **person**
 
 Person. Group contains "person" Patient resources. */
     Person,
-    /** # practitioner
+    /** **practitioner**
 
 Practitioner. Group contains healthcare practitioner resources (Practitioner or PractitionerRole). */
     Practitioner,
-    /** # relatedperson
+    /** **relatedperson**
 
 RelatedPerson. Group contains RelatedPerson resources. */
     Relatedperson,
-    /** # specimen
+    /** **specimen**
 
 Specimen. Group contains Specimen resources. */
     Specimen,
@@ -24930,33 +24552,31 @@ impl From<GroupType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GuidanceModuleCode`. Example guidance module codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GuidanceModuleCode](http://hl7.org/fhir/ValueSet/guidance-module-code)**. Example guidance module codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GuidanceModuleCode {
-    /** # anc-cds
+    /** **anc-cds**
 
 ANC CDS. Clinical Decision Support for Antenatal Care. */
     AncCds,
-    /** # bmi-calculator
+    /** **bmi-calculator**
 
 BMI Calculator. A Body Mass Index (BMI) calculator. */
     BmiCalculator,
-    /** # chf-pathway
+    /** **chf-pathway**
 
 CHF Pathway. Congestive Heart Failure Pathway */
     ChfPathway,
-    /** # covid-19-severity
+    /** **covid-19-severity**
 
 COVID-19 Severity Score. A COVID-19 Severity Score Calculator. */
     Covid19Severity,
-    /** # mme-calculator
+    /** **mme-calculator**
 
 MME Calculator. A Morphine Milligram Equivalent (MME) calculator. */
     MmeCalculator,
-    /** # opioid-cds
+    /** **opioid-cds**
 
 Opioid CDS. Clinical Decision Support for Opioid Prescribing. */
     OpioidCds,
@@ -25035,33 +24655,31 @@ impl From<GuidanceModuleCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GuidanceResponseStatus`. The status of a guidance response.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GuidanceResponseStatus](http://hl7.org/fhir/ValueSet/guidance-response-status)**. The status of a guidance response.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GuidanceResponseStatus {
-    /** # data-requested
+    /** **data-requested**
 
 Data Requested. The request was processed successfully, but more data may result in a more complete evaluation. */
     DataRequested,
-    /** # data-required
+    /** **data-required**
 
 Data Required. The request was processed, but more data is required to complete the evaluation. */
     DataRequired,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. The response was entered in error. */
     EnteredInError,
-    /** # failure
+    /** **failure**
 
 Failure. The request was not processed successfully. */
     Failure,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The request is currently being processed. */
     InProgress,
-    /** # success
+    /** **success**
 
 Success. The request was processed successfully. */
     Success,
@@ -25140,25 +24758,23 @@ impl From<GuidanceResponseStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GuidePageGeneration`. A code that indicates how the page is generated.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GuidePageGeneration](http://hl7.org/fhir/ValueSet/guide-page-generation)**. A code that indicates how the page is generated.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GuidePageGeneration {
-    /** # generated
+    /** **generated**
 
 Generated. Page will be generated by the publication process - no source to bring across. */
     Generated,
-    /** # html
+    /** **html**
 
 HTML. Page is proper xhtml with no templating.  Will be brought across unchanged for standard post-processing. */
     Html,
-    /** # markdown
+    /** **markdown**
 
 Markdown. Page is markdown with templating.  Will use the template to create a file that imports the markdown file prior to post-processing. */
     Markdown,
-    /** # xml
+    /** **xml**
 
 XML. Page is xml with templating.  Will use the template to create a file that imports the source file and run the nominated XSLT transform (see parameters) if present prior to post-processing. */
     Xml,
@@ -25231,48 +24847,46 @@ impl From<GuidePageGeneration> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `GuideParameterCode`. GuideParameterCode
-
-FHIR version: 5.0.0.*/
+#[doc = "**[GuideParameterCode](http://hl7.org/fhir/guide-parameter-code)**. GuideParameterCode\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum GuideParameterCode {
-    /** # apply
+    /** **apply**
 
 Apply Metadata Value. If the value of this string 0..* parameter is one of the metadata fields then all conformance resources will have any specified [Resource].[field] overwritten with the ImplementationGuide.[field], where field is one of: version, date, status, publisher, contact, copyright, experimental, jurisdiction, useContext. */
     Apply,
-    /** # expansion-parameter
+    /** **expansion-parameter**
 
 Expansion Profile. The value of this string 0..* parameter is a parameter (name=value) when expanding value sets for this implementation guide. This is particularly used to specify the versions of published terminologies such as SNOMED CT. */
     ExpansionParameter,
-    /** # generate-json
+    /** **generate-json**
 
 Generate JSON. The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in JSON format. If not present, the Publication Tool decides whether to generate JSON. */
     GenerateJson,
-    /** # generate-turtle
+    /** **generate-turtle**
 
 Generate Turtle. The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in Turtle format. If not present, the Publication Tool decides whether to generate Turtle. */
     GenerateTurtle,
-    /** # generate-xml
+    /** **generate-xml**
 
 Generate XML. The value of this boolean 0..1 parameter specifies whether the IG publisher creates examples in XML format. If not present, the Publication Tool decides whether to generate XML. */
     GenerateXml,
-    /** # html-template
+    /** **html-template**
 
 HTML Template. The value of this string singleton parameter is the name of the file to use as the builder template for each generated page (see templating). */
     HtmlTemplate,
-    /** # path-pages
+    /** **path-pages**
 
 Pages Path. The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder. */
     PathPages,
-    /** # path-resource
+    /** **path-resource**
 
 Resource Path. The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type. */
     PathResource,
-    /** # path-tx-cache
+    /** **path-tx-cache**
 
 Terminology Cache Path. The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control. */
     PathTxCache,
-    /** # rule-broken-links
+    /** **rule-broken-links**
 
 Broken Links Rule. The value of this string 0..1 parameter is either "warning" or "error" (default = "error"). If the value is "warning" then IG build tools allow the IG to be considered successfully build even when there is no internal broken links. */
     RuleBrokenLinks,
@@ -25367,29 +24981,27 @@ impl From<GuideParameterCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IdentifierUse`. Identifies the purpose for this identifier, if known .
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IdentifierUse](http://hl7.org/fhir/ValueSet/identifier-use)**. Identifies the purpose for this identifier, if known .\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IdentifierUse {
-    /** # official
+    /** **official**
 
 Official. The identifier considered to be most trusted for the identification of this item. Sometimes also known as "primary" and "main". The determination of "official" is subjective and implementation guides often provide additional guidelines for use. */
     Official,
-    /** # old
+    /** **old**
 
 Old. The identifier id no longer considered valid, but may be relevant for search purposes.  E.g. Changes to identifier schemes, account merges, etc. */
     Old,
-    /** # secondary
+    /** **secondary**
 
 Secondary. An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context. */
     Secondary,
-    /** # temp
+    /** **temp**
 
 Temp. A temporary identifier. */
     Temp,
-    /** # usual
+    /** **usual**
 
 Usual. The identifier recommended for display and use in real-world interactions which should be used when such identifier is different from the "official" identifier. */
     Usual,
@@ -25465,25 +25077,23 @@ impl From<IdentifierUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IdentityAssuranceLevel`. The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IdentityAssuranceLevel](http://hl7.org/fhir/ValueSet/identity-assuranceLevel)**. The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IdentityAssuranceLevel {
-    /** # level1
+    /** **level1**
 
 Level 1. Little or no confidence in the asserted identity's accuracy. */
     Level1,
-    /** # level2
+    /** **level2**
 
 Level 2. Some confidence in the asserted identity's accuracy. */
     Level2,
-    /** # level3
+    /** **level3**
 
 Level 3. High confidence in the asserted identity's accuracy. */
     Level3,
-    /** # level4
+    /** **level4**
 
 Level 4. Very high confidence in the asserted identity's accuracy. */
     Level4,
@@ -25556,29 +25166,27 @@ impl From<IdentityAssuranceLevel> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ImagingSelection2DGraphicType`. The type of coordinates describing a 2D image region.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ImagingSelection2DGraphicType](http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype)**. The type of coordinates describing a 2D image region.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingSelection2DGraphicType {
-    /** # circle
+    /** **circle**
 
 CIRCLE. Two points shall be present; the first point is to be interpreted as the center and the second point as a point on the circumference of a circle, some form of implementation dependent representation of which is to be drawn. */
     Circle,
-    /** # ellipse
+    /** **ellipse**
 
 ELLIPSE. An ellipse defined by four (x,y) pairs, the first two pairs specifying the endpoints of the major axis and the second two pairs specifying the endpoints of the minor axis. */
     Ellipse,
-    /** # interpolated
+    /** **interpolated**
 
 INTERPOLATED. An n-tuple list of (x,y) pair end points between which some form of implementation dependent curved lines are to be drawn. The rendered line shall pass through all the specified points. */
     Interpolated,
-    /** # point
+    /** **point**
 
 POINT. A single location denoted by a single (x,y) pair. */
     Point,
-    /** # polyline
+    /** **polyline**
 
 POLYLINE. A series of connected line segments with ordered vertices denoted by (x,y) triplets; the points need not be coplanar. */
     Polyline,
@@ -25656,33 +25264,31 @@ impl From<ImagingSelection2DGraphicType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ImagingSelection3DGraphicType`. The type of coordinates describing an image region.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ImagingSelection3DGraphicType](http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype)**. The type of coordinates describing an image region.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingSelection3DGraphicType {
-    /** # ellipse
+    /** **ellipse**
 
 ELLIPSE. an ellipse defined by four (x,y,z) triplets, the first two triplets specifying the endpoints of the major axis and the second two triplets specifying the endpoints of the minor axis. */
     Ellipse,
-    /** # ellipsoid
+    /** **ellipsoid**
 
 ELLIPSOID. a three-dimensional geometric surface whose plane sections are either ellipses or circles and contains three intersecting orthogonal axes, "a", "b", and "c"; the ellipsoid is defined by six (x,y,z) triplets, the first and second triplets specifying the endpoints of axis "a", the third and fourth triplets specifying the endpoints of axis "b", and the fifth and sixth triplets specifying the endpoints of axis "c". */
     Ellipsoid,
-    /** # multipoint
+    /** **multipoint**
 
 MULTIPOINT. multiple locations each denoted by an (x,y,z) triplet; the points need not be coplanar. */
     Multipoint,
-    /** # point
+    /** **point**
 
 POINT. A single location denoted by a single (x,y,z) triplet. */
     Point,
-    /** # polygon
+    /** **polygon**
 
 POLYGON. a series of connected line segments with ordered vertices denoted by (x,y,z) triplets, where the first and last vertices shall be the same forming a polygon; the points shall be coplanar. */
     Polygon,
-    /** # polyline
+    /** **polyline**
 
 POLYLINE. a series of connected line segments with ordered vertices denoted by (x,y,z) triplets; the points need not be coplanar. */
     Polyline,
@@ -25763,21 +25369,19 @@ impl From<ImagingSelection3DGraphicType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ImagingSelectionStatus`. The status of the ImagingSelection.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ImagingSelectionStatus](http://hl7.org/fhir/ValueSet/imagingselection-status)**. The status of the ImagingSelection.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingSelectionStatus {
-    /** # available
+    /** **available**
 
 Available. The selected resources are available.. */
     Available,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The imaging selection has been withdrawn following a release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -25847,29 +25451,27 @@ impl From<ImagingSelectionStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ImagingStudyStatus`. The status of the ImagingStudy.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ImagingStudyStatus](http://hl7.org/fhir/ValueSet/imagingstudy-status)**. The status of the ImagingStudy.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingStudyStatus {
-    /** # available
+    /** **available**
 
 Available. At least one instance has been associated with this imaging study. */
     Available,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The imaging study is unavailable because the imaging study was not started or not completed (also sometimes called "aborted"). */
     Cancelled,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The imaging study has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # registered
+    /** **registered**
 
 Registered. The existence of the imaging study is registered, but there is nothing yet available. */
     Registered,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -25945,21 +25547,19 @@ impl From<ImagingStudyStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `Indicator`. This codesystem captures the indicator codes defined by the CDS Hooks specification. The indicator is included as an element of the cards in a CDS Hooks response and conveys the urgency and/or importance of the information in each card. See [Card Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification for more information.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[Indicator](http://hl7.org/fhir/ValueSet/cdshooks-indicator)**. This codesystem captures the indicator codes defined by the CDS Hooks specification. The indicator is included as an element of the cards in a CDS Hooks response and conveys the urgency and/or importance of the information in each card. See [Card Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification for more information.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Indicator {
-    /** # critical
+    /** **critical**
 
 Critical. The response is critical and indicates that it contains information or activities that have high urgency and importance that should be immediately addressed */
     Critical,
-    /** # info
+    /** **info**
 
 Information. The response is informational and indicates that it contains additional information or relevant guidance that may be of interest */
     Info,
-    /** # warning
+    /** **warning**
 
 Warning. The response is a warning and indicates that it contains urgent or highly relevant information that should be considered */
     Warning,
@@ -26029,17 +25629,15 @@ impl From<Indicator> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IngredientFunction`. A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IngredientFunction](http://hl7.org/fhir/ValueSet/ingredient-function)**. A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IngredientFunction {
-    /** # AlkalizingAgent
+    /** **AlkalizingAgent**
 
 Alkalizing Agent. */
     AlkalizingAgent,
-    /** # Antioxidant
+    /** **Antioxidant**
 
 Antioxidant. */
     Antioxidant,
@@ -26106,21 +25704,19 @@ impl From<IngredientFunction> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IngredientManufacturerRole`. The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IngredientManufacturerRole](http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role)**. The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IngredientManufacturerRole {
-    /** # actual
+    /** **actual**
 
 Manufacturer actually makes this particular ingredient. */
     Actual,
-    /** # allowed
+    /** **allowed**
 
 Manufacturer is specifically allowed for this ingredient. */
     Allowed,
-    /** # possible
+    /** **possible**
 
 Manufacturer is known to make this ingredient in general. */
     Possible,
@@ -26192,45 +25788,43 @@ impl From<IngredientManufacturerRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IngredientRole`. A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IngredientRole](http://hl7.org/fhir/ValueSet/ingredient-role)**. A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IngredientRole {
-    /** # 100000072072
+    /** **100000072072**
 
 Active. */
     N100000072072,
-    /** # 100000072073
+    /** **100000072073**
 
 Adjuvant. */
     N100000072073,
-    /** # 100000072082
+    /** **100000072082**
 
 Excipient. */
     N100000072082,
-    /** # 100000136065
+    /** **100000136065**
 
 Starting material for excipient. */
     N100000136065,
-    /** # 100000136066
+    /** **100000136066**
 
 Solvent / Diluent. */
     N100000136066,
-    /** # 100000136178
+    /** **100000136178**
 
 Raw materials used in the manufacture of the product. */
     N100000136178,
-    /** # 100000136179
+    /** **100000136179**
 
 Starting material for active substance. */
     N100000136179,
-    /** # 100000136561
+    /** **100000136561**
 
 Overage. */
     N100000136561,
-    /** # 200000003427
+    /** **200000003427**
 
 bioenhancer. */
     N200000003427,
@@ -26318,17 +25912,15 @@ impl From<IngredientRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InteractionIncidence`. A categorisation for a frequency of occurence of an undesirable effect.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InteractionIncidence](http://hl7.org/fhir/ValueSet/interaction-incidence)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InteractionIncidence {
-    /** # Observed
+    /** **Observed**
 
 Observed. */
     Observed,
-    /** # Theoretical
+    /** **Theoretical**
 
 Theoretical. */
     Theoretical,
@@ -26395,25 +25987,23 @@ impl From<InteractionIncidence> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InteractionType`. A categorisation for an interaction between two substances.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InteractionType](http://hl7.org/fhir/ValueSet/interaction-type)**. A categorisation for an interaction between two substances.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InteractionType {
-    /** # drug-drug
+    /** **drug-drug**
 
 drug to drug interaction. */
     DrugDrug,
-    /** # drug-food
+    /** **drug-food**
 
 drug to food interaction. */
     DrugFood,
-    /** # drug-test
+    /** **drug-test**
 
 drug to laboratory test interaction. */
     DrugTest,
-    /** # other
+    /** **other**
 
 other interaction. */
     Other,
@@ -26486,17 +26076,15 @@ impl From<InteractionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InventoryCountType`. The type of count.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InventoryCountType](http://hl7.org/fhir/ValueSet/inventoryreport-counttype)**. The type of count.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryCountType {
-    /** # difference
+    /** **difference**
 
 Difference. The inventory report is about the difference between a previous count and a current count, i.e. it represents the items that have been added/subtracted from inventory. */
     Difference,
-    /** # snapshot
+    /** **snapshot**
 
 Snapshot. The inventory report is a current absolute snapshot, i.e. it represents the quantities at hand. */
     Snapshot,
@@ -26563,25 +26151,23 @@ impl From<InventoryCountType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InventoryItemNameType`. InventoryItem Name Type
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InventoryItemNameType](http://hl7.org/fhir/ValueSet/inventoryitem-nametype)**. InventoryItem Name Type\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryItemNameType {
-    /** # alias
+    /** **alias**
 
 Alias. An alias or common name for the item. */
     Alias,
-    /** # original-name
+    /** **original-name**
 
 Original Name. The original name of the item. */
     OriginalName,
-    /** # preferred
+    /** **preferred**
 
 Preferred. The preferred name of the item. */
     Preferred,
-    /** # trade-name
+    /** **trade-name**
 
 Trade Name. The official trade name of the item. */
     TradeName,
@@ -26654,25 +26240,23 @@ impl From<InventoryItemNameType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InventoryItemStatus`. InventoryItem Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InventoryItemStatus](http://hl7.org/fhir/ValueSet/inventoryitem-status)**. InventoryItem Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryItemStatus {
-    /** # active
+    /** **active**
 
 Active. The item is active and can be referenced. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The item record was entered in error. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The item is presently inactive - there may be references to it but the item is not expected to be used. */
     Inactive,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The item status has not been determined. */
     Unknown,
@@ -26745,25 +26329,23 @@ impl From<InventoryItemStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InventoryReportStatus`. The status of the InventoryReport.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InventoryReportStatus](http://hl7.org/fhir/ValueSet/inventoryreport-status)**. The status of the InventoryReport.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryReportStatus {
-    /** # active
+    /** **active**
 
 Active. This report is submitted as current. */
     Active,
-    /** # draft
+    /** **draft**
 
 Draft. The existence of the report is registered, but it is still without content or only some preliminary content. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. */
     EnteredInError,
-    /** # requested
+    /** **requested**
 
 Requested. The inventory report has been requested but there is no data available. */
     Requested,
@@ -26836,29 +26418,27 @@ impl From<InventoryReportStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `InvoiceStatus`. Codes identifying the lifecycle stage of an Invoice.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[InvoiceStatus](http://hl7.org/fhir/ValueSet/invoice-status)**. Codes identifying the lifecycle stage of an Invoice.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InvoiceStatus {
-    /** # balanced
+    /** **balanced**
 
 balanced. the invoice has been balaced / completely paid. */
     Balanced,
-    /** # cancelled
+    /** **cancelled**
 
 cancelled. the invoice was cancelled. */
     Cancelled,
-    /** # draft
+    /** **draft**
 
 draft. the invoice has been prepared but not yet finalized. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 entered in error. the invoice was determined as entered in error before it was issued. */
     EnteredInError,
-    /** # issued
+    /** **issued**
 
 issued. the invoice has been finalized and sent to the recipient. */
     Issued,
@@ -26934,29 +26514,27 @@ impl From<InvoiceStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IssueSeverity`. How the issue affects the success of the action.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IssueSeverity](http://hl7.org/fhir/ValueSet/issue-severity)**. How the issue affects the success of the action.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IssueSeverity {
-    /** # error
+    /** **error**
 
 Error. The issue is sufficiently important to cause the action to fail. */
     Error,
-    /** # fatal
+    /** **fatal**
 
 Fatal. The issue caused the action to fail and no further checking could be performed. */
     Fatal,
-    /** # information
+    /** **information**
 
 Information. The issue has no relation to the degree of success of the action. */
     Information,
-    /** # success
+    /** **success**
 
 Operation Successful. The operation completed successfully. */
     Success,
-    /** # warning
+    /** **warning**
 
 Warning. The issue is not important enough to cause the action to fail but may cause it to be performed suboptimally or in a way that is not as desired. */
     Warning,
@@ -27032,141 +26610,139 @@ impl From<IssueSeverity> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `IssueType`. A code that describes the type of issue.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[IssueType](http://hl7.org/fhir/ValueSet/issue-type)**. A code that describes the type of issue.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IssueType {
-    /** # business-rule
+    /** **business-rule**
 
 Business Rule Violation. The content/operation failed to pass some business rule and so could not proceed. */
     BusinessRule,
-    /** # code-invalid
+    /** **code-invalid**
 
 Invalid Code. The code or system could not be understood, or it was not valid in the context of a particular ValueSet.code. */
     CodeInvalid,
-    /** # conflict
+    /** **conflict**
 
 Edit Version Conflict. Content could not be accepted because of an edit conflict (i.e. version aware updates). (In a pure RESTful environment, this would be an HTTP 409 error, but this code may be used where the conflict is discovered further into the application architecture.). */
     Conflict,
-    /** # deleted
+    /** **deleted**
 
 Deleted. The reference pointed to content (usually a resource) that has been deleted. */
     Deleted,
-    /** # duplicate
+    /** **duplicate**
 
 Duplicate. An attempt was made to create a duplicate record. */
     Duplicate,
-    /** # exception
+    /** **exception**
 
 Exception. An unexpected internal error has occurred. */
     Exception,
-    /** # expired
+    /** **expired**
 
 Session Expired. User session expired; a login may be required. */
     Expired,
-    /** # extension
+    /** **extension**
 
 Unacceptable Extension. An extension was found that was not acceptable, could not be resolved, or a modifierExtension was not recognized. */
     Extension,
-    /** # forbidden
+    /** **forbidden**
 
 Forbidden. The user does not have the rights to perform this action. */
     Forbidden,
-    /** # incomplete
+    /** **incomplete**
 
 Incomplete Results. Not all data sources typically accessed could be reached or responded in time, so the returned information might not be complete (applies to search interactions and some operations). */
     Incomplete,
-    /** # informational
+    /** **informational**
 
 Informational Note. A message unrelated to the processing success of the completed operation (examples of the latter include things like reminders of password expiry, system maintenance times, etc.). */
     Informational,
-    /** # invalid
+    /** **invalid**
 
 Invalid Content. Content invalid against the specification or a profile. */
     Invalid,
-    /** # invariant
+    /** **invariant**
 
 Validation rule failed. A content validation rule failed - e.g. a schematron rule. */
     Invariant,
-    /** # limited-filter
+    /** **limited-filter**
 
 Limited Filter Application. Some search filters might not have applied on all results.  Data may have been included that does not meet all of the filters listed in the `self` `Bundle.link`. */
     LimitedFilter,
-    /** # lock-error
+    /** **lock-error**
 
 Lock Error. A resource/record locking failure (usually in an underlying database). */
     LockError,
-    /** # login
+    /** **login**
 
 Login Required. The client needs to initiate an authentication process. */
     Login,
-    /** # multiple-matches
+    /** **multiple-matches**
 
 Multiple Matches. Multiple matching records were found when the operation required only one match. */
     MultipleMatches,
-    /** # no-store
+    /** **no-store**
 
 No Store Available. The persistent store is unavailable; e.g. the database is down for maintenance or similar action, and the interaction or operation cannot be processed. */
     NoStore,
-    /** # not-found
+    /** **not-found**
 
 Not Found. The reference provided was not found. In a pure RESTful environment, this would be an HTTP 404 error, but this code may be used where the content is not found further into the application architecture. */
     NotFound,
-    /** # not-supported
+    /** **not-supported**
 
 Content not supported. The interaction, operation, resource or profile is not supported. */
     NotSupported,
-    /** # processing
+    /** **processing**
 
 Processing Failure. Processing issues. These are expected to be final e.g. there is no point resubmitting the same content unchanged. */
     Processing,
-    /** # required
+    /** **required**
 
 Required element missing. A required element is missing. */
     Required,
-    /** # security
+    /** **security**
 
 Security Problem. An authentication/authorization/permissions issue of some kind. */
     Security,
-    /** # structure
+    /** **structure**
 
 Structural Issue. A structural issue in the content such as wrong namespace, unable to parse the content completely, invalid syntax, etc. */
     Structure,
-    /** # success
+    /** **success**
 
 Operation Successful. The operation completed successfully. */
     Success,
-    /** # suppressed
+    /** **suppressed**
 
 Information  Suppressed. Some information was not or might not have been returned due to business rules, consent or privacy rules, or access permission constraints.  This information may be accessible through alternate processes. */
     Suppressed,
-    /** # throttled
+    /** **throttled**
 
 Throttled. The system is not prepared to handle this request due to load management. */
     Throttled,
-    /** # timeout
+    /** **timeout**
 
 Timeout. An internal timeout has occurred. */
     Timeout,
-    /** # too-costly
+    /** **too-costly**
 
 Operation Too Costly. The operation was stopped to protect server resources; e.g. a request for a value set expansion on all of SNOMED CT. */
     TooCostly,
-    /** # too-long
+    /** **too-long**
 
 Content Too Long. Provided content is too long (typically, this is a denial of service protection type of error). */
     TooLong,
-    /** # transient
+    /** **transient**
 
 Transient Issue. Transient processing issues. The system receiving the message may be able to resubmit the same content once an underlying issue is resolved. */
     Transient,
-    /** # unknown
+    /** **unknown**
 
 Unknown User. The user or system was not able to be authenticated (either there is no process, or the proferred token is unacceptable). */
     Unknown,
-    /** # value
+    /** **value**
 
 Element value invalid. An element or header value is invalid. */
     Value,
@@ -27326,21 +26902,19 @@ impl From<IssueType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `Kind`. The nature of the Coverage details which convey who is paying potentially for health services.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[Kind](http://hl7.org/fhir/ValueSet/coverage-kind)**. The nature of the Coverage details which convey who is paying potentially for health services.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Kind {
-    /** # insurance
+    /** **insurance**
 
 Insurance. The Coverage provides the identifiers and card-level details of an insurance policy. */
     Insurance,
-    /** # other
+    /** **other**
 
 Other. Some other organization is paying for the service. */
     Other,
-    /** # self-pay
+    /** **self-pay**
 
 Self-pay. One or more persons and/or organizations are paying for the services rendered. */
     SelfPay,
@@ -27410,25 +26984,23 @@ impl From<Kind> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `KnowledgeRepresentationLevel`. A knowledge representation level, narrative, semi-structured, structured, and executable
-
-FHIR version: 5.0.0.*/
+#[doc = "**[KnowledgeRepresentationLevel](http://hl7.org/fhir/uv/cpg/ValueSet/knowledge-representation-level)**. A knowledge representation level, narrative, semi-structured, structured, and executable\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum KnowledgeRepresentationLevel {
-    /** # executable
+    /** **executable**
 
 Executable. The knowledge is expressed in a way that is coded and interpretable by CDS systems using a variety of formats, affording direct executability, but potentially limited shareability. The knowledge is typically expressed focusing on a specific delivery method (modality), technology platform, and implementation environment. Knowledge at this level is typically built and developed by implementers working in specific technology platforms, for the purpose of implementation at a specific site, though affordances such as computable mappings and configuration capabilities can broaden the usability of the knowledge artifact. */
     Executable,
-    /** # narrative
+    /** **narrative**
 
 Narrative. The knowledge is expressed as narrative text, affording broad shareability, but limited computability. The knowledge is typically expressed independent of delivery method (modality), technology platform, and implementation site. Knowledge at this level is typically authored by guideline developers for a broad range of purposes including communication of policy, synthesis of evidence, and dissemination of best-practices. */
     Narrative,
-    /** # semi-structured
+    /** **semi-structured**
 
 Semi-Structured. The knowledge is expressed as organized text, often accompanied by diagrams such as flow charts and decision tables, affording broad shareability and moderate computability. The knowledge is typically expressed independent of delivery method (modality), technology platform, and implementation site. Knowledge at this level is typically authored by clinical domain experts for the purpose of communication the description of recommendations for implementation in various modalities. */
     SemiStructured,
-    /** # structured
+    /** **structured**
 
 Structured. The knowledge is expressed in a structured way that is interpretable by computer, including being coded using standard terminologies and specifications for the representation of structured content, affording broad shareability and high computability. The knowledge is typically expressed independent of delivery method (modality), technology platform, and implementation site. Knowledge at this level is typically authored by knowledge engineersto enable precise communication and validation of the recommendations. */
     Structured,
@@ -27504,41 +27076,39 @@ impl From<KnowledgeRepresentationLevel> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LegalStatusOfSupply`. The prescription supply types appropriate to a medicinal product
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LegalStatusOfSupply](http://hl7.org/fhir/ValueSet/legal-status-of-supply)**. The prescription supply types appropriate to a medicinal product\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LegalStatusOfSupply {
-    /** # 100000072076
+    /** **100000072076**
 
 Medicinal product not subject to medical prescription. */
     N100000072076,
-    /** # 100000072077
+    /** **100000072077**
 
 Medicinal product on medical prescription for renewable or non-renewable delivery. */
     N100000072077,
-    /** # 100000072078
+    /** **100000072078**
 
 Medicinal product subject to restricted medical prescription. */
     N100000072078,
-    /** # 100000072079
+    /** **100000072079**
 
 Medicinal product on medical prescription for non-renewable delivery. */
     N100000072079,
-    /** # 100000072084
+    /** **100000072084**
 
 Medicinal product subject to medical prescription. */
     N100000072084,
-    /** # 100000072085
+    /** **100000072085**
 
 Medicinal product subject to special medical prescription. */
     N100000072085,
-    /** # 100000072086
+    /** **100000072086**
 
 Medicinal product on medical prescription for renewable delivery. */
     N100000072086,
-    /** # 100000157313
+    /** **100000157313**
 
 Medicinal product subject to special and restricted medical prescription. */
     N100000157313,
@@ -27637,84 +27207,82 @@ impl From<LegalStatusOfSupply> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LinkRelationTypes`. Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LinkRelationTypes](http://hl7.org/fhir/CodeSystem/iana-link-relations)**. Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum LinkRelationTypes {
-    /** # P3Pv1
+    /** **P3Pv1**
 
 Refers to a P3P privacy policy for the context.. Refers to a P3P privacy policy for the context. */
     P3Pv1,
-    /** # about
+    /** **about**
 
 Refers to a resource that is the subject of the link's context.. Refers to a resource that is the subject of the link's context. */
     About,
-    /** # acl
+    /** **acl**
 
 Asserts that the link target provides an access control description for the link context.. Asserts that the link target provides an access control description for the link context. */
     Acl,
-    /** # alternate
+    /** **alternate**
 
 Refers to a substitute for this context. Refers to a substitute for this context */
     Alternate,
-    /** # amphtml
+    /** **amphtml**
 
 Used to reference alternative content that uses the AMP profile of the HTML format.. Used to reference alternative content that uses the AMP profile of the HTML format. */
     Amphtml,
-    /** # appendix
+    /** **appendix**
 
 Refers to an appendix.. Refers to an appendix. */
     Appendix,
-    /** # apple-touch-icon
+    /** **apple-touch-icon**
 
 Refers to an icon for the context. Synonym for icon.. Refers to an icon for the context. Synonym for icon. */
     AppleTouchIcon,
-    /** # apple-touch-startup-image
+    /** **apple-touch-startup-image**
 
 Refers to a launch screen for the context.. Refers to a launch screen for the context. */
     AppleTouchStartupImage,
-    /** # archives
+    /** **archives**
 
 Refers to a collection of records, documents, or other
       materials of historical interest.. Refers to a collection of records, documents, or other
       materials of historical interest. */
     Archives,
-    /** # author
+    /** **author**
 
 Refers to the context's author.. Refers to the context's author. */
     Author,
-    /** # blocked-by
+    /** **blocked-by**
 
 Identifies the entity that blocks access to a resource
       following receipt of a legal demand.. Identifies the entity that blocks access to a resource
       following receipt of a legal demand. */
     BlockedBy,
-    /** # bookmark
+    /** **bookmark**
 
 Gives a permanent link to use for bookmarking purposes.. Gives a permanent link to use for bookmarking purposes. */
     Bookmark,
-    /** # canonical
+    /** **canonical**
 
 Designates the preferred version of a resource (the IRI and its contents).. Designates the preferred version of a resource (the IRI and its contents). */
     Canonical,
-    /** # chapter
+    /** **chapter**
 
 Refers to a chapter in a collection of resources.. Refers to a chapter in a collection of resources. */
     Chapter,
-    /** # cite-as
+    /** **cite-as**
 
 Indicates that the link target is preferred over the link context for the purpose of permanent citation.. Indicates that the link target is preferred over the link context for the purpose of permanent citation. */
     CiteAs,
-    /** # collection
+    /** **collection**
 
 The target IRI points to a resource which represents the collection resource for the context IRI.. The target IRI points to a resource which represents the collection resource for the context IRI. */
     Collection,
-    /** # contents
+    /** **contents**
 
 Refers to a table of contents.. Refers to a table of contents. */
     Contents,
-    /** # convertedFrom
+    /** **convertedFrom**
 
 The document linked to was later converted to the
       document that contains this link relation.  For example, an RFC can
@@ -27724,29 +27292,29 @@ The document linked to was later converted to the
       have a link to the Internet-Draft that became the RFC; in that case,
       the link relation would be "convertedFrom". */
     ConvertedFrom,
-    /** # copyright
+    /** **copyright**
 
 Refers to a copyright statement that applies to the
     link's context.. Refers to a copyright statement that applies to the
     link's context. */
     Copyright,
-    /** # create-form
+    /** **create-form**
 
 The target IRI points to a resource where a submission form can be obtained.. The target IRI points to a resource where a submission form can be obtained. */
     CreateForm,
-    /** # current
+    /** **current**
 
 Refers to a resource containing the most recent
       item(s) in a collection of resources.. Refers to a resource containing the most recent
       item(s) in a collection of resources. */
     Current,
-    /** # describedby
+    /** **describedby**
 
 Refers to a resource providing information about the
       link's context.. Refers to a resource providing information about the
       link's context. */
     Describedby,
-    /** # describes
+    /** **describes**
 
 The relationship A 'describes' B asserts that
       resource A provides a description of resource B. There are no
@@ -27756,13 +27324,13 @@ The relationship A 'describes' B asserts that
       constraints on the format or representation of either A or B,
       neither are there any further constraints on either resource. */
     Describes,
-    /** # disclosure
+    /** **disclosure**
 
 Refers to a list of patent disclosures made with respect to
       material for which 'disclosure' relation is specified.. Refers to a list of patent disclosures made with respect to
       material for which 'disclosure' relation is specified. */
     Disclosure,
-    /** # dns-prefetch
+    /** **dns-prefetch**
 
 Used to indicate an origin that will be used to fetch required
       resources for the link context, and that the user agent ought to resolve
@@ -27770,7 +27338,7 @@ Used to indicate an origin that will be used to fetch required
       resources for the link context, and that the user agent ought to resolve
       as early as possible. */
     DnsPrefetch,
-    /** # duplicate
+    /** **duplicate**
 
 Refers to a resource whose available representations
       are byte-for-byte identical with the corresponding representations of
@@ -27778,149 +27346,149 @@ Refers to a resource whose available representations
       are byte-for-byte identical with the corresponding representations of
       the context IRI. */
     Duplicate,
-    /** # edit
+    /** **edit**
 
 Refers to a resource that can be used to edit the
       link's context.. Refers to a resource that can be used to edit the
       link's context. */
     Edit,
-    /** # edit-form
+    /** **edit-form**
 
 The target IRI points to a resource where a submission form for
       editing associated resource can be obtained.. The target IRI points to a resource where a submission form for
       editing associated resource can be obtained. */
     EditForm,
-    /** # edit-media
+    /** **edit-media**
 
 Refers to a resource that can be used to edit media
       associated with the link's context.. Refers to a resource that can be used to edit media
       associated with the link's context. */
     EditMedia,
-    /** # enclosure
+    /** **enclosure**
 
 Identifies a related resource that is potentially
       large and might require special handling.. Identifies a related resource that is potentially
       large and might require special handling. */
     Enclosure,
-    /** # external
+    /** **external**
 
 Refers to a resource that is not part of the same site as the current context.. Refers to a resource that is not part of the same site as the current context. */
     External,
-    /** # first
+    /** **first**
 
 An IRI that refers to the furthest preceding resource
     in a series of resources.. An IRI that refers to the furthest preceding resource
     in a series of resources. */
     First,
-    /** # glossary
+    /** **glossary**
 
 Refers to a glossary of terms.. Refers to a glossary of terms. */
     Glossary,
-    /** # help
+    /** **help**
 
 Refers to context-sensitive help.. Refers to context-sensitive help. */
     Help,
-    /** # hosts
+    /** **hosts**
 
 Refers to a resource hosted by the server indicated by
       the link context.. Refers to a resource hosted by the server indicated by
       the link context. */
     Hosts,
-    /** # hub
+    /** **hub**
 
 Refers to a hub that enables registration for
     notification of updates to the context.. Refers to a hub that enables registration for
     notification of updates to the context. */
     Hub,
-    /** # icon
+    /** **icon**
 
 Refers to an icon representing the link's context.. Refers to an icon representing the link's context. */
     Icon,
-    /** # index
+    /** **index**
 
 Refers to an index.. Refers to an index. */
     Index,
-    /** # intervalAfter
+    /** **intervalAfter**
 
 refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource. refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource */
     IntervalAfter,
-    /** # intervalBefore
+    /** **intervalBefore**
 
 refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource */
     IntervalBefore,
-    /** # intervalContains
+    /** **intervalContains**
 
 refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource */
     IntervalContains,
-    /** # intervalDisjoint
+    /** **intervalDisjoint**
 
 refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource. refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource */
     IntervalDisjoint,
-    /** # intervalDuring
+    /** **intervalDuring**
 
 refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource */
     IntervalDuring,
-    /** # intervalEquals
+    /** **intervalEquals**
 
 refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource. refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource */
     IntervalEquals,
-    /** # intervalFinishedBy
+    /** **intervalFinishedBy**
 
 refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource */
     IntervalFinishedBy,
-    /** # intervalFinishes
+    /** **intervalFinishes**
 
 refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource */
     IntervalFinishes,
-    /** # intervalIn
+    /** **intervalIn**
 
 refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource */
     IntervalIn,
-    /** # intervalMeets
+    /** **intervalMeets**
 
 refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource. refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource */
     IntervalMeets,
-    /** # intervalMetBy
+    /** **intervalMetBy**
 
 refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource. refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource */
     IntervalMetBy,
-    /** # intervalOverlappedBy
+    /** **intervalOverlappedBy**
 
 refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource. refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource */
     IntervalOverlappedBy,
-    /** # intervalOverlaps
+    /** **intervalOverlaps**
 
 refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource. refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource */
     IntervalOverlaps,
-    /** # intervalStartedBy
+    /** **intervalStartedBy**
 
 refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource. refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource */
     IntervalStartedBy,
-    /** # intervalStarts
+    /** **intervalStarts**
 
 refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource. refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource */
     IntervalStarts,
-    /** # item
+    /** **item**
 
 The target IRI points to a resource that is a member of the collection represented by the context IRI.. The target IRI points to a resource that is a member of the collection represented by the context IRI. */
     Item,
-    /** # last
+    /** **last**
 
 An IRI that refers to the furthest following resource
       in a series of resources.. An IRI that refers to the furthest following resource
       in a series of resources. */
     Last,
-    /** # latest-version
+    /** **latest-version**
 
 Points to a resource containing the latest (e.g.,
       current) version of the context.. Points to a resource containing the latest (e.g.,
       current) version of the context. */
     LatestVersion,
-    /** # license
+    /** **license**
 
 Refers to a license associated with this context.. Refers to a license associated with this context. */
     License,
-    /** # linkset
+    /** **linkset**
 
 The link target of a link with the "linkset" relation
       type provides a set of links, including links in which the link
@@ -27930,7 +27498,7 @@ The link target of a link with the "linkset" relation
       context of the link participates.
      */
     Linkset,
-    /** # lrdd
+    /** **lrdd**
 
 Refers to further information about the link's context,
       expressed as a LRDD ("Link-based Resource Descriptor Document")
@@ -27948,43 +27516,43 @@ Refers to further information about the link's context,
       resources MUST have an "application/xrd+xml" representation, and
       MAY have others. */
     Lrdd,
-    /** # manifest
+    /** **manifest**
 
 Links to a manifest file for the context.. Links to a manifest file for the context. */
     Manifest,
-    /** # mask-icon
+    /** **mask-icon**
 
 Refers to a mask that can be applied to the icon for the context.. Refers to a mask that can be applied to the icon for the context. */
     MaskIcon,
-    /** # media-feed
+    /** **media-feed**
 
 Refers to a feed of personalised media recommendations relevant to the link context.. Refers to a feed of personalised media recommendations relevant to the link context. */
     MediaFeed,
-    /** # memento
+    /** **memento**
 
 The Target IRI points to a Memento, a fixed resource that will not change state anymore.. The Target IRI points to a Memento, a fixed resource that will not change state anymore. */
     Memento,
-    /** # micropub
+    /** **micropub**
 
 Links to the context's Micropub endpoint.. Links to the context's Micropub endpoint. */
     Micropub,
-    /** # modulepreload
+    /** **modulepreload**
 
 Refers to a module that the user agent is to preemptively fetch and store for use in the current context.. Refers to a module that the user agent is to preemptively fetch and store for use in the current context. */
     Modulepreload,
-    /** # monitor
+    /** **monitor**
 
 Refers to a resource that can be used to monitor changes in an HTTP resource.
     . Refers to a resource that can be used to monitor changes in an HTTP resource.
      */
     Monitor,
-    /** # monitor-group
+    /** **monitor-group**
 
 Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.
     . Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.
      */
     MonitorGroup,
-    /** # next
+    /** **next**
 
 Indicates that the link's context is a part of a series, and
       that the next in the series is the link target.
@@ -27992,47 +27560,47 @@ Indicates that the link's context is a part of a series, and
       that the next in the series is the link target.
      */
     Next,
-    /** # next-archive
+    /** **next-archive**
 
 Refers to the immediately following archive resource.. Refers to the immediately following archive resource. */
     NextArchive,
-    /** # nofollow
+    /** **nofollow**
 
 Indicates that the context’s original author or publisher does not endorse the link target.. Indicates that the context’s original author or publisher does not endorse the link target. */
     Nofollow,
-    /** # noopener
+    /** **noopener**
 
 Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context.. Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context. */
     Noopener,
-    /** # noreferrer
+    /** **noreferrer**
 
 Indicates that no referrer information is to be leaked when following the link.. Indicates that no referrer information is to be leaked when following the link. */
     Noreferrer,
-    /** # opener
+    /** **opener**
 
 Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context.. Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context. */
     Opener,
-    /** # openid2.local_id
+    /** **openid2.local_id**
 
 Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier.. Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier. */
     Openid2LocalId,
-    /** # openid2.provider
+    /** **openid2.provider**
 
 Refers to a resource which accepts OpenID Authentication protocol messages for the context.. Refers to a resource which accepts OpenID Authentication protocol messages for the context. */
     Openid2Provider,
-    /** # original
+    /** **original**
 
 The Target IRI points to an Original Resource.. The Target IRI points to an Original Resource. */
     Original,
-    /** # payment
+    /** **payment**
 
 Indicates a resource where payment is accepted.. Indicates a resource where payment is accepted. */
     Payment,
-    /** # pingback
+    /** **pingback**
 
 Gives the address of the pingback resource for the link context.. Gives the address of the pingback resource for the link context. */
     Pingback,
-    /** # preconnect
+    /** **preconnect**
 
 Used to indicate an origin that will be used to fetch required
       resources for the link context. Initiating an early connection, which
@@ -28044,7 +27612,7 @@ Used to indicate an origin that will be used to fetch required
       allows the user agent to mask the high latency costs of establishing a
       connection. */
     Preconnect,
-    /** # predecessor-version
+    /** **predecessor-version**
 
 Points to a resource containing the predecessor
       version in the version history.
@@ -28052,7 +27620,7 @@ Points to a resource containing the predecessor
       version in the version history.
      */
     PredecessorVersion,
-    /** # prefetch
+    /** **prefetch**
 
 The prefetch link relation type is used to identify a resource
       that might be required by the next navigation from the link context, and
@@ -28062,13 +27630,13 @@ The prefetch link relation type is used to identify a resource
       that the user agent ought to fetch, such that the user agent can deliver a
       faster response once the resource is requested in the future. */
     Prefetch,
-    /** # preload
+    /** **preload**
 
 Refers to a resource that should be loaded early in the
       processing of the link's context, without blocking rendering.. Refers to a resource that should be loaded early in the
       processing of the link's context, without blocking rendering. */
     Preload,
-    /** # prerender
+    /** **prerender**
 
 Used to identify a resource that might be required by the next
       navigation from the link context, and that the user agent ought to fetch
@@ -28078,7 +27646,7 @@ Used to identify a resource that might be required by the next
       and execute, such that the user agent can deliver a faster response once
       the resource is requested in the future. */
     Prerender,
-    /** # prev
+    /** **prev**
 
 Indicates that the link's context is a part of a series, and
       that the previous in the series is the link target.
@@ -28086,25 +27654,25 @@ Indicates that the link's context is a part of a series, and
       that the previous in the series is the link target.
      */
     Prev,
-    /** # prev-archive
+    /** **prev-archive**
 
 Refers to the immediately preceding archive resource.. Refers to the immediately preceding archive resource. */
     PrevArchive,
-    /** # preview
+    /** **preview**
 
 Refers to a resource that provides a preview of the link's context.. Refers to a resource that provides a preview of the link's context. */
     Preview,
-    /** # previous
+    /** **previous**
 
 Refers to the previous resource in an ordered series
       of resources.  Synonym for "prev".. Refers to the previous resource in an ordered series
       of resources.  Synonym for "prev". */
     Previous,
-    /** # privacy-policy
+    /** **privacy-policy**
 
 Refers to a privacy policy associated with the link's context.. Refers to a privacy policy associated with the link's context. */
     PrivacyPolicy,
-    /** # profile
+    /** **profile**
 
 Identifying that a resource representation conforms
 to a certain profile, without affecting the non-profile semantics
@@ -28112,7 +27680,7 @@ of the resource representation.. Identifying that a resource representation conf
 to a certain profile, without affecting the non-profile semantics
 of the resource representation. */
     Profile,
-    /** # publication
+    /** **publication**
 
 Links to a publication manifest. A manifest represents
       structured information about a publication, such as informative metadata,
@@ -28120,11 +27688,11 @@ Links to a publication manifest. A manifest represents
       structured information about a publication, such as informative metadata,
       a list of resources, and a default reading order. */
     Publication,
-    /** # related
+    /** **related**
 
 Identifies a related resource.. Identifies a related resource. */
     Related,
-    /** # replies
+    /** **replies**
 
 Identifies a resource that is a reply to the context
       of the link.
@@ -28132,7 +27700,7 @@ Identifies a resource that is a reply to the context
       of the link.
      */
     Replies,
-    /** # restconf
+    /** **restconf**
 
 Identifies the root of RESTCONF API as configured on this HTTP server.
       The "restconf" relation defines the root of the API defined in RFC8040.
@@ -28142,7 +27710,7 @@ Identifies the root of RESTCONF API as configured on this HTTP server.
       Subsequent revisions of RESTCONF will use alternate relation values to support
       protocol versioning. */
     Restconf,
-    /** # ruleinput
+    /** **ruleinput**
 
 The resource identified by the link target provides an input value to an
     instance of a rule, where the resource which represents the rule instance is
@@ -28152,75 +27720,75 @@ The resource identified by the link target provides an input value to an
     identified by the link context.
      */
     Ruleinput,
-    /** # search
+    /** **search**
 
 Refers to a resource that can be used to search through
       the link's context and related resources.. Refers to a resource that can be used to search through
       the link's context and related resources. */
     Search,
-    /** # section
+    /** **section**
 
 Refers to a section in a collection of resources.. Refers to a section in a collection of resources. */
     Section,
-    /** # self
+    /** **self**
 
 Conveys an identifier for the link's context.
     . Conveys an identifier for the link's context.
      */
     _Self,
-    /** # service
+    /** **service**
 
 Indicates a URI that can be used to retrieve a
       service document.. Indicates a URI that can be used to retrieve a
       service document. */
     Service,
-    /** # service-desc
+    /** **service-desc**
 
 Identifies service description for the context that
       is primarily intended for consumption by machines.. Identifies service description for the context that
       is primarily intended for consumption by machines. */
     ServiceDesc,
-    /** # service-doc
+    /** **service-doc**
 
 Identifies service documentation for the context that
       is primarily intended for human consumption.. Identifies service documentation for the context that
       is primarily intended for human consumption. */
     ServiceDoc,
-    /** # service-meta
+    /** **service-meta**
 
 Identifies general metadata for the context that is
       primarily intended for consumption by machines.. Identifies general metadata for the context that is
       primarily intended for consumption by machines. */
     ServiceMeta,
-    /** # sponsored
+    /** **sponsored**
 
 Refers to a resource that is within a context that is
 		sponsored (such as advertising or another compensation agreement).. Refers to a resource that is within a context that is
 		sponsored (such as advertising or another compensation agreement). */
     Sponsored,
-    /** # start
+    /** **start**
 
 Refers to the first resource in a collection of
       resources.. Refers to the first resource in a collection of
       resources. */
     Start,
-    /** # status
+    /** **status**
 
 Identifies a resource that represents the context's
       status.. Identifies a resource that represents the context's
       status. */
     Status,
-    /** # stylesheet
+    /** **stylesheet**
 
 Refers to a stylesheet.. Refers to a stylesheet. */
     Stylesheet,
-    /** # subsection
+    /** **subsection**
 
 Refers to a resource serving as a subsection in a
       collection of resources.. Refers to a resource serving as a subsection in a
       collection of resources. */
     Subsection,
-    /** # successor-version
+    /** **successor-version**
 
 Points to a resource containing the successor version
       in the version history.
@@ -28228,7 +27796,7 @@ Points to a resource containing the successor version
       in the version history.
      */
     SuccessorVersion,
-    /** # sunset
+    /** **sunset**
 
 Identifies a resource that provides information about
       the context's retirement policy.
@@ -28236,7 +27804,7 @@ Identifies a resource that provides information about
       the context's retirement policy.
      */
     Sunset,
-    /** # tag
+    /** **tag**
 
 Gives a tag (identified by the given address) that applies to
       the current document.
@@ -28244,29 +27812,29 @@ Gives a tag (identified by the given address) that applies to
       the current document.
      */
     Tag,
-    /** # terms-of-service
+    /** **terms-of-service**
 
 Refers to the terms of service associated with the link's context.. Refers to the terms of service associated with the link's context. */
     TermsOfService,
-    /** # timegate
+    /** **timegate**
 
 The Target IRI points to a TimeGate for an Original Resource.. The Target IRI points to a TimeGate for an Original Resource. */
     Timegate,
-    /** # timemap
+    /** **timemap**
 
 The Target IRI points to a TimeMap for an Original Resource.. The Target IRI points to a TimeMap for an Original Resource. */
     Timemap,
-    /** # type
+    /** **type**
 
 Refers to a resource identifying the abstract semantic type of which the link's context is considered to be an instance.. Refers to a resource identifying the abstract semantic type of which the link's context is considered to be an instance. */
     Type,
-    /** # ugc
+    /** **ugc**
 
 Refers to a resource that is within a context that is User Generated Content.
     . Refers to a resource that is within a context that is User Generated Content.
      */
     Ugc,
-    /** # up
+    /** **up**
 
 Refers to a parent document in a hierarchy of
       documents.
@@ -28274,7 +27842,7 @@ Refers to a parent document in a hierarchy of
       documents.
      */
     Up,
-    /** # version-history
+    /** **version-history**
 
 Points to a resource containing the version history
       for the context.
@@ -28282,7 +27850,7 @@ Points to a resource containing the version history
       for the context.
      */
     VersionHistory,
-    /** # via
+    /** **via**
 
 Identifies a resource that is the source of the
       information in the link's context.
@@ -28290,7 +27858,7 @@ Identifies a resource that is the source of the
       information in the link's context.
      */
     Via,
-    /** # webmention
+    /** **webmention**
 
 Identifies a target URI that supports the Webmention protocol.
     This allows clients that mention a resource in some form of publishing process
@@ -28298,11 +27866,11 @@ Identifies a target URI that supports the Webmention protocol.
     This allows clients that mention a resource in some form of publishing process
     to contact that endpoint and inform it that this resource has been mentioned. */
     Webmention,
-    /** # working-copy
+    /** **working-copy**
 
 Points to a working copy for this resource.. Points to a working copy for this resource. */
     WorkingCopy,
-    /** # working-copy-of
+    /** **working-copy-of**
 
 Points to the versioned resource from which this
       working copy was obtained.
@@ -28923,25 +28491,23 @@ impl From<LinkRelationTypes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LinkType`. The type of link between this Patient resource and other Patient/RelatedPerson resource(s).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LinkType](http://hl7.org/fhir/ValueSet/link-type)**. The type of link between this Patient resource and other Patient/RelatedPerson resource(s).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LinkType {
-    /** # refer
+    /** **refer**
 
 Refer. The patient resource containing this link is in use and valid but not considered the main source of information about a patient. The link points forward to another patient resource that should be consulted to retrieve additional patient information. */
     Refer,
-    /** # replaced-by
+    /** **replaced-by**
 
 Replaced-by. The patient resource containing this link must no longer be used. The link points forward to another patient resource that must be used in lieu of the patient resource that contains this link. */
     ReplacedBy,
-    /** # replaces
+    /** **replaces**
 
 Replaces. The patient resource containing this link is the current active patient record. The link points back to an inactive patient resource that has been merged into this resource, and should be consulted to retrieve additional referenced information. */
     Replaces,
-    /** # seealso
+    /** **seealso**
 
 See also. The patient resource containing this link is in use and valid, but points to another Patient or RelatedPerson resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other Patient/RelatedPerson resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid. */
     Seealso,
@@ -29014,21 +28580,19 @@ impl From<LinkType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LinkageType`. Used to distinguish different roles a resource can play within a set of linked resources.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LinkageType](http://hl7.org/fhir/ValueSet/linkage-type)**. Used to distinguish different roles a resource can play within a set of linked resources.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LinkageType {
-    /** # alternate
+    /** **alternate**
 
 Alternate Record. The resource represents an alternative view of the underlying event/condition/etc.  The resource may still be actively maintained, even though it is not considered to be the source of truth. */
     Alternate,
-    /** # historical
+    /** **historical**
 
 Historical/Obsolete Record. The resource represents an obsolete record of the underlying event/condition/etc.  It is not expected to be actively maintained. */
     Historical,
-    /** # source
+    /** **source**
 
 Source of Truth. The resource represents the "source of truth" (from the perspective of this Linkage resource) for the underlying event/condition/etc. */
     Source,
@@ -29098,21 +28662,19 @@ impl From<LinkageType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ListMode`. The processing mode that applies to this list.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ListMode](http://hl7.org/fhir/ValueSet/list-mode)**. The processing mode that applies to this list.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ListMode {
-    /** # changes
+    /** **changes**
 
 Change List. A point-in-time list that shows what changes have been made or recommended.  E.g. a discharge medication list showing what was added and removed during an encounter. */
     Changes,
-    /** # snapshot
+    /** **snapshot**
 
 Snapshot List. This list was prepared as a snapshot. It should not be assumed to be current. */
     Snapshot,
-    /** # working
+    /** **working**
 
 Working List. This list is the master list, maintained in an ongoing fashion with regular updates as the real-world list it is tracking changes. */
     Working,
@@ -29182,21 +28744,19 @@ impl From<ListMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ListStatus`. The current state of the list.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ListStatus](http://hl7.org/fhir/ValueSet/list-status)**. The current state of the list.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ListStatus {
-    /** # current
+    /** **current**
 
 Current. The list is considered to be an active part of the patient's record. */
     Current,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. The list was never accurate.  It is retained for medico-legal purposes only. */
     EnteredInError,
-    /** # retired
+    /** **retired**
 
 Retired. The list is "old" and should no longer be considered accurate or relevant. */
     Retired,
@@ -29266,33 +28826,31 @@ impl From<ListStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LocationCharacteristic`. Example Set of Location Characteristics.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LocationCharacteristic](http://hl7.org/fhir/ValueSet/location-characteristic)**. Example Set of Location Characteristics.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LocationCharacteristic {
-    /** # has-icu
+    /** **has-icu**
 
 has ICU. The location is or has an intensive care unit */
     HasIcu,
-    /** # has-iso-ward
+    /** **has-iso-ward**
 
 isolation ward. The location is or has an isolation ward */
     HasIsoWard,
-    /** # has-neg-press
+    /** **has-neg-press**
 
 negative pressure rooms available. The location has negative pressure rooms available */
     HasNegPress,
-    /** # has-oxy-nitro
+    /** **has-oxy-nitro**
 
 oxygen/nitrogen available. The location has oxygen and nitrogen services available */
     HasOxyNitro,
-    /** # has-translation
+    /** **has-translation**
 
 translation services available. The location has translation services available */
     HasTranslation,
-    /** # wheelchair
+    /** **wheelchair**
 
 Wheelchair accessible. The location is accessible to thosre requiring wheelchair access */
     Wheelchair,
@@ -29371,17 +28929,15 @@ impl From<LocationCharacteristic> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LocationMode`. Indicates whether a resource instance represents a specific location or a class of locations.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LocationMode](http://hl7.org/fhir/ValueSet/location-mode)**. Indicates whether a resource instance represents a specific location or a class of locations.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LocationMode {
-    /** # instance
+    /** **instance**
 
 Instance. The Location resource represents a specific instance of a location (e.g. Operating Theatre 1A). */
     Instance,
-    /** # kind
+    /** **kind**
 
 Kind. The Location represents a class of locations (e.g. Any Operating Theatre) although this class of locations could be constrained within a specific boundary (such as organization, or parent location, address etc.). */
     Kind,
@@ -29448,21 +29004,19 @@ impl From<LocationMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `LocationStatus`. Indicates whether the location is still in use.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[LocationStatus](http://hl7.org/fhir/ValueSet/location-status)**. Indicates whether the location is still in use.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LocationStatus {
-    /** # active
+    /** **active**
 
 Active. The location is operational. */
     Active,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The location is no longer used. */
     Inactive,
-    /** # suspended
+    /** **suspended**
 
 Suspended. The location is temporarily closed. */
     Suspended,
@@ -29532,813 +29086,811 @@ impl From<LocationStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ManufacturedDoseForm`. Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ManufacturedDoseForm](http://hl7.org/fhir/ValueSet/manufactured-dose-form)**. Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ManufacturedDoseForm {
-    /** # 100000073362
+    /** **100000073362**
 
 Oral suspension. */
     N100000073362,
-    /** # 100000073363
+    /** **100000073363**
 
 Oral gel. */
     N100000073363,
-    /** # 100000073364
+    /** **100000073364**
 
 Powder for oral solution. */
     N100000073364,
-    /** # 100000073365
+    /** **100000073365**
 
 Granules for oral solution. */
     N100000073365,
-    /** # 100000073367
+    /** **100000073367**
 
 Lyophilisate for suspension. */
     N100000073367,
-    /** # 100000073368
+    /** **100000073368**
 
 Powder for syrup. */
     N100000073368,
-    /** # 100000073369
+    /** **100000073369**
 
 Soluble tablet. */
     N100000073369,
-    /** # 100000073370
+    /** **100000073370**
 
 Herbal tea. */
     N100000073370,
-    /** # 100000073371
+    /** **100000073371**
 
 Instant herbal tea. */
     N100000073371,
-    /** # 100000073372
+    /** **100000073372**
 
 Granules. */
     N100000073372,
-    /** # 100000073373
+    /** **100000073373**
 
 Gastro-resistant granules. */
     N100000073373,
-    /** # 100000073374
+    /** **100000073374**
 
 Modified-release granules. */
     N100000073374,
-    /** # 100000073375
+    /** **100000073375**
 
 Capsule, hard. */
     N100000073375,
-    /** # 100000073376
+    /** **100000073376**
 
 Gastro-resistant capsule, hard. */
     N100000073376,
-    /** # 100000073377
+    /** **100000073377**
 
 Chewable capsule, soft. */
     N100000073377,
-    /** # 100000073378
+    /** **100000073378**
 
 Prolonged-release capsule, soft. */
     N100000073378,
-    /** # 100000073379
+    /** **100000073379**
 
 Modified-release capsule, soft. */
     N100000073379,
-    /** # 100000073380
+    /** **100000073380**
 
 Coated tablet. */
     N100000073380,
-    /** # 100000073642
+    /** **100000073642**
 
 Oral drops, solution. */
     N100000073642,
-    /** # 100000073643
+    /** **100000073643**
 
 Oral drops, suspension. */
     N100000073643,
-    /** # 100000073644
+    /** **100000073644**
 
 Oral drops, emulsion. */
     N100000073644,
-    /** # 100000073645
+    /** **100000073645**
 
 Oral liquid. */
     N100000073645,
-    /** # 100000073646
+    /** **100000073646**
 
 Oral solution. */
     N100000073646,
-    /** # 100000073647
+    /** **100000073647**
 
 Oral emulsion. */
     N100000073647,
-    /** # 100000073648
+    /** **100000073648**
 
 Oral paste. */
     N100000073648,
-    /** # 100000073649
+    /** **100000073649**
 
 Powder for oral suspension. */
     N100000073649,
-    /** # 100000073650
+    /** **100000073650**
 
 Granules for oral suspension. */
     N100000073650,
-    /** # 100000073652
+    /** **100000073652**
 
 Syrup. */
     N100000073652,
-    /** # 100000073653
+    /** **100000073653**
 
 Granules for syrup. */
     N100000073653,
-    /** # 100000073654
+    /** **100000073654**
 
 Dispersible tablet. */
     N100000073654,
-    /** # 100000073655
+    /** **100000073655**
 
 Oral powder. */
     N100000073655,
-    /** # 100000073656
+    /** **100000073656**
 
 Effervescent powder. */
     N100000073656,
-    /** # 100000073657
+    /** **100000073657**
 
 Effervescent granules. */
     N100000073657,
-    /** # 100000073658
+    /** **100000073658**
 
 Prolonged-release granules. */
     N100000073658,
-    /** # 100000073659
+    /** **100000073659**
 
 Cachet. */
     N100000073659,
-    /** # 100000073660
+    /** **100000073660**
 
 Capsule, soft. */
     N100000073660,
-    /** # 100000073661
+    /** **100000073661**
 
 Gastro-resistant capsule, soft. */
     N100000073661,
-    /** # 100000073662
+    /** **100000073662**
 
 Prolonged-release capsule, hard. */
     N100000073662,
-    /** # 100000073663
+    /** **100000073663**
 
 Modified-release capsule, hard. */
     N100000073663,
-    /** # 100000073664
+    /** **100000073664**
 
 Tablet. */
     N100000073664,
-    /** # 100000073665
+    /** **100000073665**
 
 Film-coated tablet. */
     N100000073665,
-    /** # 100000073666
+    /** **100000073666**
 
 Orodispersible tablet. */
     N100000073666,
-    /** # 100000073667
+    /** **100000073667**
 
 Gastro-resistant tablet. */
     N100000073667,
-    /** # 100000073668
+    /** **100000073668**
 
 Modified-release tablet. */
     N100000073668,
-    /** # 100000073669
+    /** **100000073669**
 
 Medicated chewing-gum. */
     N100000073669,
-    /** # 100000073670
+    /** **100000073670**
 
 Pillules. */
     N100000073670,
-    /** # 100000073671
+    /** **100000073671**
 
 Pulsatile-release intraruminal device. */
     N100000073671,
-    /** # 100000073672
+    /** **100000073672**
 
 Premix for medicated feeding stuff. */
     N100000073672,
-    /** # 100000073673
+    /** **100000073673**
 
 Gargle. */
     N100000073673,
-    /** # 100000073674
+    /** **100000073674**
 
 Gargle, powder for solution. */
     N100000073674,
-    /** # 100000073675
+    /** **100000073675**
 
 Oromucosal suspension. */
     N100000073675,
-    /** # 100000073676
+    /** **100000073676**
 
 Oromucosal spray. */
     N100000073676,
-    /** # 100000073677
+    /** **100000073677**
 
 Mouthwash. */
     N100000073677,
-    /** # 100000073678
+    /** **100000073678**
 
 Gingival solution. */
     N100000073678,
-    /** # 100000073679
+    /** **100000073679**
 
 Oromucosal paste. */
     N100000073679,
-    /** # 100000073680
+    /** **100000073680**
 
 Gingival gel. */
     N100000073680,
-    /** # 100000073681
+    /** **100000073681**
 
 Effervescent tablet. */
     N100000073681,
-    /** # 100000073682
+    /** **100000073682**
 
 Oral lyophilisate. */
     N100000073682,
-    /** # 100000073683
+    /** **100000073683**
 
 Prolonged-release tablet. */
     N100000073683,
-    /** # 100000073684
+    /** **100000073684**
 
 Chewable tablet. */
     N100000073684,
-    /** # 100000073685
+    /** **100000073685**
 
 Oral gum. */
     N100000073685,
-    /** # 100000073686
+    /** **100000073686**
 
 Continuous-release intraruminal device. */
     N100000073686,
-    /** # 100000073687
+    /** **100000073687**
 
 Lick block. */
     N100000073687,
-    /** # 100000073688
+    /** **100000073688**
 
 Medicated pellets. */
     N100000073688,
-    /** # 100000073689
+    /** **100000073689**
 
 Concentrate for gargle. */
     N100000073689,
-    /** # 100000073690
+    /** **100000073690**
 
 Gargle, tablet for solution. */
     N100000073690,
-    /** # 100000073691
+    /** **100000073691**
 
 Oromucosal solution. */
     N100000073691,
-    /** # 100000073692
+    /** **100000073692**
 
 Oromucosal drops. */
     N100000073692,
-    /** # 100000073693
+    /** **100000073693**
 
 Sublingual spray. */
     N100000073693,
-    /** # 100000073694
+    /** **100000073694**
 
 Mouthwash, tablet for solution. */
     N100000073694,
-    /** # 100000073695
+    /** **100000073695**
 
 Oromucosal gel. */
     N100000073695,
-    /** # 100000073696
+    /** **100000073696**
 
 Oromucosal cream. */
     N100000073696,
-    /** # 100000073697
+    /** **100000073697**
 
 Gingival paste. */
     N100000073697,
-    /** # 100000073698
+    /** **100000073698**
 
 Sublingual tablet. */
     N100000073698,
-    /** # 100000073699
+    /** **100000073699**
 
 Buccal tablet. */
     N100000073699,
-    /** # 100000073700
+    /** **100000073700**
 
 Compressed lozenge. */
     N100000073700,
-    /** # 100000073701
+    /** **100000073701**
 
 Oromucosal capsule. */
     N100000073701,
-    /** # 100000073702
+    /** **100000073702**
 
 Muco-adhesive buccal tablet. */
     N100000073702,
-    /** # 100000073703
+    /** **100000073703**
 
 Lozenge. */
     N100000073703,
-    /** # 100000073704
+    /** **100000073704**
 
 Pastille. */
     N100000073704,
-    /** # 100000073705
+    /** **100000073705**
 
 Dental gel. */
     N100000073705,
-    /** # 100000073706
+    /** **100000073706**
 
 Dental insert. */
     N100000073706,
-    /** # 100000073707
+    /** **100000073707**
 
 Dental powder. */
     N100000073707,
-    /** # 100000073708
+    /** **100000073708**
 
 Dental suspension. */
     N100000073708,
-    /** # 100000073709
+    /** **100000073709**
 
 Toothpaste. */
     N100000073709,
-    /** # 100000073710
+    /** **100000073710**
 
 Periodontal gel. */
     N100000073710,
-    /** # 100000073711
+    /** **100000073711**
 
 Bath additive. */
     N100000073711,
-    /** # 100000073712
+    /** **100000073712**
 
 Cream. */
     N100000073712,
-    /** # 100000073713
+    /** **100000073713**
 
 Ointment. */
     N100000073713,
-    /** # 100000073714
+    /** **100000073714**
 
 Medicated plaster. */
     N100000073714,
-    /** # 100000073715
+    /** **100000073715**
 
 Shampoo. */
     N100000073715,
-    /** # 100000073716
+    /** **100000073716**
 
 Cutaneous spray, suspension. */
     N100000073716,
-    /** # 100000073717
+    /** **100000073717**
 
 Cutaneous liquid. */
     N100000073717,
-    /** # 100000073718
+    /** **100000073718**
 
 Concentrate for cutaneous solution. */
     N100000073718,
-    /** # 100000073719
+    /** **100000073719**
 
 Cutaneous emulsion. */
     N100000073719,
-    /** # 100000073720
+    /** **100000073720**
 
 Cutaneous patch. */
     N100000073720,
-    /** # 100000073721
+    /** **100000073721**
 
 Periodontal powder. */
     N100000073721,
-    /** # 100000073722
+    /** **100000073722**
 
 Dental stick. */
     N100000073722,
-    /** # 100000073723
+    /** **100000073723**
 
 Dental solution. */
     N100000073723,
-    /** # 100000073724
+    /** **100000073724**
 
 Dental emulsion. */
     N100000073724,
-    /** # 100000073725
+    /** **100000073725**
 
 Periodontal insert. */
     N100000073725,
-    /** # 100000073726
+    /** **100000073726**
 
 Gel. */
     N100000073726,
-    /** # 100000073727
+    /** **100000073727**
 
 Cutaneous paste. */
     N100000073727,
-    /** # 100000073728
+    /** **100000073728**
 
 Cutaneous foam. */
     N100000073728,
-    /** # 100000073729
+    /** **100000073729**
 
 Cutaneous spray, solution. */
     N100000073729,
-    /** # 100000073730
+    /** **100000073730**
 
 Cutaneous spray, powder. */
     N100000073730,
-    /** # 100000073731
+    /** **100000073731**
 
 Cutaneous solution. */
     N100000073731,
-    /** # 100000073732
+    /** **100000073732**
 
 Cutaneous suspension. */
     N100000073732,
-    /** # 100000073733
+    /** **100000073733**
 
 Cutaneous powder. */
     N100000073733,
-    /** # 100000073734
+    /** **100000073734**
 
 Solution for iontophoresis. */
     N100000073734,
-    /** # 100000073735
+    /** **100000073735**
 
 Collodion. */
     N100000073735,
-    /** # 100000073736
+    /** **100000073736**
 
 Poultice. */
     N100000073736,
-    /** # 100000073737
+    /** **100000073737**
 
 Cutaneous sponge. */
     N100000073737,
-    /** # 100000073738
+    /** **100000073738**
 
 Collar. */
     N100000073738,
-    /** # 100000073739
+    /** **100000073739**
 
 Ear tag. */
     N100000073739,
-    /** # 100000073740
+    /** **100000073740**
 
 Dip suspension. */
     N100000073740,
-    /** # 100000073741
+    /** **100000073741**
 
 Transdermal patch. */
     N100000073741,
-    /** # 100000073742
+    /** **100000073742**
 
 Medicated nail lacquer. */
     N100000073742,
-    /** # 100000073743
+    /** **100000073743**
 
 Cutaneous stick. */
     N100000073743,
-    /** # 100000073744
+    /** **100000073744**
 
 Impregnated dressing. */
     N100000073744,
-    /** # 100000073745
+    /** **100000073745**
 
 Medicated pendant. */
     N100000073745,
-    /** # 100000073746
+    /** **100000073746**
 
 Dip solution. */
     N100000073746,
-    /** # 100000073747
+    /** **100000073747**
 
 Dip emulsion. */
     N100000073747,
-    /** # 100000073748
+    /** **100000073748**
 
 Concentrate for dip suspension. */
     N100000073748,
-    /** # 100000073749
+    /** **100000073749**
 
 Powder for dip solution. */
     N100000073749,
-    /** # 100000073750
+    /** **100000073750**
 
 Powder for suspension for fish treatment. */
     N100000073750,
-    /** # 100000073751
+    /** **100000073751**
 
 Pour-on suspension. */
     N100000073751,
-    /** # 100000073752
+    /** **100000073752**
 
 Spot-on solution. */
     N100000073752,
-    /** # 100000073753
+    /** **100000073753**
 
 Spot-on emulsion. */
     N100000073753,
-    /** # 100000073754
+    /** **100000073754**
 
 Teat dip suspension. */
     N100000073754,
-    /** # 100000073755
+    /** **100000073755**
 
 Teat spray solution. */
     N100000073755,
-    /** # 100000073756
+    /** **100000073756**
 
 Solution for skin-prick test. */
     N100000073756,
-    /** # 100000073757
+    /** **100000073757**
 
 Plaster for provocation test. */
     N100000073757,
-    /** # 100000073758
+    /** **100000073758**
 
 Eye gel. */
     N100000073758,
-    /** # 100000073759
+    /** **100000073759**
 
 Eye drops, solution. */
     N100000073759,
-    /** # 100000073760
+    /** **100000073760**
 
 Eye drops, suspension. */
     N100000073760,
-    /** # 100000073761
+    /** **100000073761**
 
 Concentrate for dip solution. */
     N100000073761,
-    /** # 100000073762
+    /** **100000073762**
 
 Concentrate for dip emulsion. */
     N100000073762,
-    /** # 100000073763
+    /** **100000073763**
 
 Concentrate for solution for fish treatment. */
     N100000073763,
-    /** # 100000073764
+    /** **100000073764**
 
 Pour-on solution. */
     N100000073764,
-    /** # 100000073765
+    /** **100000073765**
 
 Pour-on emulsion. */
     N100000073765,
-    /** # 100000073766
+    /** **100000073766**
 
 Spot-on suspension. */
     N100000073766,
-    /** # 100000073767
+    /** **100000073767**
 
 Teat dip solution. */
     N100000073767,
-    /** # 100000073768
+    /** **100000073768**
 
 Teat dip emulsion. */
     N100000073768,
-    /** # 100000073769
+    /** **100000073769**
 
 Transdermal system. */
     N100000073769,
-    /** # 100000073770
+    /** **100000073770**
 
 Solution for skin-scratch test. */
     N100000073770,
-    /** # 100000073771
+    /** **100000073771**
 
 Eye cream. */
     N100000073771,
-    /** # 100000073772
+    /** **100000073772**
 
 Eye ointment. */
     N100000073772,
-    /** # 100000073773
+    /** **100000073773**
 
 Eye drops, emulsion. */
     N100000073773,
-    /** # 100000073775
+    /** **100000073775**
 
 Eye drops, solvent for reconstitution. */
     N100000073775,
-    /** # 100000073776
+    /** **100000073776**
 
 Eye lotion. */
     N100000073776,
-    /** # 100000073777
+    /** **100000073777**
 
 Ophthalmic insert. */
     N100000073777,
-    /** # 100000073778
+    /** **100000073778**
 
 Ear cream. */
     N100000073778,
-    /** # 100000073779
+    /** **100000073779**
 
 Ear ointment. */
     N100000073779,
-    /** # 100000073780
+    /** **100000073780**
 
 Ear drops, suspension. */
     N100000073780,
-    /** # 100000073782
+    /** **100000073782**
 
 Eye drops, prolonged-release. */
     N100000073782,
-    /** # 100000073783
+    /** **100000073783**
 
 Eye lotion, solvent for reconstitution. */
     N100000073783,
-    /** # 100000073784
+    /** **100000073784**
 
 Ophthalmic strip. */
     N100000073784,
-    /** # 100000073785
+    /** **100000073785**
 
 Ear gel. */
     N100000073785,
-    /** # 100000073786
+    /** **100000073786**
 
 Ear drops, solution. */
     N100000073786,
-    /** # 100000073787
+    /** **100000073787**
 
 Ear drops, emulsion. */
     N100000073787,
-    /** # 100000073788
+    /** **100000073788**
 
 Ear powder. */
     N100000073788,
-    /** # 100000073789
+    /** **100000073789**
 
 Ear spray, suspension. */
     N100000073789,
-    /** # 100000073790
+    /** **100000073790**
 
 Ear wash, solution. */
     N100000073790,
-    /** # 100000073791
+    /** **100000073791**
 
 Ear tampon. */
     N100000073791,
-    /** # 100000073792
+    /** **100000073792**
 
 Nasal cream. */
     N100000073792,
-    /** # 100000073793
+    /** **100000073793**
 
 Nasal gel. */
     N100000073793,
-    /** # 100000073794
+    /** **100000073794**
 
 Nasal drops, solution. */
     N100000073794,
-    /** # 100000073795
+    /** **100000073795**
 
 Nasal drops, emulsion. */
     N100000073795,
-    /** # 100000073796
+    /** **100000073796**
 
 Nasal spray, solution. */
     N100000073796,
-    /** # 100000073797
+    /** **100000073797**
 
 Nasal spray, emulsion. */
     N100000073797,
-    /** # 100000073798
+    /** **100000073798**
 
 Nasal stick. */
     N100000073798,
-    /** # 100000073799
+    /** **100000073799**
 
 Vaginal gel. */
     N100000073799,
-    /** # 100000073800
+    /** **100000073800**
 
 Vaginal foam. */
     N100000073800,
-    /** # 100000073802
+    /** **100000073802**
 
 Ear spray, solution. */
     N100000073802,
-    /** # 100000073803
+    /** **100000073803**
 
 Ear spray, emulsion. */
     N100000073803,
-    /** # 100000073804
+    /** **100000073804**
 
 Ear wash, emulsion. */
     N100000073804,
-    /** # 100000073805
+    /** **100000073805**
 
 Ear stick. */
     N100000073805,
-    /** # 100000073806
+    /** **100000073806**
 
 Nasal ointment. */
     N100000073806,
-    /** # 100000073807
+    /** **100000073807**
 
 Nasal drops, suspension. */
     N100000073807,
-    /** # 100000073808
+    /** **100000073808**
 
 Nasal powder. */
     N100000073808,
-    /** # 100000073809
+    /** **100000073809**
 
 Nasal spray, suspension. */
     N100000073809,
-    /** # 100000073810
+    /** **100000073810**
 
 Nasal wash. */
     N100000073810,
-    /** # 100000073811
+    /** **100000073811**
 
 Vaginal cream. */
     N100000073811,
-    /** # 100000073812
+    /** **100000073812**
 
 Vaginal ointment. */
     N100000073812,
-    /** # 100000073813
+    /** **100000073813**
 
 Vaginal solution. */
     N100000073813,
-    /** # 100000073814
+    /** **100000073814**
 
 Vaginal emulsion. */
     N100000073814,
-    /** # 100000073815
+    /** **100000073815**
 
 Pessary. */
     N100000073815,
-    /** # 100000073816
+    /** **100000073816**
 
 Vaginal capsule, soft. */
     N100000073816,
-    /** # 100000073817
+    /** **100000073817**
 
 Effervescent vaginal tablet. */
     N100000073817,
-    /** # 100000073818
+    /** **100000073818**
 
 Vaginal delivery system. */
     N100000073818,
-    /** # 100000073819
+    /** **100000073819**
 
 Rectal cream. */
     N100000073819,
-    /** # 100000073820
+    /** **100000073820**
 
 Rectal foam. */
     N100000073820,
-    /** # 100000073821
+    /** **100000073821**
 
 Vaginal suspension. */
     N100000073821,
-    /** # 100000073822
+    /** **100000073822**
 
 Tablet for vaginal solution. */
     N100000073822,
-    /** # 100000073823
+    /** **100000073823**
 
 Vaginal capsule, hard. */
     N100000073823,
-    /** # 100000073824
+    /** **100000073824**
 
 Vaginal tablet. */
     N100000073824,
-    /** # 100000073825
+    /** **100000073825**
 
 Medicated vaginal tampon. */
     N100000073825,
-    /** # 100000073826
+    /** **100000073826**
 
 Vaginal sponge. */
     N100000073826,
-    /** # 100000073827
+    /** **100000073827**
 
 Rectal gel. */
     N100000073827,
-    /** # 100000073863
+    /** **100000073863**
 
 Solution for injection. */
     N100000073863,
@@ -31002,33 +30554,31 @@ impl From<ManufacturedDoseForm> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureAggregateMethod`. Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureAggregateMethod](http://hl7.org/fhir/ValueSet/aggregate-method)**. Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureAggregateMethod {
-    /** # average
+    /** **average**
 
 Average. The measure score is determined by taking the average of the observations derived from the measure population. */
     Average,
-    /** # count
+    /** **count**
 
 Count. The measure score is determined as the number of observations derived from the measure population. */
     Count,
-    /** # maximum
+    /** **maximum**
 
 Maximum. The measure score is determined by taking the maximum of the observations derived from the measure population. */
     Maximum,
-    /** # median
+    /** **median**
 
 Median. The measure score is determined by taking the median of the observations derived from the measure population. */
     Median,
-    /** # minimum
+    /** **minimum**
 
 Minimum. The measure score is determined by taking the minimum of the observations derived from the measure population. */
     Minimum,
-    /** # sum
+    /** **sum**
 
 Sum. The measure score is determined by adding together the observations derived from the measure population. */
     Sum,
@@ -31107,17 +30657,15 @@ impl From<MeasureAggregateMethod> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureDefinitionExample`. Example Measure Definitions for the Measure Resource.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureDefinitionExample](http://hl7.org/fhir/ValueSet/measure-definition-example)**. Example Measure Definitions for the Measure Resource.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureDefinitionExample {
-    /** # screening
+    /** **screening**
 
 Screening. Completion of a clinical or diagnostic tool used to identify people at risk of developing or having a certain disease or condition, even in the absence of symptoms. */
     Screening,
-    /** # standardized-depression-screening-tool
+    /** **standardized-depression-screening-tool**
 
 Standardized Depression Screening Tool. A normalized and validated depression screening tool developed for the patient population in which it is being utilized. */
     StandardizedDepressionScreeningTool,
@@ -31190,17 +30738,15 @@ impl From<MeasureDefinitionExample> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureGroupExample`. Example Measure Groups for the Measure Resource.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureGroupExample](http://hl7.org/fhir/ValueSet/measure-group-example)**. Example Measure Groups for the Measure Resource.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureGroupExample {
-    /** # primary-rate
+    /** **primary-rate**
 
 Primary Rate. Primary Measure Group. */
     PrimaryRate,
-    /** # secondary-rate
+    /** **secondary-rate**
 
 Secondary Rate. Secondary Measure Group */
     SecondaryRate,
@@ -31267,21 +30813,19 @@ impl From<MeasureGroupExample> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureReportStatus`. The status of the measure report.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureReportStatus](http://hl7.org/fhir/ValueSet/measure-report-status)**. The status of the measure report.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureReportStatus {
-    /** # complete
+    /** **complete**
 
 Complete. The report is complete and ready for use. */
     Complete,
-    /** # error
+    /** **error**
 
 Error. An error occurred attempting to generate the report. */
     Error,
-    /** # pending
+    /** **pending**
 
 Pending. The report is currently being generated. */
     Pending,
@@ -31351,25 +30895,23 @@ impl From<MeasureReportStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureReportStratifierValueExample`. Example Region Value Measure Groups for the Measure Resource.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureReportStratifierValueExample](http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example)**. Example Region Value Measure Groups for the Measure Resource.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureReportStratifierValueExample {
-    /** # northeast
+    /** **northeast**
 
 Northeast. Northeast region stratification. */
     Northeast,
-    /** # northwest
+    /** **northwest**
 
 Northwest. Northwest region stratification. */
     Northwest,
-    /** # southeast
+    /** **southeast**
 
 Southeast. Southeast region stratification. */
     Southeast,
-    /** # southwest
+    /** **southwest**
 
 Soutwest. Soutwest region stratification. */
     Southwest,
@@ -31445,25 +30987,23 @@ impl From<MeasureReportStratifierValueExample> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureReportType`. The type of the measure report.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureReportType](http://hl7.org/fhir/ValueSet/measure-report-type)**. The type of the measure report.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureReportType {
-    /** # data-exchange
+    /** **data-exchange**
 
 Data Exchange. A data exchange report that contains data-of-interest for the measure (i.e. data that is needed to calculate the measure) */
     DataExchange,
-    /** # individual
+    /** **individual**
 
 Individual. An individual report that provides information on the performance for a given measure with respect to a single subject. */
     Individual,
-    /** # subject-list
+    /** **subject-list**
 
 Subject List. A subject list report that includes a listing of subjects that satisfied each population criteria in the measure. */
     SubjectList,
-    /** # summary
+    /** **summary**
 
 Summary. A summary report that returns the number of members in each population criteria for the measure. */
     Summary,
@@ -31536,21 +31076,19 @@ impl From<MeasureReportType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureStratifierExample`. Identifier subgroups in a population for measuring purposes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureStratifierExample](http://hl7.org/fhir/ValueSet/measure-stratifier-example)**. Identifier subgroups in a population for measuring purposes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureStratifierExample {
-    /** # age
+    /** **age**
 
 Age. Age Stratification. */
     Age,
-    /** # gender
+    /** **gender**
 
 Gender. Gender Stratification. */
     Gender,
-    /** # region
+    /** **region**
 
 Region. Region Stratification. */
     Region,
@@ -31620,25 +31158,23 @@ impl From<MeasureStratifierExample> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MeasureSupplementalDataExample`. Identifier supplemental data in a population for measuring purposes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MeasureSupplementalDataExample](http://hl7.org/fhir/ValueSet/measure-supplemental-data-example)**. Identifier supplemental data in a population for measuring purposes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureSupplementalDataExample {
-    /** # age
+    /** **age**
 
 Age. Age Supplemental Data. */
     Age,
-    /** # ethnicity
+    /** **ethnicity**
 
 Ethnicity. Ethnicity Supplemental Data . */
     Ethnicity,
-    /** # gender
+    /** **gender**
 
 Gender. Gender Supplemental Data . */
     Gender,
-    /** # payer
+    /** **payer**
 
 Payer. Payer Supplemental Data. */
     Payer,
@@ -31714,21 +31250,19 @@ impl From<MeasureSupplementalDataExample> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedDispenseAdminLocationCodes`. Medication Dispense Administration Location Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedDispenseAdminLocationCodes](http://hl7.org/fhir/ValueSet/medicationdispense-admin-location)**. Medication Dispense Administration Location Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedDispenseAdminLocationCodes {
-    /** # community
+    /** **community**
 
 Community. Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.). */
     Community,
-    /** # inpatient
+    /** **inpatient**
 
 Inpatient. Includes dispenses for medications to be administered or consumed in an inpatient or acute care setting. */
     Inpatient,
-    /** # outpatient
+    /** **outpatient**
 
 Outpatient. Includes dispenses for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office). */
     Outpatient,
@@ -31801,37 +31335,35 @@ impl From<MedDispenseAdminLocationCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationAdministrationStatusCodes`. MedicationAdministration Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationAdministrationStatusCodes](http://hl7.org/fhir/ValueSet/medication-admin-status)**. MedicationAdministration Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationAdministrationStatusCodes {
-    /** # completed
+    /** **completed**
 
 Completed. All actions that are implied by the administration have occurred. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The administration was entered in error and therefore nullified. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The administration has started but has not yet completed. */
     InProgress,
-    /** # not-done
+    /** **not-done**
 
 Not Done. The administration was terminated prior to any impact on the subject (though preparatory actions may have been taken) */
     NotDone,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called 'suspended'. */
     OnHold,
-    /** # stopped
+    /** **stopped**
 
 Stopped. Actions implied by the administration have been permanently halted, before all of them occurred. */
     Stopped,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -31913,17 +31445,15 @@ impl From<MedicationAdministrationStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationCostCategoryCodes`. Medication Cost Category Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationCostCategoryCodes](http://hl7.org/fhir/ValueSet/medication-cost-category)**. Medication Cost Category Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationCostCategoryCodes {
-    /** # banda
+    /** **banda**
 
 Band A. Tier A cost for this medication */
     Banda,
-    /** # bandb
+    /** **bandb**
 
 Band B. Tier B cost for this medication */
     Bandb,
@@ -31990,45 +31520,43 @@ impl From<MedicationCostCategoryCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationDispenseStatusCodes`. Medication Dispense Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationDispenseStatusCodes](http://hl7.org/fhir/ValueSet/medicationDispense-status)**. Medication Dispense Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationDispenseStatusCodes {
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The dispensed product was not and will never be picked up by the patient. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. The dispensed product has been picked up. */
     Completed,
-    /** # declined
+    /** **declined**
 
 Declined. The dispense was declined and not performed. */
     Declined,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The dispense was entered in error and therefore nullified. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The dispensed product is ready for pickup. */
     InProgress,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new stock has arrived or the prescriber has called. */
     OnHold,
-    /** # preparation
+    /** **preparation**
 
 Preparation. The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes. */
     Preparation,
-    /** # stopped
+    /** **stopped**
 
 Stopped. Actions implied by the dispense have been permanently halted, before all of them occurred. */
     Stopped,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring system does not know which of the status values applies for this medication dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which one. */
     Unknown,
@@ -32116,93 +31644,91 @@ impl From<MedicationDispenseStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationDispenseStatusReasonCodes`. Medication Dispense Status Reason Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationDispenseStatusReasonCodes](http://hl7.org/fhir/ValueSet/medicationdispense-status-reason)**. Medication Dispense Status Reason Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationDispenseStatusReasonCodes {
-    /** # altchoice
+    /** **altchoice**
 
 Try another treatment first. This therapy has been ordered as a backup to a preferred therapy. This order will be released when and if the preferred therapy is unsuccessful. */
     Altchoice,
-    /** # clarif
+    /** **clarif**
 
 Prescription/Request requires clarification. Clarification is required before the order can be acted upon. */
     Clarif,
-    /** # drughigh
+    /** **drughigh**
 
 Drug level too high. The current level of the medication in the patient's system is too high. The medication is suspended to allow the level to subside to a safer level. */
     Drughigh,
-    /** # frr01
+    /** **frr01**
 
 Order Stopped. The order has been stopped by the prescriber but this fact has not necessarily captured electronically. Example: A verbal stop, a fax, etc. */
     Frr01,
-    /** # frr02
+    /** **frr02**
 
 Stale-dated Order. Order has not been fulfilled within a reasonable amount of time, and might not be current. */
     Frr02,
-    /** # frr03
+    /** **frr03**
 
 Incomplete data. Data needed to safely act on the order which was expected to become available independent of the order is not yet available. Example: Lab results, diagnostic imaging, etc. */
     Frr03,
-    /** # frr04
+    /** **frr04**
 
 Product unavailable. Product not available or manufactured. Cannot supply. */
     Frr04,
-    /** # frr05
+    /** **frr05**
 
 Ethical/religious. The dispenser has ethical, religious or moral objections to fulfilling the order/dispensing the product. */
     Frr05,
-    /** # frr06
+    /** **frr06**
 
 Unable to provide care. Fulfiller not able to provide appropriate care associated with fulfilling the order. Example: Therapy requires ongoing monitoring by fulfiller and fulfiller will be ending practice, leaving town, unable to schedule necessary time, etc. */
     Frr06,
-    /** # hospadm
+    /** **hospadm**
 
 Admission to hospital. The patient has been admitted to a care facility and their community medications are suspended until hospital discharge. */
     Hospadm,
-    /** # labint
+    /** **labint**
 
 Lab interference issues. The therapy would interfere with a planned lab test and the therapy is being withdrawn until the test is completed. */
     Labint,
-    /** # non-avail
+    /** **non-avail**
 
 Patient not available. Patient not available for a period of time due to a scheduled therapy, leave of absence or other reason. */
     NonAvail,
-    /** # offmarket
+    /** **offmarket**
 
 Drug not available - off market. Drug no longer marketed Cannot supply. */
     Offmarket,
-    /** # outofstock
+    /** **outofstock**
 
 Drug not available - out of stock. Drug out of stock. Cannot supply. */
     Outofstock,
-    /** # preg
+    /** **preg**
 
 Patient is pregnant or breastfeeding. The patient is pregnant or breast feeding. The therapy will be resumed when the pregnancy is complete and the patient is no longer breastfeeding. */
     Preg,
-    /** # saig
+    /** **saig**
 
 Allergy. The patient is believed to be allergic to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm. */
     Saig,
-    /** # sddi
+    /** **sddi**
 
 Drug interacts with another drug. The drug interacts with a short-term treatment that is more urgently required. This order will be resumed when the short-term treatment is complete. */
     Sddi,
-    /** # sdupther
+    /** **sdupther**
 
 Duplicate therapy. Another short-term co-occurring therapy fulfills the same purpose as this therapy. This therapy will be resumed when the co-occuring therapy is complete. */
     Sdupther,
-    /** # sintol
+    /** **sintol**
 
 Suspected intolerance. The patient is believed to have an intolerance to a substance that is part of the therapy and the therapy is being temporarily withdrawn to confirm. */
     Sintol,
-    /** # surg
+    /** **surg**
 
 Patient scheduled for surgery. The drug is contraindicated for patients receiving surgery and the patient is scheduled to be admitted for surgery in the near future. The drug will be resumed when the patient has sufficiently recovered from the surgery. */
     Surg,
-    /** # washout
+    /** **washout**
 
 Washout. The patient was previously receiving a medication contraindicated with the current medication. The current medication will remain on hold until the prior medication has been cleansed from their system. */
     Washout,
@@ -32329,21 +31855,19 @@ impl From<MedicationDispenseStatusReasonCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationDoseAid`. Medication dose aid
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationDoseAid](http://hl7.org/fhir/ValueSet/medication-dose-aid)**. Medication dose aid\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationDoseAid {
-    /** # blisterpack
+    /** **blisterpack**
 
 Blister Pack. A type of packaging in which a medication is sealed in plastic, often with a cardboard backing. */
     Blisterpack,
-    /** # dosette
+    /** **dosette**
 
 Dosette. A box or tray that organizes mediations into separate compartments */
     Dosette,
-    /** # sachets
+    /** **sachets**
 
 Sachets. A small packet that contains medication for individual use. */
     Sachets,
@@ -32413,17 +31937,15 @@ impl From<MedicationDoseAid> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationIngredientStrengthCodes`. Medication Ingredient Strength Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationIngredientStrengthCodes](http://hl7.org/fhir/ValueSet/medication-ingredientstrength)**. Medication Ingredient Strength Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationIngredientStrengthCodes {
-    /** # qs
+    /** **qs**
 
 QS. As much as is sufficient. */
     Qs,
-    /** # trace
+    /** **trace**
 
 Trace. Very small amount. */
     Trace,
@@ -32492,29 +32014,27 @@ impl From<MedicationIngredientStrengthCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationIntendedPerformerRole`. Medication Intended Performer Role
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationIntendedPerformerRole](http://hl7.org/fhir/ValueSet/medication-intended-performer-role)**. Medication Intended Performer Role\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationIntendedPerformerRole {
-    /** # oncologynurse
+    /** **oncologynurse**
 
 Oncology Nurse. */
     Oncologynurse,
-    /** # paincontrolnurse
+    /** **paincontrolnurse**
 
 Pain Control Nurse. */
     Paincontrolnurse,
-    /** # pharmacist
+    /** **pharmacist**
 
 Pharmacist. */
     Pharmacist,
-    /** # physician
+    /** **physician**
 
 Physician. */
     Physician,
-    /** # registerednurse
+    /** **registerednurse**
 
 Registered Nurse. */
     Registerednurse,
@@ -32593,21 +32113,19 @@ impl From<MedicationIntendedPerformerRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationKnowledgeStatusCodes`. MedicationKnowledge Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationKnowledgeStatusCodes](http://hl7.org/fhir/ValueSet/medicationknowledge-status)**. MedicationKnowledge Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationKnowledgeStatusCodes {
-    /** # active
+    /** **active**
 
 Active. The medication referred to by this MedicationKnowledge is in active use within the drug database or inventory system. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The medication referred to by this MedicationKnowledge was entered in error within the drug database or inventory system. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The medication referred to by this MedicationKnowledge is not in active use within the drug database or inventory system. */
     Inactive,
@@ -32677,41 +32195,39 @@ impl From<MedicationKnowledgeStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationRequestIntentCodes`. MedicationRequest Intent Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationRequestIntentCodes](http://hl7.org/fhir/ValueSet/medicationrequest-intent)**. MedicationRequest Intent Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationRequestIntentCodes {
-    /** # filler-order
+    /** **filler-order**
 
 Filler Order. The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order. */
     FillerOrder,
-    /** # instance-order
+    /** **instance-order**
 
 Instance Order. The request represents an instance for the particular order and is used to generate a schedule of requests on a medication administration record (MAR). */
     InstanceOrder,
-    /** # option
+    /** **option**
 
 Option. The request represents a component or option for a RequestOrchestration that establishes timing, conditionality and/or  other constraints among a set of requests. */
     Option,
-    /** # order
+    /** **order**
 
 Order. The request represents a request/demand and authorization for action */
     Order,
-    /** # original-order
+    /** **original-order**
 
 Original Order. The request represents the original authorization for the medication request. */
     OriginalOrder,
-    /** # plan
+    /** **plan**
 
 Plan. The request represents an intention to ensure something occurs without providing an authorization for others to act. */
     Plan,
-    /** # proposal
+    /** **proposal**
 
 Proposal. The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act */
     Proposal,
-    /** # reflex-order
+    /** **reflex-order**
 
 Reflex Order. The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization.. */
     ReflexOrder,
@@ -32796,45 +32312,43 @@ impl From<MedicationRequestIntentCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationRequestStatusCodes`. MedicationRequest Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationRequestStatusCodes](http://hl7.org/fhir/ValueSet/medicationrequest-status)**. MedicationRequest Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationRequestStatusCodes {
-    /** # active
+    /** **active**
 
 Active. The request is 'actionable', but not all actions that are implied by it have occurred yet. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The request has been withdrawn before any administrations have occurred */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. All actions that are implied by the request have occurred. */
     Completed,
-    /** # draft
+    /** **draft**
 
 Draft. The request is not yet 'actionable', e.g. it is a work in progress, requires sign-off, verification or needs to be run through decision support process. */
     Draft,
-    /** # ended
+    /** **ended**
 
 Ended. The request is no longer active and the subject should no longer be taking the medication. */
     Ended,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The request was recorded against the wrong patient or for some reason should not have been recorded (e.g. wrong medication, wrong dose, etc.). Some of the actions that are implied by the medication request may have occurred. For example, the medication may have been dispensed and the patient may have taken some of the medication. */
     EnteredInError,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called 'suspended'. */
     OnHold,
-    /** # stopped
+    /** **stopped**
 
 Stopped. Actions implied by the request are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error */
     Stopped,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, but the authoring/source system does not know which. */
     Unknown,
@@ -32922,53 +32436,51 @@ impl From<MedicationRequestStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationStatementAdherenceCodes`. MedicationStatement Adherence Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationStatementAdherenceCodes](http://hl7.org/fhir/ValueSet/medication-statement-adherence)**. MedicationStatement Adherence Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationStatementAdherenceCodes {
-    /** # not-taking
+    /** **not-taking**
 
 Not Taking. The medication is not being taken. */
     NotTaking,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The medication is on hold. */
     OnHold,
-    /** # on-hold-as-directed
+    /** **on-hold-as-directed**
 
 On Hold As Directed. The medication is on hold as directed. */
     OnHoldAsDirected,
-    /** # on-hold-not-as-directed
+    /** **on-hold-not-as-directed**
 
 On Hold Not As Directed. The medication is on hold not as directed. */
     OnHoldNotAsDirected,
-    /** # stopped
+    /** **stopped**
 
 Stopped. The medication is stopped. */
     Stopped,
-    /** # stopped-as-directed
+    /** **stopped-as-directed**
 
 Stopped As Directed. The medication is stopped as directed. */
     StoppedAsDirected,
-    /** # stopped-not-as-directed
+    /** **stopped-not-as-directed**
 
 Stopped Not As Directed. The medication is stopped not as directed. */
     StoppedNotAsDirected,
-    /** # taking
+    /** **taking**
 
 Taking. The medication is being taken. */
     Taking,
-    /** # taking-as-directed
+    /** **taking-as-directed**
 
 Taking As Directed. The medication is being taken as directed. */
     TakingAsDirected,
-    /** # taking-not-as-directed
+    /** **taking-not-as-directed**
 
 Taking Not As Directed. The medication is not being taken as directed. */
     TakingNotAsDirected,
-    /** # unknown
+    /** **unknown**
 
 Unknown. Whether the medication is being taken or not is not currently known. */
     Unknown,
@@ -33064,21 +32576,19 @@ impl From<MedicationStatementAdherenceCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationStatementStatusCodes`. MedicationStatement Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationStatementStatusCodes](http://hl7.org/fhir/ValueSet/medication-statement-status)**. MedicationStatement Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationStatementStatusCodes {
-    /** # draft
+    /** **draft**
 
 Draft. The medication usage is draft or preliminary. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. Some of the actions that are implied by the medication usage may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account. */
     EnteredInError,
-    /** # recorded
+    /** **recorded**
 
 Recorded. The action of recording the medication statement is finished. */
     Recorded,
@@ -33150,21 +32660,19 @@ impl From<MedicationStatementStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicationStatusCodes`. Medication Status Codes
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicationStatusCodes](http://hl7.org/fhir/ValueSet/medication-status)**. Medication Status Codes\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationStatusCodes {
-    /** # active
+    /** **active**
 
 Active. The medication record is current and is appropriate for reference in new instances. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The medication record was created erroneously and is not appropriated for reference in new instances. */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The medication record is not current and is not is appropriate for reference in new instances. */
     Inactive,
@@ -33234,21 +32742,19 @@ impl From<MedicationStatusCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicinalProductDomain`. Applicable domain for this product (e.g. human, veterinary).
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicinalProductDomain](http://hl7.org/fhir/ValueSet/medicinal-product-domain)**. Applicable domain for this product (e.g. human, veterinary).\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicinalProductDomain {
-    /** # Human
+    /** **Human**
 
 Human use. Product intended for use with humans */
     Human,
-    /** # HumanAndVeterinary
+    /** **HumanAndVeterinary**
 
 Human and Veterinary use. Product intended for use with both humans and animals */
     HumanAndVeterinary,
-    /** # Veterinary
+    /** **Veterinary**
 
 Veterinary use. Product intended for use with animals */
     Veterinary,
@@ -33318,57 +32824,55 @@ impl From<MedicinalProductDomain> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicinalProductPackageType`. Types of medicinal product packs
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicinalProductPackageType](http://hl7.org/fhir/ValueSet/medicinal-product-package-type)**. Types of medicinal product packs\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicinalProductPackageType {
-    /** # 100000073490
+    /** **100000073490**
 
 Ampoule. */
     N100000073490,
-    /** # 100000073491
+    /** **100000073491**
 
 Applicator. */
     N100000073491,
-    /** # 100000073492
+    /** **100000073492**
 
 Automatic injection device. */
     N100000073492,
-    /** # 100000073493
+    /** **100000073493**
 
 Bag. */
     N100000073493,
-    /** # 100000073494
+    /** **100000073494**
 
 Balling gun. */
     N100000073494,
-    /** # 100000073495
+    /** **100000073495**
 
 Barrel. */
     N100000073495,
-    /** # 100000073496
+    /** **100000073496**
 
 Blister. */
     N100000073496,
-    /** # 100000073497
+    /** **100000073497**
 
 Bottle. */
     N100000073497,
-    /** # 100000073498
+    /** **100000073498**
 
 Box. */
     N100000073498,
-    /** # 100000073547
+    /** **100000073547**
 
 Sachet. */
     N100000073547,
-    /** # 100000073563
+    /** **100000073563**
 
 Vial. */
     N100000073563,
-    /** # 100000143555
+    /** **100000143555**
 
 Pack. */
     N100000143555,
@@ -33467,17 +32971,15 @@ impl From<MedicinalProductPackageType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MedicinalProductType`. Overall defining type of this Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MedicinalProductType](http://hl7.org/fhir/ValueSet/medicinal-product-type)**. Overall defining type of this Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicinalProductType {
-    /** # InvestigationalProduct
+    /** **InvestigationalProduct**
 
 Investigational Medicinal Product. An investigational medicinal product. */
     InvestigationalProduct,
-    /** # MedicinalProduct
+    /** **MedicinalProduct**
 
 Medicinal Product. A standard medicinal product. */
     MedicinalProduct,
@@ -33544,9 +33046,7 @@ impl From<MedicinalProductType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MessageEvent`. One of the message events defined as part of this version of FHIR.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MessageEvent](http://hl7.org/fhir/message-events)**. One of the message events defined as part of this version of FHIR.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum MessageEvent {
     /// Custom code value.
@@ -33610,21 +33110,19 @@ impl From<MessageEvent> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MessageSignificanceCategory`. The impact of the content of a message.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MessageSignificanceCategory](http://hl7.org/fhir/ValueSet/message-significance-category)**. The impact of the content of a message.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MessageSignificanceCategory {
-    /** # consequence
+    /** **consequence**
 
 Consequence. The message represents/requests a change that should not be processed more than once; e.g., making a booking for an appointment. */
     Consequence,
-    /** # currency
+    /** **currency**
 
 Currency. The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful. */
     Currency,
-    /** # notification
+    /** **notification**
 
 Notification. The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications. */
     Notification,
@@ -33696,21 +33194,19 @@ impl From<MessageSignificanceCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MessageTransport`. The protocol used for message transport.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MessageTransport](http://hl7.org/fhir/ValueSet/message-transport)**. The protocol used for message transport.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MessageTransport {
-    /** # ftp
+    /** **ftp**
 
 FTP. The application sends or receives messages using File Transfer Protocol. */
     Ftp,
-    /** # http
+    /** **http**
 
 HTTP. The application sends or receives messages using HTTP POST (may be over http: or https:). */
     Http,
-    /** # mllp
+    /** **mllp**
 
 MLLP. The application sends or receives messages using HL7's Minimal Lower Level Protocol. */
     Mllp,
@@ -33780,25 +33276,23 @@ impl From<MessageTransport> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `MessageheaderResponseRequest`. HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[MessageheaderResponseRequest](http://hl7.org/fhir/ValueSet/messageheader-response-request)**. HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MessageheaderResponseRequest {
-    /** # always
+    /** **always**
 
 Always. initiator expects a response for this message. */
     Always,
-    /** # never
+    /** **never**
 
 Never. initiator does not expect a response. */
     Never,
-    /** # on-error
+    /** **on-error**
 
 Error/reject conditions only. initiator expects a response only if in error. */
     OnError,
-    /** # on-success
+    /** **on-success**
 
 Successful completion only. initiator expects a response only if successful. */
     OnSuccess,
@@ -33873,37 +33367,35 @@ impl From<MessageheaderResponseRequest> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `NameUse`. The use of a human name.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[NameUse](http://hl7.org/fhir/ValueSet/name-use)**. The use of a human name.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NameUse {
-    /** # anonymous
+    /** **anonymous**
 
 Anonymous. Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons). */
     Anonymous,
-    /** # maiden
+    /** **maiden**
 
 Name changed for Marriage. A name used prior to changing name because of marriage. This name use is for use by applications that collect and store names that were used prior to a marriage. Marriage naming customs vary greatly around the world, and are constantly changing. This term is not gender specific. The use of this term does not imply any particular history for a person's name. */
     Maiden,
-    /** # nickname
+    /** **nickname**
 
 Nickname. A name that is used to address the person in an informal manner, but is not part of their formal or usual name. */
     Nickname,
-    /** # official
+    /** **official**
 
 Official. The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called "legal name". */
     Official,
-    /** # old
+    /** **old**
 
 Old. This name is no longer in use (or was never correct, but retained for records). */
     Old,
-    /** # temp
+    /** **temp**
 
 Temp. A temporary name. Name.period can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations. */
     Temp,
-    /** # usual
+    /** **usual**
 
 Usual. Known as/conventional/the one you normally use. */
     Usual,
@@ -33985,33 +33477,31 @@ impl From<NameUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `NamingSystemIdentifierType`. Identifies the style of unique identifier used to identify a namespace.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[NamingSystemIdentifierType](http://hl7.org/fhir/ValueSet/namingsystem-identifier-type)**. Identifies the style of unique identifier used to identify a namespace.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NamingSystemIdentifierType {
-    /** # iri-stem
+    /** **iri-stem**
 
 IRI stem. An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See rdf.html#iri-stem for details on how this value may be used. */
     IriStem,
-    /** # oid
+    /** **oid**
 
 OID. An ISO object identifier; e.g. 1.2.3.4.5. */
     Oid,
-    /** # other
+    /** **other**
 
 Other. Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC. */
     Other,
-    /** # uri
+    /** **uri**
 
 URI. A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org. */
     Uri,
-    /** # uuid
+    /** **uuid**
 
 UUID. A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11. */
     Uuid,
-    /** # v2csmnemonic
+    /** **v2csmnemonic**
 
 V2CSMNemonic. A short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm */
     V2Csmnemonic,
@@ -34092,21 +33582,19 @@ impl From<NamingSystemIdentifierType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `NamingSystemType`. Identifies the purpose of the naming system.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[NamingSystemType](http://hl7.org/fhir/ValueSet/namingsystem-type)**. Identifies the purpose of the naming system.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NamingSystemType {
-    /** # codesystem
+    /** **codesystem**
 
 Code System. The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc. */
     Codesystem,
-    /** # identifier
+    /** **identifier**
 
 Identifier. The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.). */
     Identifier,
-    /** # root
+    /** **root**
 
 Root. The naming system is used as the root for other identifiers and naming systems. */
     Root,
@@ -34176,25 +33664,23 @@ impl From<NamingSystemType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `NarrativeStatus`. The status of a resource narrative.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[NarrativeStatus](http://hl7.org/fhir/ValueSet/narrative-status)**. The status of a resource narrative.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NarrativeStatus {
-    /** # additional
+    /** **additional**
 
 Additional. The contents of the narrative may contain additional information not found in the structured data. Note that there is no computable way to determine what the extra information is, other than by human inspection. */
     Additional,
-    /** # empty
+    /** **empty**
 
 Empty. The contents of the narrative are some equivalent of "No human-readable text provided in this case". */
     Empty,
-    /** # extensions
+    /** **extensions**
 
 Extensions. The contents of the narrative are entirely generated from the core elements in the content and some of the content is generated from extensions. The narrative SHALL reflect the impact of all modifier extensions. */
     Extensions,
-    /** # generated
+    /** **generated**
 
 Generated. The contents of the narrative are entirely generated from the core elements in the content. */
     Generated,
@@ -34267,21 +33753,19 @@ impl From<NarrativeStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `NoteType`. The presentation types of notes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[NoteType](http://hl7.org/fhir/ValueSet/note-type)**. The presentation types of notes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NoteType {
-    /** # display
+    /** **display**
 
 Display. Display the note. */
     Display,
-    /** # print
+    /** **print**
 
 Print (Form). Print the note on the form. */
     Print,
-    /** # printoper
+    /** **printoper**
 
 Print (Operator). Print the note for the operator. */
     Printoper,
@@ -34351,21 +33835,19 @@ impl From<NoteType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `NutritionProductStatus`. Codes identifying the lifecycle stage of a product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[NutritionProductStatus](http://hl7.org/fhir/ValueSet/nutritionproduct-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NutritionProductStatus {
-    /** # active
+    /** **active**
 
 Active. The product can be used. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # inactive
+    /** **inactive**
 
 Inactive. The product is not expected or allowed to be used. */
     Inactive,
@@ -34435,53 +33917,51 @@ impl From<NutritionProductStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ObservationDataType`. Permitted data type for observation value.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ObservationDataType](http://hl7.org/fhir/ValueSet/permitted-data-type)**. Permitted data type for observation value.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationDataType {
-    /** # CodeableConcept
+    /** **CodeableConcept**
 
 CodeableConcept. A coded concept from a reference terminology and/or text. */
     CodeableConcept,
-    /** # Period
+    /** **Period**
 
 Period. A time range defined by start and end date/time. */
     Period,
-    /** # Quantity
+    /** **Quantity**
 
 Quantity. A measured amount. */
     Quantity,
-    /** # Range
+    /** **Range**
 
 Range. A set of values bounded by low and high. */
     Range,
-    /** # Ratio
+    /** **Ratio**
 
 Ratio. A ratio of two Quantity values - a numerator and a denominator. */
     Ratio,
-    /** # SampledData
+    /** **SampledData**
 
 SampledData. A series of measurements taken by a device. */
     SampledData,
-    /** # boolean
+    /** **boolean**
 
 boolean. true or false. */
     Boolean,
-    /** # dateTime
+    /** **dateTime**
 
 dateTime. A date, date-time or partial date (e.g. just year or year + month) as used in human communication. */
     DateTime,
-    /** # integer
+    /** **integer**
 
 integer. A signed integer. */
     Integer,
-    /** # string
+    /** **string**
 
 string. A sequence of Unicode characters. */
     String,
-    /** # time
+    /** **time**
 
 time. A time during the day, in the format hh:mm:ss. */
     Time,
@@ -34575,21 +34055,19 @@ impl From<ObservationDataType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ObservationRangeCategory`. Codes identifying the category of observation range.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ObservationRangeCategory](http://hl7.org/fhir/ValueSet/observation-range-category)**. Codes identifying the category of observation range.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationRangeCategory {
-    /** # absolute
+    /** **absolute**
 
 absolute range. Absolute Range for Ordinal and Continuous Observations. Results outside this range are not possible. */
     Absolute,
-    /** # critical
+    /** **critical**
 
 critical range. Critical Range for Ordinal and Continuous Observations. Results outside this range are critical. */
     Critical,
-    /** # reference
+    /** **reference**
 
 reference range. Reference (Normal) Range for Ordinal and Continuous Observations. */
     Reference,
@@ -34659,17 +34137,15 @@ impl From<ObservationRangeCategory> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ObservationReferenceRangeNormalValue`. Codes that describe the normal value in the reference range.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ObservationReferenceRangeNormalValue](http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue)**. Codes that describe the normal value in the reference range.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationReferenceRangeNormalValue {
-    /** # absent
+    /** **absent**
 
 Absent. The expected normal value for the observation is absent. */
     Absent,
-    /** # negative
+    /** **negative**
 
 Negative. The expected normal value for the observation is negative. */
     Negative,
@@ -34739,41 +34215,39 @@ impl From<ObservationReferenceRangeNormalValue> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ObservationStatus`. Codes providing the status of an observation.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ObservationStatus](http://hl7.org/fhir/ValueSet/observation-status)**. Codes providing the status of an observation.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationStatus {
-    /** # amended
+    /** **amended**
 
 Amended. Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections. */
     Amended,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted"). */
     Cancelled,
-    /** # corrected
+    /** **corrected**
 
 Corrected. Subsequent to being Final, the observation has been modified to correct an error in the test result. */
     Corrected,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # final
+    /** **final**
 
 Final. The observation is complete and there are no further actions needed. Additional information such "released", "signed", etc. would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied. */
     Final,
-    /** # preliminary
+    /** **preliminary**
 
 Preliminary. This is an initial or interim observation: data may be incomplete or unverified. */
     Preliminary,
-    /** # registered
+    /** **registered**
 
 Registered. The existence of the observation is registered, but there is no result yet available. */
     Registered,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which. */
     Unknown,
@@ -34858,17 +34332,15 @@ impl From<ObservationStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `OperationKind`. Whether an operation is a normal operation or a query.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[OperationKind](http://hl7.org/fhir/ValueSet/operation-kind)**. Whether an operation is a normal operation or a query.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OperationKind {
-    /** # operation
+    /** **operation**
 
 Operation. This operation is invoked as an operation. */
     Operation,
-    /** # query
+    /** **query**
 
 Query. This operation is a named query, invoked using the search mechanism. */
     Query,
@@ -34935,212 +34407,210 @@ impl From<OperationKind> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `OperationOutcomeCodes`. Operation Outcome codes for translatable phrases used by FHIR test servers (see Implementation file translations.xml)
-
-FHIR version: 5.0.0.*/
+#[doc = "**[OperationOutcomeCodes](http://hl7.org/fhir/operation-outcome)**. Operation Outcome codes for translatable phrases used by FHIR test servers (see Implementation file translations.xml)\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum OperationOutcomeCodes {
-    /** # DELETE_MULTIPLE_MATCHES
+    /** **DELETE_MULTIPLE_MATCHES**
 
 Error: Multiple matches exist for the conditional delete. */
     DeleteMultipleMatches,
-    /** # MSG_AUTH_REQUIRED
+    /** **MSG_AUTH_REQUIRED**
 
 You must authenticate before you can use this service. */
     MsgAuthRequired,
-    /** # MSG_BAD_FORMAT
+    /** **MSG_BAD_FORMAT**
 
 Bad Syntax: "%s" must be a %s'. */
     MsgBadFormat,
-    /** # MSG_BAD_SYNTAX
+    /** **MSG_BAD_SYNTAX**
 
 Bad Syntax in %s. */
     MsgBadSyntax,
-    /** # MSG_CANT_PARSE_CONTENT
+    /** **MSG_CANT_PARSE_CONTENT**
 
 Unable to parse feed (entry content type = "%s"). */
     MsgCantParseContent,
-    /** # MSG_CANT_PARSE_ROOT
+    /** **MSG_CANT_PARSE_ROOT**
 
 Unable to parse feed (root element name = "%s"). */
     MsgCantParseRoot,
-    /** # MSG_CREATED
+    /** **MSG_CREATED**
 
 New resource created. */
     MsgCreated,
-    /** # MSG_DATE_FORMAT
+    /** **MSG_DATE_FORMAT**
 
 The Date value %s is not in the correct format (Xml Date Format required). */
     MsgDateFormat,
-    /** # MSG_DELETED
+    /** **MSG_DELETED**
 
 This resource has been deleted. */
     MsgDeleted,
-    /** # MSG_DELETED_DONE
+    /** **MSG_DELETED_DONE**
 
 Resource deleted. */
     MsgDeletedDone,
-    /** # MSG_DELETED_ID
+    /** **MSG_DELETED_ID**
 
 The resource "%s" has been deleted. */
     MsgDeletedId,
-    /** # MSG_DUPLICATE_ID
+    /** **MSG_DUPLICATE_ID**
 
 Duplicate Id %s for resource type %s. */
     MsgDuplicateId,
-    /** # MSG_ERROR_PARSING
+    /** **MSG_ERROR_PARSING**
 
 Error parsing resource Xml (%s). */
     MsgErrorParsing,
-    /** # MSG_ID_INVALID
+    /** **MSG_ID_INVALID**
 
 Id "%s" has an invalid character "%s". */
     MsgIdInvalid,
-    /** # MSG_ID_TOO_LONG
+    /** **MSG_ID_TOO_LONG**
 
 Id "%s" too long (length limit 36). */
     MsgIdTooLong,
-    /** # MSG_INVALID_ID
+    /** **MSG_INVALID_ID**
 
 Id not accepted. */
     MsgInvalidId,
-    /** # MSG_JSON_OBJECT
+    /** **MSG_JSON_OBJECT**
 
 Json Source for a resource should start with an object. */
     MsgJsonObject,
-    /** # MSG_LOCAL_FAIL
+    /** **MSG_LOCAL_FAIL**
 
 Unable to resolve local reference to resource %s. */
     MsgLocalFail,
-    /** # MSG_NO_EXIST
+    /** **MSG_NO_EXIST**
 
 Resource Id "%s" does not exist. */
     MsgNoExist,
-    /** # MSG_NO_MATCH
+    /** **MSG_NO_MATCH**
 
 No Resource found matching the query "%s". */
     MsgNoMatch,
-    /** # MSG_NO_MODULE
+    /** **MSG_NO_MODULE**
 
 No module could be found to handle the request "%s". */
     MsgNoModule,
-    /** # MSG_NO_SUMMARY
+    /** **MSG_NO_SUMMARY**
 
 No Summary for this resource. */
     MsgNoSummary,
-    /** # MSG_OP_NOT_ALLOWED
+    /** **MSG_OP_NOT_ALLOWED**
 
 Operation %s not allowed for resource %s (due to local configuration). */
     MsgOpNotAllowed,
-    /** # MSG_PARAM_CHAINED
+    /** **MSG_PARAM_CHAINED**
 
 Unknown chained parameter name "%s". */
     MsgParamChained,
-    /** # MSG_PARAM_INVALID
+    /** **MSG_PARAM_INVALID**
 
 Parameter "%s" content is invalid. */
     MsgParamInvalid,
-    /** # MSG_PARAM_MODIFIER_INVALID
+    /** **MSG_PARAM_MODIFIER_INVALID**
 
 Parameter "%s" modifier is invalid. */
     MsgParamModifierInvalid,
-    /** # MSG_PARAM_NO_REPEAT
+    /** **MSG_PARAM_NO_REPEAT**
 
 Parameter "%s" is not allowed to repeat. */
     MsgParamNoRepeat,
-    /** # MSG_PARAM_UNKNOWN
+    /** **MSG_PARAM_UNKNOWN**
 
 Parameter "%s" not understood. */
     MsgParamUnknown,
-    /** # MSG_REMOTE_FAIL
+    /** **MSG_REMOTE_FAIL**
 
 Unable to resolve local reference to resource %s. */
     MsgRemoteFail,
-    /** # MSG_RESOURCE_EXAMPLE_PROTECTED
+    /** **MSG_RESOURCE_EXAMPLE_PROTECTED**
 
 Resources with identity "example" cannot be deleted (for testing/training purposes). */
     MsgResourceExampleProtected,
-    /** # MSG_RESOURCE_ID_FAIL
+    /** **MSG_RESOURCE_ID_FAIL**
 
 unable to allocate resource id. */
     MsgResourceIdFail,
-    /** # MSG_RESOURCE_ID_MISMATCH
+    /** **MSG_RESOURCE_ID_MISMATCH**
 
 Resource Id Mismatch. */
     MsgResourceIdMismatch,
-    /** # MSG_RESOURCE_ID_MISSING
+    /** **MSG_RESOURCE_ID_MISSING**
 
 Resource Id Missing. */
     MsgResourceIdMissing,
-    /** # MSG_RESOURCE_NOT_ALLOWED
+    /** **MSG_RESOURCE_NOT_ALLOWED**
 
 Not allowed to submit a resource for this operation. */
     MsgResourceNotAllowed,
-    /** # MSG_RESOURCE_REQUIRED
+    /** **MSG_RESOURCE_REQUIRED**
 
 A resource is required. */
     MsgResourceRequired,
-    /** # MSG_RESOURCE_TYPE_MISMATCH
+    /** **MSG_RESOURCE_TYPE_MISMATCH**
 
 Resource Type Mismatch. */
     MsgResourceTypeMismatch,
-    /** # MSG_SORT_UNKNOWN
+    /** **MSG_SORT_UNKNOWN**
 
 Unknown sort parameter name "%s". */
     MsgSortUnknown,
-    /** # MSG_TRANSACTION_DUPLICATE_ID
+    /** **MSG_TRANSACTION_DUPLICATE_ID**
 
 Duplicate Identifier in transaction: %s. */
     MsgTransactionDuplicateId,
-    /** # MSG_TRANSACTION_MISSING_ID
+    /** **MSG_TRANSACTION_MISSING_ID**
 
 Missing Identifier in transaction - an entry.id must be provided. */
     MsgTransactionMissingId,
-    /** # MSG_UNHANDLED_NODE_TYPE
+    /** **MSG_UNHANDLED_NODE_TYPE**
 
 Unhandled xml node type "%s". */
     MsgUnhandledNodeType,
-    /** # MSG_UNKNOWN_CONTENT
+    /** **MSG_UNKNOWN_CONTENT**
 
 Unknown Content (%s) at %s. */
     MsgUnknownContent,
-    /** # MSG_UNKNOWN_OPERATION
+    /** **MSG_UNKNOWN_OPERATION**
 
 unknown FHIR http operation. */
     MsgUnknownOperation,
-    /** # MSG_UNKNOWN_TYPE
+    /** **MSG_UNKNOWN_TYPE**
 
 Resource Type "%s" not recognised. */
     MsgUnknownType,
-    /** # MSG_UPDATED
+    /** **MSG_UPDATED**
 
 existing resource updated. */
     MsgUpdated,
-    /** # MSG_VERSION_AWARE
+    /** **MSG_VERSION_AWARE**
 
 Version aware updates are required for this resource. */
     MsgVersionAware,
-    /** # MSG_VERSION_AWARE_CONFLICT
+    /** **MSG_VERSION_AWARE_CONFLICT**
 
 Update Conflict (server current version = "%s", client version referenced = "%s"). */
     MsgVersionAwareConflict,
-    /** # MSG_VERSION_AWARE_URL
+    /** **MSG_VERSION_AWARE_URL**
 
 Version specific URL not recognised. */
     MsgVersionAwareUrl,
-    /** # MSG_WRONG_NS
+    /** **MSG_WRONG_NS**
 
 This does not appear to be a FHIR element or resource (wrong namespace "%s"). */
     MsgWrongNs,
-    /** # SEARCH_MULTIPLE
+    /** **SEARCH_MULTIPLE**
 
 Error: Multiple matches exist for %s search parameters "%s". */
     SearchMultiple,
-    /** # SEARCH_NONE
+    /** **SEARCH_NONE**
 
 Error: no processable search found for %s search parameters "%s". */
     SearchNone,
-    /** # UPDATE_MULTIPLE_MATCHES
+    /** **UPDATE_MULTIPLE_MATCHES**
 
 Error: Multiple matches exist for the conditional update. */
     UpdateMultipleMatches,
@@ -35388,21 +34858,19 @@ impl From<OperationOutcomeCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `OperationParameterScope`. Indicates that a parameter applies when the operation is being invoked at the specified level
-
-FHIR version: 5.0.0.*/
+#[doc = "**[OperationParameterScope](http://hl7.org/fhir/ValueSet/operation-parameter-scope)**. Indicates that a parameter applies when the operation is being invoked at the specified level\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OperationParameterScope {
-    /** # instance
+    /** **instance**
 
 Instance. This is a parameter that can be used at the instance level. */
     Instance,
-    /** # system
+    /** **system**
 
 System. This is a parameter that can be used at the system level. */
     System,
-    /** # type
+    /** **type**
 
 Type. This is a parameter that can be used at the type level. */
     Type,
@@ -35472,17 +34940,15 @@ impl From<OperationParameterScope> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `OperationParameterUse`. Whether an operation parameter is an input or an output parameter.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[OperationParameterUse](http://hl7.org/fhir/ValueSet/operation-parameter-use)**. Whether an operation parameter is an input or an output parameter.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OperationParameterUse {
-    /** # in
+    /** **in**
 
 In. This is an input parameter. */
     In,
-    /** # out
+    /** **out**
 
 Out. This is an output parameter. */
     Out,
@@ -35549,40 +35015,38 @@ impl From<OperationParameterUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `OrganizationAffiliationRole`. This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[OrganizationAffiliationRole](http://hl7.org/fhir/organization-role)**. This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum OrganizationAffiliationRole {
-    /** # HIE/HIO
+    /** **HIE/HIO**
 
 HIE/HIO. An organization that facilitates electronic clinical data exchange between entities */
     HieHio,
-    /** # agency
+    /** **agency**
 
 Agency. An organization such as a public health agency, community/social services provider, etc. */
     Agency,
-    /** # diagnostics
+    /** **diagnostics**
 
 Diagnostics. An organization providing diagnostic testing/laboratory services */
     Diagnostics,
-    /** # member
+    /** **member**
 
 Member. A type of non-ownership relationship between entities (encompasses partnerships, collaboration, joint ventures, etc.) */
     Member,
-    /** # payer
+    /** **payer**
 
 Payer. An organization providing reimbursement, payment, or related services */
     Payer,
-    /** # provider
+    /** **provider**
 
 Provider. An organization that delivers care services (e.g. hospitals, clinics, community and social services, etc.). */
     Provider,
-    /** # research
+    /** **research**
 
 Research. An organization providing research-related services such as conducting research, recruiting research participants, analyzing data, etc. */
     Research,
-    /** # supplier
+    /** **supplier**
 
 Supplier. An organization that provides medical supplies (e.g. medical devices, equipment, pharmaceutical products, etc.) */
     Supplier,
@@ -35671,17 +35135,15 @@ impl From<OrganizationAffiliationRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `OrientationType`. Type for orientation.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[OrientationType](http://hl7.org/fhir/ValueSet/orientation-type)**. Type for orientation.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OrientationType {
-    /** # antisense
+    /** **antisense**
 
 Antisense orientation of referenceSeq. Antisense orientation of reference sequence. */
     Antisense,
-    /** # sense
+    /** **sense**
 
 Sense orientation of referenceSeq. Sense orientation of reference sequence. */
     Sense,
@@ -35748,181 +35210,179 @@ impl From<OrientationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PackageMaterial`. A material used in the construction of packages and their components.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PackageMaterial](http://hl7.org/fhir/ValueSet/package-material)**. A material used in the construction of packages and their components.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PackageMaterial {
-    /** # 200000003200
+    /** **200000003200**
 
 Aluminium. */
     N200000003200,
-    /** # 200000003201
+    /** **200000003201**
 
 Cyclic Olefin Copolymer. */
     N200000003201,
-    /** # 200000003202
+    /** **200000003202**
 
 Epoxyphenol. */
     N200000003202,
-    /** # 200000003203
+    /** **200000003203**
 
 Glass. */
     N200000003203,
-    /** # 200000003204
+    /** **200000003204**
 
 Glass type I. */
     N200000003204,
-    /** # 200000003205
+    /** **200000003205**
 
 Glass type II. */
     N200000003205,
-    /** # 200000003206
+    /** **200000003206**
 
 Glass type III. */
     N200000003206,
-    /** # 200000003207
+    /** **200000003207**
 
 Paper. */
     N200000003207,
-    /** # 200000003208
+    /** **200000003208**
 
 Plastic. */
     N200000003208,
-    /** # 200000003209
+    /** **200000003209**
 
 PolyAmide. */
     N200000003209,
-    /** # 200000003210
+    /** **200000003210**
 
 Orientated PolyAmide. */
     N200000003210,
-    /** # 200000003211
+    /** **200000003211**
 
 PolyCarbonate. */
     N200000003211,
-    /** # 200000003212
+    /** **200000003212**
 
 PolyChloroTriFluoroEthylene. */
     N200000003212,
-    /** # 200000003213
+    /** **200000003213**
 
 Polyester. */
     N200000003213,
-    /** # 200000003214
+    /** **200000003214**
 
 PolyEthylene. */
     N200000003214,
-    /** # 200000003215
+    /** **200000003215**
 
 High Density PolyEthylene. */
     N200000003215,
-    /** # 200000003216
+    /** **200000003216**
 
 Low Density PolyEthylene. */
     N200000003216,
-    /** # 200000003217
+    /** **200000003217**
 
 PolyEthylene TerePhthalate. */
     N200000003217,
-    /** # 200000003218
+    /** **200000003218**
 
 Polyolefin. */
     N200000003218,
-    /** # 200000003219
+    /** **200000003219**
 
 PolyPropylene. */
     N200000003219,
-    /** # 200000003220
+    /** **200000003220**
 
 PolyStyrene. */
     N200000003220,
-    /** # 200000003221
+    /** **200000003221**
 
 PolyVinyl Acetate. */
     N200000003221,
-    /** # 200000003222
+    /** **200000003222**
 
 PolyVinyl Chloride. */
     N200000003222,
-    /** # 200000003223
+    /** **200000003223**
 
 Plasticised PolyVinyl Chloride. */
     N200000003223,
-    /** # 200000003224
+    /** **200000003224**
 
 Non-plasticised PolyVinyl Chloride / Unplasticised PolyVinyl Chloride. */
     N200000003224,
-    /** # 200000003225
+    /** **200000003225**
 
 PolyVinylidene Chloride. */
     N200000003225,
-    /** # 200000003226
+    /** **200000003226**
 
 Rubber. */
     N200000003226,
-    /** # 200000003227
+    /** **200000003227**
 
 Silicone oil. */
     N200000003227,
-    /** # 200000003228
+    /** **200000003228**
 
 Silicone elastomer. */
     N200000003228,
-    /** # 200000003229
+    /** **200000003229**
 
 Steel. */
     N200000003229,
-    /** # 200000003529
+    /** **200000003529**
 
 Cardboard. */
     N200000003529,
-    /** # 200000012514
+    /** **200000012514**
 
 PolyAcryloNitrile. */
     N200000012514,
-    /** # 200000012515
+    /** **200000012515**
 
 Ethylene acrylic acid copolymer. */
     N200000012515,
-    /** # 200000012521
+    /** **200000012521**
 
 Ethylene meta-acrylic acid. */
     N200000012521,
-    /** # 200000012522
+    /** **200000012522**
 
 Ethylene-Vinyl Alcohol copolymer. */
     N200000012522,
-    /** # 200000012523
+    /** **200000012523**
 
 PolyVinylidene Fluoride. */
     N200000012523,
-    /** # 200000012524
+    /** **200000012524**
 
 Medium Density PolyEthylene. */
     N200000012524,
-    /** # 200000012538
+    /** **200000012538**
 
 Syndiotactic Polypropylene. */
     N200000012538,
-    /** # 200000015521
+    /** **200000015521**
 
 PolyEthylene copolymer. */
     N200000015521,
-    /** # 200000023330
+    /** **200000023330**
 
 Expanded Polyethylene. */
     N200000023330,
-    /** # 200000023332
+    /** **200000023332**
 
 Cyclic Olefin Polymer. */
     N200000023332,
-    /** # 200000025255
+    /** **200000025255**
 
 Silica gel. */
     N200000025255,
-    /** # 200000025257
+    /** **200000025257**
 
 Linear Low Density PolyEthylene. */
     N200000025257,
@@ -36114,21 +35574,19 @@ impl From<PackageMaterial> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PackageType`. A high level categorisation of a package.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PackageType](http://hl7.org/fhir/ValueSet/package-type)**. A high level categorisation of a package.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PackageType {
-    /** # MedicinalProductPack
+    /** **MedicinalProductPack**
 
 Medicinal product pack. */
     MedicinalProductPack,
-    /** # RawMaterialPackage
+    /** **RawMaterialPackage**
 
 Raw material package. */
     RawMaterialPackage,
-    /** # Shipping-TransportContainer
+    /** **Shipping-TransportContainer**
 
 Shipping or transport container. */
     ShippingTransportContainer,
@@ -36198,417 +35656,415 @@ impl From<PackageType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PackagingType`. A type of packaging.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PackagingType](http://hl7.org/fhir/ValueSet/packaging-type)**. A type of packaging.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PackagingType {
-    /** # 100000073490
+    /** **100000073490**
 
 Ampoule. */
     N100000073490,
-    /** # 100000073491
+    /** **100000073491**
 
 Applicator. */
     N100000073491,
-    /** # 100000073492
+    /** **100000073492**
 
 Automatic injection device. */
     N100000073492,
-    /** # 100000073493
+    /** **100000073493**
 
 Bag. */
     N100000073493,
-    /** # 100000073494
+    /** **100000073494**
 
 Balling gun. */
     N100000073494,
-    /** # 100000073495
+    /** **100000073495**
 
 Barrel. */
     N100000073495,
-    /** # 100000073496
+    /** **100000073496**
 
 Blister. */
     N100000073496,
-    /** # 100000073497
+    /** **100000073497**
 
 Bottle. */
     N100000073497,
-    /** # 100000073498
+    /** **100000073498**
 
 Box. */
     N100000073498,
-    /** # 100000073499
+    /** **100000073499**
 
 Brush. */
     N100000073499,
-    /** # 100000073500
+    /** **100000073500**
 
 Brush applicator. */
     N100000073500,
-    /** # 100000073501
+    /** **100000073501**
 
 Cannula. */
     N100000073501,
-    /** # 100000073502
+    /** **100000073502**
 
 Cap. */
     N100000073502,
-    /** # 100000073503
+    /** **100000073503**
 
 Cartridge. */
     N100000073503,
-    /** # 100000073504
+    /** **100000073504**
 
 Child-resistant closure. */
     N100000073504,
-    /** # 100000073505
+    /** **100000073505**
 
 Cup. */
     N100000073505,
-    /** # 100000073506
+    /** **100000073506**
 
 Dabbing applicator. */
     N100000073506,
-    /** # 100000073507
+    /** **100000073507**
 
 Dart. */
     N100000073507,
-    /** # 100000073508
+    /** **100000073508**
 
 Dredging applicator. */
     N100000073508,
-    /** # 100000073509
+    /** **100000073509**
 
 Dredging container. */
     N100000073509,
-    /** # 100000073510
+    /** **100000073510**
 
 Drench gun. */
     N100000073510,
-    /** # 100000073511
+    /** **100000073511**
 
 Dropper applicator. */
     N100000073511,
-    /** # 100000073512
+    /** **100000073512**
 
 Dropper container. */
     N100000073512,
-    /** # 100000073513
+    /** **100000073513**
 
 Fixed cryogenic vessel. */
     N100000073513,
-    /** # 100000073514
+    /** **100000073514**
 
 Gas cylinder. */
     N100000073514,
-    /** # 100000073515
+    /** **100000073515**
 
 High pressure transdermal delivery device. */
     N100000073515,
-    /** # 100000073516
+    /** **100000073516**
 
 Implanter. */
     N100000073516,
-    /** # 100000073517
+    /** **100000073517**
 
 Inhaler. */
     N100000073517,
-    /** # 100000073518
+    /** **100000073518**
 
 In-ovo injection device. */
     N100000073518,
-    /** # 100000073519
+    /** **100000073519**
 
 Injection needle. */
     N100000073519,
-    /** # 100000073520
+    /** **100000073520**
 
 Injection syringe. */
     N100000073520,
-    /** # 100000073521
+    /** **100000073521**
 
 Internal graduated calibration chamber. */
     N100000073521,
-    /** # 100000073522
+    /** **100000073522**
 
 Intramammary syringe. */
     N100000073522,
-    /** # 100000073523
+    /** **100000073523**
 
 Jar. */
     N100000073523,
-    /** # 100000073524
+    /** **100000073524**
 
 Measuring device. */
     N100000073524,
-    /** # 100000073525
+    /** **100000073525**
 
 Measuring spoon. */
     N100000073525,
-    /** # 100000073526
+    /** **100000073526**
 
 Metering pump. */
     N100000073526,
-    /** # 100000073527
+    /** **100000073527**
 
 Metering valve. */
     N100000073527,
-    /** # 100000073528
+    /** **100000073528**
 
 Mobile cryogenic vessel. */
     N100000073528,
-    /** # 100000073529
+    /** **100000073529**
 
 Mouthpiece. */
     N100000073529,
-    /** # 100000073530
+    /** **100000073530**
 
 Multidose container. */
     N100000073530,
-    /** # 100000073531
+    /** **100000073531**
 
 Multidose container with airless pump. */
     N100000073531,
-    /** # 100000073532
+    /** **100000073532**
 
 Multipuncturer. */
     N100000073532,
-    /** # 100000073533
+    /** **100000073533**
 
 Nasal applicator. */
     N100000073533,
-    /** # 100000073534
+    /** **100000073534**
 
 Nebuliser. */
     N100000073534,
-    /** # 100000073535
+    /** **100000073535**
 
 Needle applicator. */
     N100000073535,
-    /** # 100000073536
+    /** **100000073536**
 
 Nozzle. */
     N100000073536,
-    /** # 100000073537
+    /** **100000073537**
 
 Oral syringe. */
     N100000073537,
-    /** # 100000073538
+    /** **100000073538**
 
 Pipette. */
     N100000073538,
-    /** # 100000073539
+    /** **100000073539**
 
 Pipette applicator. */
     N100000073539,
-    /** # 100000073540
+    /** **100000073540**
 
 Pouch. */
     N100000073540,
-    /** # 100000073541
+    /** **100000073541**
 
 Pour-on container. */
     N100000073541,
-    /** # 100000073542
+    /** **100000073542**
 
 Pre-filled gastroenteral tube. */
     N100000073542,
-    /** # 100000073543
+    /** **100000073543**
 
 Pre-filled pen. */
     N100000073543,
-    /** # 100000073544
+    /** **100000073544**
 
 Pre-filled syringe. */
     N100000073544,
-    /** # 100000073545
+    /** **100000073545**
 
 Pressurised container. */
     N100000073545,
-    /** # 100000073546
+    /** **100000073546**
 
 Prick test applicator. */
     N100000073546,
-    /** # 100000073547
+    /** **100000073547**
 
 Sachet. */
     N100000073547,
-    /** # 100000073548
+    /** **100000073548**
 
 Scarifier. */
     N100000073548,
-    /** # 100000073549
+    /** **100000073549**
 
 Screw cap. */
     N100000073549,
-    /** # 100000073550
+    /** **100000073550**
 
 Single-dose container. */
     N100000073550,
-    /** # 100000073551
+    /** **100000073551**
 
 Spatula. */
     N100000073551,
-    /** # 100000073552
+    /** **100000073552**
 
 Spot-on applicator. */
     N100000073552,
-    /** # 100000073553
+    /** **100000073553**
 
 Spray container. */
     N100000073553,
-    /** # 100000073554
+    /** **100000073554**
 
 Spray pump. */
     N100000073554,
-    /** # 100000073555
+    /** **100000073555**
 
 Spray valve. */
     N100000073555,
-    /** # 100000073556
+    /** **100000073556**
 
 Stab vaccinator. */
     N100000073556,
-    /** # 100000073557
+    /** **100000073557**
 
 Stopper. */
     N100000073557,
-    /** # 100000073558
+    /** **100000073558**
 
 Straw. */
     N100000073558,
-    /** # 100000073559
+    /** **100000073559**
 
 Strip. */
     N100000073559,
-    /** # 100000073560
+    /** **100000073560**
 
 Tablet container. */
     N100000073560,
-    /** # 100000073561
+    /** **100000073561**
 
 Tube. */
     N100000073561,
-    /** # 100000073562
+    /** **100000073562**
 
 Vaginal sponge applicator. */
     N100000073562,
-    /** # 100000073563
+    /** **100000073563**
 
 Vial. */
     N100000073563,
-    /** # 100000075664
+    /** **100000075664**
 
 Administration system. */
     N100000075664,
-    /** # 100000116195
+    /** **100000116195**
 
 Calendar package. */
     N100000116195,
-    /** # 100000116196
+    /** **100000116196**
 
 Needle-free injector. */
     N100000116196,
-    /** # 100000116197
+    /** **100000116197**
 
 Roll-on container. */
     N100000116197,
-    /** # 100000125779
+    /** **100000125779**
 
 Multidose container with pump. */
     N100000125779,
-    /** # 100000137702
+    /** **100000137702**
 
 Container. */
     N100000137702,
-    /** # 100000137703
+    /** **100000137703**
 
 Oral applicator. */
     N100000137703,
-    /** # 100000143554
+    /** **100000143554**
 
 Multidose container with metering pump. */
     N100000143554,
-    /** # 100000143555
+    /** **100000143555**
 
 Pack. */
     N100000143555,
-    /** # 100000163233
+    /** **100000163233**
 
 disk. */
     N100000163233,
-    /** # 100000163234
+    /** **100000163234**
 
 plunger. */
     N100000163234,
-    /** # 100000164143
+    /** **100000164143**
 
 infusion port. */
     N100000164143,
-    /** # 100000166980
+    /** **100000166980**
 
 Valve. */
     N100000166980,
-    /** # 100000169899
+    /** **100000169899**
 
 Jerrycan. */
     N100000169899,
-    /** # 100000173982
+    /** **100000173982**
 
 Oral applicator. */
     N100000173982,
-    /** # 100000173983
+    /** **100000173983**
 
 Dose dispenser. */
     N100000173983,
-    /** # 100000174066
+    /** **100000174066**
 
 Unit-dose blister. */
     N100000174066,
-    /** # 100000174067
+    /** **100000174067**
 
 Pre-filled injector. */
     N100000174067,
-    /** # 100000174068
+    /** **100000174068**
 
 Pre-filled oral syringe. */
     N100000174068,
-    /** # 100000174069
+    /** **100000174069**
 
 Pre-filled oral applicator. */
     N100000174069,
-    /** # 100000174070
+    /** **100000174070**
 
 Dose-dispenser cartridge. */
     N100000174070,
-    /** # 200000005068
+    /** **200000005068**
 
 Pen. */
     N200000005068,
-    /** # 200000005585
+    /** **200000005585**
 
 Wrapper. */
     N200000005585,
-    /** # 200000010647
+    /** **200000010647**
 
 Lid. */
     N200000010647,
-    /** # 200000011726
+    /** **200000011726**
 
 Capsule for opening. */
     N200000011726,
-    /** # 200000012539
+    /** **200000012539**
 
 Child-resistant sachet. */
     N200000012539,
-    /** # 200000013191
+    /** **200000013191**
 
 Tamper-evident closure. */
     N200000013191,
-    /** # 200000024874
+    /** **200000024874**
 
 Tablet tube. */
     N200000024874,
@@ -36975,25 +36431,23 @@ impl From<PackagingType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ParticipationStatus`. The Participation status of an appointment.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ParticipationStatus](http://hl7.org/fhir/ValueSet/participationstatus)**. The Participation status of an appointment.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ParticipationStatus {
-    /** # accepted
+    /** **accepted**
 
 Accepted. The participant has accepted the appointment. */
     Accepted,
-    /** # declined
+    /** **declined**
 
 Declined. The participant has declined the appointment and will not participate in the appointment. */
     Declined,
-    /** # needs-action
+    /** **needs-action**
 
 Needs Action. The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses. */
     NeedsAction,
-    /** # tentative
+    /** **tentative**
 
 Tentative. The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur. */
     Tentative,
@@ -37066,33 +36520,31 @@ impl From<ParticipationStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PatientMedicineChangeTypes`. Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PatientMedicineChangeTypes](http://hl7.org/fhir/ValueSet/list-item-flag)**. Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PatientMedicineChangeTypes {
-    /** # 01
+    /** **01**
 
 Unchanged. No change has been made to the status of this medicine item. */
     N01,
-    /** # 02
+    /** **02**
 
 Changed. The medicine item has changed. The change may be described in an extension (not defined yet) */
     N02,
-    /** # 03
+    /** **03**
 
 Cancelled. The prescription for this medicine item was cancelled by an authorized health care provider. The patient may be advised to complete the course of the prescribed medicine. This advice is a clinical decision made based on assessment of the patient's clinical condition. */
     N03,
-    /** # 04
+    /** **04**
 
 Prescribed. A new medicine item has been prescribed */
     N04,
-    /** # 05
+    /** **05**
 
 Ceased. Administration of this medication item that the patient is currently taking is stopped or recommended to be stopped (i.e. instructed to be ceased by a health care provider). This cessation is anticipated to be permanent. The Change Description should describe the reason for cessation. Example uses: the medication in question is considered ineffective or has caused serious adverse effects. This value applies both to the cessation of a medication that is prescribed by another healthcare provider or patient self-administration of OTC medicines. */
     N05,
-    /** # 06
+    /** **06**
 
 Suspended. Administration of this medication item that the patient is currently taking is on hold, or instructed or recommended by a health care provider to be temporarily stopped, or subject to clinical review (i.e. the stop may be temporary or permanent depending on the outcome of clinical review), or temporarily suspended as a pre-requisite to certain surgical or diagnostic procedures. */
     N06,
@@ -37171,17 +36623,15 @@ impl From<PatientMedicineChangeTypes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PaymentIssuerTypeCodes`. This value set contains codes for the type of payment issuers.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PaymentIssuerTypeCodes](http://hl7.org/fhir/ValueSet/payment-issuertype)**. This value set contains codes for the type of payment issuers.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PaymentIssuerTypeCodes {
-    /** # insurance
+    /** **insurance**
 
 Insurance. An insurer, or party acting on their behalf, which is making payment following a contract, direct or indirect, with the patient to pay for healthcare-related services. */
     Insurance,
-    /** # patient
+    /** **patient**
 
 Patient. The patient or a party issuing payment on behalf of the patient. */
     Patient,
@@ -37248,25 +36698,23 @@ impl From<PaymentIssuerTypeCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PaymentKindCodes`. This value set contains codes for the type of workflow from which payments arise.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PaymentKindCodes](http://hl7.org/fhir/ValueSet/payment-kind)**. This value set contains codes for the type of workflow from which payments arise.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PaymentKindCodes {
-    /** # deposit
+    /** **deposit**
 
 Deposit on Account. The payment or adjustment is to an indicated account not to a specific charge. */
     Deposit,
-    /** # kiosk
+    /** **kiosk**
 
 Kiosk Payment. Payment made at an authorized Kiosk. */
     Kiosk,
-    /** # online
+    /** **online**
 
 Online Bill Payment. Payment, full or partial, of an invoice or statement provided to the payment issuer. */
     Online,
-    /** # periodic-payment
+    /** **periodic-payment**
 
 Periodic Payment. The payment is one of a set of previously agreed payments, for example in fullfilment of a payment plan. */
     PeriodicPayment,
@@ -37339,65 +36787,63 @@ impl From<PaymentKindCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PediatricUse`. Suitability for age groups, in particular children.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PediatricUse](http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use)**. Suitability for age groups, in particular children.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PediatricUse {
-    /** # Adolescents
+    /** **Adolescents**
 
 Adolescents (12 to < 18 years). Adolescents (12 to < 18 years) */
     Adolescents,
-    /** # Adults
+    /** **Adults**
 
 Adults (18 to < 65 years). Adults (18 to < 65 years) */
     Adults,
-    /** # AdultsAndElderly
+    /** **AdultsAndElderly**
 
 Adult and elderly population (> 18 years). Adult and elderly population (> 18 years) */
     AdultsAndElderly,
-    /** # All
+    /** **All**
 
 All. All */
     All,
-    /** # Children
+    /** **Children**
 
 Children (2 to < 12 years). Children (2 to < 12 years) */
     Children,
-    /** # Elderly
+    /** **Elderly**
 
 Elderly (≥ 65 years). Elderly (≥ 65 years) */
     Elderly,
-    /** # InUtero
+    /** **InUtero**
 
 In utero. In utero */
     InUtero,
-    /** # Infants
+    /** **Infants**
 
 Infants and toddlers (28 days – 23 months). Infants and toddlers (28 days – 23 months) */
     Infants,
-    /** # Neonate
+    /** **Neonate**
 
 Neonate. Neonate */
     Neonate,
-    /** # PediatricPopulation
+    /** **PediatricPopulation**
 
 Pediatric Population (< 18 years). Pediatric Population (< 18 years) */
     PediatricPopulation,
-    /** # Prepubertal
+    /** **Prepubertal**
 
 Prepubertal children (2 years to onset of puberty). Prepubertal children (2 years to onset of puberty) */
     Prepubertal,
-    /** # PretermNewborn
+    /** **PretermNewborn**
 
 Preterm newborn infants (0 – 27 days). Preterm newborn infants (0 – 27 days) */
     PretermNewborn,
-    /** # PubertalAndPostpubertal
+    /** **PubertalAndPostpubertal**
 
 Pubertal and postpubertal adolescents (onset of puberty to < 18 years). Pubertal and postpubertal adolescents (onset of puberty to < 18 years) */
     PubertalAndPostpubertal,
-    /** # TermNewborn
+    /** **TermNewborn**
 
 Term newborn infants (0 – 27 days). Term newborn infants (0 – 27 days) */
     TermNewborn,
@@ -37504,32 +36950,30 @@ impl From<PediatricUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PermissionRuleCombining`. Codes identifying the rule combining. See XACML Combining algorithms  http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PermissionRuleCombining](http://hl7.org/fhir/permission-rule-combining)**. Codes identifying the rule combining. See XACML Combining algorithms  http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum PermissionRuleCombining {
-    /** # deny-overrides
+    /** **deny-overrides**
 
 Deny-overrides. The deny overrides combining algorithm is intended for those cases where a deny decision should have priority over a permit decision. */
     DenyOverrides,
-    /** # deny-unless-permit
+    /** **deny-unless-permit**
 
 Deny-unless-permit. The “Deny-unless-permit” combining algorithm is intended for those cases where a permit decision should have priority over a deny decision, and an “Indeterminate” or “NotApplicable” must never be the result. It is particularly useful at the top level in a policy structure to ensure that a PDP will always return a definite “Permit” or “Deny” result. */
     DenyUnlessPermit,
-    /** # ordered-deny-overrides
+    /** **ordered-deny-overrides**
 
 Ordered-deny-overrides. The behavior of this algorithm is identical to that of the “Deny-overrides” rule-combining algorithm with one exception.  The order in which the collection of rules is evaluated SHALL match the order as listed in the permission. */
     OrderedDenyOverrides,
-    /** # ordered-permit-overrides
+    /** **ordered-permit-overrides**
 
 Ordered-permit-overrides. The behavior of this algorithm is identical to that of the “Permit-overrides” rule-combining algorithm with one exception.  The order in which the collection of rules is evaluated SHALL match the order as listed in the permission. */
     OrderedPermitOverrides,
-    /** # permit-overrides
+    /** **permit-overrides**
 
 Permit-overrides. The permit overrides combining algorithm is intended for those cases where a permit decision should have priority over a deny decision. */
     PermitOverrides,
-    /** # permit-unless-deny
+    /** **permit-unless-deny**
 
 Permit-unless-deny. The “Permit-unless-deny” combining algorithm is intended for those cases where a deny decision should have priority over a permit decision, and an “Indeterminate” or “NotApplicable” must never be the result. It is particularly useful at the top level in a policy structure to ensure that a PDP will always return a definite “Permit” or “Deny” result. This algorithm has the following behavior. */
     PermitUnlessDeny,
@@ -37612,25 +37056,23 @@ impl From<PermissionRuleCombining> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PermissionStatus`. Codes identifying the lifecycle stage of a product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PermissionStatus](http://hl7.org/fhir/ValueSet/permission-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PermissionStatus {
-    /** # active
+    /** **active**
 
 Active. Permission is given. */
     Active,
-    /** # draft
+    /** **draft**
 
 Draft. Permission is being defined. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. Permission was entered in error and is not active. */
     EnteredInError,
-    /** # rejected
+    /** **rejected**
 
 Rejected. Permission not granted. */
     Rejected,
@@ -37703,33 +37145,31 @@ impl From<PermissionStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PriceComponentType`. Codes indicating the kind of the price component.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PriceComponentType](http://hl7.org/fhir/ValueSet/price-component-type)**. Codes indicating the kind of the price component.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PriceComponentType {
-    /** # base
+    /** **base**
 
 base price. the amount is the base price used for calculating the total price before applying surcharges, discount or taxes. */
     Base,
-    /** # deduction
+    /** **deduction**
 
 deduction. the amount is a deduction applied on the base price. */
     Deduction,
-    /** # discount
+    /** **discount**
 
 discount. the amount is a discount applied on the base price. */
     Discount,
-    /** # informational
+    /** **informational**
 
 informational. the amount is of informational character, it has not been applied in the calculation of the total price. */
     Informational,
-    /** # surcharge
+    /** **surcharge**
 
 surcharge. the amount is a surcharge applied on the base price. */
     Surcharge,
-    /** # tax
+    /** **tax**
 
 tax. the amount is the tax component of the total price. */
     Tax,
@@ -37808,20 +37248,18 @@ impl From<PriceComponentType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProcedureDeviceActionCodes`. Example value set for Procedure Device Action code (what happened to a device during a procedure.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProcedureDeviceActionCodes](http://hl7.org/fhir/device-action)**. Example value set for Procedure Device Action code (what happened to a device during a procedure.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ProcedureDeviceActionCodes {
-    /** # explanted
+    /** **explanted**
 
 Explanted. The device was explanted from the patient during the procedure. */
     Explanted,
-    /** # implanted
+    /** **implanted**
 
 Implanted. The device was implanted in the patient during the procedure. */
     Implanted,
-    /** # manipulated
+    /** **manipulated**
 
 Manipulated. The device remains in the patient, but its location, settings, or functionality was changed. */
     Manipulated,
@@ -37895,17 +37333,15 @@ impl From<ProcedureDeviceActionCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductConfidentiality`. Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductConfidentiality](http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality)**. Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductConfidentiality {
-    /** # CommerciallySensitive
+    /** **CommerciallySensitive**
 
 Commercially Sensitive. Commercially Sensitive */
     CommerciallySensitive,
-    /** # NotCommerciallySensitive
+    /** **NotCommerciallySensitive**
 
 Not Commercially Sensitive. Not Commercially Sensitive */
     NotCommerciallySensitive,
@@ -37975,29 +37411,27 @@ impl From<ProductConfidentiality> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductContactType`. Contact type for a Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductContactType](http://hl7.org/fhir/ValueSet/medicinal-product-contact-type)**. Contact type for a Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductContactType {
-    /** # PVEnquiries
+    /** **PVEnquiries**
 
 Pharmacovigilance Enquiry Information. Pharmacovigilance Enquiry Information */
     Pvenquiries,
-    /** # ProcedureContactAfter
+    /** **ProcedureContactAfter**
 
 Person/Company authorised for Communication after procedure. Person/Company authorised for Communication between MAH and Authorities after Authorization */
     ProcedureContactAfter,
-    /** # ProcedureContactDuring
+    /** **ProcedureContactDuring**
 
 Person/Company authorised for Communication during procedure. Person/Company authorised for Communication on behalf of the Applicant during the Procedure */
     ProcedureContactDuring,
-    /** # ProposedMAH
+    /** **ProposedMAH**
 
 Proposed Marketing Authorization Holder/Person. Proposed Marketing Authorization Holder/Person */
     ProposedMAH,
-    /** # QPPV
+    /** **QPPV**
 
 Qualified Person Responsible for Pharmacovigilance. Qualified Person Responsible for Pharmacovigilance */
     Qppv,
@@ -38079,33 +37513,31 @@ impl From<ProductContactType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductCrossReferenceType`. Relationship to another Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductCrossReferenceType](http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type)**. Relationship to another Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductCrossReferenceType {
-    /** # ActualProduct
+    /** **ActualProduct**
 
 Link Virtual to Actual Product. Link Virtual to Actual Product */
     ActualProduct,
-    /** # BrandedProduct
+    /** **BrandedProduct**
 
 Link Generic to Branded Product. Link Generic to Branded Product */
     BrandedProduct,
-    /** # GenericProduct
+    /** **GenericProduct**
 
 Link Branded to Generic Product. Link Branded to Generic Product */
     GenericProduct,
-    /** # InvestigationalProduct
+    /** **InvestigationalProduct**
 
 Link to Investigational Product. Link to Investigational (Development) Product */
     InvestigationalProduct,
-    /** # Parallel
+    /** **Parallel**
 
 Link to Parallel Import Product. Link to Parallel Import Product */
     Parallel,
-    /** # VirtualProduct
+    /** **VirtualProduct**
 
 Link Actual to Virtual Product. Link Actual to Virtual Product */
     VirtualProduct,
@@ -38187,29 +37619,27 @@ impl From<ProductCrossReferenceType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductIntendedUse`. ProductIntendedUse
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductIntendedUse](http://hl7.org/fhir/ValueSet/product-intended-use)**. ProductIntendedUse\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductIntendedUse {
-    /** # Alleviation
+    /** **Alleviation**
 
 Alleviation. */
     Alleviation,
-    /** # Diagnosis
+    /** **Diagnosis**
 
 Diagnosis. */
     Diagnosis,
-    /** # Monitoring
+    /** **Monitoring**
 
 Monitoring. */
     Monitoring,
-    /** # Prevention
+    /** **Prevention**
 
 Prevention. */
     Prevention,
-    /** # Treatment
+    /** **Treatment**
 
 Treatment. */
     Treatment,
@@ -38285,73 +37715,71 @@ impl From<ProductIntendedUse> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductNamePartType`. Type of part of a name for a Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductNamePartType](http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type)**. Type of part of a name for a Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductNamePartType {
-    /** # ContainerPart
+    /** **ContainerPart**
 
 Container or pack part. */
     ContainerPart,
-    /** # DelimiterPart
+    /** **DelimiterPart**
 
 Delimiter part. */
     DelimiterPart,
-    /** # DevicePart
+    /** **DevicePart**
 
 Device part. */
     DevicePart,
-    /** # DoseFormPart
+    /** **DoseFormPart**
 
 Pharmaceutical dose form part. */
     DoseFormPart,
-    /** # FlavorPart
+    /** **FlavorPart**
 
 Flavor part. */
     FlavorPart,
-    /** # FormulationPart
+    /** **FormulationPart**
 
 Formulation part. */
     FormulationPart,
-    /** # FullName
+    /** **FullName**
 
 Full name. */
     FullName,
-    /** # IntendedUsePart
+    /** **IntendedUsePart**
 
 Intended use part. */
     IntendedUsePart,
-    /** # InventedNamePart
+    /** **InventedNamePart**
 
 Invented name part. */
     InventedNamePart,
-    /** # LegacyNamePart
+    /** **LegacyNamePart**
 
 Legacy name. */
     LegacyNamePart,
-    /** # PopulationPart
+    /** **PopulationPart**
 
 Target population part. */
     PopulationPart,
-    /** # ScientificNamePart
+    /** **ScientificNamePart**
 
 Scientific name part. */
     ScientificNamePart,
-    /** # SpeciesNamePart
+    /** **SpeciesNamePart**
 
 Target species name part. */
     SpeciesNamePart,
-    /** # StrengthPart
+    /** **StrengthPart**
 
 Strength part. */
     StrengthPart,
-    /** # TimeOrPeriodPart
+    /** **TimeOrPeriodPart**
 
 Time/Period part. */
     TimeOrPeriodPart,
-    /** # TrademarkOrCompanyPart
+    /** **TrademarkOrCompanyPart**
 
 Trademark or company name part. */
     TrademarkOrCompanyPart,
@@ -38463,29 +37891,27 @@ impl From<ProductNamePartType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductNameType`. Type of a name for a Medicinal Product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductNameType](http://hl7.org/fhir/ValueSet/medicinal-product-name-type)**. Type of a name for a Medicinal Product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductNameType {
-    /** # BAN
+    /** **BAN**
 
 British Approved Name. */
     Ban,
-    /** # INN
+    /** **INN**
 
 International Non-Proprietary Name. */
     Inn,
-    /** # INNM
+    /** **INNM**
 
 Modified International Non-Proprietary Name. */
     Innm,
-    /** # pINN
+    /** **pINN**
 
 Proposed International Non-Proprietary Name. */
     Pinn,
-    /** # rINN
+    /** **rINN**
 
 Recommended International Non-Proprietary Name. */
     Rinn,
@@ -38563,17 +37989,15 @@ impl From<ProductNameType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProductStatus`. Codes identifying the lifecycle stage of a product.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProductStatus](http://hl7.org/fhir/ValueSet/product-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductStatus {
-    /** # active
+    /** **active**
 
 Active. The product can be used. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
@@ -38640,29 +38064,27 @@ impl From<ProductStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PropertyRepresentation`. How a property is represented when serialized.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PropertyRepresentation](http://hl7.org/fhir/ValueSet/property-representation)**. How a property is represented when serialized.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PropertyRepresentation {
-    /** # cdaText
+    /** **cdaText**
 
 CDA Text Format. Use CDA narrative instead of XHTML. */
     CdaText,
-    /** # typeAttr
+    /** **typeAttr**
 
 Type Attribute. The type of this element is indicated using xsi:type. */
     TypeAttr,
-    /** # xhtml
+    /** **xhtml**
 
 XHTML. The property is represented using XHTML. */
     Xhtml,
-    /** # xmlAttr
+    /** **xmlAttr**
 
 XML Attribute. In XML, this property is represented as an attribute not an element. */
     XmlAttr,
-    /** # xmlText
+    /** **xmlText**
 
 XML Text. This element is represented using the XML text attribute (primitives only). */
     XmlText,
@@ -38738,37 +38160,35 @@ impl From<PropertyRepresentation> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PropertyType`. The type of a property value.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PropertyType](http://hl7.org/fhir/ValueSet/concept-property-type)**. The type of a property value.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PropertyType {
-    /** # Coding
+    /** **Coding**
 
 Coding (external reference). The property  value is a code defined in an external code system. This may be used for translations, but is not the intent. */
     Coding,
-    /** # boolean
+    /** **boolean**
 
 boolean. The property value is a boolean true | false. */
     Boolean,
-    /** # code
+    /** **code**
 
 code (internal reference). The property value is a code that identifies a concept defined in the code system. */
     Code,
-    /** # dateTime
+    /** **dateTime**
 
 dateTime. The property is a date or a date + time. */
     DateTime,
-    /** # decimal
+    /** **decimal**
 
 decimal. The property value is a decimal number. */
     Decimal,
-    /** # integer
+    /** **integer**
 
 integer. The property value is an integer (often used to assign ranking values to concepts for supporting score assessments). */
     Integer,
-    /** # string
+    /** **string**
 
 string. The property value is a string. */
     String,
@@ -38850,29 +38270,27 @@ impl From<PropertyType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ProvenanceEntityRole`. How an entity was used in an activity.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ProvenanceEntityRole](http://hl7.org/fhir/ValueSet/provenance-entity-role)**. How an entity was used in an activity.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProvenanceEntityRole {
-    /** # instantiates
+    /** **instantiates**
 
 Instantiates. The record resulting from this event adheres to the protocol, guideline, order set or other definition represented by this entity. */
     Instantiates,
-    /** # quotation
+    /** **quotation**
 
 Quotation. An entity that is copied in full or part by an agent that is not the author of the entity. */
     Quotation,
-    /** # removal
+    /** **removal**
 
 Removal. An entity that is removed from accessibility, usually through the DELETE operator. */
     Removal,
-    /** # revision
+    /** **revision**
 
 Revision. An entity that is used by the activity to produce a new version of that entity. */
     Revision,
-    /** # source
+    /** **source**
 
 Source. An entity that is used as input to the activity that produced the target. */
     Source,
@@ -38948,25 +38366,23 @@ impl From<ProvenanceEntityRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PublicationStatus`. The lifecycle status of an artifact.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PublicationStatus](http://hl7.org/fhir/ValueSet/publication-status)**. The lifecycle status of an artifact.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PublicationStatus {
-    /** # active
+    /** **active**
 
 Active. This resource is ready for normal use. */
     Active,
-    /** # draft
+    /** **draft**
 
 Draft. This resource is still under development and is not yet considered to be ready for normal use. */
     Draft,
-    /** # retired
+    /** **retired**
 
 Retired. This resource has been withdrawn or superseded and should no longer be used. */
     Retired,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one. */
     Unknown,
@@ -39039,25 +38455,23 @@ impl From<PublicationStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `PublishedInType`. The type of publication such as book, database, or journal.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[PublishedInType](http://hl7.org/fhir/ValueSet/published-in-type)**. The type of publication such as book, database, or journal.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PublishedInType {
-    /** # D001877
+    /** **D001877**
 
 Book. Non-periodical written or printed works consisting of sheets of pages fastened or bound together within covers. */
     D001877,
-    /** # D019991
+    /** **D019991**
 
 Database. A structured file of information or a set of logically related data stored and retrieved using computer-based means. */
     D019991,
-    /** # D020492
+    /** **D020492**
 
 Periodical. Publication intended to be issued on an ongoing basis, generally more frequently than annually, containing separate articles, stories, or writings. */
     D020492,
-    /** # D064886
+    /** **D064886**
 
 Dataset. Works consisting of organized collections of data, which have been stored permanently in a formalized manner suitable for communication, interpretation, or processing. */
     D064886,
@@ -39130,29 +38544,27 @@ impl From<PublishedInType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `QuantityComparator`. How the Quantity should be understood and represented.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator)**. How the Quantity should be understood and represented.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuantityComparator {
-    /** # <
+    /** **<**
 
 Less than. The actual value is less than the given value. */
     Less,
-    /** # <=
+    /** **<=**
 
 Less or Equal to. The actual value is less than or equal to the given value. */
     LessOrEqual,
-    /** # >
+    /** **>**
 
 Greater than. The actual value is greater than the given value. */
     Greater,
-    /** # >=
+    /** **>=**
 
 Greater or Equal to. The actual value is greater than or equal to the given value. */
     GreaterOrEqual,
-    /** # ad
+    /** **ad**
 
 Sufficient to achieve this total quantity. The actual value is sufficient for the total quantity to equal the given value. */
     Ad,
@@ -39228,20 +38640,18 @@ impl From<QuantityComparator> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `QuestionnaireAnswerConstraint`. Codes that describe the types of constraints possible on a question item that has a list of permitted answers
-
-FHIR version: 5.0.0.*/
+#[doc = "**[QuestionnaireAnswerConstraint](http://hl7.org/fhir/questionnaire-answer-constraint)**. Codes that describe the types of constraints possible on a question item that has a list of permitted answers\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum QuestionnaireAnswerConstraint {
-    /** # optionsOnly
+    /** **optionsOnly**
 
 Options only. Only values listed as answerOption or in the expansion of the answerValueSet are permitted */
     OptionsOnly,
-    /** # optionsOrString
+    /** **optionsOrString**
 
 Options or string. In addition to the values listed as answerOption or in the expansion of the answerValueSet, free-text strings are permitted.  Answers will have a type of 'string'. */
     OptionsOrString,
-    /** # optionsOrType
+    /** **optionsOrType**
 
 Options or 'type'. In addition to the values listed as answerOption or in the expansion of the answerValueSet, any other values that correspond to the specified item.type are permitted */
     OptionsOrType,
@@ -39315,16 +38725,14 @@ impl From<QuestionnaireAnswerConstraint> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `QuestionnaireItemDisabledDisplay`. QuestionnaireItemDisabledDisplay
-
-FHIR version: 5.0.0.*/
+#[doc = "**[QuestionnaireItemDisabledDisplay](http://hl7.org/fhir/questionnaire-disabled-display)**. QuestionnaireItemDisabledDisplay\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum QuestionnaireItemDisabledDisplay {
-    /** # hidden
+    /** **hidden**
 
 Hidden. The item (and its children) should not be visible to the user at all. */
     Hidden,
-    /** # protected
+    /** **protected**
 
 Protected. The item (and possibly its children) should not be selectable or editable but should still be visible - to allow the user to see what questions *could* have been completed had other answers caused the item to be enabled. */
     Protected,
@@ -39395,37 +38803,35 @@ impl From<QuestionnaireItemDisabledDisplay> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `QuestionnaireItemOperator`. The criteria by which a question is enabled.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[QuestionnaireItemOperator](http://hl7.org/fhir/ValueSet/questionnaire-enable-operator)**. The criteria by which a question is enabled.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuestionnaireItemOperator {
-    /** # !=
+    /** **!=**
 
 Not Equals. True if no answer has a value that is equal to the enableWhen answer. */
     NotEqual,
-    /** # <
+    /** **<**
 
 Less Than. True if at least one answer has a value that is less than the enableWhen answer. */
     Less,
-    /** # <=
+    /** **<=**
 
 Less or Equals. True if at least one answer has a value that is less or equal to the enableWhen answer. */
     LessOrEqual,
-    /** # =
+    /** **=**
 
 Equals. True if at least one answer has a value that is equal to the enableWhen answer. */
     Equal,
-    /** # >
+    /** **>**
 
 Greater Than. True if at least one answer has a value that is greater than the enableWhen answer. */
     Greater,
-    /** # >=
+    /** **>=**
 
 Greater or Equals. True if at least one answer has a value that is greater or equal to the enableWhen answer. */
     GreaterOrEqual,
-    /** # exists
+    /** **exists**
 
 Exists. True if the determination of 'whether an answer exists for the question' is equal to the enableWhen answer (which must be a boolean). */
     Exists,
@@ -39509,73 +38915,71 @@ impl From<QuestionnaireItemOperator> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `QuestionnaireItemType`. Distinguishes groups from questions and display text and indicates data type for questions.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[QuestionnaireItemType](http://hl7.org/fhir/ValueSet/item-type)**. Distinguishes groups from questions and display text and indicates data type for questions.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuestionnaireItemType {
-    /** # attachment
+    /** **attachment**
 
 Attachment. Question with binary content such as an image, PDF, etc. as an answer (valueAttachment). */
     Attachment,
-    /** # boolean
+    /** **boolean**
 
 Boolean. Question with a yes/no answer (valueBoolean). */
     Boolean,
-    /** # coding
+    /** **coding**
 
 Coding. Question with a Coding - generally drawn from a list of possible answers (valueCoding) */
     Coding,
-    /** # date
+    /** **date**
 
 Date. Question with a date answer (valueDate). */
     Date,
-    /** # dateTime
+    /** **dateTime**
 
 Date Time. Question with a date and time answer (valueDateTime). */
     DateTime,
-    /** # decimal
+    /** **decimal**
 
 Decimal. Question with is a real number answer (valueDecimal).  There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to computably convey the unit of measure associated with the answer for use when performing data extraction to an element of type Quantity. */
     Decimal,
-    /** # display
+    /** **display**
 
 Display. Text for display that will not capture an answer or have child items. */
     Display,
-    /** # group
+    /** **group**
 
 Group. An item with no direct answer but should have at least one child item. */
     Group,
-    /** # integer
+    /** **integer**
 
 Integer. Question with an integer answer (valueInteger).  There is an extension 'http://hl7.org/fhir/StructureDefinition/questionnaire-unit' that can be used to computably convey the unit of measure associated with the answer for use when performing data extraction to an element of type Quantity. */
     Integer,
-    /** # quantity
+    /** **quantity**
 
 Quantity. Question with a combination of a numeric value and unit as an answer. (valueSimpleQuantity)  There are two extensions ('http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption' and 'http://hl7.org/fhir/StructureDefinition/questionnaire-unitValueSet')  that can be used to define what unit should be selected for the Quantity.code and Quantity.system. */
     Quantity,
-    /** # question
+    /** **question**
 
 Question. An item that defines a specific answer to be captured, and which may have child items. (the answer provided in the QuestionnaireResponse should be of the defined datatype). */
     Question,
-    /** # reference
+    /** **reference**
 
 Reference. Question with a reference to another resource (practitioner, organization, etc.) as an answer (valueReference). */
     Reference,
-    /** # string
+    /** **string**
 
 String. Question with a short (few words to short sentence) free-text entry answer (valueString).  Strings SHOULD NOT contain carriage return or newline characters.  If multi-line answers are needed, use the 'text' type. */
     String,
-    /** # text
+    /** **text**
 
 Text. Question with a long (potentially multi-paragraph) free-text entry answer (valueString). */
     Text,
-    /** # time
+    /** **time**
 
 Time. Question with a time (hour:minute:second) answer independent of date. (valueTime). */
     Time,
-    /** # url
+    /** **url**
 
 Url. Question with a URL (website, FTP site, etc.) answer (valueUri). */
     Url,
@@ -39684,29 +39088,27 @@ impl From<QuestionnaireItemType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `QuestionnaireResponseStatus`. Lifecycle status of the questionnaire response.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[QuestionnaireResponseStatus](http://hl7.org/fhir/ValueSet/questionnaire-answers-status)**. Lifecycle status of the questionnaire response.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuestionnaireResponseStatus {
-    /** # amended
+    /** **amended**
 
 Amended. This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards. */
     Amended,
-    /** # completed
+    /** **completed**
 
 Completed. This QuestionnaireResponse has been filled out with answers and the current content is regarded as definitive. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This QuestionnaireResponse was entered in error and voided. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. This QuestionnaireResponse has been partially filled out with answers but changes or additions are still expected to be made to it. */
     InProgress,
-    /** # stopped
+    /** **stopped**
 
 Stopped. This QuestionnaireResponse has been partially filled out with answers but has been abandoned. No subsequent changes can be made. */
     Stopped,
@@ -39784,24 +39186,22 @@ impl From<QuestionnaireResponseStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ReasonMedicationNotGivenCodes`. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ReasonMedicationNotGivenCodes](http://hl7.org/fhir/reason-medication-not-given)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ReasonMedicationNotGivenCodes {
-    /** # a
+    /** **a**
 
 None. No reason known. */
     A,
-    /** # b
+    /** **b**
 
 Away. The patient was not available when the dose was scheduled. */
     B,
-    /** # c
+    /** **c**
 
 Asleep. The patient was asleep when the dose was scheduled. */
     C,
-    /** # d
+    /** **d**
 
 Vomit. The patient was given the medication and immediately vomited it back. */
     D,
@@ -39878,29 +39278,27 @@ impl From<ReasonMedicationNotGivenCodes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ReferenceHandlingPolicy`. A set of flags that defines how references are supported.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ReferenceHandlingPolicy](http://hl7.org/fhir/ValueSet/reference-handling-policy)**. A set of flags that defines how references are supported.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReferenceHandlingPolicy {
-    /** # enforced
+    /** **enforced**
 
 Reference Integrity Enforced. The server enforces that references have integrity - e.g. it ensures that references can always be resolved. This is typically the case for clinical record systems, but often not the case for middleware/proxy systems. */
     Enforced,
-    /** # literal
+    /** **literal**
 
 Literal References. The server supports and populates Literal references (i.e. using Reference.reference) where they are known (this code does not guarantee that all references are literal; see 'enforced'). */
     Literal,
-    /** # local
+    /** **local**
 
 Local References Only. The server does not support references that point to other servers. */
     Local,
-    /** # logical
+    /** **logical**
 
 Logical References. The server allows logical references (i.e. using Reference.identifier). */
     Logical,
-    /** # resolves
+    /** **resolves**
 
 Resolves References. The server will attempt to resolve logical references to literal references - i.e. converting Reference.identifier to Reference.reference (if resolution fails, the server may still accept resources; see logical). */
     Resolves,
@@ -39976,21 +39374,19 @@ impl From<ReferenceHandlingPolicy> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ReferenceVersionRules`. Whether a reference needs to be version specific or version independent, or whether either can be used.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ReferenceVersionRules](http://hl7.org/fhir/ValueSet/reference-version-rules)**. Whether a reference needs to be version specific or version independent, or whether either can be used.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReferenceVersionRules {
-    /** # either
+    /** **either**
 
 Either Specific or independent. The reference may be either version independent or version specific. */
     Either,
-    /** # independent
+    /** **independent**
 
 Version independent. The reference must be version independent. */
     Independent,
-    /** # specific
+    /** **specific**
 
 Version Specific. The reference must be version specific. */
     Specific,
@@ -40060,49 +39456,47 @@ impl From<ReferenceVersionRules> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RegulatedAuthorizationBasis`. RegulatedAuthorizationBasis
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RegulatedAuthorizationBasis](http://hl7.org/fhir/ValueSet/regulated-authorization-basis)**. RegulatedAuthorizationBasis\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationBasis {
-    /** # Bibliographical
+    /** **Bibliographical**
 
 Bibliographical application (stand-alone). */
     Bibliographical,
-    /** # Full
+    /** **Full**
 
 Full application. */
     Full,
-    /** # KnownHumanBlood
+    /** **KnownHumanBlood**
 
 Known human blood/plasma derived ancillary medicinal substance. */
     KnownHumanBlood,
-    /** # KnownSubstance
+    /** **KnownSubstance**
 
 Known active substance. */
     KnownSubstance,
-    /** # NewSubstance
+    /** **NewSubstance**
 
 New active substance. */
     NewSubstance,
-    /** # ParallelTrade
+    /** **ParallelTrade**
 
 Parallel traded products. */
     ParallelTrade,
-    /** # SimilarBiological
+    /** **SimilarBiological**
 
 Similar biological application. */
     SimilarBiological,
-    /** # TemporaryUse
+    /** **TemporaryUse**
 
 Authorizations for temporary use. */
     TemporaryUse,
-    /** # TraditionalUse
+    /** **TraditionalUse**
 
 Traditional use registration for herbal medicinal product application. */
     TraditionalUse,
-    /** # Well-establishedUse
+    /** **Well-establishedUse**
 
 Well-established use application. */
     WellEstablishedUse,
@@ -40199,97 +39593,95 @@ impl From<RegulatedAuthorizationBasis> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RegulatedAuthorizationCaseType`. RegulatedAuthorizationCaseType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RegulatedAuthorizationCaseType](http://hl7.org/fhir/ValueSet/regulated-authorization-case-type)**. RegulatedAuthorizationCaseType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationCaseType {
-    /** # 100000155699
+    /** **100000155699**
 
 Specific Obligation. */
     N100000155699,
-    /** # AnnualReassessment
+    /** **AnnualReassessment**
 
 Annual Reassessment. */
     AnnualReassessment,
-    /** # FLU
+    /** **FLU**
 
 FLU STRAIN UPDATE. */
     Flu,
-    /** # Follow-up
+    /** **Follow-up**
 
 Follow-up Measure. */
     FollowUp,
-    /** # InitialMAA
+    /** **InitialMAA**
 
 Initial Marketing Authorization Application. */
     InitialMAA,
-    /** # LiftingSuspension
+    /** **LiftingSuspension**
 
 Lifting of a Suspension. */
     LiftingSuspension,
-    /** # LineExtension
+    /** **LineExtension**
 
 Line Extension. */
     LineExtension,
-    /** # Orphan
+    /** **Orphan**
 
 Orphan Designation Application. */
     Orphan,
-    /** # PANDEMIC
+    /** **PANDEMIC**
 
 PANDEMIC UPDATE. */
     Pandemic,
-    /** # PSUR
+    /** **PSUR**
 
 Periodic Safety Update Report. */
     Psur,
-    /** # PaediatricSubmission
+    /** **PaediatricSubmission**
 
 Paediatric Submission. */
     PaediatricSubmission,
-    /** # RMP
+    /** **RMP**
 
 Risk Management Plan. */
     Rmp,
-    /** # Reformatting
+    /** **Reformatting**
 
 Reformatting. */
     Reformatting,
-    /** # Renewal
+    /** **Renewal**
 
 Renewal. */
     Renewal,
-    /** # RepeatUse
+    /** **RepeatUse**
 
 Repeat Use Procedure. */
     RepeatUse,
-    /** # ReviewSuspension
+    /** **ReviewSuspension**
 
 Review of a Suspension of MA. */
     ReviewSuspension,
-    /** # SignalDetection
+    /** **SignalDetection**
 
 Signal detection. */
     SignalDetection,
-    /** # SupplementalInformation
+    /** **SupplementalInformation**
 
 Supplemental Information. */
     SupplementalInformation,
-    /** # TransferMA
+    /** **TransferMA**
 
 Transfer of a marketing authorization. */
     TransferMA,
-    /** # UrgentSafetyRestriction
+    /** **UrgentSafetyRestriction**
 
 Urgent Safety Restriction. */
     UrgentSafetyRestriction,
-    /** # Variation
+    /** **Variation**
 
 Variation. */
     Variation,
-    /** # Withdrawal
+    /** **Withdrawal**
 
 Withdrawal. */
     Withdrawal,
@@ -40419,21 +39811,19 @@ impl From<RegulatedAuthorizationCaseType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RegulatedAuthorizationType`. RegulatedAuthorizationType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RegulatedAuthorizationType](http://hl7.org/fhir/ValueSet/regulated-authorization-type)**. RegulatedAuthorizationType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationType {
-    /** # MarketingAuth
+    /** **MarketingAuth**
 
 Marketing Authorization. */
     MarketingAuth,
-    /** # Orphan
+    /** **Orphan**
 
 Orphan Drug Authorization. */
     Orphan,
-    /** # Pediatric
+    /** **Pediatric**
 
 Pediatric Use Drug Authorization. */
     Pediatric,
@@ -40505,153 +39895,151 @@ impl From<RegulatedAuthorizationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RelatedArtifactType`. The type of relationship to the related artifact.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RelatedArtifactType](http://hl7.org/fhir/ValueSet/related-artifact-type)**. The type of relationship to the related artifact.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RelatedArtifactType {
-    /** # amended-with
+    /** **amended-with**
 
 Amended With. This artifact is amended with or changed by the target artifact. There is information in this artifact that should be functionally replaced with information in the target artifact. */
     AmendedWith,
-    /** # amends
+    /** **amends**
 
 Amends. This artifact amends or changes the target artifact. This artifact adds additional information that is functionally expected to replace information in the target artifact. This artifact replaces a part but not all of the target artifact. */
     Amends,
-    /** # appended-with
+    /** **appended-with**
 
 Appended With. This artifact has additional information in the target artifact. */
     AppendedWith,
-    /** # appends
+    /** **appends**
 
 Appends. This artifact adds additional information to the target artifact. The additional information does not replace or change information in the target artifact. */
     Appends,
-    /** # citation
+    /** **citation**
 
 Citation. Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource. */
     Citation,
-    /** # cite-as
+    /** **cite-as**
 
 Cite As. The related artifact is the citation for this artifact. */
     CiteAs,
-    /** # cited-by
+    /** **cited-by**
 
 Cited By. This artifact is cited by the target artifact. */
     CitedBy,
-    /** # cites
+    /** **cites**
 
 Cites. This artifact cites the target artifact. This may be a bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource. */
     Cites,
-    /** # comment-in
+    /** **comment-in**
 
 Has Comment In. This artifact has comments about it in the target artifact.  The type of comments may be expressed in the targetClassifier element such as reply, review, editorial, feedback, solicited, unsolicited, structured, unstructured. */
     CommentIn,
-    /** # comments-on
+    /** **comments-on**
 
 Is Comment On. This artifact contains comments about the target artifact. */
     CommentsOn,
-    /** # composed-of
+    /** **composed-of**
 
 Composed Of. This artifact is composed of the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.). */
     ComposedOf,
-    /** # contained-in
+    /** **contained-in**
 
 Contained In. This artifact is contained in the target artifact. The target artifact is a data structure whose instances are collections of other objects. */
     ContainedIn,
-    /** # contains
+    /** **contains**
 
 Contains. This artifact is a container in which the target artifact is contained. A container is a data structure whose instances are collections of other objects. (A database contains the dataset.). */
     Contains,
-    /** # correction-in
+    /** **correction-in**
 
 Correction In. This artifact has corrections to it in the target artifact. The target artifact identifies errors and replacement content for this artifact. */
     CorrectionIn,
-    /** # corrects
+    /** **corrects**
 
 Corrects. This artifact identifies errors and replacement content for the target artifact. */
     Corrects,
-    /** # created-with
+    /** **created-with**
 
 Created With. This artifact was created with the target artifact. The target artifact is a tool or support material used in the creation of the artifact, and not content that the artifact was derived from. */
     CreatedWith,
-    /** # depends-on
+    /** **depends-on**
 
 Depends On. This artifact depends on the target artifact. There is a requirement to use the target artifact in the creation or interpretation of this artifact. */
     DependsOn,
-    /** # derived-from
+    /** **derived-from**
 
 Derived From. This artifact is derived from the target artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting. The artifact may be derived from one or more target artifacts. */
     DerivedFrom,
-    /** # documentation
+    /** **documentation**
 
 Documentation. Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness. */
     Documentation,
-    /** # documents
+    /** **documents**
 
 Documents. This artifact provides additional documentation for the target artifact. This could include additional instructions on usage as well as additional information on clinical context or appropriateness. */
     Documents,
-    /** # justification
+    /** **justification**
 
 Justification. The target artifact is a summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource. */
     Justification,
-    /** # part-of
+    /** **part-of**
 
 Part Of. This artifact is a part of the target artifact. The target artifact is composed of this artifact (and possibly other artifacts). */
     PartOf,
-    /** # predecessor
+    /** **predecessor**
 
 Predecessor. The previous version of the knowledge artifact, used to establish an ordering of versions of an artifact, independent of the status of each version. */
     Predecessor,
-    /** # replaced-with
+    /** **replaced-with**
 
 Replaced With. This artifact is replaced with or superseded by the target artifact. This artifact may be considered deprecated. */
     ReplacedWith,
-    /** # replaces
+    /** **replaces**
 
 Replaces. This artifact replaces or supersedes the target artifact. The target artifact may be considered deprecated. */
     Replaces,
-    /** # retracted-by
+    /** **retracted-by**
 
 Retracted By. This artifact is retracted by the target artifact. The content that was published in this artifact should be considered removed from publication and should no longer be considered part of the public record. */
     RetractedBy,
-    /** # retracts
+    /** **retracts**
 
 Retracts. This artifact retracts the target artifact. The content that was published in the target artifact should be considered removed from publication and should no longer be considered part of the public record. */
     Retracts,
-    /** # signs
+    /** **signs**
 
 Signs. This artifact is a signature of the target artifact. */
     Signs,
-    /** # similar-to
+    /** **similar-to**
 
 Similar To. This artifact has characteristics in common with the target artifact. This relationship may be used in systems to “deduplicate” knowledge artifacts from different sources, or in systems to show “similar items”. */
     SimilarTo,
-    /** # specification-of
+    /** **specification-of**
 
 Specification Of. The target artifact is a precise description of a concept in this artifact. This may be used when the RelatedArtifact datatype is used in elements contained in this artifact. */
     SpecificationOf,
-    /** # successor
+    /** **successor**
 
 Successor. The subsequent version of the knowledge artfact, used to establish an ordering of versions of an artifact, independent of the status of each version. */
     Successor,
-    /** # supported-with
+    /** **supported-with**
 
 Supported With. The target artifact contains additional information related to the knowledge artifact but is not documentation as the additional information does not describe, explain, or instruct regarding the knowledge artifact content or application. This could include an associated dataset. */
     SupportedWith,
-    /** # supports
+    /** **supports**
 
 Supports. This artifact provides additional support for the target artifact. The type of support  is not documentation as it does not describe, explain, or instruct regarding the target artifact. */
     Supports,
-    /** # transformed-into
+    /** **transformed-into**
 
 Transformed Into. This artifact was transformed into the target artifact (e.g., by format or language conversion). */
     TransformedInto,
-    /** # transformed-with
+    /** **transformed-with**
 
 Transformed With. This artifact was generated by transforming a related artifact (e.g., format or language conversion), noted separately with the “transforms” relationship type. This transformation used the target artifact to inform the transformation. The target artifact may be a conversion script or translation guide. */
     TransformedWith,
-    /** # transforms
+    /** **transforms**
 
 Transforms. This artifact was generated by transforming the target artifact (e.g., format or language conversion). This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but changes are only apparent in form and there is only one target artifact with the “transforms” relationship type. */
     Transforms,
@@ -40820,161 +40208,159 @@ impl From<RelatedArtifactType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RelatedArtifactTypeExpanded`. The type of relationship to the cited artifact.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RelatedArtifactTypeExpanded](http://hl7.org/fhir/ValueSet/related-artifact-type-expanded)**. The type of relationship to the cited artifact.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RelatedArtifactTypeExpanded {
-    /** # amended-with
+    /** **amended-with**
 
 Amended With. This artifact is amended with or changed by the target artifact. There is information in this artifact that should be functionally replaced with information in the target artifact. */
     AmendedWith,
-    /** # amends
+    /** **amends**
 
 Amends. This artifact amends or changes the target artifact. This artifact adds additional information that is functionally expected to replace information in the target artifact. This artifact replaces a part but not all of the target artifact. */
     Amends,
-    /** # appended-with
+    /** **appended-with**
 
 Appended With. This artifact has additional information in the target artifact. */
     AppendedWith,
-    /** # appends
+    /** **appends**
 
 Appends. This artifact adds additional information to the target artifact. The additional information does not replace or change information in the target artifact. */
     Appends,
-    /** # citation
+    /** **citation**
 
 Citation. Bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource. */
     Citation,
-    /** # cite-as
+    /** **cite-as**
 
 Cite As. The related artifact is the citation for this artifact. */
     CiteAs,
-    /** # cited-by
+    /** **cited-by**
 
 Cited By. This artifact is cited by the target artifact. */
     CitedBy,
-    /** # cites
+    /** **cites**
 
 Cites. This artifact cites the target artifact. This may be a bibliographic citation for papers, references, or other relevant material for the knowledge resource. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this knowledge resource. */
     Cites,
-    /** # comment-in
+    /** **comment-in**
 
 Has Comment In. This artifact has comments about it in the target artifact.  The type of comments may be expressed in the targetClassifier element such as reply, review, editorial, feedback, solicited, unsolicited, structured, unstructured. */
     CommentIn,
-    /** # comments-on
+    /** **comments-on**
 
 Is Comment On. This artifact contains comments about the target artifact. */
     CommentsOn,
-    /** # composed-of
+    /** **composed-of**
 
 Composed Of. This artifact is composed of the target artifact. This artifact is constructed with the target artifact as a component. The target artifact is a part of this artifact. (A dataset is composed of data.). */
     ComposedOf,
-    /** # contained-in
+    /** **contained-in**
 
 Contained In. This artifact is contained in the target artifact. The target artifact is a data structure whose instances are collections of other objects. */
     ContainedIn,
-    /** # contains
+    /** **contains**
 
 Contains. This artifact is a container in which the target artifact is contained. A container is a data structure whose instances are collections of other objects. (A database contains the dataset.). */
     Contains,
-    /** # correction-in
+    /** **correction-in**
 
 Correction In. This artifact has corrections to it in the target artifact. The target artifact identifies errors and replacement content for this artifact. */
     CorrectionIn,
-    /** # corrects
+    /** **corrects**
 
 Corrects. This artifact identifies errors and replacement content for the target artifact. */
     Corrects,
-    /** # created-with
+    /** **created-with**
 
 Created With. This artifact was created with the target artifact. The target artifact is a tool or support material used in the creation of the artifact, and not content that the artifact was derived from. */
     CreatedWith,
-    /** # depends-on
+    /** **depends-on**
 
 Depends On. This artifact depends on the target artifact. There is a requirement to use the target artifact in the creation or interpretation of this artifact. */
     DependsOn,
-    /** # derived-from
+    /** **derived-from**
 
 Derived From. This artifact is derived from the target artifact. This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting. The artifact may be derived from one or more target artifacts. */
     DerivedFrom,
-    /** # documentation
+    /** **documentation**
 
 Documentation. Additional documentation for the knowledge resource. This would include additional instructions on usage as well as additional information on clinical context or appropriateness. */
     Documentation,
-    /** # documents
+    /** **documents**
 
 Documents. This artifact provides additional documentation for the target artifact. This could include additional instructions on usage as well as additional information on clinical context or appropriateness. */
     Documents,
-    /** # justification
+    /** **justification**
 
 Justification. The target artifact is a summary of the justification for the knowledge resource including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the knowledge resource available to the consumer of interventions or results produced by the knowledge resource. */
     Justification,
-    /** # part-of
+    /** **part-of**
 
 Part Of. This artifact is a part of the target artifact. The target artifact is composed of this artifact (and possibly other artifacts). */
     PartOf,
-    /** # predecessor
+    /** **predecessor**
 
 Predecessor. The previous version of the knowledge artifact, used to establish an ordering of versions of an artifact, independent of the status of each version. */
     Predecessor,
-    /** # replaced-with
+    /** **replaced-with**
 
 Replaced With. This artifact is replaced with or superseded by the target artifact. This artifact may be considered deprecated. */
     ReplacedWith,
-    /** # replaces
+    /** **replaces**
 
 Replaces. This artifact replaces or supersedes the target artifact. The target artifact may be considered deprecated. */
     Replaces,
-    /** # reprint
+    /** **reprint**
 
 Reprint. A copy of the artifact in a publication with a different artifact identifier. */
     Reprint,
-    /** # reprint-of
+    /** **reprint-of**
 
 Reprint Of. The original version of record for which the current artifact is a copy. */
     ReprintOf,
-    /** # retracted-by
+    /** **retracted-by**
 
 Retracted By. This artifact is retracted by the target artifact. The content that was published in this artifact should be considered removed from publication and should no longer be considered part of the public record. */
     RetractedBy,
-    /** # retracts
+    /** **retracts**
 
 Retracts. This artifact retracts the target artifact. The content that was published in the target artifact should be considered removed from publication and should no longer be considered part of the public record. */
     Retracts,
-    /** # signs
+    /** **signs**
 
 Signs. This artifact is a signature of the target artifact. */
     Signs,
-    /** # similar-to
+    /** **similar-to**
 
 Similar To. This artifact has characteristics in common with the target artifact. This relationship may be used in systems to “deduplicate” knowledge artifacts from different sources, or in systems to show “similar items”. */
     SimilarTo,
-    /** # specification-of
+    /** **specification-of**
 
 Specification Of. The target artifact is a precise description of a concept in this artifact. This may be used when the RelatedArtifact datatype is used in elements contained in this artifact. */
     SpecificationOf,
-    /** # successor
+    /** **successor**
 
 Successor. The subsequent version of the knowledge artfact, used to establish an ordering of versions of an artifact, independent of the status of each version. */
     Successor,
-    /** # supported-with
+    /** **supported-with**
 
 Supported With. The target artifact contains additional information related to the knowledge artifact but is not documentation as the additional information does not describe, explain, or instruct regarding the knowledge artifact content or application. This could include an associated dataset. */
     SupportedWith,
-    /** # supports
+    /** **supports**
 
 Supports. This artifact provides additional support for the target artifact. The type of support  is not documentation as it does not describe, explain, or instruct regarding the target artifact. */
     Supports,
-    /** # transformed-into
+    /** **transformed-into**
 
 Transformed Into. This artifact was transformed into the target artifact (e.g., by format or language conversion). */
     TransformedInto,
-    /** # transformed-with
+    /** **transformed-with**
 
 Transformed With. This artifact was generated by transforming a related artifact (e.g., format or language conversion), noted separately with the “transforms” relationship type. This transformation used the target artifact to inform the transformation. The target artifact may be a conversion script or translation guide. */
     TransformedWith,
-    /** # transforms
+    /** **transforms**
 
 Transforms. This artifact was generated by transforming the target artifact (e.g., format or language conversion). This is intended to capture the relationship in which a particular knowledge resource is based on the content of another artifact, but changes are only apparent in form and there is only one target artifact with the “transforms” relationship type. */
     Transforms,
@@ -41151,21 +40537,19 @@ impl From<RelatedArtifactTypeExpanded> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RemittanceOutcome`. The outcome of the processing.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RemittanceOutcome](http://hl7.org/fhir/ValueSet/remittance-outcome)**. The outcome of the processing.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RemittanceOutcome {
-    /** # complete
+    /** **complete**
 
 Complete. The processing completed without errors. */
     Complete,
-    /** # error
+    /** **error**
 
 Error. The processing identified errors. */
     Error,
-    /** # partial
+    /** **partial**
 
 Partial. No errors have been detected and some of the adjudication has been performed. */
     Partial,
@@ -41235,41 +40619,39 @@ impl From<RemittanceOutcome> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ReportRelationshipType`. The type of relationship between reports.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ReportRelationshipType](http://hl7.org/fhir/ValueSet/report-relation-type)**. The type of relationship between reports.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReportRelationshipType {
-    /** # amendedWith
+    /** **amendedWith**
 
 Amended With. This document was. */
     AmendedWith,
-    /** # amends
+    /** **amends**
 
 Amends. This document notes corrections or changes to replace or supersede parts of the target document. */
     Amends,
-    /** # appendedWith
+    /** **appendedWith**
 
 Appended With. This document was. */
     AppendedWith,
-    /** # appends
+    /** **appends**
 
 Appends. This document adds additional information to the target document. */
     Appends,
-    /** # replacedWith
+    /** **replacedWith**
 
 Replaced With. This document was. */
     ReplacedWith,
-    /** # replaces
+    /** **replaces**
 
 Replaces. This document replaces or supersedes the target document. */
     Replaces,
-    /** # transformedWith
+    /** **transformedWith**
 
 Transformed With. This document was. */
     TransformedWith,
-    /** # transforms
+    /** **transforms**
 
 Transforms. This document was generated by transforming the target document (eg format or language conversion). */
     Transforms,
@@ -41354,121 +40736,119 @@ impl From<ReportRelationshipType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ReportSectionType`. Evidence Report Section Type.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ReportSectionType](http://hl7.org/fhir/ValueSet/evidence-report-section)**. Evidence Report Section Type.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReportSectionType {
-    /** # Assertion
+    /** **Assertion**
 
 Assertion. Assertion. */
     Assertion,
-    /** # Certainty-of-Evidence
+    /** **Certainty-of-Evidence**
 
 Certainty of Evidence. Certainty of Evidence. */
     CertaintyOfEvidence,
-    /** # Column-Header
+    /** **Column-Header**
 
 Column Header. Denotes the header to use for the column for a tabular report. */
     ColumnHeader,
-    /** # Column-Headers
+    /** **Column-Headers**
 
 Column Headers. Denotes a section specifying column headers for a tabular report. */
     ColumnHeaders,
-    /** # Control-group-alone-Evidence
+    /** **Control-group-alone-Evidence**
 
 Evidence Results for the control exposure only. Evidence Results for the control exposure only. */
     ControlGroupAloneEvidence,
-    /** # Efficacy-outcomes
+    /** **Efficacy-outcomes**
 
 Efficacy-outcomes. Outcomes related to efficacy or potential benefits of interventions. */
     EfficacyOutcomes,
-    /** # Evidence
+    /** **Evidence**
 
 Evidence Results. Evidence Results. */
     Evidence,
-    /** # Evidence-Classifier
+    /** **Evidence-Classifier**
 
 Evidence Classifier section. This section is used for classifiers of the evidence. */
     EvidenceClassifier,
-    /** # EvidenceVariable
+    /** **EvidenceVariable**
 
 Evidence Variables used. Evidence Variables used. */
     EvidenceVariable,
-    /** # EvidenceVariable-exposure
+    /** **EvidenceVariable-exposure**
 
 Evidence Variable in variable role Exposure. Evidence Variable in variable role Exposure. */
     EvidenceVariableExposure,
-    /** # EvidenceVariable-intended
+    /** **EvidenceVariable-intended**
 
 Evidence Variables intended for interpretation. Evidence Variables intended for interpretation. */
     EvidenceVariableIntended,
-    /** # EvidenceVariable-observed
+    /** **EvidenceVariable-observed**
 
 Evidence Variables actually observed. Evidence Variables as observed in the research data. */
     EvidenceVariableObserved,
-    /** # EvidenceVariable-outcome
+    /** **EvidenceVariable-outcome**
 
 Evidence Variable in variable role Outcome (MeasuredVariable). Evidence Variable in variable role Outcome (MeasuredVariable). */
     EvidenceVariableOutcome,
-    /** # EvidenceVariable-population
+    /** **EvidenceVariable-population**
 
 Evidence Variable in variable role Population. Evidence Variable in variable role Population. */
     EvidenceVariablePopulation,
-    /** # Harms-outcomes
+    /** **Harms-outcomes**
 
 Harms outcomes. Outcomes related to adverse effects or potential harms of interventions. */
     HarmsOutcomes,
-    /** # Header
+    /** **Header**
 
 Header. Denotes the header to use for a Text Summary or above a Table. */
     Header,
-    /** # Intervention-group-alone-Evidence
+    /** **Intervention-group-alone-Evidence**
 
 Evidence Results for the intervention exposure only. Evidence Results for the intervention exposure only. */
     InterventionGroupAloneEvidence,
-    /** # Intervention-vs-Control-Evidence
+    /** **Intervention-vs-Control-Evidence**
 
 Evidence Results for comparison of Intervention and Control. Evidence Results for comparison of Intervention and Control. */
     InterventionVsControlEvidence,
-    /** # Reasons
+    /** **Reasons**
 
 Reasons. Reasons. */
     Reasons,
-    /** # References
+    /** **References**
 
 References. References. */
     References,
-    /** # Row-Headers
+    /** **Row-Headers**
 
 Row Headers. Denotes a section specifying row headers for a tabular report. */
     RowHeaders,
-    /** # SampleSize
+    /** **SampleSize**
 
 Sample Size. Sample Size. */
     SampleSize,
-    /** # SummaryOfBodyOfEvidenceFindings
+    /** **SummaryOfBodyOfEvidenceFindings**
 
 Summary of Body of Evidence Findings. Summary of Body of Evidence Findings. */
     SummaryOfBodyOfEvidenceFindings,
-    /** # SummaryOfIndividualStudyFindings
+    /** **SummaryOfIndividualStudyFindings**
 
 Summary of Individual Study Findings. Summary of Individual Study Findings. */
     SummaryOfIndividualStudyFindings,
-    /** # Table
+    /** **Table**
 
 Table. */
     Table,
-    /** # Tables
+    /** **Tables**
 
 Tables. Tables. */
     Tables,
-    /** # Text-Summary
+    /** **Text-Summary**
 
 Text Summary. Denotes a section specifying text summary for a report. */
     TextSummary,
-    /** # Warnings
+    /** **Warnings**
 
 Warnings. Warnings. */
     Warnings,
@@ -41637,45 +41017,43 @@ impl From<ReportSectionType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RequestIntent`. Codes indicating the degree of authority/intentionality associated with a request.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RequestIntent](http://hl7.org/fhir/ValueSet/request-intent)**. Codes indicating the degree of authority/intentionality associated with a request.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RequestIntent {
-    /** # directive
+    /** **directive**
 
 Directive. The request represents a legally binding instruction authored by a Patient or RelatedPerson. */
     Directive,
-    /** # filler-order
+    /** **filler-order**
 
 Filler Order. The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order. */
     FillerOrder,
-    /** # instance-order
+    /** **instance-order**
 
 Instance Order. An order created in fulfillment of a broader order that represents the authorization for a single activity occurrence.  E.g. The administration of a single dose of a drug. */
     InstanceOrder,
-    /** # option
+    /** **option**
 
 Option. The request represents a component or option for a RequestOrchestration that establishes timing, conditionality and/or other constraints among a set of requests.  Refer to [[[RequestOrchestration]]] for additional information on how this status is used. */
     Option,
-    /** # order
+    /** **order**
 
 Order. The request represents a request/demand and authorization for action by the requestor. */
     Order,
-    /** # original-order
+    /** **original-order**
 
 Original Order. The request represents an original authorization for action. */
     OriginalOrder,
-    /** # plan
+    /** **plan**
 
 Plan. The request represents an intention to ensure something occurs without providing an authorization for others to act. */
     Plan,
-    /** # proposal
+    /** **proposal**
 
 Proposal. The request is a suggestion made by someone/something that does not have an intention to ensure it occurs and without providing an authorization to act. */
     Proposal,
-    /** # reflex-order
+    /** **reflex-order**
 
 Reflex Order. The request represents an automatically generated supplemental authorization for action based on a parent authorization together with initial results of the action taken against that parent authorization. */
     ReflexOrder,
@@ -41763,25 +41141,23 @@ impl From<RequestIntent> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RequestPriority`. Identifies the level of importance to be assigned to actioning the request.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RequestPriority](http://hl7.org/fhir/ValueSet/request-priority)**. Identifies the level of importance to be assigned to actioning the request.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RequestPriority {
-    /** # asap
+    /** **asap**
 
 ASAP. The request should be actioned as soon as possible - higher priority than urgent. */
     Asap,
-    /** # routine
+    /** **routine**
 
 Routine. The request has normal priority. */
     Routine,
-    /** # stat
+    /** **stat**
 
 STAT. The request should be actioned immediately - highest possible priority.  E.g. an emergency. */
     Stat,
-    /** # urgent
+    /** **urgent**
 
 Urgent. The request should be actioned promptly - higher priority than routine. */
     Urgent,
@@ -41854,37 +41230,35 @@ impl From<RequestPriority> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RequestStatus`. Codes identifying the lifecycle stage of a request.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RequestStatus](http://hl7.org/fhir/ValueSet/request-status)**. Codes identifying the lifecycle stage of a request.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RequestStatus {
-    /** # active
+    /** **active**
 
 Active. The request is in force and ready to be acted upon. */
     Active,
-    /** # completed
+    /** **completed**
 
 Completed. The activity described by the request has been fully performed.  No further activity will occur. */
     Completed,
-    /** # draft
+    /** **draft**
 
 Draft. The request has been created but is not yet complete or ready for action. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be "revoked" rather than "entered-in-error".). */
     EnteredInError,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The request (and any implicit authorization to act) has been temporarily withdrawn but is expected to resume in the future. */
     OnHold,
-    /** # revoked
+    /** **revoked**
 
 Revoked. The request (and any implicit authorization to act) has been terminated prior to the known full completion of the intended actions.  No further activity should occur. */
     Revoked,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which. */
     Unknown,
@@ -41966,33 +41340,31 @@ impl From<RequestStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyArmType`. Codes for the main intent of the study.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyArmType](http://hl7.org/fhir/ValueSet/research-study-arm-type)**. Codes for the main intent of the study.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyArmType {
-    /** # active-comparator
+    /** **active-comparator**
 
 Active Comparator. */
     ActiveComparator,
-    /** # experimental
+    /** **experimental**
 
 Experimental. */
     Experimental,
-    /** # no-intervention
+    /** **no-intervention**
 
 No Intervention. */
     NoIntervention,
-    /** # other-arm-type
+    /** **other-arm-type**
 
 Other Arm Type. */
     OtherArmType,
-    /** # placebo-comparator
+    /** **placebo-comparator**
 
 Placebo Comparator. */
     PlaceboComparator,
-    /** # sham-comparator
+    /** **sham-comparator**
 
 Sham Comparator. */
     ShamComparator,
@@ -42071,25 +41443,23 @@ impl From<ResearchStudyArmType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyClassifiers`. Codes for use in ResearchStudy Resource. This resource (this entire set of content) is being used for active development of a ResearchStudyClassifiers CodeSystem for use for supporting multiple value sets in the FHIR ResearchStudy StructureDefinition.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyClassifiers](http://hl7.org/fhir/ValueSet/research-study-classifiers)**. Codes for use in ResearchStudy Resource. This resource (this entire set of content) is being used for active development of a ResearchStudyClassifiers CodeSystem for use for supporting multiple value sets in the FHIR ResearchStudy StructureDefinition.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyClassifiers {
-    /** # fda-regulated-device
+    /** **fda-regulated-device**
 
 FDA regulated device. A medical device regulated by the U.S. Food and Drug Administration. */
     FdaRegulatedDevice,
-    /** # fda-regulated-drug
+    /** **fda-regulated-drug**
 
 FDA regulated drug. A medication regulated by the U.S. Food and Drug Administration. */
     FdaRegulatedDrug,
-    /** # irb-exempt
+    /** **irb-exempt**
 
 IRB-exempt. Human subjects research that is excempt from oversight and monitoring by an institutional review board (IRB). */
     IrbExempt,
-    /** # mpg-paragraph-23b
+    /** **mpg-paragraph-23b**
 
 MPG Paragraph 23b. Research regulated by a specific German legal requirement (Medizinproduktegesetz MPG Paragraph 23b). */
     MpgParagraph23B,
@@ -42162,25 +41532,23 @@ impl From<ResearchStudyClassifiers> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyFocusType`. Codes for the main intent of the study.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyFocusType](http://hl7.org/fhir/ValueSet/research-study-focus-type)**. Codes for the main intent of the study.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyFocusType {
-    /** # device
+    /** **device**
 
 Device. */
     Device,
-    /** # factor
+    /** **factor**
 
 Factor. */
     Factor,
-    /** # intervention
+    /** **intervention**
 
 Intervention. */
     Intervention,
-    /** # medication
+    /** **medication**
 
 Medication. */
     Medication,
@@ -42253,21 +41621,19 @@ impl From<ResearchStudyFocusType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyObjectiveType`. Codes for the kind of study objective.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyObjectiveType](http://hl7.org/fhir/ValueSet/research-study-objective-type)**. Codes for the kind of study objective.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyObjectiveType {
-    /** # exploratory
+    /** **exploratory**
 
 Exploratory. Exploratory questions to be answered in the study. */
     Exploratory,
-    /** # primary
+    /** **primary**
 
 Primary. The main question to be answered, and the one that drives any statistical planning for the study—e.g., calculation of the sample size to provide the appropriate power for statistical testing. */
     Primary,
-    /** # secondary
+    /** **secondary**
 
 Secondary. Question to be answered in the study that is of lesser importance than the primary objective. */
     Secondary,
@@ -42339,33 +41705,31 @@ impl From<ResearchStudyObjectiveType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyPartyOrganizationType`. This is a ResearchStudy's party organization type.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyPartyOrganizationType](http://hl7.org/fhir/ValueSet/research-study-party-organization-type)**. This is a ResearchStudy's party organization type.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPartyOrganizationType {
-    /** # academic
+    /** **academic**
 
 Academic. */
     Academic,
-    /** # fda
+    /** **fda**
 
 FDA. */
     Fda,
-    /** # government
+    /** **government**
 
 Government. */
     Government,
-    /** # industry
+    /** **industry**
 
 Industry. */
     Industry,
-    /** # nih
+    /** **nih**
 
 NIH. */
     Nih,
-    /** # nonprofit
+    /** **nonprofit**
 
 Nonprofit. */
     Nonprofit,
@@ -42447,57 +41811,55 @@ impl From<ResearchStudyPartyOrganizationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyPartyRole`. This is a ResearchStudy's party role.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyPartyRole](http://hl7.org/fhir/ValueSet/research-study-party-role)**. This is a ResearchStudy's party role.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPartyRole {
-    /** # collaborator
+    /** **collaborator**
 
 collaborator. collaborator */
     Collaborator,
-    /** # funding-source
+    /** **funding-source**
 
 funding-source. funding-source */
     FundingSource,
-    /** # general-contact
+    /** **general-contact**
 
 general-contact. general-contact */
     GeneralContact,
-    /** # irb
+    /** **irb**
 
 Institutional Review Board. */
     Irb,
-    /** # lead-sponsor
+    /** **lead-sponsor**
 
 lead-sponsor. lead-sponsor */
     LeadSponsor,
-    /** # primary-investigator
+    /** **primary-investigator**
 
 primary-investigator. primary-investigator */
     PrimaryInvestigator,
-    /** # recruitment-contact
+    /** **recruitment-contact**
 
 recruitment-contact. recruitment-contact */
     RecruitmentContact,
-    /** # sponsor
+    /** **sponsor**
 
 sponsor. sponsor */
     Sponsor,
-    /** # sponsor-investigator
+    /** **sponsor-investigator**
 
 sponsor-investigator. sponsor-investigator */
     SponsorInvestigator,
-    /** # study-chair
+    /** **study-chair**
 
 study-chair. study-chair */
     StudyChair,
-    /** # study-director
+    /** **study-director**
 
 study-director. study-director */
     StudyDirector,
-    /** # sub-investigator
+    /** **sub-investigator**
 
 sub-investigator. sub-investigator */
     SubInvestigator,
@@ -42594,41 +41956,39 @@ impl From<ResearchStudyPartyRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyPhase`. Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyPhase](http://hl7.org/fhir/ValueSet/research-study-phase)**. Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPhase {
-    /** # early-phase-1
+    /** **early-phase-1**
 
 Early Phase 1. Designation for optional exploratory trials conducted in accordance with the United States Food and Drug Administration's (FDA) 2006 Guidance on Exploratory Investigational New Drug (IND) Studies. Formerly called Phase 0. */
     EarlyPhase1,
-    /** # n-a
+    /** **n-a**
 
 N/A. Trials without phases (for example, studies of devices or behavioral interventions). */
     NA,
-    /** # phase-1
+    /** **phase-1**
 
 Phase 1. Includes initial studies to determine the metabolism and pharmacologic actions of drugs in humans, the side effects associated with increasing doses, and to gain early evidence of effectiveness; may include healthy participants and/or patients. */
     Phase1,
-    /** # phase-1-phase-2
+    /** **phase-1-phase-2**
 
 Phase 1/Phase 2. Trials that are a combination of phases 1 and 2. */
     Phase1Phase2,
-    /** # phase-2
+    /** **phase-2**
 
 Phase 2. Includes controlled clinical studies conducted to evaluate the effectiveness of the drug for a particular indication or indications in participants with the disease or condition under study and to determine the common short-term side effects and risks. */
     Phase2,
-    /** # phase-2-phase-3
+    /** **phase-2-phase-3**
 
 Phase 2/Phase 3. Trials that are a combination of phases 2 and 3. */
     Phase2Phase3,
-    /** # phase-3
+    /** **phase-3**
 
 Phase 3. Includes trials conducted after preliminary evidence suggesting effectiveness of the drug has been obtained, and are intended to gather additional information to evaluate the overall benefit-risk relationship of the drug. */
     Phase3,
-    /** # phase-4
+    /** **phase-4**
 
 Phase 4. Studies of FDA-approved drugs to delineate additional information including the drug's risks, benefits, and optimal use. */
     Phase4,
@@ -42713,41 +42073,39 @@ impl From<ResearchStudyPhase> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyPrimaryPurposeType`. Codes for the main intent of a research study.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyPrimaryPurposeType](http://hl7.org/fhir/ValueSet/research-study-prim-purp-type)**. Codes for the main intent of a research study.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPrimaryPurposeType {
-    /** # basic-science
+    /** **basic-science**
 
 Basic Science. One or more interventions for examining the basic mechanism of action (for example, physiology or biomechanics of an intervention). */
     BasicScience,
-    /** # device-feasibility
+    /** **device-feasibility**
 
 Device Feasibility. An intervention of a device product is being evaluated to determine the feasibility of the product or to test a prototype device and not health outcomes. Such studies are conducted to confirm the design and operating specifications of a device before beginning a full clinical trial. */
     DeviceFeasibility,
-    /** # diagnostic
+    /** **diagnostic**
 
 Diagnostic. One or more interventions are being evaluated for identifying a disease or health condition. */
     Diagnostic,
-    /** # health-services-research
+    /** **health-services-research**
 
 Health Services Research. One or more interventions for evaluating the delivery, processes, management, organization, or financing of healthcare. */
     HealthServicesResearch,
-    /** # prevention
+    /** **prevention**
 
 Prevention. One or more interventions are being assessed for preventing the development of a specific disease or health condition. */
     Prevention,
-    /** # screening
+    /** **screening**
 
 Screening. One or more interventions are assessed or examined for identifying a condition, or risk factors for a condition, in people who are not yet known to have the condition or risk factor. */
     Screening,
-    /** # supportive-care
+    /** **supportive-care**
 
 Supportive Care. One or more interventions are evaluated for maximizing comfort, minimizing side effects, or mitigating against a decline in the participant's health or function. */
     SupportiveCare,
-    /** # treatment
+    /** **treatment**
 
 Treatment. One or more interventions are being evaluated for treating a disease, syndrome, or condition. */
     Treatment,
@@ -42834,25 +42192,23 @@ impl From<ResearchStudyPrimaryPurposeType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyReasonStopped`. Codes for why the study ended prematurely.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyReasonStopped](http://hl7.org/fhir/ValueSet/research-study-reason-stopped)**. Codes for why the study ended prematurely.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyReasonStopped {
-    /** # accrual-goal-met
+    /** **accrual-goal-met**
 
 Accrual Goal Met. The study prematurely ended because the accrual goal was met. */
     AccrualGoalMet,
-    /** # closed-due-to-lack-of-study-progress
+    /** **closed-due-to-lack-of-study-progress**
 
 Closed due to lack of study progress. The study prematurely ended due to lack of study progress. */
     ClosedDueToLackOfStudyProgress,
-    /** # closed-due-to-toxicity
+    /** **closed-due-to-toxicity**
 
 Closed due to toxicity. The study prematurely ended due to toxicity. */
     ClosedDueToToxicity,
-    /** # temporarily-closed-per-study-design
+    /** **temporarily-closed-per-study-design**
 
 Temporarily closed per study design. The study prematurely ended temporarily per study design. */
     TemporarilyClosedPerStudyDesign,
@@ -42939,77 +42295,75 @@ impl From<ResearchStudyReasonStopped> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResearchStudyStatus`. Codes that convey the current status of the research study.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResearchStudyStatus](http://hl7.org/fhir/ValueSet/research-study-status)**. Codes that convey the current status of the research study.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyStatus {
-    /** # active
+    /** **active**
 
 Active. Study is opened for accrual. */
     Active,
-    /** # active-but-not-recruiting
+    /** **active-but-not-recruiting**
 
 Active, not recruiting. The study is ongoing, and participants are receiving an intervention or being examined, but potential participants are not currently being recruited or enrolled. */
     ActiveButNotRecruiting,
-    /** # administratively-completed
+    /** **administratively-completed**
 
 Administratively Completed. Study is completed prematurely and will not resume; patients are no longer examined nor treated. */
     AdministrativelyCompleted,
-    /** # approved
+    /** **approved**
 
 Approved. Protocol is approved by the review board. */
     Approved,
-    /** # closed-to-accrual
+    /** **closed-to-accrual**
 
 Closed to Accrual. Study is closed for accrual; patients can be examined and treated. */
     ClosedToAccrual,
-    /** # closed-to-accrual-and-intervention
+    /** **closed-to-accrual-and-intervention**
 
 Closed to Accrual and Intervention. Study is closed to accrual and intervention, i.e. the study is closed to enrollment, all study subjects have completed treatment or intervention but are still being followed according to the primary objective of the study. */
     ClosedToAccrualAndIntervention,
-    /** # completed
+    /** **completed**
 
 Completed. The study closed according to the study plan. There will be no further treatments, interventions or data collection. */
     Completed,
-    /** # disapproved
+    /** **disapproved**
 
 Disapproved. Protocol was disapproved by the review board. */
     Disapproved,
-    /** # enrolling-by-invitation
+    /** **enrolling-by-invitation**
 
 Enrolling by invitation. The study is selecting its participants from a population, or group of people, decided on by the researchers in advance. These studies are not open to everyone who meets the eligibility criteria but only to people in that particular population, who are specifically invited to participate. */
     EnrollingByInvitation,
-    /** # in-review
+    /** **in-review**
 
 In Review. Protocol is submitted to the review board for approval. */
     InReview,
-    /** # not-yet-recruiting
+    /** **not-yet-recruiting**
 
 Not yet recruiting. The study has not started recruiting participants. */
     NotYetRecruiting,
-    /** # overall-study
+    /** **overall-study**
 
 Overall study. Used for documenting the start and end of the overall study, distinct from progress states. */
     OverallStudy,
-    /** # recruiting
+    /** **recruiting**
 
 Recruiting. The study is currently recruiting participants. */
     Recruiting,
-    /** # temporarily-closed-to-accrual
+    /** **temporarily-closed-to-accrual**
 
 Temporarily Closed to Accrual. Study is temporarily closed for accrual; can be potentially resumed in the future; patients can be examined and treated. */
     TemporarilyClosedToAccrual,
-    /** # temporarily-closed-to-accrual-and-intervention
+    /** **temporarily-closed-to-accrual-and-intervention**
 
 Temporarily Closed to Accrual and Intervention. Study is temporarily closed for accrual and intervention and potentially can be resumed in the future. */
     TemporarilyClosedToAccrualAndIntervention,
-    /** # terminated
+    /** **terminated**
 
 Terminated. The study has stopped early and will not start again. Participants are no longer being examined or treated. */
     Terminated,
-    /** # withdrawn
+    /** **withdrawn**
 
 Withdrawn. Protocol was withdrawn by the lead organization. */
     Withdrawn,
@@ -43129,24 +42483,22 @@ impl From<ResearchStudyStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResourceValidationMode`. ResourceValidationMode
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResourceValidationMode](http://hl7.org/fhir/resource-validation-mode)**. ResourceValidationMode\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ResourceValidationMode {
-    /** # create
+    /** **create**
 
 Validate for Create. The server checks the content, and then checks that the content would be acceptable as a create (e.g. that the content would not violate any uniqueness constraints). */
     Create,
-    /** # delete
+    /** **delete**
 
 Validate for Delete. The server ignores the content and checks that the nominated resource is allowed to be deleted (e.g. checking referential integrity rules). */
     Delete,
-    /** # profile
+    /** **profile**
 
 Validate Against a Profile. The server checks an existing resource (must be nominated by id, not provided as a parameter) as valid against the nominated profile. */
     Profile,
-    /** # update
+    /** **update**
 
 Validate for Update. The server checks the content, and then checks that it would accept it as an update against the nominated specific resource (e.g. that there are no changes to immutable fields the server does not allow to change and checking version integrity if appropriate). */
     Update,
@@ -43223,21 +42575,19 @@ impl From<ResourceValidationMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResourceVersionPolicy`. How the system supports versioning for a resource.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResourceVersionPolicy](http://hl7.org/fhir/ValueSet/versioning-policy)**. How the system supports versioning for a resource.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResourceVersionPolicy {
-    /** # no-version
+    /** **no-version**
 
 No VersionId Support. VersionId meta-property is not supported (server) or used (client). */
     NoVersion,
-    /** # versioned
+    /** **versioned**
 
 Versioned. VersionId meta-property is supported (server) or used (client). */
     Versioned,
-    /** # versioned-update
+    /** **versioned-update**
 
 VersionId tracked fully. Supports version-aware updates (server) or will be specified (If-match header) for updates (client). */
     VersionedUpdate,
@@ -43307,21 +42657,19 @@ impl From<ResourceVersionPolicy> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ResponseType`. The kind of response to a message.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ResponseType](http://hl7.org/fhir/ValueSet/response-code)**. The kind of response to a message.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResponseType {
-    /** # fatal-error
+    /** **fatal-error**
 
 Fatal Error. The message was rejected because of a problem with the content. There is no point in re-sending without change. The response narrative SHALL describe the issue. */
     FatalError,
-    /** # ok
+    /** **ok**
 
 OK. The message was accepted and processed without error. */
     Ok,
-    /** # transient-error
+    /** **transient-error**
 
 Transient Error. Some internal unexpected error occurred - wait and try again. Note - this is usually used for things like database unavailable, which may be expected to resolve, though human intervention may be required. */
     TransientError,
@@ -43391,17 +42739,15 @@ impl From<ResponseType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RestfulCapabilityMode`. The mode of a RESTful capability statement.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RestfulCapabilityMode](http://hl7.org/fhir/ValueSet/restful-capability-mode)**. The mode of a RESTful capability statement.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RestfulCapabilityMode {
-    /** # client
+    /** **client**
 
 Client. The application acts as a client for this resource. */
     Client,
-    /** # server
+    /** **server**
 
 Server. The application acts as a server for this resource. */
     Server,
@@ -43468,33 +42814,31 @@ impl From<RestfulCapabilityMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `RestfulSecurityService`. Types of security services used with FHIR.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[RestfulSecurityService](http://hl7.org/fhir/ValueSet/restful-security-service)**. Types of security services used with FHIR.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RestfulSecurityService {
-    /** # Basic
+    /** **Basic**
 
 Basic. Basic authentication defined in HTTP specification. */
     Basic,
-    /** # Certificates
+    /** **Certificates**
 
 Certificates. SSL where client must have a certificate registered with the server. */
     Certificates,
-    /** # Kerberos
+    /** **Kerberos**
 
 Kerberos. see http://www.ietf.org/rfc/rfc4120.txt. */
     Kerberos,
-    /** # NTLM
+    /** **NTLM**
 
 NTLM. Microsoft NTLM Authentication. */
     Ntlm,
-    /** # OAuth
+    /** **OAuth**
 
 OAuth. OAuth (unspecified version see oauth.net). */
     Oauth,
-    /** # SMART-on-FHIR
+    /** **SMART-on-FHIR**
 
 SMART-on-FHIR. OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/). */
     SmartOnFHIR,
@@ -43573,60 +42917,58 @@ impl From<RestfulSecurityService> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SampleSecurityStructuralRoles`. This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions..
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SampleSecurityStructuralRoles](http://hl7.org/fhir/sample-security-structural-roles)**. This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions..\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SampleSecurityStructuralRoles {
-    /** # business-manager
+    /** **business-manager**
 
 Business Manager. */
     BusinessManager,
-    /** # claims-adjudicator
+    /** **claims-adjudicator**
 
 Claims Adjudicator. */
     ClaimsAdjudicator,
-    /** # dentist
+    /** **dentist**
 
 Dentist. The specialty relating to the function and diseases of the teeth, mouth, and gums. */
     Dentist,
-    /** # dietician
+    /** **dietician**
 
 Dietician. The health profession concerned with the practical application of diet in the prophylaxis and treatment of disease. */
     Dietician,
-    /** # general-medicine
+    /** **general-medicine**
 
 General Medicine. The branch of medicine involving the study and treatment of general diseases or those affecting the internal parts of the body, especially those not usually requiring surgical intervention */
     GeneralMedicine,
-    /** # general-nursing
+    /** **general-nursing**
 
 General Nursing. The branch of healthcare concerned with caring for the sick or injured in any environment. */
     GeneralNursing,
-    /** # non-regulated-health-professionals
+    /** **non-regulated-health-professionals**
 
 Non-Regulated health Professionals. person employed by a healthcare organization who is not a health professional */
     NonRegulatedHealthProfessionals,
-    /** # pediatrics
+    /** **pediatrics**
 
 Pediatrics. The medical specialty concerned with the study of treatment of children in health and disease during development from birth through adolescence. */
     Pediatrics,
-    /** # pharmacy
+    /** **pharmacy**
 
 Pharmacy. The branch of medical science that deals with drugs and their uses. */
     Pharmacy,
-    /** # receptionist
+    /** **receptionist**
 
 Receptionist. */
     Receptionist,
-    /** # regulated-health-professionals
+    /** **regulated-health-professionals**
 
 Regulated Health Professionals. A person who is authorized by a national recognized body to be qualified to perform health services */
     RegulatedHealthProfessionals,
-    /** # transcriptionist
+    /** **transcriptionist**
 
 Transcriptionist. */
     Transcriptionist,
-    /** # veterinarian
+    /** **veterinarian**
 
 Veterinarian. The specialty relating to non-human subjects. */
     Veterinarian,
@@ -43732,45 +43074,43 @@ impl From<SampleSecurityStructuralRoles> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SearchComparator`. What Search Comparator Codes are supported in search.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SearchComparator](http://hl7.org/fhir/ValueSet/search-comparator)**. What Search Comparator Codes are supported in search.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchComparator {
-    /** # ap
+    /** **ap**
 
 Approximately. the value for the parameter in the resource is approximately the same to the provided value. */
     Ap,
-    /** # eb
+    /** **eb**
 
 Ends Before. the value for the parameter in the resource ends before the provided value. */
     Eb,
-    /** # eq
+    /** **eq**
 
 Equals. the value for the parameter in the resource is equal to the provided value. */
     Eq,
-    /** # ge
+    /** **ge**
 
 Greater or Equals. the value for the parameter in the resource is greater or equal to the provided value. */
     Ge,
-    /** # gt
+    /** **gt**
 
 Greater Than. the value for the parameter in the resource is greater than the provided value. */
     Gt,
-    /** # le
+    /** **le**
 
 Less of Equal. the value for the parameter in the resource is less or equal to the provided value. */
     Le,
-    /** # lt
+    /** **lt**
 
 Less Than. the value for the parameter in the resource is less than the provided value. */
     Lt,
-    /** # ne
+    /** **ne**
 
 Not Equals. the value for the parameter in the resource is not equal to the provided value. */
     Ne,
-    /** # sa
+    /** **sa**
 
 Starts After. the value for the parameter in the resource starts after the provided value. */
     Sa,
@@ -43858,21 +43198,19 @@ impl From<SearchComparator> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SearchEntryMode`. Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SearchEntryMode](http://hl7.org/fhir/ValueSet/search-entry-mode)**. Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchEntryMode {
-    /** # include
+    /** **include**
 
 Include. This resource is returned because it is referred to from another resource in the search set. */
     Include,
-    /** # match
+    /** **match**
 
 Match. This resource matched the search specification. */
     Match,
-    /** # outcome
+    /** **outcome**
 
 Outcome. An OperationOutcome that provides additional information about the processing of a search. */
     Outcome,
@@ -43942,69 +43280,67 @@ impl From<SearchEntryMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SearchModifierCode`. A supported modifier for a search parameter.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SearchModifierCode](http://hl7.org/fhir/ValueSet/search-modifier-code)**. A supported modifier for a search parameter.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchModifierCode {
-    /** # above
+    /** **above**
 
 Above. The search parameter tests whether the value in a resource subsumes the specified value (is-a, or hierarchical relationships). */
     Above,
-    /** # below
+    /** **below**
 
 Below. The search parameter tests whether the value in a resource is subsumed by the specified value (is-a, or hierarchical relationships). */
     Below,
-    /** # code-text
+    /** **code-text**
 
 Code Text. Tests whether the textual display value in a resource (e.g., CodeableConcept.text, Coding.display, or Reference.display) matches the supplied parameter value. */
     CodeText,
-    /** # contains
+    /** **contains**
 
 Contains. The search parameter returns resources that include the supplied parameter value anywhere within the field being searched. */
     Contains,
-    /** # exact
+    /** **exact**
 
 Exact. The search parameter returns resources that have a value that exactly matches the supplied parameter (the whole string, including casing and accents). */
     Exact,
-    /** # identifier
+    /** **identifier**
 
 Identifier. The search parameter applies to the identifier on the resource, not the reference. */
     Identifier,
-    /** # in
+    /** **in**
 
 In. The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is in the specified value set. */
     In,
-    /** # iterate
+    /** **iterate**
 
 Iterate. The search parameter indicates an inclusion directive (_include, _revinclude) that is applied to an included resource instead of the matching resource. */
     Iterate,
-    /** # missing
+    /** **missing**
 
 Missing. The search parameter returns resources that have a value or not. */
     Missing,
-    /** # not
+    /** **not**
 
 Not. The search parameter returns resources that do not contain a match. */
     Not,
-    /** # not-in
+    /** **not-in**
 
 Not In. The search parameter is a URI (relative or absolute) that identifies a value set, and the search parameter tests whether the coding is not in the specified value set. */
     NotIn,
-    /** # of-type
+    /** **of-type**
 
 Of Type. The search parameter has the format system|code|value, where the system and code refer to an Identifier.type.coding.system and .code, and match if any of the type codes match. All 3 parts must be present. */
     OfType,
-    /** # text
+    /** **text**
 
 Text. The search parameter is processed as a string that searches text associated with the code/value - either CodeableConcept.text, Coding.display, Identifier.type.text, or Reference.display. */
     Text,
-    /** # text-advanced
+    /** **text-advanced**
 
 Text Advanced. Tests whether the value in a resource matches the supplied parameter value using advanced text handling that searches text associated with the code/value - e.g., CodeableConcept.text, Coding.display, or Identifier.type.text. */
     TextAdvanced,
-    /** # type
+    /** **type**
 
 Type. The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.). */
     Type,
@@ -44110,45 +43446,43 @@ impl From<SearchModifierCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SearchParamType`. Data types allowed to be used for search parameters.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SearchParamType](http://hl7.org/fhir/ValueSet/search-param-type)**. Data types allowed to be used for search parameters.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchParamType {
-    /** # composite
+    /** **composite**
 
 Composite. A composite search parameter that combines a search on two values together. */
     Composite,
-    /** # date
+    /** **date**
 
 Date/DateTime. Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported. */
     Date,
-    /** # number
+    /** **number**
 
 Number. Search parameter SHALL be a number (a whole number, or a decimal). */
     Number,
-    /** # quantity
+    /** **quantity**
 
 Quantity. A search parameter that searches on a quantity. */
     Quantity,
-    /** # reference
+    /** **reference**
 
 Reference. A reference to another resource (Reference or canonical). */
     Reference,
-    /** # special
+    /** **special**
 
 Special. Special logic applies to this parameter per the description of the search parameter. */
     Special,
-    /** # string
+    /** **string**
 
 String. Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces. */
     String,
-    /** # token
+    /** **token**
 
 Token. Search parameter on a coded element or identifier. May be used to search through the text, display, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used. */
     Token,
-    /** # uri
+    /** **uri**
 
 URI. A search parameter that searches on a URI (RFC 3986). */
     Uri,
@@ -44236,21 +43570,19 @@ impl From<SearchParamType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SearchProcessingModeType`. How a search parameter relates to the set of elements returned by evaluating its expression query.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SearchProcessingModeType](http://hl7.org/fhir/ValueSet/search-processingmode)**. How a search parameter relates to the set of elements returned by evaluating its expression query.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchProcessingModeType {
-    /** # normal
+    /** **normal**
 
 Normal. The search parameter is derived directly from the selected nodes based on the type definitions. */
     Normal,
-    /** # other
+    /** **other**
 
 Other. The interpretation of the xpath statement is unknown (and can't be automated). */
     Other,
-    /** # phonetic
+    /** **phonetic**
 
 Phonetic. The search parameter is derived by a phonetic transform from the selected nodes. */
     Phonetic,
@@ -44320,21 +43652,19 @@ impl From<SearchProcessingModeType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SequenceType`. Type if a sequence -- DNA, RNA, or amino acid sequence.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SequenceType](http://hl7.org/fhir/ValueSet/sequence-type)**. Type if a sequence -- DNA, RNA, or amino acid sequence.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SequenceType {
-    /** # aa
+    /** **aa**
 
 AA Sequence. Amino acid sequence. */
     Aa,
-    /** # dna
+    /** **dna**
 
 DNA Sequence. DNA Sequence. */
     Dna,
-    /** # rna
+    /** **rna**
 
 RNA Sequence. RNA Sequence. */
     Rna,
@@ -44404,25 +43734,23 @@ impl From<SequenceType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ServiceMode`. An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ServiceMode](http://hl7.org/fhir/ValueSet/service-mode)**. An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ServiceMode {
-    /** # chat
+    /** **chat**
 
 Chat/Messaging. This service will be provided via a realtime chat/messaging conversation */
     Chat,
-    /** # in-person
+    /** **in-person**
 
 In Person. The service will be provided in person */
     InPerson,
-    /** # telephone
+    /** **telephone**
 
 Telephone. The service will be provided by a teleconferencing facility or regular telephone */
     Telephone,
-    /** # videoconference
+    /** **videoconference**
 
 Video Conference. The service will be provided over a video-conference facility */
     Videoconference,
@@ -44495,25 +43823,23 @@ impl From<ServiceMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `ServiceRequestOrderDetailParameterCode`. Codes providing the parameter codes for service request details.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[ServiceRequestOrderDetailParameterCode](http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code)**. Codes providing the parameter codes for service request details.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ServiceRequestOrderDetailParameterCode {
-    /** # body-elevation
+    /** **body-elevation**
 
 Body Elevation. Describes elevation instructions. */
     BodyElevation,
-    /** # catheter-insertion
+    /** **catheter-insertion**
 
 Catheter Insertion. Describes insertion instructions. */
     CatheterInsertion,
-    /** # device-configuration
+    /** **device-configuration**
 
 Device Configuration. Describes configuration details */
     DeviceConfiguration,
-    /** # device-settings
+    /** **device-settings**
 
 Device Settings. Describes setting details. */
     DeviceSettings,
@@ -44589,21 +43915,19 @@ impl From<ServiceRequestOrderDetailParameterCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SlicingRules`. How slices are interpreted when evaluating an instance.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SlicingRules](http://hl7.org/fhir/ValueSet/resource-slicing-rules)**. How slices are interpreted when evaluating an instance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SlicingRules {
-    /** # closed
+    /** **closed**
 
 Closed. No additional content is allowed other than that described by the slices in this profile. */
     Closed,
-    /** # open
+    /** **open**
 
 Open. Additional content is allowed anywhere in the list. */
     Open,
-    /** # openAtEnd
+    /** **openAtEnd**
 
 Open at End. Additional content is allowed, but only at the end of the list. Note that using this requires that the slices be ordered, which makes it hard to share uses. This should only be done where absolutely required. */
     OpenAtEnd,
@@ -44673,29 +43997,27 @@ impl From<SlicingRules> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SlotStatus`. The free/busy status of the slot.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SlotStatus](http://hl7.org/fhir/ValueSet/slotstatus)**. The free/busy status of the slot.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SlotStatus {
-    /** # busy
+    /** **busy**
 
 Busy. Indicates that the time interval is busy because one  or more events have been scheduled for that interval. */
     Busy,
-    /** # busy-tentative
+    /** **busy-tentative**
 
 Busy (Tentative). Indicates that the time interval is busy because one or more events have been tentatively scheduled for that interval. */
     BusyTentative,
-    /** # busy-unavailable
+    /** **busy-unavailable**
 
 Busy (Unavailable). Indicates that the time interval is busy and that the interval cannot be scheduled. */
     BusyUnavailable,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in error. This instance should not have been part of this patient's medical record. */
     EnteredInError,
-    /** # free
+    /** **free**
 
 Free. Indicates that the time interval is free for scheduling. */
     Free,
@@ -44771,17 +44093,15 @@ impl From<SlotStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SortDirection`. The possible sort directions, ascending or descending.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SortDirection](http://hl7.org/fhir/ValueSet/sort-direction)**. The possible sort directions, ascending or descending.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SortDirection {
-    /** # ascending
+    /** **ascending**
 
 Ascending. Sort by the value ascending, so that lower values appear first. */
     Ascending,
-    /** # descending
+    /** **descending**
 
 Descending. Sort by the value descending, so that lower values appear last. */
     Descending,
@@ -44848,13 +44168,11 @@ impl From<SortDirection> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SpecialMeasures`. Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorization studies.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SpecialMeasures](http://hl7.org/fhir/ValueSet/medicinal-product-special-measures)**. Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorization studies.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecialMeasures {
-    /** # Post-authorizationStudies
+    /** **Post-authorizationStudies**
 
 Requirement to conduct post-authorization studies. Requirement to conduct post-authorization studies */
     PostAuthorizationStudies,
@@ -44923,17 +44241,15 @@ impl From<SpecialMeasures> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SpecimenCombined`. Codes providing the combined status of the specimen.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SpecimenCombined](http://hl7.org/fhir/ValueSet/specimen-combined)**. Codes providing the combined status of the specimen.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenCombined {
-    /** # grouped
+    /** **grouped**
 
 Grouped. The specimen is in a group. */
     Grouped,
-    /** # pooled
+    /** **pooled**
 
 Pooled. The specimen is pooled. */
     Pooled,
@@ -45000,17 +44316,15 @@ impl From<SpecimenCombined> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SpecimenContainedPreference`. Degree of preference of a type of conditioned specimen.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SpecimenContainedPreference](http://hl7.org/fhir/ValueSet/specimen-contained-preference)**. Degree of preference of a type of conditioned specimen.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenContainedPreference {
-    /** # alternate
+    /** **alternate**
 
 Alternate. This type of conditioned specimen is an alternate. */
     Alternate,
-    /** # preferred
+    /** **preferred**
 
 Preferred. This type of contained specimen is preferred to collect this kind of specimen. */
     Preferred,
@@ -45079,45 +44393,43 @@ impl From<SpecimenContainedPreference> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SpecimenRole`. Codes providing the combined status of the specimen.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SpecimenRole](http://hl7.org/fhir/ValueSet/specimen-role)**. Codes providing the combined status of the specimen.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenRole {
-    /** # b
+    /** **b**
 
 Blind Sample. Used to test the validity of the measurement process, where the composition of the sample is unknown except to the person submitting it. */
     B,
-    /** # c
+    /** **c**
 
 Calibrator. Used for initial setting of calibration of the instrument. */
     C,
-    /** # e
+    /** **e**
 
 Electronic QC. Used with manufactured reference providing signals that simulate QC results. */
     E,
-    /** # f
+    /** **f**
 
 Filler Organization Proficiency. Specimen used for testing proficiency of the organization performing the testing (Filler). */
     F,
-    /** # o
+    /** **o**
 
 Operator Proficiency. Specimen used for testing Operator Proficiency. */
     O,
-    /** # p
+    /** **p**
 
 Patient. Used for any patient sample. */
     P,
-    /** # q
+    /** **q**
 
 Control specimen. Used when specimen is the control specimen (either positive or negative). */
     Q,
-    /** # r
+    /** **r**
 
 Replicate (of patient sample as a control). Used when a patient sample is re-run as a control for a repeat test. */
     R,
-    /** # v
+    /** **v**
 
 Verifying Calibrator. Used for periodic calibration checks. */
     V,
@@ -45205,25 +44517,23 @@ impl From<SpecimenRole> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SpecimenStatus`. Codes providing the status/availability of a specimen.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SpecimenStatus](http://hl7.org/fhir/ValueSet/specimen-status)**. Codes providing the status/availability of a specimen.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenStatus {
-    /** # available
+    /** **available**
 
 Available. The physical specimen is present and in good condition. */
     Available,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The specimen was entered in error and therefore nullified. */
     EnteredInError,
-    /** # unavailable
+    /** **unavailable**
 
 Unavailable. There is no physical specimen because it is either lost, destroyed or consumed. */
     Unavailable,
-    /** # unsatisfactory
+    /** **unsatisfactory**
 
 Unsatisfactory. The specimen cannot be used because of a quality issue such as a broken container, contamination, or too old. */
     Unsatisfactory,
@@ -45296,325 +44606,323 @@ impl From<SpecimenStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StatisticModelCode`. The role that the assertion variable plays.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StatisticModelCode](http://hl7.org/fhir/ValueSet/statistic-model-code)**. The role that the assertion variable plays.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StatisticModelCode {
-    /** # adjusted
+    /** **adjusted**
 
 Adjusted analysis. Used for adjusted analysis, paired with variable element(s) */
     Adjusted,
-    /** # anova
+    /** **anova**
 
 ANOVA (ANalysis Of VAriance). Used for ANOVA method of analysis, may be paired with "value" to express degrees of freedom */
     Anova,
-    /** # anovaOneWay
+    /** **anovaOneWay**
 
 one-way ANOVA. Used for one-way ANOVA method of analysis, may be paired with "value" to express degrees of freedom */
     AnovaOneWay,
-    /** # anovaThreeWay
+    /** **anovaThreeWay**
 
 3-way ANOVA. Used for 3-way ANOVA method of analysis, may be paired with "value" to express degrees of freedom */
     AnovaThreeWay,
-    /** # anovaTwoWay
+    /** **anovaTwoWay**
 
 2-way ANOVA without replication. Used for 2-way ANOVA without replication method of analysis, may be paired with "value" to express degrees of freedom */
     AnovaTwoWay,
-    /** # anovaTwoWayReplication
+    /** **anovaTwoWayReplication**
 
 2-way ANOVA with replication. Used for 2-way ANOVA with replication method of analysis, may be paired with "value" to express degrees of freedom */
     AnovaTwoWayReplication,
-    /** # binomialDistributionRegression
+    /** **binomialDistributionRegression**
 
 Binomial Distribution for Regression. Used for Binomial Distribution for Regression, no additional elements needed */
     BinomialDistributionRegression,
-    /** # chiSquareTest
+    /** **chiSquareTest**
 
 Chi-square test. Used for Chi-square test, may be paired with "value" to express degrees of freedom */
     ChiSquareTest,
-    /** # chiSquareTestHomogeneity
+    /** **chiSquareTestHomogeneity**
 
 Chi-square test for homogeneity. Used for Chi-square test for homogeneity, may be paired with "value" to express degrees of freedom */
     ChiSquareTestHomogeneity,
-    /** # chiSquareTestTrend
+    /** **chiSquareTestTrend**
 
 Chi-square test for trend. Used for Chi-square test for trend, may be paired with "value" to express degrees of freedom */
     ChiSquareTestTrend,
-    /** # coxProportionalHazards
+    /** **coxProportionalHazards**
 
 Cox Proportional Hazards. Used for Cox proportional hazards method of analysis, no additional elements needed */
     CoxProportionalHazards,
-    /** # dersimonianLairdMethod
+    /** **dersimonianLairdMethod**
 
 Dersimonian-Laird method. Used for Dersimonian-Laird method of tau estimation, no additional elements needed */
     DersimonianLairdMethod,
-    /** # effectsFixed
+    /** **effectsFixed**
 
 Fixed-effects. From a fixed-effects analysis, no additional elements needed */
     EffectsFixed,
-    /** # effectsRandom
+    /** **effectsRandom**
 
 Random-effects. From a random-effects analysis, no additional elements needed */
     EffectsRandom,
-    /** # empiricalBayes
+    /** **empiricalBayes**
 
 Empirical Bayes method. Used for Empirical Bayes method of tau estimation, no additional elements needed */
     EmpiricalBayes,
-    /** # fishersExactTest
+    /** **fishersExactTest**
 
 Fisher’s exact test. Used for Fisher's exact test, may be paired with "value" to express degrees of freedom */
     FishersExactTest,
-    /** # friedmanTest
+    /** **friedmanTest**
 
 Friedman test. Used for Friedman test, no additional elements needed */
     FriedmanTest,
-    /** # glm
+    /** **glm**
 
 GLM (Generalized Linear Model). Used for GLM (Generalized Linear Model), no additional elements needed */
     Glm,
-    /** # glmGeneralizedLogit
+    /** **glmGeneralizedLogit**
 
 GLM with generalized logit link. Used for GLM with generalized logit link, no additional elements needed */
     GlmGeneralizedLogit,
-    /** # glmIdentity
+    /** **glmIdentity**
 
 GLM with identity link. Used for GLM with identity link, no additional elements needed */
     GlmIdentity,
-    /** # glmLog
+    /** **glmLog**
 
 GLM with log link. Used for GLM with log link, no additional elements needed */
     GlmLog,
-    /** # glmLogit
+    /** **glmLogit**
 
 GLM with logit link. Used for GLM with logit link, no additional elements needed */
     GlmLogit,
-    /** # glmProbit
+    /** **glmProbit**
 
 GLM with probit link. Used for GLM with probit link, no additional elements needed */
     GlmProbit,
-    /** # glmm
+    /** **glmm**
 
 Generalized linear mixed model (GLMM). Used for Generalized linear mixed model (GLMM), no additional elements needed */
     Glmm,
-    /** # glmmGeneralizedLogit
+    /** **glmmGeneralizedLogit**
 
 GLMM with generalized logit link. Used for GLMM with generalized logit link, no additional elements needed */
     GlmmGeneralizedLogit,
-    /** # glmmIdentity
+    /** **glmmIdentity**
 
 GLMM with identity link. Used for GLMM with identity link, no additional elements needed */
     GlmmIdentity,
-    /** # glmmLog
+    /** **glmmLog**
 
 GLMM with log link. Used for GLMM with log link, no additional elements needed */
     GlmmLog,
-    /** # glmmLogit
+    /** **glmmLogit**
 
 GLMM with logit link. Used for GLMM with logit link, no additional elements needed */
     GlmmLogit,
-    /** # glmmProbit
+    /** **glmmProbit**
 
 GLMM with probit link. Used for GLMM with probit link, no additional elements needed */
     GlmmProbit,
-    /** # goodmanKruskasGamma
+    /** **goodmanKruskasGamma**
 
 Goodman Kruska’s Gamma. Used for Goodman Kruska’s Gamma, no additional elements needed */
     GoodmanKruskasGamma,
-    /** # hartungKnapp
+    /** **hartungKnapp**
 
 Hartung-Knapp adjustment. Hartung-Knapp/Hartung-Knapp-Sidik-Jonkman adjustment used in meta-analysis, no additional elements needed */
     HartungKnapp,
-    /** # hedgesMethod
+    /** **hedgesMethod**
 
 Hedges method. Used for Hedges method of tau estimation, no additional elements needed */
     HedgesMethod,
-    /** # hunterSchmidt
+    /** **hunterSchmidt**
 
 Hunter-Schmidt method. Used for Hunter-Schmidt method of tau estimation, no additional elements needed */
     HunterSchmidt,
-    /** # interactionTerm
+    /** **interactionTerm**
 
 Interaction term. Used for interaction term, paired with "value" and two or more variable elements */
     InteractionTerm,
-    /** # inverseVariance
+    /** **inverseVariance**
 
 Inverse variance method. Used for inverse variance method of meta-analysis, no additional elements needed */
     InverseVariance,
-    /** # kendallCorrelation
+    /** **kendallCorrelation**
 
 Kendall correlation. Used for Kendall correlation, no additional elements needed */
     KendallCorrelation,
-    /** # kruskalWallisTest
+    /** **kruskalWallisTest**
 
 Kruskal Wallis test. Used for Kruskal Wallis test, may be paired with "value" to express degrees of freedom */
     KruskalWallisTest,
-    /** # linearRegression
+    /** **linearRegression**
 
 Linear Regression. Used for linear regression method of analysis, no additional elements needed */
     LinearRegression,
-    /** # logisticRegression
+    /** **logisticRegression**
 
 Logistic Regression. Used for logistic regression method of analysis, no additional elements needed */
     LogisticRegression,
-    /** # mannWhitneyUTest
+    /** **mannWhitneyUTest**
 
 Mann-Whitney U test. Used for Mann-Whitney U test, no additional elements needed */
     MannWhitneyUTest,
-    /** # manova
+    /** **manova**
 
 multivariate ANOVA (MANOVA). Used for multivariate ANOVA (MANOVA) method of analysis, may be paired with "value" to express degrees of freedom */
     Manova,
-    /** # manteHaenszelMethod
+    /** **manteHaenszelMethod**
 
 Mantel-Haenszel method. Used for Mantel-Haenszel method, no additional elements needed */
     ManteHaenszelMethod,
-    /** # maximumLikelihood
+    /** **maximumLikelihood**
 
 Maximum Likelihood method. Used for Maximum Likelihood method of tau estimation, no additional elements needed */
     MaximumLikelihood,
-    /** # mcnemarsTest
+    /** **mcnemarsTest**
 
 McNemar’s test. Used for McNemar's test, no additional elements needed */
     McnemarsTest,
-    /** # metaAnalysis
+    /** **metaAnalysis**
 
 Meta-analysis. Used for meta-analysis, no additional elements needed */
     MetaAnalysis,
-    /** # modifiedHartungKnapp
+    /** **modifiedHartungKnapp**
 
 Modified Hartung-Knapp adjustment. Modified Hartung-Knapp/Hartung-Knapp-Sidik-Jonkman adjustment used in meta-analysis, no additional elements needed */
     ModifiedHartungKnapp,
-    /** # multinomialDistributionRegression
+    /** **multinomialDistributionRegression**
 
 Multinomial Distribution for Regression. Used for Multinomial Distribution for Regression, no additional elements needed */
     MultinomialDistributionRegression,
-    /** # negativeBinomialRegression
+    /** **negativeBinomialRegression**
 
 Negative Binomial Regression. Used for Negative Binomial Regression, no additional elements needed */
     NegativeBinomialRegression,
-    /** # oneSampleTTest
+    /** **oneSampleTTest**
 
 1-sample t-test. Used for 1-sample t-test, may be paired with "value" to express degrees of freedom */
     OneSampleTTest,
-    /** # oneTailedTest
+    /** **oneTailedTest**
 
 one-tailed test (1 threshold). Used for one-tailed test (1 threshold), no additional elements needed */
     OneTailedTest,
-    /** # pairedTTest
+    /** **pairedTTest**
 
 paired t-test. Used for paired t-test, may be paired with "value" to express degrees of freedom */
     PairedTTest,
-    /** # pauleMandelMethod
+    /** **pauleMandelMethod**
 
 Paule-Mandel method. Used for Paule-Mandel method of tau estimation, no additional elements needed */
     PauleMandelMethod,
-    /** # pearsonCorrelation
+    /** **pearsonCorrelation**
 
 Pearson correlation. Used for Pearson correlation, no additional elements needed */
     PearsonCorrelation,
-    /** # petoMethod
+    /** **petoMethod**
 
 Peto method. Used for Peto method of meta-analysis, no additional elements needed */
     PetoMethod,
-    /** # poissonRegression
+    /** **poissonRegression**
 
 Poisson Regression. Used for Poisson Regression, no additional elements needed */
     PoissonRegression,
-    /** # polynomialRegression
+    /** **polynomialRegression**
 
 Polynomial Regression. Used for Polynomial regression method of analysis, no additional elements needed */
     PolynomialRegression,
-    /** # poolGeneralizedLinearMixedModel
+    /** **poolGeneralizedLinearMixedModel**
 
 Generalized linear mixed model (GLMM). Generalized linear mixed model (GLMM) method for pooling in meta-analysis */
     PoolGeneralizedLinearMixedModel,
-    /** # poolInverseVariance
+    /** **poolInverseVariance**
 
 Inverse variance method. Inverse variance method for pooling in meta-analysis */
     PoolInverseVariance,
-    /** # poolMantelHaenzsel
+    /** **poolMantelHaenzsel**
 
 Mantel-Haenszel method. Mantel-Haenszel method for pooling in meta-analysis */
     PoolMantelHaenzsel,
-    /** # poolPeto
+    /** **poolPeto**
 
 Peto method. Peto method for pooling in meta-analysis */
     PoolPeto,
-    /** # restrictedLikelihood
+    /** **restrictedLikelihood**
 
 Restricted Maximum Likelihood method. Used for Restricted Maximum Likelihood method of tau estimation, no additional elements needed */
     RestrictedLikelihood,
-    /** # sidikJonkman
+    /** **sidikJonkman**
 
 Sidik-Jonkman method. Used for Sidik-Jonkman method of tau estimation, no additional elements needed */
     SidikJonkman,
-    /** # signTest
+    /** **signTest**
 
 sign test. Used for sign test, no additional elements needed */
     SignTest,
-    /** # spearmanCorrelation
+    /** **spearmanCorrelation**
 
 Spearman correlation. Used for Spearman correlation, no additional elements needed */
     SpearmanCorrelation,
-    /** # tauDersimonianLaird
+    /** **tauDersimonianLaird**
 
 Dersimonian-Laird method. Dersimonian-Laird method for tau squared */
     TauDersimonianLaird,
-    /** # tauEmpiricalBayes
+    /** **tauEmpiricalBayes**
 
 Empirical Bayes method. Empirical Bayes method for tau squared */
     TauEmpiricalBayes,
-    /** # tauHedges
+    /** **tauHedges**
 
 Hedges method. Hedges method for tau squared */
     TauHedges,
-    /** # tauHunterSchmidt
+    /** **tauHunterSchmidt**
 
 Hunter-Schmidt method. Hunter-Schmidt method for tau squared */
     TauHunterSchmidt,
-    /** # tauMaximumLikelihood
+    /** **tauMaximumLikelihood**
 
 Maximum Likelihood method. Maximum Likelihood method for tau squared */
     TauMaximumLikelihood,
-    /** # tauPauleMandel
+    /** **tauPauleMandel**
 
 Paule-Mandel method. Paule-Mandel method for tau squared */
     TauPauleMandel,
-    /** # tauRestrictedMaximumLikelihood
+    /** **tauRestrictedMaximumLikelihood**
 
 Restricted Maximum Likelihood method. Restricted Maximum Likelihood method for tau squared */
     TauRestrictedMaximumLikelihood,
-    /** # tauSidikJonkman
+    /** **tauSidikJonkman**
 
 Sidik-Jonkman method. Sidik-Jonkman method for tau squared */
     TauSidikJonkman,
-    /** # twoSampleTTest
+    /** **twoSampleTTest**
 
 2-sample t-test. Used for 2-sample t-test, may be paired with "value" to express degrees of freedom */
     TwoSampleTTest,
-    /** # twoTailedTest
+    /** **twoTailedTest**
 
 two-tailed test (2 thresholds). Used for two-tailed test (2 threshold), no additional elements needed */
     TwoTailedTest,
-    /** # wilcoxonRankSumTest
+    /** **wilcoxonRankSumTest**
 
 Wilcoxon rank-sum test. Used for Wilcoxon rank-sum test, no additional elements needed */
     WilcoxonRankSumTest,
-    /** # wilcoxonSignedRankTest
+    /** **wilcoxonSignedRankTest**
 
 Wilcoxon signed-rank test. Used for Wilcoxon signed-rank test, no additional elements needed */
     WilcoxonSignedRankTest,
-    /** # zTest
+    /** **zTest**
 
 z-test. Used for z-test, no additional elements needed */
     Ztest,
-    /** # zeroCellConstant
+    /** **zeroCellConstant**
 
 Zero-cell adjustment with constant. Zero-cell adjustment done by adding a constant to all cells of affected studies, paired with "value" to define the constant */
     ZeroCellConstant,
-    /** # zeroCellContinuityCorrection
+    /** **zeroCellContinuityCorrection**
 
 Zero-cell adjustment with continuity correction. Zero-cell adjustment done by treatment arm continuity correction, no additional elements needed */
     ZeroCellContinuityCorrection,
@@ -45928,93 +45236,91 @@ impl From<StatisticModelCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StatisticsCode`. The statistical operation parameter -"statistic" codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StatisticsCode](http://hl7.org/fhir/ValueSet/observation-statistics)**. The statistical operation parameter -\"statistic\" codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StatisticsCode {
-    /** # 20-percent
+    /** **20-percent**
 
 20th Percentile. The 20th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period. */
     N20Percent,
-    /** # 4-dev
+    /** **4-dev**
 
 Quartile Deviation. The difference between the upper and lower [Quartiles](https://en.wikipedia.org/wiki/Quartile) is called the Interquartile range. (IQR = Q3-Q1) Quartile deviation or Semi-interquartile range is one-half the difference between the first and the third quartiles. */
     N4Dev,
-    /** # 4-lower
+    /** **4-lower**
 
 Lower Quartile. The lower [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period. */
     N4Lower,
-    /** # 4-upper
+    /** **4-upper**
 
 Upper Quartile. The upper [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period. */
     N4Upper,
-    /** # 5-1
+    /** **5-1**
 
 1st Quintile. The lowest of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population. */
     N51,
-    /** # 5-2
+    /** **5-2**
 
 2nd Quintile. The second of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population. */
     N52,
-    /** # 5-3
+    /** **5-3**
 
 3rd Quintile. The third of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population. */
     N53,
-    /** # 5-4
+    /** **5-4**
 
 4th Quintile. The fourth of four values that divide the N measurements into a frequency distribution of five classes with each containing one fifth of the total population. */
     N54,
-    /** # 80-percent
+    /** **80-percent**
 
 80th Percentile. The 80th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period. */
     N80Percent,
-    /** # average
+    /** **average**
 
 Average. The [mean](https://en.wikipedia.org/wiki/Arithmetic_mean) of N measurements over the stated period. */
     Average,
-    /** # count
+    /** **count**
 
 Count. The [number] of valid measurements over the stated period that contributed to the other statistical outputs. */
     Count,
-    /** # kurtosis
+    /** **kurtosis**
 
 Kurtosis. Kurtosis  is a measure of the "tailedness" of the probability distribution of a real-valued random variable.   Source: [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis). */
     Kurtosis,
-    /** # maximum
+    /** **maximum**
 
 Maximum. The [maximum](https://en.wikipedia.org/wiki/Maximal_element) value of N measurements over the stated period. */
     Maximum,
-    /** # median
+    /** **median**
 
 Median. The [median](https://en.wikipedia.org/wiki/Median) of N measurements over the stated period. */
     Median,
-    /** # minimum
+    /** **minimum**
 
 Minimum. The [minimum](https://en.wikipedia.org/wiki/Minimal_element) value of N measurements over the stated period. */
     Minimum,
-    /** # regression
+    /** **regression**
 
 Regression. Linear regression is an approach for modeling two-dimensional sample points with one independent variable and one dependent variable (conventionally, the x and y coordinates in a Cartesian coordinate system) and finds a linear function (a non-vertical straight line) that, as accurately as possible, predicts the dependent variable values as a function of the independent variables. Source: [Wikipedia](https://en.wikipedia.org/wiki/Simple_linear_regression)  This Statistic code will return both a gradient and an intercept value. */
     Regression,
-    /** # skew
+    /** **skew**
 
 Skew. Skewness is a measure of the asymmetry of the probability distribution of a real-valued random variable about its mean. The skewness value can be positive or negative, or even undefined.  Source: [Wikipedia](https://en.wikipedia.org/wiki/Skewness). */
     Skew,
-    /** # std-dev
+    /** **std-dev**
 
 Standard Deviation. The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of N measurements over the stated period. */
     StdDev,
-    /** # sum
+    /** **sum**
 
 Sum. The [sum](https://en.wikipedia.org/wiki/Summation) of N measurements over the stated period. */
     Sum,
-    /** # total-count
+    /** **total-count**
 
 Total Count. The total [number] of valid measurements over the stated period, including observations that were ignored because they did not contain valid result values. */
     TotalCount,
-    /** # variance
+    /** **variance**
 
 Variance. The [variance](https://en.wikipedia.org/wiki/Variance) of N measurements over the stated period. */
     Variance,
@@ -46138,37 +45444,35 @@ impl From<StatisticsCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `Status`. The validation status of the target
-
-FHIR version: 5.0.0.*/
+#[doc = "**[Status](http://hl7.org/fhir/ValueSet/status)**. The validation status of the target\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Status {
-    /** # attested
+    /** **attested**
 
 Attested. ***TODO*** */
     Attested,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The VerificationResult record was created erroneously and is not appropriated for use. */
     EnteredInError,
-    /** # in-process
+    /** **in-process**
 
 In process. ***TODO*** */
     InProcess,
-    /** # req-revalid
+    /** **req-revalid**
 
 Requires revalidation. ***TODO*** */
     ReqRevalid,
-    /** # reval-fail
+    /** **reval-fail**
 
 Re-Validation failed. ***TODO*** */
     RevalFail,
-    /** # val-fail
+    /** **val-fail**
 
 Validation failed. ***TODO*** */
     ValFail,
-    /** # validated
+    /** **validated**
 
 Validated. ***TODO*** */
     Validated,
@@ -46250,17 +45554,15 @@ impl From<Status> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StrandType`. Type for strand.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StrandType](http://hl7.org/fhir/ValueSet/strand-type)**. Type for strand.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StrandType {
-    /** # crick
+    /** **crick**
 
 Crick strand of starting sequence. Crick strand of starting sequence. */
     Crick,
-    /** # watson
+    /** **watson**
 
 Watson strand of starting sequence. Watson strand of starting sequence. */
     Watson,
@@ -46327,25 +45629,23 @@ impl From<StrandType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureDefinitionKind`. Defines the type of structure that a definition is describing.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureDefinitionKind](http://hl7.org/fhir/ValueSet/structure-definition-kind)**. Defines the type of structure that a definition is describing.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureDefinitionKind {
-    /** # complex-type
+    /** **complex-type**
 
 Complex Data Type. A  complex structure that defines a set of data elements that is suitable for use in 'resources'. The base specification defines a number of complex types, and other specifications can define additional types. These structures do not have a maintained identity. */
     ComplexType,
-    /** # logical
+    /** **logical**
 
 Logical. A pattern or a template that is not intended to be a real resource or complex type. */
     Logical,
-    /** # primitive-type
+    /** **primitive-type**
 
 Primitive Data Type. A primitive type that has a value and an extension. These can be used throughout complex datatype, Resource and extension definitions. Only the base specification can define primitive types. */
     PrimitiveType,
-    /** # resource
+    /** **resource**
 
 Resource. A 'resource' - a directed acyclic graph of elements that aggregrates other types into an identifiable entity. The base FHIR resources are defined by the FHIR specification itself but other 'resources' can be defined in additional specifications (though these will not be recognized as 'resources' by the FHIR specification; i.e. they do not get end-points etc., or act as the targets of references in FHIR defined resources - though other specifications can treat them this way). */
     Resource,
@@ -46418,17 +45718,15 @@ impl From<StructureDefinitionKind> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureMapGroupTypeMode`. If this is the default rule set to apply for the source type, or this combination of types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureMapGroupTypeMode](http://hl7.org/fhir/ValueSet/map-group-type-mode)**. If this is the default rule set to apply for the source type, or this combination of types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapGroupTypeMode {
-    /** # type-and-types
+    /** **type-and-types**
 
 Default for type + combination. This group is a default mapping group for the specified types. */
     TypeAndTypes,
-    /** # types
+    /** **types**
 
 Default for Type Combination. This group is a default mapping group for the specified types and for the primary source type. */
     Types,
@@ -46495,17 +45793,15 @@ impl From<StructureMapGroupTypeMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureMapInputMode`. Mode for this instance of data.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureMapInputMode](http://hl7.org/fhir/ValueSet/map-input-mode)**. Mode for this instance of data.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapInputMode {
-    /** # source
+    /** **source**
 
 Source Instance. Names an input instance used a source for mapping. */
     Source,
-    /** # target
+    /** **target**
 
 Target Instance. Names an instance that is being populated. */
     Target,
@@ -46572,25 +45868,23 @@ impl From<StructureMapInputMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureMapModelMode`. How the referenced structure is used in this mapping.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureMapModelMode](http://hl7.org/fhir/ValueSet/map-model-mode)**. How the referenced structure is used in this mapping.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapModelMode {
-    /** # produced
+    /** **produced**
 
 Produced Structure Definition. This structure describes an instance that the mapping engine may ask to create that is used a target of data. */
     Produced,
-    /** # queried
+    /** **queried**
 
 Queried Structure Definition. This structure describes an instance that the mapping engine may ask for that is used a source of data. */
     Queried,
-    /** # source
+    /** **source**
 
 Source Structure Definition. This structure describes an instance passed to the mapping engine that is used a source of data. */
     Source,
-    /** # target
+    /** **target**
 
 Target Structure Definition. This structure describes an instance passed to the mapping engine that is used a target of data. */
     Target,
@@ -46663,29 +45957,27 @@ impl From<StructureMapModelMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureMapSourceListMode`. If field is a list, how to manage the source.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureMapSourceListMode](http://hl7.org/fhir/ValueSet/map-source-list-mode)**. If field is a list, how to manage the source.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapSourceListMode {
-    /** # first
+    /** **first**
 
 First. Only process this rule for the first in the list. */
     First,
-    /** # last
+    /** **last**
 
 Last. Only process this rule for the last in the list. */
     Last,
-    /** # not_first
+    /** **not_first**
 
 All but the first. Process this rule for all but the first. */
     NotFirst,
-    /** # not_last
+    /** **not_last**
 
 All but the last. Process this rule for all but the last. */
     NotLast,
-    /** # only_one
+    /** **only_one**
 
 Enforce only one. Only process this rule is there is only item. */
     OnlyOne,
@@ -46761,25 +46053,23 @@ impl From<StructureMapSourceListMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureMapTargetListMode`. If field is a list, how to manage the production.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureMapTargetListMode](http://hl7.org/fhir/ValueSet/map-target-list-mode)**. If field is a list, how to manage the production.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapTargetListMode {
-    /** # first
+    /** **first**
 
 First. when the target list is being assembled, the items for this rule go first. If more than one rule defines a first item (for a given instance of mapping) then this is an error. */
     First,
-    /** # last
+    /** **last**
 
 Last. when the target list is being assembled, the items for this rule go last. If more than one rule defines a last item (for a given instance of mapping) then this is an error. */
     Last,
-    /** # share
+    /** **share**
 
 Share. the target instance is shared with the target instances generated by another rule (up to the first common n items, then create new ones). */
     Share,
-    /** # single
+    /** **single**
 
 single. the target instance is shared with a number of target instances generated by another rule (up to the first common n items, then create new ones). */
     Single,
@@ -46852,77 +46142,75 @@ impl From<StructureMapTargetListMode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StructureMapTransform`. How data is copied/created.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StructureMapTransform](http://hl7.org/fhir/ValueSet/map-transform)**. How data is copied/created.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapTransform {
-    /** # append
+    /** **append**
 
 append. append(source...) - source is element or string. */
     Append,
-    /** # c
+    /** **c**
 
 c. Create a Coding. Parameters = (system. Code[, display]). */
     C,
-    /** # cast
+    /** **cast**
 
 cast. cast(source, type?) - cast (convert) source from one type to another. Target type can be left as implicit if there is one and only one target type known. The default namespace for the type is 'FHIR' (see [FHIRPath type specifiers](http://hl7.org/fhirpath/N1/#is-type-specifier)) */
     Cast,
-    /** # cc
+    /** **cc**
 
 cc. Create a CodeableConcept. Parameters = (text) or (system. Code[, display]). */
     Cc,
-    /** # copy
+    /** **copy**
 
 copy. copy(source). */
     Copy,
-    /** # cp
+    /** **cp**
 
 cp. Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value. */
     Cp,
-    /** # create
+    /** **create**
 
 create. create(type : string) - type is passed through to the application on the standard API, and must be known by it. */
     Create,
-    /** # dateOp
+    /** **dateOp**
 
 dateOp. Perform a date operation. *Parameters to be documented*. */
     DateOp,
-    /** # escape
+    /** **escape**
 
 escape. escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped. */
     Escape,
-    /** # evaluate
+    /** **evaluate**
 
 evaluate. Execute the supplied FHIRPath expression and use the value returned by that. */
     Evaluate,
-    /** # id
+    /** **id**
 
 id. Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set. */
     Id,
-    /** # pointer
+    /** **pointer**
 
 pointer. Return the appropriate string to put in a reference that refers to the resource provided as a parameter. */
     Pointer,
-    /** # qty
+    /** **qty**
 
 qty. Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit. */
     Qty,
-    /** # reference
+    /** **reference**
 
 reference. reference(source : object) - return a string that references the provided tree properly. */
     Reference,
-    /** # translate
+    /** **translate**
 
 translate. translate(source, uri_of_map) - use the translate operation. */
     Translate,
-    /** # truncate
+    /** **truncate**
 
 truncate. truncate(source, length) - source must be stringy type. */
     Truncate,
-    /** # uuid
+    /** **uuid**
 
 uuid. Generate a random UUID (in lowercase). No Parameters. */
     Uuid,
@@ -47034,297 +46322,295 @@ impl From<StructureMapTransform> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `StudyDesign`. This is a set of terms for study design characteristics.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[StudyDesign](http://hl7.org/fhir/ValueSet/study-design)**. This is a set of terms for study design characteristics.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StudyDesign {
-    /** # SEVCO:01001
+    /** **SEVCO:01001**
 
 Interventional research. A study design in which an independent variable (an exposure or intervention) is prospectively assigned or modified by the investigator to evaluate a response in the dependent variable (an effect or outcome). */
     Sevco01001,
-    /** # SEVCO:01002
+    /** **SEVCO:01002**
 
 Observational research. A study design in which the independent variables (exposures or interventions) are not prospectively assigned or modified by the investigator.  */
     Sevco01002,
-    /** # SEVCO:01003
+    /** **SEVCO:01003**
 
 randomized assignment. An interventional study design in which an independent variable (an exposure or intervention) is prospectively assigned or modified by random chance to separate groups. */
     Sevco01003,
-    /** # SEVCO:01004
+    /** **SEVCO:01004**
 
 Quasi-Randomized assignment. An interventional study design with a method of allocation that is not limited to random chance but is intended to produce similar baseline groups for experimentation. */
     Sevco01004,
-    /** # SEVCO:01005
+    /** **SEVCO:01005**
 
 Non-randomized assignment. An interventional study design in which an independent variable (an exposure or intervention) is prospectively assigned or modified by methods other than random chance to separate groups. */
     Sevco01005,
-    /** # SEVCO:01006
+    /** **SEVCO:01006**
 
 simple randomization. A randomized assignment in which each participant has the same prespecified likelihood of being assigned to a group as all other participants, independent of the assignment of any other participant. */
     Sevco01006,
-    /** # SEVCO:01007
+    /** **SEVCO:01007**
 
 stratified randomization. A randomized assignment in which participants are stratified into groups based on prognostic variables and then randomized into balanced treatment groups */
     Sevco01007,
-    /** # SEVCO:01008
+    /** **SEVCO:01008**
 
 block randomization. A randomized assignment in which a pre-specified number of subjects is assigned to a block containing the same pre-specified ratio of group assignments in random order. */
     Sevco01008,
-    /** # SEVCO:01009
+    /** **SEVCO:01009**
 
 adaptive randomization. A randomized assignment in which a participant’s group assignment probability is adjusted based on any factor such that the likelihood of assignment is not the same for all participants. */
     Sevco01009,
-    /** # SEVCO:01010
+    /** **SEVCO:01010**
 
 Comparative study design. A study design in which two or more groups are compared. */
     Sevco01010,
-    /** # SEVCO:01011
+    /** **SEVCO:01011**
 
 Parallel cohort design. A comparative study design in which the groups are compared concurrently and participants are expected to remain in the groups being compared for the entire duration of participation in the study. */
     Sevco01011,
-    /** # SEVCO:01012
+    /** **SEVCO:01012**
 
 Crossover cohort design. A comparative study design in which participants receive two or more alternative exposures during separate periods of time. */
     Sevco01012,
-    /** # SEVCO:01013
+    /** **SEVCO:01013**
 
 Case control design. A comparative study design in which the groups being compared are defined by outcome presence (case) or absence (control). */
     Sevco01013,
-    /** # SEVCO:01014
+    /** **SEVCO:01014**
 
 Matching for comparison. A comparative study design in which individual participants in different groups being compared are paired or matched into sets based on selected attributes for within-set analysis. */
     Sevco01014,
-    /** # SEVCO:01015
+    /** **SEVCO:01015**
 
 Cluster as unit of allocation. A comparative study design in which participants are allocated to exposures (interventions) by their membership in groups (called clusters) rather than by individualized assignments. */
     Sevco01015,
-    /** # SEVCO:01016
+    /** **SEVCO:01016**
 
 Uncontrolled cohort design. A non-comparative study design in which two or more participants are evaluated in a single group (or cohort). */
     Sevco01016,
-    /** # SEVCO:01017
+    /** **SEVCO:01017**
 
 Case report. A non-comparative study design in which a single participant is evaluated. */
     Sevco01017,
-    /** # SEVCO:01018
+    /** **SEVCO:01018**
 
 Time series design. A longitudinal data collection which includes a set of time-ordered observations. */
     Sevco01018,
-    /** # SEVCO:01019
+    /** **SEVCO:01019**
 
 Before and after comparison. A time series design which includes comparisons of observations before and after an event or exposure. */
     Sevco01019,
-    /** # SEVCO:01020
+    /** **SEVCO:01020**
 
 Family study design. A matched study design in which related or non-related family members are compared. */
     Sevco01020,
-    /** # SEVCO:01021
+    /** **SEVCO:01021**
 
 Twin study design. A family study design in which twin siblings are compared. */
     Sevco01021,
-    /** # SEVCO:01022
+    /** **SEVCO:01022**
 
 Population-based design. A study design in which the unit of observation is a population or community.  */
     Sevco01022,
-    /** # SEVCO:01023
+    /** **SEVCO:01023**
 
 Non-comparative study design. A study design with no comparisons between groups with different exposures and no comparisons between groups with different outcomes. */
     Sevco01023,
-    /** # SEVCO:01024
+    /** **SEVCO:01024**
 
 Controlled crossover cohort design. A crossover cohort design in which two or more cohorts have different orders of exposures. */
     Sevco01024,
-    /** # SEVCO:01025
+    /** **SEVCO:01025**
 
 Single-arm crossover design. A crossover cohort design in which all participants are in a single cohort with the same order of exposures. */
     Sevco01025,
-    /** # SEVCO:01026
+    /** **SEVCO:01026**
 
 Real world data collection. A study design process in which the study data are obtained from a source of data collected during a routine process in the natural environment rather than using a process designed or controlled by the researcher. */
     Sevco01026,
-    /** # SEVCO:01027
+    /** **SEVCO:01027**
 
 Cross sectional data collection . A study design process in which data is collected at a single point in time. */
     Sevco01027,
-    /** # SEVCO:01028
+    /** **SEVCO:01028**
 
 Longitudinal data collection. A study design process in which data is collected at two or more points in time. */
     Sevco01028,
-    /** # SEVCO:01029
+    /** **SEVCO:01029**
 
 Clinical trial. Interventional research in which one or more healthcare-related actions (i.e., a diagnostic, prognostic, therapeutic, preventive or screening method or intervention) is evaluated for effects on health-related biomedical or behavioral processes and/or outcomes. */
     Sevco01029,
-    /** # SEVCO:01030
+    /** **SEVCO:01030**
 
 Phase 1 trial. A clinical trial to gather initial evidence in humans to support further investigation of an intervention. */
     Sevco01030,
-    /** # SEVCO:01031
+    /** **SEVCO:01031**
 
 Exploratory investigational new drug study. A clinical trial that is conducted early in phase 1, involves very limited human exposure, and has no therapeutic or diagnostic intent (e.g., screening studies, microdose studies).  */
     Sevco01031,
-    /** # SEVCO:01032
+    /** **SEVCO:01032**
 
 Phase 1/Phase 2 trial.  A clinical trial with a component meeting the definition of phase 1 trial and a component meeting the definition of phase 2 trial. */
     Sevco01032,
-    /** # SEVCO:01033
+    /** **SEVCO:01033**
 
 Phase 2 trial. A clinical trial to gather evidence of effectiveness and safety for an intervention in patients with the disease or condition under study, but not intended to provide an adequate basis for regulatory approval for clinical use. */
     Sevco01033,
-    /** # SEVCO:01034
+    /** **SEVCO:01034**
 
 Phase 2/Phase 3 trial. A clinical trial with a component meeting the definition of phase 2 trial and a component meeting the definition of phase 3 trial. */
     Sevco01034,
-    /** # SEVCO:01035
+    /** **SEVCO:01035**
 
 Phase 3 Trial. A clinical trial to gather the evidence of effectiveness and safety of an intervention, intended to provide an adequate basis for regulatory approval for clinical use. */
     Sevco01035,
-    /** # SEVCO:01036
+    /** **SEVCO:01036**
 
 Post-marketing study. A clinical trial to gather additional evidence of effectiveness and safety of an intervention for an already approved clinical use. */
     Sevco01036,
-    /** # SEVCO:01037
+    /** **SEVCO:01037**
 
 Post-Marketing Surveillance study. An observational study to identify adverse events related to the use of an approved clinical intervention. */
     Sevco01037,
-    /** # SEVCO:01038
+    /** **SEVCO:01038**
 
 Expanded Access study. A clinical trial that provides a means for obtaining an experimental drug or device for patients who are not adequately treated by existing therapy, who do not meet the eligibility criteria for enrollment, or who are otherwise unable to participate in another clinical study.  */
     Sevco01038,
-    /** # SEVCO:01039
+    /** **SEVCO:01039**
 
 Real world data collection from healthcare records. Real world data collection from data obtained routinely for a purpose of recording healthcare delivery in a record controlled by a healthcare professional. */
     Sevco01039,
-    /** # SEVCO:01040
+    /** **SEVCO:01040**
 
 Real world data collection from healthcare financing records. Real world data collection from data obtained routinely for a purpose of recording healthcare financing. */
     Sevco01040,
-    /** # SEVCO:01041
+    /** **SEVCO:01041**
 
 Pragmatic clinical trial. A clinical trial conducted under conditions of routine clinical practice. */
     Sevco01041,
-    /** # SEVCO:01042
+    /** **SEVCO:01042**
 
 Secondary data collection from a registry. A study design process in which the data are collected from a system organized to obtain and maintain uniform data for discovery and analysis, and this system is organized prior to the current study. */
     Sevco01042,
-    /** # SEVCO:01043
+    /** **SEVCO:01043**
 
 Multicentric. A study design feature in which two or more institutions are responsible for the conduct of the study. */
     Sevco01043,
-    /** # SEVCO:01044
+    /** **SEVCO:01044**
 
 Ecological design. A study design in which the unit of observation is a population or community defined by social relationships or physical surroundings.  */
     Sevco01044,
-    /** # SEVCO:01045
+    /** **SEVCO:01045**
 
 Primary data collection. A study design process in which the data are recorded and collected during the study for the purpose of the same study. */
     Sevco01045,
-    /** # SEVCO:01046
+    /** **SEVCO:01046**
 
 Real world data collection from monitoring procedures. Real world data collection from data obtained routinely for a purpose of repeated testing. */
     Sevco01046,
-    /** # SEVCO:01048
+    /** **SEVCO:01048**
 
 Real world data collection from testing procedures. Real world data collection from data obtained routinely for a purpose of testing, such as diagnostic testing or screening examination. */
     Sevco01048,
-    /** # SEVCO:01049
+    /** **SEVCO:01049**
 
 Secondary data collection from prior research. A study design process in which the data are collected from data obtained during a different study than the current study. */
     Sevco01049,
-    /** # SEVCO:01050
+    /** **SEVCO:01050**
 
 Real world data collection from personal health records. Real world data collection from data obtained routinely for a purpose of recording data related to personal health in a record controlled by the person, guardian, or caretaker. */
     Sevco01050,
-    /** # SEVCO:01051
+    /** **SEVCO:01051**
 
 Multisite data collection. A study design process in which data are collected from two or more geographic locations. */
     Sevco01051,
-    /** # SEVCO:01052
+    /** **SEVCO:01052**
 
 Includes patient-reported outcome. A study design feature in which one or more outcomes are reported directly from the patient without interpretation by a clinician or researcher. */
     Sevco01052,
-    /** # SEVCO:01053
+    /** **SEVCO:01053**
 
 Includes patient-centered outcome. A study design feature in which one or more measures are outcomes that patients directly care about, i.e. outcomes that are directly related to patients' experience of their life. */
     Sevco01053,
-    /** # SEVCO:01054
+    /** **SEVCO:01054**
 
 Includes disease-oriented outcome. A study design feature in which one or more measures are outcomes that relate to a health or illness condition but are not outcomes which patients directly care about. */
     Sevco01054,
-    /** # SEVCO:01060
+    /** **SEVCO:01060**
 
 Blinding of study participants. A study design process in which study participants are not informed of their intervention assignment. */
     Sevco01060,
-    /** # SEVCO:01061
+    /** **SEVCO:01061**
 
 Blinding of intervention providers. A study design process in which the people administering the intervention are not informed of the intervention assignment. */
     Sevco01061,
-    /** # SEVCO:01062
+    /** **SEVCO:01062**
 
 Blinding of outcome assessors. A study design process in which the people determining the outcome are not informed of the intervention assignment. */
     Sevco01062,
-    /** # SEVCO:01063
+    /** **SEVCO:01063**
 
 Blinding of data analysts. A study design process in which the people managing or processing the data and statistical analysis are not informed of the intervention assignment. */
     Sevco01063,
-    /** # SEVCO:01064
+    /** **SEVCO:01064**
 
 Allocation concealment. A study design process in which all parties influencing study enrollment and allocation to study groups are unaware of the group assignment for the study participant at the time of enrollment and allocation. */
     Sevco01064,
-    /** # SEVCO:01085
+    /** **SEVCO:01085**
 
 Includes process measure. A study design feature in which one or more outcomes are actions or behaviors of a healthcare professional or care team. */
     Sevco01085,
-    /** # SEVCO:01086
+    /** **SEVCO:01086**
 
 Quantitative analysis. A study design process in which data are analyzed with mathematical or statistical methods and formulas. */
     Sevco01086,
-    /** # SEVCO:01087
+    /** **SEVCO:01087**
 
 Qualitative analysis. A study design process in which data are analyzed, without primary reliance on mathematical or statistical techniques, by coding and organizing data to provide interpretation or understanding of experiences or hypotheses. */
     Sevco01087,
-    /** # SEVCO:01088
+    /** **SEVCO:01088**
 
 Comparison Goal. A study design feature in which the study intent is to compare two or more interventions or exposures. */
     Sevco01088,
-    /** # SEVCO:01089
+    /** **SEVCO:01089**
 
 Study Goal. A study design feature specifying the intent of the study. */
     Sevco01089,
-    /** # SEVCO:01090
+    /** **SEVCO:01090**
 
 Comparative Efficacy Goal. A study design feature in which the study intent is to compare two or more interventions with respect to effectiveness in ideal conditions. */
     Sevco01090,
-    /** # SEVCO:01091
+    /** **SEVCO:01091**
 
 Comparative Effectiveness Goal. A study design feature in which the study intent is to compare two or more interventions with respect to benefits and/or harms. */
     Sevco01091,
-    /** # SEVCO:01092
+    /** **SEVCO:01092**
 
 Comparative Safety Goal. A study design feature in which the study intent is to compare two or more interventions with respect to harms. */
     Sevco01092,
-    /** # SEVCO:01093
+    /** **SEVCO:01093**
 
 Equivalence Goal. A study goal with the intent to compare two or more interventions or exposures and determine that any difference in effects is within a prespecified range representing absence of a meaningful difference. */
     Sevco01093,
-    /** # SEVCO:01094
+    /** **SEVCO:01094**
 
 Non-inferiority Goal. A study goal with the intent to compare two or more interventions or exposures and determine that any difference in effects is below a prespecified value representing a threshold between a meaningful difference and absence of a meaningful difference. */
     Sevco01094,
-    /** # SEVCO:01095
+    /** **SEVCO:01095**
 
 Superiority Goal. A study goal with the intent to compare two or more interventions or exposures and detect a difference in effects. */
     Sevco01095,
-    /** # SEVCO:01096
+    /** **SEVCO:01096**
 
 Evaluation Goal. A study goal to assess the efficiency, effectiveness, and impact of a given program, process, person or piece of equipment. */
     Sevco01096,
-    /** # SEVCO:01097
+    /** **SEVCO:01097**
 
 Derivation Goal. A study goal with the intent to generate a predictive algorithm. */
     Sevco01097,
-    /** # SEVCO:01098
+    /** **SEVCO:01098**
 
 Validation Goal. A study goal with the intent to determine the reliability and/or performance of a procedure for a specific predictive, classification, measurement, or communication purpose. */
     Sevco01098,
@@ -47603,17 +46889,15 @@ impl From<StudyDesign> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubmitDataUpdateType`. Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubmitDataUpdateType](http://hl7.org/fhir/ValueSet/submit-data-update-type)**. Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubmitDataUpdateType {
-    /** # incremental
+    /** **incremental**
 
 Incremental. In contrast to the Snapshot Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains only the new and updated DEQM and QI Core Profiles since the last transaction. If the Consumer supports incremental updates, the contents of the updated payload updates the previous payload data. */
     Incremental,
-    /** # snapshot
+    /** **snapshot**
 
 Snapshot. In contrast to the Incremental Update, the FHIR Parameters resource used in a Submit Data or the Collect Data scenario contains all the DEQM and QI Core Profiles for each transaction.  If the Consumer supports snapshot updates, the contents of the updated payload entirely replaces the previous payload */
     Snapshot,
@@ -47680,29 +46964,27 @@ impl From<SubmitDataUpdateType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubscriptionNotificationType`. The type of notification represented by the status message.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubscriptionNotificationType](http://hl7.org/fhir/ValueSet/subscription-notification-type)**. The type of notification represented by the status message.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubscriptionNotificationType {
-    /** # event-notification
+    /** **event-notification**
 
 Event Notification. The status was generated for an event to the subscriber. */
     EventNotification,
-    /** # handshake
+    /** **handshake**
 
 Handshake. The status was generated as part of the setup or verification of a communications channel. */
     Handshake,
-    /** # heartbeat
+    /** **heartbeat**
 
 Heartbeat. The status was generated to perform a heartbeat notification to the subscriber. */
     Heartbeat,
-    /** # query-event
+    /** **query-event**
 
 Query Event. The status was generated in response to an event query/request. */
     QueryEvent,
-    /** # query-status
+    /** **query-status**
 
 Query Status. The status was generated in response to a status query/request. */
     QueryStatus,
@@ -47780,21 +47062,19 @@ impl From<SubscriptionNotificationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubscriptionPayloadContent`. Codes to represent how much resource content to send in the notification payload.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubscriptionPayloadContent](http://hl7.org/fhir/ValueSet/subscription-payload-content)**. Codes to represent how much resource content to send in the notification payload.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubscriptionPayloadContent {
-    /** # empty
+    /** **empty**
 
 Empty. No resource content is transacted in the notification payload. */
     Empty,
-    /** # full-resource
+    /** **full-resource**
 
 Full-resource. The entire resource is transacted in the notification payload. */
     FullResource,
-    /** # id-only
+    /** **id-only**
 
 Id-only. Only the resource id is transacted in the notification payload. */
     IdOnly,
@@ -47866,28 +47146,26 @@ impl From<SubscriptionPayloadContent> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubscriptionStatus`. This codesystem defines a set of codes that can be used to filter Subscription triggers.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubscriptionStatus](http://hl7.org/fhir/subscription-status)**. This codesystem defines a set of codes that can be used to filter Subscription triggers.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum SubscriptionStatus {
-    /** # active
+    /** **active**
 
 Active. The subscription is active. */
     Active,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This subscription has been flagged as incorrect. */
     EnteredInError,
-    /** # error
+    /** **error**
 
 Error. The server has an error executing the notification. */
     Error,
-    /** # off
+    /** **off**
 
 Off. Too many errors have occurred or the subscription has expired. */
     Off,
-    /** # requested
+    /** **requested**
 
 Requested. The client has requested the subscription, and the server has not yet set it up. */
     Requested,
@@ -47967,25 +47245,23 @@ impl From<SubscriptionStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceAmountType`. The type of a numeric quantity measurement.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceAmountType](http://hl7.org/fhir/ValueSet/substance-amount-type)**. The type of a numeric quantity measurement.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceAmountType {
-    /** # Approximately
+    /** **Approximately**
 
 Approximately. */
     Approximately,
-    /** # Average
+    /** **Average**
 
 Average. */
     Average,
-    /** # LessThan
+    /** **LessThan**
 
 Less Than. */
     LessThan,
-    /** # MoreThan
+    /** **MoreThan**
 
 More Than. */
     MoreThan,
@@ -48058,17 +47334,15 @@ impl From<SubstanceAmountType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceForm`. SubstanceForm
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceForm](http://hl7.org/fhir/ValueSet/substance-form)**. SubstanceForm\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceForm {
-    /** # base
+    /** **base**
 
 Base of substance. */
     Base,
-    /** # salt
+    /** **salt**
 
 Salt of substance. */
     Salt,
@@ -48135,29 +47409,27 @@ impl From<SubstanceForm> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceGrade`. SubstanceGrade
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceGrade](http://hl7.org/fhir/ValueSet/substance-grade)**. SubstanceGrade\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceGrade {
-    /** # BP
+    /** **BP**
 
 British Pharmacopoeia. */
     Bp,
-    /** # CompanyStandard
+    /** **CompanyStandard**
 
 Company Standard. */
     CompanyStandard,
-    /** # JP
+    /** **JP**
 
 Japanese Pharmacopoeia. */
     Jp,
-    /** # Ph.Eur
+    /** **Ph.Eur**
 
 European Pharmacopoeia. */
     PhEur,
-    /** # USP-NF
+    /** **USP-NF**
 
 USP/NF United States Pharmacopeia (USP) and the National Formulary (NF). */
     UspNf,
@@ -48235,69 +47507,67 @@ impl From<SubstanceGrade> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceNameAuthority`. SubstanceNameAuthority
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceNameAuthority](http://hl7.org/fhir/ValueSet/substance-name-authority)**. SubstanceNameAuthority\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceNameAuthority {
-    /** # BAN
+    /** **BAN**
 
 BAN. */
     Ban,
-    /** # COSING
+    /** **COSING**
 
 COSING. */
     Cosing,
-    /** # FCC
+    /** **FCC**
 
 FCC. */
     Fcc,
-    /** # HAB
+    /** **HAB**
 
 HAB. */
     Hab,
-    /** # INCI
+    /** **INCI**
 
 INCI. */
     Inci,
-    /** # INN
+    /** **INN**
 
 INN. */
     Inn,
-    /** # IUIS
+    /** **IUIS**
 
 IUIS. */
     Iuis,
-    /** # JAN
+    /** **JAN**
 
 JAN. */
     Jan,
-    /** # JECFA
+    /** **JECFA**
 
 JECFA. */
     Jecfa,
-    /** # MARTINDALE
+    /** **MARTINDALE**
 
 MARTINDALE. */
     Martindale,
-    /** # PHF
+    /** **PHF**
 
 PHF. */
     Phf,
-    /** # Ph.Eur.
+    /** **Ph.Eur.**
 
 Ph.Eur.. */
     PhEur,
-    /** # PhF
+    /** **PhF**
 
 PhF (Pharmacopée française). */
     PhF,
-    /** # USAN
+    /** **USAN**
 
 USAN. */
     Usan,
-    /** # USP
+    /** **USP**
 
 USP. */
     Usp,
@@ -48403,17 +47673,15 @@ impl From<SubstanceNameAuthority> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceNameDomain`. SubstanceNameDomain
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceNameDomain](http://hl7.org/fhir/ValueSet/substance-name-domain)**. SubstanceNameDomain\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceNameDomain {
-    /** # ActiveIngredient
+    /** **ActiveIngredient**
 
 Active Ingredient. */
     ActiveIngredient,
-    /** # FoodColorAdditive
+    /** **FoodColorAdditive**
 
 Food Color Additive. */
     FoodColorAdditive,
@@ -48480,21 +47748,19 @@ impl From<SubstanceNameDomain> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceNameType`. SubstanceNameType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceNameType](http://hl7.org/fhir/ValueSet/substance-name-type)**. SubstanceNameType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceNameType {
-    /** # Brand
+    /** **Brand**
 
 brand. */
     Brand,
-    /** # Scientific
+    /** **Scientific**
 
 scientific. */
     Scientific,
-    /** # Systematic
+    /** **Systematic**
 
 systematic. */
     Systematic,
@@ -48564,17 +47830,15 @@ impl From<SubstanceNameType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceOpticalActivity`. The optical rotation type of a substance.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceOpticalActivity](http://hl7.org/fhir/ValueSet/substance-optical-activity)**. The optical rotation type of a substance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceOpticalActivity {
-    /** # +
+    /** **+**
 
 dextrorotary. */
     Plus,
-    /** # -
+    /** **-**
 
 levorotary. */
     Minus,
@@ -48641,29 +47905,27 @@ impl From<SubstanceOpticalActivity> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceRelationshipType`. The relationship between two substance types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceRelationshipType](http://hl7.org/fhir/ValueSet/substance-relationship-type)**. The relationship between two substance types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceRelationshipType {
-    /** # ActiveMoiety
+    /** **ActiveMoiety**
 
 Active moiety. */
     ActiveMoiety,
-    /** # Impurity
+    /** **Impurity**
 
 Impurity of. */
     Impurity,
-    /** # Polymorph
+    /** **Polymorph**
 
 Polymorph of. */
     Polymorph,
-    /** # Salt
+    /** **Salt**
 
 Salt to parent. */
     Salt,
-    /** # StartingMaterial
+    /** **StartingMaterial**
 
 Starting material for. */
     StartingMaterial,
@@ -48741,37 +48003,35 @@ impl From<SubstanceRelationshipType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceRepresentationFormat`. SubstanceRepresentationFormat
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceRepresentationFormat](http://hl7.org/fhir/ValueSet/substance-representation-format)**. SubstanceRepresentationFormat\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceRepresentationFormat {
-    /** # CDX
+    /** **CDX**
 
 CDX. */
     Cdx,
-    /** # InChI
+    /** **InChI**
 
 InChI. */
     InChI,
-    /** # MOLFILE
+    /** **MOLFILE**
 
 MOLFILE. */
     Molfile,
-    /** # PDB
+    /** **PDB**
 
 PDB. */
     Pdb,
-    /** # SDF
+    /** **SDF**
 
 SDF. */
     Sdf,
-    /** # SMILES
+    /** **SMILES**
 
 SMILES. */
     Smiles,
-    /** # mmCIF
+    /** **mmCIF**
 
 mmCIF. */
     MmCIF,
@@ -48855,21 +48115,19 @@ impl From<SubstanceRepresentationFormat> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceRepresentationType`. SubstanceRepresentationType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceRepresentationType](http://hl7.org/fhir/ValueSet/substance-representation-type)**. SubstanceRepresentationType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceRepresentationType {
-    /** # Brand
+    /** **Brand**
 
 brand. */
     Brand,
-    /** # Scientific
+    /** **Scientific**
 
 scientific. */
     Scientific,
-    /** # Systematic
+    /** **Systematic**
 
 systematic. */
     Systematic,
@@ -48941,21 +48199,19 @@ impl From<SubstanceRepresentationType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceSourceMaterialGenus`. SubstanceSourceMaterialGenus
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceSourceMaterialGenus](http://hl7.org/fhir/ValueSet/substance-source-material-genus)**. SubstanceSourceMaterialGenus\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialGenus {
-    /** # Ginkgo
+    /** **Ginkgo**
 
 Ginkgo. */
     Ginkgo,
-    /** # InfluenzavirusA
+    /** **InfluenzavirusA**
 
 Influenza A virus. */
     InfluenzavirusA,
-    /** # Mycobacterium
+    /** **Mycobacterium**
 
 Mycobacterium. */
     Mycobacterium,
@@ -49027,21 +48283,19 @@ impl From<SubstanceSourceMaterialGenus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceSourceMaterialPart`. SubstanceSourceMaterialPart
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceSourceMaterialPart](http://hl7.org/fhir/ValueSet/substance-source-material-part)**. SubstanceSourceMaterialPart\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialPart {
-    /** # Animal
+    /** **Animal**
 
 animal. */
     Animal,
-    /** # Mineral
+    /** **Mineral**
 
 mineral. */
     Mineral,
-    /** # Plant
+    /** **Plant**
 
 plant. */
     Plant,
@@ -49113,17 +48367,15 @@ impl From<SubstanceSourceMaterialPart> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceSourceMaterialSpecies`. SubstanceSourceMaterialSpecies
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceSourceMaterialSpecies](http://hl7.org/fhir/ValueSet/substance-source-material-species)**. SubstanceSourceMaterialSpecies\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialSpecies {
-    /** # GinkgoBiloba
+    /** **GinkgoBiloba**
 
 Ginkgo biloba. */
     GinkgoBiloba,
-    /** # OleaEuropaea
+    /** **OleaEuropaea**
 
 Olea europaea. */
     OleaEuropaea,
@@ -49193,21 +48445,19 @@ impl From<SubstanceSourceMaterialSpecies> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceSourceMaterialType`. SubstanceSourceMaterialType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceSourceMaterialType](http://hl7.org/fhir/ValueSet/substance-source-material-type)**. SubstanceSourceMaterialType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialType {
-    /** # Animal
+    /** **Animal**
 
 animal. */
     Animal,
-    /** # Mineral
+    /** **Mineral**
 
 mineral. */
     Mineral,
-    /** # Plant
+    /** **Plant**
 
 plant. */
     Plant,
@@ -49279,21 +48529,19 @@ impl From<SubstanceSourceMaterialType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceStereochemistry`. The stereochemistry type of a substance.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceStereochemistry](http://hl7.org/fhir/ValueSet/substance-stereochemistry)**. The stereochemistry type of a substance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceStereochemistry {
-    /** # ConstitutionalIsomer
+    /** **ConstitutionalIsomer**
 
 constitutional isomer. */
     ConstitutionalIsomer,
-    /** # Enantiomer
+    /** **Enantiomer**
 
 enantiomer. */
     Enantiomer,
-    /** # Stereoisomer
+    /** **Stereoisomer**
 
 stereoisomer. */
     Stereoisomer,
@@ -49363,29 +48611,27 @@ impl From<SubstanceStereochemistry> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceStructureTechnique`. SubstanceStructureTechnique
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceStructureTechnique](http://hl7.org/fhir/ValueSet/substance-structure-technique)**. SubstanceStructureTechnique\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceStructureTechnique {
-    /** # HPLC
+    /** **HPLC**
 
 HPLC. */
     Hplc,
-    /** # LigandBindingAssay
+    /** **LigandBindingAssay**
 
 Ligand binding assay. */
     LigandBindingAssay,
-    /** # NMR
+    /** **NMR**
 
 NMR. */
     Nmr,
-    /** # PeptideMapping
+    /** **PeptideMapping**
 
 Peptide mapping. */
     PeptideMapping,
-    /** # X-Ray
+    /** **X-Ray**
 
 X-ray. */
     XRay,
@@ -49463,41 +48709,39 @@ impl From<SubstanceStructureTechnique> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceWeightMethod`. SubstanceWeightMethod
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceWeightMethod](http://hl7.org/fhir/ValueSet/substance-weight-method)**. SubstanceWeightMethod\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceWeightMethod {
-    /** # Calculated
+    /** **Calculated**
 
 calculated. */
     Calculated,
-    /** # End-groupAnalysis
+    /** **End-groupAnalysis**
 
 End-group analysis. */
     EndGroupAnalysis,
-    /** # End-groupTitration
+    /** **End-groupTitration**
 
 End-group titration. */
     EndGroupTitration,
-    /** # GelPermeationCentrifugation
+    /** **GelPermeationCentrifugation**
 
 gel permeation centrifugation. */
     GelPermeationCentrifugation,
-    /** # LighScattering
+    /** **LighScattering**
 
 light scattering. */
     LighScattering,
-    /** # SDS-PAGE
+    /** **SDS-PAGE**
 
 SDS-PAGE (sodium dodecyl sulfate-polyacrylamide gel electrophoresis). */
     SdsPage,
-    /** # Size-ExclusionChromatography
+    /** **Size-ExclusionChromatography**
 
 Size-exclusion chromatography. */
     SizeExclusionChromatography,
-    /** # Viscosity
+    /** **Viscosity**
 
 viscosity. */
     Viscosity,
@@ -49584,21 +48828,19 @@ impl From<SubstanceWeightMethod> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SubstanceWeightType`. SubstanceWeightType
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SubstanceWeightType](http://hl7.org/fhir/ValueSet/substance-weight-type)**. SubstanceWeightType\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceWeightType {
-    /** # Average
+    /** **Average**
 
 number average. */
     Average,
-    /** # Exact
+    /** **Exact**
 
 exact. */
     Exact,
-    /** # WeightAverage
+    /** **WeightAverage**
 
 weight average. */
     WeightAverage,
@@ -49668,25 +48910,23 @@ impl From<SubstanceWeightType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SupplyDeliveryStatus`. Status of the supply delivery.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SupplyDeliveryStatus](http://hl7.org/fhir/ValueSet/supplydelivery-status)**. Status of the supply delivery.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SupplyDeliveryStatus {
-    /** # abandoned
+    /** **abandoned**
 
 Abandoned. Delivery was not completed. */
     Abandoned,
-    /** # completed
+    /** **completed**
 
 Delivered. Supply has been delivered ("completed"). */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "abandoned" rather than "entered-in-error".). */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. Supply has been requested, but not delivered. */
     InProgress,
@@ -49759,21 +48999,19 @@ impl From<SupplyDeliveryStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SupplyDeliverySupplyItemType`. Status of the supply delivery.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SupplyDeliverySupplyItemType](http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype)**. Status of the supply delivery.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SupplyDeliverySupplyItemType {
-    /** # biologicallyderivedproduct
+    /** **biologicallyderivedproduct**
 
 Biologically Derived Product. Supply is a kind of biologically derived product. */
     Biologicallyderivedproduct,
-    /** # device
+    /** **device**
 
 Device. What is supplied (or requested) is a device. */
     Device,
-    /** # medication
+    /** **medication**
 
 Medication. Supply is a kind of medication. */
     Medication,
@@ -49845,37 +49083,35 @@ impl From<SupplyDeliverySupplyItemType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `SupplyRequestStatus`. Status of the supply request.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[SupplyRequestStatus](http://hl7.org/fhir/ValueSet/supplyrequest-status)**. Status of the supply request.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SupplyRequestStatus {
-    /** # active
+    /** **active**
 
 Active. The request is ready to be acted upon. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. Activity against the request has been sufficiently completed to the satisfaction of the requester. */
     Completed,
-    /** # draft
+    /** **draft**
 
 Draft. The request has been created but is not yet complete or ready for action. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".). */
     EnteredInError,
-    /** # suspended
+    /** **suspended**
 
 Suspended. The authorization/request to act has been temporarily withdrawn but is expected to resume in the future. */
     Suspended,
-    /** # unknown
+    /** **unknown**
 
 Unknown. The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, but the authoring/source system does not know which. */
     Unknown,
@@ -49957,809 +49193,807 @@ impl From<SupplyRequestStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TargetSpecies`. A species for which a medicinal product is intended.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TargetSpecies](http://hl7.org/fhir/ValueSet/target-species)**. A species for which a medicinal product is intended.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TargetSpecies {
-    /** # 100000108874
+    /** **100000108874**
 
 Dove. */
     N100000108874,
-    /** # 100000108875
+    /** **100000108875**
 
 Quail. */
     N100000108875,
-    /** # 100000108876
+    /** **100000108876**
 
 Snipe. */
     N100000108876,
-    /** # 100000108877
+    /** **100000108877**
 
 Sparrow. */
     N100000108877,
-    /** # 100000108878
+    /** **100000108878**
 
 Starling. */
     N100000108878,
-    /** # 100000108879
+    /** **100000108879**
 
 Swan. */
     N100000108879,
-    /** # 100000108880
+    /** **100000108880**
 
 Turkey hen. */
     N100000108880,
-    /** # 100000108881
+    /** **100000108881**
 
 Turkey cock. */
     N100000108881,
-    /** # 100000108882
+    /** **100000108882**
 
 Turkeys. */
     N100000108882,
-    /** # 100000108883
+    /** **100000108883**
 
 Turkey for reproduction. */
     N100000108883,
-    /** # 100000108884
+    /** **100000108884**
 
 Poult. */
     N100000108884,
-    /** # 100000108885
+    /** **100000108885**
 
 Turtle dove. */
     N100000108885,
-    /** # 100000108886
+    /** **100000108886**
 
 Bison. */
     N100000108886,
-    /** # 100000108887
+    /** **100000108887**
 
 Buffalo. */
     N100000108887,
-    /** # 100000108888
+    /** **100000108888**
 
 Cows. */
     N100000108888,
-    /** # 100000108889
+    /** **100000108889**
 
 Cow for reproduction. */
     N100000108889,
-    /** # 100000108890
+    /** **100000108890**
 
 Bull for reproduction. */
     N100000108890,
-    /** # 100000108891
+    /** **100000108891**
 
 Ox. */
     N100000108891,
-    /** # 100000108892
+    /** **100000108892**
 
 Bullock. */
     N100000108892,
-    /** # 100000108893
+    /** **100000108893**
 
 Cattle. */
     N100000108893,
-    /** # 100000108894
+    /** **100000108894**
 
 Beef cattle. */
     N100000108894,
-    /** # 100000108895
+    /** **100000108895**
 
 Dairy cattle. */
     N100000108895,
-    /** # 100000108896
+    /** **100000108896**
 
 Dry cow. */
     N100000108896,
-    /** # 100000108897
+    /** **100000108897**
 
 Bull. */
     N100000108897,
-    /** # 100000108898
+    /** **100000108898**
 
 Lactating cow. */
     N100000108898,
-    /** # 100000108899
+    /** **100000108899**
 
 All other food producing species. */
     N100000108899,
-    /** # 100000108900
+    /** **100000108900**
 
 All non-food producing species. */
     N100000108900,
-    /** # 100000108901
+    /** **100000108901**
 
 All species  . */
     N100000108901,
-    /** # 100000108902
+    /** **100000108902**
 
 Carnivores. */
     N100000108902,
-    /** # 100000108903
+    /** **100000108903**
 
 Domestic animals. */
     N100000108903,
-    /** # 100000108904
+    /** **100000108904**
 
 Fur animals. */
     N100000108904,
-    /** # 100000108905
+    /** **100000108905**
 
 Game animals. */
     N100000108905,
-    /** # 100000108906
+    /** **100000108906**
 
 Laboratory animals. */
     N100000108906,
-    /** # 100000108907
+    /** **100000108907**
 
 Major species. */
     N100000108907,
-    /** # 100000108908
+    /** **100000108908**
 
 Minor species. */
     N100000108908,
-    /** # 100000108909
+    /** **100000108909**
 
 Ruminant. */
     N100000108909,
-    /** # 100000108910
+    /** **100000108910**
 
 Ruminant and porcine. */
     N100000108910,
-    /** # 100000108911
+    /** **100000108911**
 
 Small animals. */
     N100000108911,
-    /** # 100000108912
+    /** **100000108912**
 
 Crocodile. */
     N100000108912,
-    /** # 100000108913
+    /** **100000108913**
 
 Frog. */
     N100000108913,
-    /** # 100000108914
+    /** **100000108914**
 
 Iguana. */
     N100000108914,
-    /** # 100000108915
+    /** **100000108915**
 
 Lizard. */
     N100000108915,
-    /** # 100000108916
+    /** **100000108916**
 
 Amphibians. */
     N100000108916,
-    /** # 100000108917
+    /** **100000108917**
 
 Reptiles. */
     N100000108917,
-    /** # 100000108918
+    /** **100000108918**
 
 Reptiles for production. */
     N100000108918,
-    /** # 100000108919
+    /** **100000108919**
 
 Snake. */
     N100000108919,
-    /** # 100000108920
+    /** **100000108920**
 
 Tortoise. */
     N100000108920,
-    /** # 100000108921
+    /** **100000108921**
 
 Turtle. */
     N100000108921,
-    /** # 100000108922
+    /** **100000108922**
 
 Honey bees. */
     N100000108922,
-    /** # 100000108923
+    /** **100000108923**
 
 Crustacean. */
     N100000108923,
-    /** # 100000108924
+    /** **100000108924**
 
 Spider. */
     N100000108924,
-    /** # 100000108925
+    /** **100000108925**
 
 Indian hen. */
     N100000108925,
-    /** # 100000108926
+    /** **100000108926**
 
 African Goshawk. */
     N100000108926,
-    /** # 100000108927
+    /** **100000108927**
 
 Black Kite. */
     N100000108927,
-    /** # 100000108928
+    /** **100000108928**
 
 Budgerigar. */
     N100000108928,
-    /** # 100000108929
+    /** **100000108929**
 
 Bustard. */
     N100000108929,
-    /** # 100000108930
+    /** **100000108930**
 
 Buzzard. */
     N100000108930,
-    /** # 100000108931
+    /** **100000108931**
 
 Hen. */
     N100000108931,
-    /** # 100000108932
+    /** **100000108932**
 
 Layer hen. */
     N100000108932,
-    /** # 100000108933
+    /** **100000108933**
 
 Cock. */
     N100000108933,
-    /** # 100000108934
+    /** **100000108934**
 
 Broiler. */
     N100000108934,
-    /** # 100000108935
+    /** **100000108935**
 
 Chickens. */
     N100000108935,
-    /** # 100000108936
+    /** **100000108936**
 
 Chicken embryonated eggs. */
     N100000108936,
-    /** # 100000108937
+    /** **100000108937**
 
 Chicken for reproduction. */
     N100000108937,
-    /** # 100000108938
+    /** **100000108938**
 
 Replacement chick. */
     N100000108938,
-    /** # 100000108939
+    /** **100000108939**
 
 Chick. */
     N100000108939,
-    /** # 100000108940
+    /** **100000108940**
 
 Pullet. */
     N100000108940,
-    /** # 100000108941
+    /** **100000108941**
 
 Cockatiel. */
     N100000108941,
-    /** # 100000108942
+    /** **100000108942**
 
 Cockatoo. */
     N100000108942,
-    /** # 100000108943
+    /** **100000108943**
 
 Common canary. */
     N100000108943,
-    /** # 100000108944
+    /** **100000108944**
 
 Crow. */
     N100000108944,
-    /** # 100000108945
+    /** **100000108945**
 
 Duck. */
     N100000108945,
-    /** # 100000108946
+    /** **100000108946**
 
 Duck broiler. */
     N100000108946,
-    /** # 100000108947
+    /** **100000108947**
 
 Duckling. */
     N100000108947,
-    /** # 100000108948
+    /** **100000108948**
 
 Eagle. */
     N100000108948,
-    /** # 100000108949
+    /** **100000108949**
 
 Emu. */
     N100000108949,
-    /** # 100000108950
+    /** **100000108950**
 
 Goose. */
     N100000108950,
-    /** # 100000108951
+    /** **100000108951**
 
 Guinea fowl. */
     N100000108951,
-    /** # 100000108952
+    /** **100000108952**
 
 Kestrel. */
     N100000108952,
-    /** # 100000108953
+    /** **100000108953**
 
 Kite. */
     N100000108953,
-    /** # 100000108954
+    /** **100000108954**
 
 Macaw. */
     N100000108954,
-    /** # 100000108955
+    /** **100000108955**
 
 Ostrich. */
     N100000108955,
-    /** # 100000108956
+    /** **100000108956**
 
 Birds. */
     N100000108956,
-    /** # 100000108957
+    /** **100000108957**
 
 Fowls. */
     N100000108957,
-    /** # 100000108958
+    /** **100000108958**
 
 Finch. */
     N100000108958,
-    /** # 100000108959
+    /** **100000108959**
 
 Galliformes. */
     N100000108959,
-    /** # 100000108960
+    /** **100000108960**
 
 Game birds. */
     N100000108960,
-    /** # 100000108961
+    /** **100000108961**
 
 Pekin duck. */
     N100000108961,
-    /** # 100000108962
+    /** **100000108962**
 
 Ornamental birds. */
     N100000108962,
-    /** # 100000108963
+    /** **100000108963**
 
 Poultry. */
     N100000108963,
-    /** # 100000108964
+    /** **100000108964**
 
 Owl. */
     N100000108964,
-    /** # 100000108965
+    /** **100000108965**
 
 Parakeet. */
     N100000108965,
-    /** # 100000108966
+    /** **100000108966**
 
 Parrot. */
     N100000108966,
-    /** # 100000108967
+    /** **100000108967**
 
 Partridge. */
     N100000108967,
-    /** # 100000108968
+    /** **100000108968**
 
 Peregrine Falcon. */
     N100000108968,
-    /** # 100000108969
+    /** **100000108969**
 
 Pheasants. */
     N100000108969,
-    /** # 100000108970
+    /** **100000108970**
 
 Carrier pigeon. */
     N100000108970,
-    /** # 100000108971
+    /** **100000108971**
 
 Newborn calves. */
     N100000108971,
-    /** # 100000108972
+    /** **100000108972**
 
 Pregnant cow. */
     N100000108972,
-    /** # 100000108973
+    /** **100000108973**
 
 Pregnant heifer. */
     N100000108973,
-    /** # 100000108974
+    /** **100000108974**
 
 Pre-ruminant cattle. */
     N100000108974,
-    /** # 100000108975
+    /** **100000108975**
 
 Ruminant cattle. */
     N100000108975,
-    /** # 100000108976
+    /** **100000108976**
 
 Wild cattle. */
     N100000108976,
-    /** # 100000108977
+    /** **100000108977**
 
 Calf. */
     N100000108977,
-    /** # 100000108978
+    /** **100000108978**
 
 Heifers. */
     N100000108978,
-    /** # 100000108979
+    /** **100000108979**
 
 Other Bovids. */
     N100000108979,
-    /** # 100000108980
+    /** **100000108980**
 
 Alpaca. */
     N100000108980,
-    /** # 100000108981
+    /** **100000108981**
 
 Camel. */
     N100000108981,
-    /** # 100000108982
+    /** **100000108982**
 
 Llama. */
     N100000108982,
-    /** # 100000108983
+    /** **100000108983**
 
 Other Camelids. */
     N100000108983,
-    /** # 100000108984
+    /** **100000108984**
 
 Bitch. */
     N100000108984,
-    /** # 100000108985
+    /** **100000108985**
 
 Bitch for reproduction. */
     N100000108985,
-    /** # 100000108986
+    /** **100000108986**
 
 Adult male dog. */
     N100000108986,
-    /** # 100000108987
+    /** **100000108987**
 
 Adult male dog for reproduction. */
     N100000108987,
-    /** # 100000108988
+    /** **100000108988**
 
 Dogs. */
     N100000108988,
-    /** # 100000108989
+    /** **100000108989**
 
 Lactating bitch. */
     N100000108989,
-    /** # 100000108990
+    /** **100000108990**
 
 Large dog. */
     N100000108990,
-    /** # 100000108991
+    /** **100000108991**
 
 Medium dog. */
     N100000108991,
-    /** # 100000108992
+    /** **100000108992**
 
 Pregnant bitch. */
     N100000108992,
-    /** # 100000108993
+    /** **100000108993**
 
 Small dog. */
     N100000108993,
-    /** # 100000108994
+    /** **100000108994**
 
 Very large dog. */
     N100000108994,
-    /** # 100000108995
+    /** **100000108995**
 
 Very small dog. */
     N100000108995,
-    /** # 100000108996
+    /** **100000108996**
 
 Puppy. */
     N100000108996,
-    /** # 100000108997
+    /** **100000108997**
 
 Foxes. */
     N100000108997,
-    /** # 100000108998
+    /** **100000108998**
 
 Jackal. */
     N100000108998,
-    /** # 100000108999
+    /** **100000108999**
 
 Other Canids. */
     N100000108999,
-    /** # 100000109000
+    /** **100000109000**
 
 Raccoon dogs. */
     N100000109000,
-    /** # 100000109001
+    /** **100000109001**
 
 Wolf. */
     N100000109001,
-    /** # 100000109002
+    /** **100000109002**
 
 Chamois. */
     N100000109002,
-    /** # 100000109003
+    /** **100000109003**
 
 Other Caprines. */
     N100000109003,
-    /** # 100000109004
+    /** **100000109004**
 
 Adult female goat. */
     N100000109004,
-    /** # 100000109005
+    /** **100000109005**
 
 Adult male goat. */
     N100000109005,
-    /** # 100000109006
+    /** **100000109006**
 
 Dry adult female goat. */
     N100000109006,
-    /** # 100000109007
+    /** **100000109007**
 
 Goats. */
     N100000109007,
-    /** # 100000109008
+    /** **100000109008**
 
 Lactating adult female goat. */
     N100000109008,
-    /** # 100000109009
+    /** **100000109009**
 
 Pregnant adult female goat. */
     N100000109009,
-    /** # 100000109010
+    /** **100000109010**
 
 Pre-ruminant goat. */
     N100000109010,
-    /** # 100000109011
+    /** **100000109011**
 
 Ruminant goat. */
     N100000109011,
-    /** # 100000109012
+    /** **100000109012**
 
 Wild goat. */
     N100000109012,
-    /** # 100000109013
+    /** **100000109013**
 
 Kid. */
     N100000109013,
-    /** # 100000109014
+    /** **100000109014**
 
 Other Ovids. */
     N100000109014,
-    /** # 100000109015
+    /** **100000109015**
 
 Ewe. */
     N100000109015,
-    /** # 100000109016
+    /** **100000109016**
 
 Ram. */
     N100000109016,
-    /** # 100000109017
+    /** **100000109017**
 
 Dry ewe. */
     N100000109017,
-    /** # 100000109018
+    /** **100000109018**
 
 Lactating ewe. */
     N100000109018,
-    /** # 100000109019
+    /** **100000109019**
 
 Pregnant ewe. */
     N100000109019,
-    /** # 100000109020
+    /** **100000109020**
 
 Pre-ruminant sheep. */
     N100000109020,
-    /** # 100000109021
+    /** **100000109021**
 
 Ruminant sheep. */
     N100000109021,
-    /** # 100000109022
+    /** **100000109022**
 
 Sheep. */
     N100000109022,
-    /** # 100000109023
+    /** **100000109023**
 
 Sheep for meat production. */
     N100000109023,
-    /** # 100000109024
+    /** **100000109024**
 
 Dairy sheep. */
     N100000109024,
-    /** # 100000109025
+    /** **100000109025**
 
 Wild sheep. */
     N100000109025,
-    /** # 100000109026
+    /** **100000109026**
 
 Lamb. */
     N100000109026,
-    /** # 100000109027
+    /** **100000109027**
 
 Elk. */
     N100000109027,
-    /** # 100000109028
+    /** **100000109028**
 
 Fallow deer. */
     N100000109028,
-    /** # 100000109029
+    /** **100000109029**
 
 Moose. */
     N100000109029,
-    /** # 100000109030
+    /** **100000109030**
 
 Antelope. */
     N100000109030,
-    /** # 100000109031
+    /** **100000109031**
 
 Cervid. */
     N100000109031,
-    /** # 100000109032
+    /** **100000109032**
 
 Deer. */
     N100000109032,
-    /** # 100000109033
+    /** **100000109033**
 
 Other Deer. */
     N100000109033,
-    /** # 100000109034
+    /** **100000109034**
 
 Red deer. */
     N100000109034,
-    /** # 100000109035
+    /** **100000109035**
 
 Reindeer. */
     N100000109035,
-    /** # 100000109036
+    /** **100000109036**
 
 Roe deer. */
     N100000109036,
-    /** # 100000109037
+    /** **100000109037**
 
 Donkey. */
     N100000109037,
-    /** # 100000109038
+    /** **100000109038**
 
 Mare. */
     N100000109038,
-    /** # 100000109039
+    /** **100000109039**
 
 Gelding. */
     N100000109039,
-    /** # 100000109040
+    /** **100000109040**
 
 Horses. */
     N100000109040,
-    /** # 100000109041
+    /** **100000109041**
 
 Stallion. */
     N100000109041,
-    /** # 100000109042
+    /** **100000109042**
 
 Pony. */
     N100000109042,
-    /** # 100000109043
+    /** **100000109043**
 
 Pregnant mare. */
     N100000109043,
-    /** # 100000109044
+    /** **100000109044**
 
 Non food-producing horse. */
     N100000109044,
-    /** # 100000109045
+    /** **100000109045**
 
 Suckling colt. */
     N100000109045,
-    /** # 100000109046
+    /** **100000109046**
 
 Colt. */
     N100000109046,
-    /** # 100000109047
+    /** **100000109047**
 
 Mule. */
     N100000109047,
-    /** # 100000109048
+    /** **100000109048**
 
 Equid. */
     N100000109048,
-    /** # 100000109049
+    /** **100000109049**
 
 Female equid. */
     N100000109049,
-    /** # 100000109050
+    /** **100000109050**
 
 Other Equids. */
     N100000109050,
-    /** # 100000109051
+    /** **100000109051**
 
 Zebra. */
     N100000109051,
-    /** # 100000109052
+    /** **100000109052**
 
 Bobcat. */
     N100000109052,
-    /** # 100000109053
+    /** **100000109053**
 
 Adult female cat. */
     N100000109053,
-    /** # 100000109054
+    /** **100000109054**
 
 Adult female cat for reproduction. */
     N100000109054,
-    /** # 100000109055
+    /** **100000109055**
 
 Adult male cat. */
     N100000109055,
-    /** # 100000109056
+    /** **100000109056**
 
 Cats. */
     N100000109056,
-    /** # 100000109057
+    /** **100000109057**
 
 Lactating cat. */
     N100000109057,
-    /** # 100000109058
+    /** **100000109058**
 
 Large cat. */
     N100000109058,
-    /** # 100000109059
+    /** **100000109059**
 
 Medium cat. */
     N100000109059,
-    /** # 100000109060
+    /** **100000109060**
 
 Pregnant cat. */
     N100000109060,
-    /** # 100000109061
+    /** **100000109061**
 
 Small cat. */
     N100000109061,
-    /** # 100000109062
+    /** **100000109062**
 
 Kitten. */
     N100000109062,
-    /** # 100000109063
+    /** **100000109063**
 
 Cougar. */
     N100000109063,
-    /** # 100000109064
+    /** **100000109064**
 
 Jaguar. */
     N100000109064,
-    /** # 100000109065
+    /** **100000109065**
 
 Leopard. */
     N100000109065,
-    /** # 100000109066
+    /** **100000109066**
 
 Lion. */
     N100000109066,
-    /** # 100000109067
+    /** **100000109067**
 
 Lynx. */
     N100000109067,
-    /** # 100000109068
+    /** **100000109068**
 
 Other Felids. */
     N100000109068,
-    /** # 100000109069
+    /** **100000109069**
 
 Tiger. */
     N100000109069,
-    /** # 100000109070
+    /** **100000109070**
 
 Tsushima wild cat. */
     N100000109070,
-    /** # 100000109071
+    /** **100000109071**
 
 Other Leporids. */
     N100000109071,
-    /** # 100000109072
+    /** **100000109072**
 
 Hare. */
     N100000109072,
-    /** # 100000109073
+    /** **100000109073**
 
 Female rabbit for reproduction. */
     N100000109073,
@@ -51420,41 +50654,39 @@ impl From<TargetSpecies> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TaskCode`. Codes indicating the type of action that is expected to be performed
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TaskCode](http://hl7.org/fhir/ValueSet/task-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TaskCode {
-    /** # abort
+    /** **abort**
 
 Mark the focal resource as no longer active. Abort, cancel or withdraw the focal resource, as appropriate for the type of resource. */
     Abort,
-    /** # approve
+    /** **approve**
 
 Activate/approve the focal resource. Take what actions are needed to transition the focus resource from 'draft' to 'active' or 'in-progress', as appropriate for the resource type.  This may involve additing additional content, approval, validation, etc. */
     Approve,
-    /** # change
+    /** **change**
 
 Change the focal resource. Update the focal resource of the owning system to reflect the content specified as the Task.focus */
     Change,
-    /** # fulfill
+    /** **fulfill**
 
 Fulfill the focal request. Act to perform the actions described in the focus request.  This might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  The degree of fulfillment requested might be limited by Task.restriction. */
     Fulfill,
-    /** # instantiate
+    /** **instantiate**
 
 Instantiate the focal definition. Act to perform the actions defined in the focus definition resource (ActivityDefinition, PlanDefinition, Questionnaire, etc.)  For PlanDefinition or ActivityDefinition, this might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  For Questionnaire, this would result in a QuestionnaireResponse - and possibly resources constructed using data extracted from the response.  The degree of fulfillment requested might be limited by Task.restriction. */
     Instantiate,
-    /** # replace
+    /** **replace**
 
 Replace the focal resource with the input resource. Replace the focal resource with the specified input resource */
     Replace,
-    /** # resume
+    /** **resume**
 
 Re-activate the focal resource. Transition the focal resource from 'suspended' to 'active' or 'in-progress' as appropriate for the resource type. */
     Resume,
-    /** # suspend
+    /** **suspend**
 
 Suspend the focal resource. Transition the focal resource from 'active' or 'in-progress' to 'suspended' */
     Suspend,
@@ -51539,12 +50771,10 @@ impl From<TaskCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TaskIntent`. Distinguishes whether the task is a proposal, plan or full order.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TaskIntent](http://hl7.org/fhir/task-intent)**. Distinguishes whether the task is a proposal, plan or full order.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TaskIntent {
-    /** # unknown
+    /** **unknown**
 
 Unknown. The intent is not known.  When dealing with Task, it's not always known (or relevant) how the task was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously. */
     Unknown,
@@ -51612,57 +50842,55 @@ impl From<TaskIntent> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TaskStatus`. The current status of the task.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TaskStatus](http://hl7.org/fhir/ValueSet/task-status)**. The current status of the task.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TaskStatus {
-    /** # accepted
+    /** **accepted**
 
 Accepted. The potential performer has agreed to execute the task but has not yet started work. */
     Accepted,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. The task was not completed. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. The task has been completed. */
     Completed,
-    /** # draft
+    /** **draft**
 
 Draft. The task is not yet ready to be acted upon. */
     Draft,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered in Error. The task should never have existed and is retained only because of the possibility it may have used. */
     EnteredInError,
-    /** # failed
+    /** **failed**
 
 Failed. The task was attempted but could not be completed due to some error. */
     Failed,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. The task has been started but is not yet complete. */
     InProgress,
-    /** # on-hold
+    /** **on-hold**
 
 On Hold. The task has been started but work has been paused. */
     OnHold,
-    /** # ready
+    /** **ready**
 
 Ready. The task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given. */
     Ready,
-    /** # received
+    /** **received**
 
 Received. A potential performer has claimed ownership of the task and is evaluating whether to perform it. */
     Received,
-    /** # rejected
+    /** **rejected**
 
 Rejected. The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action. */
     Rejected,
-    /** # requested
+    /** **requested**
 
 Requested. The task is ready to be acted upon and action is sought. */
     Requested,
@@ -51759,29 +50987,27 @@ impl From<TaskStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TaskStatusReason`. The current status reason of the task.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TaskStatusReason](http://hl7.org/fhir/ValueSet/task-status-reason)**. The current status reason of the task.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TaskStatusReason {
-    /** # environmental-issue
+    /** **environmental-issue**
 
 Environmental-issue. Something in the environment is preventing task completion. */
     EnvironmentalIssue,
-    /** # equipment-issue
+    /** **equipment-issue**
 
 Equipment-issue. A piece of equipment necessary for completion of the task is malfunctioning. */
     EquipmentIssue,
-    /** # misidentified
+    /** **misidentified**
 
 Misidentified. Something related to the task was misidentified. */
     Misidentified,
-    /** # missing
+    /** **missing**
 
 Missing. An item nessary for task completion is missing. */
     Missing,
-    /** # personnel-issue
+    /** **personnel-issue**
 
 Personnel-issue. Key personnel necessary for task completion are not present. */
     PersonnelIssue,
@@ -51857,41 +51083,39 @@ impl From<TaskStatusReason> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TemplateStatusCodeLifeCycle`. Life cycle of the Status Code of a Template Design (Version)
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TemplateStatusCodeLifeCycle](urn:oid:2.16.840.1.113883.3.1937.98.11.8)**. Life cycle of the Status Code of a Template Design (Version)\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TemplateStatusCodeLifeCycle {
-    /** # active
+    /** **active**
 
 active. Design has been deemed fit for the intended purpose and is published by the governance group. */
     Active,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. A drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published in an active state. */
     Cancelled,
-    /** # draft
+    /** **draft**
 
 Draft. Design is under development (nascent). */
     Draft,
-    /** # pending
+    /** **pending**
 
 Under pre-publication review. Design is completed and is being reviewed. */
     Pending,
-    /** # rejected
+    /** **rejected**
 
 Rejected. A previously drafted design is determined to be erroneous or not fit for intended purpose and is discontinued before ever being published for consideration in a pending state. */
     Rejected,
-    /** # retired
+    /** **retired**
 
 retired. A previously active design is discontinued from use. It should no longer be used for future designs, but for historical purposes may be used to process data previously recorded using this design. A newer design may or may not exist. The design is published in the retired state. */
     Retired,
-    /** # review
+    /** **review**
 
 In Review. Design is active, but is under review. The review may result in a change to the design. The change may necessitate a new version to be created. This in turn may result in the prior version of the template to be retired. Alternatively, the review may result in a change to the design that does not require a new version to be created, or it may result in no change to the design at all. */
     Review,
-    /** # terminated
+    /** **terminated**
 
 Terminated. A design is determined to be erroneous or not fit for the intended purpose and should no longer be used, even for historical purposes. No new designs can be developed for this template. The associated template no longer needs to be published, but if published, is shown in the terminated state. */
     Terminated,
@@ -51976,29 +51200,27 @@ impl From<TemplateStatusCodeLifeCycle> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestReportActionResult`. The results of executing an action.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestReportActionResult](http://hl7.org/fhir/ValueSet/report-action-result-codes)**. The results of executing an action.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportActionResult {
-    /** # error
+    /** **error**
 
 Error. The action encountered a fatal error and the engine was unable to process. */
     Error,
-    /** # fail
+    /** **fail**
 
 Fail. The action failed. */
     Fail,
-    /** # pass
+    /** **pass**
 
 Pass. The action was successful. */
     Pass,
-    /** # skip
+    /** **skip**
 
 Skip. The action was skipped. */
     Skip,
-    /** # warning
+    /** **warning**
 
 Warning. The action passed but with warnings. */
     Warning,
@@ -52074,21 +51296,19 @@ impl From<TestReportActionResult> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestReportParticipantType`. The type of participant.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestReportParticipantType](http://hl7.org/fhir/ValueSet/report-participant-type)**. The type of participant.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportParticipantType {
-    /** # client
+    /** **client**
 
 Client. A FHIR Client. */
     Client,
-    /** # server
+    /** **server**
 
 Server. A FHIR Server. */
     Server,
-    /** # test-engine
+    /** **test-engine**
 
 Test Engine. The test execution engine. */
     TestEngine,
@@ -52158,21 +51378,19 @@ impl From<TestReportParticipantType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestReportResult`. The reported execution result.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestReportResult](http://hl7.org/fhir/ValueSet/report-result-codes)**. The reported execution result.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportResult {
-    /** # fail
+    /** **fail**
 
 Fail. One or more test operations failed one or more asserts. */
     Fail,
-    /** # pass
+    /** **pass**
 
 Pass. All test operations successfully passed all asserts. */
     Pass,
-    /** # pending
+    /** **pending**
 
 Pending. One or more test operations is pending execution completion. */
     Pending,
@@ -52242,29 +51460,27 @@ impl From<TestReportResult> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestReportStatus`. The current status of the test report.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestReportStatus](http://hl7.org/fhir/ValueSet/report-status-codes)**. The current status of the test report.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportStatus {
-    /** # completed
+    /** **completed**
 
 Completed. All test operations have completed. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. This test report was entered or created in error. */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. A test operations is currently executing. */
     InProgress,
-    /** # stopped
+    /** **stopped**
 
 Stopped. The test script execution was manually stopped. */
     Stopped,
-    /** # waiting
+    /** **waiting**
 
 Waiting. A test operation is waiting for an external client request. */
     Waiting,
@@ -52340,37 +51556,35 @@ impl From<TestReportStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestScriptRequestMethodCode`. The allowable request method or HTTP operation codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestScriptRequestMethodCode](http://hl7.org/fhir/ValueSet/http-operations)**. The allowable request method or HTTP operation codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestScriptRequestMethodCode {
-    /** # delete
+    /** **delete**
 
 DELETE. HTTP DELETE operation. */
     Delete,
-    /** # get
+    /** **get**
 
 GET. HTTP GET operation. */
     Get,
-    /** # head
+    /** **head**
 
 HEAD. HTTP HEAD operation. */
     Head,
-    /** # options
+    /** **options**
 
 OPTIONS. HTTP OPTIONS operation. */
     Options,
-    /** # patch
+    /** **patch**
 
 PATCH. HTTP PATCH operation. */
     Patch,
-    /** # post
+    /** **post**
 
 POST. HTTP POST operation. */
     Post,
-    /** # put
+    /** **put**
 
 PUT. HTTP PUT operation. */
     Put,
@@ -52452,21 +51666,19 @@ impl From<TestScriptRequestMethodCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestScriptScopeConformanceType`. The expectation of whether the test must pass for the system to be considered conformant with the artifact.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestScriptScopeConformanceType](http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes)**. The expectation of whether the test must pass for the system to be considered conformant with the artifact.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestScriptScopeConformanceType {
-    /** # optional
+    /** **optional**
 
 Optional. All tests are expected to pass but non-pass statuses may be allowed. */
     Optional,
-    /** # required
+    /** **required**
 
 Required. All tests are expected to pass. Warning statuses are permitted. This is the default value. */
     Required,
-    /** # strict
+    /** **strict**
 
 Strict. All tests are expected to pass. Warnings are treated as a failure. */
     Strict,
@@ -52539,21 +51751,19 @@ impl From<TestScriptScopeConformanceType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TestScriptScopePhaseType`. The phase of testing for this artifact.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TestScriptScopePhaseType](http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes)**. The phase of testing for this artifact.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestScriptScopePhaseType {
-    /** # integration
+    /** **integration**
 
 Integration. The internal system to system phase. */
     Integration,
-    /** # production
+    /** **production**
 
 Production. The live system to system phase (Note, this may involve pii/phi data). */
     Production,
-    /** # unit
+    /** **unit**
 
 Unit. The development or implementation phase. */
     Unit,
@@ -52625,49 +51835,47 @@ impl From<TestScriptScopePhaseType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TherapyRelationshipType`. Classification of relationship between a therapy and a contraindication or an indication.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TherapyRelationshipType](http://hl7.org/fhir/ValueSet/therapy-relationship-type)**. Classification of relationship between a therapy and a contraindication or an indication.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TherapyRelationshipType {
-    /** # contraindicated-except-with
+    /** **contraindicated-except-with**
 
 Contraindicated unless the other therapy is given. Contraindicated unless the other therapy is given */
     ContraindicatedExceptWith,
-    /** # contraindicated-only-with
+    /** **contraindicated-only-with**
 
 Only contraindicated if the other therapy is given. Only contraindicated if the other therapy is given */
     ContraindicatedOnlyWith,
-    /** # indicated-except-with
+    /** **indicated-except-with**
 
 Indicated except when the other therapy is given. Indicated except when the other therapy is given */
     IndicatedExceptWith,
-    /** # indicated-only-after
+    /** **indicated-only-after**
 
 Indicated only if the other therapy is planned to be given afterwards (prep). Indicated only if the other therapy is planned to be given afterwards (prep) */
     IndicatedOnlyAfter,
-    /** # indicated-only-before
+    /** **indicated-only-before**
 
 Indicated only if the other therapy was given before (follow-up). Indicated only if the other therapy was given before (follow-up) */
     IndicatedOnlyBefore,
-    /** # indicated-only-with
+    /** **indicated-only-with**
 
 Indicated only when the other therapy is given (co-occurrent). Indicated only when the other therapy is given (co-occurrent) */
     IndicatedOnlyWith,
-    /** # replace-other-therapy
+    /** **replace-other-therapy**
 
 Indicated to replace the other therapy. Indicated to replace the other therapy */
     ReplaceOtherTherapy,
-    /** # replace-other-therapy-contraindicated
+    /** **replace-other-therapy-contraindicated**
 
 Indicated to replace the other contraindicated therapy. Indicated to replace the other contraindicated therapy. */
     ReplaceOtherTherapyContraindicated,
-    /** # replace-other-therapy-not-effective
+    /** **replace-other-therapy-not-effective**
 
 Indicated to replace the other therapy not effective on patient. Indicated to replace the other therapy not effective on patient */
     ReplaceOtherTherapyNotEffective,
-    /** # replace-other-therapy-not-tolerated
+    /** **replace-other-therapy-not-tolerated**
 
 Indicated to replace the other therapy not well tolerated by patient. Indicated to replace the other therapy not well tolerated by patient */
     ReplaceOtherTherapyNotTolerated,
@@ -52788,12 +51996,10 @@ impl From<TherapyRelationshipType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TimingAbbreviation`. Code for a known / defined timing pattern.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TimingAbbreviation](http://terminology.hl7.org/CodeSystem/timing-abbreviation)**. Code for a known / defined timing pattern.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TimingAbbreviation {
-    /** # C
+    /** **C**
 
 Continuous (frequency). Service is provided continuously between start time and stop time. */
     C,
@@ -52863,61 +52069,59 @@ impl From<TimingAbbreviation> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TitleType`. Used to express the reason and specific aspect for the variant title, such as language and specific language.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TitleType](http://hl7.org/fhir/ValueSet/title-type)**. Used to express the reason and specific aspect for the variant title, such as language and specific language.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TitleType {
-    /** # acronym
+    /** **acronym**
 
 Acronym. Abbreviation used as title */
     Acronym,
-    /** # autotranslated
+    /** **autotranslated**
 
 Different language derived from autotranslation. Machine translated form of title in a different language, language element codes the language into which it was translated by machine. */
     Autotranslated,
-    /** # duplicate-uid
+    /** **duplicate-uid**
 
 Different text for the same object with a different identifier. An alternative form of the title in two or more entries, e.g. in multiple medline entries */
     DuplicateUid,
-    /** # earlier-title
+    /** **earlier-title**
 
 Different text in an earlier version. Alternative form of title in an earlier version such as epub ahead of print. */
     EarlierTitle,
-    /** # human-use
+    /** **human-use**
 
 Human use. Human-friendly title */
     HumanUse,
-    /** # language
+    /** **language**
 
 Different language. Additional form of title in a different language. */
     Language,
-    /** # machine-use
+    /** **machine-use**
 
 Machine use. Machine-friendly title */
     MachineUse,
-    /** # official
+    /** **official**
 
 Official title. The official or authoritative title. */
     Official,
-    /** # plain-language
+    /** **plain-language**
 
 Plain language title. Title using language common to lay public discourse. */
     PlainLanguage,
-    /** # primary
+    /** **primary**
 
 Primary title. Main title for common use. The primary title used for representation if multiple titles exist. */
     Primary,
-    /** # scientific
+    /** **scientific**
 
 Scientific title. Title using scientific terminology. */
     Scientific,
-    /** # short-title
+    /** **short-title**
 
 Short title. Brief title (e.g. 'running title' or title used in page headers) */
     ShortTitle,
-    /** # subtitle
+    /** **subtitle**
 
 Subtitle. Subtitle or secondary title. */
     Subtitle,
@@ -53019,41 +52223,39 @@ impl From<TitleType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TransportCode`. Codes indicating the type of action that is expected to be performed
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TransportCode](http://hl7.org/fhir/ValueSet/transport-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TransportCode {
-    /** # abort
+    /** **abort**
 
 Mark the focal resource as no longer active. Abort, cancel or withdraw the focal resource, as appropriate for the type of resource. */
     Abort,
-    /** # approve
+    /** **approve**
 
 Activate/approve the focal resource. Take what actions are needed to transition the focus resource from 'draft' to 'active' or 'in-progress', as appropriate for the resource type.  This may involve additing additional content, approval, validation, etc. */
     Approve,
-    /** # change
+    /** **change**
 
 Change the focal resource. Update the focal resource of the owning system to reflect the content specified as the Task.focus */
     Change,
-    /** # fulfill
+    /** **fulfill**
 
 Fulfill the focal request. Act to perform the actions described in the focus request.  This might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  The degree of fulfillment requested might be limited by Task.restriction. */
     Fulfill,
-    /** # instantiate
+    /** **instantiate**
 
 Instantiate the focal definition. Act to perform the actions defined in the focus definition resource (ActivityDefinition, PlanDefinition, Questionnaire, etc.)  For PlanDefinition or ActivityDefinition, this might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  For Questionnaire, this would result in a QuestionnaireResponse - and possibly resources constructed using data extracted from the response.  The degree of fulfillment requested might be limited by Task.restriction. */
     Instantiate,
-    /** # replace
+    /** **replace**
 
 Replace the focal resource with the input resource. Replace the focal resource with the specified input resource */
     Replace,
-    /** # resume
+    /** **resume**
 
 Re-activate the focal resource. Transition the focal resource from 'suspended' to 'active' or 'in-progress' as appropriate for the resource type. */
     Resume,
-    /** # suspend
+    /** **suspend**
 
 Suspend the focal resource. Transition the focal resource from 'active' or 'in-progress' to 'suspended' */
     Suspend,
@@ -53138,12 +52340,10 @@ impl From<TransportCode> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TransportIntent`. Distinguishes whether the transport is a proposal, plan or full order.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TransportIntent](http://hl7.org/fhir/transport-intent)**. Distinguishes whether the transport is a proposal, plan or full order.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TransportIntent {
-    /** # unknown
+    /** **unknown**
 
 Unknown. The intent is not known.  When dealing with Transport, it's not always known (or relevant) how the transport was initiated - i.e. whether it was proposed, planned, ordered or just done spontaneously. */
     Unknown,
@@ -53211,33 +52411,31 @@ impl From<TransportIntent> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TransportStatus`. Status of transport.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TransportStatus](http://hl7.org/fhir/ValueSet/transport-status)**. Status of transport.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TransportStatus {
-    /** # abandoned
+    /** **abandoned**
 
 Abandoned. Transport was started but not completed. */
     Abandoned,
-    /** # cancelled
+    /** **cancelled**
 
 Cancelled. Transport was cancelled before started. */
     Cancelled,
-    /** # completed
+    /** **completed**
 
 Completed. Transport has been completed. */
     Completed,
-    /** # entered-in-error
+    /** **entered-in-error**
 
 Entered In Error. This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "abandoned" rather than "entered-in-error".). */
     EnteredInError,
-    /** # in-progress
+    /** **in-progress**
 
 In Progress. Transport has started but not completed. */
     InProgress,
-    /** # planned
+    /** **planned**
 
 Planned. Planned transport that is not yet requested. */
     Planned,
@@ -53316,41 +52514,39 @@ impl From<TransportStatus> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TriggerType`. The type of trigger.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TriggerType](http://hl7.org/fhir/ValueSet/trigger-type)**. The type of trigger.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TriggerType {
-    /** # data-access-ended
+    /** **data-access-ended**
 
 Data Access Ended. The trigger occurs whenever access to data of a particular type is completed. */
     DataAccessEnded,
-    /** # data-accessed
+    /** **data-accessed**
 
 Data Accessed. The trigger occurs whenever data of a particular type is accessed. */
     DataAccessed,
-    /** # data-added
+    /** **data-added**
 
 Data Added. The trigger occurs whenever data of a particular type is added. */
     DataAdded,
-    /** # data-changed
+    /** **data-changed**
 
 Data Changed. The trigger occurs whenever data of a particular type is changed in any way, either added, modified, or removed. */
     DataChanged,
-    /** # data-modified
+    /** **data-modified**
 
 Data Updated. The trigger occurs whenever data of a particular type is modified. */
     DataModified,
-    /** # data-removed
+    /** **data-removed**
 
 Data Removed. The trigger occurs whenever data of a particular type is removed. */
     DataRemoved,
-    /** # named-event
+    /** **named-event**
 
 Named Event. The trigger occurs in response to a specific named event, and no other information about the trigger is specified. Named events are completely pre-coordinated, and the formal semantics of the trigger are not provided. */
     NamedEvent,
-    /** # periodic
+    /** **periodic**
 
 Periodic. The trigger occurs at a specific time or periodically as described by a timing or schedule. A periodic event cannot have any data elements, but may have a name assigned as a shorthand for the event. */
     Periodic,
@@ -53435,21 +52631,19 @@ impl From<TriggerType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TriggeredBytype`. Codes providing the triggeredBy type of observation.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TriggeredBytype](http://hl7.org/fhir/ValueSet/observation-triggeredbytype)**. Codes providing the triggeredBy type of observation.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TriggeredBytype {
-    /** # re-run
+    /** **re-run**
 
 Re-run (per policy). Performance of the same test but with different parameters/settings/solution. */
     ReRun,
-    /** # reflex
+    /** **reflex**
 
 Reflex. Performance of one or more other tests depending on the results of the initial test.  This may include collection of additional specimen. While a new ServiceRequest is not required to perform the additional test, where it is still needed (e.g., requesting another laboratory to perform the reflex test), the Observation.basedOn would reference the new ServiceRequest that requested the additional test to be performed as well as the original ServiceRequest to reflect the one that provided the authorization. */
     Reflex,
-    /** # repeat
+    /** **repeat**
 
 Repeat (per policy). Performance of the same test again with the same parameters/settings/solution. */
     Repeat,
@@ -53521,17 +52715,15 @@ impl From<TriggeredBytype> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `TypeDerivationRule`. How a type relates to its baseDefinition.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[TypeDerivationRule](http://hl7.org/fhir/ValueSet/type-derivation-rule)**. How a type relates to its baseDefinition.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TypeDerivationRule {
-    /** # constraint
+    /** **constraint**
 
 Constraint. This definition adds additional rules to an existing concrete type. */
     Constraint,
-    /** # specialization
+    /** **specialization**
 
 Specialization. This definition defines a new type that adds additional elements and optionally additional rules to the base type. */
     Specialization,
@@ -53598,21 +52790,19 @@ impl From<TypeDerivationRule> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `UndesirablEffectFrequency`. A categorisation for a frequency of occurence of an undesirable effect.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[UndesirablEffectFrequency](http://hl7.org/fhir/ValueSet/undesirable-effect-frequency)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UndesirablEffectFrequency {
-    /** # Common
+    /** **Common**
 
 Common. */
     Common,
-    /** # Rare
+    /** **Rare**
 
 Rare. */
     Rare,
-    /** # Uncommon
+    /** **Uncommon**
 
 Uncommon. */
     Uncommon,
@@ -53684,233 +52874,231 @@ impl From<UndesirablEffectFrequency> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `UnitOfPresentation`. The presentation type in which an administrable medicinal product is given to a patient.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[UnitOfPresentation](http://hl7.org/fhir/ValueSet/unit-of-presentation)**. The presentation type in which an administrable medicinal product is given to a patient.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UnitOfPresentation {
-    /** # 200000002108
+    /** **200000002108**
 
 Barrel. */
     N200000002108,
-    /** # 200000002109
+    /** **200000002109**
 
 Blister. */
     N200000002109,
-    /** # 200000002110
+    /** **200000002110**
 
 Block. */
     N200000002110,
-    /** # 200000002111
+    /** **200000002111**
 
 Bottle. */
     N200000002111,
-    /** # 200000002112
+    /** **200000002112**
 
 Cachet. */
     N200000002112,
-    /** # 200000002113
+    /** **200000002113**
 
 Capsule. */
     N200000002113,
-    /** # 200000002114
+    /** **200000002114**
 
 Cartridge. */
     N200000002114,
-    /** # 200000002115
+    /** **200000002115**
 
 Collar. */
     N200000002115,
-    /** # 200000002116
+    /** **200000002116**
 
 Container. */
     N200000002116,
-    /** # 200000002117
+    /** **200000002117**
 
 Cup. */
     N200000002117,
-    /** # 200000002118
+    /** **200000002118**
 
 Cylinder. */
     N200000002118,
-    /** # 200000002119
+    /** **200000002119**
 
 Dart. */
     N200000002119,
-    /** # 200000002120
+    /** **200000002120**
 
 Dressing. */
     N200000002120,
-    /** # 200000002121
+    /** **200000002121**
 
 Drop. */
     N200000002121,
-    /** # 200000002122
+    /** **200000002122**
 
 Film. */
     N200000002122,
-    /** # 200000002123
+    /** **200000002123**
 
 Chewing gum. */
     N200000002123,
-    /** # 200000002124
+    /** **200000002124**
 
 Implant. */
     N200000002124,
-    /** # 200000002125
+    /** **200000002125**
 
 Inhaler. */
     N200000002125,
-    /** # 200000002126
+    /** **200000002126**
 
 Insert. */
     N200000002126,
-    /** # 200000002127
+    /** **200000002127**
 
 Jar. */
     N200000002127,
-    /** # 200000002128
+    /** **200000002128**
 
 Lozenge. */
     N200000002128,
-    /** # 200000002129
+    /** **200000002129**
 
 Lyophilisate. */
     N200000002129,
-    /** # 200000002130
+    /** **200000002130**
 
 Matrix. */
     N200000002130,
-    /** # 200000002131
+    /** **200000002131**
 
 Pad. */
     N200000002131,
-    /** # 200000002132
+    /** **200000002132**
 
 Paper. */
     N200000002132,
-    /** # 200000002133
+    /** **200000002133**
 
 Pastille. */
     N200000002133,
-    /** # 200000002134
+    /** **200000002134**
 
 Patch. */
     N200000002134,
-    /** # 200000002135
+    /** **200000002135**
 
 Pen. */
     N200000002135,
-    /** # 200000002136
+    /** **200000002136**
 
 Pendant. */
     N200000002136,
-    /** # 200000002137
+    /** **200000002137**
 
 Pessary. */
     N200000002137,
-    /** # 200000002138
+    /** **200000002138**
 
 Pillule. */
     N200000002138,
-    /** # 200000002139
+    /** **200000002139**
 
 Pipette. */
     N200000002139,
-    /** # 200000002140
+    /** **200000002140**
 
 Plaster. */
     N200000002140,
-    /** # 200000002141
+    /** **200000002141**
 
 Plug. */
     N200000002141,
-    /** # 200000002142
+    /** **200000002142**
 
 Pouch. */
     N200000002142,
-    /** # 200000002143
+    /** **200000002143**
 
 Sachet. */
     N200000002143,
-    /** # 200000002144
+    /** **200000002144**
 
 Sponge. */
     N200000002144,
-    /** # 200000002145
+    /** **200000002145**
 
 Spoonful. */
     N200000002145,
-    /** # 200000002146
+    /** **200000002146**
 
 Stick. */
     N200000002146,
-    /** # 200000002147
+    /** **200000002147**
 
 Straw. */
     N200000002147,
-    /** # 200000002148
+    /** **200000002148**
 
 Strip. */
     N200000002148,
-    /** # 200000002149
+    /** **200000002149**
 
 Suppository. */
     N200000002149,
-    /** # 200000002150
+    /** **200000002150**
 
 Syringe. */
     N200000002150,
-    /** # 200000002151
+    /** **200000002151**
 
 System. */
     N200000002151,
-    /** # 200000002152
+    /** **200000002152**
 
 Tablet. */
     N200000002152,
-    /** # 200000002153
+    /** **200000002153**
 
 Tag. */
     N200000002153,
-    /** # 200000002154
+    /** **200000002154**
 
 Tampon. */
     N200000002154,
-    /** # 200000002155
+    /** **200000002155**
 
 Thread. */
     N200000002155,
-    /** # 200000002156
+    /** **200000002156**
 
 Tube. */
     N200000002156,
-    /** # 200000002157
+    /** **200000002157**
 
 Vessel. */
     N200000002157,
-    /** # 200000002158
+    /** **200000002158**
 
 Vial. */
     N200000002158,
-    /** # 200000002159
+    /** **200000002159**
 
 Puff. */
     N200000002159,
-    /** # 200000002163
+    /** **200000002163**
 
 Actuation. */
     N200000002163,
-    /** # 200000002164
+    /** **200000002164**
 
 Ampoule. */
     N200000002164,
-    /** # 200000002165
+    /** **200000002165**
 
 Applicator. */
     N200000002165,
-    /** # 200000002166
+    /** **200000002166**
 
 Bag. */
     N200000002166,
@@ -54139,33 +53327,31 @@ impl From<UnitOfPresentation> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `UsageContextAgreementScope`. This codesystem defines codes describing the type of agreement represented by an artifact, for example for use in CanonicalResource.usageContext.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[UsageContextAgreementScope](http://hl7.org/fhir/ValueSet/usage-context-agreement-scope)**. This codesystem defines codes describing the type of agreement represented by an artifact, for example for use in CanonicalResource.usageContext.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UsageContextAgreementScope {
-    /** # community
+    /** **community**
 
 Community. Sets contractual or business expectations for systems participating in a particular exchange community. */
     Community,
-    /** # domain
+    /** **domain**
 
 Domain. Defines use-case-specific requirements for a specific business or health domain.  May vary in jurisdictional scope from international to small region and in business scope from broad to narrow. */
     Domain,
-    /** # knowledge
+    /** **knowledge**
 
 Knowledge. Defines use-case-specific information or guidance that is relevant to a specific business or health domain but is not mandated for particular use. */
     Knowledge,
-    /** # realm-base
+    /** **realm-base**
 
 Realm Base. Defines use-case independent foundational expectations for exchange within a particular country or jurisdiction.  Should be accompanied by a jurisdiction.  Commonly used as a 'base' for more restrictive artifacts. */
     RealmBase,
-    /** # system-design
+    /** **system-design**
 
 System Design. Documents the specific capabilities of a single system as 'available' for purchase or use.  May have some variability reflecting options that can be configured. */
     SystemDesign,
-    /** # system-implementation
+    /** **system-implementation**
 
 System Implementation. Documents the specific points of a single production system or endpoint.  This may be time-specific - i.e. reflecting the system 'as it is now' or 'as it was at some point in the past'. */
     SystemImplementation,
@@ -54246,21 +53432,19 @@ impl From<UsageContextAgreementScope> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `Use`. The purpose of the Claim: predetermination, preauthorization, claim.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[Use](http://hl7.org/fhir/ValueSet/claim-use)**. The purpose of the Claim: predetermination, preauthorization, claim.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Use {
-    /** # claim
+    /** **claim**
 
 Claim. The treatment is complete and this represents a Claim for the services. */
     Claim,
-    /** # preauthorization
+    /** **preauthorization**
 
 Preauthorization. The treatment is proposed and this represents a Pre-authorization for the services. */
     Preauthorization,
-    /** # predetermination
+    /** **predetermination**
 
 Predetermination. The treatment is proposed and this represents a Pre-determination for the services. */
     Predetermination,
@@ -54330,29 +53514,27 @@ impl From<Use> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `VersionAlgorithm`. Indicates the mechanism used to compare versions to determine which is more current.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[VersionAlgorithm](http://hl7.org/fhir/ValueSet/version-algorithm)**. Indicates the mechanism used to compare versions to determine which is more current.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VersionAlgorithm {
-    /** # alpha
+    /** **alpha**
 
 Alphabetical. Simple alphabetic sort on a case-insensitive and accent-insensitive basis.  (Sorting of different cases or accented versions of a character is indeterminate) */
     Alpha,
-    /** # date
+    /** **date**
 
 Date. Versions are expressed as an ISO date/time syntax (including syntaxes with only portions of a date) */
     Date,
-    /** # integer
+    /** **integer**
 
 Integer. Versions are integers and ordered numerically */
     Integer,
-    /** # natural
+    /** **natural**
 
 Natural. Sorted according to the algorithm defined here: [naturalordersort.org](http://www.naturalordersort.org/) */
     Natural,
-    /** # semver
+    /** **semver**
 
 SemVer. Uses the semantic versioning scheme as defined in [semver.org](http://semver.org). */
     Semver,
@@ -54428,21 +53610,19 @@ impl From<VersionAlgorithm> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `VirtualServiceType`. Example codes for possible virtual service connection types.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[VirtualServiceType](http://hl7.org/fhir/ValueSet/virtual-service-type)**. Example codes for possible virtual service connection types.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VirtualServiceType {
-    /** # ms-teams
+    /** **ms-teams**
 
 Microsoft Teams. Microsoft Teams web conferencing meeting */
     MsTeams,
-    /** # whatsapp
+    /** **whatsapp**
 
 WhatsApp conference call. A conference call using the WhatsApp conference call service */
     Whatsapp,
-    /** # zoom
+    /** **zoom**
 
 Zoom web conferencing. the amount is the base price used for calculating the total price before applying surcharges, discount or taxes. */
     Zoom,
@@ -54512,25 +53692,23 @@ impl From<VirtualServiceType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `VisionBase`. A coded concept listing the base codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[VisionBase](http://hl7.org/fhir/ValueSet/vision-base-codes)**. A coded concept listing the base codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VisionBase {
-    /** # down
+    /** **down**
 
 Down. bottom. */
     Down,
-    /** # in
+    /** **in**
 
 In. inner edge. */
     In,
-    /** # out
+    /** **out**
 
 Out. outer edge. */
     Out,
-    /** # up
+    /** **up**
 
 Up. top. */
     Up,
@@ -54603,17 +53781,15 @@ impl From<VisionBase> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `VisionEyes`. A coded concept listing the eye codes.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[VisionEyes](http://hl7.org/fhir/ValueSet/vision-eye-codes)**. A coded concept listing the eye codes.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VisionEyes {
-    /** # left
+    /** **left**
 
 Left Eye. Left Eye. */
     Left,
-    /** # right
+    /** **right**
 
 Right Eye. Right Eye. */
     Right,
@@ -54680,49 +53856,47 @@ impl From<VisionEyes> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `WarningType`. Classification of warning type.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[WarningType](http://hl7.org/fhir/ValueSet/warning-type)**. Classification of warning type.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum WarningType {
-    /** # P313
+    /** **P313**
 
 Get medical advice/attention.. Get medical advice/attention. */
     P313,
-    /** # P314
+    /** **P314**
 
 Get medical advice/attention if you feel unwell.. Get medical advice/attention if you feel unwell. */
     P314,
-    /** # P315
+    /** **P315**
 
 Get immediate medical advice/attention.. Get immediate medical advice/attention. */
     P315,
-    /** # P320
+    /** **P320**
 
 Specific treatment is urgent (see ... on this label).. Specific treatment is urgent (see ... on this label). */
     P320,
-    /** # P321
+    /** **P321**
 
 Specific treatment (see ... on this label).. Specific treatment (see ... on this label). */
     P321,
-    /** # P322
+    /** **P322**
 
 Specific measures (see ... on this label).. Specific measures (see ... on this label). */
     P322,
-    /** # P330
+    /** **P330**
 
 Rinse mouth.. Rinse mouth. */
     P330,
-    /** # P331
+    /** **P331**
 
 Do NOT induce vomiting.. Do NOT induce vomiting. */
     P331,
-    /** # P361
+    /** **P361**
 
 Remove/Take off immediately all contaminated clothing.. Remove/Take off immediately all contaminated clothing. */
     P361,
-    /** # P363
+    /** **P363**
 
 Wash contaminated clothing before reuse... Wash contaminated clothing before reuse. */
     P363,
@@ -54813,29 +53987,27 @@ impl From<WarningType> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-/**FHIR Code `WeekOfMonth`. The set of weeks with in a month.
-
-FHIR version: 5.0.0.*/
+#[doc = "**[WeekOfMonth](http://hl7.org/fhir/ValueSet/week-of-month)**. The set of weeks with in a month.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum WeekOfMonth {
-    /** # first
+    /** **first**
 
 First. First week of the month. */
     First,
-    /** # fourth
+    /** **fourth**
 
 Fourth. Fourth week of the month. */
     Fourth,
-    /** # last
+    /** **last**
 
 Last. Last week of the month. */
     Last,
-    /** # second
+    /** **second**
 
 Second. Second week of the month. */
     Second,
-    /** # third
+    /** **third**
 
 Third. Third week of the month. */
     Third,

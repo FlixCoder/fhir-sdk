@@ -1,5 +1,6 @@
 //! Code generation functionality.
 
+mod comments;
 mod gen_codes;
 mod gen_traits;
 mod gen_types;

@@ -5,6 +5,7 @@ use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
+use super::comments::sanitize;
 use crate::codes::Code;
 
 /// Generate a Rust enum for a FHIR code.
@@ -12,7 +13,7 @@ pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {
 	let name = &code.name;
 	let ident = format_ident!("{name}");
 
-	let mut documentation = format!("FHIR Code `{name}`.");
+	let mut documentation = format!("**[{name}]({})**.", code.system);
 	if let Some(description) = &code.description {
 		documentation.push_str(&format!(" {description}"));
 	}
@@ -25,13 +26,13 @@ pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {
 	code.items.sort_by_key(|item| item.code.clone());
 	code.items.dedup_by_key(|item| item.code.clone());
 	let variants = code.items.iter().map(|item| {
-		let mut variant_doc = format!(" # {}\n\n", item.code);
+		let mut variant_doc = format!(" **{}**\n\n", item.code);
 		if let Some(display) = &item.display {
 			variant_doc.push_str(display);
 			variant_doc.push_str(". ");
 		}
 		if let Some(description) = &item.definition {
-			variant_doc.push_str(&description.replace('\r', "\n"));
+			variant_doc.push_str(&sanitize(description));
 			variant_doc.push(' ');
 		}
 

@@ -8,6 +8,7 @@ use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
 use super::{
+	comments::sanitize,
 	gen_types::{code_field_type_name, construct_field_type},
 	map_field_ident, map_type,
 };
@@ -30,19 +31,15 @@ pub fn generate_base_resource(
 	let ident = format_ident!("BaseResource");
 	let trait_definition = make_trait_definition(resource, &field_names, &field_types, &ident);
 
+	let mut filtered_resources = Vec::new();
 	let trait_implementations: TokenStream = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
 		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
+		.inspect(|ty| filtered_resources.push(format_ident!("{}", ty.name)))
 		.map(|ty| make_trait_implementation(ty, &field_names, &field_types, &ident))
 		.collect();
 
-	let filtered_resources: Vec<_> = resources
-		.iter()
-		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
-		.map(|ty| format_ident!("{}", ty.name))
-		.collect();
 	let impl_resource_as_trait = quote! {
 		impl Resource {
 			/// Return the resource as base resource.
@@ -93,21 +90,16 @@ pub fn generate_domain_resource(
 	let ident = format_ident!("DomainResource");
 	let trait_definition = make_trait_definition(resource, &field_names, &field_types, &ident);
 
+	let mut filtered_resources = Vec::new();
 	let trait_implementations: TokenStream = resources
 		.iter()
 		.filter(|ty| !ty.r#abstract)
 		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
 		.filter(|ty| ty.base.as_ref().map_or(false, |base| base.ends_with("DomainResource")))
+		.inspect(|ty| filtered_resources.push(format_ident!("{}", ty.name)))
 		.map(|ty| make_trait_implementation(ty, &field_names, &field_types, &ident))
 		.collect();
 
-	let filtered_resources: Vec<_> = resources
-		.iter()
-		.filter(|ty| !ty.r#abstract)
-		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
-		.filter(|ty| ty.base.as_ref().map_or(false, |base| base.ends_with("DomainResource")))
-		.map(|ty| format_ident!("{}", ty.name))
-		.collect();
 	let impl_resource_as_trait = quote! {
 		impl Resource {
 			/// Return the resource as domain resource.
@@ -210,17 +202,17 @@ fn make_trait_definition(
 	field_types: &[TokenStream],
 	ident: &Ident,
 ) -> TokenStream {
+	assert_eq!(resource.name, resource.elements.name);
 	let mut doc_comment = format!(
-		" # {} \n\n {} \n\n ## {} (FHIR version: {}) \n\n {} \n\n {} \n\n ",
+		" {} \n\n **{} v{}** \n\n {} \n\n {} \n\n ",
+		sanitize(&resource.description),
 		resource.name,
-		resource.description.replace('\r', "\n"),
-		resource.elements.name,
 		resource.version,
-		resource.elements.short.replace('\r', "\n"),
-		resource.elements.definition.replace('\r', "\n")
+		sanitize(&resource.elements.short),
+		sanitize(&resource.elements.definition),
 	);
 	if let Some(comment) = &resource.elements.comment {
-		doc_comment.push_str(&comment.replace('\r', "\n"));
+		doc_comment.push_str(&sanitize(comment));
 		doc_comment.push(' ');
 	}
 

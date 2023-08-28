@@ -8,7 +8,7 @@ use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
-use super::{map_field_ident, map_type};
+use super::{comments::sanitize, map_field_ident, map_type};
 use crate::structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type};
 
 /// Generate struct definition for a FHIR type.
@@ -22,15 +22,16 @@ pub fn generate_type_struct(
 	let ident_builder = format_ident!("{name}Builder");
 
 	let mut doc_comment = format!(
-		" # {name} \n\n {} \n\n ## {} (FHIR version: {}) \n\n {} \n\n {} \n\n ",
-		ty.description.replace('\r', "\n"),
-		ty.elements.name,
+		" {} \n\n **[{}]({}) v{}** \n\n {} \n\n {} \n\n ",
+		sanitize(&ty.description),
+		ty.name,
+		ty.url,
 		ty.version,
-		ty.elements.short.replace('\r', "\n"),
-		ty.elements.definition.replace('\r', "\n")
+		sanitize(&ty.elements.short),
+		sanitize(&ty.elements.definition)
 	);
 	if let Some(comment) = &ty.elements.comment {
-		doc_comment.push_str(&comment.replace('\r', "\n"));
+		doc_comment.push_str(&sanitize(comment));
 		doc_comment.push(' ');
 	}
 
@@ -196,13 +197,10 @@ fn generate_field(
 
 /// Generate field information and sub-structs for a standard field.
 fn generate_standard_field(field: &StandardField) -> (String, (TokenStream, Ident), TokenStream) {
-	let mut doc_comment = format!(
-		" # {} \n\n {} \n\n ",
-		field.short.replace('\r', "\n"),
-		field.definition.replace('\r', "\n")
-	);
+	let mut doc_comment =
+		format!(" **{}** \n\n {} \n\n ", sanitize(&field.short), sanitize(&field.definition));
 	if let Some(comment) = &field.comment {
-		doc_comment.push_str(&comment.replace('\r', "\n"));
+		doc_comment.push_str(&sanitize(comment));
 		doc_comment.push(' ');
 	}
 
@@ -217,14 +215,14 @@ fn generate_code_field(
 	implemented_codes: &HashMap<String, String>,
 ) -> (String, (TokenStream, Ident), TokenStream) {
 	let mut doc_comment = format!(
-		" # {} ({}); {} \n\n {} \n\n ",
+		" **[{}]({}); {}** \n\n {} \n\n ",
 		field.code_name.as_deref().unwrap_or_default(),
 		field.code_url.as_deref().unwrap_or_default(),
-		field.short.replace('\r', "\n"),
-		field.definition.replace('\r', "\n")
+		sanitize(&field.short),
+		sanitize(&field.definition)
 	);
 	if let Some(comment) = &field.comment {
-		doc_comment.push_str(&comment.replace('\r', "\n"));
+		doc_comment.push_str(&sanitize(comment));
 		doc_comment.push(' ');
 	}
 
@@ -238,13 +236,10 @@ fn generate_choice_field(
 	field: &ChoiceField,
 	type_ident: &Ident,
 ) -> (String, (TokenStream, Ident), TokenStream) {
-	let mut doc_comment = format!(
-		" # {} \n\n {} \n\n ",
-		field.short.replace('\r', "\n"),
-		field.definition.replace('\r', "\n")
-	);
+	let mut doc_comment =
+		format!(" **{}** \n\n {} \n\n ", sanitize(&field.short), sanitize(&field.definition));
 	if let Some(comment) = &field.comment {
-		doc_comment.push_str(&comment.replace('\r', "\n"));
+		doc_comment.push_str(&sanitize(comment));
 		doc_comment.push(' ');
 	}
 
@@ -303,13 +298,10 @@ fn generate_object_field(
 	base_type: &Type,
 	implemented_codes: &HashMap<String, String>,
 ) -> (String, (TokenStream, Ident), TokenStream) {
-	let mut doc_comment = format!(
-		" # {} \n\n {} \n\n ",
-		field.short.replace('\r', "\n"),
-		field.definition.replace('\r', "\n")
-	);
+	let mut doc_comment =
+		format!(" **{}** \n\n {} \n\n ", sanitize(&field.short), sanitize(&field.definition));
 	if let Some(comment) = &field.comment {
-		doc_comment.push_str(&comment.replace('\r', "\n"));
+		doc_comment.push_str(&sanitize(comment));
 		doc_comment.push(' ');
 	}
 

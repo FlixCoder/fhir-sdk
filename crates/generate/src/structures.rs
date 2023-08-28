@@ -16,6 +16,8 @@ pub struct Type {
 	pub name: String,
 	/// FHIR version.
 	pub version: String,
+	/// URL of this type.
+	pub url: String,
 	/// Description.
 	pub description: String,
 	/// Kind.
@@ -43,6 +45,7 @@ impl From<StructureDefinition> for Type {
 			structure_definition.fhir_version.expect("StructureDefinition.fhirVersion"),
 			version
 		);
+		let url = structure_definition.url;
 		let description =
 			structure_definition.description.expect("StructureDefinition.description");
 		let kind = structure_definition.kind;
@@ -63,6 +66,7 @@ impl From<StructureDefinition> for Type {
 		Self {
 			name,
 			version,
+			url,
 			description,
 			kind,
 			r#abstract,

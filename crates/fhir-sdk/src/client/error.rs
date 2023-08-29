@@ -16,6 +16,14 @@ pub enum Error {
 	#[error("Given base URL cannot be a base URL")]
 	UrlCannotBeBase,
 
+	/// Failed parsing an URL.
+	#[error("Failed parsing the URL: {0}")]
+	UrlParse(String),
+
+	/// Found URL with unexpected origin.
+	#[error("Found URL with unexpected origin: {0}")]
+	DifferentOrigin(String),
+
 	/// Missing resource ID.
 	#[error("Resource is missing ID")]
 	MissingId,

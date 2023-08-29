@@ -13,7 +13,7 @@ repository = "https://github.com/FlixCoder/fhir-sdk"
 version = "0.3.0"
 
 [features]
-client = ["dep:async-trait", "dep:reqwest", "dep:serde", "dep:serde_json", "dep:thiserror", "dep:tokio-retry"]
+client = ["dep:async-trait", "dep:futures", "dep:reqwest", "dep:serde", "dep:serde_json", "dep:thiserror", "dep:tokio-retry"]
 default = ["r5", "client"]
 r4b = ["fhir-model/r4b"]
 r5 = ["fhir-model/r5"]
@@ -21,6 +21,7 @@ r5 = ["fhir-model/r5"]
 [dependencies]
 async-trait = {version = "0.1.68", optional = true}
 fhir-model = {path = "../fhir-model", version = "0.3.0"}
+futures = {version = "0.3.28", optional = true}
 reqwest = {version = "0.11.16", features = ["json"], optional = true}
 serde = {version = "1.0.159", optional = true}
 serde_json = {version = "1.0.95", optional = true}

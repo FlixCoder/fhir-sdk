@@ -3,6 +3,7 @@
 //! Does only work with one FHIR version at a time!
 
 mod error;
+mod paging;
 mod request;
 mod write;
 
@@ -12,8 +13,9 @@ use std::sync::{Arc, Mutex};
 use fhir_model::r4b as model;
 #[cfg(feature = "r5")]
 use fhir_model::r5 as model;
+use futures::{Stream, TryStreamExt};
 use model::{
-	resources::{BaseResource, Bundle, NamedResource, Resource, ResourceType, WrongResourceType},
+	resources::{BaseResource, NamedResource, Resource, ResourceType, WrongResourceType},
 	JSON_MIME_TYPE,
 };
 use reqwest::{
@@ -22,7 +24,7 @@ use reqwest::{
 };
 use serde::{de::DeserializeOwned, Serialize};
 
-pub use self::{error::Error, request::RequestSettings, write::ResourceWrite};
+pub use self::{error::Error, paging::Paged, request::RequestSettings, write::ResourceWrite};
 
 /// User agent of this client.
 const USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -190,47 +192,18 @@ impl Client {
 		}
 	}
 
-	/// Search in all FHIR resources given the raw query parameters.
-	pub async fn search_all_raw(&self, queries: &[(&str, &str)]) -> Result<Bundle, Error> {
-		let url = self.url(&[]);
-		let request = self.0.client.get(url).query(queries);
-
-		let response = self.request_settings().make_request(request).await?;
-		if response.status().is_success() {
-			let bundle: Bundle = response.json().await?;
-			Ok(bundle)
-		} else {
-			Err(Error::from_response(response).await)
-		}
-	}
-
 	/// Search for FHIR resources of a given type given the raw query
-	/// parameters.
-	pub async fn search_raw<R: NamedResource + TryFrom<Resource, Error = WrongResourceType>>(
+	/// parameters. This simply ignores resources of the wrong type, e.g. an
+	/// additional OperationOutcome.
+	pub fn search_raw<R: NamedResource + TryFrom<Resource, Error = WrongResourceType>>(
 		&self,
 		queries: &[(&str, &str)],
-	) -> Result<Vec<R>, Error> {
-		let url = self.url(&[R::TYPE.as_str()]);
-		let request = self.0.client.get(url).query(queries);
+	) -> impl Stream<Item = Result<R, Error>> {
+		let mut url = self.url(&[R::TYPE.as_str()]);
+		url.query_pairs_mut().extend_pairs(queries).finish();
 
-		let response = self.request_settings().make_request(request).await?;
-		if response.status().is_success() {
-			let bundle: Bundle = response.json().await?;
-			// TODO: This ignores resources that are only referenced via fullUrl.
-			// TODO: This simply ignores resources of the wrong type, e.g. an additional
-			// OperationOutcome.
-			let resources = bundle
-				.0
-				.entry
-				.into_iter()
-				.flatten()
-				.filter_map(|entry| entry.resource)
-				.filter_map(|resource| resource.try_into().ok())
-				.collect();
-			Ok(resources)
-		} else {
-			Err(Error::from_response(response).await)
-		}
+		Paged::new(self.clone(), url)
+			.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
 	}
 }
 

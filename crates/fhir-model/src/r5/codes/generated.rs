@@ -27207,8 +27207,9 @@ impl From<LegalStatusOfSupply> for CodeableConcept {
         CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
     }
 }
-#[doc = "**[LinkRelationTypes](http://hl7.org/fhir/CodeSystem/iana-link-relations)**. Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1\n\nFHIR version: 5.0.0."]
+#[doc = "**[LinkRelationTypes](http://hl7.org/fhir/ValueSet/iana-link-relations)**. Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
 pub enum LinkRelationTypes {
     /** **P3Pv1**
 
@@ -27878,8 +27879,6 @@ Points to the versioned resource from which this
       working copy was obtained.
      */
     WorkingCopyOf,
-    /// Custom code value.
-    _Custom(String),
 }
 impl ::core::str::FromStr for LinkRelationTypes {
     type Err = String;
@@ -28006,7 +28005,7 @@ impl ::core::str::FromStr for LinkRelationTypes {
             "webmention" => Ok(Self::Webmention),
             "working-copy" => Ok(Self::WorkingCopy),
             "working-copy-of" => Ok(Self::WorkingCopyOf),
-            _ => Ok(Self::_Custom(s.to_owned())),
+            _ => Err(format!("Unknown value: {s}")),
         }
     }
 }
@@ -28133,7 +28132,6 @@ impl AsRef<str> for LinkRelationTypes {
             Self::Webmention => "webmention",
             Self::WorkingCopy => "working-copy",
             Self::WorkingCopyOf => "working-copy-of",
-            Self::_Custom(s) => s.as_str(),
         }
     }
 }
@@ -28452,7 +28450,6 @@ impl ::std::fmt::Display for LinkRelationTypes {
             Self::WorkingCopyOf => {
                 "Points to the versioned resource from which this\n      working copy was obtained.\n    "
             }
-            Self::_Custom(s) => s.as_str(),
         };
         write!(f, "{s}")
     }
@@ -28478,7 +28475,7 @@ impl Serialize for LinkRelationTypes {
 impl From<LinkRelationTypes> for Coding {
     fn from(code: LinkRelationTypes) -> Self {
         Coding::builder()
-            .system("http://hl7.org/fhir/CodeSystem/iana-link-relations".to_owned())
+            .system("http://hl7.org/fhir/ValueSet/iana-link-relations".to_owned())
             .code(code.as_ref().to_owned())
             .display(format!("{code}"))
             .build()

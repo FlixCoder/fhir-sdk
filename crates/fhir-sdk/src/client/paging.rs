@@ -131,7 +131,7 @@ fn find_next_page_url(bundle: &Bundle) -> Option<&String> {
 		.link
 		.iter()
 		.flatten()
-		.find(|link| link.relation == LinkRelationTypes::Next.as_ref())
+		.find(|link| link.relation == LinkRelationTypes::Next)
 		.map(|link| &link.url)
 }
 

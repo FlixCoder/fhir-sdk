@@ -47,7 +47,7 @@ async fn crud() -> Result<()> {
 async fn search_raw() -> Result<()> {
 	let client = client()?;
 
-	let date = "5123-05-01";
+	let date = "5123-05-05";
 
 	let mut patient = Patient::builder().active(false).birth_date(date.to_owned()).build();
 	let id = patient.create(&client).await?;
@@ -65,7 +65,7 @@ async fn search_raw() -> Result<()> {
 async fn paging() -> Result<()> {
 	let client = client()?;
 
-	let date = "5123-05-01";
+	let date = "5123-05-10";
 	let n = 99;
 
 	println!("Preparing..");

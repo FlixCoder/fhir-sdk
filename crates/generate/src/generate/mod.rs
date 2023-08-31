@@ -144,7 +144,7 @@ pub fn generate_resources(
 		}
 
 		/// Resource type field of the FHIR resources.
-		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+		#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 		pub enum ResourceType {
 			#(
 				#[doc = stringify!(#resource_names)]

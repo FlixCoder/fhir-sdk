@@ -152,6 +152,12 @@ pub fn generate_resources(
 			)*
 		}
 
+		impl ::core::fmt::Display for ResourceType {
+			fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+				f.write_str(self.as_str())
+			}
+		}
+
 		/// Wrong resource type for conversion to the specified type.
 		#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 		pub struct WrongResourceType;

@@ -29,9 +29,8 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] Paging
   - [ ] Batch operations / Transactions
   - [ ] Patch
-- [ ] Search parameters
 - [ ] FHIRpath implementation
-- [ ] Resource validation using FHIRpath
+- [ ] Resource validation using FHIRpath and regular expressions
 - [ ] GraphQL client
 
 ## Not Planned

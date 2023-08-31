@@ -4,9 +4,9 @@
 use std::env;
 
 use eyre::Result;
-use fhir_model::r5::resources::ResourceType;
+use fhir_model::r5::{codes::SearchComparator, resources::ResourceType};
 use fhir_sdk::{
-	client::{Client, ResourceWrite},
+	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r5::resources::Patient,
 };
 use futures::TryStreamExt;
@@ -44,7 +44,7 @@ async fn crud() -> Result<()> {
 }
 
 #[tokio::test]
-async fn search_raw() -> Result<()> {
+async fn search() -> Result<()> {
 	let client = client()?;
 
 	let date = "5123-05-05";
@@ -52,7 +52,24 @@ async fn search_raw() -> Result<()> {
 	let mut patient = Patient::builder().active(false).birth_date(date.to_owned()).build();
 	let id = patient.create(&client).await?;
 
-	let patients: Vec<Patient> = client.search_raw(&[("_id", &id)]).try_collect().await?;
+	let patients: Vec<Patient> = client
+		.search(
+			SearchParameters::empty()
+				.and_raw("_id", id)
+				.and(DateSearch {
+					name: "birthdate",
+					comparator: Some(SearchComparator::Eq),
+					value: date,
+				})
+				.and(TokenSearch::Standard {
+					name: "active",
+					system: None,
+					code: Some("false"),
+					not: false,
+				}),
+		)
+		.try_collect()
+		.await?;
 	assert_eq!(patients.len(), 1);
 	assert_eq!(patients[0].active, Some(false));
 	assert_eq!(patients[0].birth_date.as_deref(), Some(date));
@@ -70,6 +87,7 @@ async fn paging() -> Result<()> {
 
 	println!("Preparing..");
 	let mut ids = Vec::new();
+	// TODO: Use batch/transaction instead.
 	for _ in 0..n {
 		let mut patient = Patient::builder().active(false).birth_date(date.to_owned()).build();
 		let id = patient.create(&client).await?;
@@ -77,10 +95,18 @@ async fn paging() -> Result<()> {
 	}
 
 	println!("Starting search..");
-	let patients: Vec<Patient> = client.search_raw(&[("birthdate", date)]).try_collect().await?;
+	let patients: Vec<Patient> = client
+		.search(SearchParameters::empty().and(DateSearch {
+			name: "birthdate",
+			comparator: Some(SearchComparator::Eq),
+			value: date,
+		}))
+		.try_collect()
+		.await?;
 	assert_eq!(patients.len(), n);
 
 	println!("Cleaning up..");
+	// TODO: Use batch/transaction instead.
 	for id in ids {
 		client.delete(ResourceType::Patient, &id).await?;
 	}

@@ -5,6 +5,7 @@
 mod error;
 mod paging;
 mod request;
+mod search;
 mod write;
 
 use std::sync::{Arc, Mutex};
@@ -13,18 +14,29 @@ use std::sync::{Arc, Mutex};
 use fhir_model::r4b as model;
 #[cfg(feature = "r5")]
 use fhir_model::r5 as model;
-use futures::{Stream, TryStreamExt};
+pub use futures::stream::{Stream, StreamExt, TryStream, TryStreamExt};
 use model::{
+	codes::SearchEntryMode,
 	resources::{BaseResource, NamedResource, Resource, ResourceType, WrongResourceType},
 	JSON_MIME_TYPE,
 };
+pub use reqwest::Url;
 use reqwest::{
 	header::{self, HeaderMap, HeaderValue},
-	StatusCode, Url,
+	StatusCode,
 };
 use serde::{de::DeserializeOwned, Serialize};
 
-pub use self::{error::Error, paging::Paged, request::RequestSettings, write::ResourceWrite};
+use self::paging::Paged;
+pub use self::{
+	error::Error,
+	request::RequestSettings,
+	search::{
+		DateSearch, NumberSearch, QuantitySearch, ReferenceSearch, SearchParameter,
+		SearchParameters, StringSearch, TokenSearch, UriSearch,
+	},
+	write::ResourceWrite,
+};
 
 /// User agent of this client.
 const USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -192,18 +204,24 @@ impl Client {
 		}
 	}
 
-	/// Search for FHIR resources of a given type given the raw query
-	/// parameters. This simply ignores resources of the wrong type, e.g. an
-	/// additional OperationOutcome.
-	pub fn search_raw<R: NamedResource + TryFrom<Resource, Error = WrongResourceType>>(
+	/// Search for FHIR resources of a given type given the query parameters.
+	/// This simply ignores resources of the wrong type, e.g. an additional
+	/// OperationOutcome.
+	pub fn search<R: NamedResource + TryFrom<Resource, Error = WrongResourceType>>(
 		&self,
-		queries: &[(&str, &str)],
+		queries: SearchParameters,
 	) -> impl Stream<Item = Result<R, Error>> {
 		let mut url = self.url(&[R::TYPE.as_str()]);
-		url.query_pairs_mut().extend_pairs(queries).finish();
+		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 
-		Paged::new(self.clone(), url)
-			.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
+		Paged::new(self.clone(), url, |entry| {
+			entry
+				.search
+				.as_ref()
+				.and_then(|search| search.mode.as_ref())
+				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
+		})
+		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
 	}
 }
 

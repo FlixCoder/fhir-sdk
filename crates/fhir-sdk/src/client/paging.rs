@@ -22,6 +22,9 @@ pub struct Paged {
 	next_url: Option<Url>,
 	/// The current set of entries cached.
 	entries: VecDeque<BundleEntry>,
+	/// Filter on Bundle entries, whether they should be included in the
+	/// results.
+	filter: Box<dyn FnMut(&BundleEntry) -> bool>,
 	/// Current future to retrieve a resource.
 	future_resource: Option<BoxFuture<'static, Result<Resource, Error>>>,
 	/// Current future to retrieve the next page.
@@ -30,13 +33,18 @@ pub struct Paged {
 
 impl Paged {
 	/// Start up a new Paged stream.
-	pub(crate) fn new(client: Client, url: Url) -> Self {
+	pub(crate) fn new<FilterFn>(client: Client, url: Url, filter: FilterFn) -> Self
+	where
+		FilterFn: FnMut(&BundleEntry) -> bool + 'static,
+	{
 		let next_url = Some(url);
+		let filter = Box::new(filter);
 
 		Self {
 			client,
 			next_url,
 			entries: VecDeque::new(),
+			filter,
 			future_resource: None,
 			future_next_page: None,
 		}
@@ -90,9 +98,12 @@ impl Stream for Paged {
 			}
 		}
 
-		// Then get the next item from the queue that has a resource of the correct
-		// type.
+		// Then get the next item from the queue that matches the filter.
 		while let Some(entry) = self.entries.pop_front() {
+			if !(self.filter)(&entry) {
+				continue;
+			}
+
 			if let Some(resource) = entry.resource {
 				return Poll::Ready(Some(Ok(resource)));
 			} else if let Some(url) = entry.full_url {

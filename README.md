@@ -25,19 +25,22 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] IdentifiableResource
 - [x] REST client implementation
   - [x] Create, Read, Update, Delete
-  - [ ] Typed search
+  - [x] Search
   - [x] Paging
-  - [ ] Patch
   - [ ] Batch operations / Transactions
+  - [ ] Patch
 - [ ] Search parameters
 - [ ] FHIRpath implementation
 - [ ] Resource validation using FHIRpath
 - [ ] GraphQL client
-- [ ] XML
+
+## Not Planned
+
+- XML
 
 ## Known Problems
 
-- Due to the big number of big types, the auto-generated builders take a long time during the build time.
+- Due to the big number of big types, the compile time and its memory usage is really high. The auto-generated builders also take a long time during the build time.
 - The builder cannot use `setter(strip_option)`, because it disables dynamic setting of optional fields.
 - `Vec<Option<T>>` is annoying, but sadly is required to allow `[null, {...}, null]` for extensions..
 

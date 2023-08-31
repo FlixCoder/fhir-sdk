@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2023-08-31
+
+### Bug Fixes
+
+- Improve code generation using cleaner URL usage
+- Do not override headers with default headers
+- Adjust wrong LinkRelationTypes definitions
+- Implement Copy for ResourceType
+- Implement Display for ResourceType
+
+### Documentation
+
+- Improve generated doc comments
+
+### Features
+
+- Implement basic REST client
+- Implement paging
+- Implement search with typed helpers
+
+### Miscellaneous Tasks
+
+- Fix new clippy lints
+- Add expansions for R4B and remove unneeded definitions
+- Update typed-builder and fhir-sdk dependencies
+- Update README
+
 ## [0.3.0] - 2023-04-01
 
 ### Bug Fixes

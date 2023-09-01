@@ -17,7 +17,9 @@ use fhir_model::r5 as model;
 pub use futures::stream::{Stream, StreamExt, TryStream, TryStreamExt};
 use model::{
 	codes::SearchEntryMode,
-	resources::{BaseResource, NamedResource, Resource, ResourceType, WrongResourceType},
+	resources::{
+		BaseResource, CapabilityStatement, NamedResource, Resource, ResourceType, WrongResourceType,
+	},
 	JSON_MIME_TYPE,
 };
 pub use reqwest::Url;
@@ -98,6 +100,21 @@ impl Client {
 		#[allow(clippy::expect_used)] // We made sure of it in the constructor.
 		url.path_segments_mut().expect("Base URL cannot be base").pop_if_empty().extend(segments);
 		url
+	}
+
+	/// Get the server's capabilities. Fails if the respective FHIR version is
+	/// not supported at all.
+	pub async fn capabilities(&self) -> Result<CapabilityStatement, Error> {
+		let url = self.url(&["metadata"]);
+		let request = self.0.client.get(url);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let capability_statement: CapabilityStatement = response.json().await?;
+			Ok(capability_statement)
+		} else {
+			Err(Error::from_response(response).await)
+		}
 	}
 
 	/// Read the current version of a specific FHIR resource.

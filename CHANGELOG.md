@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2023-09-01
+
+### Bug Fixes
+
+- Make everything compile with different features
+
+### Features
+
+- Add back search for all resources
+- Allow to disable builders
+- Implement getting the server's capabilities
+
+### Miscellaneous Tasks
+
+- Improve README
+
+### Testing
+
+- Use local test server
+
 ## [0.4.0] - 2023-08-31
 
 ### Bug Fixes

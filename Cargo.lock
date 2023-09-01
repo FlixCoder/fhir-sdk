@@ -203,7 +203,7 @@ dependencies = [
 
 [[package]]
 name = "fhir-model"
-version = "0.4.0"
+version = "0.4.1"
 dependencies = [
  "assert-json-diff",
  "serde",
@@ -213,11 +213,11 @@ dependencies = [
 
 [[package]]
 name = "fhir-sdk"
-version = "0.4.0"
+version = "0.4.1"
 dependencies = [
  "async-trait",
  "eyre",
- "fhir-model 0.4.0",
+ "fhir-model 0.4.1",
  "futures",
  "reqwest",
  "serde",

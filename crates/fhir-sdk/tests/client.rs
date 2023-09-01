@@ -1,13 +1,15 @@
-#![cfg(feature = "client")]
+#![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
 use std::env;
 
 use eyre::Result;
-use fhir_model::r5::{codes::SearchComparator, resources::ResourceType};
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
-	r5::resources::Patient,
+	r5::{
+		codes::SearchComparator,
+		resources::{Patient, ResourceType},
+	},
 };
 use futures::TryStreamExt;
 

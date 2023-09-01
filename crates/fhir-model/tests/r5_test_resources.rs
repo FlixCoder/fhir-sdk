@@ -1,4 +1,4 @@
-#![cfg(feature = "r5")]
+#![cfg(all(feature = "r5", feature = "builders"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
 use std::fs;

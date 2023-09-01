@@ -3,10 +3,9 @@
 use std::{collections::VecDeque, pin::Pin, task::Poll};
 
 use futures::{future::BoxFuture, ready, FutureExt, Stream};
-use model::{
-	codes::LinkRelationTypes,
-	resources::{Bundle, BundleEntry, Resource},
-};
+#[cfg(feature = "r5")]
+use model::codes::LinkRelationTypes;
+use model::resources::{Bundle, BundleEntry, Resource};
 use reqwest::Url;
 use serde::de::DeserializeOwned;
 
@@ -142,7 +141,13 @@ fn find_next_page_url(bundle: &Bundle) -> Option<&String> {
 		.link
 		.iter()
 		.flatten()
-		.find(|link| link.relation == LinkRelationTypes::Next)
+		.find(|link| {
+			#[cfg(feature = "r5")]
+			let is_next = link.relation == LinkRelationTypes::Next;
+			#[cfg(feature = "r4b")]
+			let is_next = link.relation == "next";
+			is_next
+		})
 		.map(|link| &link.url)
 }
 

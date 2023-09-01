@@ -4,7 +4,7 @@
 [![docs.rs page](https://docs.rs/fhir-sdk/badge.svg)](https://docs.rs/fhir-sdk/)
 ![license: MIT](https://img.shields.io/crates/l/fhir-sdk.svg)
 
-This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The models are generated from the FHIR StructureDefinitions (see <https://www.hl7.org/fhir/downloads.html>). It aims to be:
+This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The models are generated from the FHIR StructureDefinitions (see [FHIR downloads](https://www.hl7.org/fhir/downloads.html)). It aims to be:
 
 - fully compliant
 - as safe as possibe

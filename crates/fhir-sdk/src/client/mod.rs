@@ -204,6 +204,23 @@ impl Client {
 		}
 	}
 
+	/// Search for any FHIR resources given the query parameters.
+	pub fn search_all(
+		&self,
+		queries: SearchParameters,
+	) -> impl Stream<Item = Result<Resource, Error>> {
+		let mut url = self.url(&[]);
+		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
+
+		Paged::new(self.clone(), url, |entry| {
+			entry
+				.search
+				.as_ref()
+				.and_then(|search| search.mode.as_ref())
+				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
+		})
+	}
+
 	/// Search for FHIR resources of a given type given the query parameters.
 	/// This simply ignores resources of the wrong type, e.g. an additional
 	/// OperationOutcome.

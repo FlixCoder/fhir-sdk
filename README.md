@@ -13,21 +13,20 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 
 ## Features
 
-- [x] Generation of FHIR codes, types and resources
+- [x] Generated FHIR codes, types and resources
 - [x] Serialization and deserialization to and from JSON
-- [x] Linked code-fields to respective enums
-- [x] Builders for types and resources
-- [x] Allow to convert code enums to Coding and CodeableConcept
+- [x] Optional builders for types and resources
 - [x] Implementation of base traits
-  - [x] (Base)Resource
-  - [x] NamedResource
-  - [x] DomainResource
-  - [x] IdentifiableResource
+  - [x] (Base)Resource for accessing common fields
+  - [x] NamedResource for getting the resource type in const time
+  - [x] DomainResource for accessing common fields
+  - [x] IdentifiableResource for all resources with an identifier field
 - [x] REST client implementation
   - [x] Create, Read, Update, Delete
   - [x] Search
   - [x] Paging
   - [ ] Batch operations / Transactions
+  - [ ] Operations
   - [ ] Patch
 - [ ] FHIRpath implementation
 - [ ] Resource validation using FHIRpath and regular expressions
@@ -36,6 +35,32 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 ## Not Planned
 
 - XML
+
+## Example
+
+```rust
+use fhir_sdk::r5::resources::Patient;
+use fhir_sdk::client::*;
+
+#[tokio::main]
+async fn main() -> Result<(), Error> {
+    // Set up the client using the local test server.
+    let client = Client::new("http://localhost:8090/fhir/".parse().unwrap())?;
+
+    // Create a Patient resource using a typed builder.
+    let mut patient = Patient::builder().active(false).build();
+    // Push it to the server.
+    patient.create(&client).await?;
+    // The id and versionId is updated automatically this way.
+    assert!(patient.id.is_some());
+
+    Ok(())
+}
+```
+
+## Testing
+
+Simply set up the FHIR test server using `docker compose up -d` and run `cargo test --workspace` in the workspace root.
 
 ## Known Problems
 

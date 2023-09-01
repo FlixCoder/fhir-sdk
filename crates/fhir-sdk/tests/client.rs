@@ -12,8 +12,8 @@ use fhir_sdk::{
 use futures::TryStreamExt;
 
 fn client() -> Result<Client> {
-	dotenvy::dotenv()?;
-	let base_url = env::var("BASE_URL").expect("BASE_URL missing").parse()?;
+	let base_url =
+		env::var("FHIR_SERVER").unwrap_or("http://localhost:8090/fhir/".to_owned()).parse()?;
 	Ok(Client::new(base_url)?)
 }
 

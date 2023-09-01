@@ -58,13 +58,15 @@ async fn main() -> Result<(), Error> {
 }
 ```
 
+For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/main/crates/fhir-sdk/tests/client.rs).
+
 ## Testing
 
 Simply set up the FHIR test server using `docker compose up -d` and run `cargo test --workspace` in the workspace root.
 
 ## Known Problems
 
-- Due to the big number of big types, the compile time and its memory usage is really high. The auto-generated builders also take a long time during the build time.
+- Due to the big number of big types, the compile time and its memory usage is really high. The auto-generated builders also take a long time during the build time. The builders can be disabled by disabling the `builders` feature to save some resources.
 - The builder cannot use `setter(strip_option)`, because it disables dynamic setting of optional fields.
 - `Vec<Option<T>>` is annoying, but sadly is required to allow `[null, {...}, null]` for extensions..
 

@@ -44,7 +44,7 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, HashMap<Stri
 		#![allow(clippy::too_many_lines)]
 
 		use serde::{Serialize, Deserialize};
-		use super::super::types::{Coding, CodeableConcept};
+		use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
 
 		#(#codes)*
 	};
@@ -73,23 +73,25 @@ pub fn generate_types(
 
 		use ::core::num::NonZeroU32;
 		use serde::{Serialize, Deserialize};
+		#[cfg(feature = "builders")]
 		use typed_builder::TypedBuilder;
 		use super::super::codes;
 
 		#(#types)*
 
 		/// Extension of a field.
-		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
+		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+		#[cfg_attr(feature = "builders", derive(TypedBuilder))]
 		#[serde(rename_all = "camelCase")]
-		#[builder(field_defaults(setter(into)))]
+		#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
 		pub struct FieldExtension {
 			/// Unique id for inter-element referencing
 			#[serde(default, skip_serializing_if = "Option::is_none")]
-			#[builder(default)]
+			#[cfg_attr(feature = "builders", builder(default))]
 			pub id: Option<String>,
 			/// Additional content defined by implementations
 			#[serde(default, skip_serializing_if = "Vec::is_empty")]
-			#[builder(default)]
+			#[cfg_attr(feature = "builders", builder(default))]
 			pub extension: Vec<Extension>,
 		}
 	})
@@ -127,6 +129,7 @@ pub fn generate_resources(
 
 		use ::core::num::NonZeroU32;
 		use serde::{Serialize, Deserialize};
+		#[cfg(feature = "builders")]
 		use typed_builder::TypedBuilder;
 		use super::super::codes;
 		use super::super::types::*;

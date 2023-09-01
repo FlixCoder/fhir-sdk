@@ -1,7 +1,7 @@
 //! Generated code! Take a look at the generator-crate for changing this file!
 #![allow(clippy::too_many_lines)]
 use serde::{Serialize, Deserialize};
-use super::super::types::{Coding, CodeableConcept};
+use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
 #[doc = "**[AccountAggregate](http://hl7.org/fhir/ValueSet/account-aggregate)**. Indicates who is expected to pay a part of the account balance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -70,18 +70,36 @@ impl Serialize for AccountAggregate {
 }
 impl From<AccountAggregate> for Coding {
     fn from(code: AccountAggregate) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/account-aggregate".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/account-aggregate".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AccountAggregate> for CodeableConcept {
     fn from(code: AccountAggregate) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AccountBalanceTerm](http://hl7.org/fhir/ValueSet/account-payment-terms)**. Indicates the account balance's age\n\nFHIR version: 5.0.0."]
@@ -166,18 +184,38 @@ impl Serialize for AccountBalanceTerm {
 }
 impl From<AccountBalanceTerm> for Coding {
     fn from(code: AccountBalanceTerm) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/account-payment-terms".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/account-payment-terms".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AccountBalanceTerm> for CodeableConcept {
     fn from(code: AccountBalanceTerm) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AccountBillingStatus](http://hl7.org/fhir/ValueSet/account-billing-status)**. Indicates whether the account is available to be used for billing purposes.\n\nFHIR version: 5.0.0."]
@@ -276,18 +314,38 @@ impl Serialize for AccountBillingStatus {
 }
 impl From<AccountBillingStatus> for Coding {
     fn from(code: AccountBillingStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/account-billing-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/account-billing-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AccountBillingStatus> for CodeableConcept {
     fn from(code: AccountBillingStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AccountRelationship](http://hl7.org/fhir/ValueSet/account-relationship)**. Relationship between accounts\n\nFHIR version: 5.0.0."]
@@ -351,18 +409,36 @@ impl Serialize for AccountRelationship {
 }
 impl From<AccountRelationship> for Coding {
     fn from(code: AccountRelationship) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/account-relationship".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/account-relationship".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AccountRelationship> for CodeableConcept {
     fn from(code: AccountRelationship) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AccountStatus](http://hl7.org/fhir/ValueSet/account-status)**. Indicates whether the account is available to be used.\n\nFHIR version: 5.0.0."]
@@ -447,18 +523,36 @@ impl Serialize for AccountStatus {
 }
 impl From<AccountStatus> for Coding {
     fn from(code: AccountStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/account-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/account-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AccountStatus> for CodeableConcept {
     fn from(code: AccountStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionCardinalityBehavior](http://hl7.org/fhir/ValueSet/action-cardinality-behavior)**. Defines behavior for an action or a group for how many times that item may be repeated.\n\nFHIR version: 5.0.0."]
@@ -522,20 +616,38 @@ impl Serialize for ActionCardinalityBehavior {
 }
 impl From<ActionCardinalityBehavior> for Coding {
     fn from(code: ActionCardinalityBehavior) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/action-cardinality-behavior".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionCardinalityBehavior> for CodeableConcept {
     fn from(code: ActionCardinalityBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionCode](http://hl7.org/fhir/ValueSet/action-code)**. Provides examples of actions to be performed.\n\nFHIR version: 5.0.0."]
@@ -648,18 +760,36 @@ impl Serialize for ActionCode {
 }
 impl From<ActionCode> for Coding {
     fn from(code: ActionCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/action-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionCode> for CodeableConcept {
     fn from(code: ActionCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionConditionKind](http://hl7.org/fhir/ValueSet/action-condition-kind)**. Defines the kinds of conditions that can appear on actions.\n\nFHIR version: 5.0.0."]
@@ -730,18 +860,38 @@ impl Serialize for ActionConditionKind {
 }
 impl From<ActionConditionKind> for Coding {
     fn from(code: ActionConditionKind) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-condition-kind".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-condition-kind".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionConditionKind> for CodeableConcept {
     fn from(code: ActionConditionKind) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionGroupingBehavior](http://hl7.org/fhir/ValueSet/action-grouping-behavior)**. Defines organization behavior of a group.\n\nFHIR version: 5.0.0."]
@@ -812,18 +962,38 @@ impl Serialize for ActionGroupingBehavior {
 }
 impl From<ActionGroupingBehavior> for Coding {
     fn from(code: ActionGroupingBehavior) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-grouping-behavior".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-grouping-behavior".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionGroupingBehavior> for CodeableConcept {
     fn from(code: ActionGroupingBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionParticipantFunction](http://hl7.org/fhir/ValueSet/action-participant-function)**. The function performed by the participant for the action.\n\nFHIR version: 5.0.0."]
@@ -901,20 +1071,38 @@ impl Serialize for ActionParticipantFunction {
 }
 impl From<ActionParticipantFunction> for Coding {
     fn from(code: ActionParticipantFunction) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/action-participant-function".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionParticipantFunction> for CodeableConcept {
     fn from(code: ActionParticipantFunction) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionParticipantType](http://hl7.org/fhir/ValueSet/action-participant-type)**. The type of participant for the action.\n\nFHIR version: 5.0.0."]
@@ -1034,18 +1222,38 @@ impl Serialize for ActionParticipantType {
 }
 impl From<ActionParticipantType> for Coding {
     fn from(code: ActionParticipantType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-participant-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-participant-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionParticipantType> for CodeableConcept {
     fn from(code: ActionParticipantType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionPrecheckBehavior](http://hl7.org/fhir/ValueSet/action-precheck-behavior)**. Defines selection frequency behavior for an action or group.\n\nFHIR version: 5.0.0."]
@@ -1109,18 +1317,38 @@ impl Serialize for ActionPrecheckBehavior {
 }
 impl From<ActionPrecheckBehavior> for Coding {
     fn from(code: ActionPrecheckBehavior) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-precheck-behavior".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-precheck-behavior".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionPrecheckBehavior> for CodeableConcept {
     fn from(code: ActionPrecheckBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionReasonCode](http://hl7.org/fhir/ValueSet/action-reason-code)**. Provides examples of reasons for actions to be performed.\n\nFHIR version: 5.0.0."]
@@ -1205,18 +1433,36 @@ impl Serialize for ActionReasonCode {
 }
 impl From<ActionReasonCode> for Coding {
     fn from(code: ActionReasonCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-reason-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/action-reason-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionReasonCode> for CodeableConcept {
     fn from(code: ActionReasonCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionRelationshipType](http://hl7.org/fhir/ValueSet/action-relationship-type)**. Defines the types of relationships between actions.\n\nFHIR version: 5.0.0."]
@@ -1329,18 +1575,38 @@ impl Serialize for ActionRelationshipType {
 }
 impl From<ActionRelationshipType> for Coding {
     fn from(code: ActionRelationshipType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-relationship-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-relationship-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionRelationshipType> for CodeableConcept {
     fn from(code: ActionRelationshipType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionRequiredBehavior](http://hl7.org/fhir/ValueSet/action-required-behavior)**. Defines expectations around whether an action or action group is required.\n\nFHIR version: 5.0.0."]
@@ -1411,18 +1677,38 @@ impl Serialize for ActionRequiredBehavior {
 }
 impl From<ActionRequiredBehavior> for Coding {
     fn from(code: ActionRequiredBehavior) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-required-behavior".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-required-behavior".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionRequiredBehavior> for CodeableConcept {
     fn from(code: ActionRequiredBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ActionSelectionBehavior](http://hl7.org/fhir/ValueSet/action-selection-behavior)**. Defines selection behavior of a group.\n\nFHIR version: 5.0.0."]
@@ -1514,18 +1800,38 @@ impl Serialize for ActionSelectionBehavior {
 }
 impl From<ActionSelectionBehavior> for Coding {
     fn from(code: ActionSelectionBehavior) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/action-selection-behavior".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/action-selection-behavior".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ActionSelectionBehavior> for CodeableConcept {
     fn from(code: ActionSelectionBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AdditionalBindingPurposeCodes](http://hl7.org/fhir/ValueSet/additional-binding-purpose)**. Additional Binding Purpose\n\nFHIR version: 5.0.0."]
@@ -1645,18 +1951,38 @@ impl Serialize for AdditionalBindingPurposeCodes {
 }
 impl From<AdditionalBindingPurposeCodes> for Coding {
     fn from(code: AdditionalBindingPurposeCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/additional-binding-purpose".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/additional-binding-purpose".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AdditionalBindingPurposeCodes> for CodeableConcept {
     fn from(code: AdditionalBindingPurposeCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AdditionalMonitoring](http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring)**. Extra monitoring defined for a Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -1713,21 +2039,39 @@ impl Serialize for AdditionalMonitoring {
 }
 impl From<AdditionalMonitoring> for Coding {
     fn from(code: AdditionalMonitoring) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AdditionalMonitoring> for CodeableConcept {
     fn from(code: AdditionalMonitoring) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AddressType](http://hl7.org/fhir/ValueSet/address-type)**. The type of an address (physical / postal).\n\nFHIR version: 5.0.0."]
@@ -1798,18 +2142,36 @@ impl Serialize for AddressType {
 }
 impl From<AddressType> for Coding {
     fn from(code: AddressType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/address-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/address-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AddressType> for CodeableConcept {
     fn from(code: AddressType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AddressUse](http://hl7.org/fhir/ValueSet/address-use)**. The use of an address.\n\nFHIR version: 5.0.0."]
@@ -1894,18 +2256,36 @@ impl Serialize for AddressUse {
 }
 impl From<AddressUse> for Coding {
     fn from(code: AddressUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/address-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/address-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AddressUse> for CodeableConcept {
     fn from(code: AddressUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AdministrableDoseForm](http://hl7.org/fhir/ValueSet/administrable-dose-form)**. Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary.\n\nFHIR version: 5.0.0."]
@@ -3362,18 +3742,38 @@ impl Serialize for AdministrableDoseForm {
 }
 impl From<AdministrableDoseForm> for Coding {
     fn from(code: AdministrableDoseForm) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/administrable-dose-form".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/administrable-dose-form".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AdministrableDoseForm> for CodeableConcept {
     fn from(code: AdministrableDoseForm) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AdministrationSubPotentReason](http://hl7.org/fhir/CodeSystem/administration-subpotent-reason)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process.\n\nFHIR version: 5.0.0."]
@@ -3468,21 +3868,39 @@ impl Serialize for AdministrationSubPotentReason {
 }
 impl From<AdministrationSubPotentReason> for Coding {
     fn from(code: AdministrationSubPotentReason) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/CodeSystem/administration-subpotent-reason"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AdministrationSubPotentReason> for CodeableConcept {
     fn from(code: AdministrationSubPotentReason) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AdministrativeGender](http://hl7.org/fhir/ValueSet/administrative-gender)**. The gender of a person used for administrative purposes.\n\nFHIR version: 5.0.0."]
@@ -3560,18 +3978,38 @@ impl Serialize for AdministrativeGender {
 }
 impl From<AdministrativeGender> for Coding {
     fn from(code: AdministrativeGender) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/administrative-gender".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/administrative-gender".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AdministrativeGender> for CodeableConcept {
     fn from(code: AdministrativeGender) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AdverseEventActuality](http://hl7.org/fhir/ValueSet/adverse-event-actuality)**. Overall nature of the adverse event, e.g. real or potential.\n\nFHIR version: 5.0.0."]
@@ -3635,18 +4073,38 @@ impl Serialize for AdverseEventActuality {
 }
 impl From<AdverseEventActuality> for Coding {
     fn from(code: AdverseEventActuality) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/adverse-event-actuality".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/adverse-event-actuality".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AdverseEventActuality> for CodeableConcept {
     fn from(code: AdverseEventActuality) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AggregationMode](http://hl7.org/fhir/ValueSet/resource-aggregation-mode)**. How resource references can be aggregated.\n\nFHIR version: 5.0.0."]
@@ -3717,18 +4175,38 @@ impl Serialize for AggregationMode {
 }
 impl From<AggregationMode> for Coding {
     fn from(code: AggregationMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/resource-aggregation-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/resource-aggregation-mode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AggregationMode> for CodeableConcept {
     fn from(code: AggregationMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AllergyIntoleranceCategory](http://hl7.org/fhir/ValueSet/allergy-intolerance-category)**. Category of an identified substance associated with allergies or intolerances.\n\nFHIR version: 5.0.0."]
@@ -3806,20 +4284,38 @@ impl Serialize for AllergyIntoleranceCategory {
 }
 impl From<AllergyIntoleranceCategory> for Coding {
     fn from(code: AllergyIntoleranceCategory) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/allergy-intolerance-category".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AllergyIntoleranceCategory> for CodeableConcept {
     fn from(code: AllergyIntoleranceCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AllergyIntoleranceCriticality](http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality)**. Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.\n\nFHIR version: 5.0.0."]
@@ -3890,20 +4386,38 @@ impl Serialize for AllergyIntoleranceCriticality {
 }
 impl From<AllergyIntoleranceCriticality> for Coding {
     fn from(code: AllergyIntoleranceCriticality) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AllergyIntoleranceCriticality> for CodeableConcept {
     fn from(code: AllergyIntoleranceCriticality) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AllergyIntoleranceSeverity](http://hl7.org/fhir/ValueSet/reaction-event-severity)**. Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.\n\nFHIR version: 5.0.0."]
@@ -3974,18 +4488,38 @@ impl Serialize for AllergyIntoleranceSeverity {
 }
 impl From<AllergyIntoleranceSeverity> for Coding {
     fn from(code: AllergyIntoleranceSeverity) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/reaction-event-severity".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/reaction-event-severity".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AllergyIntoleranceSeverity> for CodeableConcept {
     fn from(code: AllergyIntoleranceSeverity) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AllergyIntoleranceType](http://hl7.org/fhir/ValueSet/allergy-intolerance-type)**. Identification of the underlying physiological mechanism for a Reaction Risk.\n\nFHIR version: 5.0.0."]
@@ -4049,18 +4583,38 @@ impl Serialize for AllergyIntoleranceType {
 }
 impl From<AllergyIntoleranceType> for Coding {
     fn from(code: AllergyIntoleranceType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/allergy-intolerance-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/allergy-intolerance-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AllergyIntoleranceType> for CodeableConcept {
     fn from(code: AllergyIntoleranceType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AnimalTissueType](http://hl7.org/fhir/ValueSet/animal-tissue-type)**. A tissue type of an animal.\n\nFHIR version: 5.0.0."]
@@ -5433,18 +5987,36 @@ impl Serialize for AnimalTissueType {
 }
 impl From<AnimalTissueType> for Coding {
     fn from(code: AnimalTissueType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/animal-tissue-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/animal-tissue-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AnimalTissueType> for CodeableConcept {
     fn from(code: AnimalTissueType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AppointmentStatus](http://hl7.org/fhir/ValueSet/appointmentstatus)**. The free/busy status of an appointment.\n\nFHIR version: 5.0.0."]
@@ -5565,18 +6137,36 @@ impl Serialize for AppointmentStatus {
 }
 impl From<AppointmentStatus> for Coding {
     fn from(code: AppointmentStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/appointmentstatus".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/appointmentstatus".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AppointmentStatus> for CodeableConcept {
     fn from(code: AppointmentStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ArtifactAssessmentDisposition](http://hl7.org/fhir/ValueSet/artifactassessment-disposition)**. Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.\n\nFHIR version: 5.0.0."]
@@ -5661,20 +6251,38 @@ impl Serialize for ArtifactAssessmentDisposition {
 }
 impl From<ArtifactAssessmentDisposition> for Coding {
     fn from(code: ArtifactAssessmentDisposition) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/artifactassessment-disposition".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ArtifactAssessmentDisposition> for CodeableConcept {
     fn from(code: ArtifactAssessmentDisposition) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ArtifactAssessmentInformationType](http://hl7.org/fhir/ValueSet/artifactassessment-information-type)**. The type of information contained in a component of an artifact assessment.\n\nFHIR version: 5.0.0."]
@@ -5766,21 +6374,39 @@ impl Serialize for ArtifactAssessmentInformationType {
 }
 impl From<ArtifactAssessmentInformationType> for Coding {
     fn from(code: ArtifactAssessmentInformationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/artifactassessment-information-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ArtifactAssessmentInformationType> for CodeableConcept {
     fn from(code: ArtifactAssessmentInformationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ArtifactAssessmentWorkflowStatus](http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status)**. Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.\n\nFHIR version: 5.0.0."]
@@ -5900,21 +6526,39 @@ impl Serialize for ArtifactAssessmentWorkflowStatus {
 }
 impl From<ArtifactAssessmentWorkflowStatus> for Coding {
     fn from(code: ArtifactAssessmentWorkflowStatus) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ArtifactAssessmentWorkflowStatus> for CodeableConcept {
     fn from(code: ArtifactAssessmentWorkflowStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ArtifactContributionInstanceType](http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type)**. Artifact Contribution Instance Type\n\nFHIR version: 5.0.0."]
@@ -5985,21 +6629,39 @@ impl Serialize for ArtifactContributionInstanceType {
 }
 impl From<ArtifactContributionInstanceType> for Coding {
     fn from(code: ArtifactContributionInstanceType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ArtifactContributionInstanceType> for CodeableConcept {
     fn from(code: ArtifactContributionInstanceType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ArtifactContributionType](http://hl7.org/fhir/ValueSet/artifact-contribution-type)**. Citation contribution.\n\nFHIR version: 5.0.0."]
@@ -6147,18 +6809,38 @@ impl Serialize for ArtifactContributionType {
 }
 impl From<ArtifactContributionType> for Coding {
     fn from(code: ArtifactContributionType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/artifact-contribution-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/artifact-contribution-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ArtifactContributionType> for CodeableConcept {
     fn from(code: ArtifactContributionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ArtifactUrlClassifier](http://hl7.org/fhir/ValueSet/artifact-url-classifier)**. Code the reason for different URLs, eg abstract and full-text.\n\nFHIR version: 5.0.0."]
@@ -6313,18 +6995,38 @@ impl Serialize for ArtifactUrlClassifier {
 }
 impl From<ArtifactUrlClassifier> for Coding {
     fn from(code: ArtifactUrlClassifier) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/artifact-url-classifier".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/artifact-url-classifier".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ArtifactUrlClassifier> for CodeableConcept {
     fn from(code: ArtifactUrlClassifier) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AssertionDirectionType](http://hl7.org/fhir/ValueSet/assert-direction-codes)**. The type of direction to use for assertion.\n\nFHIR version: 5.0.0."]
@@ -6388,18 +7090,38 @@ impl Serialize for AssertionDirectionType {
 }
 impl From<AssertionDirectionType> for Coding {
     fn from(code: AssertionDirectionType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/assert-direction-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/assert-direction-codes".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AssertionDirectionType> for CodeableConcept {
     fn from(code: AssertionDirectionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AssertionManualCompletionType](http://hl7.org/fhir/ValueSet/assert-manual-completion-codes)**. The type of manual completion to use for assertion.\n\nFHIR version: 5.0.0."]
@@ -6477,20 +7199,38 @@ impl Serialize for AssertionManualCompletionType {
 }
 impl From<AssertionManualCompletionType> for Coding {
     fn from(code: AssertionManualCompletionType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/assert-manual-completion-codes".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AssertionManualCompletionType> for CodeableConcept {
     fn from(code: AssertionManualCompletionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AssertionOperatorType](http://hl7.org/fhir/ValueSet/assert-operator-codes)**. The type of operator to use for assertion.\n\nFHIR version: 5.0.0."]
@@ -6624,18 +7364,38 @@ impl Serialize for AssertionOperatorType {
 }
 impl From<AssertionOperatorType> for Coding {
     fn from(code: AssertionOperatorType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/assert-operator-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/assert-operator-codes".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AssertionOperatorType> for CodeableConcept {
     fn from(code: AssertionOperatorType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AssertionResponseTypes](http://hl7.org/fhir/ValueSet/assert-response-code-types)**. The type of response code to use for assertion.\n\nFHIR version: 5.0.0."]
@@ -6993,18 +7753,38 @@ impl Serialize for AssertionResponseTypes {
 }
 impl From<AssertionResponseTypes> for Coding {
     fn from(code: AssertionResponseTypes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/assert-response-code-types".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/assert-response-code-types".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AssertionResponseTypes> for CodeableConcept {
     fn from(code: AssertionResponseTypes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AuditEventAction](http://hl7.org/fhir/ValueSet/audit-event-action)**. Indicator for type of action performed during the event that generated the event.\n\nFHIR version: 5.0.0."]
@@ -7089,18 +7869,36 @@ impl Serialize for AuditEventAction {
 }
 impl From<AuditEventAction> for Coding {
     fn from(code: AuditEventAction) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/audit-event-action".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/audit-event-action".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AuditEventAction> for CodeableConcept {
     fn from(code: AuditEventAction) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[AuditEventSeverity](http://hl7.org/fhir/ValueSet/audit-event-severity)**. The severity of the audit entry.\n\nFHIR version: 5.0.0."]
@@ -7206,18 +8004,36 @@ impl Serialize for AuditEventSeverity {
 }
 impl From<AuditEventSeverity> for Coding {
     fn from(code: AuditEventSeverity) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/audit-event-severity".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/audit-event-severity".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<AuditEventSeverity> for CodeableConcept {
     fn from(code: AuditEventSeverity) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BeneficiaryRelationshipCodes](http://hl7.org/fhir/ValueSet/relationship)**. This value set includes the Patient to subscriber relationship codes.\n\nFHIR version: 5.0.0."]
@@ -7302,18 +8118,36 @@ impl Serialize for BeneficiaryRelationshipCodes {
 }
 impl From<BeneficiaryRelationshipCodes> for Coding {
     fn from(code: BeneficiaryRelationshipCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/relationship".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/relationship".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BeneficiaryRelationshipCodes> for CodeableConcept {
     fn from(code: BeneficiaryRelationshipCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BindingStrength](http://hl7.org/fhir/ValueSet/binding-strength)**. Indication of the degree of conformance expectations associated with a binding.\n\nFHIR version: 5.0.0."]
@@ -7391,18 +8225,36 @@ impl Serialize for BindingStrength {
 }
 impl From<BindingStrength> for Coding {
     fn from(code: BindingStrength) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/binding-strength".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/binding-strength".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BindingStrength> for CodeableConcept {
     fn from(code: BindingStrength) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductCategory](http://hl7.org/fhir/ValueSet/product-category)**. Biologically Derived Product Category.\n\nFHIR version: 5.0.0."]
@@ -7487,18 +8339,36 @@ impl Serialize for BiologicallyDerivedProductCategory {
 }
 impl From<BiologicallyDerivedProductCategory> for Coding {
     fn from(code: BiologicallyDerivedProductCategory) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/product-category".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/product-category".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductCategory> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductCodes](http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes)**. This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.\n\nFHIR version: 5.0.0."]
@@ -7619,21 +8489,39 @@ impl Serialize for BiologicallyDerivedProductCodes {
 }
 impl From<BiologicallyDerivedProductCodes> for Coding {
     fn from(code: BiologicallyDerivedProductCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductCodes> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispense](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status)**. BiologicallyDerivedProductDispense Status Codes\n\nFHIR version: 5.0.0."]
@@ -7739,21 +8627,39 @@ impl Serialize for BiologicallyDerivedProductDispense {
 }
 impl From<BiologicallyDerivedProductDispense> for Coding {
     fn from(code: BiologicallyDerivedProductDispense) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductDispense> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductDispense) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispenseMatchStatus](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status)**. Biologically derived product dispense - match status\n\nFHIR version: 5.0.0."]
@@ -7831,21 +8737,39 @@ impl Serialize for BiologicallyDerivedProductDispenseMatchStatus {
 }
 impl From<BiologicallyDerivedProductDispenseMatchStatus> for Coding {
     fn from(code: BiologicallyDerivedProductDispenseMatchStatus) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductDispenseMatchStatus> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductDispenseMatchStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispenseOriginRelationship](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship)**. Biologically derived product dispense - origin relationship\n\nFHIR version: 5.0.0."]
@@ -7930,21 +8854,39 @@ impl Serialize for BiologicallyDerivedProductDispenseOriginRelationship {
 }
 impl From<BiologicallyDerivedProductDispenseOriginRelationship> for Coding {
     fn from(code: BiologicallyDerivedProductDispenseOriginRelationship) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductDispenseOriginRelationship> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductDispenseOriginRelationship) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispensePerformerFunction](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function)**. Biologically derived product dispense - performer function\n\nFHIR version: 5.0.0."]
@@ -8043,21 +8985,39 @@ impl Serialize for BiologicallyDerivedProductDispensePerformerFunction {
 }
 impl From<BiologicallyDerivedProductDispensePerformerFunction> for Coding {
     fn from(code: BiologicallyDerivedProductDispensePerformerFunction) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductDispensePerformerFunction> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductDispensePerformerFunction) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BiologicallyDerivedProductStatus](http://hl7.org/fhir/ValueSet/biologicallyderived-product-status)**. Biologically Derived Product Status.\n\nFHIR version: 5.0.0."]
@@ -8121,21 +9081,39 @@ impl Serialize for BiologicallyDerivedProductStatus {
 }
 impl From<BiologicallyDerivedProductStatus> for Coding {
     fn from(code: BiologicallyDerivedProductStatus) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/biologicallyderived-product-status"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BiologicallyDerivedProductStatus> for CodeableConcept {
     fn from(code: BiologicallyDerivedProductStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[BundleType](http://hl7.org/fhir/ValueSet/bundle-type)**. Indicates the purpose of a bundle - how it is intended to be used.\n\nFHIR version: 5.0.0."]
@@ -8255,18 +9233,36 @@ impl Serialize for BundleType {
 }
 impl From<BundleType> for Coding {
     fn from(code: BundleType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/bundle-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/bundle-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<BundleType> for CodeableConcept {
     fn from(code: BundleType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CapabilityStatementKind](http://hl7.org/fhir/ValueSet/capability-statement-kind)**. How a capability statement is intended to be used.\n\nFHIR version: 5.0.0."]
@@ -8337,18 +9333,38 @@ impl Serialize for CapabilityStatementKind {
 }
 impl From<CapabilityStatementKind> for Coding {
     fn from(code: CapabilityStatementKind) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/capability-statement-kind".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/capability-statement-kind".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CapabilityStatementKind> for CodeableConcept {
     fn from(code: CapabilityStatementKind) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CareTeamStatus](http://hl7.org/fhir/ValueSet/care-team-status)**. Indicates the status of the care team.\n\nFHIR version: 5.0.0."]
@@ -8433,18 +9449,36 @@ impl Serialize for CareTeamStatus {
 }
 impl From<CareTeamStatus> for Coding {
     fn from(code: CareTeamStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/care-team-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/care-team-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CareTeamStatus> for CodeableConcept {
     fn from(code: CareTeamStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CatalogType](http://hl7.org/fhir/catalogType)**. CatalogType\n\nFHIR version: 5.0.0."]
@@ -8518,18 +9552,36 @@ impl Serialize for CatalogType {
 }
 impl From<CatalogType> for Coding {
     fn from(code: CatalogType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/catalogType".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/catalogType".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CatalogType> for CodeableConcept {
     fn from(code: CatalogType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CharacteristicCombination](http://hl7.org/fhir/ValueSet/characteristic-combination)**. Logical grouping of characteristics.\n\nFHIR version: 5.0.0."]
@@ -8628,18 +9680,38 @@ impl Serialize for CharacteristicCombination {
 }
 impl From<CharacteristicCombination> for Coding {
     fn from(code: CharacteristicCombination) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/characteristic-combination".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/characteristic-combination".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CharacteristicCombination> for CodeableConcept {
     fn from(code: CharacteristicCombination) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CharacteristicOffset](http://hl7.org/fhir/ValueSet/characteristic-offset)**. Reference point for characteristic.valueQuantity.\n\nFHIR version: 5.0.0."]
@@ -8703,18 +9775,38 @@ impl Serialize for CharacteristicOffset {
 }
 impl From<CharacteristicOffset> for Coding {
     fn from(code: CharacteristicOffset) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/characteristic-offset".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/characteristic-offset".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CharacteristicOffset> for CodeableConcept {
     fn from(code: CharacteristicOffset) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ChargeItemStatus](http://hl7.org/fhir/ValueSet/chargeitem-status)**. Codes identifying the lifecycle stage of a ChargeItem.\n\nFHIR version: 5.0.0."]
@@ -8813,18 +9905,36 @@ impl Serialize for ChargeItemStatus {
 }
 impl From<ChargeItemStatus> for Coding {
     fn from(code: ChargeItemStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/chargeitem-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/chargeitem-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ChargeItemStatus> for CodeableConcept {
     fn from(code: ChargeItemStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitationArtifactClassifier](http://hl7.org/fhir/ValueSet/citation-artifact-classifier)**. Citation artifact classifier\n\nFHIR version: 5.0.0."]
@@ -9091,20 +10201,38 @@ impl Serialize for CitationArtifactClassifier {
 }
 impl From<CitationArtifactClassifier> for Coding {
     fn from(code: CitationArtifactClassifier) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/citation-artifact-classifier".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitationArtifactClassifier> for CodeableConcept {
     fn from(code: CitationArtifactClassifier) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitationClassificationType](http://hl7.org/fhir/ValueSet/citation-classification-type)**. Citation classification type\n\nFHIR version: 5.0.0."]
@@ -9175,20 +10303,38 @@ impl Serialize for CitationClassificationType {
 }
 impl From<CitationClassificationType> for Coding {
     fn from(code: CitationClassificationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/citation-classification-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitationClassificationType> for CodeableConcept {
     fn from(code: CitationClassificationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitationStatusType](http://hl7.org/fhir/ValueSet/citation-status-type)**. Citation status type\n\nFHIR version: 5.0.0."]
@@ -9443,18 +10589,36 @@ impl Serialize for CitationStatusType {
 }
 impl From<CitationStatusType> for Coding {
     fn from(code: CitationStatusType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/citation-status-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/citation-status-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitationStatusType> for CodeableConcept {
     fn from(code: CitationStatusType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitationSummaryStyle](http://hl7.org/fhir/ValueSet/citation-summary-style)**. The format for display of the citation.\n\nFHIR version: 5.0.0."]
@@ -9602,18 +10766,38 @@ impl Serialize for CitationSummaryStyle {
 }
 impl From<CitationSummaryStyle> for Coding {
     fn from(code: CitationSummaryStyle) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/citation-summary-style".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/citation-summary-style".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitationSummaryStyle> for CodeableConcept {
     fn from(code: CitationSummaryStyle) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitedArtifactAbstractType](http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type)**. Used to express the reason and specific aspect for the variant abstract, such as language and specific language\n\nFHIR version: 5.0.0."]
@@ -9740,20 +10924,38 @@ impl Serialize for CitedArtifactAbstractType {
 }
 impl From<CitedArtifactAbstractType> for Coding {
     fn from(code: CitedArtifactAbstractType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitedArtifactAbstractType> for CodeableConcept {
     fn from(code: CitedArtifactAbstractType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitedArtifactClassificationType](http://hl7.org/fhir/ValueSet/cited-artifact-classification-type)**. Cited Artifact Classification Type\n\nFHIR version: 5.0.0."]
@@ -9880,21 +11082,39 @@ impl Serialize for CitedArtifactClassificationType {
 }
 impl From<CitedArtifactClassificationType> for Coding {
     fn from(code: CitedArtifactClassificationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/cited-artifact-classification-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitedArtifactClassificationType> for CodeableConcept {
     fn from(code: CitedArtifactClassificationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitedArtifactPartType](http://hl7.org/fhir/ValueSet/cited-artifact-part-type)**. To describe the reason for the variant citation, such as version number or subpart specification.\n\nFHIR version: 5.0.0."]
@@ -10007,18 +11227,38 @@ impl Serialize for CitedArtifactPartType {
 }
 impl From<CitedArtifactPartType> for Coding {
     fn from(code: CitedArtifactPartType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/cited-artifact-part-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/cited-artifact-part-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitedArtifactPartType> for CodeableConcept {
     fn from(code: CitedArtifactPartType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitedArtifactStatusType](http://hl7.org/fhir/ValueSet/cited-artifact-status-type)**. Cited Artifact Status Type\n\nFHIR version: 5.0.0."]
@@ -10180,18 +11420,38 @@ impl Serialize for CitedArtifactStatusType {
 }
 impl From<CitedArtifactStatusType> for Coding {
     fn from(code: CitedArtifactStatusType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/cited-artifact-status-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/cited-artifact-status-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitedArtifactStatusType> for CodeableConcept {
     fn from(code: CitedArtifactStatusType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CitedMedium](http://hl7.org/fhir/ValueSet/cited-medium)**. NLM codes Internet or Print.\n\nFHIR version: 5.0.0."]
@@ -10289,18 +11549,36 @@ impl Serialize for CitedMedium {
 }
 impl From<CitedMedium> for Coding {
     fn from(code: CitedMedium) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/cited-medium".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/cited-medium".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CitedMedium> for CodeableConcept {
     fn from(code: CitedMedium) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ClaimAdjudicationDecisionCodes](http://hl7.org/fhir/claim-decision)**. This value set provides Claim Adjudication Decision codes.\n\nFHIR version: 5.0.0."]
@@ -10381,18 +11659,36 @@ impl Serialize for ClaimAdjudicationDecisionCodes {
 }
 impl From<ClaimAdjudicationDecisionCodes> for Coding {
     fn from(code: ClaimAdjudicationDecisionCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/claim-decision".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/claim-decision".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ClaimAdjudicationDecisionCodes> for CodeableConcept {
     fn from(code: ClaimAdjudicationDecisionCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ClaimAdjudicationDecisionReasonCodes](http://hl7.org/fhir/claim-decision-reason)**. This value set provides example Claim Adjudication Decision Reason codes.\n\nFHIR version: 5.0.0."]
@@ -10480,18 +11776,36 @@ impl Serialize for ClaimAdjudicationDecisionReasonCodes {
 }
 impl From<ClaimAdjudicationDecisionReasonCodes> for Coding {
     fn from(code: ClaimAdjudicationDecisionReasonCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/claim-decision-reason".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/claim-decision-reason".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ClaimAdjudicationDecisionReasonCodes> for CodeableConcept {
     fn from(code: ClaimAdjudicationDecisionReasonCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ClaimProcessingCodes](http://hl7.org/fhir/ValueSet/eligibility-outcome)**. This value set includes Claim Processing Outcome codes.\n\nFHIR version: 5.0.0."]
@@ -10569,18 +11883,36 @@ impl Serialize for ClaimProcessingCodes {
 }
 impl From<ClaimProcessingCodes> for Coding {
     fn from(code: ClaimProcessingCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/eligibility-outcome".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/eligibility-outcome".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ClaimProcessingCodes> for CodeableConcept {
     fn from(code: ClaimProcessingCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ClaimProcessingOutcomeCodes](http://hl7.org/fhir/claim-outcome)**. This value set includes Claim Processing Outcome codes.\n\nFHIR version: 5.0.0."]
@@ -10661,18 +11993,36 @@ impl Serialize for ClaimProcessingOutcomeCodes {
 }
 impl From<ClaimProcessingOutcomeCodes> for Coding {
     fn from(code: ClaimProcessingOutcomeCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/claim-outcome".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/claim-outcome".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ClaimProcessingOutcomeCodes> for CodeableConcept {
     fn from(code: ClaimProcessingOutcomeCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ClinicalUseDefinitionCategory](http://hl7.org/fhir/ValueSet/clinical-use-definition-category)**. ClinicalUseDefinitionCategory\n\nFHIR version: 5.0.0."]
@@ -10743,21 +12093,39 @@ impl Serialize for ClinicalUseDefinitionCategory {
 }
 impl From<ClinicalUseDefinitionCategory> for Coding {
     fn from(code: ClinicalUseDefinitionCategory) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/clinical-use-definition-category"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ClinicalUseDefinitionCategory> for CodeableConcept {
     fn from(code: ClinicalUseDefinitionCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ClinicalUseDefinitionType](http://hl7.org/fhir/ValueSet/clinical-use-definition-type)**. Overall defining type of this clinical use definition.\n\nFHIR version: 5.0.0."]
@@ -10842,20 +12210,38 @@ impl Serialize for ClinicalUseDefinitionType {
 }
 impl From<ClinicalUseDefinitionType> for Coding {
     fn from(code: ClinicalUseDefinitionType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/clinical-use-definition-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ClinicalUseDefinitionType> for CodeableConcept {
     fn from(code: ClinicalUseDefinitionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CodeSearchSupport](http://hl7.org/fhir/ValueSet/code-search-support)**. The degree to which the server supports the code search parameter on ValueSet, if it is supported.\n\nFHIR version: 5.0.0."]
@@ -10926,18 +12312,36 @@ impl Serialize for CodeSearchSupport {
 }
 impl From<CodeSearchSupport> for Coding {
     fn from(code: CodeSearchSupport) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/code-search-support".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/code-search-support".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CodeSearchSupport> for CodeableConcept {
     fn from(code: CodeSearchSupport) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CodeSystemContentMode](http://hl7.org/fhir/ValueSet/codesystem-content-mode)**. The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.\n\nFHIR version: 5.0.0."]
@@ -11022,18 +12426,38 @@ impl Serialize for CodeSystemContentMode {
 }
 impl From<CodeSystemContentMode> for Coding {
     fn from(code: CodeSystemContentMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/codesystem-content-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/codesystem-content-mode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CodeSystemContentMode> for CodeableConcept {
     fn from(code: CodeSystemContentMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CodeSystemHierarchyMeaning](http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning)**. The meaning of the hierarchy of concepts in a code system.\n\nFHIR version: 5.0.0."]
@@ -11111,20 +12535,38 @@ impl Serialize for CodeSystemHierarchyMeaning {
 }
 impl From<CodeSystemHierarchyMeaning> for Coding {
     fn from(code: CodeSystemHierarchyMeaning) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CodeSystemHierarchyMeaning> for CodeableConcept {
     fn from(code: CodeSystemHierarchyMeaning) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ColorCodes](http://hl7.org/fhir/color-names)**. This code system represents that named RGB colors found in the [CSS4 specification](https://www.w3.org/TR/css-color-4/). The names are not case sensitive and different cases are encountered in common use (e.g. AliceBlue vs aliceblue.\n\nFHIR version: 5.0.0."]
@@ -12213,18 +13655,36 @@ impl Serialize for ColorCodes {
 }
 impl From<ColorCodes> for Coding {
     fn from(code: ColorCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/color-names".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/color-names".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ColorCodes> for CodeableConcept {
     fn from(code: ColorCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CombinedDoseForm](http://hl7.org/fhir/ValueSet/combined-dose-form)**. Dose forms for a product as a whole, considering all individual parts, but before any mixing\n\nFHIR version: 5.0.0."]
@@ -12851,18 +14311,36 @@ impl Serialize for CombinedDoseForm {
 }
 impl From<CombinedDoseForm> for Coding {
     fn from(code: CombinedDoseForm) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/combined-dose-form".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/combined-dose-form".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CombinedDoseForm> for CodeableConcept {
     fn from(code: CombinedDoseForm) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CompartmentType](http://hl7.org/fhir/ValueSet/compartment-type)**. Which type a compartment definition describes.\n\nFHIR version: 5.0.0."]
@@ -12954,18 +14432,36 @@ impl Serialize for CompartmentType {
 }
 impl From<CompartmentType> for Coding {
     fn from(code: CompartmentType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/compartment-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/compartment-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CompartmentType> for CodeableConcept {
     fn from(code: CompartmentType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CompositionAttestationMode](http://hl7.org/fhir/ValueSet/composition-attestation-mode)**. The way in which a person authenticated a composition.\n\nFHIR version: 5.0.0."]
@@ -13043,20 +14539,38 @@ impl Serialize for CompositionAttestationMode {
 }
 impl From<CompositionAttestationMode> for Coding {
     fn from(code: CompositionAttestationMode) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/composition-attestation-mode".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CompositionAttestationMode> for CodeableConcept {
     fn from(code: CompositionAttestationMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CompositionStatus](http://hl7.org/fhir/ValueSet/composition-status)**. The workflow/clinical status of the composition.\n\nFHIR version: 5.0.0."]
@@ -13183,18 +14697,36 @@ impl Serialize for CompositionStatus {
 }
 impl From<CompositionStatus> for Coding {
     fn from(code: CompositionStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/composition-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/composition-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CompositionStatus> for CodeableConcept {
     fn from(code: CompositionStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptMapAttributeType](http://hl7.org/fhir/ValueSet/conceptmap-attribute-type)**. The type of a ConceptMap map attribute value.\n\nFHIR version: 5.0.0."]
@@ -13279,18 +14811,38 @@ impl Serialize for ConceptMapAttributeType {
 }
 impl From<ConceptMapAttributeType> for Coding {
     fn from(code: ConceptMapAttributeType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/conceptmap-attribute-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/conceptmap-attribute-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptMapAttributeType> for CodeableConcept {
     fn from(code: ConceptMapAttributeType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptMapGroupUnmappedMode](http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode)**. Defines which action to take if there is no match in the group.\n\nFHIR version: 5.0.0."]
@@ -13361,18 +14913,38 @@ impl Serialize for ConceptMapGroupUnmappedMode {
 }
 impl From<ConceptMapGroupUnmappedMode> for Coding {
     fn from(code: ConceptMapGroupUnmappedMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptMapGroupUnmappedMode> for CodeableConcept {
     fn from(code: ConceptMapGroupUnmappedMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptMapProperties](http://hl7.org/fhir/conceptmap-properties)**. A set of common concept properties for use on ConceptMap\n\nFHIR version: 5.0.0."]
@@ -13432,18 +15004,36 @@ impl Serialize for ConceptMapProperties {
 }
 impl From<ConceptMapProperties> for Coding {
     fn from(code: ConceptMapProperties) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/conceptmap-properties".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/conceptmap-properties".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptMapProperties> for CodeableConcept {
     fn from(code: ConceptMapProperties) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptMapPropertyType](http://hl7.org/fhir/ValueSet/conceptmap-property-type)**. The type of a ConceptMap mapping property value.\n\nFHIR version: 5.0.0."]
@@ -13542,18 +15132,38 @@ impl Serialize for ConceptMapPropertyType {
 }
 impl From<ConceptMapPropertyType> for Coding {
     fn from(code: ConceptMapPropertyType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/conceptmap-property-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/conceptmap-property-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptMapPropertyType> for CodeableConcept {
     fn from(code: ConceptMapPropertyType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptMapRelationship](http://hl7.org/fhir/ValueSet/concept-map-relationship)**. The relationship between concepts.\n\nFHIR version: 5.0.0."]
@@ -13638,18 +15248,38 @@ impl Serialize for ConceptMapRelationship {
 }
 impl From<ConceptMapRelationship> for Coding {
     fn from(code: ConceptMapRelationship) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/concept-map-relationship".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/concept-map-relationship".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptMapRelationship> for CodeableConcept {
     fn from(code: ConceptMapRelationship) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptProperties](http://hl7.org/fhir/ValueSet/concept-properties)**. A set of common concept properties for use on coded systems throughout the FHIR eco-system.\n\nFHIR version: 5.0.0."]
@@ -13790,18 +15420,36 @@ impl Serialize for ConceptProperties {
 }
 impl From<ConceptProperties> for Coding {
     fn from(code: ConceptProperties) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/concept-properties".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/concept-properties".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptProperties> for CodeableConcept {
     fn from(code: ConceptProperties) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConceptSubsumptionOutcome](http://hl7.org/fhir/concept-subsumption-outcome)**. Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem.\n\nFHIR version: 5.0.0."]
@@ -13882,18 +15530,36 @@ impl Serialize for ConceptSubsumptionOutcome {
 }
 impl From<ConceptSubsumptionOutcome> for Coding {
     fn from(code: ConceptSubsumptionOutcome) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/concept-subsumption-outcome".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/concept-subsumption-outcome".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConceptSubsumptionOutcome> for CodeableConcept {
     fn from(code: ConceptSubsumptionOutcome) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConditionPreconditionType](http://hl7.org/fhir/ValueSet/condition-precondition-type)**. Kind of precondition for the condition.\n\nFHIR version: 5.0.0."]
@@ -13957,20 +15623,38 @@ impl Serialize for ConditionPreconditionType {
 }
 impl From<ConditionPreconditionType> for Coding {
     fn from(code: ConditionPreconditionType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/condition-precondition-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConditionPreconditionType> for CodeableConcept {
     fn from(code: ConditionPreconditionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConditionQuestionnairePurpose](http://hl7.org/fhir/ValueSet/condition-questionnaire-purpose)**. The use of a questionnaire.\n\nFHIR version: 5.0.0."]
@@ -14041,20 +15725,38 @@ impl Serialize for ConditionQuestionnairePurpose {
 }
 impl From<ConditionQuestionnairePurpose> for Coding {
     fn from(code: ConditionQuestionnairePurpose) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/condition-questionnaire-purpose".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConditionQuestionnairePurpose> for CodeableConcept {
     fn from(code: ConditionQuestionnairePurpose) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConditionalDeleteStatus](http://hl7.org/fhir/ValueSet/conditional-delete-status)**. A code that indicates how the server supports conditional delete.\n\nFHIR version: 5.0.0."]
@@ -14125,18 +15827,38 @@ impl Serialize for ConditionalDeleteStatus {
 }
 impl From<ConditionalDeleteStatus> for Coding {
     fn from(code: ConditionalDeleteStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/conditional-delete-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/conditional-delete-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConditionalDeleteStatus> for CodeableConcept {
     fn from(code: ConditionalDeleteStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConditionalReadStatus](http://hl7.org/fhir/ValueSet/conditional-read-status)**. A code that indicates how the server supports conditional read.\n\nFHIR version: 5.0.0."]
@@ -14214,18 +15936,38 @@ impl Serialize for ConditionalReadStatus {
 }
 impl From<ConditionalReadStatus> for Coding {
     fn from(code: ConditionalReadStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/conditional-read-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/conditional-read-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConditionalReadStatus> for CodeableConcept {
     fn from(code: ConditionalReadStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConformanceExpectation](http://hl7.org/fhir/ValueSet/conformance-expectation)**. ConformanceExpectation\n\nFHIR version: 5.0.0."]
@@ -14303,18 +16045,38 @@ impl Serialize for ConformanceExpectation {
 }
 impl From<ConformanceExpectation> for Coding {
     fn from(code: ConformanceExpectation) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/conformance-expectation".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/conformance-expectation".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConformanceExpectation> for CodeableConcept {
     fn from(code: ConformanceExpectation) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConsentDataMeaning](http://hl7.org/fhir/ValueSet/consent-data-meaning)**. How a resource reference is interpreted when testing consent restrictions.\n\nFHIR version: 5.0.0."]
@@ -14392,18 +16154,36 @@ impl Serialize for ConsentDataMeaning {
 }
 impl From<ConsentDataMeaning> for Coding {
     fn from(code: ConsentDataMeaning) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/consent-data-meaning".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/consent-data-meaning".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConsentDataMeaning> for CodeableConcept {
     fn from(code: ConsentDataMeaning) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConsentProvisionType](http://hl7.org/fhir/ValueSet/consent-provision-type)**. How a rule statement is applied, such as adding additional consent or removing consent.\n\nFHIR version: 5.0.0."]
@@ -14467,18 +16247,38 @@ impl Serialize for ConsentProvisionType {
 }
 impl From<ConsentProvisionType> for Coding {
     fn from(code: ConsentProvisionType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/consent-provision-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/consent-provision-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConsentProvisionType> for CodeableConcept {
     fn from(code: ConsentProvisionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConsentState](http://hl7.org/fhir/ValueSet/consent-state-codes)**. Indicates the state of the consent.\n\nFHIR version: 5.0.0."]
@@ -14570,18 +16370,36 @@ impl Serialize for ConsentState {
 }
 impl From<ConsentState> for Coding {
     fn from(code: ConsentState) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/consent-state-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/consent-state-codes".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConsentState> for CodeableConcept {
     fn from(code: ConsentState) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ConstraintSeverity](http://hl7.org/fhir/ValueSet/constraint-severity)**. SHALL applications comply with this constraint?\n\nFHIR version: 5.0.0."]
@@ -14645,18 +16463,36 @@ impl Serialize for ConstraintSeverity {
 }
 impl From<ConstraintSeverity> for Coding {
     fn from(code: ConstraintSeverity) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/constraint-severity".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/constraint-severity".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ConstraintSeverity> for CodeableConcept {
     fn from(code: ConstraintSeverity) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContactPointSystem](http://hl7.org/fhir/ValueSet/contact-point-system)**. Telecommunications form for contact point.\n\nFHIR version: 5.0.0."]
@@ -14755,18 +16591,36 @@ impl Serialize for ContactPointSystem {
 }
 impl From<ContactPointSystem> for Coding {
     fn from(code: ContactPointSystem) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contact-point-system".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/contact-point-system".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContactPointSystem> for CodeableConcept {
     fn from(code: ContactPointSystem) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContactPointUse](http://hl7.org/fhir/ValueSet/contact-point-use)**. Use of contact point.\n\nFHIR version: 5.0.0."]
@@ -14851,18 +16705,36 @@ impl Serialize for ContactPointUse {
 }
 impl From<ContactPointUse> for Coding {
     fn from(code: ContactPointUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contact-point-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/contact-point-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContactPointUse> for CodeableConcept {
     fn from(code: ContactPointUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractActionStatus](http://hl7.org/fhir/contract-action-status)**. This CodeSystem contains FHIR-defined contract action status types.\n\nFHIR version: 5.0.0."]
@@ -14922,18 +16794,36 @@ impl Serialize for ContractActionStatus {
 }
 impl From<ContractActionStatus> for Coding {
     fn from(code: ContractActionStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-action-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-action-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractActionStatus> for CodeableConcept {
     fn from(code: ContractActionStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractAssetAvailability](http://hl7.org/fhir/asset-availability)**. This CodeSystem contains FHIR-defined contract asset availability types.\n\nFHIR version: 5.0.0."]
@@ -14993,18 +16883,36 @@ impl Serialize for ContractAssetAvailability {
 }
 impl From<ContractAssetAvailability> for Coding {
     fn from(code: ContractAssetAvailability) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/asset-availability".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/asset-availability".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractAssetAvailability> for CodeableConcept {
     fn from(code: ContractAssetAvailability) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractAssetContext](http://hl7.org/fhir/contract-asset-context)**. This CodeSystem contains FHIR-defined contract asset context types.\n\nFHIR version: 5.0.0."]
@@ -15064,18 +16972,36 @@ impl Serialize for ContractAssetContext {
 }
 impl From<ContractAssetContext> for Coding {
     fn from(code: ContractAssetContext) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-asset-context".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-asset-context".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractAssetContext> for CodeableConcept {
     fn from(code: ContractAssetContext) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractAssetScope](http://hl7.org/fhir/contract-asset-scope)**. This CodeSystem contains FHIR-defined contract asset scope types.\n\nFHIR version: 5.0.0."]
@@ -15135,18 +17061,36 @@ impl Serialize for ContractAssetScope {
 }
 impl From<ContractAssetScope> for Coding {
     fn from(code: ContractAssetScope) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-asset-scope".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-asset-scope".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractAssetScope> for CodeableConcept {
     fn from(code: ContractAssetScope) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractAssetSubtype](http://hl7.org/fhir/contract-asset-subtype)**. This CodeSystem contains FHIR-defined contract asset type sub-types.\n\nFHIR version: 5.0.0."]
@@ -15206,18 +17150,36 @@ impl Serialize for ContractAssetSubtype {
 }
 impl From<ContractAssetSubtype> for Coding {
     fn from(code: ContractAssetSubtype) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-asset-subtype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-asset-subtype".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractAssetSubtype> for CodeableConcept {
     fn from(code: ContractAssetSubtype) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractAssetType](http://hl7.org/fhir/contract-asset-type)**. This CodeSystem contains FHIR-defined contract asset type types.\n\nFHIR version: 5.0.0."]
@@ -15277,18 +17239,36 @@ impl Serialize for ContractAssetType {
 }
 impl From<ContractAssetType> for Coding {
     fn from(code: ContractAssetType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-asset-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-asset-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractAssetType> for CodeableConcept {
     fn from(code: ContractAssetType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractDecisionMode](http://hl7.org/fhir/contract-decision-mode)**. This CodeSystem contains FHIR-defined contract decision mode types.\n\nFHIR version: 5.0.0."]
@@ -15348,18 +17328,36 @@ impl Serialize for ContractDecisionMode {
 }
 impl From<ContractDecisionMode> for Coding {
     fn from(code: ContractDecisionMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-decision-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-decision-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractDecisionMode> for CodeableConcept {
     fn from(code: ContractDecisionMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractDefinitionSubtype](http://hl7.org/fhir/contract-definition-subtype)**. This CodeSystem contains FHIR-defined contract definition subtypes.\n\nFHIR version: 5.0.0."]
@@ -15419,18 +17417,36 @@ impl Serialize for ContractDefinitionSubtype {
 }
 impl From<ContractDefinitionSubtype> for Coding {
     fn from(code: ContractDefinitionSubtype) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-definition-subtype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-definition-subtype".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractDefinitionSubtype> for CodeableConcept {
     fn from(code: ContractDefinitionSubtype) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractDefinitionType](http://hl7.org/fhir/contract-definition-type)**. This CodeSystem contains FHIR-defined contract definition types.\n\nFHIR version: 5.0.0."]
@@ -15490,18 +17506,36 @@ impl Serialize for ContractDefinitionType {
 }
 impl From<ContractDefinitionType> for Coding {
     fn from(code: ContractDefinitionType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-definition-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-definition-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractDefinitionType> for CodeableConcept {
     fn from(code: ContractDefinitionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractExpirationType](http://hl7.org/fhir/contract-expiration-type)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 5.0.0."]
@@ -15561,18 +17595,36 @@ impl Serialize for ContractExpirationType {
 }
 impl From<ContractExpirationType> for Coding {
     fn from(code: ContractExpirationType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-expiration-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-expiration-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractExpirationType> for CodeableConcept {
     fn from(code: ContractExpirationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractLegalState](http://hl7.org/fhir/contract-legalstate)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in the [Status Codes Grid](sc.html).\n\nFHIR version: 5.0.0."]
@@ -15730,18 +17782,36 @@ impl Serialize for ContractLegalState {
 }
 impl From<ContractLegalState> for Coding {
     fn from(code: ContractLegalState) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-legalstate".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-legalstate".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractLegalState> for CodeableConcept {
     fn from(code: ContractLegalState) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractPartyRole](http://hl7.org/fhir/contract-party-role)**. This CodeSystem contains FHIR-defined contract party role types.\n\nFHIR version: 5.0.0."]
@@ -15801,18 +17871,36 @@ impl Serialize for ContractPartyRole {
 }
 impl From<ContractPartyRole> for Coding {
     fn from(code: ContractPartyRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-party-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-party-role".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractPartyRole> for CodeableConcept {
     fn from(code: ContractPartyRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractPublicationStatus](http://hl7.org/fhir/contract-publicationstatus)**. This CodeSystem contains FHIR-defined contract publication status types. Each definition includes usage notes explaining the precedence order in contract publication lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic.\n\nFHIR version: 5.0.0."]
@@ -15970,18 +18058,36 @@ impl Serialize for ContractPublicationStatus {
 }
 impl From<ContractPublicationStatus> for Coding {
     fn from(code: ContractPublicationStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-publicationstatus".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-publicationstatus".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractPublicationStatus> for CodeableConcept {
     fn from(code: ContractPublicationStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractScope](http://hl7.org/fhir/contract-scope)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 5.0.0."]
@@ -16041,18 +18147,36 @@ impl Serialize for ContractScope {
 }
 impl From<ContractScope> for Coding {
     fn from(code: ContractScope) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-scope".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-scope".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractScope> for CodeableConcept {
     fn from(code: ContractScope) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractSecurityCategory](http://hl7.org/fhir/contract-security-category)**. This CodeSystem contains FHIR-defined contract security category types.\n\nFHIR version: 5.0.0."]
@@ -16112,18 +18236,36 @@ impl Serialize for ContractSecurityCategory {
 }
 impl From<ContractSecurityCategory> for Coding {
     fn from(code: ContractSecurityCategory) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-security-category".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-security-category".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractSecurityCategory> for CodeableConcept {
     fn from(code: ContractSecurityCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractSecurityClassification](http://hl7.org/fhir/contract-security-classification)**. This CodeSystem contains FHIR-defined contract security classification types.\n\nFHIR version: 5.0.0."]
@@ -16183,18 +18325,38 @@ impl Serialize for ContractSecurityClassification {
 }
 impl From<ContractSecurityClassification> for Coding {
     fn from(code: ContractSecurityClassification) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-security-classification".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/contract-security-classification".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractSecurityClassification> for CodeableConcept {
     fn from(code: ContractSecurityClassification) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractSecurityControl](http://hl7.org/fhir/contract-security-control)**. This CodeSystem contains FHIR-defined contract security control types.\n\nFHIR version: 5.0.0."]
@@ -16254,18 +18416,36 @@ impl Serialize for ContractSecurityControl {
 }
 impl From<ContractSecurityControl> for Coding {
     fn from(code: ContractSecurityControl) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-security-control".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-security-control".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractSecurityControl> for CodeableConcept {
     fn from(code: ContractSecurityControl) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContractStatus](http://hl7.org/fhir/contract-status)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in [the Status Codes Grid](sc.html).\n\nFHIR version: 5.0.0."]
@@ -16423,18 +18603,36 @@ impl Serialize for ContractStatus {
 }
 impl From<ContractStatus> for Coding {
     fn from(code: ContractStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/contract-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/contract-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContractStatus> for CodeableConcept {
     fn from(code: ContractStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContributorRole](http://hl7.org/fhir/ValueSet/contributor-role)**. Used to code the format of the display string.\n\nFHIR version: 5.0.0."]
@@ -16533,18 +18731,36 @@ impl Serialize for ContributorRole {
 }
 impl From<ContributorRole> for Coding {
     fn from(code: ContributorRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contributor-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/contributor-role".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContributorRole> for CodeableConcept {
     fn from(code: ContributorRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContributorSummarySource](http://hl7.org/fhir/ValueSet/contributor-summary-source)**. Used to code the producer or rule for creating the display string.\n\nFHIR version: 5.0.0."]
@@ -16622,18 +18838,38 @@ impl Serialize for ContributorSummarySource {
 }
 impl From<ContributorSummarySource> for Coding {
     fn from(code: ContributorSummarySource) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contributor-summary-source".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/contributor-summary-source".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContributorSummarySource> for CodeableConcept {
     fn from(code: ContributorSummarySource) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContributorSummaryStyle](http://hl7.org/fhir/ValueSet/contributor-summary-style)**. Used to code the format of the display string.\n\nFHIR version: 5.0.0."]
@@ -16811,18 +19047,38 @@ impl Serialize for ContributorSummaryStyle {
 }
 impl From<ContributorSummaryStyle> for Coding {
     fn from(code: ContributorSummaryStyle) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contributor-summary-style".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/contributor-summary-style".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContributorSummaryStyle> for CodeableConcept {
     fn from(code: ContributorSummaryStyle) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContributorSummaryType](http://hl7.org/fhir/ValueSet/contributor-summary-type)**. Used to code author list statement, contributorship statement, and such.\n\nFHIR version: 5.0.0."]
@@ -16921,18 +19177,38 @@ impl Serialize for ContributorSummaryType {
 }
 impl From<ContributorSummaryType> for Coding {
     fn from(code: ContributorSummaryType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contributor-summary-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/contributor-summary-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContributorSummaryType> for CodeableConcept {
     fn from(code: ContributorSummaryType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ContributorType](http://hl7.org/fhir/ValueSet/contributor-type)**. The type of contributor.\n\nFHIR version: 5.0.0."]
@@ -17010,18 +19286,36 @@ impl Serialize for ContributorType {
 }
 impl From<ContributorType> for Coding {
     fn from(code: ContributorType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/contributor-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/contributor-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ContributorType> for CodeableConcept {
     fn from(code: ContributorType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[CriteriaNotExistsBehavior](http://hl7.org/fhir/ValueSet/subscriptiontopic-cr-behavior)**. Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).\n\nFHIR version: 5.0.0."]
@@ -17085,20 +19379,38 @@ impl Serialize for CriteriaNotExistsBehavior {
 }
 impl From<CriteriaNotExistsBehavior> for Coding {
     fn from(code: CriteriaNotExistsBehavior) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/subscriptiontopic-cr-behavior".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<CriteriaNotExistsBehavior> for CodeableConcept {
     fn from(code: CriteriaNotExistsBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DatesEventTypeCodes](http://hl7.org/fhir/datestype)**. This value set includes sample Dates Event Type codes.\n\nFHIR version: 5.0.0."]
@@ -17172,18 +19484,36 @@ impl Serialize for DatesEventTypeCodes {
 }
 impl From<DatesEventTypeCodes> for Coding {
     fn from(code: DatesEventTypeCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/datestype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/datestype".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DatesEventTypeCodes> for CodeableConcept {
     fn from(code: DatesEventTypeCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DaysOfWeek](http://hl7.org/fhir/ValueSet/days-of-week)**. The days of the week.\n\nFHIR version: 5.0.0."]
@@ -17282,18 +19612,36 @@ impl Serialize for DaysOfWeek {
 }
 impl From<DaysOfWeek> for Coding {
     fn from(code: DaysOfWeek) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/days-of-week".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/days-of-week".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DaysOfWeek> for CodeableConcept {
     fn from(code: DaysOfWeek) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DefinitionMethod](http://hl7.org/fhir/ValueSet/definition-method)**. The method used to define, describe, or determine a characteristic value.\n\nFHIR version: 5.0.0."]
@@ -17399,18 +19747,36 @@ impl Serialize for DefinitionMethod {
 }
 impl From<DefinitionMethod> for Coding {
     fn from(code: DefinitionMethod) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/definition-method".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/definition-method".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DefinitionMethod> for CodeableConcept {
     fn from(code: DefinitionMethod) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DetectedIssueSeverity](http://hl7.org/fhir/ValueSet/detectedissue-severity)**. Indicates the potential degree of impact of the identified issue on the patient.\n\nFHIR version: 5.0.0."]
@@ -17481,18 +19847,38 @@ impl Serialize for DetectedIssueSeverity {
 }
 impl From<DetectedIssueSeverity> for Coding {
     fn from(code: DetectedIssueSeverity) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/detectedissue-severity".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/detectedissue-severity".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DetectedIssueSeverity> for CodeableConcept {
     fn from(code: DetectedIssueSeverity) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DetectedIssueStatus](http://hl7.org/fhir/detectedissue-status)**. Indicates the status of the detected issue. This code system contains only status codes that are not already defined and used from the ObservationStatus code system.\n\nFHIR version: 5.0.0."]
@@ -17552,18 +19938,36 @@ impl Serialize for DetectedIssueStatus {
 }
 impl From<DetectedIssueStatus> for Coding {
     fn from(code: DetectedIssueStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/detectedissue-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/detectedissue-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DetectedIssueStatus> for CodeableConcept {
     fn from(code: DetectedIssueStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceAssociation](http://hl7.org/fhir/ValueSet/deviceassociation-status)**. DeviceAssociation Status Codes\n\nFHIR version: 5.0.0."]
@@ -17648,18 +20052,38 @@ impl Serialize for DeviceAssociation {
 }
 impl From<DeviceAssociation> for Coding {
     fn from(code: DeviceAssociation) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/deviceassociation-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/deviceassociation-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceAssociation> for CodeableConcept {
     fn from(code: DeviceAssociation) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceCorrectiveActionScope](http://hl7.org/fhir/ValueSet/device-correctiveactionscope)**. The type of relation between devices.\n\nFHIR version: 5.0.0."]
@@ -17730,20 +20154,38 @@ impl Serialize for DeviceCorrectiveActionScope {
 }
 impl From<DeviceCorrectiveActionScope> for Coding {
     fn from(code: DeviceCorrectiveActionScope) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/device-correctiveactionscope".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceCorrectiveActionScope> for CodeableConcept {
     fn from(code: DeviceCorrectiveActionScope) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceDefinitionRelationType](http://hl7.org/fhir/ValueSet/device-relationtype)**. The type of relation between devices.\n\nFHIR version: 5.0.0."]
@@ -17814,18 +20256,36 @@ impl Serialize for DeviceDefinitionRelationType {
 }
 impl From<DeviceDefinitionRelationType> for Coding {
     fn from(code: DeviceDefinitionRelationType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/device-relationtype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/device-relationtype".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceDefinitionRelationType> for CodeableConcept {
     fn from(code: DeviceDefinitionRelationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceDispenseStatusCodes](http://hl7.org/fhir/ValueSet/devicedispense-status)**. DeviceDispense Status Codes\n\nFHIR version: 5.0.0."]
@@ -17938,18 +20398,38 @@ impl Serialize for DeviceDispenseStatusCodes {
 }
 impl From<DeviceDispenseStatusCodes> for Coding {
     fn from(code: DeviceDispenseStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/devicedispense-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/devicedispense-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceDispenseStatusCodes> for CodeableConcept {
     fn from(code: DeviceDispenseStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceDispenseStatusReasonCodes](http://hl7.org/fhir/CodeSystem/devicedispense-status-reason)**. DeviceDispense Status Reason Codes\n\nFHIR version: 5.0.0."]
@@ -18044,20 +20524,38 @@ impl Serialize for DeviceDispenseStatusReasonCodes {
 }
 impl From<DeviceDispenseStatusReasonCodes> for Coding {
     fn from(code: DeviceDispenseStatusReasonCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/CodeSystem/devicedispense-status-reason".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceDispenseStatusReasonCodes> for CodeableConcept {
     fn from(code: DeviceDispenseStatusReasonCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceMetricCalibrationState](http://hl7.org/fhir/ValueSet/metric-calibration-state)**. Describes the state of a metric calibration.\n\nFHIR version: 5.0.0."]
@@ -18135,18 +20633,38 @@ impl Serialize for DeviceMetricCalibrationState {
 }
 impl From<DeviceMetricCalibrationState> for Coding {
     fn from(code: DeviceMetricCalibrationState) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/metric-calibration-state".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/metric-calibration-state".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceMetricCalibrationState> for CodeableConcept {
     fn from(code: DeviceMetricCalibrationState) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceMetricCalibrationType](http://hl7.org/fhir/ValueSet/metric-calibration-type)**. Describes the type of a metric calibration.\n\nFHIR version: 5.0.0."]
@@ -18224,18 +20742,38 @@ impl Serialize for DeviceMetricCalibrationType {
 }
 impl From<DeviceMetricCalibrationType> for Coding {
     fn from(code: DeviceMetricCalibrationType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/metric-calibration-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/metric-calibration-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceMetricCalibrationType> for CodeableConcept {
     fn from(code: DeviceMetricCalibrationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceMetricCategory](http://hl7.org/fhir/ValueSet/metric-category)**. Describes the category of the metric.\n\nFHIR version: 5.0.0."]
@@ -18313,18 +20851,36 @@ impl Serialize for DeviceMetricCategory {
 }
 impl From<DeviceMetricCategory> for Coding {
     fn from(code: DeviceMetricCategory) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/metric-category".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/metric-category".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceMetricCategory> for CodeableConcept {
     fn from(code: DeviceMetricCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceMetricOperationalStatus](http://hl7.org/fhir/ValueSet/metric-operational-status)**. Describes the operational status of the DeviceMetric.\n\nFHIR version: 5.0.0."]
@@ -18402,18 +20958,38 @@ impl Serialize for DeviceMetricOperationalStatus {
 }
 impl From<DeviceMetricOperationalStatus> for Coding {
     fn from(code: DeviceMetricOperationalStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/metric-operational-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/metric-operational-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceMetricOperationalStatus> for CodeableConcept {
     fn from(code: DeviceMetricOperationalStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceNameType](http://hl7.org/fhir/ValueSet/device-nametype)**. The type of name the device is referred by.\n\nFHIR version: 5.0.0."]
@@ -18484,18 +21060,36 @@ impl Serialize for DeviceNameType {
 }
 impl From<DeviceNameType> for Coding {
     fn from(code: DeviceNameType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/device-nametype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/device-nametype".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceNameType> for CodeableConcept {
     fn from(code: DeviceNameType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceProductionIdentifierInUDI](http://hl7.org/fhir/device-productidentifierinudi)**. The production identifier(s) that are expected to appear in the UDI carrier.\n\nFHIR version: 5.0.0."]
@@ -18590,18 +21184,36 @@ impl Serialize for DeviceProductionIdentifierInUDI {
 }
 impl From<DeviceProductionIdentifierInUDI> for Coding {
     fn from(code: DeviceProductionIdentifierInUDI) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/device-productidentifierinudi".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/device-productidentifierinudi".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceProductionIdentifierInUDI> for CodeableConcept {
     fn from(code: DeviceProductionIdentifierInUDI) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceRegulatoryIdentifierType](http://hl7.org/fhir/devicedefinition-regulatory-identifier-type)**. The type of regulatory identifier.\n\nFHIR version: 5.0.0."]
@@ -18675,21 +21287,39 @@ impl Serialize for DeviceRegulatoryIdentifierType {
 }
 impl From<DeviceRegulatoryIdentifierType> for Coding {
     fn from(code: DeviceRegulatoryIdentifierType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/devicedefinition-regulatory-identifier-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceRegulatoryIdentifierType> for CodeableConcept {
     fn from(code: DeviceRegulatoryIdentifierType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceUsageAdherenceCode](http://hl7.org/fhir/ValueSet/deviceusage-adherence-code)**. A coded concept indicating the usage of the device.\n\nFHIR version: 5.0.0."]
@@ -18760,18 +21390,38 @@ impl Serialize for DeviceUsageAdherenceCode {
 }
 impl From<DeviceUsageAdherenceCode> for Coding {
     fn from(code: DeviceUsageAdherenceCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/deviceusage-adherence-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/deviceusage-adherence-code".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceUsageAdherenceCode> for CodeableConcept {
     fn from(code: DeviceUsageAdherenceCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceUsageAdherenceReason](http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason)**. A coded concept indicating the reason for the usage of the device.\n\nFHIR version: 5.0.0."]
@@ -18863,20 +21513,38 @@ impl Serialize for DeviceUsageAdherenceReason {
 }
 impl From<DeviceUsageAdherenceReason> for Coding {
     fn from(code: DeviceUsageAdherenceReason) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceUsageAdherenceReason> for CodeableConcept {
     fn from(code: DeviceUsageAdherenceReason) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DeviceUsageStatus](http://hl7.org/fhir/ValueSet/deviceusage-status)**. A coded concept indicating the current status of the Device Usage.\n\nFHIR version: 5.0.0."]
@@ -18975,18 +21643,36 @@ impl Serialize for DeviceUsageStatus {
 }
 impl From<DeviceUsageStatus> for Coding {
     fn from(code: DeviceUsageStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/deviceusage-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/deviceusage-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DeviceUsageStatus> for CodeableConcept {
     fn from(code: DeviceUsageStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DiagnosticReportStatus](http://hl7.org/fhir/ValueSet/diagnostic-report-status)**. The status of the diagnostic report.\n\nFHIR version: 5.0.0."]
@@ -19113,18 +21799,38 @@ impl Serialize for DiagnosticReportStatus {
 }
 impl From<DiagnosticReportStatus> for Coding {
     fn from(code: DiagnosticReportStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/diagnostic-report-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/diagnostic-report-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DiagnosticReportStatus> for CodeableConcept {
     fn from(code: DiagnosticReportStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DiscriminatorType](http://hl7.org/fhir/ValueSet/discriminator-type)**. How an element value is interpreted when discrimination is evaluated.\n\nFHIR version: 5.0.0."]
@@ -19216,18 +21922,36 @@ impl Serialize for DiscriminatorType {
 }
 impl From<DiscriminatorType> for Coding {
     fn from(code: DiscriminatorType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/discriminator-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/discriminator-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DiscriminatorType> for CodeableConcept {
     fn from(code: DiscriminatorType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DocumentMode](http://hl7.org/fhir/ValueSet/document-mode)**. Whether the application produces or consumes documents.\n\nFHIR version: 5.0.0."]
@@ -19291,18 +22015,36 @@ impl Serialize for DocumentMode {
 }
 impl From<DocumentMode> for Coding {
     fn from(code: DocumentMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/document-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/document-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DocumentMode> for CodeableConcept {
     fn from(code: DocumentMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DocumentReferenceStatus](http://hl7.org/fhir/ValueSet/document-reference-status)**. The status of the document reference.\n\nFHIR version: 5.0.0."]
@@ -19373,18 +22115,38 @@ impl Serialize for DocumentReferenceStatus {
 }
 impl From<DocumentReferenceStatus> for Coding {
     fn from(code: DocumentReferenceStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/document-reference-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/document-reference-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DocumentReferenceStatus> for CodeableConcept {
     fn from(code: DocumentReferenceStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[DocumentRelationshipType](http://hl7.org/fhir/ValueSet/document-relationship-type)**. The type of relationship between documents.\n\nFHIR version: 5.0.0."]
@@ -19476,18 +22238,38 @@ impl Serialize for DocumentRelationshipType {
 }
 impl From<DocumentRelationshipType> for Coding {
     fn from(code: DocumentRelationshipType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/document-relationship-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/document-relationship-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<DocumentRelationshipType> for CodeableConcept {
     fn from(code: DocumentRelationshipType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EligibilityRequestPurpose](http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
@@ -19565,18 +22347,38 @@ impl Serialize for EligibilityRequestPurpose {
 }
 impl From<EligibilityRequestPurpose> for Coding {
     fn from(code: EligibilityRequestPurpose) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EligibilityRequestPurpose> for CodeableConcept {
     fn from(code: EligibilityRequestPurpose) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EligibilityResponsePurpose](http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
@@ -19654,20 +22456,38 @@ impl Serialize for EligibilityResponsePurpose {
 }
 impl From<EligibilityResponsePurpose> for Coding {
     fn from(code: EligibilityResponsePurpose) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EligibilityResponsePurpose> for CodeableConcept {
     fn from(code: EligibilityResponsePurpose) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EnableWhenBehavior](http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior)**. Controls how multiple enableWhen values are interpreted -  whether all or any must be true.\n\nFHIR version: 5.0.0."]
@@ -19731,20 +22551,38 @@ impl Serialize for EnableWhenBehavior {
 }
 impl From<EnableWhenBehavior> for Coding {
     fn from(code: EnableWhenBehavior) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EnableWhenBehavior> for CodeableConcept {
     fn from(code: EnableWhenBehavior) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EncounterDiagnosisUse](http://hl7.org/fhir/encounter-diagnosis-use)**. Encounter Condition Use\n\nFHIR version: 5.0.0."]
@@ -19811,18 +22649,36 @@ impl Serialize for EncounterDiagnosisUse {
 }
 impl From<EncounterDiagnosisUse> for Coding {
     fn from(code: EncounterDiagnosisUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/encounter-diagnosis-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/encounter-diagnosis-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EncounterDiagnosisUse> for CodeableConcept {
     fn from(code: EncounterDiagnosisUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EncounterLocationStatus](http://hl7.org/fhir/ValueSet/encounter-location-status)**. The status of the location.\n\nFHIR version: 5.0.0."]
@@ -19904,18 +22760,38 @@ impl Serialize for EncounterLocationStatus {
 }
 impl From<EncounterLocationStatus> for Coding {
     fn from(code: EncounterLocationStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/encounter-location-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/encounter-location-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EncounterLocationStatus> for CodeableConcept {
     fn from(code: EncounterLocationStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EncounterReasonUse](http://hl7.org/fhir/ValueSet/encounter-reason-use)**. Encounter Reason Use\n\nFHIR version: 5.0.0."]
@@ -20000,18 +22876,36 @@ impl Serialize for EncounterReasonUse {
 }
 impl From<EncounterReasonUse> for Coding {
     fn from(code: EncounterReasonUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/encounter-reason-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/encounter-reason-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EncounterReasonUse> for CodeableConcept {
     fn from(code: EncounterReasonUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EncounterStatus](http://hl7.org/fhir/ValueSet/encounter-status)**. Current state of the encounter.\n\nFHIR version: 5.0.0."]
@@ -20124,18 +23018,36 @@ impl Serialize for EncounterStatus {
 }
 impl From<EncounterStatus> for Coding {
     fn from(code: EncounterStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/encounter-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/encounter-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EncounterStatus> for CodeableConcept {
     fn from(code: EncounterStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EndpointEnvironment](http://hl7.org/fhir/ValueSet/endpoint-environment)**. The environment type of the endpoint.\n\nFHIR version: 5.0.0."]
@@ -20220,18 +23132,36 @@ impl Serialize for EndpointEnvironment {
 }
 impl From<EndpointEnvironment> for Coding {
     fn from(code: EndpointEnvironment) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/endpoint-environment".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/endpoint-environment".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EndpointEnvironment> for CodeableConcept {
     fn from(code: EndpointEnvironment) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EndpointStatus](http://hl7.org/fhir/ValueSet/endpoint-status)**. The status of the endpoint.\n\nFHIR version: 5.0.0."]
@@ -20316,18 +23246,36 @@ impl Serialize for EndpointStatus {
 }
 impl From<EndpointStatus> for Coding {
     fn from(code: EndpointStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/endpoint-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/endpoint-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EndpointStatus> for CodeableConcept {
     fn from(code: EndpointStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EpisodeOfCareStatus](http://hl7.org/fhir/ValueSet/episode-of-care-status)**. The status of the episode of care.\n\nFHIR version: 5.0.0."]
@@ -20426,18 +23374,38 @@ impl Serialize for EpisodeOfCareStatus {
 }
 impl From<EpisodeOfCareStatus> for Coding {
     fn from(code: EpisodeOfCareStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/episode-of-care-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/episode-of-care-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EpisodeOfCareStatus> for CodeableConcept {
     fn from(code: EpisodeOfCareStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EventCapabilityMode](http://hl7.org/fhir/ValueSet/event-capability-mode)**. The mode of a message capability statement.\n\nFHIR version: 5.0.0."]
@@ -20501,18 +23469,38 @@ impl Serialize for EventCapabilityMode {
 }
 impl From<EventCapabilityMode> for Coding {
     fn from(code: EventCapabilityMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/event-capability-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/event-capability-mode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EventCapabilityMode> for CodeableConcept {
     fn from(code: EventCapabilityMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EventStatus](http://hl7.org/fhir/ValueSet/event-status)**. Codes identifying the lifecycle stage of an event.\n\nFHIR version: 5.0.0."]
@@ -20618,18 +23606,36 @@ impl Serialize for EventStatus {
 }
 impl From<EventStatus> for Coding {
     fn from(code: EventStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/event-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/event-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EventStatus> for CodeableConcept {
     fn from(code: EventStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EventTiming](http://hl7.org/fhir/event-timing)**. Real-world event relating to the schedule.\n\nFHIR version: 5.0.0."]
@@ -20773,18 +23779,36 @@ impl Serialize for EventTiming {
 }
 impl From<EventTiming> for Coding {
     fn from(code: EventTiming) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/event-timing".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/event-timing".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EventTiming> for CodeableConcept {
     fn from(code: EventTiming) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EvidenceCertaintyRating](http://hl7.org/fhir/ValueSet/certainty-rating)**. The assessment of quality, confidence, or certainty.\n\nFHIR version: 5.0.0."]
@@ -20946,18 +23970,36 @@ impl Serialize for EvidenceCertaintyRating {
 }
 impl From<EvidenceCertaintyRating> for Coding {
     fn from(code: EvidenceCertaintyRating) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/certainty-rating".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/certainty-rating".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EvidenceCertaintyRating> for CodeableConcept {
     fn from(code: EvidenceCertaintyRating) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EvidenceCertaintyType](http://hl7.org/fhir/ValueSet/certainty-type)**. The aspect of quality, confidence, or certainty.\n\nFHIR version: 5.0.0."]
@@ -21070,18 +24112,36 @@ impl Serialize for EvidenceCertaintyType {
 }
 impl From<EvidenceCertaintyType> for Coding {
     fn from(code: EvidenceCertaintyType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/certainty-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/certainty-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EvidenceCertaintyType> for CodeableConcept {
     fn from(code: EvidenceCertaintyType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EvidenceClassifier](http://hl7.org/fhir/ValueSet/evidence-classifier-code)**. Commonly used classifiers for evidence sets.\n\nFHIR version: 5.0.0."]
@@ -21360,18 +24420,38 @@ impl Serialize for EvidenceClassifier {
 }
 impl From<EvidenceClassifier> for Coding {
     fn from(code: EvidenceClassifier) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/evidence-classifier-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/evidence-classifier-code".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EvidenceClassifier> for CodeableConcept {
     fn from(code: EvidenceClassifier) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EvidenceReportType](http://hl7.org/fhir/ValueSet/evidence-report-type)**. The kind of report, such as grouping of classifiers, search results, or human-compiled expression.\n\nFHIR version: 5.0.0."]
@@ -21449,18 +24529,36 @@ impl Serialize for EvidenceReportType {
 }
 impl From<EvidenceReportType> for Coding {
     fn from(code: EvidenceReportType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/evidence-report-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/evidence-report-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EvidenceReportType> for CodeableConcept {
     fn from(code: EvidenceReportType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EvidenceVariableEvent](http://hl7.org/fhir/ValueSet/evidence-variable-event)**. The event used as a base point (reference point) in time.\n\nFHIR version: 5.0.0."]
@@ -21559,18 +24657,38 @@ impl Serialize for EvidenceVariableEvent {
 }
 impl From<EvidenceVariableEvent> for Coding {
     fn from(code: EvidenceVariableEvent) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/evidence-variable-event".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/evidence-variable-event".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EvidenceVariableEvent> for CodeableConcept {
     fn from(code: EvidenceVariableEvent) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[EvidenceVariableHandling](http://hl7.org/fhir/ValueSet/variable-handling)**. The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).\n\nFHIR version: 5.0.0."]
@@ -21648,18 +24766,36 @@ impl Serialize for EvidenceVariableHandling {
 }
 impl From<EvidenceVariableHandling> for Coding {
     fn from(code: EvidenceVariableHandling) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/variable-handling".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/variable-handling".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<EvidenceVariableHandling> for CodeableConcept {
     fn from(code: EvidenceVariableHandling) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ExampleMetadata](http://hl7.org/fhir/CodeSystem/example-metadata)**. This is an example code system that illustrates usage of the metadata resource elements introduced in R5\n\nFHIR version: 5.0.0."]
@@ -21733,18 +24869,36 @@ impl Serialize for ExampleMetadata {
 }
 impl From<ExampleMetadata> for Coding {
     fn from(code: ExampleMetadata) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/CodeSystem/example-metadata".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/CodeSystem/example-metadata".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ExampleMetadata> for CodeableConcept {
     fn from(code: ExampleMetadata) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ExampleScenarioActorType](http://hl7.org/fhir/ValueSet/examplescenario-actor-type)**. The type of actor - system or human.\n\nFHIR version: 5.0.0."]
@@ -21808,18 +24962,38 @@ impl Serialize for ExampleScenarioActorType {
 }
 impl From<ExampleScenarioActorType> for Coding {
     fn from(code: ExampleScenarioActorType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/examplescenario-actor-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/examplescenario-actor-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ExampleScenarioActorType> for CodeableConcept {
     fn from(code: ExampleScenarioActorType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ExplanationOfBenefitStatus](http://hl7.org/fhir/ValueSet/explanationofbenefit-status)**. A code specifying the state of the resource instance.\n\nFHIR version: 5.0.0."]
@@ -21897,20 +25071,38 @@ impl Serialize for ExplanationOfBenefitStatus {
 }
 impl From<ExplanationOfBenefitStatus> for Coding {
     fn from(code: ExplanationOfBenefitStatus) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/explanationofbenefit-status".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ExplanationOfBenefitStatus> for CodeableConcept {
     fn from(code: ExplanationOfBenefitStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ExtensionContextType](http://hl7.org/fhir/ValueSet/extension-context-type)**. How an extension context is interpreted.\n\nFHIR version: 5.0.0."]
@@ -21981,18 +25173,38 @@ impl Serialize for ExtensionContextType {
 }
 impl From<ExtensionContextType> for Coding {
     fn from(code: ExtensionContextType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/extension-context-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/extension-context-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ExtensionContextType> for CodeableConcept {
     fn from(code: ExtensionContextType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ExtraActivityType](http://hl7.org/fhir/extra-activity-type)**. This value set includes coded concepts not well covered in any of the included valuesets.\n\nFHIR version: 5.0.0."]
@@ -22066,18 +25278,36 @@ impl Serialize for ExtraActivityType {
 }
 impl From<ExtraActivityType> for Coding {
     fn from(code: ExtraActivityType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/extra-activity-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/extra-activity-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ExtraActivityType> for CodeableConcept {
     fn from(code: ExtraActivityType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[FamilyHistoryStatus](http://hl7.org/fhir/ValueSet/history-status)**. A code that identifies the status of the family history record.\n\nFHIR version: 5.0.0."]
@@ -22155,18 +25385,36 @@ impl Serialize for FamilyHistoryStatus {
 }
 impl From<FamilyHistoryStatus> for Coding {
     fn from(code: FamilyHistoryStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/history-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/history-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<FamilyHistoryStatus> for CodeableConcept {
     fn from(code: FamilyHistoryStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[FilterOperator](http://hl7.org/fhir/ValueSet/filter-operator)**. The kind of operation to perform as a part of a property based filter.\n\nFHIR version: 5.0.0."]
@@ -22293,18 +25541,36 @@ impl Serialize for FilterOperator {
 }
 impl From<FilterOperator> for Coding {
     fn from(code: FilterOperator) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/filter-operator".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/filter-operator".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<FilterOperator> for CodeableConcept {
     fn from(code: FilterOperator) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[FinancialResourceStatusCodes](http://hl7.org/fhir/fm-status)**. This value set includes Status codes.\n\nFHIR version: 5.0.0."]
@@ -22385,18 +25651,36 @@ impl Serialize for FinancialResourceStatusCodes {
 }
 impl From<FinancialResourceStatusCodes> for Coding {
     fn from(code: FinancialResourceStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/fm-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/fm-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<FinancialResourceStatusCodes> for CodeableConcept {
     fn from(code: FinancialResourceStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[FlagStatus](http://hl7.org/fhir/ValueSet/flag-status)**. Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.\n\nFHIR version: 5.0.0."]
@@ -22467,18 +25751,36 @@ impl Serialize for FlagStatus {
 }
 impl From<FlagStatus> for Coding {
     fn from(code: FlagStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/flag-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/flag-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<FlagStatus> for CodeableConcept {
     fn from(code: FlagStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[FocusCharacteristicCode](http://hl7.org/fhir/ValueSet/focus-characteristic-code)**. Evidence focus characteristic code.\n\nFHIR version: 5.0.0."]
@@ -22584,18 +25886,38 @@ impl Serialize for FocusCharacteristicCode {
 }
 impl From<FocusCharacteristicCode> for Coding {
     fn from(code: FocusCharacteristicCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/focus-characteristic-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/focus-characteristic-code".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<FocusCharacteristicCode> for CodeableConcept {
     fn from(code: FocusCharacteristicCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[FormularyItemStatusCodes](http://hl7.org/fhir/ValueSet/formularyitem-status)**. FormularyItem Status Codes\n\nFHIR version: 5.0.0."]
@@ -22666,18 +25988,36 @@ impl Serialize for FormularyItemStatusCodes {
 }
 impl From<FormularyItemStatusCodes> for Coding {
     fn from(code: FormularyItemStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/formularyitem-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/formularyitem-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<FormularyItemStatusCodes> for CodeableConcept {
     fn from(code: FormularyItemStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GenomicStudyChangeType](http://hl7.org/fhir/ValueSet/genomicstudy-changetype)**. The change type relevant to GenomicStudy analysis.\n\nFHIR version: 5.0.0."]
@@ -22762,18 +26102,38 @@ impl Serialize for GenomicStudyChangeType {
 }
 impl From<GenomicStudyChangeType> for Coding {
     fn from(code: GenomicStudyChangeType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/genomicstudy-changetype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/genomicstudy-changetype".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GenomicStudyChangeType> for CodeableConcept {
     fn from(code: GenomicStudyChangeType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GenomicStudyDataFormat](http://hl7.org/fhir/ValueSet/genomicstudy-dataformat)**. The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute.\n\nFHIR version: 5.0.0."]
@@ -23109,18 +26469,38 @@ impl Serialize for GenomicStudyDataFormat {
 }
 impl From<GenomicStudyDataFormat> for Coding {
     fn from(code: GenomicStudyDataFormat) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/genomicstudy-dataformat".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/genomicstudy-dataformat".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GenomicStudyDataFormat> for CodeableConcept {
     fn from(code: GenomicStudyDataFormat) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GenomicStudyMethodType](http://hl7.org/fhir/ValueSet/genomicstudy-methodtype)**. The method type of the GenomicStudy analysis. These method types and relevant codes were pulled from [National Library of Medicine-Genetic Testing Registry](https://www.ncbi.nlm.nih.gov/gtr/) (NCBI-GTR) values of describing different testing methods on various levels: [major method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt), [method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt), and [primary methodology](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt)\n\nFHIR version: 5.0.0."]
@@ -23803,18 +27183,38 @@ impl Serialize for GenomicStudyMethodType {
 }
 impl From<GenomicStudyMethodType> for Coding {
     fn from(code: GenomicStudyMethodType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/genomicstudy-methodtype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/genomicstudy-methodtype".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GenomicStudyMethodType> for CodeableConcept {
     fn from(code: GenomicStudyMethodType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GenomicStudyStatus](http://hl7.org/fhir/ValueSet/genomicstudy-status)**. The status of the GenomicStudy.\n\nFHIR version: 5.0.0."]
@@ -23899,18 +27299,36 @@ impl Serialize for GenomicStudyStatus {
 }
 impl From<GenomicStudyStatus> for Coding {
     fn from(code: GenomicStudyStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/genomicstudy-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/genomicstudy-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GenomicStudyStatus> for CodeableConcept {
     fn from(code: GenomicStudyStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GenomicStudyType](http://hl7.org/fhir/ValueSet/genomicstudy-type)**. The type relevant to GenomicStudy.\n\nFHIR version: 5.0.0."]
@@ -24044,18 +27462,36 @@ impl Serialize for GenomicStudyType {
 }
 impl From<GenomicStudyType> for Coding {
     fn from(code: GenomicStudyType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/genomicstudy-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/genomicstudy-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GenomicStudyType> for CodeableConcept {
     fn from(code: GenomicStudyType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GoalLifecycleStatus](http://hl7.org/fhir/ValueSet/goal-status)**. Codes that reflect the current state of a goal and whether the goal is still being targeted.\n\nFHIR version: 5.0.0."]
@@ -24168,18 +27604,36 @@ impl Serialize for GoalLifecycleStatus {
 }
 impl From<GoalLifecycleStatus> for Coding {
     fn from(code: GoalLifecycleStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/goal-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/goal-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GoalLifecycleStatus> for CodeableConcept {
     fn from(code: GoalLifecycleStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GraphCompartmentRule](http://hl7.org/fhir/ValueSet/graph-compartment-rule)**. How a compartment must be linked.\n\nFHIR version: 5.0.0."]
@@ -24257,18 +27711,38 @@ impl Serialize for GraphCompartmentRule {
 }
 impl From<GraphCompartmentRule> for Coding {
     fn from(code: GraphCompartmentRule) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/graph-compartment-rule".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/graph-compartment-rule".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GraphCompartmentRule> for CodeableConcept {
     fn from(code: GraphCompartmentRule) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GraphCompartmentUse](http://hl7.org/fhir/ValueSet/graph-compartment-use)**. Defines how a compartment rule is used.\n\nFHIR version: 5.0.0."]
@@ -24332,18 +27806,38 @@ impl Serialize for GraphCompartmentUse {
 }
 impl From<GraphCompartmentUse> for Coding {
     fn from(code: GraphCompartmentUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/graph-compartment-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/graph-compartment-use".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GraphCompartmentUse> for CodeableConcept {
     fn from(code: GraphCompartmentUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GroupMembershipBasis](http://hl7.org/fhir/ValueSet/group-membership-basis)**. Basis for membership in a group\n\nFHIR version: 5.0.0."]
@@ -24407,18 +27901,38 @@ impl Serialize for GroupMembershipBasis {
 }
 impl From<GroupMembershipBasis> for Coding {
     fn from(code: GroupMembershipBasis) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/group-membership-basis".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/group-membership-basis".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GroupMembershipBasis> for CodeableConcept {
     fn from(code: GroupMembershipBasis) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GroupType](http://hl7.org/fhir/ValueSet/group-type)**. Types of resources that are part of group.\n\nFHIR version: 5.0.0."]
@@ -24538,18 +28052,36 @@ impl Serialize for GroupType {
 }
 impl From<GroupType> for Coding {
     fn from(code: GroupType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/group-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/group-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GroupType> for CodeableConcept {
     fn from(code: GroupType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GuidanceModuleCode](http://hl7.org/fhir/ValueSet/guidance-module-code)**. Example guidance module codes.\n\nFHIR version: 5.0.0."]
@@ -24641,18 +28173,36 @@ impl Serialize for GuidanceModuleCode {
 }
 impl From<GuidanceModuleCode> for Coding {
     fn from(code: GuidanceModuleCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/guidance-module-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/guidance-module-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GuidanceModuleCode> for CodeableConcept {
     fn from(code: GuidanceModuleCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GuidanceResponseStatus](http://hl7.org/fhir/ValueSet/guidance-response-status)**. The status of a guidance response.\n\nFHIR version: 5.0.0."]
@@ -24744,18 +28294,38 @@ impl Serialize for GuidanceResponseStatus {
 }
 impl From<GuidanceResponseStatus> for Coding {
     fn from(code: GuidanceResponseStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/guidance-response-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/guidance-response-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GuidanceResponseStatus> for CodeableConcept {
     fn from(code: GuidanceResponseStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GuidePageGeneration](http://hl7.org/fhir/ValueSet/guide-page-generation)**. A code that indicates how the page is generated.\n\nFHIR version: 5.0.0."]
@@ -24833,18 +28403,38 @@ impl Serialize for GuidePageGeneration {
 }
 impl From<GuidePageGeneration> for Coding {
     fn from(code: GuidePageGeneration) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/guide-page-generation".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/guide-page-generation".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GuidePageGeneration> for CodeableConcept {
     fn from(code: GuidePageGeneration) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[GuideParameterCode](http://hl7.org/fhir/guide-parameter-code)**. GuideParameterCode\n\nFHIR version: 5.0.0."]
@@ -24967,18 +28557,36 @@ impl Serialize for GuideParameterCode {
 }
 impl From<GuideParameterCode> for Coding {
     fn from(code: GuideParameterCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/guide-parameter-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/guide-parameter-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<GuideParameterCode> for CodeableConcept {
     fn from(code: GuideParameterCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IdentifierUse](http://hl7.org/fhir/ValueSet/identifier-use)**. Identifies the purpose for this identifier, if known .\n\nFHIR version: 5.0.0."]
@@ -25063,18 +28671,36 @@ impl Serialize for IdentifierUse {
 }
 impl From<IdentifierUse> for Coding {
     fn from(code: IdentifierUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/identifier-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/identifier-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IdentifierUse> for CodeableConcept {
     fn from(code: IdentifierUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IdentityAssuranceLevel](http://hl7.org/fhir/ValueSet/identity-assuranceLevel)**. The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.\n\nFHIR version: 5.0.0."]
@@ -25152,18 +28778,38 @@ impl Serialize for IdentityAssuranceLevel {
 }
 impl From<IdentityAssuranceLevel> for Coding {
     fn from(code: IdentityAssuranceLevel) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/identity-assuranceLevel".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/identity-assuranceLevel".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IdentityAssuranceLevel> for CodeableConcept {
     fn from(code: IdentityAssuranceLevel) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ImagingSelection2DGraphicType](http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype)**. The type of coordinates describing a 2D image region.\n\nFHIR version: 5.0.0."]
@@ -25248,20 +28894,38 @@ impl Serialize for ImagingSelection2DGraphicType {
 }
 impl From<ImagingSelection2DGraphicType> for Coding {
     fn from(code: ImagingSelection2DGraphicType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ImagingSelection2DGraphicType> for CodeableConcept {
     fn from(code: ImagingSelection2DGraphicType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ImagingSelection3DGraphicType](http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype)**. The type of coordinates describing an image region.\n\nFHIR version: 5.0.0."]
@@ -25353,20 +29017,38 @@ impl Serialize for ImagingSelection3DGraphicType {
 }
 impl From<ImagingSelection3DGraphicType> for Coding {
     fn from(code: ImagingSelection3DGraphicType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ImagingSelection3DGraphicType> for CodeableConcept {
     fn from(code: ImagingSelection3DGraphicType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ImagingSelectionStatus](http://hl7.org/fhir/ValueSet/imagingselection-status)**. The status of the ImagingSelection.\n\nFHIR version: 5.0.0."]
@@ -25437,18 +29119,38 @@ impl Serialize for ImagingSelectionStatus {
 }
 impl From<ImagingSelectionStatus> for Coding {
     fn from(code: ImagingSelectionStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/imagingselection-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/imagingselection-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ImagingSelectionStatus> for CodeableConcept {
     fn from(code: ImagingSelectionStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ImagingStudyStatus](http://hl7.org/fhir/ValueSet/imagingstudy-status)**. The status of the ImagingStudy.\n\nFHIR version: 5.0.0."]
@@ -25533,18 +29235,36 @@ impl Serialize for ImagingStudyStatus {
 }
 impl From<ImagingStudyStatus> for Coding {
     fn from(code: ImagingStudyStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/imagingstudy-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/imagingstudy-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ImagingStudyStatus> for CodeableConcept {
     fn from(code: ImagingStudyStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[Indicator](http://hl7.org/fhir/ValueSet/cdshooks-indicator)**. This codesystem captures the indicator codes defined by the CDS Hooks specification. The indicator is included as an element of the cards in a CDS Hooks response and conveys the urgency and/or importance of the information in each card. See [Card Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification for more information.\n\nFHIR version: 5.0.0."]
@@ -25615,18 +29335,36 @@ impl Serialize for Indicator {
 }
 impl From<Indicator> for Coding {
     fn from(code: Indicator) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/cdshooks-indicator".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/cdshooks-indicator".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<Indicator> for CodeableConcept {
     fn from(code: Indicator) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IngredientFunction](http://hl7.org/fhir/ValueSet/ingredient-function)**. A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive).\n\nFHIR version: 5.0.0."]
@@ -25690,18 +29428,36 @@ impl Serialize for IngredientFunction {
 }
 impl From<IngredientFunction> for Coding {
     fn from(code: IngredientFunction) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/ingredient-function".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/ingredient-function".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IngredientFunction> for CodeableConcept {
     fn from(code: IngredientFunction) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IngredientManufacturerRole](http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role)**. The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role\n\nFHIR version: 5.0.0."]
@@ -25772,20 +29528,38 @@ impl Serialize for IngredientManufacturerRole {
 }
 impl From<IngredientManufacturerRole> for Coding {
     fn from(code: IngredientManufacturerRole) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IngredientManufacturerRole> for CodeableConcept {
     fn from(code: IngredientManufacturerRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IngredientRole](http://hl7.org/fhir/ValueSet/ingredient-role)**. A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.\n\nFHIR version: 5.0.0."]
@@ -25898,18 +29672,36 @@ impl Serialize for IngredientRole {
 }
 impl From<IngredientRole> for Coding {
     fn from(code: IngredientRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/ingredient-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/ingredient-role".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IngredientRole> for CodeableConcept {
     fn from(code: IngredientRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InteractionIncidence](http://hl7.org/fhir/ValueSet/interaction-incidence)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
@@ -25973,18 +29765,38 @@ impl Serialize for InteractionIncidence {
 }
 impl From<InteractionIncidence> for Coding {
     fn from(code: InteractionIncidence) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/interaction-incidence".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/interaction-incidence".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InteractionIncidence> for CodeableConcept {
     fn from(code: InteractionIncidence) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InteractionType](http://hl7.org/fhir/ValueSet/interaction-type)**. A categorisation for an interaction between two substances.\n\nFHIR version: 5.0.0."]
@@ -26062,18 +29874,36 @@ impl Serialize for InteractionType {
 }
 impl From<InteractionType> for Coding {
     fn from(code: InteractionType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/interaction-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/interaction-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InteractionType> for CodeableConcept {
     fn from(code: InteractionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InventoryCountType](http://hl7.org/fhir/ValueSet/inventoryreport-counttype)**. The type of count.\n\nFHIR version: 5.0.0."]
@@ -26137,18 +29967,38 @@ impl Serialize for InventoryCountType {
 }
 impl From<InventoryCountType> for Coding {
     fn from(code: InventoryCountType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/inventoryreport-counttype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/inventoryreport-counttype".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InventoryCountType> for CodeableConcept {
     fn from(code: InventoryCountType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InventoryItemNameType](http://hl7.org/fhir/ValueSet/inventoryitem-nametype)**. InventoryItem Name Type\n\nFHIR version: 5.0.0."]
@@ -26226,18 +30076,38 @@ impl Serialize for InventoryItemNameType {
 }
 impl From<InventoryItemNameType> for Coding {
     fn from(code: InventoryItemNameType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/inventoryitem-nametype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/inventoryitem-nametype".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InventoryItemNameType> for CodeableConcept {
     fn from(code: InventoryItemNameType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InventoryItemStatus](http://hl7.org/fhir/ValueSet/inventoryitem-status)**. InventoryItem Status Codes\n\nFHIR version: 5.0.0."]
@@ -26315,18 +30185,36 @@ impl Serialize for InventoryItemStatus {
 }
 impl From<InventoryItemStatus> for Coding {
     fn from(code: InventoryItemStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/inventoryitem-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/inventoryitem-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InventoryItemStatus> for CodeableConcept {
     fn from(code: InventoryItemStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InventoryReportStatus](http://hl7.org/fhir/ValueSet/inventoryreport-status)**. The status of the InventoryReport.\n\nFHIR version: 5.0.0."]
@@ -26404,18 +30292,38 @@ impl Serialize for InventoryReportStatus {
 }
 impl From<InventoryReportStatus> for Coding {
     fn from(code: InventoryReportStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/inventoryreport-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/inventoryreport-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InventoryReportStatus> for CodeableConcept {
     fn from(code: InventoryReportStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[InvoiceStatus](http://hl7.org/fhir/ValueSet/invoice-status)**. Codes identifying the lifecycle stage of an Invoice.\n\nFHIR version: 5.0.0."]
@@ -26500,18 +30408,36 @@ impl Serialize for InvoiceStatus {
 }
 impl From<InvoiceStatus> for Coding {
     fn from(code: InvoiceStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/invoice-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/invoice-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<InvoiceStatus> for CodeableConcept {
     fn from(code: InvoiceStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IssueSeverity](http://hl7.org/fhir/ValueSet/issue-severity)**. How the issue affects the success of the action.\n\nFHIR version: 5.0.0."]
@@ -26596,18 +30522,36 @@ impl Serialize for IssueSeverity {
 }
 impl From<IssueSeverity> for Coding {
     fn from(code: IssueSeverity) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/issue-severity".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/issue-severity".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IssueSeverity> for CodeableConcept {
     fn from(code: IssueSeverity) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[IssueType](http://hl7.org/fhir/ValueSet/issue-type)**. A code that describes the type of issue.\n\nFHIR version: 5.0.0."]
@@ -26888,18 +30832,36 @@ impl Serialize for IssueType {
 }
 impl From<IssueType> for Coding {
     fn from(code: IssueType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/issue-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/issue-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<IssueType> for CodeableConcept {
     fn from(code: IssueType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[Kind](http://hl7.org/fhir/ValueSet/coverage-kind)**. The nature of the Coverage details which convey who is paying potentially for health services.\n\nFHIR version: 5.0.0."]
@@ -26970,18 +30932,36 @@ impl Serialize for Kind {
 }
 impl From<Kind> for Coding {
     fn from(code: Kind) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/coverage-kind".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/coverage-kind".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<Kind> for CodeableConcept {
     fn from(code: Kind) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[KnowledgeRepresentationLevel](http://hl7.org/fhir/uv/cpg/ValueSet/knowledge-representation-level)**. A knowledge representation level, narrative, semi-structured, structured, and executable\n\nFHIR version: 5.0.0."]
@@ -27059,21 +31039,39 @@ impl Serialize for KnowledgeRepresentationLevel {
 }
 impl From<KnowledgeRepresentationLevel> for Coding {
     fn from(code: KnowledgeRepresentationLevel) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/uv/cpg/ValueSet/knowledge-representation-level"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<KnowledgeRepresentationLevel> for CodeableConcept {
     fn from(code: KnowledgeRepresentationLevel) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LegalStatusOfSupply](http://hl7.org/fhir/ValueSet/legal-status-of-supply)**. The prescription supply types appropriate to a medicinal product\n\nFHIR version: 5.0.0."]
@@ -27193,18 +31191,38 @@ impl Serialize for LegalStatusOfSupply {
 }
 impl From<LegalStatusOfSupply> for Coding {
     fn from(code: LegalStatusOfSupply) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/legal-status-of-supply".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/legal-status-of-supply".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LegalStatusOfSupply> for CodeableConcept {
     fn from(code: LegalStatusOfSupply) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LinkRelationTypes](http://hl7.org/fhir/ValueSet/iana-link-relations)**. Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1\n\nFHIR version: 5.0.0."]
@@ -28474,18 +32492,36 @@ impl Serialize for LinkRelationTypes {
 }
 impl From<LinkRelationTypes> for Coding {
     fn from(code: LinkRelationTypes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/iana-link-relations".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/iana-link-relations".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LinkRelationTypes> for CodeableConcept {
     fn from(code: LinkRelationTypes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LinkType](http://hl7.org/fhir/ValueSet/link-type)**. The type of link between this Patient resource and other Patient/RelatedPerson resource(s).\n\nFHIR version: 5.0.0."]
@@ -28563,18 +32599,36 @@ impl Serialize for LinkType {
 }
 impl From<LinkType> for Coding {
     fn from(code: LinkType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/link-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/link-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LinkType> for CodeableConcept {
     fn from(code: LinkType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LinkageType](http://hl7.org/fhir/ValueSet/linkage-type)**. Used to distinguish different roles a resource can play within a set of linked resources.\n\nFHIR version: 5.0.0."]
@@ -28645,18 +32699,36 @@ impl Serialize for LinkageType {
 }
 impl From<LinkageType> for Coding {
     fn from(code: LinkageType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/linkage-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/linkage-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LinkageType> for CodeableConcept {
     fn from(code: LinkageType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ListMode](http://hl7.org/fhir/ValueSet/list-mode)**. The processing mode that applies to this list.\n\nFHIR version: 5.0.0."]
@@ -28727,18 +32799,36 @@ impl Serialize for ListMode {
 }
 impl From<ListMode> for Coding {
     fn from(code: ListMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/list-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/list-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ListMode> for CodeableConcept {
     fn from(code: ListMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ListStatus](http://hl7.org/fhir/ValueSet/list-status)**. The current state of the list.\n\nFHIR version: 5.0.0."]
@@ -28809,18 +32899,36 @@ impl Serialize for ListStatus {
 }
 impl From<ListStatus> for Coding {
     fn from(code: ListStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/list-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/list-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ListStatus> for CodeableConcept {
     fn from(code: ListStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LocationCharacteristic](http://hl7.org/fhir/ValueSet/location-characteristic)**. Example Set of Location Characteristics.\n\nFHIR version: 5.0.0."]
@@ -28912,18 +33020,38 @@ impl Serialize for LocationCharacteristic {
 }
 impl From<LocationCharacteristic> for Coding {
     fn from(code: LocationCharacteristic) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/location-characteristic".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/location-characteristic".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LocationCharacteristic> for CodeableConcept {
     fn from(code: LocationCharacteristic) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LocationMode](http://hl7.org/fhir/ValueSet/location-mode)**. Indicates whether a resource instance represents a specific location or a class of locations.\n\nFHIR version: 5.0.0."]
@@ -28987,18 +33115,36 @@ impl Serialize for LocationMode {
 }
 impl From<LocationMode> for Coding {
     fn from(code: LocationMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/location-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/location-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LocationMode> for CodeableConcept {
     fn from(code: LocationMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[LocationStatus](http://hl7.org/fhir/ValueSet/location-status)**. Indicates whether the location is still in use.\n\nFHIR version: 5.0.0."]
@@ -29069,18 +33215,36 @@ impl Serialize for LocationStatus {
 }
 impl From<LocationStatus> for Coding {
     fn from(code: LocationStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/location-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/location-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<LocationStatus> for CodeableConcept {
     fn from(code: LocationStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ManufacturedDoseForm](http://hl7.org/fhir/ValueSet/manufactured-dose-form)**. Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient.\n\nFHIR version: 5.0.0."]
@@ -30537,18 +34701,38 @@ impl Serialize for ManufacturedDoseForm {
 }
 impl From<ManufacturedDoseForm> for Coding {
     fn from(code: ManufacturedDoseForm) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/manufactured-dose-form".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/manufactured-dose-form".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ManufacturedDoseForm> for CodeableConcept {
     fn from(code: ManufacturedDoseForm) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureAggregateMethod](http://hl7.org/fhir/ValueSet/aggregate-method)**. Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)\n\nFHIR version: 5.0.0."]
@@ -30640,18 +34824,36 @@ impl Serialize for MeasureAggregateMethod {
 }
 impl From<MeasureAggregateMethod> for Coding {
     fn from(code: MeasureAggregateMethod) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/aggregate-method".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/aggregate-method".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureAggregateMethod> for CodeableConcept {
     fn from(code: MeasureAggregateMethod) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureDefinitionExample](http://hl7.org/fhir/ValueSet/measure-definition-example)**. Example Measure Definitions for the Measure Resource.\n\nFHIR version: 5.0.0."]
@@ -30721,18 +34923,38 @@ impl Serialize for MeasureDefinitionExample {
 }
 impl From<MeasureDefinitionExample> for Coding {
     fn from(code: MeasureDefinitionExample) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/measure-definition-example".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/measure-definition-example".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureDefinitionExample> for CodeableConcept {
     fn from(code: MeasureDefinitionExample) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureGroupExample](http://hl7.org/fhir/ValueSet/measure-group-example)**. Example Measure Groups for the Measure Resource.\n\nFHIR version: 5.0.0."]
@@ -30796,18 +35018,38 @@ impl Serialize for MeasureGroupExample {
 }
 impl From<MeasureGroupExample> for Coding {
     fn from(code: MeasureGroupExample) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/measure-group-example".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/measure-group-example".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureGroupExample> for CodeableConcept {
     fn from(code: MeasureGroupExample) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureReportStatus](http://hl7.org/fhir/ValueSet/measure-report-status)**. The status of the measure report.\n\nFHIR version: 5.0.0."]
@@ -30878,18 +35120,38 @@ impl Serialize for MeasureReportStatus {
 }
 impl From<MeasureReportStatus> for Coding {
     fn from(code: MeasureReportStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/measure-report-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/measure-report-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureReportStatus> for CodeableConcept {
     fn from(code: MeasureReportStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureReportStratifierValueExample](http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example)**. Example Region Value Measure Groups for the Measure Resource.\n\nFHIR version: 5.0.0."]
@@ -30967,21 +35229,39 @@ impl Serialize for MeasureReportStratifierValueExample {
 }
 impl From<MeasureReportStratifierValueExample> for Coding {
     fn from(code: MeasureReportStratifierValueExample) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureReportStratifierValueExample> for CodeableConcept {
     fn from(code: MeasureReportStratifierValueExample) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureReportType](http://hl7.org/fhir/ValueSet/measure-report-type)**. The type of the measure report.\n\nFHIR version: 5.0.0."]
@@ -31059,18 +35339,36 @@ impl Serialize for MeasureReportType {
 }
 impl From<MeasureReportType> for Coding {
     fn from(code: MeasureReportType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/measure-report-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/measure-report-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureReportType> for CodeableConcept {
     fn from(code: MeasureReportType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureStratifierExample](http://hl7.org/fhir/ValueSet/measure-stratifier-example)**. Identifier subgroups in a population for measuring purposes.\n\nFHIR version: 5.0.0."]
@@ -31141,18 +35439,38 @@ impl Serialize for MeasureStratifierExample {
 }
 impl From<MeasureStratifierExample> for Coding {
     fn from(code: MeasureStratifierExample) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/measure-stratifier-example".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/measure-stratifier-example".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureStratifierExample> for CodeableConcept {
     fn from(code: MeasureStratifierExample) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MeasureSupplementalDataExample](http://hl7.org/fhir/ValueSet/measure-supplemental-data-example)**. Identifier supplemental data in a population for measuring purposes.\n\nFHIR version: 5.0.0."]
@@ -31230,21 +35548,39 @@ impl Serialize for MeasureSupplementalDataExample {
 }
 impl From<MeasureSupplementalDataExample> for Coding {
     fn from(code: MeasureSupplementalDataExample) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/measure-supplemental-data-example"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MeasureSupplementalDataExample> for CodeableConcept {
     fn from(code: MeasureSupplementalDataExample) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedDispenseAdminLocationCodes](http://hl7.org/fhir/ValueSet/medicationdispense-admin-location)**. Medication Dispense Administration Location Codes\n\nFHIR version: 5.0.0."]
@@ -31315,21 +35651,39 @@ impl Serialize for MedDispenseAdminLocationCodes {
 }
 impl From<MedDispenseAdminLocationCodes> for Coding {
     fn from(code: MedDispenseAdminLocationCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedDispenseAdminLocationCodes> for CodeableConcept {
     fn from(code: MedDispenseAdminLocationCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationAdministrationStatusCodes](http://hl7.org/fhir/ValueSet/medication-admin-status)**. MedicationAdministration Status Codes\n\nFHIR version: 5.0.0."]
@@ -31428,18 +35782,38 @@ impl Serialize for MedicationAdministrationStatusCodes {
 }
 impl From<MedicationAdministrationStatusCodes> for Coding {
     fn from(code: MedicationAdministrationStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medication-admin-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medication-admin-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationAdministrationStatusCodes> for CodeableConcept {
     fn from(code: MedicationAdministrationStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationCostCategoryCodes](http://hl7.org/fhir/ValueSet/medication-cost-category)**. Medication Cost Category Codes\n\nFHIR version: 5.0.0."]
@@ -31503,18 +35877,38 @@ impl Serialize for MedicationCostCategoryCodes {
 }
 impl From<MedicationCostCategoryCodes> for Coding {
     fn from(code: MedicationCostCategoryCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medication-cost-category".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medication-cost-category".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationCostCategoryCodes> for CodeableConcept {
     fn from(code: MedicationCostCategoryCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationDispenseStatusCodes](http://hl7.org/fhir/ValueSet/medicationDispense-status)**. Medication Dispense Status Codes\n\nFHIR version: 5.0.0."]
@@ -31627,18 +36021,38 @@ impl Serialize for MedicationDispenseStatusCodes {
 }
 impl From<MedicationDispenseStatusCodes> for Coding {
     fn from(code: MedicationDispenseStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medicationDispense-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medicationDispense-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationDispenseStatusCodes> for CodeableConcept {
     fn from(code: MedicationDispenseStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationDispenseStatusReasonCodes](http://hl7.org/fhir/ValueSet/medicationdispense-status-reason)**. Medication Dispense Status Reason Codes\n\nFHIR version: 5.0.0."]
@@ -31835,21 +36249,39 @@ impl Serialize for MedicationDispenseStatusReasonCodes {
 }
 impl From<MedicationDispenseStatusReasonCodes> for Coding {
     fn from(code: MedicationDispenseStatusReasonCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationDispenseStatusReasonCodes> for CodeableConcept {
     fn from(code: MedicationDispenseStatusReasonCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationDoseAid](http://hl7.org/fhir/ValueSet/medication-dose-aid)**. Medication dose aid\n\nFHIR version: 5.0.0."]
@@ -31920,18 +36352,36 @@ impl Serialize for MedicationDoseAid {
 }
 impl From<MedicationDoseAid> for Coding {
     fn from(code: MedicationDoseAid) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medication-dose-aid".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/medication-dose-aid".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationDoseAid> for CodeableConcept {
     fn from(code: MedicationDoseAid) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationIngredientStrengthCodes](http://hl7.org/fhir/ValueSet/medication-ingredientstrength)**. Medication Ingredient Strength Codes\n\nFHIR version: 5.0.0."]
@@ -31995,20 +36445,38 @@ impl Serialize for MedicationIngredientStrengthCodes {
 }
 impl From<MedicationIngredientStrengthCodes> for Coding {
     fn from(code: MedicationIngredientStrengthCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medication-ingredientstrength".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationIngredientStrengthCodes> for CodeableConcept {
     fn from(code: MedicationIngredientStrengthCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationIntendedPerformerRole](http://hl7.org/fhir/ValueSet/medication-intended-performer-role)**. Medication Intended Performer Role\n\nFHIR version: 5.0.0."]
@@ -32093,21 +36561,39 @@ impl Serialize for MedicationIntendedPerformerRole {
 }
 impl From<MedicationIntendedPerformerRole> for Coding {
     fn from(code: MedicationIntendedPerformerRole) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medication-intended-performer-role"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationIntendedPerformerRole> for CodeableConcept {
     fn from(code: MedicationIntendedPerformerRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationKnowledgeStatusCodes](http://hl7.org/fhir/ValueSet/medicationknowledge-status)**. MedicationKnowledge Status Codes\n\nFHIR version: 5.0.0."]
@@ -32178,18 +36664,38 @@ impl Serialize for MedicationKnowledgeStatusCodes {
 }
 impl From<MedicationKnowledgeStatusCodes> for Coding {
     fn from(code: MedicationKnowledgeStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medicationknowledge-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medicationknowledge-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationKnowledgeStatusCodes> for CodeableConcept {
     fn from(code: MedicationKnowledgeStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationRequestIntentCodes](http://hl7.org/fhir/ValueSet/medicationrequest-intent)**. MedicationRequest Intent Codes\n\nFHIR version: 5.0.0."]
@@ -32295,18 +36801,38 @@ impl Serialize for MedicationRequestIntentCodes {
 }
 impl From<MedicationRequestIntentCodes> for Coding {
     fn from(code: MedicationRequestIntentCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medicationrequest-intent".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medicationrequest-intent".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationRequestIntentCodes> for CodeableConcept {
     fn from(code: MedicationRequestIntentCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationRequestStatusCodes](http://hl7.org/fhir/ValueSet/medicationrequest-status)**. MedicationRequest Status Codes\n\nFHIR version: 5.0.0."]
@@ -32419,18 +36945,38 @@ impl Serialize for MedicationRequestStatusCodes {
 }
 impl From<MedicationRequestStatusCodes> for Coding {
     fn from(code: MedicationRequestStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medicationrequest-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medicationrequest-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationRequestStatusCodes> for CodeableConcept {
     fn from(code: MedicationRequestStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationStatementAdherenceCodes](http://hl7.org/fhir/ValueSet/medication-statement-adherence)**. MedicationStatement Adherence Codes\n\nFHIR version: 5.0.0."]
@@ -32557,20 +37103,38 @@ impl Serialize for MedicationStatementAdherenceCodes {
 }
 impl From<MedicationStatementAdherenceCodes> for Coding {
     fn from(code: MedicationStatementAdherenceCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medication-statement-adherence".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationStatementAdherenceCodes> for CodeableConcept {
     fn from(code: MedicationStatementAdherenceCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationStatementStatusCodes](http://hl7.org/fhir/ValueSet/medication-statement-status)**. MedicationStatement Status Codes\n\nFHIR version: 5.0.0."]
@@ -32641,20 +37205,38 @@ impl Serialize for MedicationStatementStatusCodes {
 }
 impl From<MedicationStatementStatusCodes> for Coding {
     fn from(code: MedicationStatementStatusCodes) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medication-statement-status".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationStatementStatusCodes> for CodeableConcept {
     fn from(code: MedicationStatementStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicationStatusCodes](http://hl7.org/fhir/ValueSet/medication-status)**. Medication Status Codes\n\nFHIR version: 5.0.0."]
@@ -32725,18 +37307,36 @@ impl Serialize for MedicationStatusCodes {
 }
 impl From<MedicationStatusCodes> for Coding {
     fn from(code: MedicationStatusCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medication-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/medication-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicationStatusCodes> for CodeableConcept {
     fn from(code: MedicationStatusCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicinalProductDomain](http://hl7.org/fhir/ValueSet/medicinal-product-domain)**. Applicable domain for this product (e.g. human, veterinary).\n\nFHIR version: 5.0.0."]
@@ -32807,18 +37407,38 @@ impl Serialize for MedicinalProductDomain {
 }
 impl From<MedicinalProductDomain> for Coding {
     fn from(code: MedicinalProductDomain) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medicinal-product-domain".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-domain".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicinalProductDomain> for CodeableConcept {
     fn from(code: MedicinalProductDomain) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicinalProductPackageType](http://hl7.org/fhir/ValueSet/medicinal-product-package-type)**. Types of medicinal product packs\n\nFHIR version: 5.0.0."]
@@ -32952,20 +37572,38 @@ impl Serialize for MedicinalProductPackageType {
 }
 impl From<MedicinalProductPackageType> for Coding {
     fn from(code: MedicinalProductPackageType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-package-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicinalProductPackageType> for CodeableConcept {
     fn from(code: MedicinalProductPackageType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MedicinalProductType](http://hl7.org/fhir/ValueSet/medicinal-product-type)**. Overall defining type of this Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -33029,18 +37667,38 @@ impl Serialize for MedicinalProductType {
 }
 impl From<MedicinalProductType> for Coding {
     fn from(code: MedicinalProductType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/medicinal-product-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/medicinal-product-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MedicinalProductType> for CodeableConcept {
     fn from(code: MedicinalProductType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MessageEvent](http://hl7.org/fhir/message-events)**. One of the message events defined as part of this version of FHIR.\n\nFHIR version: 5.0.0."]
@@ -33093,18 +37751,36 @@ impl Serialize for MessageEvent {
 }
 impl From<MessageEvent> for Coding {
     fn from(code: MessageEvent) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/message-events".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/message-events".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MessageEvent> for CodeableConcept {
     fn from(code: MessageEvent) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MessageSignificanceCategory](http://hl7.org/fhir/ValueSet/message-significance-category)**. The impact of the content of a message.\n\nFHIR version: 5.0.0."]
@@ -33175,20 +37851,38 @@ impl Serialize for MessageSignificanceCategory {
 }
 impl From<MessageSignificanceCategory> for Coding {
     fn from(code: MessageSignificanceCategory) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/message-significance-category".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MessageSignificanceCategory> for CodeableConcept {
     fn from(code: MessageSignificanceCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MessageTransport](http://hl7.org/fhir/ValueSet/message-transport)**. The protocol used for message transport.\n\nFHIR version: 5.0.0."]
@@ -33259,18 +37953,36 @@ impl Serialize for MessageTransport {
 }
 impl From<MessageTransport> for Coding {
     fn from(code: MessageTransport) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/message-transport".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/message-transport".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MessageTransport> for CodeableConcept {
     fn from(code: MessageTransport) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[MessageheaderResponseRequest](http://hl7.org/fhir/ValueSet/messageheader-response-request)**. HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.\n\nFHIR version: 5.0.0."]
@@ -33348,20 +38060,38 @@ impl Serialize for MessageheaderResponseRequest {
 }
 impl From<MessageheaderResponseRequest> for Coding {
     fn from(code: MessageheaderResponseRequest) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/messageheader-response-request".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<MessageheaderResponseRequest> for CodeableConcept {
     fn from(code: MessageheaderResponseRequest) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[NameUse](http://hl7.org/fhir/ValueSet/name-use)**. The use of a human name.\n\nFHIR version: 5.0.0."]
@@ -33460,18 +38190,36 @@ impl Serialize for NameUse {
 }
 impl From<NameUse> for Coding {
     fn from(code: NameUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/name-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/name-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<NameUse> for CodeableConcept {
     fn from(code: NameUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[NamingSystemIdentifierType](http://hl7.org/fhir/ValueSet/namingsystem-identifier-type)**. Identifies the style of unique identifier used to identify a namespace.\n\nFHIR version: 5.0.0."]
@@ -33563,20 +38311,38 @@ impl Serialize for NamingSystemIdentifierType {
 }
 impl From<NamingSystemIdentifierType> for Coding {
     fn from(code: NamingSystemIdentifierType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<NamingSystemIdentifierType> for CodeableConcept {
     fn from(code: NamingSystemIdentifierType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[NamingSystemType](http://hl7.org/fhir/ValueSet/namingsystem-type)**. Identifies the purpose of the naming system.\n\nFHIR version: 5.0.0."]
@@ -33647,18 +38413,36 @@ impl Serialize for NamingSystemType {
 }
 impl From<NamingSystemType> for Coding {
     fn from(code: NamingSystemType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/namingsystem-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/namingsystem-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<NamingSystemType> for CodeableConcept {
     fn from(code: NamingSystemType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[NarrativeStatus](http://hl7.org/fhir/ValueSet/narrative-status)**. The status of a resource narrative.\n\nFHIR version: 5.0.0."]
@@ -33736,18 +38520,36 @@ impl Serialize for NarrativeStatus {
 }
 impl From<NarrativeStatus> for Coding {
     fn from(code: NarrativeStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/narrative-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/narrative-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<NarrativeStatus> for CodeableConcept {
     fn from(code: NarrativeStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[NoteType](http://hl7.org/fhir/ValueSet/note-type)**. The presentation types of notes.\n\nFHIR version: 5.0.0."]
@@ -33818,18 +38620,36 @@ impl Serialize for NoteType {
 }
 impl From<NoteType> for Coding {
     fn from(code: NoteType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/note-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/note-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<NoteType> for CodeableConcept {
     fn from(code: NoteType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[NutritionProductStatus](http://hl7.org/fhir/ValueSet/nutritionproduct-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
@@ -33900,18 +38720,38 @@ impl Serialize for NutritionProductStatus {
 }
 impl From<NutritionProductStatus> for Coding {
     fn from(code: NutritionProductStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/nutritionproduct-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/nutritionproduct-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<NutritionProductStatus> for CodeableConcept {
     fn from(code: NutritionProductStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ObservationDataType](http://hl7.org/fhir/ValueSet/permitted-data-type)**. Permitted data type for observation value.\n\nFHIR version: 5.0.0."]
@@ -34038,18 +38878,36 @@ impl Serialize for ObservationDataType {
 }
 impl From<ObservationDataType> for Coding {
     fn from(code: ObservationDataType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/permitted-data-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/permitted-data-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ObservationDataType> for CodeableConcept {
     fn from(code: ObservationDataType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ObservationRangeCategory](http://hl7.org/fhir/ValueSet/observation-range-category)**. Codes identifying the category of observation range.\n\nFHIR version: 5.0.0."]
@@ -34120,18 +38978,38 @@ impl Serialize for ObservationRangeCategory {
 }
 impl From<ObservationRangeCategory> for Coding {
     fn from(code: ObservationRangeCategory) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/observation-range-category".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/observation-range-category".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ObservationRangeCategory> for CodeableConcept {
     fn from(code: ObservationRangeCategory) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ObservationReferenceRangeNormalValue](http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue)**. Codes that describe the normal value in the reference range.\n\nFHIR version: 5.0.0."]
@@ -34195,21 +39073,39 @@ impl Serialize for ObservationReferenceRangeNormalValue {
 }
 impl From<ObservationReferenceRangeNormalValue> for Coding {
     fn from(code: ObservationReferenceRangeNormalValue) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ObservationReferenceRangeNormalValue> for CodeableConcept {
     fn from(code: ObservationReferenceRangeNormalValue) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ObservationStatus](http://hl7.org/fhir/ValueSet/observation-status)**. Codes providing the status of an observation.\n\nFHIR version: 5.0.0."]
@@ -34315,18 +39211,36 @@ impl Serialize for ObservationStatus {
 }
 impl From<ObservationStatus> for Coding {
     fn from(code: ObservationStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/observation-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/observation-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ObservationStatus> for CodeableConcept {
     fn from(code: ObservationStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[OperationKind](http://hl7.org/fhir/ValueSet/operation-kind)**. Whether an operation is a normal operation or a query.\n\nFHIR version: 5.0.0."]
@@ -34390,18 +39304,36 @@ impl Serialize for OperationKind {
 }
 impl From<OperationKind> for Coding {
     fn from(code: OperationKind) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/operation-kind".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/operation-kind".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<OperationKind> for CodeableConcept {
     fn from(code: OperationKind) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[OperationOutcomeCodes](http://hl7.org/fhir/operation-outcome)**. Operation Outcome codes for translatable phrases used by FHIR test servers (see Implementation file translations.xml)\n\nFHIR version: 5.0.0."]
@@ -34841,18 +39773,36 @@ impl Serialize for OperationOutcomeCodes {
 }
 impl From<OperationOutcomeCodes> for Coding {
     fn from(code: OperationOutcomeCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/operation-outcome".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/operation-outcome".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<OperationOutcomeCodes> for CodeableConcept {
     fn from(code: OperationOutcomeCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[OperationParameterScope](http://hl7.org/fhir/ValueSet/operation-parameter-scope)**. Indicates that a parameter applies when the operation is being invoked at the specified level\n\nFHIR version: 5.0.0."]
@@ -34923,18 +39873,38 @@ impl Serialize for OperationParameterScope {
 }
 impl From<OperationParameterScope> for Coding {
     fn from(code: OperationParameterScope) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/operation-parameter-scope".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/operation-parameter-scope".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<OperationParameterScope> for CodeableConcept {
     fn from(code: OperationParameterScope) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[OperationParameterUse](http://hl7.org/fhir/ValueSet/operation-parameter-use)**. Whether an operation parameter is an input or an output parameter.\n\nFHIR version: 5.0.0."]
@@ -34998,18 +39968,38 @@ impl Serialize for OperationParameterUse {
 }
 impl From<OperationParameterUse> for Coding {
     fn from(code: OperationParameterUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/operation-parameter-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/operation-parameter-use".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<OperationParameterUse> for CodeableConcept {
     fn from(code: OperationParameterUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[OrganizationAffiliationRole](http://hl7.org/fhir/organization-role)**. This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another.\n\nFHIR version: 5.0.0."]
@@ -35118,18 +40108,36 @@ impl Serialize for OrganizationAffiliationRole {
 }
 impl From<OrganizationAffiliationRole> for Coding {
     fn from(code: OrganizationAffiliationRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/organization-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/organization-role".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<OrganizationAffiliationRole> for CodeableConcept {
     fn from(code: OrganizationAffiliationRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[OrientationType](http://hl7.org/fhir/ValueSet/orientation-type)**. Type for orientation.\n\nFHIR version: 5.0.0."]
@@ -35193,18 +40201,36 @@ impl Serialize for OrientationType {
 }
 impl From<OrientationType> for Coding {
     fn from(code: OrientationType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/orientation-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/orientation-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<OrientationType> for CodeableConcept {
     fn from(code: OrientationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PackageMaterial](http://hl7.org/fhir/ValueSet/package-material)**. A material used in the construction of packages and their components.\n\nFHIR version: 5.0.0."]
@@ -35557,18 +40583,36 @@ impl Serialize for PackageMaterial {
 }
 impl From<PackageMaterial> for Coding {
     fn from(code: PackageMaterial) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/package-material".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/package-material".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PackageMaterial> for CodeableConcept {
     fn from(code: PackageMaterial) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PackageType](http://hl7.org/fhir/ValueSet/package-type)**. A high level categorisation of a package.\n\nFHIR version: 5.0.0."]
@@ -35639,18 +40683,36 @@ impl Serialize for PackageType {
 }
 impl From<PackageType> for Coding {
     fn from(code: PackageType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/package-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/package-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PackageType> for CodeableConcept {
     fn from(code: PackageType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PackagingType](http://hl7.org/fhir/ValueSet/packaging-type)**. A type of packaging.\n\nFHIR version: 5.0.0."]
@@ -36414,18 +41476,36 @@ impl Serialize for PackagingType {
 }
 impl From<PackagingType> for Coding {
     fn from(code: PackagingType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/packaging-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/packaging-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PackagingType> for CodeableConcept {
     fn from(code: PackagingType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ParticipationStatus](http://hl7.org/fhir/ValueSet/participationstatus)**. The Participation status of an appointment.\n\nFHIR version: 5.0.0."]
@@ -36503,18 +41583,36 @@ impl Serialize for ParticipationStatus {
 }
 impl From<ParticipationStatus> for Coding {
     fn from(code: ParticipationStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/participationstatus".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/participationstatus".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ParticipationStatus> for CodeableConcept {
     fn from(code: ParticipationStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PatientMedicineChangeTypes](http://hl7.org/fhir/ValueSet/list-item-flag)**. Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation.\n\nFHIR version: 5.0.0."]
@@ -36606,18 +41704,36 @@ impl Serialize for PatientMedicineChangeTypes {
 }
 impl From<PatientMedicineChangeTypes> for Coding {
     fn from(code: PatientMedicineChangeTypes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/list-item-flag".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/list-item-flag".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PatientMedicineChangeTypes> for CodeableConcept {
     fn from(code: PatientMedicineChangeTypes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PaymentIssuerTypeCodes](http://hl7.org/fhir/ValueSet/payment-issuertype)**. This value set contains codes for the type of payment issuers.\n\nFHIR version: 5.0.0."]
@@ -36681,18 +41797,36 @@ impl Serialize for PaymentIssuerTypeCodes {
 }
 impl From<PaymentIssuerTypeCodes> for Coding {
     fn from(code: PaymentIssuerTypeCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/payment-issuertype".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/payment-issuertype".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PaymentIssuerTypeCodes> for CodeableConcept {
     fn from(code: PaymentIssuerTypeCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PaymentKindCodes](http://hl7.org/fhir/ValueSet/payment-kind)**. This value set contains codes for the type of workflow from which payments arise.\n\nFHIR version: 5.0.0."]
@@ -36770,18 +41904,36 @@ impl Serialize for PaymentKindCodes {
 }
 impl From<PaymentKindCodes> for Coding {
     fn from(code: PaymentKindCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/payment-kind".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/payment-kind".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PaymentKindCodes> for CodeableConcept {
     fn from(code: PaymentKindCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PediatricUse](http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use)**. Suitability for age groups, in particular children.\n\nFHIR version: 5.0.0."]
@@ -36931,20 +42083,38 @@ impl Serialize for PediatricUse {
 }
 impl From<PediatricUse> for Coding {
     fn from(code: PediatricUse) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PediatricUse> for CodeableConcept {
     fn from(code: PediatricUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PermissionRuleCombining](http://hl7.org/fhir/permission-rule-combining)**. Codes identifying the rule combining. See XACML Combining algorithms  http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html\n\nFHIR version: 5.0.0."]
@@ -37039,18 +42209,36 @@ impl Serialize for PermissionRuleCombining {
 }
 impl From<PermissionRuleCombining> for Coding {
     fn from(code: PermissionRuleCombining) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/permission-rule-combining".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/permission-rule-combining".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PermissionRuleCombining> for CodeableConcept {
     fn from(code: PermissionRuleCombining) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PermissionStatus](http://hl7.org/fhir/ValueSet/permission-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
@@ -37128,18 +42316,36 @@ impl Serialize for PermissionStatus {
 }
 impl From<PermissionStatus> for Coding {
     fn from(code: PermissionStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/permission-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/permission-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PermissionStatus> for CodeableConcept {
     fn from(code: PermissionStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PriceComponentType](http://hl7.org/fhir/ValueSet/price-component-type)**. Codes indicating the kind of the price component.\n\nFHIR version: 5.0.0."]
@@ -37231,18 +42437,36 @@ impl Serialize for PriceComponentType {
 }
 impl From<PriceComponentType> for Coding {
     fn from(code: PriceComponentType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/price-component-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/price-component-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PriceComponentType> for CodeableConcept {
     fn from(code: PriceComponentType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProcedureDeviceActionCodes](http://hl7.org/fhir/device-action)**. Example value set for Procedure Device Action code (what happened to a device during a procedure.\n\nFHIR version: 5.0.0."]
@@ -37316,18 +42540,36 @@ impl Serialize for ProcedureDeviceActionCodes {
 }
 impl From<ProcedureDeviceActionCodes> for Coding {
     fn from(code: ProcedureDeviceActionCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/device-action".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/device-action".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProcedureDeviceActionCodes> for CodeableConcept {
     fn from(code: ProcedureDeviceActionCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductConfidentiality](http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality)**. Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -37391,21 +42633,39 @@ impl Serialize for ProductConfidentiality {
 }
 impl From<ProductConfidentiality> for Coding {
     fn from(code: ProductConfidentiality) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductConfidentiality> for CodeableConcept {
     fn from(code: ProductConfidentiality) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductContactType](http://hl7.org/fhir/ValueSet/medicinal-product-contact-type)**. Contact type for a Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -37494,20 +42754,38 @@ impl Serialize for ProductContactType {
 }
 impl From<ProductContactType> for Coding {
     fn from(code: ProductContactType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-contact-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductContactType> for CodeableConcept {
     fn from(code: ProductContactType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductCrossReferenceType](http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type)**. Relationship to another Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -37599,21 +42877,39 @@ impl Serialize for ProductCrossReferenceType {
 }
 impl From<ProductCrossReferenceType> for Coding {
     fn from(code: ProductCrossReferenceType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductCrossReferenceType> for CodeableConcept {
     fn from(code: ProductCrossReferenceType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductIntendedUse](http://hl7.org/fhir/ValueSet/product-intended-use)**. ProductIntendedUse\n\nFHIR version: 5.0.0."]
@@ -37698,18 +42994,36 @@ impl Serialize for ProductIntendedUse {
 }
 impl From<ProductIntendedUse> for Coding {
     fn from(code: ProductIntendedUse) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/product-intended-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/product-intended-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductIntendedUse> for CodeableConcept {
     fn from(code: ProductIntendedUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductNamePartType](http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type)**. Type of part of a name for a Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -37871,21 +43185,39 @@ impl Serialize for ProductNamePartType {
 }
 impl From<ProductNamePartType> for Coding {
     fn from(code: ProductNamePartType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductNamePartType> for CodeableConcept {
     fn from(code: ProductNamePartType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductNameType](http://hl7.org/fhir/ValueSet/medicinal-product-name-type)**. Type of a name for a Medicinal Product.\n\nFHIR version: 5.0.0."]
@@ -37970,20 +43302,38 @@ impl Serialize for ProductNameType {
 }
 impl From<ProductNameType> for Coding {
     fn from(code: ProductNameType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-name-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductNameType> for CodeableConcept {
     fn from(code: ProductNameType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProductStatus](http://hl7.org/fhir/ValueSet/product-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
@@ -38047,18 +43397,36 @@ impl Serialize for ProductStatus {
 }
 impl From<ProductStatus> for Coding {
     fn from(code: ProductStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/product-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/product-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProductStatus> for CodeableConcept {
     fn from(code: ProductStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PropertyRepresentation](http://hl7.org/fhir/ValueSet/property-representation)**. How a property is represented when serialized.\n\nFHIR version: 5.0.0."]
@@ -38143,18 +43511,38 @@ impl Serialize for PropertyRepresentation {
 }
 impl From<PropertyRepresentation> for Coding {
     fn from(code: PropertyRepresentation) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/property-representation".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/property-representation".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PropertyRepresentation> for CodeableConcept {
     fn from(code: PropertyRepresentation) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PropertyType](http://hl7.org/fhir/ValueSet/concept-property-type)**. The type of a property value.\n\nFHIR version: 5.0.0."]
@@ -38253,18 +43641,38 @@ impl Serialize for PropertyType {
 }
 impl From<PropertyType> for Coding {
     fn from(code: PropertyType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/concept-property-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/concept-property-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PropertyType> for CodeableConcept {
     fn from(code: PropertyType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ProvenanceEntityRole](http://hl7.org/fhir/ValueSet/provenance-entity-role)**. How an entity was used in an activity.\n\nFHIR version: 5.0.0."]
@@ -38349,18 +43757,38 @@ impl Serialize for ProvenanceEntityRole {
 }
 impl From<ProvenanceEntityRole> for Coding {
     fn from(code: ProvenanceEntityRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/provenance-entity-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/provenance-entity-role".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ProvenanceEntityRole> for CodeableConcept {
     fn from(code: ProvenanceEntityRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PublicationStatus](http://hl7.org/fhir/ValueSet/publication-status)**. The lifecycle status of an artifact.\n\nFHIR version: 5.0.0."]
@@ -38438,18 +43866,36 @@ impl Serialize for PublicationStatus {
 }
 impl From<PublicationStatus> for Coding {
     fn from(code: PublicationStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/publication-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/publication-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PublicationStatus> for CodeableConcept {
     fn from(code: PublicationStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[PublishedInType](http://hl7.org/fhir/ValueSet/published-in-type)**. The type of publication such as book, database, or journal.\n\nFHIR version: 5.0.0."]
@@ -38527,18 +43973,36 @@ impl Serialize for PublishedInType {
 }
 impl From<PublishedInType> for Coding {
     fn from(code: PublishedInType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/published-in-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/published-in-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<PublishedInType> for CodeableConcept {
     fn from(code: PublishedInType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator)**. How the Quantity should be understood and represented.\n\nFHIR version: 5.0.0."]
@@ -38623,18 +44087,36 @@ impl Serialize for QuantityComparator {
 }
 impl From<QuantityComparator> for Coding {
     fn from(code: QuantityComparator) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/quantity-comparator".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/quantity-comparator".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<QuantityComparator> for CodeableConcept {
     fn from(code: QuantityComparator) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[QuestionnaireAnswerConstraint](http://hl7.org/fhir/questionnaire-answer-constraint)**. Codes that describe the types of constraints possible on a question item that has a list of permitted answers\n\nFHIR version: 5.0.0."]
@@ -38708,18 +44190,38 @@ impl Serialize for QuestionnaireAnswerConstraint {
 }
 impl From<QuestionnaireAnswerConstraint> for Coding {
     fn from(code: QuestionnaireAnswerConstraint) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/questionnaire-answer-constraint".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/questionnaire-answer-constraint".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<QuestionnaireAnswerConstraint> for CodeableConcept {
     fn from(code: QuestionnaireAnswerConstraint) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[QuestionnaireItemDisabledDisplay](http://hl7.org/fhir/questionnaire-disabled-display)**. QuestionnaireItemDisabledDisplay\n\nFHIR version: 5.0.0."]
@@ -38786,18 +44288,38 @@ impl Serialize for QuestionnaireItemDisabledDisplay {
 }
 impl From<QuestionnaireItemDisabledDisplay> for Coding {
     fn from(code: QuestionnaireItemDisabledDisplay) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/questionnaire-disabled-display".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/questionnaire-disabled-display".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<QuestionnaireItemDisabledDisplay> for CodeableConcept {
     fn from(code: QuestionnaireItemDisabledDisplay) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[QuestionnaireItemOperator](http://hl7.org/fhir/ValueSet/questionnaire-enable-operator)**. The criteria by which a question is enabled.\n\nFHIR version: 5.0.0."]
@@ -38896,20 +44418,38 @@ impl Serialize for QuestionnaireItemOperator {
 }
 impl From<QuestionnaireItemOperator> for Coding {
     fn from(code: QuestionnaireItemOperator) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/questionnaire-enable-operator".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<QuestionnaireItemOperator> for CodeableConcept {
     fn from(code: QuestionnaireItemOperator) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[QuestionnaireItemType](http://hl7.org/fhir/ValueSet/item-type)**. Distinguishes groups from questions and display text and indicates data type for questions.\n\nFHIR version: 5.0.0."]
@@ -39071,18 +44611,36 @@ impl Serialize for QuestionnaireItemType {
 }
 impl From<QuestionnaireItemType> for Coding {
     fn from(code: QuestionnaireItemType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/item-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/item-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<QuestionnaireItemType> for CodeableConcept {
     fn from(code: QuestionnaireItemType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[QuestionnaireResponseStatus](http://hl7.org/fhir/ValueSet/questionnaire-answers-status)**. Lifecycle status of the questionnaire response.\n\nFHIR version: 5.0.0."]
@@ -39167,20 +44725,38 @@ impl Serialize for QuestionnaireResponseStatus {
 }
 impl From<QuestionnaireResponseStatus> for Coding {
     fn from(code: QuestionnaireResponseStatus) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/questionnaire-answers-status".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<QuestionnaireResponseStatus> for CodeableConcept {
     fn from(code: QuestionnaireResponseStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ReasonMedicationNotGivenCodes](http://hl7.org/fhir/reason-medication-not-given)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.\n\nFHIR version: 5.0.0."]
@@ -39261,18 +44837,36 @@ impl Serialize for ReasonMedicationNotGivenCodes {
 }
 impl From<ReasonMedicationNotGivenCodes> for Coding {
     fn from(code: ReasonMedicationNotGivenCodes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/reason-medication-not-given".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/reason-medication-not-given".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ReasonMedicationNotGivenCodes> for CodeableConcept {
     fn from(code: ReasonMedicationNotGivenCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ReferenceHandlingPolicy](http://hl7.org/fhir/ValueSet/reference-handling-policy)**. A set of flags that defines how references are supported.\n\nFHIR version: 5.0.0."]
@@ -39357,18 +44951,38 @@ impl Serialize for ReferenceHandlingPolicy {
 }
 impl From<ReferenceHandlingPolicy> for Coding {
     fn from(code: ReferenceHandlingPolicy) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/reference-handling-policy".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/reference-handling-policy".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ReferenceHandlingPolicy> for CodeableConcept {
     fn from(code: ReferenceHandlingPolicy) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ReferenceVersionRules](http://hl7.org/fhir/ValueSet/reference-version-rules)**. Whether a reference needs to be version specific or version independent, or whether either can be used.\n\nFHIR version: 5.0.0."]
@@ -39439,18 +45053,38 @@ impl Serialize for ReferenceVersionRules {
 }
 impl From<ReferenceVersionRules> for Coding {
     fn from(code: ReferenceVersionRules) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/reference-version-rules".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/reference-version-rules".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ReferenceVersionRules> for CodeableConcept {
     fn from(code: ReferenceVersionRules) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RegulatedAuthorizationBasis](http://hl7.org/fhir/ValueSet/regulated-authorization-basis)**. RegulatedAuthorizationBasis\n\nFHIR version: 5.0.0."]
@@ -39574,20 +45208,38 @@ impl Serialize for RegulatedAuthorizationBasis {
 }
 impl From<RegulatedAuthorizationBasis> for Coding {
     fn from(code: RegulatedAuthorizationBasis) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/regulated-authorization-basis".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RegulatedAuthorizationBasis> for CodeableConcept {
     fn from(code: RegulatedAuthorizationBasis) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RegulatedAuthorizationCaseType](http://hl7.org/fhir/ValueSet/regulated-authorization-case-type)**. RegulatedAuthorizationCaseType\n\nFHIR version: 5.0.0."]
@@ -39791,21 +45443,39 @@ impl Serialize for RegulatedAuthorizationCaseType {
 }
 impl From<RegulatedAuthorizationCaseType> for Coding {
     fn from(code: RegulatedAuthorizationCaseType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/regulated-authorization-case-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RegulatedAuthorizationCaseType> for CodeableConcept {
     fn from(code: RegulatedAuthorizationCaseType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RegulatedAuthorizationType](http://hl7.org/fhir/ValueSet/regulated-authorization-type)**. RegulatedAuthorizationType\n\nFHIR version: 5.0.0."]
@@ -39876,20 +45546,38 @@ impl Serialize for RegulatedAuthorizationType {
 }
 impl From<RegulatedAuthorizationType> for Coding {
     fn from(code: RegulatedAuthorizationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/regulated-authorization-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RegulatedAuthorizationType> for CodeableConcept {
     fn from(code: RegulatedAuthorizationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RelatedArtifactType](http://hl7.org/fhir/ValueSet/related-artifact-type)**. The type of relationship to the related artifact.\n\nFHIR version: 5.0.0."]
@@ -40191,18 +45879,38 @@ impl Serialize for RelatedArtifactType {
 }
 impl From<RelatedArtifactType> for Coding {
     fn from(code: RelatedArtifactType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/related-artifact-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/related-artifact-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RelatedArtifactType> for CodeableConcept {
     fn from(code: RelatedArtifactType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RelatedArtifactTypeExpanded](http://hl7.org/fhir/ValueSet/related-artifact-type-expanded)**. The type of relationship to the cited artifact.\n\nFHIR version: 5.0.0."]
@@ -40518,20 +46226,38 @@ impl Serialize for RelatedArtifactTypeExpanded {
 }
 impl From<RelatedArtifactTypeExpanded> for Coding {
     fn from(code: RelatedArtifactTypeExpanded) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/related-artifact-type-expanded".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RelatedArtifactTypeExpanded> for CodeableConcept {
     fn from(code: RelatedArtifactTypeExpanded) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RemittanceOutcome](http://hl7.org/fhir/ValueSet/remittance-outcome)**. The outcome of the processing.\n\nFHIR version: 5.0.0."]
@@ -40602,18 +46328,36 @@ impl Serialize for RemittanceOutcome {
 }
 impl From<RemittanceOutcome> for Coding {
     fn from(code: RemittanceOutcome) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/remittance-outcome".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/remittance-outcome".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RemittanceOutcome> for CodeableConcept {
     fn from(code: RemittanceOutcome) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ReportRelationshipType](http://hl7.org/fhir/ValueSet/report-relation-type)**. The type of relationship between reports.\n\nFHIR version: 5.0.0."]
@@ -40719,18 +46463,36 @@ impl Serialize for ReportRelationshipType {
 }
 impl From<ReportRelationshipType> for Coding {
     fn from(code: ReportRelationshipType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/report-relation-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/report-relation-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ReportRelationshipType> for CodeableConcept {
     fn from(code: ReportRelationshipType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ReportSectionType](http://hl7.org/fhir/ValueSet/evidence-report-section)**. Evidence Report Section Type.\n\nFHIR version: 5.0.0."]
@@ -41000,18 +46762,38 @@ impl Serialize for ReportSectionType {
 }
 impl From<ReportSectionType> for Coding {
     fn from(code: ReportSectionType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/evidence-report-section".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/evidence-report-section".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ReportSectionType> for CodeableConcept {
     fn from(code: ReportSectionType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RequestIntent](http://hl7.org/fhir/ValueSet/request-intent)**. Codes indicating the degree of authority/intentionality associated with a request.\n\nFHIR version: 5.0.0."]
@@ -41124,18 +46906,36 @@ impl Serialize for RequestIntent {
 }
 impl From<RequestIntent> for Coding {
     fn from(code: RequestIntent) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/request-intent".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/request-intent".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RequestIntent> for CodeableConcept {
     fn from(code: RequestIntent) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RequestPriority](http://hl7.org/fhir/ValueSet/request-priority)**. Identifies the level of importance to be assigned to actioning the request.\n\nFHIR version: 5.0.0."]
@@ -41213,18 +47013,36 @@ impl Serialize for RequestPriority {
 }
 impl From<RequestPriority> for Coding {
     fn from(code: RequestPriority) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/request-priority".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/request-priority".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RequestPriority> for CodeableConcept {
     fn from(code: RequestPriority) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RequestStatus](http://hl7.org/fhir/ValueSet/request-status)**. Codes identifying the lifecycle stage of a request.\n\nFHIR version: 5.0.0."]
@@ -41323,18 +47141,36 @@ impl Serialize for RequestStatus {
 }
 impl From<RequestStatus> for Coding {
     fn from(code: RequestStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/request-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/request-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RequestStatus> for CodeableConcept {
     fn from(code: RequestStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyArmType](http://hl7.org/fhir/ValueSet/research-study-arm-type)**. Codes for the main intent of the study.\n\nFHIR version: 5.0.0."]
@@ -41426,18 +47262,38 @@ impl Serialize for ResearchStudyArmType {
 }
 impl From<ResearchStudyArmType> for Coding {
     fn from(code: ResearchStudyArmType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/research-study-arm-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/research-study-arm-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyArmType> for CodeableConcept {
     fn from(code: ResearchStudyArmType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyClassifiers](http://hl7.org/fhir/ValueSet/research-study-classifiers)**. Codes for use in ResearchStudy Resource. This resource (this entire set of content) is being used for active development of a ResearchStudyClassifiers CodeSystem for use for supporting multiple value sets in the FHIR ResearchStudy StructureDefinition.\n\nFHIR version: 5.0.0."]
@@ -41515,18 +47371,38 @@ impl Serialize for ResearchStudyClassifiers {
 }
 impl From<ResearchStudyClassifiers> for Coding {
     fn from(code: ResearchStudyClassifiers) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/research-study-classifiers".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/research-study-classifiers".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyClassifiers> for CodeableConcept {
     fn from(code: ResearchStudyClassifiers) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyFocusType](http://hl7.org/fhir/ValueSet/research-study-focus-type)**. Codes for the main intent of the study.\n\nFHIR version: 5.0.0."]
@@ -41604,18 +47480,38 @@ impl Serialize for ResearchStudyFocusType {
 }
 impl From<ResearchStudyFocusType> for Coding {
     fn from(code: ResearchStudyFocusType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/research-study-focus-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/research-study-focus-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyFocusType> for CodeableConcept {
     fn from(code: ResearchStudyFocusType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyObjectiveType](http://hl7.org/fhir/ValueSet/research-study-objective-type)**. Codes for the kind of study objective.\n\nFHIR version: 5.0.0."]
@@ -41686,20 +47582,38 @@ impl Serialize for ResearchStudyObjectiveType {
 }
 impl From<ResearchStudyObjectiveType> for Coding {
     fn from(code: ResearchStudyObjectiveType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/research-study-objective-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyObjectiveType> for CodeableConcept {
     fn from(code: ResearchStudyObjectiveType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyPartyOrganizationType](http://hl7.org/fhir/ValueSet/research-study-party-organization-type)**. This is a ResearchStudy's party organization type.\n\nFHIR version: 5.0.0."]
@@ -41791,21 +47705,39 @@ impl Serialize for ResearchStudyPartyOrganizationType {
 }
 impl From<ResearchStudyPartyOrganizationType> for Coding {
     fn from(code: ResearchStudyPartyOrganizationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/research-study-party-organization-type"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyPartyOrganizationType> for CodeableConcept {
     fn from(code: ResearchStudyPartyOrganizationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyPartyRole](http://hl7.org/fhir/ValueSet/research-study-party-role)**. This is a ResearchStudy's party role.\n\nFHIR version: 5.0.0."]
@@ -41939,18 +47871,38 @@ impl Serialize for ResearchStudyPartyRole {
 }
 impl From<ResearchStudyPartyRole> for Coding {
     fn from(code: ResearchStudyPartyRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/research-study-party-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/research-study-party-role".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyPartyRole> for CodeableConcept {
     fn from(code: ResearchStudyPartyRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyPhase](http://hl7.org/fhir/ValueSet/research-study-phase)**. Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.\n\nFHIR version: 5.0.0."]
@@ -42056,18 +48008,36 @@ impl Serialize for ResearchStudyPhase {
 }
 impl From<ResearchStudyPhase> for Coding {
     fn from(code: ResearchStudyPhase) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/research-study-phase".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/research-study-phase".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyPhase> for CodeableConcept {
     fn from(code: ResearchStudyPhase) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyPrimaryPurposeType](http://hl7.org/fhir/ValueSet/research-study-prim-purp-type)**. Codes for the main intent of a research study.\n\nFHIR version: 5.0.0."]
@@ -42173,20 +48143,38 @@ impl Serialize for ResearchStudyPrimaryPurposeType {
 }
 impl From<ResearchStudyPrimaryPurposeType> for Coding {
     fn from(code: ResearchStudyPrimaryPurposeType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/research-study-prim-purp-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyPrimaryPurposeType> for CodeableConcept {
     fn from(code: ResearchStudyPrimaryPurposeType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyReasonStopped](http://hl7.org/fhir/ValueSet/research-study-reason-stopped)**. Codes for why the study ended prematurely.\n\nFHIR version: 5.0.0."]
@@ -42276,20 +48264,38 @@ impl Serialize for ResearchStudyReasonStopped {
 }
 impl From<ResearchStudyReasonStopped> for Coding {
     fn from(code: ResearchStudyReasonStopped) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/research-study-reason-stopped".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyReasonStopped> for CodeableConcept {
     fn from(code: ResearchStudyReasonStopped) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResearchStudyStatus](http://hl7.org/fhir/ValueSet/research-study-status)**. Codes that convey the current status of the research study.\n\nFHIR version: 5.0.0."]
@@ -42466,18 +48472,38 @@ impl Serialize for ResearchStudyStatus {
 }
 impl From<ResearchStudyStatus> for Coding {
     fn from(code: ResearchStudyStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/research-study-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/research-study-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResearchStudyStatus> for CodeableConcept {
     fn from(code: ResearchStudyStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResourceValidationMode](http://hl7.org/fhir/resource-validation-mode)**. ResourceValidationMode\n\nFHIR version: 5.0.0."]
@@ -42558,18 +48584,36 @@ impl Serialize for ResourceValidationMode {
 }
 impl From<ResourceValidationMode> for Coding {
     fn from(code: ResourceValidationMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/resource-validation-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/resource-validation-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResourceValidationMode> for CodeableConcept {
     fn from(code: ResourceValidationMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResourceVersionPolicy](http://hl7.org/fhir/ValueSet/versioning-policy)**. How the system supports versioning for a resource.\n\nFHIR version: 5.0.0."]
@@ -42640,18 +48684,36 @@ impl Serialize for ResourceVersionPolicy {
 }
 impl From<ResourceVersionPolicy> for Coding {
     fn from(code: ResourceVersionPolicy) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/versioning-policy".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/versioning-policy".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResourceVersionPolicy> for CodeableConcept {
     fn from(code: ResourceVersionPolicy) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ResponseType](http://hl7.org/fhir/ValueSet/response-code)**. The kind of response to a message.\n\nFHIR version: 5.0.0."]
@@ -42722,18 +48784,36 @@ impl Serialize for ResponseType {
 }
 impl From<ResponseType> for Coding {
     fn from(code: ResponseType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/response-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/response-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ResponseType> for CodeableConcept {
     fn from(code: ResponseType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RestfulCapabilityMode](http://hl7.org/fhir/ValueSet/restful-capability-mode)**. The mode of a RESTful capability statement.\n\nFHIR version: 5.0.0."]
@@ -42797,18 +48877,38 @@ impl Serialize for RestfulCapabilityMode {
 }
 impl From<RestfulCapabilityMode> for Coding {
     fn from(code: RestfulCapabilityMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/restful-capability-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/restful-capability-mode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RestfulCapabilityMode> for CodeableConcept {
     fn from(code: RestfulCapabilityMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[RestfulSecurityService](http://hl7.org/fhir/ValueSet/restful-security-service)**. Types of security services used with FHIR.\n\nFHIR version: 5.0.0."]
@@ -42900,18 +49000,38 @@ impl Serialize for RestfulSecurityService {
 }
 impl From<RestfulSecurityService> for Coding {
     fn from(code: RestfulSecurityService) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/restful-security-service".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/restful-security-service".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<RestfulSecurityService> for CodeableConcept {
     fn from(code: RestfulSecurityService) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SampleSecurityStructuralRoles](http://hl7.org/fhir/sample-security-structural-roles)**. This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions..\n\nFHIR version: 5.0.0."]
@@ -43057,18 +49177,38 @@ impl Serialize for SampleSecurityStructuralRoles {
 }
 impl From<SampleSecurityStructuralRoles> for Coding {
     fn from(code: SampleSecurityStructuralRoles) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/sample-security-structural-roles".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/sample-security-structural-roles".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SampleSecurityStructuralRoles> for CodeableConcept {
     fn from(code: SampleSecurityStructuralRoles) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SearchComparator](http://hl7.org/fhir/ValueSet/search-comparator)**. What Search Comparator Codes are supported in search.\n\nFHIR version: 5.0.0."]
@@ -43181,18 +49321,36 @@ impl Serialize for SearchComparator {
 }
 impl From<SearchComparator> for Coding {
     fn from(code: SearchComparator) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/search-comparator".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/search-comparator".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SearchComparator> for CodeableConcept {
     fn from(code: SearchComparator) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SearchEntryMode](http://hl7.org/fhir/ValueSet/search-entry-mode)**. Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.\n\nFHIR version: 5.0.0."]
@@ -43263,18 +49421,36 @@ impl Serialize for SearchEntryMode {
 }
 impl From<SearchEntryMode> for Coding {
     fn from(code: SearchEntryMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/search-entry-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/search-entry-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SearchEntryMode> for CodeableConcept {
     fn from(code: SearchEntryMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SearchModifierCode](http://hl7.org/fhir/ValueSet/search-modifier-code)**. A supported modifier for a search parameter.\n\nFHIR version: 5.0.0."]
@@ -43429,18 +49605,36 @@ impl Serialize for SearchModifierCode {
 }
 impl From<SearchModifierCode> for Coding {
     fn from(code: SearchModifierCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/search-modifier-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/search-modifier-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SearchModifierCode> for CodeableConcept {
     fn from(code: SearchModifierCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SearchParamType](http://hl7.org/fhir/ValueSet/search-param-type)**. Data types allowed to be used for search parameters.\n\nFHIR version: 5.0.0."]
@@ -43553,18 +49747,36 @@ impl Serialize for SearchParamType {
 }
 impl From<SearchParamType> for Coding {
     fn from(code: SearchParamType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/search-param-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/search-param-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SearchParamType> for CodeableConcept {
     fn from(code: SearchParamType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SearchProcessingModeType](http://hl7.org/fhir/ValueSet/search-processingmode)**. How a search parameter relates to the set of elements returned by evaluating its expression query.\n\nFHIR version: 5.0.0."]
@@ -43635,18 +49847,38 @@ impl Serialize for SearchProcessingModeType {
 }
 impl From<SearchProcessingModeType> for Coding {
     fn from(code: SearchProcessingModeType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/search-processingmode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/search-processingmode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SearchProcessingModeType> for CodeableConcept {
     fn from(code: SearchProcessingModeType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SequenceType](http://hl7.org/fhir/ValueSet/sequence-type)**. Type if a sequence -- DNA, RNA, or amino acid sequence.\n\nFHIR version: 5.0.0."]
@@ -43717,18 +49949,36 @@ impl Serialize for SequenceType {
 }
 impl From<SequenceType> for Coding {
     fn from(code: SequenceType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/sequence-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/sequence-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SequenceType> for CodeableConcept {
     fn from(code: SequenceType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ServiceMode](http://hl7.org/fhir/ValueSet/service-mode)**. An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching\n\nFHIR version: 5.0.0."]
@@ -43806,18 +50056,36 @@ impl Serialize for ServiceMode {
 }
 impl From<ServiceMode> for Coding {
     fn from(code: ServiceMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/service-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/service-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ServiceMode> for CodeableConcept {
     fn from(code: ServiceMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[ServiceRequestOrderDetailParameterCode](http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code)**. Codes providing the parameter codes for service request details.\n\nFHIR version: 5.0.0."]
@@ -43895,21 +50163,39 @@ impl Serialize for ServiceRequestOrderDetailParameterCode {
 }
 impl From<ServiceRequestOrderDetailParameterCode> for Coding {
     fn from(code: ServiceRequestOrderDetailParameterCode) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<ServiceRequestOrderDetailParameterCode> for CodeableConcept {
     fn from(code: ServiceRequestOrderDetailParameterCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SlicingRules](http://hl7.org/fhir/ValueSet/resource-slicing-rules)**. How slices are interpreted when evaluating an instance.\n\nFHIR version: 5.0.0."]
@@ -43980,18 +50266,38 @@ impl Serialize for SlicingRules {
 }
 impl From<SlicingRules> for Coding {
     fn from(code: SlicingRules) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/resource-slicing-rules".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/resource-slicing-rules".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SlicingRules> for CodeableConcept {
     fn from(code: SlicingRules) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SlotStatus](http://hl7.org/fhir/ValueSet/slotstatus)**. The free/busy status of the slot.\n\nFHIR version: 5.0.0."]
@@ -44076,18 +50382,36 @@ impl Serialize for SlotStatus {
 }
 impl From<SlotStatus> for Coding {
     fn from(code: SlotStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/slotstatus".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/slotstatus".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SlotStatus> for CodeableConcept {
     fn from(code: SlotStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SortDirection](http://hl7.org/fhir/ValueSet/sort-direction)**. The possible sort directions, ascending or descending.\n\nFHIR version: 5.0.0."]
@@ -44151,18 +50475,36 @@ impl Serialize for SortDirection {
 }
 impl From<SortDirection> for Coding {
     fn from(code: SortDirection) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/sort-direction".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/sort-direction".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SortDirection> for CodeableConcept {
     fn from(code: SortDirection) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SpecialMeasures](http://hl7.org/fhir/ValueSet/medicinal-product-special-measures)**. Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorization studies.\n\nFHIR version: 5.0.0."]
@@ -44221,21 +50563,39 @@ impl Serialize for SpecialMeasures {
 }
 impl From<SpecialMeasures> for Coding {
     fn from(code: SpecialMeasures) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SpecialMeasures> for CodeableConcept {
     fn from(code: SpecialMeasures) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SpecimenCombined](http://hl7.org/fhir/ValueSet/specimen-combined)**. Codes providing the combined status of the specimen.\n\nFHIR version: 5.0.0."]
@@ -44299,18 +50659,36 @@ impl Serialize for SpecimenCombined {
 }
 impl From<SpecimenCombined> for Coding {
     fn from(code: SpecimenCombined) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/specimen-combined".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/specimen-combined".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SpecimenCombined> for CodeableConcept {
     fn from(code: SpecimenCombined) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SpecimenContainedPreference](http://hl7.org/fhir/ValueSet/specimen-contained-preference)**. Degree of preference of a type of conditioned specimen.\n\nFHIR version: 5.0.0."]
@@ -44374,20 +50752,38 @@ impl Serialize for SpecimenContainedPreference {
 }
 impl From<SpecimenContainedPreference> for Coding {
     fn from(code: SpecimenContainedPreference) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/specimen-contained-preference".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SpecimenContainedPreference> for CodeableConcept {
     fn from(code: SpecimenContainedPreference) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SpecimenRole](http://hl7.org/fhir/ValueSet/specimen-role)**. Codes providing the combined status of the specimen.\n\nFHIR version: 5.0.0."]
@@ -44500,18 +50896,36 @@ impl Serialize for SpecimenRole {
 }
 impl From<SpecimenRole> for Coding {
     fn from(code: SpecimenRole) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/specimen-role".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/specimen-role".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SpecimenRole> for CodeableConcept {
     fn from(code: SpecimenRole) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SpecimenStatus](http://hl7.org/fhir/ValueSet/specimen-status)**. Codes providing the status/availability of a specimen.\n\nFHIR version: 5.0.0."]
@@ -44589,18 +51003,36 @@ impl Serialize for SpecimenStatus {
 }
 impl From<SpecimenStatus> for Coding {
     fn from(code: SpecimenStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/specimen-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/specimen-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SpecimenStatus> for CodeableConcept {
     fn from(code: SpecimenStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StatisticModelCode](http://hl7.org/fhir/ValueSet/statistic-model-code)**. The role that the assertion variable plays.\n\nFHIR version: 5.0.0."]
@@ -45219,18 +51651,36 @@ impl Serialize for StatisticModelCode {
 }
 impl From<StatisticModelCode> for Coding {
     fn from(code: StatisticModelCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/statistic-model-code".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/statistic-model-code".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StatisticModelCode> for CodeableConcept {
     fn from(code: StatisticModelCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StatisticsCode](http://hl7.org/fhir/ValueSet/observation-statistics)**. The statistical operation parameter -\"statistic\" codes.\n\nFHIR version: 5.0.0."]
@@ -45427,18 +51877,38 @@ impl Serialize for StatisticsCode {
 }
 impl From<StatisticsCode> for Coding {
     fn from(code: StatisticsCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/observation-statistics".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/observation-statistics".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StatisticsCode> for CodeableConcept {
     fn from(code: StatisticsCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[Status](http://hl7.org/fhir/ValueSet/status)**. The validation status of the target\n\nFHIR version: 5.0.0."]
@@ -45537,18 +52007,36 @@ impl Serialize for Status {
 }
 impl From<Status> for Coding {
     fn from(code: Status) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<Status> for CodeableConcept {
     fn from(code: Status) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StrandType](http://hl7.org/fhir/ValueSet/strand-type)**. Type for strand.\n\nFHIR version: 5.0.0."]
@@ -45612,18 +52100,36 @@ impl Serialize for StrandType {
 }
 impl From<StrandType> for Coding {
     fn from(code: StrandType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/strand-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/strand-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StrandType> for CodeableConcept {
     fn from(code: StrandType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureDefinitionKind](http://hl7.org/fhir/ValueSet/structure-definition-kind)**. Defines the type of structure that a definition is describing.\n\nFHIR version: 5.0.0."]
@@ -45701,18 +52207,38 @@ impl Serialize for StructureDefinitionKind {
 }
 impl From<StructureDefinitionKind> for Coding {
     fn from(code: StructureDefinitionKind) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/structure-definition-kind".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/structure-definition-kind".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureDefinitionKind> for CodeableConcept {
     fn from(code: StructureDefinitionKind) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureMapGroupTypeMode](http://hl7.org/fhir/ValueSet/map-group-type-mode)**. If this is the default rule set to apply for the source type, or this combination of types.\n\nFHIR version: 5.0.0."]
@@ -45776,18 +52302,36 @@ impl Serialize for StructureMapGroupTypeMode {
 }
 impl From<StructureMapGroupTypeMode> for Coding {
     fn from(code: StructureMapGroupTypeMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/map-group-type-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/map-group-type-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureMapGroupTypeMode> for CodeableConcept {
     fn from(code: StructureMapGroupTypeMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureMapInputMode](http://hl7.org/fhir/ValueSet/map-input-mode)**. Mode for this instance of data.\n\nFHIR version: 5.0.0."]
@@ -45851,18 +52395,36 @@ impl Serialize for StructureMapInputMode {
 }
 impl From<StructureMapInputMode> for Coding {
     fn from(code: StructureMapInputMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/map-input-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/map-input-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureMapInputMode> for CodeableConcept {
     fn from(code: StructureMapInputMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureMapModelMode](http://hl7.org/fhir/ValueSet/map-model-mode)**. How the referenced structure is used in this mapping.\n\nFHIR version: 5.0.0."]
@@ -45940,18 +52502,36 @@ impl Serialize for StructureMapModelMode {
 }
 impl From<StructureMapModelMode> for Coding {
     fn from(code: StructureMapModelMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/map-model-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/map-model-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureMapModelMode> for CodeableConcept {
     fn from(code: StructureMapModelMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureMapSourceListMode](http://hl7.org/fhir/ValueSet/map-source-list-mode)**. If field is a list, how to manage the source.\n\nFHIR version: 5.0.0."]
@@ -46036,18 +52616,36 @@ impl Serialize for StructureMapSourceListMode {
 }
 impl From<StructureMapSourceListMode> for Coding {
     fn from(code: StructureMapSourceListMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/map-source-list-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/map-source-list-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureMapSourceListMode> for CodeableConcept {
     fn from(code: StructureMapSourceListMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureMapTargetListMode](http://hl7.org/fhir/ValueSet/map-target-list-mode)**. If field is a list, how to manage the production.\n\nFHIR version: 5.0.0."]
@@ -46125,18 +52723,36 @@ impl Serialize for StructureMapTargetListMode {
 }
 impl From<StructureMapTargetListMode> for Coding {
     fn from(code: StructureMapTargetListMode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/map-target-list-mode".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/map-target-list-mode".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureMapTargetListMode> for CodeableConcept {
     fn from(code: StructureMapTargetListMode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StructureMapTransform](http://hl7.org/fhir/ValueSet/map-transform)**. How data is copied/created.\n\nFHIR version: 5.0.0."]
@@ -46305,18 +52921,36 @@ impl Serialize for StructureMapTransform {
 }
 impl From<StructureMapTransform> for Coding {
     fn from(code: StructureMapTransform) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/map-transform".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/map-transform".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StructureMapTransform> for CodeableConcept {
     fn from(code: StructureMapTransform) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[StudyDesign](http://hl7.org/fhir/ValueSet/study-design)**. This is a set of terms for study design characteristics.\n\nFHIR version: 5.0.0."]
@@ -46872,18 +53506,36 @@ impl Serialize for StudyDesign {
 }
 impl From<StudyDesign> for Coding {
     fn from(code: StudyDesign) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/study-design".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/study-design".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<StudyDesign> for CodeableConcept {
     fn from(code: StudyDesign) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubmitDataUpdateType](http://hl7.org/fhir/ValueSet/submit-data-update-type)**. Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates\n\nFHIR version: 5.0.0."]
@@ -46947,18 +53599,38 @@ impl Serialize for SubmitDataUpdateType {
 }
 impl From<SubmitDataUpdateType> for Coding {
     fn from(code: SubmitDataUpdateType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/submit-data-update-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/submit-data-update-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubmitDataUpdateType> for CodeableConcept {
     fn from(code: SubmitDataUpdateType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubscriptionNotificationType](http://hl7.org/fhir/ValueSet/subscription-notification-type)**. The type of notification represented by the status message.\n\nFHIR version: 5.0.0."]
@@ -47043,20 +53715,38 @@ impl Serialize for SubscriptionNotificationType {
 }
 impl From<SubscriptionNotificationType> for Coding {
     fn from(code: SubscriptionNotificationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/subscription-notification-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubscriptionNotificationType> for CodeableConcept {
     fn from(code: SubscriptionNotificationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubscriptionPayloadContent](http://hl7.org/fhir/ValueSet/subscription-payload-content)**. Codes to represent how much resource content to send in the notification payload.\n\nFHIR version: 5.0.0."]
@@ -47127,20 +53817,38 @@ impl Serialize for SubscriptionPayloadContent {
 }
 impl From<SubscriptionPayloadContent> for Coding {
     fn from(code: SubscriptionPayloadContent) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/subscription-payload-content".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubscriptionPayloadContent> for CodeableConcept {
     fn from(code: SubscriptionPayloadContent) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubscriptionStatus](http://hl7.org/fhir/subscription-status)**. This codesystem defines a set of codes that can be used to filter Subscription triggers.\n\nFHIR version: 5.0.0."]
@@ -47228,18 +53936,36 @@ impl Serialize for SubscriptionStatus {
 }
 impl From<SubscriptionStatus> for Coding {
     fn from(code: SubscriptionStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/subscription-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/subscription-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubscriptionStatus> for CodeableConcept {
     fn from(code: SubscriptionStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceAmountType](http://hl7.org/fhir/ValueSet/substance-amount-type)**. The type of a numeric quantity measurement.\n\nFHIR version: 5.0.0."]
@@ -47317,18 +54043,38 @@ impl Serialize for SubstanceAmountType {
 }
 impl From<SubstanceAmountType> for Coding {
     fn from(code: SubstanceAmountType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-amount-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-amount-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceAmountType> for CodeableConcept {
     fn from(code: SubstanceAmountType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceForm](http://hl7.org/fhir/ValueSet/substance-form)**. SubstanceForm\n\nFHIR version: 5.0.0."]
@@ -47392,18 +54138,36 @@ impl Serialize for SubstanceForm {
 }
 impl From<SubstanceForm> for Coding {
     fn from(code: SubstanceForm) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-form".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/substance-form".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceForm> for CodeableConcept {
     fn from(code: SubstanceForm) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceGrade](http://hl7.org/fhir/ValueSet/substance-grade)**. SubstanceGrade\n\nFHIR version: 5.0.0."]
@@ -47490,18 +54254,36 @@ impl Serialize for SubstanceGrade {
 }
 impl From<SubstanceGrade> for Coding {
     fn from(code: SubstanceGrade) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-grade".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/substance-grade".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceGrade> for CodeableConcept {
     fn from(code: SubstanceGrade) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceNameAuthority](http://hl7.org/fhir/ValueSet/substance-name-authority)**. SubstanceNameAuthority\n\nFHIR version: 5.0.0."]
@@ -47656,18 +54438,38 @@ impl Serialize for SubstanceNameAuthority {
 }
 impl From<SubstanceNameAuthority> for Coding {
     fn from(code: SubstanceNameAuthority) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-name-authority".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-name-authority".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceNameAuthority> for CodeableConcept {
     fn from(code: SubstanceNameAuthority) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceNameDomain](http://hl7.org/fhir/ValueSet/substance-name-domain)**. SubstanceNameDomain\n\nFHIR version: 5.0.0."]
@@ -47731,18 +54533,38 @@ impl Serialize for SubstanceNameDomain {
 }
 impl From<SubstanceNameDomain> for Coding {
     fn from(code: SubstanceNameDomain) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-name-domain".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-name-domain".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceNameDomain> for CodeableConcept {
     fn from(code: SubstanceNameDomain) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceNameType](http://hl7.org/fhir/ValueSet/substance-name-type)**. SubstanceNameType\n\nFHIR version: 5.0.0."]
@@ -47813,18 +54635,36 @@ impl Serialize for SubstanceNameType {
 }
 impl From<SubstanceNameType> for Coding {
     fn from(code: SubstanceNameType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-name-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/substance-name-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceNameType> for CodeableConcept {
     fn from(code: SubstanceNameType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceOpticalActivity](http://hl7.org/fhir/ValueSet/substance-optical-activity)**. The optical rotation type of a substance.\n\nFHIR version: 5.0.0."]
@@ -47888,18 +54728,38 @@ impl Serialize for SubstanceOpticalActivity {
 }
 impl From<SubstanceOpticalActivity> for Coding {
     fn from(code: SubstanceOpticalActivity) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-optical-activity".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-optical-activity".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceOpticalActivity> for CodeableConcept {
     fn from(code: SubstanceOpticalActivity) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceRelationshipType](http://hl7.org/fhir/ValueSet/substance-relationship-type)**. The relationship between two substance types.\n\nFHIR version: 5.0.0."]
@@ -47984,20 +54844,38 @@ impl Serialize for SubstanceRelationshipType {
 }
 impl From<SubstanceRelationshipType> for Coding {
     fn from(code: SubstanceRelationshipType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-relationship-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceRelationshipType> for CodeableConcept {
     fn from(code: SubstanceRelationshipType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceRepresentationFormat](http://hl7.org/fhir/ValueSet/substance-representation-format)**. SubstanceRepresentationFormat\n\nFHIR version: 5.0.0."]
@@ -48096,20 +54974,38 @@ impl Serialize for SubstanceRepresentationFormat {
 }
 impl From<SubstanceRepresentationFormat> for Coding {
     fn from(code: SubstanceRepresentationFormat) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-representation-format".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceRepresentationFormat> for CodeableConcept {
     fn from(code: SubstanceRepresentationFormat) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceRepresentationType](http://hl7.org/fhir/ValueSet/substance-representation-type)**. SubstanceRepresentationType\n\nFHIR version: 5.0.0."]
@@ -48180,20 +55076,38 @@ impl Serialize for SubstanceRepresentationType {
 }
 impl From<SubstanceRepresentationType> for Coding {
     fn from(code: SubstanceRepresentationType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-representation-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceRepresentationType> for CodeableConcept {
     fn from(code: SubstanceRepresentationType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceSourceMaterialGenus](http://hl7.org/fhir/ValueSet/substance-source-material-genus)**. SubstanceSourceMaterialGenus\n\nFHIR version: 5.0.0."]
@@ -48264,20 +55178,38 @@ impl Serialize for SubstanceSourceMaterialGenus {
 }
 impl From<SubstanceSourceMaterialGenus> for Coding {
     fn from(code: SubstanceSourceMaterialGenus) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-source-material-genus".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceSourceMaterialGenus> for CodeableConcept {
     fn from(code: SubstanceSourceMaterialGenus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceSourceMaterialPart](http://hl7.org/fhir/ValueSet/substance-source-material-part)**. SubstanceSourceMaterialPart\n\nFHIR version: 5.0.0."]
@@ -48348,20 +55280,38 @@ impl Serialize for SubstanceSourceMaterialPart {
 }
 impl From<SubstanceSourceMaterialPart> for Coding {
     fn from(code: SubstanceSourceMaterialPart) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-source-material-part".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceSourceMaterialPart> for CodeableConcept {
     fn from(code: SubstanceSourceMaterialPart) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceSourceMaterialSpecies](http://hl7.org/fhir/ValueSet/substance-source-material-species)**. SubstanceSourceMaterialSpecies\n\nFHIR version: 5.0.0."]
@@ -48425,21 +55375,39 @@ impl Serialize for SubstanceSourceMaterialSpecies {
 }
 impl From<SubstanceSourceMaterialSpecies> for Coding {
     fn from(code: SubstanceSourceMaterialSpecies) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-source-material-species"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceSourceMaterialSpecies> for CodeableConcept {
     fn from(code: SubstanceSourceMaterialSpecies) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceSourceMaterialType](http://hl7.org/fhir/ValueSet/substance-source-material-type)**. SubstanceSourceMaterialType\n\nFHIR version: 5.0.0."]
@@ -48510,20 +55478,38 @@ impl Serialize for SubstanceSourceMaterialType {
 }
 impl From<SubstanceSourceMaterialType> for Coding {
     fn from(code: SubstanceSourceMaterialType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-source-material-type".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceSourceMaterialType> for CodeableConcept {
     fn from(code: SubstanceSourceMaterialType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceStereochemistry](http://hl7.org/fhir/ValueSet/substance-stereochemistry)**. The stereochemistry type of a substance.\n\nFHIR version: 5.0.0."]
@@ -48594,18 +55580,38 @@ impl Serialize for SubstanceStereochemistry {
 }
 impl From<SubstanceStereochemistry> for Coding {
     fn from(code: SubstanceStereochemistry) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-stereochemistry".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-stereochemistry".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceStereochemistry> for CodeableConcept {
     fn from(code: SubstanceStereochemistry) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceStructureTechnique](http://hl7.org/fhir/ValueSet/substance-structure-technique)**. SubstanceStructureTechnique\n\nFHIR version: 5.0.0."]
@@ -48690,20 +55696,38 @@ impl Serialize for SubstanceStructureTechnique {
 }
 impl From<SubstanceStructureTechnique> for Coding {
     fn from(code: SubstanceStructureTechnique) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/substance-structure-technique".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceStructureTechnique> for CodeableConcept {
     fn from(code: SubstanceStructureTechnique) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceWeightMethod](http://hl7.org/fhir/ValueSet/substance-weight-method)**. SubstanceWeightMethod\n\nFHIR version: 5.0.0."]
@@ -48811,18 +55835,38 @@ impl Serialize for SubstanceWeightMethod {
 }
 impl From<SubstanceWeightMethod> for Coding {
     fn from(code: SubstanceWeightMethod) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-weight-method".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-weight-method".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceWeightMethod> for CodeableConcept {
     fn from(code: SubstanceWeightMethod) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SubstanceWeightType](http://hl7.org/fhir/ValueSet/substance-weight-type)**. SubstanceWeightType\n\nFHIR version: 5.0.0."]
@@ -48893,18 +55937,38 @@ impl Serialize for SubstanceWeightType {
 }
 impl From<SubstanceWeightType> for Coding {
     fn from(code: SubstanceWeightType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/substance-weight-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/substance-weight-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SubstanceWeightType> for CodeableConcept {
     fn from(code: SubstanceWeightType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SupplyDeliveryStatus](http://hl7.org/fhir/ValueSet/supplydelivery-status)**. Status of the supply delivery.\n\nFHIR version: 5.0.0."]
@@ -48982,18 +56046,38 @@ impl Serialize for SupplyDeliveryStatus {
 }
 impl From<SupplyDeliveryStatus> for Coding {
     fn from(code: SupplyDeliveryStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/supplydelivery-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/supplydelivery-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SupplyDeliveryStatus> for CodeableConcept {
     fn from(code: SupplyDeliveryStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SupplyDeliverySupplyItemType](http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype)**. Status of the supply delivery.\n\nFHIR version: 5.0.0."]
@@ -49064,20 +56148,38 @@ impl Serialize for SupplyDeliverySupplyItemType {
 }
 impl From<SupplyDeliverySupplyItemType> for Coding {
     fn from(code: SupplyDeliverySupplyItemType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SupplyDeliverySupplyItemType> for CodeableConcept {
     fn from(code: SupplyDeliverySupplyItemType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[SupplyRequestStatus](http://hl7.org/fhir/ValueSet/supplyrequest-status)**. Status of the supply request.\n\nFHIR version: 5.0.0."]
@@ -49176,18 +56278,36 @@ impl Serialize for SupplyRequestStatus {
 }
 impl From<SupplyRequestStatus> for Coding {
     fn from(code: SupplyRequestStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/supplyrequest-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/supplyrequest-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<SupplyRequestStatus> for CodeableConcept {
     fn from(code: SupplyRequestStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TargetSpecies](http://hl7.org/fhir/ValueSet/target-species)**. A species for which a medicinal product is intended.\n\nFHIR version: 5.0.0."]
@@ -50637,18 +57757,36 @@ impl Serialize for TargetSpecies {
 }
 impl From<TargetSpecies> for Coding {
     fn from(code: TargetSpecies) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/target-species".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/target-species".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TargetSpecies> for CodeableConcept {
     fn from(code: TargetSpecies) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TaskCode](http://hl7.org/fhir/ValueSet/task-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 5.0.0."]
@@ -50754,18 +57892,36 @@ impl Serialize for TaskCode {
 }
 impl From<TaskCode> for Coding {
     fn from(code: TaskCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/task-code.html".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/task-code.html".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TaskCode> for CodeableConcept {
     fn from(code: TaskCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TaskIntent](http://hl7.org/fhir/task-intent)**. Distinguishes whether the task is a proposal, plan or full order.\n\nFHIR version: 5.0.0."]
@@ -50825,18 +57981,36 @@ impl Serialize for TaskIntent {
 }
 impl From<TaskIntent> for Coding {
     fn from(code: TaskIntent) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/task-intent".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/task-intent".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TaskIntent> for CodeableConcept {
     fn from(code: TaskIntent) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TaskStatus](http://hl7.org/fhir/ValueSet/task-status)**. The current status of the task.\n\nFHIR version: 5.0.0."]
@@ -50970,18 +58144,36 @@ impl Serialize for TaskStatus {
 }
 impl From<TaskStatus> for Coding {
     fn from(code: TaskStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/task-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/task-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TaskStatus> for CodeableConcept {
     fn from(code: TaskStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TaskStatusReason](http://hl7.org/fhir/ValueSet/task-status-reason)**. The current status reason of the task.\n\nFHIR version: 5.0.0."]
@@ -51066,18 +58258,36 @@ impl Serialize for TaskStatusReason {
 }
 impl From<TaskStatusReason> for Coding {
     fn from(code: TaskStatusReason) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/task-status-reason".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/task-status-reason".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TaskStatusReason> for CodeableConcept {
     fn from(code: TaskStatusReason) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TemplateStatusCodeLifeCycle](urn:oid:2.16.840.1.113883.3.1937.98.11.8)**. Life cycle of the Status Code of a Template Design (Version)\n\nFHIR version: 5.0.0."]
@@ -51183,18 +58393,36 @@ impl Serialize for TemplateStatusCodeLifeCycle {
 }
 impl From<TemplateStatusCodeLifeCycle> for Coding {
     fn from(code: TemplateStatusCodeLifeCycle) -> Self {
-        Coding::builder()
-            .system("urn:oid:2.16.840.1.113883.3.1937.98.11.8".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("urn:oid:2.16.840.1.113883.3.1937.98.11.8".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TemplateStatusCodeLifeCycle> for CodeableConcept {
     fn from(code: TemplateStatusCodeLifeCycle) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestReportActionResult](http://hl7.org/fhir/ValueSet/report-action-result-codes)**. The results of executing an action.\n\nFHIR version: 5.0.0."]
@@ -51279,18 +58507,38 @@ impl Serialize for TestReportActionResult {
 }
 impl From<TestReportActionResult> for Coding {
     fn from(code: TestReportActionResult) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/report-action-result-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/report-action-result-codes".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestReportActionResult> for CodeableConcept {
     fn from(code: TestReportActionResult) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestReportParticipantType](http://hl7.org/fhir/ValueSet/report-participant-type)**. The type of participant.\n\nFHIR version: 5.0.0."]
@@ -51361,18 +58609,38 @@ impl Serialize for TestReportParticipantType {
 }
 impl From<TestReportParticipantType> for Coding {
     fn from(code: TestReportParticipantType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/report-participant-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/report-participant-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestReportParticipantType> for CodeableConcept {
     fn from(code: TestReportParticipantType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestReportResult](http://hl7.org/fhir/ValueSet/report-result-codes)**. The reported execution result.\n\nFHIR version: 5.0.0."]
@@ -51443,18 +58711,36 @@ impl Serialize for TestReportResult {
 }
 impl From<TestReportResult> for Coding {
     fn from(code: TestReportResult) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/report-result-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/report-result-codes".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestReportResult> for CodeableConcept {
     fn from(code: TestReportResult) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestReportStatus](http://hl7.org/fhir/ValueSet/report-status-codes)**. The current status of the test report.\n\nFHIR version: 5.0.0."]
@@ -51539,18 +58825,36 @@ impl Serialize for TestReportStatus {
 }
 impl From<TestReportStatus> for Coding {
     fn from(code: TestReportStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/report-status-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/report-status-codes".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestReportStatus> for CodeableConcept {
     fn from(code: TestReportStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestScriptRequestMethodCode](http://hl7.org/fhir/ValueSet/http-operations)**. The allowable request method or HTTP operation codes.\n\nFHIR version: 5.0.0."]
@@ -51649,18 +58953,36 @@ impl Serialize for TestScriptRequestMethodCode {
 }
 impl From<TestScriptRequestMethodCode> for Coding {
     fn from(code: TestScriptRequestMethodCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/http-operations".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/http-operations".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestScriptRequestMethodCode> for CodeableConcept {
     fn from(code: TestScriptRequestMethodCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestScriptScopeConformanceType](http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes)**. The expectation of whether the test must pass for the system to be considered conformant with the artifact.\n\nFHIR version: 5.0.0."]
@@ -51731,21 +59053,39 @@ impl Serialize for TestScriptScopeConformanceType {
 }
 impl From<TestScriptScopeConformanceType> for Coding {
     fn from(code: TestScriptScopeConformanceType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes"
                     .to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestScriptScopeConformanceType> for CodeableConcept {
     fn from(code: TestScriptScopeConformanceType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TestScriptScopePhaseType](http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes)**. The phase of testing for this artifact.\n\nFHIR version: 5.0.0."]
@@ -51816,20 +59156,38 @@ impl Serialize for TestScriptScopePhaseType {
 }
 impl From<TestScriptScopePhaseType> for Coding {
     fn from(code: TestScriptScopePhaseType) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TestScriptScopePhaseType> for CodeableConcept {
     fn from(code: TestScriptScopePhaseType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TherapyRelationshipType](http://hl7.org/fhir/ValueSet/therapy-relationship-type)**. Classification of relationship between a therapy and a contraindication or an indication.\n\nFHIR version: 5.0.0."]
@@ -51979,18 +59337,38 @@ impl Serialize for TherapyRelationshipType {
 }
 impl From<TherapyRelationshipType> for Coding {
     fn from(code: TherapyRelationshipType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/therapy-relationship-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/therapy-relationship-type".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TherapyRelationshipType> for CodeableConcept {
     fn from(code: TherapyRelationshipType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TimingAbbreviation](http://terminology.hl7.org/CodeSystem/timing-abbreviation)**. Code for a known / defined timing pattern.\n\nFHIR version: 5.0.0."]
@@ -52050,20 +59428,38 @@ impl Serialize for TimingAbbreviation {
 }
 impl From<TimingAbbreviation> for Coding {
     fn from(code: TimingAbbreviation) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://terminology.hl7.org/CodeSystem/timing-abbreviation".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TimingAbbreviation> for CodeableConcept {
     fn from(code: TimingAbbreviation) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TitleType](http://hl7.org/fhir/ValueSet/title-type)**. Used to express the reason and specific aspect for the variant title, such as language and specific language.\n\nFHIR version: 5.0.0."]
@@ -52206,18 +59602,36 @@ impl Serialize for TitleType {
 }
 impl From<TitleType> for Coding {
     fn from(code: TitleType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/title-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/title-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TitleType> for CodeableConcept {
     fn from(code: TitleType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TransportCode](http://hl7.org/fhir/ValueSet/transport-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 5.0.0."]
@@ -52323,18 +59737,36 @@ impl Serialize for TransportCode {
 }
 impl From<TransportCode> for Coding {
     fn from(code: TransportCode) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/transport-code.html".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/transport-code.html".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TransportCode> for CodeableConcept {
     fn from(code: TransportCode) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TransportIntent](http://hl7.org/fhir/transport-intent)**. Distinguishes whether the transport is a proposal, plan or full order.\n\nFHIR version: 5.0.0."]
@@ -52394,18 +59826,36 @@ impl Serialize for TransportIntent {
 }
 impl From<TransportIntent> for Coding {
     fn from(code: TransportIntent) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/transport-intent".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/transport-intent".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TransportIntent> for CodeableConcept {
     fn from(code: TransportIntent) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TransportStatus](http://hl7.org/fhir/ValueSet/transport-status)**. Status of transport.\n\nFHIR version: 5.0.0."]
@@ -52497,18 +59947,36 @@ impl Serialize for TransportStatus {
 }
 impl From<TransportStatus> for Coding {
     fn from(code: TransportStatus) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/transport-status".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/transport-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TransportStatus> for CodeableConcept {
     fn from(code: TransportStatus) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TriggerType](http://hl7.org/fhir/ValueSet/trigger-type)**. The type of trigger.\n\nFHIR version: 5.0.0."]
@@ -52614,18 +60082,36 @@ impl Serialize for TriggerType {
 }
 impl From<TriggerType> for Coding {
     fn from(code: TriggerType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/trigger-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/trigger-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TriggerType> for CodeableConcept {
     fn from(code: TriggerType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TriggeredBytype](http://hl7.org/fhir/ValueSet/observation-triggeredbytype)**. Codes providing the triggeredBy type of observation.\n\nFHIR version: 5.0.0."]
@@ -52696,20 +60182,38 @@ impl Serialize for TriggeredBytype {
 }
 impl From<TriggeredBytype> for Coding {
     fn from(code: TriggeredBytype) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/observation-triggeredbytype".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TriggeredBytype> for CodeableConcept {
     fn from(code: TriggeredBytype) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[TypeDerivationRule](http://hl7.org/fhir/ValueSet/type-derivation-rule)**. How a type relates to its baseDefinition.\n\nFHIR version: 5.0.0."]
@@ -52773,18 +60277,36 @@ impl Serialize for TypeDerivationRule {
 }
 impl From<TypeDerivationRule> for Coding {
     fn from(code: TypeDerivationRule) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/type-derivation-rule".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/type-derivation-rule".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<TypeDerivationRule> for CodeableConcept {
     fn from(code: TypeDerivationRule) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[UndesirablEffectFrequency](http://hl7.org/fhir/ValueSet/undesirable-effect-frequency)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
@@ -52855,20 +60377,38 @@ impl Serialize for UndesirablEffectFrequency {
 }
 impl From<UndesirablEffectFrequency> for Coding {
     fn from(code: UndesirablEffectFrequency) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/undesirable-effect-frequency".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<UndesirablEffectFrequency> for CodeableConcept {
     fn from(code: UndesirablEffectFrequency) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[UnitOfPresentation](http://hl7.org/fhir/ValueSet/unit-of-presentation)**. The presentation type in which an administrable medicinal product is given to a patient.\n\nFHIR version: 5.0.0."]
@@ -53310,18 +60850,36 @@ impl Serialize for UnitOfPresentation {
 }
 impl From<UnitOfPresentation> for Coding {
     fn from(code: UnitOfPresentation) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/unit-of-presentation".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/unit-of-presentation".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<UnitOfPresentation> for CodeableConcept {
     fn from(code: UnitOfPresentation) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[UsageContextAgreementScope](http://hl7.org/fhir/ValueSet/usage-context-agreement-scope)**. This codesystem defines codes describing the type of agreement represented by an artifact, for example for use in CanonicalResource.usageContext.\n\nFHIR version: 5.0.0."]
@@ -53413,20 +60971,38 @@ impl Serialize for UsageContextAgreementScope {
 }
 impl From<UsageContextAgreementScope> for Coding {
     fn from(code: UsageContextAgreementScope) -> Self {
-        Coding::builder()
-            .system(
+        CodingInner {
+            system: Some(
                 "http://hl7.org/fhir/ValueSet/usage-context-agreement-scope".to_owned(),
-            )
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<UsageContextAgreementScope> for CodeableConcept {
     fn from(code: UsageContextAgreementScope) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[Use](http://hl7.org/fhir/ValueSet/claim-use)**. The purpose of the Claim: predetermination, preauthorization, claim.\n\nFHIR version: 5.0.0."]
@@ -53497,18 +61073,36 @@ impl Serialize for Use {
 }
 impl From<Use> for Coding {
     fn from(code: Use) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/claim-use".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/claim-use".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<Use> for CodeableConcept {
     fn from(code: Use) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[VersionAlgorithm](http://hl7.org/fhir/ValueSet/version-algorithm)**. Indicates the mechanism used to compare versions to determine which is more current.\n\nFHIR version: 5.0.0."]
@@ -53593,18 +61187,36 @@ impl Serialize for VersionAlgorithm {
 }
 impl From<VersionAlgorithm> for Coding {
     fn from(code: VersionAlgorithm) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/version-algorithm".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/version-algorithm".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<VersionAlgorithm> for CodeableConcept {
     fn from(code: VersionAlgorithm) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[VirtualServiceType](http://hl7.org/fhir/ValueSet/virtual-service-type)**. Example codes for possible virtual service connection types.\n\nFHIR version: 5.0.0."]
@@ -53675,18 +61287,36 @@ impl Serialize for VirtualServiceType {
 }
 impl From<VirtualServiceType> for Coding {
     fn from(code: VirtualServiceType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/virtual-service-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/virtual-service-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<VirtualServiceType> for CodeableConcept {
     fn from(code: VirtualServiceType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[VisionBase](http://hl7.org/fhir/ValueSet/vision-base-codes)**. A coded concept listing the base codes.\n\nFHIR version: 5.0.0."]
@@ -53764,18 +61394,36 @@ impl Serialize for VisionBase {
 }
 impl From<VisionBase> for Coding {
     fn from(code: VisionBase) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/vision-base-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/vision-base-codes".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<VisionBase> for CodeableConcept {
     fn from(code: VisionBase) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[VisionEyes](http://hl7.org/fhir/ValueSet/vision-eye-codes)**. A coded concept listing the eye codes.\n\nFHIR version: 5.0.0."]
@@ -53839,18 +61487,36 @@ impl Serialize for VisionEyes {
 }
 impl From<VisionEyes> for Coding {
     fn from(code: VisionEyes) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/vision-eye-codes".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/vision-eye-codes".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<VisionEyes> for CodeableConcept {
     fn from(code: VisionEyes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[WarningType](http://hl7.org/fhir/ValueSet/warning-type)**. Classification of warning type.\n\nFHIR version: 5.0.0."]
@@ -53970,18 +61636,36 @@ impl Serialize for WarningType {
 }
 impl From<WarningType> for Coding {
     fn from(code: WarningType) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/warning-type".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/warning-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<WarningType> for CodeableConcept {
     fn from(code: WarningType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }
 #[doc = "**[WeekOfMonth](http://hl7.org/fhir/ValueSet/week-of-month)**. The set of weeks with in a month.\n\nFHIR version: 5.0.0."]
@@ -54066,17 +61750,35 @@ impl Serialize for WeekOfMonth {
 }
 impl From<WeekOfMonth> for Coding {
     fn from(code: WeekOfMonth) -> Self {
-        Coding::builder()
-            .system("http://hl7.org/fhir/ValueSet/week-of-month".to_owned())
-            .code(code.as_ref().to_owned())
-            .display(format!("{code}"))
-            .build()
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/week-of-month".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
     }
 }
 impl From<WeekOfMonth> for CodeableConcept {
     fn from(code: WeekOfMonth) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
-        CodeableConcept::builder().coding(vec![Some(coding)]).text(text).build()
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
     }
 }

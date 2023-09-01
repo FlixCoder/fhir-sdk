@@ -41,7 +41,7 @@ pub fn generate_type_struct(
 			/// Type of this FHIR resource.
 			#[doc(hidden)]
 			#[serde(default = #serde_default)]
-			#[builder(default = ResourceType::#ident, setter(skip))]
+			#[cfg_attr(feature = "builders", builder(default = ResourceType::#ident, setter(skip)))]
 			resource_type: ResourceType,
 		}
 	});
@@ -71,14 +71,15 @@ pub fn generate_type_struct(
 		pub struct #ident(pub Box<#ident_inner>);
 
 		#[doc = #doc_comment]
-		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
+		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+		#[cfg_attr(feature = "builders", derive(TypedBuilder))]
 		#[serde(rename_all = "camelCase")]
-		#[builder(
+		#[cfg_attr(feature = "builders", builder(
 			builder_method(vis = ""),
 			builder_type(name = #ident_builder),
 			build_method(into = #ident),
 			field_defaults(setter(into)),
-		)]
+		))]
 		pub struct #ident_inner {
 			#resource_type_field
 			#(#fields)*
@@ -116,6 +117,7 @@ fn wrapper_impls(ident: &Ident, ident_inner: &Ident, ident_builder: &Ident) -> T
 
 		impl #ident {
 			/// Start building an instance.
+			#[cfg(feature = "builders")]
 			pub fn builder() -> #ident_builder {
 				#ident_inner ::builder()
 			}
@@ -148,8 +150,9 @@ fn generate_field(
 			quote!(#[serde(default, skip_serializing_if = "Option::is_none")])
 		}
 	});
-	let builder_attr =
-		field.optional().then_some(quote!(#[builder(default, setter(doc = #doc_comment))]));
+	let builder_attr = field.optional().then_some(
+		quote!(#[cfg_attr(feature = "builders", builder(default, setter(doc = #doc_comment)))]),
+	);
 	let serde_rename_or_flatten = if matches!(field, Field::Choice(_)) {
 		quote!(#[serde(flatten)])
 	} else {
@@ -170,7 +173,7 @@ fn generate_field(
 				/// Extension field.
 				#[serde(default, skip_serializing_if = "Vec::is_empty")]
 				#serde_ext
-				#[builder(default, setter(doc = "Field extension."))]
+				#[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
 				pub #ident_ext: Vec<Option<#extension_type>>,
 			}
 		} else {
@@ -178,7 +181,7 @@ fn generate_field(
 				/// Extension field.
 				#[serde(default, skip_serializing_if = "Option::is_none")]
 				#serde_ext
-				#[builder(default, setter(doc = "Field extension."))]
+				#[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
 				pub #ident_ext: Option<#extension_type>,
 			}
 		}
@@ -323,9 +326,10 @@ fn generate_object_field(
 
 	let object_struct = quote! {
 		#[doc = #struct_doc]
-		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, TypedBuilder)]
-		#[builder(field_defaults(setter(into)))]
+		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+		#[cfg_attr(feature = "builders", derive(TypedBuilder))]
 		#[serde(rename_all = "camelCase")]
+		#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
 		pub struct #struct_type {
 			#(#fields)*
 		}

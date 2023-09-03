@@ -39,7 +39,6 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 ## Example
 
 ```rust
-#![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
 use fhir_sdk::r5::resources::Patient;
 use fhir_sdk::client::*;
 

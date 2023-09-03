@@ -25,7 +25,6 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] Create, Read, Update, Delete
   - [x] Search
   - [x] Paging
-  - [ ] Capabilities
   - [ ] Batch operations / Transactions
   - [ ] Operations
   - [ ] Patch
@@ -64,7 +63,7 @@ For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/ma
 
 ## Testing
 
-Simply set up the FHIR test server using `docker compose up -d` and run `cargo test --workspace` in the workspace root.
+Simply set up the FHIR test server using `docker compose up -d` in the workspace root and then run `cargo xtask test`.
 
 ## Known Problems
 

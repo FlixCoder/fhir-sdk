@@ -225,7 +225,7 @@ impl Client {
 	pub fn search_all(
 		&self,
 		queries: SearchParameters,
-	) -> impl Stream<Item = Result<Resource, Error>> {
+	) -> impl Stream<Item = Result<Resource, Error>> + Send + 'static {
 		let mut url = self.url(&[]);
 		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 
@@ -244,7 +244,7 @@ impl Client {
 	pub fn search<R: NamedResource + TryFrom<Resource, Error = WrongResourceType>>(
 		&self,
 		queries: SearchParameters,
-	) -> impl Stream<Item = Result<R, Error>> {
+	) -> impl Stream<Item = Result<R, Error>> + Send + 'static {
 		let mut url = self.url(&[R::TYPE.as_str()]);
 		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 

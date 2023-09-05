@@ -23,7 +23,7 @@ pub struct Paged {
 	entries: VecDeque<BundleEntry>,
 	/// Filter on Bundle entries, whether they should be included in the
 	/// results.
-	filter: Box<dyn FnMut(&BundleEntry) -> bool>,
+	filter: Box<dyn FnMut(&BundleEntry) -> bool + Send>,
 	/// Current future to retrieve a resource.
 	future_resource: Option<BoxFuture<'static, Result<Resource, Error>>>,
 	/// Current future to retrieve the next page.
@@ -34,7 +34,7 @@ impl Paged {
 	/// Start up a new Paged stream.
 	pub(crate) fn new<FilterFn>(client: Client, url: Url, filter: FilterFn) -> Self
 	where
-		FilterFn: FnMut(&BundleEntry) -> bool + 'static,
+		FilterFn: FnMut(&BundleEntry) -> bool + Send + 'static,
 	{
 		let next_url = Some(url);
 		let filter = Box::new(filter);
@@ -175,6 +175,7 @@ impl std::fmt::Debug for Paged {
 			.field("client", &self.client)
 			.field("next_url", &self.next_url)
 			.field("entries", &self.entries)
+			.field("filter", &())
 			.field("future_resource", &self.future_resource.as_ref().map(|_| ()))
 			.field("future_next_page", &self.future_next_page.as_ref().map(|_| ()))
 			.finish()

@@ -14,18 +14,19 @@ use std::sync::{Arc, Mutex};
 use fhir_model::r4b as model;
 #[cfg(feature = "r5")]
 use fhir_model::r5 as model;
-pub use futures::stream::{Stream, StreamExt, TryStream, TryStreamExt};
+use fhir_model::ParsedReference;
+use futures::stream::{Stream, TryStreamExt};
 use model::{
 	codes::SearchEntryMode,
 	resources::{
 		BaseResource, CapabilityStatement, NamedResource, Resource, ResourceType, WrongResourceType,
 	},
+	types::Reference,
 	JSON_MIME_TYPE,
 };
-pub use reqwest::Url;
 use reqwest::{
 	header::{self, HeaderMap, HeaderValue},
-	StatusCode,
+	StatusCode, Url,
 };
 use serde::{de::DeserializeOwned, Serialize};
 
@@ -117,12 +118,8 @@ impl Client {
 		}
 	}
 
-	/// Read the current version of a specific FHIR resource.
-	pub async fn read<R: NamedResource + DeserializeOwned>(
-		&self,
-		id: &str,
-	) -> Result<Option<R>, Error> {
-		let url = self.url(&[R::TYPE.as_str(), id]);
+	/// Read any resource from any URL.
+	async fn read_generic<R: DeserializeOwned>(&self, url: Url) -> Result<Option<R>, Error> {
 		let request = self.0.client.get(url);
 
 		let response = self.request_settings().make_request(request).await?;
@@ -136,6 +133,15 @@ impl Client {
 		}
 	}
 
+	/// Read the current version of a specific FHIR resource.
+	pub async fn read<R: NamedResource + DeserializeOwned>(
+		&self,
+		id: &str,
+	) -> Result<Option<R>, Error> {
+		let url = self.url(&[R::TYPE.as_str(), id]);
+		self.read_generic(url).await
+	}
+
 	/// Read a specific version of a specific FHIR resource.
 	pub async fn read_version<R: NamedResource + DeserializeOwned>(
 		&self,
@@ -143,17 +149,33 @@ impl Client {
 		version_id: &str,
 	) -> Result<Option<R>, Error> {
 		let url = self.url(&[R::TYPE.as_str(), id, "_history", version_id]);
-		let request = self.0.client.get(url);
+		self.read_generic(url).await
+	}
 
-		let response = self.request_settings().make_request(request).await?;
-		if response.status().is_success() {
-			let resource: R = response.json().await?;
-			Ok(Some(resource))
-		} else if [StatusCode::NOT_FOUND, StatusCode::GONE].contains(&response.status()) {
-			Ok(None)
-		} else {
-			Err(Error::from_response(response).await)
+	/// Read the resource that is targeted in the reference.
+	pub async fn read_referenced(&self, reference: &Reference) -> Result<Resource, Error> {
+		let url = match reference.parse().ok_or(Error::ReferenceParsing)? {
+			ParsedReference::Local { .. } => return Err(Error::LocalReference),
+			ParsedReference::Relative { resource_type, id, version_id } => {
+				if let Some(version_id) = version_id {
+					self.url(&[resource_type, id, "_history", version_id])
+				} else {
+					self.url(&[resource_type, id])
+				}
+			}
+			ParsedReference::Absolute { url } => {
+				url.parse().map_err(|_| Error::UrlParse(url.to_owned()))?
+			}
+		};
+
+		let resource: Resource = self.read_generic(url).await?.ok_or(Error::ResourceNotFound)?;
+		if let Some(resource_type) = reference.r#type.as_ref() {
+			if resource.resource_type().as_str() != resource_type {
+				return Err(Error::WrongResourceType);
+			}
 		}
+
+		Ok(resource)
 	}
 
 	/// Update a FHIR resource (or create it if it did not

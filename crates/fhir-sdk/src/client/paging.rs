@@ -110,6 +110,8 @@ impl Stream for Paged {
 					self.future_resource = Some(fetch_resource(self.client.clone(), url).boxed());
 					cx.waker().wake_by_ref();
 					return Poll::Pending;
+				} else {
+					return Poll::Ready(Some(Err(Error::UrlParse(url))));
 				}
 			}
 		}
@@ -159,14 +161,8 @@ async fn fetch_resource<R: DeserializeOwned>(client: Client, url: Url) -> Result
 	}
 
 	// Fetch a single resource from the given URL.
-	let request = client.0.client.get(url);
-	let response = client.request_settings().make_request(request).await?;
-	if response.status().is_success() {
-		let resource: R = response.json().await?;
-		Ok(resource)
-	} else {
-		Err(Error::from_response(response).await)
-	}
+	let resource = client.read_generic(url).await?;
+	resource.ok_or(Error::ResourceNotFound)
 }
 
 impl std::fmt::Debug for Paged {

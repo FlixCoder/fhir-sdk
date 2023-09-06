@@ -7,3 +7,7 @@
 pub mod client;
 
 pub use fhir_model::*;
+#[cfg(feature = "client")]
+pub use futures::stream::{Stream, StreamExt, TryStream, TryStreamExt};
+#[cfg(feature = "client")]
+pub use reqwest::Url;

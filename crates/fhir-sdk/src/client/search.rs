@@ -472,6 +472,20 @@ mod tests {
 	}
 
 	#[test]
+	fn reference() {
+		let reference = ReferenceSearch::Chaining {
+			name: "focus",
+			resource_type: Some(ResourceType::Encounter),
+			target_name: "status",
+			value: "in-progress",
+		};
+		assert_eq!(
+			reference.into_query(),
+			("focus:Encounter.status".to_owned(), "in-progress".to_owned())
+		);
+	}
+
+	#[test]
 	fn quantity() {
 		let quantity = QuantitySearch {
 			name: "test",

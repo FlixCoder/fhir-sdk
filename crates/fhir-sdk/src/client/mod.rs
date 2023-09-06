@@ -3,6 +3,7 @@
 //! Does only work with one FHIR version at a time!
 
 mod error;
+mod misc;
 mod paging;
 mod request;
 mod search;
@@ -204,7 +205,7 @@ impl Client {
 		let response = self.request_settings().make_request(request).await?;
 		if response.status().is_success() {
 			let created = response.status() == StatusCode::CREATED;
-			let version_id = parse_etag(response.headers())?;
+			let version_id = misc::parse_etag(response.headers())?;
 			Ok((created, version_id))
 		} else {
 			Err(Error::from_response(response).await)
@@ -222,8 +223,8 @@ impl Client {
 
 		let response = self.request_settings().make_request(request).await?;
 		if response.status().is_success() {
-			let (id, version_id) = parse_location(response.headers())?;
-			let version_id = version_id.or(parse_etag(response.headers()).ok());
+			let (id, version_id) = misc::parse_location(response.headers())?;
+			let version_id = version_id.or(misc::parse_etag(response.headers()).ok());
 			Ok((id, version_id))
 		} else {
 			Err(Error::from_response(response).await)
@@ -278,41 +279,6 @@ impl Client {
 				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
 		})
 		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
-	}
-}
-
-/// Parse an ETag to a version ID.
-fn parse_etag(headers: &HeaderMap) -> Result<String, Error> {
-	let etag = headers
-		.get(header::ETAG)
-		.ok_or(Error::EtagFailure)?
-		.to_str()
-		.map_err(|_| Error::EtagFailure)?;
-	if etag.starts_with("W/\"") && etag.ends_with('"') {
-		let end = etag.split_at(3).1;
-		let version_id = end.split_at(end.len() - 1).0;
-		Ok(version_id.to_owned())
-	} else {
-		Err(Error::EtagFailure)
-	}
-}
-
-/// Parse an Location header to a resource ID and optional version ID.
-fn parse_location(headers: &HeaderMap) -> Result<(String, Option<String>), Error> {
-	let location = headers
-		.get(header::LOCATION)
-		.ok_or(Error::LocationFailure)?
-		.to_str()
-		.map_err(|_| Error::LocationFailure)?;
-	let mut segments = location.rsplit('/');
-	let id_or_version_id = segments.next().ok_or(Error::LocationFailure)?;
-	let history_or_type = segments.next().ok_or(Error::LocationFailure)?;
-
-	if history_or_type == "_history" {
-		let id = segments.next().ok_or(Error::LocationFailure)?;
-		Ok((id.to_owned(), Some(id_or_version_id.to_owned())))
-	} else {
-		Ok((id_or_version_id.to_owned(), None))
 	}
 }
 

@@ -44,7 +44,7 @@ fn builder_works() {
 		.intent(RequestIntent::Order)
 		.action(vec![Some(
 			RequestGroupAction::builder()
-				.timing(RequestGroupActionTiming::DateTime("2023".to_owned()))
+				.timing(RequestGroupActionTiming::DateTime(DateTime::Date(Date::Year(2023))))
 				.code(vec![Some(
 					CodeableConcept::builder()
 						.coding(vec![Some(

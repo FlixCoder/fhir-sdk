@@ -1,7 +1,7 @@
 #![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
-use std::env;
+use std::{env, str::FromStr};
 
 use eyre::Result;
 use fhir_sdk::{
@@ -11,6 +11,7 @@ use fhir_sdk::{
 		reference_to,
 		resources::{BaseResource, Patient, ResourceType},
 	},
+	Date,
 };
 use futures::TryStreamExt;
 
@@ -64,9 +65,10 @@ async fn read_referenced() -> Result<()> {
 async fn search() -> Result<()> {
 	let client = client()?;
 
-	let date = "5123-05-05";
+	let date_str = "5123-05-05";
+	let date = Date::from_str(date_str).expect("parse Date");
 
-	let mut patient = Patient::builder().active(false).birth_date(date.to_owned()).build();
+	let mut patient = Patient::builder().active(false).birth_date(date.clone()).build();
 	let id = patient.create(&client).await?;
 
 	let patients: Vec<Patient> = client
@@ -76,7 +78,7 @@ async fn search() -> Result<()> {
 				.and(DateSearch {
 					name: "birthdate",
 					comparator: Some(SearchComparator::Eq),
-					value: date,
+					value: date_str,
 				})
 				.and(TokenSearch::Standard {
 					name: "active",
@@ -89,7 +91,7 @@ async fn search() -> Result<()> {
 		.await?;
 	assert_eq!(patients.len(), 1);
 	assert_eq!(patients[0].active, Some(false));
-	assert_eq!(patients[0].birth_date.as_deref(), Some(date));
+	assert_eq!(patients[0].birth_date, Some(date));
 
 	patient.delete(&client).await?;
 	Ok(())
@@ -106,7 +108,10 @@ async fn paging() -> Result<()> {
 	let mut ids = Vec::new();
 	// TODO: Use batch/transaction instead.
 	for _ in 0..n {
-		let mut patient = Patient::builder().active(false).birth_date(date.to_owned()).build();
+		let mut patient = Patient::builder()
+			.active(false)
+			.birth_date(Date::from_str(date).expect("parse Date"))
+			.build();
 		let id = patient.create(&client).await?;
 		ids.push(id);
 	}

@@ -14,7 +14,7 @@ use fhir_model::{
 		},
 		types::{CodeableConcept, Coding, Identifier, Reference},
 	},
-	ParsedReference,
+	Date, DateTime, ParsedReference,
 };
 use serde_json::Value;
 
@@ -45,7 +45,9 @@ fn builder_works() {
 		.intent(RequestIntent::Order)
 		.action(vec![Some(
 			RequestOrchestrationAction::builder()
-				.timing(RequestOrchestrationActionTiming::DateTime("2023".to_owned()))
+				.timing(RequestOrchestrationActionTiming::DateTime(DateTime::Date(Date::Year(
+					2023,
+				))))
 				.code(vec![Some(
 					CodeableConcept::builder()
 						.coding(vec![Some(

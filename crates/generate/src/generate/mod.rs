@@ -76,6 +76,7 @@ pub fn generate_types(
 		#[cfg(feature = "builders")]
 		use typed_builder::TypedBuilder;
 		use super::super::codes;
+		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
 
 		#(#types)*
 
@@ -133,6 +134,7 @@ pub fn generate_resources(
 		use typed_builder::TypedBuilder;
 		use super::super::codes;
 		use super::super::types::*;
+		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
 
 		#(#resource_defs)*
 
@@ -278,18 +280,14 @@ fn map_type(ty: &str) -> Ident {
 		"unsignedInt" => format_ident!("u32"),
 		"positiveInt" => format_ident!("NonZeroU32"),
 		"integer" => format_ident!("i32"),
-		// TODO: turn the following types into proper rust types.
-		"integer64" => format_ident!("String"), // JSON String, but i64 number
-		"date" => format_ident!("String"),
-		"dateTime" => format_ident!("String"),
-		"instant" => format_ident!("String"),
-		"time" => format_ident!("String"),
-		"uri" => format_ident!("String"),
-		"url" => format_ident!("String"),
-		"canonical" => format_ident!("String"),
-		"base64Binary" => format_ident!("String"),
-		"oid" => format_ident!("String"),
-		"uuid" => format_ident!("String"),
+		"uri" | "url" | "oid" | "canonical" => format_ident!("String"),
+		"uuid" => format_ident!("String"), // Is a URN, so the `Uuid` type does not fit.
+		"base64Binary" => format_ident!("Base64Binary"),
+		"date" => format_ident!("Date"),
+		"dateTime" => format_ident!("DateTime"),
+		"instant" => format_ident!("Instant"),
+		"time" => format_ident!("Time"),
+		"integer64" => format_ident!("Integer64"), // JSON String, but i64 number
 		_ => format_ident!("{ty}"),
 	}
 }

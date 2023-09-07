@@ -21,16 +21,16 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] NamedResource for getting the resource type in const time
   - [x] DomainResource for accessing common fields
   - [x] IdentifiableResource for all resources with an identifier field
-- [x] REST client implementation
+- [x] Client implementation
   - [x] Create, Read, Update, Delete
   - [x] Search
   - [x] Paging
   - [ ] Batch operations / Transactions
   - [ ] Operations
   - [ ] Patch
+  - [ ] GraphQL
 - [ ] FHIRpath implementation
 - [ ] Resource validation using FHIRpath and regular expressions
-- [ ] GraphQL client
 
 ## Not Planned
 

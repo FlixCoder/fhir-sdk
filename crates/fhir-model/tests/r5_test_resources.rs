@@ -4,13 +4,17 @@
 use std::fs;
 
 use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
-use fhir_model::r5::{
-	codes::{CatalogType, RequestIntent, RequestStatus},
-	resources::{
-		Basic, IdentifiableResource, NamedResource, Patient, RequestOrchestration,
-		RequestOrchestrationAction, RequestOrchestrationActionTiming, Resource, WrongResourceType,
+use fhir_model::{
+	r5::{
+		codes::{CatalogType, RequestIntent, RequestStatus},
+		resources::{
+			Basic, IdentifiableResource, NamedResource, Patient, RequestOrchestration,
+			RequestOrchestrationAction, RequestOrchestrationActionTiming, Resource,
+			WrongResourceType,
+		},
+		types::{CodeableConcept, Coding, Identifier, Reference},
 	},
-	types::{CodeableConcept, Coding, Identifier},
+	ParsedReference,
 };
 use serde_json::Value;
 
@@ -140,4 +144,70 @@ fn identifier_search() {
 
 	assert_eq!(patient.identifier_with_system("system1").map(String::as_str), Some("bla1"));
 	assert_eq!(patient.identifier_with_type("system2", "code2").map(String::as_str), Some("bla2"));
+}
+
+#[test]
+fn reference_parsing() {
+	let reference = Reference::builder()
+		.r#type("Encounter".to_owned())
+		.reference("https://server.test/fhir/Encounter/1".to_owned())
+		.build();
+	let parsed = reference.parse().expect("parsing reference");
+	assert_eq!(parsed, ParsedReference::Absolute { url: "https://server.test/fhir/Encounter/1" });
+
+	let reference = Reference::builder()
+		.r#type("Encounter".to_owned())
+		.reference("https://server.test/fhir/Encounter/1/_history/1".to_owned())
+		.build();
+	let parsed = reference.parse().expect("parsing reference");
+	assert_eq!(
+		parsed,
+		ParsedReference::Absolute { url: "https://server.test/fhir/Encounter/1/_history/1" }
+	);
+
+	let reference = Reference::builder()
+		.r#type("Encounter".to_owned())
+		.reference("Encounter/1".to_owned())
+		.build();
+	let parsed = reference.parse().expect("parsing reference");
+	assert_eq!(
+		parsed,
+		ParsedReference::Relative { resource_type: "Encounter", id: "1", version_id: None }
+	);
+
+	let reference = Reference::builder().reference("Encounter/1/_history/1".to_owned()).build();
+	let parsed = reference.parse().expect("parsing reference");
+	assert_eq!(
+		parsed,
+		ParsedReference::Relative { resource_type: "Encounter", id: "1", version_id: Some("1") }
+	);
+
+	let reference =
+		Reference::builder().r#type("Encounter".to_owned()).reference("#1".to_owned()).build();
+	let parsed = reference.parse().expect("parsing reference");
+	assert_eq!(parsed, ParsedReference::Local { id: "1" });
+
+	let reference =
+		Reference::builder().r#type("Task".to_owned()).reference("garbage".to_owned()).build();
+	let parsed = reference.parse();
+	assert_eq!(parsed, None);
+}
+
+#[test]
+fn codeable_concept() {
+	let concept = CodeableConcept::builder()
+		.coding(vec![
+			Some(Coding::builder().system("system1".to_owned()).code("code1".to_owned()).build()),
+			Some(Coding::builder().system("system2".to_owned()).code("code2".to_owned()).build()),
+			Some(Coding::builder().system("system3".to_owned()).code("code3".to_owned()).build()),
+			Some(Coding::builder().system("system1".to_owned()).code("code4".to_owned()).build()),
+		])
+		.build();
+
+	let mut codes1 = concept.codes_with_system("system1");
+	assert_eq!(codes1.next(), Some("code1"));
+	assert_eq!(codes1.next(), Some("code4"));
+	assert_eq!(codes1.next(), None);
+	let code3 = concept.code_with_system("system3");
+	assert_eq!(code3, Some("code3"));
 }

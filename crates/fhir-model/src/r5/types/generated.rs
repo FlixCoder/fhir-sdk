@@ -5,6 +5,7 @@ use serde::{Serialize, Deserialize};
 #[cfg(feature = "builders")]
 use typed_builder::TypedBuilder;
 use super::super::codes;
+use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
 /** Address Type: An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
 The ISO21090-codedString may be used to provide a coded representation of the contents of strings in an Address.
 
@@ -604,7 +605,7 @@ pub struct AnnotationInner {
         )
     )]
     #[serde(rename = "time")]
-    pub time: Option<String>,
+    pub time: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_time")]
@@ -796,7 +797,7 @@ pub struct AttachmentInner {
         )
     )]
     #[serde(rename = "data")]
-    pub data: Option<String>,
+    pub data: Option<Base64Binary>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_data")]
@@ -840,7 +841,7 @@ pub struct AttachmentInner {
         )
     )]
     #[serde(rename = "size")]
-    pub size: Option<String>,
+    pub size: Option<Integer64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_size")]
@@ -862,7 +863,7 @@ pub struct AttachmentInner {
         )
     )]
     #[serde(rename = "hash")]
-    pub hash: Option<String>,
+    pub hash: Option<Base64Binary>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_hash")]
@@ -906,7 +907,7 @@ pub struct AttachmentInner {
         )
     )]
     #[serde(rename = "creation")]
-    pub creation: Option<String>,
+    pub creation: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_creation")]
@@ -1282,7 +1283,7 @@ pub struct AvailabilityAvailableTime {
         )
     )]
     #[serde(rename = "availableStartTime")]
-    pub available_start_time: Option<String>,
+    pub available_start_time: Option<Time>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_availableStartTime")]
@@ -1304,7 +1305,7 @@ pub struct AvailabilityAvailableTime {
         )
     )]
     #[serde(rename = "availableEndTime")]
-    pub available_end_time: Option<String>,
+    pub available_end_time: Option<Time>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_availableEndTime")]
@@ -3075,7 +3076,7 @@ pub struct DataRequirementDateFilter {
 pub enum DataRequirementDateFilterValue {
     /// Variant accepting the DateTime type.
     #[serde(rename = "valueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Period type.
     #[serde(rename = "valuePeriod")]
     Period(Period),
@@ -3232,7 +3233,7 @@ pub struct DataRequirementValueFilter {
 pub enum DataRequirementValueFilterValue {
     /// Variant accepting the DateTime type.
     #[serde(rename = "valueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Period type.
     #[serde(rename = "valuePeriod")]
     Period(Period),
@@ -5574,7 +5575,7 @@ pub struct ElementDefinitionType {
 pub enum ElementDefinitionDefaultValue {
     /// Variant accepting the Base64Binary type.
     #[serde(rename = "defaultValueBase64Binary")]
-    Base64Binary(String),
+    Base64Binary(Base64Binary),
     /// Variant accepting the Boolean type.
     #[serde(rename = "defaultValueBoolean")]
     Boolean(bool),
@@ -5586,10 +5587,10 @@ pub enum ElementDefinitionDefaultValue {
     Code(String),
     /// Variant accepting the Date type.
     #[serde(rename = "defaultValueDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "defaultValueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Decimal type.
     #[serde(rename = "defaultValueDecimal")]
     Decimal(f64),
@@ -5598,13 +5599,13 @@ pub enum ElementDefinitionDefaultValue {
     Id(String),
     /// Variant accepting the Instant type.
     #[serde(rename = "defaultValueInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Integer type.
     #[serde(rename = "defaultValueInteger")]
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "defaultValueInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the Markdown type.
     #[serde(rename = "defaultValueMarkdown")]
     Markdown(String),
@@ -5619,7 +5620,7 @@ pub enum ElementDefinitionDefaultValue {
     String(String),
     /// Variant accepting the Time type.
     #[serde(rename = "defaultValueTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the UnsignedInt type.
     #[serde(rename = "defaultValueUnsignedInt")]
     UnsignedInt(u32),
@@ -5908,7 +5909,7 @@ pub enum ElementDefinitionDefaultValueExtension {
 pub enum ElementDefinitionFixed {
     /// Variant accepting the Base64Binary type.
     #[serde(rename = "fixedBase64Binary")]
-    Base64Binary(String),
+    Base64Binary(Base64Binary),
     /// Variant accepting the Boolean type.
     #[serde(rename = "fixedBoolean")]
     Boolean(bool),
@@ -5920,10 +5921,10 @@ pub enum ElementDefinitionFixed {
     Code(String),
     /// Variant accepting the Date type.
     #[serde(rename = "fixedDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "fixedDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Decimal type.
     #[serde(rename = "fixedDecimal")]
     Decimal(f64),
@@ -5932,13 +5933,13 @@ pub enum ElementDefinitionFixed {
     Id(String),
     /// Variant accepting the Instant type.
     #[serde(rename = "fixedInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Integer type.
     #[serde(rename = "fixedInteger")]
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "fixedInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the Markdown type.
     #[serde(rename = "fixedMarkdown")]
     Markdown(String),
@@ -5953,7 +5954,7 @@ pub enum ElementDefinitionFixed {
     String(String),
     /// Variant accepting the Time type.
     #[serde(rename = "fixedTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the UnsignedInt type.
     #[serde(rename = "fixedUnsignedInt")]
     UnsignedInt(u32),
@@ -6242,7 +6243,7 @@ pub enum ElementDefinitionFixedExtension {
 pub enum ElementDefinitionPattern {
     /// Variant accepting the Base64Binary type.
     #[serde(rename = "patternBase64Binary")]
-    Base64Binary(String),
+    Base64Binary(Base64Binary),
     /// Variant accepting the Boolean type.
     #[serde(rename = "patternBoolean")]
     Boolean(bool),
@@ -6254,10 +6255,10 @@ pub enum ElementDefinitionPattern {
     Code(String),
     /// Variant accepting the Date type.
     #[serde(rename = "patternDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "patternDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Decimal type.
     #[serde(rename = "patternDecimal")]
     Decimal(f64),
@@ -6266,13 +6267,13 @@ pub enum ElementDefinitionPattern {
     Id(String),
     /// Variant accepting the Instant type.
     #[serde(rename = "patternInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Integer type.
     #[serde(rename = "patternInteger")]
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "patternInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the Markdown type.
     #[serde(rename = "patternMarkdown")]
     Markdown(String),
@@ -6287,7 +6288,7 @@ pub enum ElementDefinitionPattern {
     String(String),
     /// Variant accepting the Time type.
     #[serde(rename = "patternTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the UnsignedInt type.
     #[serde(rename = "patternUnsignedInt")]
     UnsignedInt(u32),
@@ -6641,7 +6642,7 @@ pub struct ElementDefinitionExample {
 pub enum ElementDefinitionExampleValue {
     /// Variant accepting the Base64Binary type.
     #[serde(rename = "valueBase64Binary")]
-    Base64Binary(String),
+    Base64Binary(Base64Binary),
     /// Variant accepting the Boolean type.
     #[serde(rename = "valueBoolean")]
     Boolean(bool),
@@ -6653,10 +6654,10 @@ pub enum ElementDefinitionExampleValue {
     Code(String),
     /// Variant accepting the Date type.
     #[serde(rename = "valueDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "valueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Decimal type.
     #[serde(rename = "valueDecimal")]
     Decimal(f64),
@@ -6665,13 +6666,13 @@ pub enum ElementDefinitionExampleValue {
     Id(String),
     /// Variant accepting the Instant type.
     #[serde(rename = "valueInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Integer type.
     #[serde(rename = "valueInteger")]
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "valueInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the Markdown type.
     #[serde(rename = "valueMarkdown")]
     Markdown(String),
@@ -6686,7 +6687,7 @@ pub enum ElementDefinitionExampleValue {
     String(String),
     /// Variant accepting the Time type.
     #[serde(rename = "valueTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the UnsignedInt type.
     #[serde(rename = "valueUnsignedInt")]
     UnsignedInt(u32),
@@ -6975,16 +6976,16 @@ pub enum ElementDefinitionExampleValueExtension {
 pub enum ElementDefinitionMinValue {
     /// Variant accepting the Date type.
     #[serde(rename = "minValueDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "minValueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Instant type.
     #[serde(rename = "minValueInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Time type.
     #[serde(rename = "minValueTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the Decimal type.
     #[serde(rename = "minValueDecimal")]
     Decimal(f64),
@@ -6993,7 +6994,7 @@ pub enum ElementDefinitionMinValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "minValueInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the PositiveInt type.
     #[serde(rename = "minValuePositiveInt")]
     PositiveInt(NonZeroU32),
@@ -7045,16 +7046,16 @@ pub enum ElementDefinitionMinValueExtension {
 pub enum ElementDefinitionMaxValue {
     /// Variant accepting the Date type.
     #[serde(rename = "maxValueDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "maxValueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Instant type.
     #[serde(rename = "maxValueInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Time type.
     #[serde(rename = "maxValueTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the Decimal type.
     #[serde(rename = "maxValueDecimal")]
     Decimal(f64),
@@ -7063,7 +7064,7 @@ pub enum ElementDefinitionMaxValue {
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "maxValueInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the PositiveInt type.
     #[serde(rename = "maxValuePositiveInt")]
     PositiveInt(NonZeroU32),
@@ -8208,7 +8209,7 @@ impl Extension {
 pub enum ExtensionValue {
     /// Variant accepting the Base64Binary type.
     #[serde(rename = "valueBase64Binary")]
-    Base64Binary(String),
+    Base64Binary(Base64Binary),
     /// Variant accepting the Boolean type.
     #[serde(rename = "valueBoolean")]
     Boolean(bool),
@@ -8220,10 +8221,10 @@ pub enum ExtensionValue {
     Code(String),
     /// Variant accepting the Date type.
     #[serde(rename = "valueDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "valueDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
     /// Variant accepting the Decimal type.
     #[serde(rename = "valueDecimal")]
     Decimal(f64),
@@ -8232,13 +8233,13 @@ pub enum ExtensionValue {
     Id(String),
     /// Variant accepting the Instant type.
     #[serde(rename = "valueInstant")]
-    Instant(String),
+    Instant(Instant),
     /// Variant accepting the Integer type.
     #[serde(rename = "valueInteger")]
     Integer(i32),
     /// Variant accepting the Integer64 type.
     #[serde(rename = "valueInteger64")]
-    Integer64(String),
+    Integer64(Integer64),
     /// Variant accepting the Markdown type.
     #[serde(rename = "valueMarkdown")]
     Markdown(String),
@@ -8253,7 +8254,7 @@ pub enum ExtensionValue {
     String(String),
     /// Variant accepting the Time type.
     #[serde(rename = "valueTime")]
-    Time(String),
+    Time(Time),
     /// Variant accepting the UnsignedInt type.
     #[serde(rename = "valueUnsignedInt")]
     UnsignedInt(u32),
@@ -9187,7 +9188,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
         )
     )]
     #[serde(rename = "restoreDate")]
-    pub restore_date: Option<String>,
+    pub restore_date: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_restoreDate")]
@@ -9323,7 +9324,7 @@ pub struct MetaInner {
         )
     )]
     #[serde(rename = "lastUpdated")]
-    pub last_updated: Option<String>,
+    pub last_updated: Option<Instant>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_lastUpdated")]
@@ -10179,7 +10180,7 @@ pub struct PeriodInner {
         )
     )]
     #[serde(rename = "start")]
-    pub start: Option<String>,
+    pub start: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_start")]
@@ -10201,7 +10202,7 @@ pub struct PeriodInner {
         )
     )]
     #[serde(rename = "end")]
-    pub end: Option<String>,
+    pub end: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_end")]
@@ -11522,7 +11523,7 @@ pub struct RelatedArtifactInner {
         )
     )]
     #[serde(rename = "publicationDate")]
-    pub publication_date: Option<String>,
+    pub publication_date: Option<Date>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_publicationDate")]
@@ -11940,7 +11941,7 @@ pub struct SignatureInner {
         )
     )]
     #[serde(rename = "when")]
-    pub when: Option<String>,
+    pub when: Option<Instant>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_when")]
@@ -12046,7 +12047,7 @@ pub struct SignatureInner {
         )
     )]
     #[serde(rename = "data")]
-    pub data: Option<String>,
+    pub data: Option<Base64Binary>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_data")]
@@ -12183,7 +12184,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
         )
     )]
     #[serde(rename = "event")]
-    pub event: Vec<Option<String>>,
+    pub event: Vec<Option<DateTime>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_event")]
@@ -12579,7 +12580,7 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
         )
     )]
     #[serde(rename = "timeOfDay")]
-    pub time_of_day: Vec<Option<String>>,
+    pub time_of_day: Vec<Option<Time>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_timeOfDay")]
@@ -12906,10 +12907,10 @@ pub enum TriggerDefinitionTiming {
     Reference(Reference),
     /// Variant accepting the Date type.
     #[serde(rename = "timingDate")]
-    Date(String),
+    Date(Date),
     /// Variant accepting the DateTime type.
     #[serde(rename = "timingDateTime")]
-    DateTime(String),
+    DateTime(DateTime),
 }
 /// Extension value for TriggerDefinitionTiming.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

@@ -8,7 +8,8 @@ use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r5::{
 		codes::SearchComparator,
-		resources::{Patient, ResourceType},
+		reference_to,
+		resources::{BaseResource, Patient, ResourceType},
 	},
 };
 use futures::TryStreamExt;
@@ -41,6 +42,20 @@ async fn crud() -> Result<()> {
 	patient.delete(&client).await?;
 	let resource = client.read::<Patient>(&id).await?;
 	assert_eq!(resource, None);
+
+	Ok(())
+}
+
+#[tokio::test]
+async fn read_referenced() -> Result<()> {
+	let client = client()?;
+
+	let mut patient = Patient::builder().build();
+	patient.create(&client).await?;
+
+	let reference = reference_to(&patient).expect("creating reference");
+	let read = client.read_referenced(&reference).await?;
+	assert_eq!(read.as_base_resource().id(), patient.id());
 
 	Ok(())
 }

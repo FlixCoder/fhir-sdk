@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2023-09-08
+
+### Bug Fixes
+
+- Have the doc-test only at the right features
+- Impl Send for returned Stream
+- Base64 needs to use padding and strip whitespaces
+
+### Documentation
+
+- Add search to example
+
+### Features
+
+- Implement creation of References
+- Add Reference parsing
+- Implement reading a referenced resource
+- Add getters for code by system for CodeableConcept
+- Implement Rust types for primitive FHIR types
+- Generate models using new primitive types
+
+### Miscellaneous Tasks
+
+- Update generator fhir-model
+
+### Performance
+
+- Use optimized proc macro compilation
+
+### Refactor
+
+- Move misc functions to module
+- Move and rename reference creation methods
+
+### Testing
+
+- Create xtask test command
+- Reference search
+- Fetch referenced resource
+- Adjust to new primitive date types
+- Adjust JSON comparison to FHIR to fix tests
+
 ## [0.4.1] - 2023-09-01
 
 ### Bug Fixes

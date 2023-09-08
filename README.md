@@ -41,6 +41,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 ```rust
 use fhir_sdk::r5::resources::Patient;
 use fhir_sdk::client::*;
+use fhir_sdk::TryStreamExt;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -53,6 +54,17 @@ async fn main() -> Result<(), Error> {
     patient.create(&client).await?;
     // The id and versionId is updated automatically this way.
     assert!(patient.id.is_some());
+    
+    // Search for all patient with `active` = false, including pagination.
+    let patients: Vec<Patient> = client
+        .search(SearchParameters::empty().and(TokenSearch::Standard {
+            name: "active",
+            system: None,
+            code: Some("false"),
+            not: false,
+        }))
+        .try_collect()
+        .await?;
 
     Ok(())
 }

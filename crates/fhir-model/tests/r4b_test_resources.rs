@@ -1,9 +1,10 @@
 #![cfg(all(feature = "r4b", feature = "builders"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
+mod json_compare;
+
 use std::fs;
 
-use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
 use fhir_model::{
 	r4b::{
 		codes::{RequestIntent, RequestStatus, RiskProbability},
@@ -13,14 +14,14 @@ use fhir_model::{
 		},
 		types::{CodeableConcept, Coding, Identifier, Reference},
 	},
-	ParsedReference,
+	Date, DateTime, ParsedReference,
 };
 use serde_json::Value;
 
+use self::json_compare::assert_fhir_json_equal;
+
 #[test]
 fn serialization_deserialization() {
-	let config = Config::new(CompareMode::Strict).numeric_mode(NumericMode::AssumeFloat);
-
 	for entry in fs::read_dir(format!("{}/tests/r4b-examples-json/", env!("CARGO_MANIFEST_DIR")))
 		.expect("read dir")
 	{
@@ -33,7 +34,7 @@ fn serialization_deserialization() {
 		let json: Value = serde_json::from_str(&string).expect("deserialize to value");
 		let deserialized: Resource = serde_json::from_value(json.clone()).expect("deserializing");
 		let serialized = serde_json::to_value(&deserialized).expect("serializing");
-		assert_json_matches!(serialized, json, config.clone());
+		assert_fhir_json_equal(&serialized, &json);
 	}
 }
 

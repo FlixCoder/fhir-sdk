@@ -12,7 +12,7 @@ pub mod r5;
 
 use std::ops::{Deref, DerefMut};
 
-use base64::prelude::{Engine, BASE64_STANDARD_NO_PAD};
+use base64::prelude::{Engine, BASE64_STANDARD};
 use serde::{Deserialize, Serialize};
 pub use time;
 
@@ -79,7 +79,7 @@ impl Serialize for Base64Binary {
 	where
 		S: serde::Serializer,
 	{
-		let s = BASE64_STANDARD_NO_PAD.encode(&self.0);
+		let s = BASE64_STANDARD.encode(&self.0);
 		s.serialize(serializer)
 	}
 }
@@ -89,8 +89,9 @@ impl<'de> Deserialize<'de> for Base64Binary {
 	where
 		D: serde::Deserializer<'de>,
 	{
-		let s = String::deserialize(deserializer)?;
-		let bytes = BASE64_STANDARD_NO_PAD.decode(s).map_err(serde::de::Error::custom)?;
+		let mut s = String::deserialize(deserializer)?;
+		s.retain(|c| !c.is_whitespace());
+		let bytes = BASE64_STANDARD.decode(s).map_err(serde::de::Error::custom)?;
 		Ok(Self(bytes))
 	}
 }

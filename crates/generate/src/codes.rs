@@ -70,6 +70,26 @@ impl From<CodeSystem> for Code {
 				let inner_concepts: Vec<_> = concept.concept.drain(..).flatten().collect();
 				[concept].into_iter().chain(inner_concepts)
 			})
+			.flat_map(|mut concept| {
+				let inner_concepts: Vec<_> = concept.concept.drain(..).flatten().collect();
+				[concept].into_iter().chain(inner_concepts)
+			})
+			.flat_map(|mut concept| {
+				let inner_concepts: Vec<_> = concept.concept.drain(..).flatten().collect();
+				[concept].into_iter().chain(inner_concepts)
+			})
+			.flat_map(|mut concept| {
+				let inner_concepts: Vec<_> = concept.concept.drain(..).flatten().collect();
+				[concept].into_iter().chain(inner_concepts)
+			})
+			.flat_map(|mut concept| {
+				let inner_concepts: Vec<_> = concept.concept.drain(..).flatten().collect();
+				[concept].into_iter().chain(inner_concepts)
+			})
+			.flat_map(|mut concept| {
+				let inner_concepts: Vec<_> = concept.concept.drain(..).flatten().collect();
+				[concept].into_iter().chain(inner_concepts)
+			})
 			.map(CodeItem::from)
 			.collect();
 

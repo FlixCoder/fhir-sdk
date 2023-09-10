@@ -28914,6 +28914,14 @@ base64Binary. base64Binary Type: A stream of bytes */
 
 boolean. boolean Type: Value of "true" or "false" */
     Boolean,
+    /** **canonical**
+
+canonical. canonical type: A URI that is a reference to a canonical URL on a FHIR resource */
+    Canonical,
+    /** **code**
+
+code. code type: A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents */
+    Code,
     /** **date**
 
 date. date Type: A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates. */
@@ -28926,6 +28934,10 @@ dateTime. dateTime Type: A date, date-time or partial date (e.g. just year or ye
 
 decimal. decimal Type: A rational number with implicit precision */
     Decimal,
+    /** **id**
+
+id. id type: Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive. */
+    Id,
     /** **instant**
 
 instant. instant Type: An instant in time - known at least to the second */
@@ -28938,6 +28950,18 @@ integer. integer Type: A whole number */
 
 integer64. integer64 Type: A very large whole number */
     Integer64,
+    /** **markdown**
+
+markdown. markdown type: A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine */
+    Markdown,
+    /** **oid**
+
+oid. oid type: An OID represented as a URI */
+    Oid,
+    /** **positiveInt**
+
+positiveInt. positiveInt type: An integer with a value that is positive (e.g. >0) */
+    PositiveInt,
     /** **string**
 
 string. string Type: A sequence of Unicode characters */
@@ -28946,10 +28970,22 @@ string. string Type: A sequence of Unicode characters */
 
 time. time Type: A time during the day, with no date specified */
     Time,
+    /** **unsignedInt**
+
+unsignedInt. unsignedInt type: An integer with a value that is not negative (e.g. >= 0) */
+    UnsignedInt,
     /** **uri**
 
 uri. uri Type: String of characters used to identify a name or a resource */
     Uri,
+    /** **url**
+
+url. url type: A URI that is a literal reference */
+    Url,
+    /** **uuid**
+
+uuid. uuid type: A UUID, represented as a URI */
+    Uuid,
     /** **xhtml**
 
 xhtml. xhtml Type definition */
@@ -29174,15 +29210,24 @@ impl ::core::str::FromStr for FHIRTypes {
             "VisionPrescription" => Ok(Self::VisionPrescription),
             "base64Binary" => Ok(Self::Base64Binary),
             "boolean" => Ok(Self::Boolean),
+            "canonical" => Ok(Self::Canonical),
+            "code" => Ok(Self::Code),
             "date" => Ok(Self::Date),
             "dateTime" => Ok(Self::DateTime),
             "decimal" => Ok(Self::Decimal),
+            "id" => Ok(Self::Id),
             "instant" => Ok(Self::Instant),
             "integer" => Ok(Self::Integer),
             "integer64" => Ok(Self::Integer64),
+            "markdown" => Ok(Self::Markdown),
+            "oid" => Ok(Self::Oid),
+            "positiveInt" => Ok(Self::PositiveInt),
             "string" => Ok(Self::String),
             "time" => Ok(Self::Time),
+            "unsignedInt" => Ok(Self::UnsignedInt),
             "uri" => Ok(Self::Uri),
+            "url" => Ok(Self::Url),
+            "uuid" => Ok(Self::Uuid),
             "xhtml" => Ok(Self::Xhtml),
             _ => Err(format!("Unknown value: {s}")),
         }
@@ -29405,15 +29450,24 @@ impl AsRef<str> for FHIRTypes {
             Self::VisionPrescription => "VisionPrescription",
             Self::Base64Binary => "base64Binary",
             Self::Boolean => "boolean",
+            Self::Canonical => "canonical",
+            Self::Code => "code",
             Self::Date => "date",
             Self::DateTime => "dateTime",
             Self::Decimal => "decimal",
+            Self::Id => "id",
             Self::Instant => "instant",
             Self::Integer => "integer",
             Self::Integer64 => "integer64",
+            Self::Markdown => "markdown",
+            Self::Oid => "oid",
+            Self::PositiveInt => "positiveInt",
             Self::String => "string",
             Self::Time => "time",
+            Self::UnsignedInt => "unsignedInt",
             Self::Uri => "uri",
+            Self::Url => "url",
+            Self::Uuid => "uuid",
             Self::Xhtml => "xhtml",
         }
     }
@@ -29635,15 +29689,24 @@ impl ::std::fmt::Display for FHIRTypes {
             Self::VisionPrescription => "VisionPrescription",
             Self::Base64Binary => "base64Binary",
             Self::Boolean => "boolean",
+            Self::Canonical => "canonical",
+            Self::Code => "code",
             Self::Date => "date",
             Self::DateTime => "dateTime",
             Self::Decimal => "decimal",
+            Self::Id => "id",
             Self::Instant => "instant",
             Self::Integer => "integer",
             Self::Integer64 => "integer64",
+            Self::Markdown => "markdown",
+            Self::Oid => "oid",
+            Self::PositiveInt => "positiveInt",
             Self::String => "string",
             Self::Time => "time",
+            Self::UnsignedInt => "unsignedInt",
             Self::Uri => "uri",
+            Self::Url => "url",
+            Self::Uuid => "uuid",
             Self::Xhtml => "xhtml",
         };
         write!(f, "{s}")

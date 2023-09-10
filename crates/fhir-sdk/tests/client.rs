@@ -7,9 +7,10 @@ use eyre::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r5::{
-		codes::SearchComparator,
+		codes::{EncounterStatus, SearchComparator},
 		reference_to,
-		resources::{BaseResource, Patient, ResourceType},
+		resources::{BaseResource, Encounter, Patient, Resource, ResourceType},
+		types::Reference,
 	},
 	Date,
 };
@@ -94,6 +95,61 @@ async fn search() -> Result<()> {
 	assert_eq!(patients[0].birth_date, Some(date));
 
 	patient.delete(&client).await?;
+	Ok(())
+}
+
+#[tokio::test]
+async fn transaction() -> Result<()> {
+	let client = client()?;
+
+	let mut patient1 = Patient::builder().build();
+	patient1.create(&client).await?;
+	let mut patient2 = Patient::builder().build();
+	patient2.create(&client).await?;
+	let mut patient3 = Patient::builder().build();
+	patient3.create(&client).await?;
+
+	let mut transaction = client.transaction();
+	transaction.delete(ResourceType::Patient, patient1.id.as_ref().expect("Patient.id"));
+	transaction.read(ResourceType::Patient, patient1.id.as_ref().expect("Patient.id"));
+	transaction.update(patient3, true)?;
+	let patient_ref = transaction.create(Patient::builder().build());
+	let _encounter_ref = transaction.create(
+		Encounter::builder()
+			.status(EncounterStatus::Planned)
+			.subject(Reference::builder().reference(patient_ref.clone()).build())
+			.build(),
+	);
+
+	let mut entries = transaction.send().await?.0.entry.into_iter().flatten();
+	let _delete = entries.next().expect("DELETE response");
+	let _read = entries.next().expect("GET response");
+	let _update = entries.next().expect("PUT response");
+	let _create_patient = entries.next().expect("POST Patient response");
+	let create_encounter = entries.next().expect("POST Encounter response");
+	assert!(entries.next().is_none());
+
+	let encounter_ref = create_encounter
+		.full_url
+		.as_ref()
+		.or(create_encounter.response.as_ref().and_then(|response| response.location.as_ref()))
+		.expect("Encounter ID in response");
+	let Resource::Encounter(encounter) = client
+		.read_referenced(&Reference::builder().reference(encounter_ref.clone()).build())
+		.await?
+	else {
+		panic!("Resource should be Encounter");
+	};
+	let subject_ref = encounter
+		.subject
+		.as_ref()
+		.expect("Encounter.subject")
+		.reference
+		.as_ref()
+		.expect("Encounter.subject.reference");
+	println!("Subject reference is: {subject_ref}");
+	assert_ne!(subject_ref, &patient_ref);
+
 	Ok(())
 }
 

@@ -25,7 +25,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] Create, Read, Update, Delete
   - [x] Search
   - [x] Paging
-  - [ ] Batch operations / Transactions
+  - [x] Batch operations / Transactions
   - [ ] Operations
   - [ ] Patch
   - [ ] GraphQL

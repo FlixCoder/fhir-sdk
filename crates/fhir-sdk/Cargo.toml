@@ -14,7 +14,7 @@ version = "0.5.0"
 
 [features]
 default = ["r5", "builders", "client", "docs"]
-client = ["dep:async-trait", "dep:futures", "dep:reqwest", "dep:serde", "dep:serde_json", "dep:thiserror", "dep:tokio-retry"]
+client = ["dep:async-trait", "dep:futures", "dep:reqwest", "dep:serde", "dep:serde_json", "dep:thiserror", "dep:tokio-retry", "dep:uuid"]
 builders = ["fhir-model/builders"]
 r4b = ["fhir-model/r4b"]
 r5 = ["fhir-model/r5"]
@@ -29,6 +29,7 @@ serde = {version = "1.0.159", optional = true}
 serde_json = {version = "1.0.95", optional = true}
 thiserror = {version = "1.0.40", optional = true}
 tokio-retry = {version = "0.3.0", optional = true}
+uuid = {version = "1.4.1", features = ["v4"], optional = true}
 
 [dev-dependencies]
 eyre = "0.6.8"

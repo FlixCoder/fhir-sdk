@@ -7,6 +7,7 @@ mod misc;
 mod paging;
 mod request;
 mod search;
+mod transaction;
 mod write;
 
 use std::sync::{Arc, Mutex};
@@ -31,7 +32,6 @@ use reqwest::{
 };
 use serde::{de::DeserializeOwned, Serialize};
 
-use self::paging::Paged;
 pub use self::{
 	error::Error,
 	request::RequestSettings,
@@ -41,6 +41,7 @@ pub use self::{
 	},
 	write::ResourceWrite,
 };
+use self::{paging::Paged, transaction::BatchTransaction};
 
 /// User agent of this client.
 const USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -279,6 +280,18 @@ impl Client {
 				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
 		})
 		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
+	}
+
+	/// Start building a new batch request.
+	#[must_use]
+	pub fn batch(&self) -> BatchTransaction {
+		BatchTransaction::new(self.clone(), false)
+	}
+
+	/// Start building a new transaction request.
+	#[must_use]
+	pub fn transaction(&self) -> BatchTransaction {
+		BatchTransaction::new(self.clone(), true)
 	}
 }
 

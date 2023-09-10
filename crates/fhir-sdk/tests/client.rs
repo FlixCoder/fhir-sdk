@@ -7,9 +7,11 @@ use eyre::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r5::{
-		codes::{EncounterStatus, SearchComparator},
+		codes::{EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
-		resources::{BaseResource, Encounter, Patient, Resource, ResourceType},
+		resources::{
+			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
+		},
 		types::Reference,
 	},
 	Date,
@@ -161,16 +163,15 @@ async fn paging() -> Result<()> {
 	let n = 99;
 
 	println!("Preparing..");
-	let mut ids = Vec::new();
-	// TODO: Use batch/transaction instead.
+	let patient = Patient::builder()
+		.active(false)
+		.birth_date(Date::from_str(date).expect("parse Date"))
+		.build();
+	let mut batch = client.batch();
 	for _ in 0..n {
-		let mut patient = Patient::builder()
-			.active(false)
-			.birth_date(Date::from_str(date).expect("parse Date"))
-			.build();
-		let id = patient.create(&client).await?;
-		ids.push(id);
+		batch.create(patient.clone());
 	}
+	ensure_batch_succeeded(batch.send().await?);
 
 	println!("Starting search..");
 	let patients: Vec<Patient> = client
@@ -184,9 +185,25 @@ async fn paging() -> Result<()> {
 	assert_eq!(patients.len(), n);
 
 	println!("Cleaning up..");
-	// TODO: Use batch/transaction instead.
-	for id in ids {
-		client.delete(ResourceType::Patient, &id).await?;
+	let mut batch = client.batch();
+	for patient in patients {
+		batch.delete(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"));
 	}
+	ensure_batch_succeeded(batch.send().await?);
 	Ok(())
+}
+
+/// Go through all entries of the bundle, extracting the outcomes and search for
+/// errors inside. Fail if there is any of severity error or fatal.
+fn ensure_batch_succeeded(bundle: Bundle) {
+	let batch_errors = bundle
+		.entry
+		.iter()
+		.flatten()
+		.filter_map(|entry| entry.response.as_ref())
+		.filter_map(|response| response.outcome.as_ref())
+		.filter_map(|resource| <&OperationOutcome>::try_from(resource).ok())
+		.flat_map(|outcome| outcome.issue.iter().flatten())
+		.any(|issue| matches!(issue.severity, IssueSeverity::Error | IssueSeverity::Fatal));
+	assert!(!batch_errors);
 }

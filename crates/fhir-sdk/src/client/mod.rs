@@ -21,8 +21,8 @@ use futures::stream::{Stream, TryStreamExt};
 use model::{
 	codes::SearchEntryMode,
 	resources::{
-		BaseResource, Bundle, CapabilityStatement, NamedResource, Resource, ResourceType,
-		WrongResourceType,
+		BaseResource, Bundle, CapabilityStatement, NamedResource, Parameters, ParametersParameter,
+		ParametersParameterValue, Patient, Resource, ResourceType, WrongResourceType,
 	},
 	types::Reference,
 	JSON_MIME_TYPE,
@@ -300,6 +300,64 @@ impl Client {
 	pub async fn operation_encounter_everything(&self, id: &str) -> Result<Bundle, Error> {
 		let url = self.url(&["Encounter", id, "$everything"]);
 		let request = self.0.client.get(url);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let resource: Bundle = response.json().await?;
+			Ok(resource)
+		} else {
+			Err(Error::from_response(response).await)
+		}
+	}
+
+	/// Operation `$everything` on `Patient`, returning a Bundle with all
+	/// resources for an `Patient` record.
+	pub async fn operation_patient_everything(&self, id: &str) -> Result<Bundle, Error> {
+		let url = self.url(&["Patient", id, "$everything"]);
+		let request = self.0.client.get(url);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let resource: Bundle = response.json().await?;
+			Ok(resource)
+		} else {
+			Err(Error::from_response(response).await)
+		}
+	}
+
+	/// Operation `$match` on `Patient`, returning matches for Patient records
+	/// based on a given incomplete Patient resource.
+	pub async fn operation_patient_match(
+		&self,
+		patient: Patient,
+		only_certain: bool,
+		count: i32,
+	) -> Result<Bundle, Error> {
+		let parameters = Parameters::builder()
+			.parameter(vec![
+				Some(
+					ParametersParameter::builder()
+						.name("resource".to_owned())
+						.resource(Resource::from(patient))
+						.build(),
+				),
+				Some(
+					ParametersParameter::builder()
+						.name("onlyCertainMatches".to_owned())
+						.value(ParametersParameterValue::Boolean(only_certain))
+						.build(),
+				),
+				Some(
+					ParametersParameter::builder()
+						.name("count".to_owned())
+						.value(ParametersParameterValue::Integer(count))
+						.build(),
+				),
+			])
+			.build();
+
+		let url = self.url(&["Patient", "$match"]);
+		let request = self.0.client.post(url).json(&parameters);
 
 		let response = self.request_settings().make_request(request).await?;
 		if response.status().is_success() {

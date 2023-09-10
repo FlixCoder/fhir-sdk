@@ -12,7 +12,7 @@ use fhir_sdk::{
 		resources::{
 			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
 		},
-		types::Reference,
+		types::{Identifier, Reference},
 	},
 	Date,
 };
@@ -223,6 +223,29 @@ async fn operation_encounter_everything() -> Result<()> {
 
 	let bundle =
 		client.operation_encounter_everything(encounter.id.as_ref().expect("Encounter.id")).await?;
+	let contains_patient = bundle
+		.entry
+		.iter()
+		.flatten()
+		.filter_map(|entry| entry.resource.as_ref())
+		.filter_map(|resource| resource.as_base_resource().id().as_ref())
+		.any(|id| Some(id) == patient.id.as_ref());
+	assert!(contains_patient);
+
+	Ok(())
+}
+
+#[tokio::test]
+#[ignore = "Server does not support this"]
+async fn operation_patient_match() -> Result<()> {
+	let client = client()?;
+
+	let mut patient = Patient::builder()
+		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build())])
+		.build();
+	patient.create(&client).await?;
+
+	let bundle = client.operation_patient_match(patient.clone(), true, 1).await?;
 	let contains_patient = bundle
 		.entry
 		.iter()

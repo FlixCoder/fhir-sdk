@@ -2,6 +2,317 @@
 #![allow(clippy::too_many_lines)]
 use serde::{Serialize, Deserialize};
 use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
+#[doc = "**[ACMECholCodesBlood](http://hl7.org/fhir/CodeSystem/example)**. This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ACMECholCodesBlood {
+    /** **chol**
+
+SChol. Serum Cholesterol */
+    Chol,
+    /** **chol-mass**
+
+SChol (mg/L). Serum Cholesterol, in mg/L */
+    CholMass,
+    /** **chol-mmol**
+
+SChol (mmol/L). Serum Cholesterol, in mmol/L */
+    CholMmol,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for ACMECholCodesBlood {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "chol" => Ok(Self::Chol),
+            "chol-mass" => Ok(Self::CholMass),
+            "chol-mmol" => Ok(Self::CholMmol),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for ACMECholCodesBlood {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Chol => "chol",
+            Self::CholMass => "chol-mass",
+            Self::CholMmol => "chol-mmol",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for ACMECholCodesBlood {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Chol => "SChol",
+            Self::CholMass => "SChol (mg/L)",
+            Self::CholMmol => "SChol (mmol/L)",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for ACMECholCodesBlood {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for ACMECholCodesBlood {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<ACMECholCodesBlood> for Coding {
+    fn from(code: ACMECholCodesBlood) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/CodeSystem/example".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<ACMECholCodesBlood> for CodeableConcept {
+    fn from(code: ACMECholCodesBlood) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[ASTMSignatureTypeCodes](urn:iso-astm:E1762-95:2013)**. The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ASTMSignatureTypeCodes {
+    /** **1.2.840.10065.1.12.1.1**
+
+Author's Signature. the signature of the primary or sole author of a health information document. There can be only one primary author of a health information document. */
+    N128401006511211,
+    /** **1.2.840.10065.1.12.1.10**
+
+Identity Witness Signature. the signature of an individual who has witnessed another individual who is known to them signing a document. (Example the identity witness is a notary public.) */
+    N1284010065112110,
+    /** **1.2.840.10065.1.12.1.11**
+
+Consent Witness Signature. the signature of an individual who has witnessed the health care provider counselling a patient. */
+    N1284010065112111,
+    /** **1.2.840.10065.1.12.1.12**
+
+Interpreter Signature. the signature of an individual who has translated health care information during an event or the obtaining of consent to a treatment. */
+    N1284010065112112,
+    /** **1.2.840.10065.1.12.1.13**
+
+Review Signature. the signature of a person, device, or algorithm that has reviewed or filtered data for inclusion into the patient record. ( Examples: (1) a medical records clerk who scans a document for inclusion in the medical record, enters header information, or catalogues and classifies the data, or a combination thereof; (2) a gateway that receives data from another computer system and interprets that data or changes its format, or both, before entering it into the patient record.) */
+    N1284010065112113,
+    /** **1.2.840.10065.1.12.1.14**
+
+Source Signature. the signature of an automated data source. (Examples: (1) the signature for an image that is generated by a device for inclusion in the patient record; (2) the signature for an ECG derived by an ECG system for inclusion in the patient record; (3) the data from a biomedical monitoring device or system that is for inclusion in the patient record.) */
+    N1284010065112114,
+    /** **1.2.840.10065.1.12.1.15**
+
+Addendum Signature. the signature on a new amended document of an individual who has corrected, edited, or amended an original health information document. An addendum signature can either be a signature type or a signature sub-type (see 8.1). Any document with an addendum signature shall have a companion document that is the original document with its original, unaltered content, and original signatures. The original document shall be referenced via an attribute in the new document, which contains, for example, the digest of the old document. Whether the original, unaltered, document is always displayed with the addended document is a local matter, but the original, unaltered, document must remain as part of the patient record and be retrievable on demand. */
+    N1284010065112115,
+    /** **1.2.840.10065.1.12.1.16**
+
+Modification Signature. the signature on an original document of an individual who has generated a new amended document. This (original) document shall reference the new document via an additional signature purpose. This is the inverse of an addendum signature and provides a pointer from the original to the amended document. */
+    N1284010065112116,
+    /** **1.2.840.10065.1.12.1.17**
+
+Administrative (Error/Edit) Signature. the signature of an individual who is certifying that the document is invalidated by an error(s), or is placed in the wrong chart. An administrative (error/edit) signature must include an addendum to the document and therefore shall have an addendum signature sub-type (see 8.1). This signature is reserved for the highest health information system administrative classification, since it is a statement that the entire document is invalidated by the error and that the document should no longer be used for patient care, although for legal reasons the document must remain part of the permanent patient record. */
+    N1284010065112117,
+    /** **1.2.840.10065.1.12.1.18**
+
+Timestamp Signature. the signature by an entity or device trusted to provide accurate timestamps. This timestamp might be provided, for example, in the signature time attribute. */
+    N1284010065112118,
+    /** **1.2.840.10065.1.12.1.2**
+
+Coauthor's Signature. the signature of a health information document coauthor. There can be multiple coauthors of a health information document. */
+    N128401006511212,
+    /** **1.2.840.10065.1.12.1.3**
+
+Co-participant's Signature. the signature of an individual who is a participant in the health information document but is not an author or coauthor. (Example a surgeon who is required by institutional, regulatory, or legal rules to sign an operative report, but who was not involved in the authorship of that report.) */
+    N128401006511213,
+    /** **1.2.840.10065.1.12.1.4**
+
+Transcriptionist/Recorder Signature. the signature of an individual who has transcribed a dictated document or recorded written text into a digital machine readable format. */
+    N128401006511214,
+    /** **1.2.840.10065.1.12.1.5**
+
+Verification Signature. a signature verifying the information contained in a document. (Example a physician is required to countersign a verbal order that has previously been recorded in the medical record by a registered nurse who has carried out the verbal order.) */
+    N128401006511215,
+    /** **1.2.840.10065.1.12.1.6**
+
+Validation Signature. a signature validating a health information document for inclusion in the patient record. (Example a medical student or resident is credentialed to perform history or physical examinations and to write progress notes. The attending physician signs the history and physical examination to validate the entry for inclusion in the patient's medical record.) */
+    N128401006511216,
+    /** **1.2.840.10065.1.12.1.7**
+
+Consent Signature. the signature of an individual consenting to what is described in a health information document. */
+    N128401006511217,
+    /** **1.2.840.10065.1.12.1.8**
+
+Signature Witness Signature. the signature of a witness to any other signature. */
+    N128401006511218,
+    /** **1.2.840.10065.1.12.1.9**
+
+Event Witness Signature. the signature of a witness to an event. (Example the witness has observed a procedure and is attesting to this fact.) */
+    N128401006511219,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for ASTMSignatureTypeCodes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "1.2.840.10065.1.12.1.1" => Ok(Self::N128401006511211),
+            "1.2.840.10065.1.12.1.10" => Ok(Self::N1284010065112110),
+            "1.2.840.10065.1.12.1.11" => Ok(Self::N1284010065112111),
+            "1.2.840.10065.1.12.1.12" => Ok(Self::N1284010065112112),
+            "1.2.840.10065.1.12.1.13" => Ok(Self::N1284010065112113),
+            "1.2.840.10065.1.12.1.14" => Ok(Self::N1284010065112114),
+            "1.2.840.10065.1.12.1.15" => Ok(Self::N1284010065112115),
+            "1.2.840.10065.1.12.1.16" => Ok(Self::N1284010065112116),
+            "1.2.840.10065.1.12.1.17" => Ok(Self::N1284010065112117),
+            "1.2.840.10065.1.12.1.18" => Ok(Self::N1284010065112118),
+            "1.2.840.10065.1.12.1.2" => Ok(Self::N128401006511212),
+            "1.2.840.10065.1.12.1.3" => Ok(Self::N128401006511213),
+            "1.2.840.10065.1.12.1.4" => Ok(Self::N128401006511214),
+            "1.2.840.10065.1.12.1.5" => Ok(Self::N128401006511215),
+            "1.2.840.10065.1.12.1.6" => Ok(Self::N128401006511216),
+            "1.2.840.10065.1.12.1.7" => Ok(Self::N128401006511217),
+            "1.2.840.10065.1.12.1.8" => Ok(Self::N128401006511218),
+            "1.2.840.10065.1.12.1.9" => Ok(Self::N128401006511219),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for ASTMSignatureTypeCodes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N128401006511211 => "1.2.840.10065.1.12.1.1",
+            Self::N1284010065112110 => "1.2.840.10065.1.12.1.10",
+            Self::N1284010065112111 => "1.2.840.10065.1.12.1.11",
+            Self::N1284010065112112 => "1.2.840.10065.1.12.1.12",
+            Self::N1284010065112113 => "1.2.840.10065.1.12.1.13",
+            Self::N1284010065112114 => "1.2.840.10065.1.12.1.14",
+            Self::N1284010065112115 => "1.2.840.10065.1.12.1.15",
+            Self::N1284010065112116 => "1.2.840.10065.1.12.1.16",
+            Self::N1284010065112117 => "1.2.840.10065.1.12.1.17",
+            Self::N1284010065112118 => "1.2.840.10065.1.12.1.18",
+            Self::N128401006511212 => "1.2.840.10065.1.12.1.2",
+            Self::N128401006511213 => "1.2.840.10065.1.12.1.3",
+            Self::N128401006511214 => "1.2.840.10065.1.12.1.4",
+            Self::N128401006511215 => "1.2.840.10065.1.12.1.5",
+            Self::N128401006511216 => "1.2.840.10065.1.12.1.6",
+            Self::N128401006511217 => "1.2.840.10065.1.12.1.7",
+            Self::N128401006511218 => "1.2.840.10065.1.12.1.8",
+            Self::N128401006511219 => "1.2.840.10065.1.12.1.9",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for ASTMSignatureTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N128401006511211 => "Author's Signature",
+            Self::N1284010065112110 => "Identity Witness Signature",
+            Self::N1284010065112111 => "Consent Witness Signature",
+            Self::N1284010065112112 => "Interpreter Signature",
+            Self::N1284010065112113 => "Review Signature",
+            Self::N1284010065112114 => "Source Signature",
+            Self::N1284010065112115 => "Addendum Signature",
+            Self::N1284010065112116 => "Modification Signature",
+            Self::N1284010065112117 => "Administrative (Error/Edit) Signature",
+            Self::N1284010065112118 => "Timestamp Signature",
+            Self::N128401006511212 => "Coauthor's Signature",
+            Self::N128401006511213 => "Co-participant's Signature",
+            Self::N128401006511214 => "Transcriptionist/Recorder Signature",
+            Self::N128401006511215 => "Verification Signature",
+            Self::N128401006511216 => "Validation Signature",
+            Self::N128401006511217 => "Consent Signature",
+            Self::N128401006511218 => "Signature Witness Signature",
+            Self::N128401006511219 => "Event Witness Signature",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for ASTMSignatureTypeCodes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for ASTMSignatureTypeCodes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<ASTMSignatureTypeCodes> for Coding {
+    fn from(code: ASTMSignatureTypeCodes) -> Self {
+        CodingInner {
+            system: Some("urn:iso-astm:E1762-95:2013".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<ASTMSignatureTypeCodes> for CodeableConcept {
+    fn from(code: ASTMSignatureTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[AccountAggregate](http://hl7.org/fhir/ValueSet/account-aggregate)**. Indicates who is expected to pay a part of the account balance.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -22272,6 +22583,130 @@ impl From<DocumentRelationshipType> for CodeableConcept {
             .into()
     }
 }
+#[doc = "**[ETSISignatureTypeCodes](http://uri.etsi.org/01903/v1.2.2)**. The ETSI TS 101 733 V2.2.1 (2013-04) - Electronic Signatures and Infrastructures (ESI) - defines a set of Commitment Types (Purpose of Signature). ETSI TS 101 903 V1.2.2 defines vocabulary identifiers for these Commitment Types. Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. \n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ETSISignatureTypeCodes {
+    /** **ProofOfCreation**
+
+Proof of creation. indicates that the signer has created the signed data object (but not necessarily approved, nor sent it). */
+    ProofOfCreation,
+    /** **ProofOfDelivery**
+
+Proof of delivery. indicates that the TSP providing that indication has delivered a signed data object in a local store accessible to the recipient of the signed data object. */
+    ProofOfDelivery,
+    /** **ProofOfOrigin**
+
+Proof of origin. indicates that the signer recognizes to have created, approved and sent the signed data object. */
+    ProofOfOrigin,
+    /** **ProofOfReceipt**
+
+Proof of receipt. indicates that signer recognizes to have received the content of the signed data object. */
+    ProofOfReceipt,
+    /** **ProofOfSender**
+
+Proof of sender. indicates that the entity providing that indication has sent the signed data object (but not necessarily created it). */
+    ProofOfSender,
+    /** **ProofOfapproval**
+
+Proof of approval. indicates that the signer has approved the content of the signed data object. */
+    ProofOfapproval,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for ETSISignatureTypeCodes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "ProofOfCreation" => Ok(Self::ProofOfCreation),
+            "ProofOfDelivery" => Ok(Self::ProofOfDelivery),
+            "ProofOfOrigin" => Ok(Self::ProofOfOrigin),
+            "ProofOfReceipt" => Ok(Self::ProofOfReceipt),
+            "ProofOfSender" => Ok(Self::ProofOfSender),
+            "ProofOfapproval" => Ok(Self::ProofOfapproval),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for ETSISignatureTypeCodes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::ProofOfCreation => "ProofOfCreation",
+            Self::ProofOfDelivery => "ProofOfDelivery",
+            Self::ProofOfOrigin => "ProofOfOrigin",
+            Self::ProofOfReceipt => "ProofOfReceipt",
+            Self::ProofOfSender => "ProofOfSender",
+            Self::ProofOfapproval => "ProofOfapproval",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for ETSISignatureTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::ProofOfCreation => "Proof of creation",
+            Self::ProofOfDelivery => "Proof of delivery",
+            Self::ProofOfOrigin => "Proof of origin",
+            Self::ProofOfReceipt => "Proof of receipt",
+            Self::ProofOfSender => "Proof of sender",
+            Self::ProofOfapproval => "Proof of approval",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for ETSISignatureTypeCodes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for ETSISignatureTypeCodes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<ETSISignatureTypeCodes> for Coding {
+    fn from(code: ETSISignatureTypeCodes) -> Self {
+        CodingInner {
+            system: Some("http://uri.etsi.org/01903/v1.2.2".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<ETSISignatureTypeCodes> for CodeableConcept {
+    fn from(code: ETSISignatureTypeCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[EligibilityRequestPurpose](http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -25297,6 +25732,4440 @@ impl From<ExtraActivityType> for Coding {
 }
 impl From<ExtraActivityType> for CodeableConcept {
     fn from(code: ExtraActivityType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRCanonicalStatusCodes](http://hl7.org/fhir/ValueSet/resource-status)**. The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRCanonicalStatusCodes {
+    /** **abandoned**
+
+abandoned. The process described/requested in the resource did not complete - usually due to some workflow error, and no further action is planned */
+    Abandoned,
+    /** **accepted**
+
+accepted. The fulfiller has decided to perform the action, and plans are in train to do this in the future */
+    Accepted,
+    /** **active**
+
+active. The resource describes information that is currently valid or a process that is presently occuring */
+    Active,
+    /** **ahead-of-target**
+
+ahead-of-target. Ahead of the planned timelines */
+    AheadOfTarget,
+    /** **arrived**
+
+arrived. The pre-conditions for the action are all fulfilled, and it is imminent */
+    Arrived,
+    /** **behind-target**
+
+behind-target. Behind the planned timelines */
+    BehindTarget,
+    /** **busy-unavailable**
+
+busy-unavailable. not available at this time/location */
+    BusyUnavailable,
+    /** **complete**
+
+complete. The process described/requested in the resource has been completed, and no further action is planned */
+    Complete,
+    /** **confirmed**
+
+confirmed. The information in this resource is approved */
+    Confirmed,
+    /** **declined**
+
+declined. The fulfiller chose not to perform the action */
+    Declined,
+    /** **differential**
+
+differential. Potentially true? */
+    Differential,
+    /** **draft**
+
+draft. The information in the resource is still being prepared and edited */
+    Draft,
+    /** **error**
+
+error. The resource was created in error, and should not be treated as valid (note: in many cases, for various data integrity related reasons, the information cannot be removed from the record) */
+    Error,
+    /** **failed**
+
+failed. The process described/requested in the resource could not be completed, and no further action is planned */
+    Failed,
+    /** **free**
+
+free. Free for scheduling */
+    Free,
+    /** **hw-discon**
+
+hw-discon. The hardware is disconnected */
+    HwDiscon,
+    /** **inactive**
+
+inactive. The resource describes information that is no longer valid or a process that is stopped occurring */
+    Inactive,
+    /** **not-ready**
+
+not-ready. Not ready to act */
+    NotReady,
+    /** **on-target**
+
+on-target. Ready to act */
+    OnTarget,
+    /** **partial**
+
+partial. This information is still being assembled */
+    Partial,
+    /** **planned**
+
+planned. The resource describes a course of action that is planned and agreed/approved, but at the time of recording was still future */
+    Planned,
+    /** **proposed**
+
+proposed. The resource describes an action or plan that is proposed, and not yet approved by the participants */
+    Proposed,
+    /** **received**
+
+received. The fulfiller has received the request, but not yet agreed to carry out the action */
+    Received,
+    /** **refuted**
+
+refuted. This information has been ruled out by testing and evaluation */
+    Refuted,
+    /** **replaced**
+
+replaced. The information in this resource has been replaced by information in another resource */
+    Replaced,
+    /** **requested**
+
+requested. A fulfiller has been asked to perform this action, but it has not yet occurred */
+    Requested,
+    /** **resolved**
+
+resolved. The issue identified by this resource is no longer of concern */
+    Resolved,
+    /** **suspended**
+
+suspended. The process described/requested in this resource has been halted for some reason */
+    Suspended,
+    /** **transduc-discon**
+
+transduc-discon. The device transducer is disconnected */
+    TransducDiscon,
+    /** **unconfirmed**
+
+unconfirmed. The information in this resource is not yet approved */
+    Unconfirmed,
+    /** **unknown**
+
+unknown. Authoring system does not know the status */
+    Unknown,
+}
+impl ::core::str::FromStr for FHIRCanonicalStatusCodes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "abandoned" => Ok(Self::Abandoned),
+            "accepted" => Ok(Self::Accepted),
+            "active" => Ok(Self::Active),
+            "ahead-of-target" => Ok(Self::AheadOfTarget),
+            "arrived" => Ok(Self::Arrived),
+            "behind-target" => Ok(Self::BehindTarget),
+            "busy-unavailable" => Ok(Self::BusyUnavailable),
+            "complete" => Ok(Self::Complete),
+            "confirmed" => Ok(Self::Confirmed),
+            "declined" => Ok(Self::Declined),
+            "differential" => Ok(Self::Differential),
+            "draft" => Ok(Self::Draft),
+            "error" => Ok(Self::Error),
+            "failed" => Ok(Self::Failed),
+            "free" => Ok(Self::Free),
+            "hw-discon" => Ok(Self::HwDiscon),
+            "inactive" => Ok(Self::Inactive),
+            "not-ready" => Ok(Self::NotReady),
+            "on-target" => Ok(Self::OnTarget),
+            "partial" => Ok(Self::Partial),
+            "planned" => Ok(Self::Planned),
+            "proposed" => Ok(Self::Proposed),
+            "received" => Ok(Self::Received),
+            "refuted" => Ok(Self::Refuted),
+            "replaced" => Ok(Self::Replaced),
+            "requested" => Ok(Self::Requested),
+            "resolved" => Ok(Self::Resolved),
+            "suspended" => Ok(Self::Suspended),
+            "transduc-discon" => Ok(Self::TransducDiscon),
+            "unconfirmed" => Ok(Self::Unconfirmed),
+            "unknown" => Ok(Self::Unknown),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRCanonicalStatusCodes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Abandoned => "abandoned",
+            Self::Accepted => "accepted",
+            Self::Active => "active",
+            Self::AheadOfTarget => "ahead-of-target",
+            Self::Arrived => "arrived",
+            Self::BehindTarget => "behind-target",
+            Self::BusyUnavailable => "busy-unavailable",
+            Self::Complete => "complete",
+            Self::Confirmed => "confirmed",
+            Self::Declined => "declined",
+            Self::Differential => "differential",
+            Self::Draft => "draft",
+            Self::Error => "error",
+            Self::Failed => "failed",
+            Self::Free => "free",
+            Self::HwDiscon => "hw-discon",
+            Self::Inactive => "inactive",
+            Self::NotReady => "not-ready",
+            Self::OnTarget => "on-target",
+            Self::Partial => "partial",
+            Self::Planned => "planned",
+            Self::Proposed => "proposed",
+            Self::Received => "received",
+            Self::Refuted => "refuted",
+            Self::Replaced => "replaced",
+            Self::Requested => "requested",
+            Self::Resolved => "resolved",
+            Self::Suspended => "suspended",
+            Self::TransducDiscon => "transduc-discon",
+            Self::Unconfirmed => "unconfirmed",
+            Self::Unknown => "unknown",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRCanonicalStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Abandoned => "abandoned",
+            Self::Accepted => "accepted",
+            Self::Active => "active",
+            Self::AheadOfTarget => "ahead-of-target",
+            Self::Arrived => "arrived",
+            Self::BehindTarget => "behind-target",
+            Self::BusyUnavailable => "busy-unavailable",
+            Self::Complete => "complete",
+            Self::Confirmed => "confirmed",
+            Self::Declined => "declined",
+            Self::Differential => "differential",
+            Self::Draft => "draft",
+            Self::Error => "error",
+            Self::Failed => "failed",
+            Self::Free => "free",
+            Self::HwDiscon => "hw-discon",
+            Self::Inactive => "inactive",
+            Self::NotReady => "not-ready",
+            Self::OnTarget => "on-target",
+            Self::Partial => "partial",
+            Self::Planned => "planned",
+            Self::Proposed => "proposed",
+            Self::Received => "received",
+            Self::Refuted => "refuted",
+            Self::Replaced => "replaced",
+            Self::Requested => "requested",
+            Self::Resolved => "resolved",
+            Self::Suspended => "suspended",
+            Self::TransducDiscon => "transduc-discon",
+            Self::Unconfirmed => "unconfirmed",
+            Self::Unknown => "unknown",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRCanonicalStatusCodes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRCanonicalStatusCodes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRCanonicalStatusCodes> for Coding {
+    fn from(code: FHIRCanonicalStatusCodes) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/resource-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRCanonicalStatusCodes> for CodeableConcept {
+    fn from(code: FHIRCanonicalStatusCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceAssociationOperationStatus](http://hl7.org/fhir/ValueSet/deviceassociation-operationstatus)**. The operational status of the device.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceAssociationOperationStatus {
+    /** **defective**
+
+Stand By. The device is defective or for maintenance and is not available or working. */
+    Defective,
+    /** **off**
+
+Off. The device is inactive, switched off, or deactivated. */
+    Off,
+    /** **on**
+
+On. The device is working or switched on, i.e. active. */
+    On,
+    /** **standby**
+
+Stand By. The device is in stand-by mode i.e. not actively working but not powered off. */
+    Standby,
+    /** **unknown**
+
+Unknown. The operational status of the device has not been determined. */
+    Unknown,
+}
+impl ::core::str::FromStr for FHIRDeviceAssociationOperationStatus {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "defective" => Ok(Self::Defective),
+            "off" => Ok(Self::Off),
+            "on" => Ok(Self::On),
+            "standby" => Ok(Self::Standby),
+            "unknown" => Ok(Self::Unknown),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceAssociationOperationStatus {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Defective => "defective",
+            Self::Off => "off",
+            Self::On => "on",
+            Self::Standby => "standby",
+            Self::Unknown => "unknown",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceAssociationOperationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Defective => "Stand By",
+            Self::Off => "Off",
+            Self::On => "On",
+            Self::Standby => "Stand By",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceAssociationOperationStatus {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceAssociationOperationStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceAssociationOperationStatus> for Coding {
+    fn from(code: FHIRDeviceAssociationOperationStatus) -> Self {
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/deviceassociation-operationstatus"
+                    .to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceAssociationOperationStatus> for CodeableConcept {
+    fn from(code: FHIRDeviceAssociationOperationStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceAvailabilityStatus](http://hl7.org/fhir/ValueSet/device-availability-status)**. The record status of the device.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceAvailabilityStatus {
+    /** **available**
+
+Available. The device is available. */
+    Available,
+    /** **damaged**
+
+Damaged. The device is damaged. */
+    Damaged,
+    /** **destroyed**
+
+Destroyed. The device is destroyed. */
+    Destroyed,
+    /** **lost**
+
+Lost. The device is lost. */
+    Lost,
+}
+impl ::core::str::FromStr for FHIRDeviceAvailabilityStatus {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "available" => Ok(Self::Available),
+            "damaged" => Ok(Self::Damaged),
+            "destroyed" => Ok(Self::Destroyed),
+            "lost" => Ok(Self::Lost),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceAvailabilityStatus {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Available => "available",
+            Self::Damaged => "damaged",
+            Self::Destroyed => "destroyed",
+            Self::Lost => "lost",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceAvailabilityStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Available => "Available",
+            Self::Damaged => "Damaged",
+            Self::Destroyed => "Destroyed",
+            Self::Lost => "Lost",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceAvailabilityStatus {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceAvailabilityStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceAvailabilityStatus> for Coding {
+    fn from(code: FHIRDeviceAvailabilityStatus) -> Self {
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/device-availability-status".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceAvailabilityStatus> for CodeableConcept {
+    fn from(code: FHIRDeviceAvailabilityStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceCategory](http://hl7.org/fhir/ValueSet/device-category)**. The category of the device.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceCategory {
+    /** **active**
+
+Active. Device where the operation depends on a source of energy. */
+    Active,
+    /** **communicating**
+
+communicating. Device communicates electronically to peer information systems or possibly another device. */
+    Communicating,
+    /** **dme**
+
+Durable Medical Equipment. Equipment and supplies that provides therapeutic benefits to a patient. */
+    Dme,
+    /** **home-use**
+
+Maintenance. Medical device intended for users in a non-medical setting. */
+    HomeUse,
+    /** **implantable**
+
+Implantable. A device that is placed into a surgically or naturally formed cavity of the human body. */
+    Implantable,
+    /** **in-vitro**
+
+In vitro. Tests done on samples such as blood or tissue that have been taken from the human body. */
+    InVitro,
+    /** **point-of-care**
+
+Point of Care. a class of communicating devices that are used by medical providers for various purposes (e.g., monitoring, delivering or measuring). */
+    PointOfCare,
+    /** **reusable**
+
+Reusable. A device that healthcare providers can use to diagnose and treat one or more patients. */
+    Reusable,
+    /** **single-use**
+
+Single Use. A device use on one individual during a single procedure. */
+    SingleUse,
+    /** **software**
+
+Software. A device that may include a software component or consist exclusively of software e.g. data transformer or converter, clinical support algorithms, clinical apps */
+    Software,
+}
+impl ::core::str::FromStr for FHIRDeviceCategory {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "active" => Ok(Self::Active),
+            "communicating" => Ok(Self::Communicating),
+            "dme" => Ok(Self::Dme),
+            "home-use" => Ok(Self::HomeUse),
+            "implantable" => Ok(Self::Implantable),
+            "in-vitro" => Ok(Self::InVitro),
+            "point-of-care" => Ok(Self::PointOfCare),
+            "reusable" => Ok(Self::Reusable),
+            "single-use" => Ok(Self::SingleUse),
+            "software" => Ok(Self::Software),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceCategory {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Active => "active",
+            Self::Communicating => "communicating",
+            Self::Dme => "dme",
+            Self::HomeUse => "home-use",
+            Self::Implantable => "implantable",
+            Self::InVitro => "in-vitro",
+            Self::PointOfCare => "point-of-care",
+            Self::Reusable => "reusable",
+            Self::SingleUse => "single-use",
+            Self::Software => "software",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::Communicating => "communicating",
+            Self::Dme => "Durable Medical Equipment",
+            Self::HomeUse => "Maintenance",
+            Self::Implantable => "Implantable",
+            Self::InVitro => "In vitro",
+            Self::PointOfCare => "Point of Care",
+            Self::Reusable => "Reusable",
+            Self::SingleUse => "Single Use",
+            Self::Software => "Software",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceCategory {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceCategory {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceCategory> for Coding {
+    fn from(code: FHIRDeviceCategory) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/device-category".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceCategory> for CodeableConcept {
+    fn from(code: FHIRDeviceCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceOperationMode](http://hl7.org/fhir/ValueSet/device-operation-mode)**. The operation mode of the device.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceOperationMode {
+    /** **demo**
+
+Demo. The device operates in a mode that is intended for demonstration purposes only. Arbitrary values are generated. */
+    Demo,
+    /** **maintenance**
+
+Maintenance. The device operates in a mode that is intended for preventative and/or scheduled maintenance purposes only. */
+    Maintenance,
+    /** **normal**
+
+Normal. The device operates in a mode that supports the fulfillment of its clinical functions. */
+    Normal,
+    /** **service**
+
+Service. The device operates in a mode that is intended for correcting a functional problem of the device only. Arbitrary values may be generated. */
+    Service,
+    /** **test**
+
+Test. The device operates in a test mode that is not intended to be used for production/operational purposes. */
+    Test,
+}
+impl ::core::str::FromStr for FHIRDeviceOperationMode {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "demo" => Ok(Self::Demo),
+            "maintenance" => Ok(Self::Maintenance),
+            "normal" => Ok(Self::Normal),
+            "service" => Ok(Self::Service),
+            "test" => Ok(Self::Test),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceOperationMode {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Demo => "demo",
+            Self::Maintenance => "maintenance",
+            Self::Normal => "normal",
+            Self::Service => "service",
+            Self::Test => "test",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceOperationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Demo => "Demo",
+            Self::Maintenance => "Maintenance",
+            Self::Normal => "Normal",
+            Self::Service => "Service",
+            Self::Test => "Test",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceOperationMode {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceOperationMode {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceOperationMode> for Coding {
+    fn from(code: FHIRDeviceOperationMode) -> Self {
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/device-operation-mode".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceOperationMode> for CodeableConcept {
+    fn from(code: FHIRDeviceOperationMode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceSpecializationCategory](http://hl7.org/fhir/ValueSet/device-specification-category)**. The kind of standards used by the device.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceSpecializationCategory {
+    /** **communication**
+
+Communication. A communication standard. */
+    Communication,
+    /** **electrical**
+
+Electrical. Electrical classification. */
+    Electrical,
+    /** **exchange**
+
+Exchange. Exchange category. */
+    Exchange,
+    /** **material**
+
+Material. Classification related to materials. */
+    Material,
+    /** **measurement**
+
+Measurement. A measurement standard. */
+    Measurement,
+    /** **performance**
+
+Performance. A performance standard. */
+    Performance,
+    /** **risk-class**
+
+Risk Class. Class or catefory of risk. */
+    RiskClass,
+}
+impl ::core::str::FromStr for FHIRDeviceSpecializationCategory {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "communication" => Ok(Self::Communication),
+            "electrical" => Ok(Self::Electrical),
+            "exchange" => Ok(Self::Exchange),
+            "material" => Ok(Self::Material),
+            "measurement" => Ok(Self::Measurement),
+            "performance" => Ok(Self::Performance),
+            "risk-class" => Ok(Self::RiskClass),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceSpecializationCategory {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Communication => "communication",
+            Self::Electrical => "electrical",
+            Self::Exchange => "exchange",
+            Self::Material => "material",
+            Self::Measurement => "measurement",
+            Self::Performance => "performance",
+            Self::RiskClass => "risk-class",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceSpecializationCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Communication => "Communication",
+            Self::Electrical => "Electrical",
+            Self::Exchange => "Exchange",
+            Self::Material => "Material",
+            Self::Measurement => "Measurement",
+            Self::Performance => "Performance",
+            Self::RiskClass => "Risk Class",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceSpecializationCategory {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceSpecializationCategory {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceSpecializationCategory> for Coding {
+    fn from(code: FHIRDeviceSpecializationCategory) -> Self {
+        CodingInner {
+            system: Some(
+                "http://hl7.org/fhir/ValueSet/device-specification-category".to_owned(),
+            ),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceSpecializationCategory> for CodeableConcept {
+    fn from(code: FHIRDeviceSpecializationCategory) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceStatus](http://hl7.org/fhir/ValueSet/device-status)**. The status of the Device record.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceStatus {
+    /** **active**
+
+Active. The device record is current and is appropriate for reference in new instances. */
+    Active,
+    /** **entered-in-error**
+
+Entered in Error. The device record is not current and is not appropriate for reference in new instances. */
+    EnteredInError,
+    /** **inactive**
+
+Inactive. The device record is not current and is not appropriate for reference in new instances. */
+    Inactive,
+}
+impl ::core::str::FromStr for FHIRDeviceStatus {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "active" => Ok(Self::Active),
+            "entered-in-error" => Ok(Self::EnteredInError),
+            "inactive" => Ok(Self::Inactive),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceStatus {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Active => "active",
+            Self::EnteredInError => "entered-in-error",
+            Self::Inactive => "inactive",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceStatus {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceStatus> for Coding {
+    fn from(code: FHIRDeviceStatus) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/device-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceStatus> for CodeableConcept {
+    fn from(code: FHIRDeviceStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRFormatType](http://hl7.org/fhir/ValueSet/fhir-content-type)**. FHIR Format types\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRFormatType {
+    /** **json**
+
+JSON. JSON content-type corresponding to the application/fhir+json mime-type. */
+    Json,
+    /** **ttl**
+
+TTL. RDF content-type corresponding to the text/turtle mime-type. */
+    Ttl,
+    /** **xml**
+
+XML. XML content-type corresponding to the application/fhir+xml mime-type. */
+    Xml,
+}
+impl ::core::str::FromStr for FHIRFormatType {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "json" => Ok(Self::Json),
+            "ttl" => Ok(Self::Ttl),
+            "xml" => Ok(Self::Xml),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRFormatType {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Json => "json",
+            Self::Ttl => "ttl",
+            Self::Xml => "xml",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRFormatType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Json => "JSON",
+            Self::Ttl => "TTL",
+            Self::Xml => "XML",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRFormatType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRFormatType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRFormatType> for Coding {
+    fn from(code: FHIRFormatType) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/fhir-content-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRFormatType> for CodeableConcept {
+    fn from(code: FHIRFormatType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIROldTypes](http://hl7.org/fhir/ValueSet/fhir-old-types)**. An old resource name no longer used in this version of FHIR (deleted or renamed).\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIROldTypes {
+    /** **BodySite**
+
+BodySite. */
+    BodySite,
+    /** **CatalogEntry**
+
+CatalogEntry. */
+    CatalogEntry,
+    /** **Conformance**
+
+Conformance. */
+    Conformance,
+    /** **DataElement**
+
+DataElement. */
+    DataElement,
+    /** **DeviceComponent**
+
+DeviceComponent. */
+    DeviceComponent,
+    /** **DeviceUseRequest**
+
+DeviceUseRequest. */
+    DeviceUseRequest,
+    /** **DeviceUseStatement**
+
+DeviceUseStatement. */
+    DeviceUseStatement,
+    /** **DiagnosticOrder**
+
+DiagnosticOrder. */
+    DiagnosticOrder,
+    /** **DocumentManifest**
+
+DocumentManifest. */
+    DocumentManifest,
+    /** **EffectEvidenceSynthesis**
+
+EffectEvidenceSynthesis. */
+    EffectEvidenceSynthesis,
+    /** **EligibilityRequest**
+
+EligibilityRequest. */
+    EligibilityRequest,
+    /** **EligibilityResponse**
+
+EligibilityResponse. */
+    EligibilityResponse,
+    /** **ExpansionProfile**
+
+ExpansionProfile. */
+    ExpansionProfile,
+    /** **ImagingManifest**
+
+ImagingManifest. */
+    ImagingManifest,
+    /** **ImagingObjectSelection**
+
+ImagingObjectSelection. */
+    ImagingObjectSelection,
+    /** **Media**
+
+Media. */
+    Media,
+    /** **MedicationOrder**
+
+MedicationOrder. */
+    MedicationOrder,
+    /** **MedicationUsage**
+
+MedicationUsage. */
+    MedicationUsage,
+    /** **MedicinalProduct**
+
+MedicinalProduct. */
+    MedicinalProduct,
+    /** **MedicinalProductAuthorization**
+
+MedicinalProductAuthorization. */
+    MedicinalProductAuthorization,
+    /** **MedicinalProductContraindication**
+
+MedicinalProductContraindication. */
+    MedicinalProductContraindication,
+    /** **MedicinalProductIndication**
+
+MedicinalProductIndication. */
+    MedicinalProductIndication,
+    /** **MedicinalProductIngredient**
+
+MedicinalProductIngredient. */
+    MedicinalProductIngredient,
+    /** **MedicinalProductInteraction**
+
+MedicinalProductInteraction. */
+    MedicinalProductInteraction,
+    /** **MedicinalProductManufactured**
+
+MedicinalProductManufactured. */
+    MedicinalProductManufactured,
+    /** **MedicinalProductPackaged**
+
+MedicinalProductPackaged. */
+    MedicinalProductPackaged,
+    /** **MedicinalProductPharmaceutical**
+
+MedicinalProductPharmaceutical. */
+    MedicinalProductPharmaceutical,
+    /** **MedicinalProductUndesirableEffect**
+
+MedicinalProductUndesirableEffect. */
+    MedicinalProductUndesirableEffect,
+    /** **Order**
+
+Order. */
+    Order,
+    /** **OrderResponse**
+
+OrderResponse. */
+    OrderResponse,
+    /** **ProcedureRequest**
+
+ProcedureRequest. */
+    ProcedureRequest,
+    /** **ProcessRequest**
+
+ProcessRequest. */
+    ProcessRequest,
+    /** **ProcessResponse**
+
+ProcessResponse. */
+    ProcessResponse,
+    /** **ReferralRequest**
+
+ReferralRequest. */
+    ReferralRequest,
+    /** **RequestGroup**
+
+RequestGroup. */
+    RequestGroup,
+    /** **ResearchDefinition**
+
+ResearchDefinition. */
+    ResearchDefinition,
+    /** **ResearchElementDefinition**
+
+ResearchElementDefinition. */
+    ResearchElementDefinition,
+    /** **RiskEvidenceSynthesis**
+
+RiskEvidenceSynthesis. */
+    RiskEvidenceSynthesis,
+    /** **Sequence**
+
+Sequence. */
+    Sequence,
+    /** **ServiceDefinition**
+
+ServiceDefinition. */
+    ServiceDefinition,
+    /** **SubstanceSpecification**
+
+SubstanceSpecification. */
+    SubstanceSpecification,
+}
+impl ::core::str::FromStr for FHIROldTypes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "BodySite" => Ok(Self::BodySite),
+            "CatalogEntry" => Ok(Self::CatalogEntry),
+            "Conformance" => Ok(Self::Conformance),
+            "DataElement" => Ok(Self::DataElement),
+            "DeviceComponent" => Ok(Self::DeviceComponent),
+            "DeviceUseRequest" => Ok(Self::DeviceUseRequest),
+            "DeviceUseStatement" => Ok(Self::DeviceUseStatement),
+            "DiagnosticOrder" => Ok(Self::DiagnosticOrder),
+            "DocumentManifest" => Ok(Self::DocumentManifest),
+            "EffectEvidenceSynthesis" => Ok(Self::EffectEvidenceSynthesis),
+            "EligibilityRequest" => Ok(Self::EligibilityRequest),
+            "EligibilityResponse" => Ok(Self::EligibilityResponse),
+            "ExpansionProfile" => Ok(Self::ExpansionProfile),
+            "ImagingManifest" => Ok(Self::ImagingManifest),
+            "ImagingObjectSelection" => Ok(Self::ImagingObjectSelection),
+            "Media" => Ok(Self::Media),
+            "MedicationOrder" => Ok(Self::MedicationOrder),
+            "MedicationUsage" => Ok(Self::MedicationUsage),
+            "MedicinalProduct" => Ok(Self::MedicinalProduct),
+            "MedicinalProductAuthorization" => Ok(Self::MedicinalProductAuthorization),
+            "MedicinalProductContraindication" => {
+                Ok(Self::MedicinalProductContraindication)
+            }
+            "MedicinalProductIndication" => Ok(Self::MedicinalProductIndication),
+            "MedicinalProductIngredient" => Ok(Self::MedicinalProductIngredient),
+            "MedicinalProductInteraction" => Ok(Self::MedicinalProductInteraction),
+            "MedicinalProductManufactured" => Ok(Self::MedicinalProductManufactured),
+            "MedicinalProductPackaged" => Ok(Self::MedicinalProductPackaged),
+            "MedicinalProductPharmaceutical" => Ok(Self::MedicinalProductPharmaceutical),
+            "MedicinalProductUndesirableEffect" => {
+                Ok(Self::MedicinalProductUndesirableEffect)
+            }
+            "Order" => Ok(Self::Order),
+            "OrderResponse" => Ok(Self::OrderResponse),
+            "ProcedureRequest" => Ok(Self::ProcedureRequest),
+            "ProcessRequest" => Ok(Self::ProcessRequest),
+            "ProcessResponse" => Ok(Self::ProcessResponse),
+            "ReferralRequest" => Ok(Self::ReferralRequest),
+            "RequestGroup" => Ok(Self::RequestGroup),
+            "ResearchDefinition" => Ok(Self::ResearchDefinition),
+            "ResearchElementDefinition" => Ok(Self::ResearchElementDefinition),
+            "RiskEvidenceSynthesis" => Ok(Self::RiskEvidenceSynthesis),
+            "Sequence" => Ok(Self::Sequence),
+            "ServiceDefinition" => Ok(Self::ServiceDefinition),
+            "SubstanceSpecification" => Ok(Self::SubstanceSpecification),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIROldTypes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::BodySite => "BodySite",
+            Self::CatalogEntry => "CatalogEntry",
+            Self::Conformance => "Conformance",
+            Self::DataElement => "DataElement",
+            Self::DeviceComponent => "DeviceComponent",
+            Self::DeviceUseRequest => "DeviceUseRequest",
+            Self::DeviceUseStatement => "DeviceUseStatement",
+            Self::DiagnosticOrder => "DiagnosticOrder",
+            Self::DocumentManifest => "DocumentManifest",
+            Self::EffectEvidenceSynthesis => "EffectEvidenceSynthesis",
+            Self::EligibilityRequest => "EligibilityRequest",
+            Self::EligibilityResponse => "EligibilityResponse",
+            Self::ExpansionProfile => "ExpansionProfile",
+            Self::ImagingManifest => "ImagingManifest",
+            Self::ImagingObjectSelection => "ImagingObjectSelection",
+            Self::Media => "Media",
+            Self::MedicationOrder => "MedicationOrder",
+            Self::MedicationUsage => "MedicationUsage",
+            Self::MedicinalProduct => "MedicinalProduct",
+            Self::MedicinalProductAuthorization => "MedicinalProductAuthorization",
+            Self::MedicinalProductContraindication => "MedicinalProductContraindication",
+            Self::MedicinalProductIndication => "MedicinalProductIndication",
+            Self::MedicinalProductIngredient => "MedicinalProductIngredient",
+            Self::MedicinalProductInteraction => "MedicinalProductInteraction",
+            Self::MedicinalProductManufactured => "MedicinalProductManufactured",
+            Self::MedicinalProductPackaged => "MedicinalProductPackaged",
+            Self::MedicinalProductPharmaceutical => "MedicinalProductPharmaceutical",
+            Self::MedicinalProductUndesirableEffect => {
+                "MedicinalProductUndesirableEffect"
+            }
+            Self::Order => "Order",
+            Self::OrderResponse => "OrderResponse",
+            Self::ProcedureRequest => "ProcedureRequest",
+            Self::ProcessRequest => "ProcessRequest",
+            Self::ProcessResponse => "ProcessResponse",
+            Self::ReferralRequest => "ReferralRequest",
+            Self::RequestGroup => "RequestGroup",
+            Self::ResearchDefinition => "ResearchDefinition",
+            Self::ResearchElementDefinition => "ResearchElementDefinition",
+            Self::RiskEvidenceSynthesis => "RiskEvidenceSynthesis",
+            Self::Sequence => "Sequence",
+            Self::ServiceDefinition => "ServiceDefinition",
+            Self::SubstanceSpecification => "SubstanceSpecification",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIROldTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::BodySite => "BodySite",
+            Self::CatalogEntry => "CatalogEntry",
+            Self::Conformance => "Conformance",
+            Self::DataElement => "DataElement",
+            Self::DeviceComponent => "DeviceComponent",
+            Self::DeviceUseRequest => "DeviceUseRequest",
+            Self::DeviceUseStatement => "DeviceUseStatement",
+            Self::DiagnosticOrder => "DiagnosticOrder",
+            Self::DocumentManifest => "DocumentManifest",
+            Self::EffectEvidenceSynthesis => "EffectEvidenceSynthesis",
+            Self::EligibilityRequest => "EligibilityRequest",
+            Self::EligibilityResponse => "EligibilityResponse",
+            Self::ExpansionProfile => "ExpansionProfile",
+            Self::ImagingManifest => "ImagingManifest",
+            Self::ImagingObjectSelection => "ImagingObjectSelection",
+            Self::Media => "Media",
+            Self::MedicationOrder => "MedicationOrder",
+            Self::MedicationUsage => "MedicationUsage",
+            Self::MedicinalProduct => "MedicinalProduct",
+            Self::MedicinalProductAuthorization => "MedicinalProductAuthorization",
+            Self::MedicinalProductContraindication => "MedicinalProductContraindication",
+            Self::MedicinalProductIndication => "MedicinalProductIndication",
+            Self::MedicinalProductIngredient => "MedicinalProductIngredient",
+            Self::MedicinalProductInteraction => "MedicinalProductInteraction",
+            Self::MedicinalProductManufactured => "MedicinalProductManufactured",
+            Self::MedicinalProductPackaged => "MedicinalProductPackaged",
+            Self::MedicinalProductPharmaceutical => "MedicinalProductPharmaceutical",
+            Self::MedicinalProductUndesirableEffect => {
+                "MedicinalProductUndesirableEffect"
+            }
+            Self::Order => "Order",
+            Self::OrderResponse => "OrderResponse",
+            Self::ProcedureRequest => "ProcedureRequest",
+            Self::ProcessRequest => "ProcessRequest",
+            Self::ProcessResponse => "ProcessResponse",
+            Self::ReferralRequest => "ReferralRequest",
+            Self::RequestGroup => "RequestGroup",
+            Self::ResearchDefinition => "ResearchDefinition",
+            Self::ResearchElementDefinition => "ResearchElementDefinition",
+            Self::RiskEvidenceSynthesis => "RiskEvidenceSynthesis",
+            Self::Sequence => "Sequence",
+            Self::ServiceDefinition => "ServiceDefinition",
+            Self::SubstanceSpecification => "SubstanceSpecification",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIROldTypes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIROldTypes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIROldTypes> for Coding {
+    fn from(code: FHIROldTypes) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/fhir-old-types".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIROldTypes> for CodeableConcept {
+    fn from(code: FHIROldTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRPathTypesCodeSystem](http://hl7.org/fhir/ValueSet/fhirpath-types)**. Data types defined by FHIRPath and used within the FHIR specification\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRPathTypesCodeSystem {
+    /** **http://hl7.org/fhirpath/System.Boolean**
+
+Boolean. */
+    HttpHl7OrgFhirpathSystemBoolean,
+    /** **http://hl7.org/fhirpath/System.Date**
+
+Date. */
+    HttpHl7OrgFhirpathSystemDate,
+    /** **http://hl7.org/fhirpath/System.DateTime**
+
+DateTime. */
+    HttpHl7OrgFhirpathSystemDateTime,
+    /** **http://hl7.org/fhirpath/System.Decimal**
+
+Decimal. */
+    HttpHl7OrgFhirpathSystemDecimal,
+    /** **http://hl7.org/fhirpath/System.Integer**
+
+Integer. */
+    HttpHl7OrgFhirpathSystemInteger,
+    /** **http://hl7.org/fhirpath/System.String**
+
+String. */
+    HttpHl7OrgFhirpathSystemString,
+    /** **http://hl7.org/fhirpath/System.Time**
+
+Time. */
+    HttpHl7OrgFhirpathSystemTime,
+}
+impl ::core::str::FromStr for FHIRPathTypesCodeSystem {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "http://hl7.org/fhirpath/System.Boolean" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemBoolean)
+            }
+            "http://hl7.org/fhirpath/System.Date" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemDate)
+            }
+            "http://hl7.org/fhirpath/System.DateTime" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemDateTime)
+            }
+            "http://hl7.org/fhirpath/System.Decimal" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemDecimal)
+            }
+            "http://hl7.org/fhirpath/System.Integer" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemInteger)
+            }
+            "http://hl7.org/fhirpath/System.String" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemString)
+            }
+            "http://hl7.org/fhirpath/System.Time" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemTime)
+            }
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRPathTypesCodeSystem {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::HttpHl7OrgFhirpathSystemBoolean => {
+                "http://hl7.org/fhirpath/System.Boolean"
+            }
+            Self::HttpHl7OrgFhirpathSystemDate => "http://hl7.org/fhirpath/System.Date",
+            Self::HttpHl7OrgFhirpathSystemDateTime => {
+                "http://hl7.org/fhirpath/System.DateTime"
+            }
+            Self::HttpHl7OrgFhirpathSystemDecimal => {
+                "http://hl7.org/fhirpath/System.Decimal"
+            }
+            Self::HttpHl7OrgFhirpathSystemInteger => {
+                "http://hl7.org/fhirpath/System.Integer"
+            }
+            Self::HttpHl7OrgFhirpathSystemString => {
+                "http://hl7.org/fhirpath/System.String"
+            }
+            Self::HttpHl7OrgFhirpathSystemTime => "http://hl7.org/fhirpath/System.Time",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRPathTypesCodeSystem {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::HttpHl7OrgFhirpathSystemBoolean => "Boolean",
+            Self::HttpHl7OrgFhirpathSystemDate => "Date",
+            Self::HttpHl7OrgFhirpathSystemDateTime => "DateTime",
+            Self::HttpHl7OrgFhirpathSystemDecimal => "Decimal",
+            Self::HttpHl7OrgFhirpathSystemInteger => "Integer",
+            Self::HttpHl7OrgFhirpathSystemString => "String",
+            Self::HttpHl7OrgFhirpathSystemTime => "Time",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRPathTypesCodeSystem {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRPathTypesCodeSystem {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRPathTypesCodeSystem> for Coding {
+    fn from(code: FHIRPathTypesCodeSystem) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/fhirpath-types".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRPathTypesCodeSystem> for CodeableConcept {
+    fn from(code: FHIRPathTypesCodeSystem) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRRestfulInteractions](http://hl7.org/fhir/ValueSet/restful-interaction)**. The set of interactions defined by the RESTful part of the FHIR specification.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRRestfulInteractions {
+    /** **batch**
+
+batch. perform a set of a separate interactions in a single http operation */
+    Batch,
+    /** **capabilities**
+
+capabilities. Get a Capability Statement for the system. */
+    Capabilities,
+    /** **create**
+
+create. Create a new resource with a server assigned id. */
+    Create,
+    /** **delete**
+
+delete. Delete a resource. */
+    Delete,
+    /** **history**
+
+history. Retrieve the change history for a particular resource, type of resource, or the entire system. */
+    History,
+    /** **history-instance**
+
+history-instance. Retrieve the change history for a particular resource. */
+    HistoryInstance,
+    /** **history-system**
+
+history-system. Retrieve the change history for all resources on a system. */
+    HistorySystem,
+    /** **history-type**
+
+history-type. Retrieve the change history for all resources of a particular type. */
+    HistoryType,
+    /** **operation**
+
+operation. Perform an operation as defined by an OperationDefinition. */
+    Operation,
+    /** **patch**
+
+patch. Update an existing resource by posting a set of changes to it. */
+    Patch,
+    /** **read**
+
+read. Read the current state of the resource. */
+    Read,
+    /** **search**
+
+search. Search a resource type or all resources based on some filter criteria. */
+    Search,
+    /** **search-compartment**
+
+search-compartment. Search resources in a compartment based on some filter criteria. */
+    SearchCompartment,
+    /** **search-system**
+
+search-system. Search all resources based on some filter criteria. */
+    SearchSystem,
+    /** **search-type**
+
+search-type. Search all resources of the specified type based on some filter criteria. */
+    SearchType,
+    /** **transaction**
+
+transaction. Update, create or delete a set of resources as a single transaction. */
+    Transaction,
+    /** **update**
+
+update. Update an existing resource by its id (or create it if it is new). */
+    Update,
+    /** **vread**
+
+vread. Read the state of a specific version of the resource. */
+    Vread,
+}
+impl ::core::str::FromStr for FHIRRestfulInteractions {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "batch" => Ok(Self::Batch),
+            "capabilities" => Ok(Self::Capabilities),
+            "create" => Ok(Self::Create),
+            "delete" => Ok(Self::Delete),
+            "history" => Ok(Self::History),
+            "history-instance" => Ok(Self::HistoryInstance),
+            "history-system" => Ok(Self::HistorySystem),
+            "history-type" => Ok(Self::HistoryType),
+            "operation" => Ok(Self::Operation),
+            "patch" => Ok(Self::Patch),
+            "read" => Ok(Self::Read),
+            "search" => Ok(Self::Search),
+            "search-compartment" => Ok(Self::SearchCompartment),
+            "search-system" => Ok(Self::SearchSystem),
+            "search-type" => Ok(Self::SearchType),
+            "transaction" => Ok(Self::Transaction),
+            "update" => Ok(Self::Update),
+            "vread" => Ok(Self::Vread),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRRestfulInteractions {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Batch => "batch",
+            Self::Capabilities => "capabilities",
+            Self::Create => "create",
+            Self::Delete => "delete",
+            Self::History => "history",
+            Self::HistoryInstance => "history-instance",
+            Self::HistorySystem => "history-system",
+            Self::HistoryType => "history-type",
+            Self::Operation => "operation",
+            Self::Patch => "patch",
+            Self::Read => "read",
+            Self::Search => "search",
+            Self::SearchCompartment => "search-compartment",
+            Self::SearchSystem => "search-system",
+            Self::SearchType => "search-type",
+            Self::Transaction => "transaction",
+            Self::Update => "update",
+            Self::Vread => "vread",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRRestfulInteractions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Batch => "batch",
+            Self::Capabilities => "capabilities",
+            Self::Create => "create",
+            Self::Delete => "delete",
+            Self::History => "history",
+            Self::HistoryInstance => "history-instance",
+            Self::HistorySystem => "history-system",
+            Self::HistoryType => "history-type",
+            Self::Operation => "operation",
+            Self::Patch => "patch",
+            Self::Read => "read",
+            Self::Search => "search",
+            Self::SearchCompartment => "search-compartment",
+            Self::SearchSystem => "search-system",
+            Self::SearchType => "search-type",
+            Self::Transaction => "transaction",
+            Self::Update => "update",
+            Self::Vread => "vread",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRRestfulInteractions {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRRestfulInteractions {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRRestfulInteractions> for Coding {
+    fn from(code: FHIRRestfulInteractions) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/restful-interaction".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRRestfulInteractions> for CodeableConcept {
+    fn from(code: FHIRRestfulInteractions) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRSafetyCheckListEntries](http://hl7.org/fhir/ValueSet/safety-entries)**. The [checklist items](http://hl7.org/fhir/safety.html) defined as part of the FHIR specification.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRSafetyCheckListEntries {
+    /** **check-clocks**
+
+My system ensures that system clocks are synchronized using a protocol like NTP or SNTP, or my server is robust against clients that have the wrong clock set */
+    CheckClocks,
+    /** **check-consent**
+
+My system checks that the right [Patient consent](consent.html) has been granted (where applicable) */
+    CheckConsent,
+    /** **check-dns-responses**
+
+My system uses security methods for an API to authenticate where Domain Name System (DNS) responses are coming from and ensure that they are valid */
+    CheckDnsResponses,
+    /** **check=validation**
+
+My system [validates all input received](validation.html) (whether in resource format or other) from other actors so that it data is well-formed and does not contain content that would cause unwanted system behavior */
+    CheckValidation,
+    /** **cross-resource**
+
+My system takes care to ensure that clients can (for servers) or will (for clients) find the information they need when content that might reasonably be exposed using more than one FHIR resource. Possible patterns: Support a single search across the applicable resources, or expose data through each applicable resource. See discussion on [Wiki Page](https://confluence.hl7.org/display/FHIR/Managing+Overlap+Between+Resources) for further information */
+    CrossResource,
+    /** **cs-declare**
+
+My system publishes a [Capability Statement](capabilitystatement.html) with [StructureDefinitions](structuredefinition.html), [ValueSets](valueset.html), and [OperationDefinitions](operationdefinition.html), etc., so other implementers know how the system functions */
+    CsDeclare,
+    /** **current**
+
+My system manages lists of [current resources](lifecycle.html#current) correctly */
+    Current,
+    /** **date-rendering**
+
+My system renders dates safely for changes in culture and language (the date formats D-M-Y and M-D-Y are not differentiated for many dates, and this is a well-known source of confusion. Systems should use the month name, or otherwise be specific for each date when rendering, unless there is solid confidence that such confusion cannot arise, even in the future when information/narrative from resources will be shared much more widely) */
+    DateRendering,
+    /** **default-filters**
+
+My system includes appropriate default filters when searching based on patient context - e.g. filtering out entered-in-error records, filtering to only include active, living patients if appropriate, and clearly documents these (preferably including them in the self link for a search */
+    DefaultFilters,
+    /** **deletion-check**
+
+For each resource, I have checked whether resources can be deleted, and/or how records are marked as incorrect/no longer relevant */
+    DeletionCheck,
+    /** **deletion-replication**
+
+Deletion of records (or equivalent updates in status) flow through the system so any replicated copies are deleted/updated */
+    DeletionReplication,
+    /** **deletion-support**
+
+(If a server) my documentation about deleted resources is clear, and my test sandbox (if exists) has deleted/error record cases in the test data */
+    DeletionSupport,
+    /** **display-warnings**
+
+My system will display warnings returned by the server to the user */
+    DisplayWarnings,
+    /** **distribute-aod**
+
+My system sends an [Accounting of Disclosure](secpriv-module.html#AoD) to the consenter as requested when permitted actions on resources are performed using an [AuditEvent](auditevent.html) Resource */
+    DistributeAod,
+    /** **enable-cors**
+
+Server: CORS ([cross-origin resource sharing](http://enable-cors.org/)) is appropriately enabled (many clients are Javascript apps running in a browser) */
+    EnableCors,
+    /** **error-checks**
+
+When other systems [return http errors from the RESTful API](http.html#summary) and [Operations](operations.html) (perhaps using [Operation Outcome](operationoutcome.html)), my system checks for them and handles them appropriately */
+    ErrorChecks,
+    /** **identity**
+
+My system has documented how [distributed resource identification](managing.html#distributed) works in its relevant contexts of use, and where (and why) [contained](references.html#contained) resources are used */
+    Identity,
+    /** **json-for-errors**
+
+JSON is returned correctly when errors happen (clients often don't handle HTML errors well) */
+    JsonForErrors,
+    /** **life-cycle**
+
+For each resource that my system handles, my system handles the full [Life cycle](lifecycle.html) (status codes, currency issues, and erroneous entry status) */
+    LifeCycle,
+    /** **link-merge**
+
+My system ensures checks for patient links (and/or merges) and handles data that is linked to patients accordingly */
+    LinkMerge,
+    /** **missing-values**
+
+My system caters for [parameters that have missing values](search.html#missing) when doing search operations, and responds correctly to the client with regard to [erroneous search parameters](search.html#errors) */
+    MissingValues,
+    /** **modifier-extensions**
+
+My system checks for [modifierExtension](extensibility.html#modifierExtension) elements */
+    ModifierExtensions,
+    /** **modifiers**
+
+For each resource that my system handles, I've reviewed the [Modifier elements](conformance-rules.html#isModifier) */
+    Modifiers,
+    /** **must-support**
+
+My system supports [elements labeled as 'MustSupport'](conformance-rules.html#mustSupport) in the [profiles](profiling.html) that apply to my system */
+    MustSupport,
+    /** **obs-focus**
+
+I've reviewed the [Observation](observation.html) resource, and understand how ```textfocus``` is a mechanism for observations to be about someone or something other than the patient or subject of record. */
+    ObsFocus,
+    /** **render-narratives**
+
+My system can [render narratives properly](narrative.html#css) and [securely](security.html#narrative)(where they are used) */
+    RenderNarratives,
+    /** **search-parameters**
+
+My system checks whether the server processed all the requested search parameter, and is safe if servers ignore parameters (typically, either filters locally or warns the user) */
+    SearchParameters,
+    /** **time-zone**
+
+My system checks for timezones and adjusts times appropriately. (note: timezones are extremely difficult to get correct - see [W3C Timezone Advice](https://www.w3.org/TR/timezone/), and note that some fields should be timezone corrected, and others should not be) */
+    TimeZone,
+    /** **use-encryption**
+
+Production exchange of patient or other sensitive data will always use some form of [encryption on the wire](security.html#http) */
+    UseEncryption,
+    /** **use-format-header**
+
+The _format header is supported correctly */
+    UseFormatHeader,
+    /** **use-json**
+
+JSON is supported (many clients are Javascript apps running in a browser; XML is inconvenient at best) */
+    UseJson,
+    /** **use-labels**
+
+My system considers [security labels](security-labels.html) on the affected resources when making access control decisions */
+    UseLabels,
+    /** **use-openidconnect**
+
+My system uses [OpenID Connect](https://openid.net/connect/) (or other suitable authentication protocol) to verify identity of end user, where it is necessary that end-users be identified to the client application, and has a clear policy on [identity proofing](secpriv-module.html#user) */
+    UseOpenidconnect,
+    /** **use-operation-outcome**
+
+Errors are trapped and an OperationOutcome returned */
+    UseOperationOutcome,
+    /** **use-ouath**
+
+My system utilizes a risk and use case [appropriate OAuth profile](security.html#oauth) (preferably [Smart App Launch](http://hl7.org/fhir/smart-app-launch)), with a [clear policy on authentication strength](security.html#authentication) */
+    UseOuath,
+    /** **use-provenance**
+
+My system makes the right [Provenance](provenance.html) statements and [AuditEvent](auditevent.html) logs, and uses the right [security labels](security-labels.html#core) where appropriate */
+    UseProvenance,
+    /** **use-rbac**
+
+My system applies appropriate access control to every request, using a combination of requester’s clearance (ABAC) and/or roles (RBAC) */
+    UseRbac,
+    /** **use-smime**
+
+Where resources are exchanged using email, [S/MIME](https://en.wikipedia.org/wiki/S/MIME) should be used to protect the end-to-end communication */
+    UseSmime,
+    /** **use-tls**
+
+Where resources are exchanged using [HTTP](security.html#http), [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) should be utilized to protect the communications channel */
+    UseTls,
+    /** **use-tls-per-bcp195**
+
+Production exchange should utilize recommendations for [Best-Current-Practice on TLS in BCP 195](https://tools.ietf.org/html/bcp195) */
+    UseTlsPerBcp195,
+    /** **valid-checked**
+
+All resources in use are [valid](validation.html) against the base specification and the [profiles](profiling.html) that apply to my system (see note about the [correct run-time use of validation](validation.html#correct-use)) */
+    ValidChecked,
+}
+impl ::core::str::FromStr for FHIRSafetyCheckListEntries {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "check-clocks" => Ok(Self::CheckClocks),
+            "check-consent" => Ok(Self::CheckConsent),
+            "check-dns-responses" => Ok(Self::CheckDnsResponses),
+            "check=validation" => Ok(Self::CheckValidation),
+            "cross-resource" => Ok(Self::CrossResource),
+            "cs-declare" => Ok(Self::CsDeclare),
+            "current" => Ok(Self::Current),
+            "date-rendering" => Ok(Self::DateRendering),
+            "default-filters" => Ok(Self::DefaultFilters),
+            "deletion-check" => Ok(Self::DeletionCheck),
+            "deletion-replication" => Ok(Self::DeletionReplication),
+            "deletion-support" => Ok(Self::DeletionSupport),
+            "display-warnings" => Ok(Self::DisplayWarnings),
+            "distribute-aod" => Ok(Self::DistributeAod),
+            "enable-cors" => Ok(Self::EnableCors),
+            "error-checks" => Ok(Self::ErrorChecks),
+            "identity" => Ok(Self::Identity),
+            "json-for-errors" => Ok(Self::JsonForErrors),
+            "life-cycle" => Ok(Self::LifeCycle),
+            "link-merge" => Ok(Self::LinkMerge),
+            "missing-values" => Ok(Self::MissingValues),
+            "modifier-extensions" => Ok(Self::ModifierExtensions),
+            "modifiers" => Ok(Self::Modifiers),
+            "must-support" => Ok(Self::MustSupport),
+            "obs-focus" => Ok(Self::ObsFocus),
+            "render-narratives" => Ok(Self::RenderNarratives),
+            "search-parameters" => Ok(Self::SearchParameters),
+            "time-zone" => Ok(Self::TimeZone),
+            "use-encryption" => Ok(Self::UseEncryption),
+            "use-format-header" => Ok(Self::UseFormatHeader),
+            "use-json" => Ok(Self::UseJson),
+            "use-labels" => Ok(Self::UseLabels),
+            "use-openidconnect" => Ok(Self::UseOpenidconnect),
+            "use-operation-outcome" => Ok(Self::UseOperationOutcome),
+            "use-ouath" => Ok(Self::UseOuath),
+            "use-provenance" => Ok(Self::UseProvenance),
+            "use-rbac" => Ok(Self::UseRbac),
+            "use-smime" => Ok(Self::UseSmime),
+            "use-tls" => Ok(Self::UseTls),
+            "use-tls-per-bcp195" => Ok(Self::UseTlsPerBcp195),
+            "valid-checked" => Ok(Self::ValidChecked),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRSafetyCheckListEntries {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::CheckClocks => "check-clocks",
+            Self::CheckConsent => "check-consent",
+            Self::CheckDnsResponses => "check-dns-responses",
+            Self::CheckValidation => "check=validation",
+            Self::CrossResource => "cross-resource",
+            Self::CsDeclare => "cs-declare",
+            Self::Current => "current",
+            Self::DateRendering => "date-rendering",
+            Self::DefaultFilters => "default-filters",
+            Self::DeletionCheck => "deletion-check",
+            Self::DeletionReplication => "deletion-replication",
+            Self::DeletionSupport => "deletion-support",
+            Self::DisplayWarnings => "display-warnings",
+            Self::DistributeAod => "distribute-aod",
+            Self::EnableCors => "enable-cors",
+            Self::ErrorChecks => "error-checks",
+            Self::Identity => "identity",
+            Self::JsonForErrors => "json-for-errors",
+            Self::LifeCycle => "life-cycle",
+            Self::LinkMerge => "link-merge",
+            Self::MissingValues => "missing-values",
+            Self::ModifierExtensions => "modifier-extensions",
+            Self::Modifiers => "modifiers",
+            Self::MustSupport => "must-support",
+            Self::ObsFocus => "obs-focus",
+            Self::RenderNarratives => "render-narratives",
+            Self::SearchParameters => "search-parameters",
+            Self::TimeZone => "time-zone",
+            Self::UseEncryption => "use-encryption",
+            Self::UseFormatHeader => "use-format-header",
+            Self::UseJson => "use-json",
+            Self::UseLabels => "use-labels",
+            Self::UseOpenidconnect => "use-openidconnect",
+            Self::UseOperationOutcome => "use-operation-outcome",
+            Self::UseOuath => "use-ouath",
+            Self::UseProvenance => "use-provenance",
+            Self::UseRbac => "use-rbac",
+            Self::UseSmime => "use-smime",
+            Self::UseTls => "use-tls",
+            Self::UseTlsPerBcp195 => "use-tls-per-bcp195",
+            Self::ValidChecked => "valid-checked",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRSafetyCheckListEntries {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::CheckClocks => "check-clocks",
+            Self::CheckConsent => "check-consent",
+            Self::CheckDnsResponses => "check-dns-responses",
+            Self::CheckValidation => "check=validation",
+            Self::CrossResource => "cross-resource",
+            Self::CsDeclare => "cs-declare",
+            Self::Current => "current",
+            Self::DateRendering => "date-rendering",
+            Self::DefaultFilters => "default-filters",
+            Self::DeletionCheck => "deletion-check",
+            Self::DeletionReplication => "deletion-replication",
+            Self::DeletionSupport => "deletion-support",
+            Self::DisplayWarnings => "display-warnings",
+            Self::DistributeAod => "distribute-aod",
+            Self::EnableCors => "enable-cors",
+            Self::ErrorChecks => "error-checks",
+            Self::Identity => "identity",
+            Self::JsonForErrors => "json-for-errors",
+            Self::LifeCycle => "life-cycle",
+            Self::LinkMerge => "link-merge",
+            Self::MissingValues => "missing-values",
+            Self::ModifierExtensions => "modifier-extensions",
+            Self::Modifiers => "modifiers",
+            Self::MustSupport => "must-support",
+            Self::ObsFocus => "obs-focus",
+            Self::RenderNarratives => "render-narratives",
+            Self::SearchParameters => "search-parameters",
+            Self::TimeZone => "time-zone",
+            Self::UseEncryption => "use-encryption",
+            Self::UseFormatHeader => "use-format-header",
+            Self::UseJson => "use-json",
+            Self::UseLabels => "use-labels",
+            Self::UseOpenidconnect => "use-openidconnect",
+            Self::UseOperationOutcome => "use-operation-outcome",
+            Self::UseOuath => "use-ouath",
+            Self::UseProvenance => "use-provenance",
+            Self::UseRbac => "use-rbac",
+            Self::UseSmime => "use-smime",
+            Self::UseTls => "use-tls",
+            Self::UseTlsPerBcp195 => "use-tls-per-bcp195",
+            Self::ValidChecked => "valid-checked",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRSafetyCheckListEntries {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRSafetyCheckListEntries {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRSafetyCheckListEntries> for Coding {
+    fn from(code: FHIRSafetyCheckListEntries) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/safety-entries".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRSafetyCheckListEntries> for CodeableConcept {
+    fn from(code: FHIRSafetyCheckListEntries) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRSubstanceStatus](http://hl7.org/fhir/ValueSet/substance-status)**. A code to indicate if the substance is actively used.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRSubstanceStatus {
+    /** **active**
+
+Active. The substance is considered for use or reference. */
+    Active,
+    /** **entered-in-error**
+
+Entered in Error. The substance was entered in error. */
+    EnteredInError,
+    /** **inactive**
+
+Inactive. The substance is considered for reference, but not for use. */
+    Inactive,
+}
+impl ::core::str::FromStr for FHIRSubstanceStatus {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "active" => Ok(Self::Active),
+            "entered-in-error" => Ok(Self::EnteredInError),
+            "inactive" => Ok(Self::Inactive),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRSubstanceStatus {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Active => "active",
+            Self::EnteredInError => "entered-in-error",
+            Self::Inactive => "inactive",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRSubstanceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRSubstanceStatus {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRSubstanceStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRSubstanceStatus> for Coding {
+    fn from(code: FHIRSubstanceStatus) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/substance-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRSubstanceStatus> for CodeableConcept {
+    fn from(code: FHIRSubstanceStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRTypes](http://hl7.org/fhir/ValueSet/fhir-types)**. One of the types defined as part of this version of FHIR.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRTypes {
+    /** **Account**
+
+Account. A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc. */
+    Account,
+    /** **ActivityDefinition**
+
+ActivityDefinition. This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context. */
+    ActivityDefinition,
+    /** **ActorDefinition**
+
+ActorDefinition. The ActorDefinition resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays. */
+    ActorDefinition,
+    /** **Address**
+
+Address. Address Type: An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
+The ISO21090-codedString may be used to provide a coded representation of the contents of strings in an Address. */
+    Address,
+    /** **AdministrableProductDefinition**
+
+AdministrableProductDefinition. A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed). */
+    AdministrableProductDefinition,
+    /** **AdverseEvent**
+
+AdverseEvent. An event (i.e. any change to current patient status) that may be related to unintended effects on a patient or research participant. The unintended effects may require additional monitoring, treatment, hospitalization, or may result in death. The AdverseEvent resource also extends to potential or avoided events that could have had such effects. There are two major domains where the AdverseEvent resource is expected to be used. One is in clinical care reported adverse events and the other is in reporting adverse events in clinical  research trial management.  Adverse events can be reported by healthcare providers, patients, caregivers or by medical products manufacturers.  Given the differences between these two concepts, we recommend consulting the domain specific implementation guides when implementing the AdverseEvent Resource. The implementation guides include specific extensions, value sets and constraints. */
+    AdverseEvent,
+    /** **Age**
+
+Age. Age Type: A duration of time during which an organism (or a process) has existed. */
+    Age,
+    /** **AllergyIntolerance**
+
+AllergyIntolerance. Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance. */
+    AllergyIntolerance,
+    /** **Annotation**
+
+Annotation. Annotation Type: A  text note which also  contains information about who made the statement and when. */
+    Annotation,
+    /** **Appointment**
+
+Appointment. A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s). */
+    Appointment,
+    /** **AppointmentResponse**
+
+AppointmentResponse. A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection. */
+    AppointmentResponse,
+    /** **ArtifactAssessment**
+
+ArtifactAssessment. This Resource provides one or more comments, classifiers or ratings about a Resource and supports attribution and rights management metadata for the added content. */
+    ArtifactAssessment,
+    /** **Attachment**
+
+Attachment. Attachment Type: For referring to data content defined in other formats. */
+    Attachment,
+    /** **AuditEvent**
+
+AuditEvent. A record of an event relevant for purposes such as operations, privacy, security, maintenance, and performance analysis. */
+    AuditEvent,
+    /** **Availability**
+
+Availability. Availability Type: Availability data for an {item}. */
+    Availability,
+    /** **BackboneElement**
+
+BackboneElement. BackboneElement Type: Base definition for all elements that are defined inside a resource - but not those in a data type. */
+    BackboneElement,
+    /** **BackboneType**
+
+BackboneType. BackboneType Type: Base definition for the few data types that are allowed to carry modifier extensions. */
+    BackboneType,
+    /** **Base**
+
+Base. Base Type: Base definition for all types defined in FHIR type system. */
+    Base,
+    /** **Basic**
+
+Basic. Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification. */
+    Basic,
+    /** **Binary**
+
+Binary. A resource that represents the data of a single raw artifact as digital content accessible in its native format.  A Binary resource can contain any content, whether text, image, pdf, zip archive, etc. */
+    Binary,
+    /** **BiologicallyDerivedProduct**
+
+BiologicallyDerivedProduct. A biological material originating from a biological entity intended to be transplanted or infused into another (possibly the same) biological entity. */
+    BiologicallyDerivedProduct,
+    /** **BiologicallyDerivedProductDispense**
+
+BiologicallyDerivedProductDispense. A record of dispensation of a biologically derived product. */
+    BiologicallyDerivedProductDispense,
+    /** **BodyStructure**
+
+BodyStructure. Record details about an anatomical structure.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case. */
+    BodyStructure,
+    /** **Bundle**
+
+Bundle. A container for a collection of resources. */
+    Bundle,
+    /** **CanonicalResource**
+
+CanonicalResource. Common Interface declaration for conformance and knowledge artifact resources. */
+    CanonicalResource,
+    /** **CapabilityStatement**
+
+CapabilityStatement. A Capability Statement documents a set of capabilities (behaviors) of a FHIR Server or Client for a particular version of FHIR that may be used as a statement of actual server functionality or a statement of required or desired server implementation. */
+    CapabilityStatement,
+    /** **CarePlan**
+
+CarePlan. Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions. */
+    CarePlan,
+    /** **CareTeam**
+
+CareTeam. The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care. */
+    CareTeam,
+    /** **ChargeItem**
+
+ChargeItem. The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation. */
+    ChargeItem,
+    /** **ChargeItemDefinition**
+
+ChargeItemDefinition. The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system. */
+    ChargeItemDefinition,
+    /** **Citation**
+
+Citation. The Citation Resource enables reference to any knowledge artifact for purposes of identification and attribution. The Citation Resource supports existing reference structures and developing publication practices such as versioning, expressing complex contributorship roles, and referencing computable resources. */
+    Citation,
+    /** **Claim**
+
+Claim. A provider issued list of professional services and products which have been provided, or are to be provided, to a patient which is sent to an insurer for reimbursement. */
+    Claim,
+    /** **ClaimResponse**
+
+ClaimResponse. This resource provides the adjudication details from the processing of a Claim resource. */
+    ClaimResponse,
+    /** **ClinicalImpression**
+
+ClinicalImpression. A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score. */
+    ClinicalImpression,
+    /** **ClinicalUseDefinition**
+
+ClinicalUseDefinition. A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure. */
+    ClinicalUseDefinition,
+    /** **CodeSystem**
+
+CodeSystem. The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content. */
+    CodeSystem,
+    /** **CodeableConcept**
+
+CodeableConcept. CodeableConcept Type: A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text. */
+    CodeableConcept,
+    /** **CodeableReference**
+
+CodeableReference. CodeableReference Type: A reference to a resource (by instance), or instead, a reference to a concept defined in a terminology or ontology (by class). */
+    CodeableReference,
+    /** **Coding**
+
+Coding. Coding Type: A reference to a code defined by a terminology system. */
+    Coding,
+    /** **Communication**
+
+Communication. A clinical or business level record of information being transmitted or shared; e.g. an alert that was sent to a responsible provider, a public health agency communication to a provider/reporter in response to a case report for a reportable condition. */
+    Communication,
+    /** **CommunicationRequest**
+
+CommunicationRequest. A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition. */
+    CommunicationRequest,
+    /** **CompartmentDefinition**
+
+CompartmentDefinition. A compartment definition that defines how resources are accessed on a server. */
+    CompartmentDefinition,
+    /** **Composition**
+
+Composition. A set of healthcare-related information that is assembled together into a single logical package that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. A Composition defines the structure and narrative content necessary for a document. However, a Composition alone does not constitute a document. Rather, the Composition must be the first entry in a Bundle where Bundle.type=document, and any other resources referenced from Composition must be included as subsequent entries in the Bundle (for example Patient, Practitioner, Encounter, etc.). */
+    Composition,
+    /** **ConceptMap**
+
+ConceptMap. A statement of relationships from one set of concepts to one or more other concepts - either concepts in code systems, or data element/data element concepts, or classes in class models. */
+    ConceptMap,
+    /** **Condition**
+
+Condition. A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern. */
+    Condition,
+    /** **ConditionDefinition**
+
+ConditionDefinition. A definition of a condition and information relevant to managing it. */
+    ConditionDefinition,
+    /** **Consent**
+
+Consent. A record of a healthcare consumer’s  choices  or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time. */
+    Consent,
+    /** **ContactDetail**
+
+ContactDetail. ContactDetail Type: Specifies contact information for a person or organization. */
+    ContactDetail,
+    /** **ContactPoint**
+
+ContactPoint. ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc. */
+    ContactPoint,
+    /** **Contract**
+
+Contract. Legally enforceable, formally recorded unilateral or bilateral directive i.e., a policy or agreement. */
+    Contract,
+    /** **Contributor**
+
+Contributor. Contributor Type: A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers. */
+    Contributor,
+    /** **Count**
+
+Count. Count Type: A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies. */
+    Count,
+    /** **Coverage**
+
+Coverage. Financial instrument which may be used to reimburse or pay for health care products and services. Includes both insurance and self-payment. */
+    Coverage,
+    /** **CoverageEligibilityRequest**
+
+CoverageEligibilityRequest. The CoverageEligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an CoverageEligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy. */
+    CoverageEligibilityRequest,
+    /** **CoverageEligibilityResponse**
+
+CoverageEligibilityResponse. This resource provides eligibility and plan details from the processing of an CoverageEligibilityRequest resource. */
+    CoverageEligibilityResponse,
+    /** **DataRequirement**
+
+DataRequirement. DataRequirement Type: Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data. */
+    DataRequirement,
+    /** **DataType**
+
+DataType. DataType Type: The base class for all re-useable types defined as part of the FHIR Specification. */
+    DataType,
+    /** **DetectedIssue**
+
+DetectedIssue. Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, gaps in care, etc. */
+    DetectedIssue,
+    /** **Device**
+
+Device. This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element. */
+    Device,
+    /** **DeviceAssociation**
+
+DeviceAssociation. A record of association of a device. */
+    DeviceAssociation,
+    /** **DeviceDefinition**
+
+DeviceDefinition. This is a specialized resource that defines the characteristics and capabilities of a device. */
+    DeviceDefinition,
+    /** **DeviceDispense**
+
+DeviceDispense. Indicates that a device is to be or has been dispensed for a named person/patient.  This includes a description of the product (supply) provided and the instructions for using the device. */
+    DeviceDispense,
+    /** **DeviceMetric**
+
+DeviceMetric. Describes a measurement, calculation or setting capability of a device.  The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable.  */
+    DeviceMetric,
+    /** **DeviceRequest**
+
+DeviceRequest. Represents a request a device to be provided to a specific patient. The device may be an implantable device to be subsequently implanted, or an external assistive device, such as a walker, to be delivered and subsequently be used. */
+    DeviceRequest,
+    /** **DeviceUsage**
+
+DeviceUsage. A record of a device being used by a patient where the record is the result of a report from the patient or a clinician. */
+    DeviceUsage,
+    /** **DiagnosticReport**
+
+DiagnosticReport. The findings and interpretation of diagnostic tests performed on patients, groups of patients, products, substances, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports. The report also includes non-clinical context such as batch analysis and stability reporting of products and substances. */
+    DiagnosticReport,
+    /** **Distance**
+
+Distance. Distance Type: A length - a value with a unit that is a physical distance. */
+    Distance,
+    /** **DocumentReference**
+
+DocumentReference. A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this “document” encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference. */
+    DocumentReference,
+    /** **DomainResource**
+
+DomainResource. A resource that includes narrative, extensions, and contained resources. */
+    DomainResource,
+    /** **Dosage**
+
+Dosage. Dosage Type: Indicates how the medication is/was taken or should be taken by the patient. */
+    Dosage,
+    /** **Duration**
+
+Duration. Duration Type: A length of time. */
+    Duration,
+    /** **Element**
+
+Element. Element Type: Base definition for all elements in a resource. */
+    Element,
+    /** **ElementDefinition**
+
+ElementDefinition. ElementDefinition Type: Captures constraints on each element within the resource, profile, or extension. */
+    ElementDefinition,
+    /** **Encounter**
+
+Encounter. An interaction between healthcare provider(s), and/or patient(s) for the purpose of providing healthcare service(s) or assessing the health status of patient(s). */
+    Encounter,
+    /** **EncounterHistory**
+
+EncounterHistory. A record of significant events/milestones key data throughout the history of an Encounter */
+    EncounterHistory,
+    /** **Endpoint**
+
+Endpoint. The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b, a REST endpoint for another FHIR server, or a s/Mime email address. This may include any security context information. */
+    Endpoint,
+    /** **EnrollmentRequest**
+
+EnrollmentRequest. This resource provides the insurance enrollment details to the insurer regarding a specified coverage. */
+    EnrollmentRequest,
+    /** **EnrollmentResponse**
+
+EnrollmentResponse. This resource provides enrollment and plan details from the processing of an EnrollmentRequest resource. */
+    EnrollmentResponse,
+    /** **EpisodeOfCare**
+
+EpisodeOfCare. An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time. */
+    EpisodeOfCare,
+    /** **EventDefinition**
+
+EventDefinition. The EventDefinition resource provides a reusable description of when a particular event can occur. */
+    EventDefinition,
+    /** **Evidence**
+
+Evidence. The Evidence Resource provides a machine-interpretable expression of an evidence concept including the evidence variables (e.g., population, exposures/interventions, comparators, outcomes, measured variables, confounding variables), the statistics, and the certainty of this evidence. */
+    Evidence,
+    /** **EvidenceReport**
+
+EvidenceReport. The EvidenceReport Resource is a specialized container for a collection of resources and codeable concepts, adapted to support compositions of Evidence, EvidenceVariable, and Citation resources and related concepts. */
+    EvidenceReport,
+    /** **EvidenceVariable**
+
+EvidenceVariable. The EvidenceVariable resource describes an element that knowledge (Evidence) is about. */
+    EvidenceVariable,
+    /** **ExampleScenario**
+
+ExampleScenario. A walkthrough of a workflow showing the interaction between systems and the instances shared, possibly including the evolution of instances over time. */
+    ExampleScenario,
+    /** **ExplanationOfBenefit**
+
+ExplanationOfBenefit. This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided. */
+    ExplanationOfBenefit,
+    /** **Expression**
+
+Expression. Expression Type: A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used. */
+    Expression,
+    /** **ExtendedContactDetail**
+
+ExtendedContactDetail. ExtendedContactDetail Type: Specifies contact information for a specific purpose over a period of time, might be handled/monitored by a specific named person or organization. */
+    ExtendedContactDetail,
+    /** **Extension**
+
+Extension. Extension Type: Optional Extension Element - found in all resources. */
+    Extension,
+    /** **FamilyMemberHistory**
+
+FamilyMemberHistory. Significant health conditions for a person related to the patient relevant in the context of care for the patient. */
+    FamilyMemberHistory,
+    /** **Flag**
+
+Flag. Prospective warnings of potential issues when providing care to the patient. */
+    Flag,
+    /** **FormularyItem**
+
+FormularyItem. This resource describes a product or service that is available through a program and includes the conditions and constraints of availability.  All of the information in this resource is specific to the inclusion of the item in the formulary and is not inherent to the item itself. */
+    FormularyItem,
+    /** **GenomicStudy**
+
+GenomicStudy. A set of analyses performed to analyze and generate genomic data. */
+    GenomicStudy,
+    /** **Goal**
+
+Goal. Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc. */
+    Goal,
+    /** **GraphDefinition**
+
+GraphDefinition. A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set. */
+    GraphDefinition,
+    /** **Group**
+
+Group. Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively, and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization. */
+    Group,
+    /** **GuidanceResponse**
+
+GuidanceResponse. A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken. */
+    GuidanceResponse,
+    /** **HealthcareService**
+
+HealthcareService. The details of a healthcare service available at a location or in a catalog.  In the case where there is a hierarchy of services (for example, Lab -> Pathology -> Wound Cultures), this can be represented using a set of linked HealthcareServices. */
+    HealthcareService,
+    /** **HumanName**
+
+HumanName. HumanName Type: A name, normally of a human, that can be used for other living entities (e.g. animals but not organizations) that have been assigned names by a human and may need the use of name parts or the need for usage information. */
+    HumanName,
+    /** **Identifier**
+
+Identifier. Identifier Type: An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers. */
+    Identifier,
+    /** **ImagingSelection**
+
+ImagingSelection. A selection of DICOM SOP instances and/or frames within a single Study and Series. This might include additional specifics such as an image region, an Observation UID or a Segmentation Number, allowing linkage to an Observation Resource or transferring this information along with the ImagingStudy Resource. */
+    ImagingSelection,
+    /** **ImagingStudy**
+
+ImagingStudy. Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities. */
+    ImagingStudy,
+    /** **Immunization**
+
+Immunization. Describes the event of a patient being administered a vaccine or a record of an immunization as reported by a patient, a clinician or another party. */
+    Immunization,
+    /** **ImmunizationEvaluation**
+
+ImmunizationEvaluation. Describes a comparison of an immunization event against published recommendations to determine if the administration is "valid" in relation to those  recommendations. */
+    ImmunizationEvaluation,
+    /** **ImmunizationRecommendation**
+
+ImmunizationRecommendation. A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification. */
+    ImmunizationRecommendation,
+    /** **ImplementationGuide**
+
+ImplementationGuide. A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts. */
+    ImplementationGuide,
+    /** **Ingredient**
+
+Ingredient. An ingredient of a manufactured item or pharmaceutical product. */
+    Ingredient,
+    /** **InsurancePlan**
+
+InsurancePlan. Details of a Health Insurance product/plan provided by an organization. */
+    InsurancePlan,
+    /** **InventoryItem**
+
+InventoryItem. functional description of an inventory item used in inventory and supply-related workflows. */
+    InventoryItem,
+    /** **InventoryReport**
+
+InventoryReport. A report of inventory or stock items. */
+    InventoryReport,
+    /** **Invoice**
+
+Invoice. Invoice containing collected ChargeItems from an Account with calculated individual and total price for Billing purpose. */
+    Invoice,
+    /** **Library**
+
+Library. The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets. */
+    Library,
+    /** **Linkage**
+
+Linkage. Identifies two or more records (resource instances) that refer to the same real-world "occurrence". */
+    Linkage,
+    /** **List**
+
+List. A List is a curated collection of resources, for things such as problem lists, allergy lists, facility list, organization list, etc. */
+    List,
+    /** **Location**
+
+Location. Details and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated. */
+    Location,
+    /** **ManufacturedItemDefinition**
+
+ManufacturedItemDefinition. The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product. */
+    ManufacturedItemDefinition,
+    /** **MarketingStatus**
+
+MarketingStatus. MarketingStatus Type: The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available. */
+    MarketingStatus,
+    /** **Measure**
+
+Measure. The Measure resource provides the definition of a quality measure. */
+    Measure,
+    /** **MeasureReport**
+
+MeasureReport. The MeasureReport resource contains the results of the calculation of a measure; and optionally a reference to the resources involved in that calculation. */
+    MeasureReport,
+    /** **Medication**
+
+Medication. This resource is primarily used for the identification and definition of a medication, including ingredients, for the purposes of prescribing, dispensing, and administering a medication as well as for making statements about medication use. */
+    Medication,
+    /** **MedicationAdministration**
+
+MedicationAdministration. Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion. Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. This event can also be used to record waste using a status of not-done and the appropriate statusReason. */
+    MedicationAdministration,
+    /** **MedicationDispense**
+
+MedicationDispense. Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order. */
+    MedicationDispense,
+    /** **MedicationKnowledge**
+
+MedicationKnowledge. Information about a medication that is used to support knowledge. */
+    MedicationKnowledge,
+    /** **MedicationRequest**
+
+MedicationRequest. An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings, including care plans, etc., and to harmonize with workflow patterns. */
+    MedicationRequest,
+    /** **MedicationStatement**
+
+MedicationStatement. A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains.
+
+The primary difference between a medicationstatement and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationstatement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information. */
+    MedicationStatement,
+    /** **MedicinalProductDefinition**
+
+MedicinalProductDefinition. Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.). */
+    MedicinalProductDefinition,
+    /** **MessageDefinition**
+
+MessageDefinition. Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted. */
+    MessageDefinition,
+    /** **MessageHeader**
+
+MessageHeader. The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle. */
+    MessageHeader,
+    /** **Meta**
+
+Meta. Meta Type: The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource. */
+    Meta,
+    /** **MetadataResource**
+
+MetadataResource. Common Interface declaration for conformance and knowledge artifact resources. */
+    MetadataResource,
+    /** **MolecularSequence**
+
+MolecularSequence. Representation of a molecular sequence. */
+    MolecularSequence,
+    /** **MonetaryComponent**
+
+MonetaryComponent. MonetaryComponent Type: Availability data for an {item}. */
+    MonetaryComponent,
+    /** **Money**
+
+Money. Money Type: An amount of economic utility in some recognized currency. */
+    Money,
+    /** **NamingSystem**
+
+NamingSystem. A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types. */
+    NamingSystem,
+    /** **Narrative**
+
+Narrative. Narrative Type: A human-readable summary of the resource conveying the essential clinical and business information for the resource. */
+    Narrative,
+    /** **NutritionIntake**
+
+NutritionIntake. A record of food or fluid that is being consumed by a patient.  A NutritionIntake may indicate that the patient may be consuming the food or fluid now or has consumed the food or fluid in the past.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay or through an app that tracks food or fluids consumed.   The consumption information may come from sources such as the patient's memory, from a nutrition label,  or from a clinician documenting observed intake. */
+    NutritionIntake,
+    /** **NutritionOrder**
+
+NutritionOrder. A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident. */
+    NutritionOrder,
+    /** **NutritionProduct**
+
+NutritionProduct. A food or supplement that is consumed by patients. */
+    NutritionProduct,
+    /** **Observation**
+
+Observation. Measurements and simple assertions made about a patient, device or other subject. */
+    Observation,
+    /** **ObservationDefinition**
+
+ObservationDefinition. Set of definitional characteristics for a kind of observation or measurement produced or consumed by an orderable health care service. */
+    ObservationDefinition,
+    /** **OperationDefinition**
+
+OperationDefinition. A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction). */
+    OperationDefinition,
+    /** **OperationOutcome**
+
+OperationOutcome. A collection of error, warning, or information messages that result from a system action. */
+    OperationOutcome,
+    /** **Organization**
+
+Organization. A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, payer/insurer, etc. */
+    Organization,
+    /** **OrganizationAffiliation**
+
+OrganizationAffiliation. Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship. */
+    OrganizationAffiliation,
+    /** **PackagedProductDefinition**
+
+PackagedProductDefinition. A medically related item or items, in a container or package. */
+    PackagedProductDefinition,
+    /** **ParameterDefinition**
+
+ParameterDefinition. ParameterDefinition Type: The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse. */
+    ParameterDefinition,
+    /** **Parameters**
+
+Parameters. This resource is used to pass information into and back from an operation (whether invoked directly from REST or within a messaging environment).  It is not persisted or allowed to be referenced by other resources except as described in the definition of the Parameters resource. */
+    Parameters,
+    /** **Patient**
+
+Patient. Demographics and other administrative information about an individual or animal receiving care or other health-related services. */
+    Patient,
+    /** **PaymentNotice**
+
+PaymentNotice. This resource provides the status of the payment for goods and services rendered, and the request and response resource references. */
+    PaymentNotice,
+    /** **PaymentReconciliation**
+
+PaymentReconciliation. This resource provides the details including amount of a payment and allocates the payment items being paid. */
+    PaymentReconciliation,
+    /** **Period**
+
+Period. Period Type: A time period defined by a start and end date and optionally time. */
+    Period,
+    /** **Permission**
+
+Permission. Permission resource holds access rules for a given data and context. */
+    Permission,
+    /** **Person**
+
+Person. Demographics and administrative information about a person independent of a specific health-related context. */
+    Person,
+    /** **PlanDefinition**
+
+PlanDefinition. This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical and non-clinical artifacts such as clinical decision support rules, order sets, protocols, and drug quality specifications. */
+    PlanDefinition,
+    /** **Practitioner**
+
+Practitioner. A person who is directly or indirectly involved in the provisioning of healthcare or related services. */
+    Practitioner,
+    /** **PractitionerRole**
+
+PractitionerRole. A specific set of Roles/Locations/specialties/services that a practitioner may perform, or has performed at an organization during a period of time. */
+    PractitionerRole,
+    /** **PrimitiveType**
+
+PrimitiveType. PrimitiveType Type: The base type for all re-useable types defined that have a simple property. */
+    PrimitiveType,
+    /** **Procedure**
+
+Procedure. An action that is or was performed on or for a patient, practitioner, device, organization, or location. For example, this can be a physical intervention on a patient like an operation, or less invasive like long term services, counseling, or hypnotherapy.  This can be a quality or safety inspection for a location, organization, or device.  This can be an accreditation procedure on a practitioner for licensing. */
+    Procedure,
+    /** **ProductShelfLife**
+
+ProductShelfLife. ProductShelfLife Type: The shelf-life and storage information for a medicinal product item or container can be described using this class. */
+    ProductShelfLife,
+    /** **Provenance**
+
+Provenance. Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies. */
+    Provenance,
+    /** **Quantity**
+
+Quantity. Quantity Type: A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies. */
+    Quantity,
+    /** **Questionnaire**
+
+Questionnaire. A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection. */
+    Questionnaire,
+    /** **QuestionnaireResponse**
+
+QuestionnaireResponse. A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the questionnaire being responded to. */
+    QuestionnaireResponse,
+    /** **Range**
+
+Range. Range Type: A set of ordered Quantities defined by a low and high limit. */
+    Range,
+    /** **Ratio**
+
+Ratio. Ratio Type: A relationship of two Quantity values - expressed as a numerator and a denominator. */
+    Ratio,
+    /** **RatioRange**
+
+RatioRange. RatioRange Type: A range of ratios expressed as a low and high numerator and a denominator. */
+    RatioRange,
+    /** **Reference**
+
+Reference. Reference Type: A reference from one resource to another. */
+    Reference,
+    /** **RegulatedAuthorization**
+
+RegulatedAuthorization. Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product. */
+    RegulatedAuthorization,
+    /** **RelatedArtifact**
+
+RelatedArtifact. RelatedArtifact Type: Related artifacts such as additional documentation, justification, or bibliographic references. */
+    RelatedArtifact,
+    /** **RelatedPerson**
+
+RelatedPerson. Information about a person that is involved in a patient's health or the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process. */
+    RelatedPerson,
+    /** **RequestOrchestration**
+
+RequestOrchestration. A set of related requests that can be used to capture intended activities that have inter-dependencies such as "give this medication after that one". */
+    RequestOrchestration,
+    /** **Requirements**
+
+Requirements. The Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays. */
+    Requirements,
+    /** **ResearchStudy**
+
+ResearchStudy. A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future. */
+    ResearchStudy,
+    /** **ResearchSubject**
+
+ResearchSubject. A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study. */
+    ResearchSubject,
+    /** **Resource**
+
+Resource. This is the base resource type for everything. */
+    Resource,
+    /** **RiskAssessment**
+
+RiskAssessment. An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome. */
+    RiskAssessment,
+    /** **SampledData**
+
+SampledData. SampledData Type: A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data. */
+    SampledData,
+    /** **Schedule**
+
+Schedule. A container for slots of time that may be available for booking appointments. */
+    Schedule,
+    /** **SearchParameter**
+
+SearchParameter. A search parameter that defines a named search item that can be used to search/filter on a resource. */
+    SearchParameter,
+    /** **ServiceRequest**
+
+ServiceRequest. A record of a request for service such as diagnostic investigations, treatments, or operations to be performed. */
+    ServiceRequest,
+    /** **Signature**
+
+Signature. Signature Type: A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities. */
+    Signature,
+    /** **Slot**
+
+Slot. A slot of time on a schedule that may be available for booking appointments. */
+    Slot,
+    /** **Specimen**
+
+Specimen. A sample to be used for analysis. */
+    Specimen,
+    /** **SpecimenDefinition**
+
+SpecimenDefinition. A kind of specimen with associated set of requirements. */
+    SpecimenDefinition,
+    /** **StructureDefinition**
+
+StructureDefinition. A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions and constraints on resources and data types. */
+    StructureDefinition,
+    /** **StructureMap**
+
+StructureMap. A Map of relationships between 2 structures that can be used to transform data. */
+    StructureMap,
+    /** **Subscription**
+
+Subscription. The subscription resource describes a particular client's request to be notified about a SubscriptionTopic. */
+    Subscription,
+    /** **SubscriptionStatus**
+
+SubscriptionStatus. The SubscriptionStatus resource describes the state of a Subscription during notifications. It is not persisted. */
+    SubscriptionStatus,
+    /** **SubscriptionTopic**
+
+SubscriptionTopic. Describes a stream of resource state changes identified by trigger criteria and annotated with labels useful to filter projections from this topic. */
+    SubscriptionTopic,
+    /** **Substance**
+
+Substance. A homogeneous material with a definite composition. */
+    Substance,
+    /** **SubstanceDefinition**
+
+SubstanceDefinition. The detailed description of a substance, typically at a level beyond what is used for prescribing. */
+    SubstanceDefinition,
+    /** **SubstanceNucleicAcid**
+
+SubstanceNucleicAcid. Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction. */
+    SubstanceNucleicAcid,
+    /** **SubstancePolymer**
+
+SubstancePolymer. Properties of a substance specific to it being a polymer. */
+    SubstancePolymer,
+    /** **SubstanceProtein**
+
+SubstanceProtein. A SubstanceProtein is defined as a single unit of a linear amino acid sequence, or a combination of subunits that are either covalently linked or have a defined invariant stoichiometric relationship. This includes all synthetic, recombinant and purified SubstanceProteins of defined sequence, whether the use is therapeutic or prophylactic. This set of elements will be used to describe albumins, coagulation factors, cytokines, growth factors, peptide/SubstanceProtein hormones, enzymes, toxins, toxoids, recombinant vaccines, and immunomodulators. */
+    SubstanceProtein,
+    /** **SubstanceReferenceInformation**
+
+SubstanceReferenceInformation. Todo. */
+    SubstanceReferenceInformation,
+    /** **SubstanceSourceMaterial**
+
+SubstanceSourceMaterial. Source material shall capture information on the taxonomic and anatomical origins as well as the fraction of a material that can result in or can be modified to form a substance. This set of data elements shall be used to define polymer substances isolated from biological matrices. Taxonomic and anatomical origins shall be described using a controlled vocabulary as required. This information is captured for naturally derived polymers ( . starch) and structurally diverse substances. For Organisms belonging to the Kingdom Plantae the Substance level defines the fresh material of a single species or infraspecies, the Herbal Drug and the Herbal preparation. For Herbal preparations, the fraction information will be captured at the Substance information level and additional information for herbal extracts will be captured at the Specified Substance Group 1 information level. See for further explanation the Substance Class: Structurally Diverse and the herbal annex. */
+    SubstanceSourceMaterial,
+    /** **SupplyDelivery**
+
+SupplyDelivery. Record of delivery of what is supplied. */
+    SupplyDelivery,
+    /** **SupplyRequest**
+
+SupplyRequest. A record of a non-patient specific request for a medication, substance, device, certain types of biologically derived product, and nutrition product used in the healthcare setting. */
+    SupplyRequest,
+    /** **Task**
+
+Task. A task to be performed. */
+    Task,
+    /** **TerminologyCapabilities**
+
+TerminologyCapabilities. A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation. */
+    TerminologyCapabilities,
+    /** **TestPlan**
+
+TestPlan. A plan for executing testing on an artifact or specifications */
+    TestPlan,
+    /** **TestReport**
+
+TestReport. A summary of information based on the results of executing a TestScript. */
+    TestReport,
+    /** **TestScript**
+
+TestScript. A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification. */
+    TestScript,
+    /** **Timing**
+
+Timing. Timing Type: Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out. */
+    Timing,
+    /** **Transport**
+
+Transport. Record of transport. */
+    Transport,
+    /** **TriggerDefinition**
+
+TriggerDefinition. TriggerDefinition Type: A description of a triggering event. Triggering events can be named events, data events, or periodic, as determined by the type element. */
+    TriggerDefinition,
+    /** **UsageContext**
+
+UsageContext. UsageContext Type: Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care). */
+    UsageContext,
+    /** **ValueSet**
+
+ValueSet. A ValueSet resource instance specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between [[[CodeSystem]]] definitions and their use in [coded elements](terminologies.html). */
+    ValueSet,
+    /** **VerificationResult**
+
+VerificationResult. Describes validation requirements, source(s), status and dates for one or more elements. */
+    VerificationResult,
+    /** **VirtualServiceDetail**
+
+VirtualServiceDetail. VirtualServiceDetail Type: Virtual Service Contact Details. */
+    VirtualServiceDetail,
+    /** **VisionPrescription**
+
+VisionPrescription. An authorization for the provision of glasses and/or contact lenses to a patient. */
+    VisionPrescription,
+    /** **base64Binary**
+
+base64Binary. base64Binary Type: A stream of bytes */
+    Base64Binary,
+    /** **boolean**
+
+boolean. boolean Type: Value of "true" or "false" */
+    Boolean,
+    /** **date**
+
+date. date Type: A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates. */
+    Date,
+    /** **dateTime**
+
+dateTime. dateTime Type: A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a UTC offset SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates. */
+    DateTime,
+    /** **decimal**
+
+decimal. decimal Type: A rational number with implicit precision */
+    Decimal,
+    /** **instant**
+
+instant. instant Type: An instant in time - known at least to the second */
+    Instant,
+    /** **integer**
+
+integer. integer Type: A whole number */
+    Integer,
+    /** **integer64**
+
+integer64. integer64 Type: A very large whole number */
+    Integer64,
+    /** **string**
+
+string. string Type: A sequence of Unicode characters */
+    String,
+    /** **time**
+
+time. time Type: A time during the day, with no date specified */
+    Time,
+    /** **uri**
+
+uri. uri Type: String of characters used to identify a name or a resource */
+    Uri,
+    /** **xhtml**
+
+xhtml. xhtml Type definition */
+    Xhtml,
+}
+impl ::core::str::FromStr for FHIRTypes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "Account" => Ok(Self::Account),
+            "ActivityDefinition" => Ok(Self::ActivityDefinition),
+            "ActorDefinition" => Ok(Self::ActorDefinition),
+            "Address" => Ok(Self::Address),
+            "AdministrableProductDefinition" => Ok(Self::AdministrableProductDefinition),
+            "AdverseEvent" => Ok(Self::AdverseEvent),
+            "Age" => Ok(Self::Age),
+            "AllergyIntolerance" => Ok(Self::AllergyIntolerance),
+            "Annotation" => Ok(Self::Annotation),
+            "Appointment" => Ok(Self::Appointment),
+            "AppointmentResponse" => Ok(Self::AppointmentResponse),
+            "ArtifactAssessment" => Ok(Self::ArtifactAssessment),
+            "Attachment" => Ok(Self::Attachment),
+            "AuditEvent" => Ok(Self::AuditEvent),
+            "Availability" => Ok(Self::Availability),
+            "BackboneElement" => Ok(Self::BackboneElement),
+            "BackboneType" => Ok(Self::BackboneType),
+            "Base" => Ok(Self::Base),
+            "Basic" => Ok(Self::Basic),
+            "Binary" => Ok(Self::Binary),
+            "BiologicallyDerivedProduct" => Ok(Self::BiologicallyDerivedProduct),
+            "BiologicallyDerivedProductDispense" => {
+                Ok(Self::BiologicallyDerivedProductDispense)
+            }
+            "BodyStructure" => Ok(Self::BodyStructure),
+            "Bundle" => Ok(Self::Bundle),
+            "CanonicalResource" => Ok(Self::CanonicalResource),
+            "CapabilityStatement" => Ok(Self::CapabilityStatement),
+            "CarePlan" => Ok(Self::CarePlan),
+            "CareTeam" => Ok(Self::CareTeam),
+            "ChargeItem" => Ok(Self::ChargeItem),
+            "ChargeItemDefinition" => Ok(Self::ChargeItemDefinition),
+            "Citation" => Ok(Self::Citation),
+            "Claim" => Ok(Self::Claim),
+            "ClaimResponse" => Ok(Self::ClaimResponse),
+            "ClinicalImpression" => Ok(Self::ClinicalImpression),
+            "ClinicalUseDefinition" => Ok(Self::ClinicalUseDefinition),
+            "CodeSystem" => Ok(Self::CodeSystem),
+            "CodeableConcept" => Ok(Self::CodeableConcept),
+            "CodeableReference" => Ok(Self::CodeableReference),
+            "Coding" => Ok(Self::Coding),
+            "Communication" => Ok(Self::Communication),
+            "CommunicationRequest" => Ok(Self::CommunicationRequest),
+            "CompartmentDefinition" => Ok(Self::CompartmentDefinition),
+            "Composition" => Ok(Self::Composition),
+            "ConceptMap" => Ok(Self::ConceptMap),
+            "Condition" => Ok(Self::Condition),
+            "ConditionDefinition" => Ok(Self::ConditionDefinition),
+            "Consent" => Ok(Self::Consent),
+            "ContactDetail" => Ok(Self::ContactDetail),
+            "ContactPoint" => Ok(Self::ContactPoint),
+            "Contract" => Ok(Self::Contract),
+            "Contributor" => Ok(Self::Contributor),
+            "Count" => Ok(Self::Count),
+            "Coverage" => Ok(Self::Coverage),
+            "CoverageEligibilityRequest" => Ok(Self::CoverageEligibilityRequest),
+            "CoverageEligibilityResponse" => Ok(Self::CoverageEligibilityResponse),
+            "DataRequirement" => Ok(Self::DataRequirement),
+            "DataType" => Ok(Self::DataType),
+            "DetectedIssue" => Ok(Self::DetectedIssue),
+            "Device" => Ok(Self::Device),
+            "DeviceAssociation" => Ok(Self::DeviceAssociation),
+            "DeviceDefinition" => Ok(Self::DeviceDefinition),
+            "DeviceDispense" => Ok(Self::DeviceDispense),
+            "DeviceMetric" => Ok(Self::DeviceMetric),
+            "DeviceRequest" => Ok(Self::DeviceRequest),
+            "DeviceUsage" => Ok(Self::DeviceUsage),
+            "DiagnosticReport" => Ok(Self::DiagnosticReport),
+            "Distance" => Ok(Self::Distance),
+            "DocumentReference" => Ok(Self::DocumentReference),
+            "DomainResource" => Ok(Self::DomainResource),
+            "Dosage" => Ok(Self::Dosage),
+            "Duration" => Ok(Self::Duration),
+            "Element" => Ok(Self::Element),
+            "ElementDefinition" => Ok(Self::ElementDefinition),
+            "Encounter" => Ok(Self::Encounter),
+            "EncounterHistory" => Ok(Self::EncounterHistory),
+            "Endpoint" => Ok(Self::Endpoint),
+            "EnrollmentRequest" => Ok(Self::EnrollmentRequest),
+            "EnrollmentResponse" => Ok(Self::EnrollmentResponse),
+            "EpisodeOfCare" => Ok(Self::EpisodeOfCare),
+            "EventDefinition" => Ok(Self::EventDefinition),
+            "Evidence" => Ok(Self::Evidence),
+            "EvidenceReport" => Ok(Self::EvidenceReport),
+            "EvidenceVariable" => Ok(Self::EvidenceVariable),
+            "ExampleScenario" => Ok(Self::ExampleScenario),
+            "ExplanationOfBenefit" => Ok(Self::ExplanationOfBenefit),
+            "Expression" => Ok(Self::Expression),
+            "ExtendedContactDetail" => Ok(Self::ExtendedContactDetail),
+            "Extension" => Ok(Self::Extension),
+            "FamilyMemberHistory" => Ok(Self::FamilyMemberHistory),
+            "Flag" => Ok(Self::Flag),
+            "FormularyItem" => Ok(Self::FormularyItem),
+            "GenomicStudy" => Ok(Self::GenomicStudy),
+            "Goal" => Ok(Self::Goal),
+            "GraphDefinition" => Ok(Self::GraphDefinition),
+            "Group" => Ok(Self::Group),
+            "GuidanceResponse" => Ok(Self::GuidanceResponse),
+            "HealthcareService" => Ok(Self::HealthcareService),
+            "HumanName" => Ok(Self::HumanName),
+            "Identifier" => Ok(Self::Identifier),
+            "ImagingSelection" => Ok(Self::ImagingSelection),
+            "ImagingStudy" => Ok(Self::ImagingStudy),
+            "Immunization" => Ok(Self::Immunization),
+            "ImmunizationEvaluation" => Ok(Self::ImmunizationEvaluation),
+            "ImmunizationRecommendation" => Ok(Self::ImmunizationRecommendation),
+            "ImplementationGuide" => Ok(Self::ImplementationGuide),
+            "Ingredient" => Ok(Self::Ingredient),
+            "InsurancePlan" => Ok(Self::InsurancePlan),
+            "InventoryItem" => Ok(Self::InventoryItem),
+            "InventoryReport" => Ok(Self::InventoryReport),
+            "Invoice" => Ok(Self::Invoice),
+            "Library" => Ok(Self::Library),
+            "Linkage" => Ok(Self::Linkage),
+            "List" => Ok(Self::List),
+            "Location" => Ok(Self::Location),
+            "ManufacturedItemDefinition" => Ok(Self::ManufacturedItemDefinition),
+            "MarketingStatus" => Ok(Self::MarketingStatus),
+            "Measure" => Ok(Self::Measure),
+            "MeasureReport" => Ok(Self::MeasureReport),
+            "Medication" => Ok(Self::Medication),
+            "MedicationAdministration" => Ok(Self::MedicationAdministration),
+            "MedicationDispense" => Ok(Self::MedicationDispense),
+            "MedicationKnowledge" => Ok(Self::MedicationKnowledge),
+            "MedicationRequest" => Ok(Self::MedicationRequest),
+            "MedicationStatement" => Ok(Self::MedicationStatement),
+            "MedicinalProductDefinition" => Ok(Self::MedicinalProductDefinition),
+            "MessageDefinition" => Ok(Self::MessageDefinition),
+            "MessageHeader" => Ok(Self::MessageHeader),
+            "Meta" => Ok(Self::Meta),
+            "MetadataResource" => Ok(Self::MetadataResource),
+            "MolecularSequence" => Ok(Self::MolecularSequence),
+            "MonetaryComponent" => Ok(Self::MonetaryComponent),
+            "Money" => Ok(Self::Money),
+            "NamingSystem" => Ok(Self::NamingSystem),
+            "Narrative" => Ok(Self::Narrative),
+            "NutritionIntake" => Ok(Self::NutritionIntake),
+            "NutritionOrder" => Ok(Self::NutritionOrder),
+            "NutritionProduct" => Ok(Self::NutritionProduct),
+            "Observation" => Ok(Self::Observation),
+            "ObservationDefinition" => Ok(Self::ObservationDefinition),
+            "OperationDefinition" => Ok(Self::OperationDefinition),
+            "OperationOutcome" => Ok(Self::OperationOutcome),
+            "Organization" => Ok(Self::Organization),
+            "OrganizationAffiliation" => Ok(Self::OrganizationAffiliation),
+            "PackagedProductDefinition" => Ok(Self::PackagedProductDefinition),
+            "ParameterDefinition" => Ok(Self::ParameterDefinition),
+            "Parameters" => Ok(Self::Parameters),
+            "Patient" => Ok(Self::Patient),
+            "PaymentNotice" => Ok(Self::PaymentNotice),
+            "PaymentReconciliation" => Ok(Self::PaymentReconciliation),
+            "Period" => Ok(Self::Period),
+            "Permission" => Ok(Self::Permission),
+            "Person" => Ok(Self::Person),
+            "PlanDefinition" => Ok(Self::PlanDefinition),
+            "Practitioner" => Ok(Self::Practitioner),
+            "PractitionerRole" => Ok(Self::PractitionerRole),
+            "PrimitiveType" => Ok(Self::PrimitiveType),
+            "Procedure" => Ok(Self::Procedure),
+            "ProductShelfLife" => Ok(Self::ProductShelfLife),
+            "Provenance" => Ok(Self::Provenance),
+            "Quantity" => Ok(Self::Quantity),
+            "Questionnaire" => Ok(Self::Questionnaire),
+            "QuestionnaireResponse" => Ok(Self::QuestionnaireResponse),
+            "Range" => Ok(Self::Range),
+            "Ratio" => Ok(Self::Ratio),
+            "RatioRange" => Ok(Self::RatioRange),
+            "Reference" => Ok(Self::Reference),
+            "RegulatedAuthorization" => Ok(Self::RegulatedAuthorization),
+            "RelatedArtifact" => Ok(Self::RelatedArtifact),
+            "RelatedPerson" => Ok(Self::RelatedPerson),
+            "RequestOrchestration" => Ok(Self::RequestOrchestration),
+            "Requirements" => Ok(Self::Requirements),
+            "ResearchStudy" => Ok(Self::ResearchStudy),
+            "ResearchSubject" => Ok(Self::ResearchSubject),
+            "Resource" => Ok(Self::Resource),
+            "RiskAssessment" => Ok(Self::RiskAssessment),
+            "SampledData" => Ok(Self::SampledData),
+            "Schedule" => Ok(Self::Schedule),
+            "SearchParameter" => Ok(Self::SearchParameter),
+            "ServiceRequest" => Ok(Self::ServiceRequest),
+            "Signature" => Ok(Self::Signature),
+            "Slot" => Ok(Self::Slot),
+            "Specimen" => Ok(Self::Specimen),
+            "SpecimenDefinition" => Ok(Self::SpecimenDefinition),
+            "StructureDefinition" => Ok(Self::StructureDefinition),
+            "StructureMap" => Ok(Self::StructureMap),
+            "Subscription" => Ok(Self::Subscription),
+            "SubscriptionStatus" => Ok(Self::SubscriptionStatus),
+            "SubscriptionTopic" => Ok(Self::SubscriptionTopic),
+            "Substance" => Ok(Self::Substance),
+            "SubstanceDefinition" => Ok(Self::SubstanceDefinition),
+            "SubstanceNucleicAcid" => Ok(Self::SubstanceNucleicAcid),
+            "SubstancePolymer" => Ok(Self::SubstancePolymer),
+            "SubstanceProtein" => Ok(Self::SubstanceProtein),
+            "SubstanceReferenceInformation" => Ok(Self::SubstanceReferenceInformation),
+            "SubstanceSourceMaterial" => Ok(Self::SubstanceSourceMaterial),
+            "SupplyDelivery" => Ok(Self::SupplyDelivery),
+            "SupplyRequest" => Ok(Self::SupplyRequest),
+            "Task" => Ok(Self::Task),
+            "TerminologyCapabilities" => Ok(Self::TerminologyCapabilities),
+            "TestPlan" => Ok(Self::TestPlan),
+            "TestReport" => Ok(Self::TestReport),
+            "TestScript" => Ok(Self::TestScript),
+            "Timing" => Ok(Self::Timing),
+            "Transport" => Ok(Self::Transport),
+            "TriggerDefinition" => Ok(Self::TriggerDefinition),
+            "UsageContext" => Ok(Self::UsageContext),
+            "ValueSet" => Ok(Self::ValueSet),
+            "VerificationResult" => Ok(Self::VerificationResult),
+            "VirtualServiceDetail" => Ok(Self::VirtualServiceDetail),
+            "VisionPrescription" => Ok(Self::VisionPrescription),
+            "base64Binary" => Ok(Self::Base64Binary),
+            "boolean" => Ok(Self::Boolean),
+            "date" => Ok(Self::Date),
+            "dateTime" => Ok(Self::DateTime),
+            "decimal" => Ok(Self::Decimal),
+            "instant" => Ok(Self::Instant),
+            "integer" => Ok(Self::Integer),
+            "integer64" => Ok(Self::Integer64),
+            "string" => Ok(Self::String),
+            "time" => Ok(Self::Time),
+            "uri" => Ok(Self::Uri),
+            "xhtml" => Ok(Self::Xhtml),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRTypes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Account => "Account",
+            Self::ActivityDefinition => "ActivityDefinition",
+            Self::ActorDefinition => "ActorDefinition",
+            Self::Address => "Address",
+            Self::AdministrableProductDefinition => "AdministrableProductDefinition",
+            Self::AdverseEvent => "AdverseEvent",
+            Self::Age => "Age",
+            Self::AllergyIntolerance => "AllergyIntolerance",
+            Self::Annotation => "Annotation",
+            Self::Appointment => "Appointment",
+            Self::AppointmentResponse => "AppointmentResponse",
+            Self::ArtifactAssessment => "ArtifactAssessment",
+            Self::Attachment => "Attachment",
+            Self::AuditEvent => "AuditEvent",
+            Self::Availability => "Availability",
+            Self::BackboneElement => "BackboneElement",
+            Self::BackboneType => "BackboneType",
+            Self::Base => "Base",
+            Self::Basic => "Basic",
+            Self::Binary => "Binary",
+            Self::BiologicallyDerivedProduct => "BiologicallyDerivedProduct",
+            Self::BiologicallyDerivedProductDispense => {
+                "BiologicallyDerivedProductDispense"
+            }
+            Self::BodyStructure => "BodyStructure",
+            Self::Bundle => "Bundle",
+            Self::CanonicalResource => "CanonicalResource",
+            Self::CapabilityStatement => "CapabilityStatement",
+            Self::CarePlan => "CarePlan",
+            Self::CareTeam => "CareTeam",
+            Self::ChargeItem => "ChargeItem",
+            Self::ChargeItemDefinition => "ChargeItemDefinition",
+            Self::Citation => "Citation",
+            Self::Claim => "Claim",
+            Self::ClaimResponse => "ClaimResponse",
+            Self::ClinicalImpression => "ClinicalImpression",
+            Self::ClinicalUseDefinition => "ClinicalUseDefinition",
+            Self::CodeSystem => "CodeSystem",
+            Self::CodeableConcept => "CodeableConcept",
+            Self::CodeableReference => "CodeableReference",
+            Self::Coding => "Coding",
+            Self::Communication => "Communication",
+            Self::CommunicationRequest => "CommunicationRequest",
+            Self::CompartmentDefinition => "CompartmentDefinition",
+            Self::Composition => "Composition",
+            Self::ConceptMap => "ConceptMap",
+            Self::Condition => "Condition",
+            Self::ConditionDefinition => "ConditionDefinition",
+            Self::Consent => "Consent",
+            Self::ContactDetail => "ContactDetail",
+            Self::ContactPoint => "ContactPoint",
+            Self::Contract => "Contract",
+            Self::Contributor => "Contributor",
+            Self::Count => "Count",
+            Self::Coverage => "Coverage",
+            Self::CoverageEligibilityRequest => "CoverageEligibilityRequest",
+            Self::CoverageEligibilityResponse => "CoverageEligibilityResponse",
+            Self::DataRequirement => "DataRequirement",
+            Self::DataType => "DataType",
+            Self::DetectedIssue => "DetectedIssue",
+            Self::Device => "Device",
+            Self::DeviceAssociation => "DeviceAssociation",
+            Self::DeviceDefinition => "DeviceDefinition",
+            Self::DeviceDispense => "DeviceDispense",
+            Self::DeviceMetric => "DeviceMetric",
+            Self::DeviceRequest => "DeviceRequest",
+            Self::DeviceUsage => "DeviceUsage",
+            Self::DiagnosticReport => "DiagnosticReport",
+            Self::Distance => "Distance",
+            Self::DocumentReference => "DocumentReference",
+            Self::DomainResource => "DomainResource",
+            Self::Dosage => "Dosage",
+            Self::Duration => "Duration",
+            Self::Element => "Element",
+            Self::ElementDefinition => "ElementDefinition",
+            Self::Encounter => "Encounter",
+            Self::EncounterHistory => "EncounterHistory",
+            Self::Endpoint => "Endpoint",
+            Self::EnrollmentRequest => "EnrollmentRequest",
+            Self::EnrollmentResponse => "EnrollmentResponse",
+            Self::EpisodeOfCare => "EpisodeOfCare",
+            Self::EventDefinition => "EventDefinition",
+            Self::Evidence => "Evidence",
+            Self::EvidenceReport => "EvidenceReport",
+            Self::EvidenceVariable => "EvidenceVariable",
+            Self::ExampleScenario => "ExampleScenario",
+            Self::ExplanationOfBenefit => "ExplanationOfBenefit",
+            Self::Expression => "Expression",
+            Self::ExtendedContactDetail => "ExtendedContactDetail",
+            Self::Extension => "Extension",
+            Self::FamilyMemberHistory => "FamilyMemberHistory",
+            Self::Flag => "Flag",
+            Self::FormularyItem => "FormularyItem",
+            Self::GenomicStudy => "GenomicStudy",
+            Self::Goal => "Goal",
+            Self::GraphDefinition => "GraphDefinition",
+            Self::Group => "Group",
+            Self::GuidanceResponse => "GuidanceResponse",
+            Self::HealthcareService => "HealthcareService",
+            Self::HumanName => "HumanName",
+            Self::Identifier => "Identifier",
+            Self::ImagingSelection => "ImagingSelection",
+            Self::ImagingStudy => "ImagingStudy",
+            Self::Immunization => "Immunization",
+            Self::ImmunizationEvaluation => "ImmunizationEvaluation",
+            Self::ImmunizationRecommendation => "ImmunizationRecommendation",
+            Self::ImplementationGuide => "ImplementationGuide",
+            Self::Ingredient => "Ingredient",
+            Self::InsurancePlan => "InsurancePlan",
+            Self::InventoryItem => "InventoryItem",
+            Self::InventoryReport => "InventoryReport",
+            Self::Invoice => "Invoice",
+            Self::Library => "Library",
+            Self::Linkage => "Linkage",
+            Self::List => "List",
+            Self::Location => "Location",
+            Self::ManufacturedItemDefinition => "ManufacturedItemDefinition",
+            Self::MarketingStatus => "MarketingStatus",
+            Self::Measure => "Measure",
+            Self::MeasureReport => "MeasureReport",
+            Self::Medication => "Medication",
+            Self::MedicationAdministration => "MedicationAdministration",
+            Self::MedicationDispense => "MedicationDispense",
+            Self::MedicationKnowledge => "MedicationKnowledge",
+            Self::MedicationRequest => "MedicationRequest",
+            Self::MedicationStatement => "MedicationStatement",
+            Self::MedicinalProductDefinition => "MedicinalProductDefinition",
+            Self::MessageDefinition => "MessageDefinition",
+            Self::MessageHeader => "MessageHeader",
+            Self::Meta => "Meta",
+            Self::MetadataResource => "MetadataResource",
+            Self::MolecularSequence => "MolecularSequence",
+            Self::MonetaryComponent => "MonetaryComponent",
+            Self::Money => "Money",
+            Self::NamingSystem => "NamingSystem",
+            Self::Narrative => "Narrative",
+            Self::NutritionIntake => "NutritionIntake",
+            Self::NutritionOrder => "NutritionOrder",
+            Self::NutritionProduct => "NutritionProduct",
+            Self::Observation => "Observation",
+            Self::ObservationDefinition => "ObservationDefinition",
+            Self::OperationDefinition => "OperationDefinition",
+            Self::OperationOutcome => "OperationOutcome",
+            Self::Organization => "Organization",
+            Self::OrganizationAffiliation => "OrganizationAffiliation",
+            Self::PackagedProductDefinition => "PackagedProductDefinition",
+            Self::ParameterDefinition => "ParameterDefinition",
+            Self::Parameters => "Parameters",
+            Self::Patient => "Patient",
+            Self::PaymentNotice => "PaymentNotice",
+            Self::PaymentReconciliation => "PaymentReconciliation",
+            Self::Period => "Period",
+            Self::Permission => "Permission",
+            Self::Person => "Person",
+            Self::PlanDefinition => "PlanDefinition",
+            Self::Practitioner => "Practitioner",
+            Self::PractitionerRole => "PractitionerRole",
+            Self::PrimitiveType => "PrimitiveType",
+            Self::Procedure => "Procedure",
+            Self::ProductShelfLife => "ProductShelfLife",
+            Self::Provenance => "Provenance",
+            Self::Quantity => "Quantity",
+            Self::Questionnaire => "Questionnaire",
+            Self::QuestionnaireResponse => "QuestionnaireResponse",
+            Self::Range => "Range",
+            Self::Ratio => "Ratio",
+            Self::RatioRange => "RatioRange",
+            Self::Reference => "Reference",
+            Self::RegulatedAuthorization => "RegulatedAuthorization",
+            Self::RelatedArtifact => "RelatedArtifact",
+            Self::RelatedPerson => "RelatedPerson",
+            Self::RequestOrchestration => "RequestOrchestration",
+            Self::Requirements => "Requirements",
+            Self::ResearchStudy => "ResearchStudy",
+            Self::ResearchSubject => "ResearchSubject",
+            Self::Resource => "Resource",
+            Self::RiskAssessment => "RiskAssessment",
+            Self::SampledData => "SampledData",
+            Self::Schedule => "Schedule",
+            Self::SearchParameter => "SearchParameter",
+            Self::ServiceRequest => "ServiceRequest",
+            Self::Signature => "Signature",
+            Self::Slot => "Slot",
+            Self::Specimen => "Specimen",
+            Self::SpecimenDefinition => "SpecimenDefinition",
+            Self::StructureDefinition => "StructureDefinition",
+            Self::StructureMap => "StructureMap",
+            Self::Subscription => "Subscription",
+            Self::SubscriptionStatus => "SubscriptionStatus",
+            Self::SubscriptionTopic => "SubscriptionTopic",
+            Self::Substance => "Substance",
+            Self::SubstanceDefinition => "SubstanceDefinition",
+            Self::SubstanceNucleicAcid => "SubstanceNucleicAcid",
+            Self::SubstancePolymer => "SubstancePolymer",
+            Self::SubstanceProtein => "SubstanceProtein",
+            Self::SubstanceReferenceInformation => "SubstanceReferenceInformation",
+            Self::SubstanceSourceMaterial => "SubstanceSourceMaterial",
+            Self::SupplyDelivery => "SupplyDelivery",
+            Self::SupplyRequest => "SupplyRequest",
+            Self::Task => "Task",
+            Self::TerminologyCapabilities => "TerminologyCapabilities",
+            Self::TestPlan => "TestPlan",
+            Self::TestReport => "TestReport",
+            Self::TestScript => "TestScript",
+            Self::Timing => "Timing",
+            Self::Transport => "Transport",
+            Self::TriggerDefinition => "TriggerDefinition",
+            Self::UsageContext => "UsageContext",
+            Self::ValueSet => "ValueSet",
+            Self::VerificationResult => "VerificationResult",
+            Self::VirtualServiceDetail => "VirtualServiceDetail",
+            Self::VisionPrescription => "VisionPrescription",
+            Self::Base64Binary => "base64Binary",
+            Self::Boolean => "boolean",
+            Self::Date => "date",
+            Self::DateTime => "dateTime",
+            Self::Decimal => "decimal",
+            Self::Instant => "instant",
+            Self::Integer => "integer",
+            Self::Integer64 => "integer64",
+            Self::String => "string",
+            Self::Time => "time",
+            Self::Uri => "uri",
+            Self::Xhtml => "xhtml",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Account => "Account",
+            Self::ActivityDefinition => "ActivityDefinition",
+            Self::ActorDefinition => "ActorDefinition",
+            Self::Address => "Address",
+            Self::AdministrableProductDefinition => "AdministrableProductDefinition",
+            Self::AdverseEvent => "AdverseEvent",
+            Self::Age => "Age",
+            Self::AllergyIntolerance => "AllergyIntolerance",
+            Self::Annotation => "Annotation",
+            Self::Appointment => "Appointment",
+            Self::AppointmentResponse => "AppointmentResponse",
+            Self::ArtifactAssessment => "ArtifactAssessment",
+            Self::Attachment => "Attachment",
+            Self::AuditEvent => "AuditEvent",
+            Self::Availability => "Availability",
+            Self::BackboneElement => "BackboneElement",
+            Self::BackboneType => "BackboneType",
+            Self::Base => "Base",
+            Self::Basic => "Basic",
+            Self::Binary => "Binary",
+            Self::BiologicallyDerivedProduct => "BiologicallyDerivedProduct",
+            Self::BiologicallyDerivedProductDispense => {
+                "BiologicallyDerivedProductDispense"
+            }
+            Self::BodyStructure => "BodyStructure",
+            Self::Bundle => "Bundle",
+            Self::CanonicalResource => "CanonicalResource",
+            Self::CapabilityStatement => "CapabilityStatement",
+            Self::CarePlan => "CarePlan",
+            Self::CareTeam => "CareTeam",
+            Self::ChargeItem => "ChargeItem",
+            Self::ChargeItemDefinition => "ChargeItemDefinition",
+            Self::Citation => "Citation",
+            Self::Claim => "Claim",
+            Self::ClaimResponse => "ClaimResponse",
+            Self::ClinicalImpression => "ClinicalImpression",
+            Self::ClinicalUseDefinition => "ClinicalUseDefinition",
+            Self::CodeSystem => "CodeSystem",
+            Self::CodeableConcept => "CodeableConcept",
+            Self::CodeableReference => "CodeableReference",
+            Self::Coding => "Coding",
+            Self::Communication => "Communication",
+            Self::CommunicationRequest => "CommunicationRequest",
+            Self::CompartmentDefinition => "CompartmentDefinition",
+            Self::Composition => "Composition",
+            Self::ConceptMap => "ConceptMap",
+            Self::Condition => "Condition",
+            Self::ConditionDefinition => "ConditionDefinition",
+            Self::Consent => "Consent",
+            Self::ContactDetail => "ContactDetail",
+            Self::ContactPoint => "ContactPoint",
+            Self::Contract => "Contract",
+            Self::Contributor => "Contributor",
+            Self::Count => "Count",
+            Self::Coverage => "Coverage",
+            Self::CoverageEligibilityRequest => "CoverageEligibilityRequest",
+            Self::CoverageEligibilityResponse => "CoverageEligibilityResponse",
+            Self::DataRequirement => "DataRequirement",
+            Self::DataType => "DataType",
+            Self::DetectedIssue => "DetectedIssue",
+            Self::Device => "Device",
+            Self::DeviceAssociation => "DeviceAssociation",
+            Self::DeviceDefinition => "DeviceDefinition",
+            Self::DeviceDispense => "DeviceDispense",
+            Self::DeviceMetric => "DeviceMetric",
+            Self::DeviceRequest => "DeviceRequest",
+            Self::DeviceUsage => "DeviceUsage",
+            Self::DiagnosticReport => "DiagnosticReport",
+            Self::Distance => "Distance",
+            Self::DocumentReference => "DocumentReference",
+            Self::DomainResource => "DomainResource",
+            Self::Dosage => "Dosage",
+            Self::Duration => "Duration",
+            Self::Element => "Element",
+            Self::ElementDefinition => "ElementDefinition",
+            Self::Encounter => "Encounter",
+            Self::EncounterHistory => "EncounterHistory",
+            Self::Endpoint => "Endpoint",
+            Self::EnrollmentRequest => "EnrollmentRequest",
+            Self::EnrollmentResponse => "EnrollmentResponse",
+            Self::EpisodeOfCare => "EpisodeOfCare",
+            Self::EventDefinition => "EventDefinition",
+            Self::Evidence => "Evidence",
+            Self::EvidenceReport => "EvidenceReport",
+            Self::EvidenceVariable => "EvidenceVariable",
+            Self::ExampleScenario => "ExampleScenario",
+            Self::ExplanationOfBenefit => "ExplanationOfBenefit",
+            Self::Expression => "Expression",
+            Self::ExtendedContactDetail => "ExtendedContactDetail",
+            Self::Extension => "Extension",
+            Self::FamilyMemberHistory => "FamilyMemberHistory",
+            Self::Flag => "Flag",
+            Self::FormularyItem => "FormularyItem",
+            Self::GenomicStudy => "GenomicStudy",
+            Self::Goal => "Goal",
+            Self::GraphDefinition => "GraphDefinition",
+            Self::Group => "Group",
+            Self::GuidanceResponse => "GuidanceResponse",
+            Self::HealthcareService => "HealthcareService",
+            Self::HumanName => "HumanName",
+            Self::Identifier => "Identifier",
+            Self::ImagingSelection => "ImagingSelection",
+            Self::ImagingStudy => "ImagingStudy",
+            Self::Immunization => "Immunization",
+            Self::ImmunizationEvaluation => "ImmunizationEvaluation",
+            Self::ImmunizationRecommendation => "ImmunizationRecommendation",
+            Self::ImplementationGuide => "ImplementationGuide",
+            Self::Ingredient => "Ingredient",
+            Self::InsurancePlan => "InsurancePlan",
+            Self::InventoryItem => "InventoryItem",
+            Self::InventoryReport => "InventoryReport",
+            Self::Invoice => "Invoice",
+            Self::Library => "Library",
+            Self::Linkage => "Linkage",
+            Self::List => "List",
+            Self::Location => "Location",
+            Self::ManufacturedItemDefinition => "ManufacturedItemDefinition",
+            Self::MarketingStatus => "MarketingStatus",
+            Self::Measure => "Measure",
+            Self::MeasureReport => "MeasureReport",
+            Self::Medication => "Medication",
+            Self::MedicationAdministration => "MedicationAdministration",
+            Self::MedicationDispense => "MedicationDispense",
+            Self::MedicationKnowledge => "MedicationKnowledge",
+            Self::MedicationRequest => "MedicationRequest",
+            Self::MedicationStatement => "MedicationStatement",
+            Self::MedicinalProductDefinition => "MedicinalProductDefinition",
+            Self::MessageDefinition => "MessageDefinition",
+            Self::MessageHeader => "MessageHeader",
+            Self::Meta => "Meta",
+            Self::MetadataResource => "MetadataResource",
+            Self::MolecularSequence => "MolecularSequence",
+            Self::MonetaryComponent => "MonetaryComponent",
+            Self::Money => "Money",
+            Self::NamingSystem => "NamingSystem",
+            Self::Narrative => "Narrative",
+            Self::NutritionIntake => "NutritionIntake",
+            Self::NutritionOrder => "NutritionOrder",
+            Self::NutritionProduct => "NutritionProduct",
+            Self::Observation => "Observation",
+            Self::ObservationDefinition => "ObservationDefinition",
+            Self::OperationDefinition => "OperationDefinition",
+            Self::OperationOutcome => "OperationOutcome",
+            Self::Organization => "Organization",
+            Self::OrganizationAffiliation => "OrganizationAffiliation",
+            Self::PackagedProductDefinition => "PackagedProductDefinition",
+            Self::ParameterDefinition => "ParameterDefinition",
+            Self::Parameters => "Parameters",
+            Self::Patient => "Patient",
+            Self::PaymentNotice => "PaymentNotice",
+            Self::PaymentReconciliation => "PaymentReconciliation",
+            Self::Period => "Period",
+            Self::Permission => "Permission",
+            Self::Person => "Person",
+            Self::PlanDefinition => "PlanDefinition",
+            Self::Practitioner => "Practitioner",
+            Self::PractitionerRole => "PractitionerRole",
+            Self::PrimitiveType => "PrimitiveType",
+            Self::Procedure => "Procedure",
+            Self::ProductShelfLife => "ProductShelfLife",
+            Self::Provenance => "Provenance",
+            Self::Quantity => "Quantity",
+            Self::Questionnaire => "Questionnaire",
+            Self::QuestionnaireResponse => "QuestionnaireResponse",
+            Self::Range => "Range",
+            Self::Ratio => "Ratio",
+            Self::RatioRange => "RatioRange",
+            Self::Reference => "Reference",
+            Self::RegulatedAuthorization => "RegulatedAuthorization",
+            Self::RelatedArtifact => "RelatedArtifact",
+            Self::RelatedPerson => "RelatedPerson",
+            Self::RequestOrchestration => "RequestOrchestration",
+            Self::Requirements => "Requirements",
+            Self::ResearchStudy => "ResearchStudy",
+            Self::ResearchSubject => "ResearchSubject",
+            Self::Resource => "Resource",
+            Self::RiskAssessment => "RiskAssessment",
+            Self::SampledData => "SampledData",
+            Self::Schedule => "Schedule",
+            Self::SearchParameter => "SearchParameter",
+            Self::ServiceRequest => "ServiceRequest",
+            Self::Signature => "Signature",
+            Self::Slot => "Slot",
+            Self::Specimen => "Specimen",
+            Self::SpecimenDefinition => "SpecimenDefinition",
+            Self::StructureDefinition => "StructureDefinition",
+            Self::StructureMap => "StructureMap",
+            Self::Subscription => "Subscription",
+            Self::SubscriptionStatus => "SubscriptionStatus",
+            Self::SubscriptionTopic => "SubscriptionTopic",
+            Self::Substance => "Substance",
+            Self::SubstanceDefinition => "SubstanceDefinition",
+            Self::SubstanceNucleicAcid => "SubstanceNucleicAcid",
+            Self::SubstancePolymer => "SubstancePolymer",
+            Self::SubstanceProtein => "SubstanceProtein",
+            Self::SubstanceReferenceInformation => "SubstanceReferenceInformation",
+            Self::SubstanceSourceMaterial => "SubstanceSourceMaterial",
+            Self::SupplyDelivery => "SupplyDelivery",
+            Self::SupplyRequest => "SupplyRequest",
+            Self::Task => "Task",
+            Self::TerminologyCapabilities => "TerminologyCapabilities",
+            Self::TestPlan => "TestPlan",
+            Self::TestReport => "TestReport",
+            Self::TestScript => "TestScript",
+            Self::Timing => "Timing",
+            Self::Transport => "Transport",
+            Self::TriggerDefinition => "TriggerDefinition",
+            Self::UsageContext => "UsageContext",
+            Self::ValueSet => "ValueSet",
+            Self::VerificationResult => "VerificationResult",
+            Self::VirtualServiceDetail => "VirtualServiceDetail",
+            Self::VisionPrescription => "VisionPrescription",
+            Self::Base64Binary => "base64Binary",
+            Self::Boolean => "boolean",
+            Self::Date => "date",
+            Self::DateTime => "dateTime",
+            Self::Decimal => "decimal",
+            Self::Instant => "instant",
+            Self::Integer => "integer",
+            Self::Integer64 => "integer64",
+            Self::String => "string",
+            Self::Time => "time",
+            Self::Uri => "uri",
+            Self::Xhtml => "xhtml",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRTypes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRTypes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRTypes> for Coding {
+    fn from(code: FHIRTypes) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/fhir-types".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRTypes> for CodeableConcept {
+    fn from(code: FHIRTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRVersion](http://hl7.org/fhir/ValueSet/FHIR-version)**. All published FHIR Versions.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRVersion {
+    /** **0.0**
+
+0.0. DSTU 1 version. */
+    N00,
+    /** **0.0.80**
+
+0.0.80. DSTU 1 Official version. */
+    N0080,
+    /** **0.0.81**
+
+0.0.81. DSTU 1 Official version Technical Errata #1. */
+    N0081,
+    /** **0.0.82**
+
+0.0.82. DSTU 1 Official version Technical Errata #2. */
+    N0082,
+    /** **0.01**
+
+0.01. Oldest archived version of FHIR. */
+    N001,
+    /** **0.05**
+
+0.05. 1st Draft for Comment (Sept 2012 Ballot). */
+    N005,
+    /** **0.06**
+
+0.06. 2nd Draft for Comment (January 2013 Ballot). */
+    N006,
+    /** **0.11**
+
+0.11. DSTU 1 Ballot version. */
+    N011,
+    /** **0.4**
+
+0.4. January 2015 Ballot. */
+    N04,
+    /** **0.4.0**
+
+0.4.0. Draft For Comment (January 2015 Ballot). */
+    N040,
+    /** **0.5**
+
+0.5. May 2015 Ballot. */
+    N05,
+    /** **0.5.0**
+
+0.5.0. DSTU 2 Ballot version (May 2015 Ballot). */
+    N050,
+    /** **1.0**
+
+1.0. DSTU 2 version. */
+    N10,
+    /** **1.0.0**
+
+1.0.0. DSTU 2 QA Preview + CQIF Ballot (Sep 2015). */
+    N100,
+    /** **1.0.1**
+
+1.0.1. DSTU 2 (Official version). */
+    N101,
+    /** **1.0.2**
+
+1.0.2. DSTU 2 (Official version) with 1 technical errata. */
+    N102,
+    /** **1.1**
+
+1.1. GAO Ballot version. */
+    N11,
+    /** **1.1.0**
+
+1.1.0. GAO Ballot + draft changes to main FHIR standard. */
+    N110,
+    /** **1.4**
+
+1.4. Connectathon 12 (Montreal) version. */
+    N14,
+    /** **1.4.0**
+
+1.4.0. CQF on FHIR Ballot + Connectathon 12 (Montreal). */
+    N140,
+    /** **1.6**
+
+1.6. Connectathon 13 (Baltimore) version. */
+    N16,
+    /** **1.6.0**
+
+1.6.0. FHIR STU3 Ballot + Connectathon 13 (Baltimore). */
+    N160,
+    /** **1.8**
+
+1.8. Connectathon 14 (San Antonio) version. */
+    N18,
+    /** **1.8.0**
+
+1.8.0. FHIR STU3 Candidate + Connectathon 14 (San Antonio). */
+    N180,
+    /** **3.0**
+
+3.0. STU3 version. */
+    N30,
+    /** **3.0.0**
+
+3.0.0. FHIR Release 3 (STU). */
+    N300,
+    /** **3.0.1**
+
+3.0.1. FHIR Release 3 (STU) with 1 technical errata. */
+    N301,
+    /** **3.0.2**
+
+3.0.2. FHIR Release 3 (STU) with 2 technical errata. */
+    N302,
+    /** **3.3**
+
+3.3. R4 Ballot #1 version. */
+    N33,
+    /** **3.3.0**
+
+3.3.0. R4 Ballot #1 + Connectaton 18 (Cologne). */
+    N330,
+    /** **3.5**
+
+3.5. R4 Ballot #2 version. */
+    N35,
+    /** **3.5.0**
+
+3.5.0. R4 Ballot #2 + Connectathon 19 (Baltimore). */
+    N350,
+    /** **4.0**
+
+4.0. R4 version. */
+    N40,
+    /** **4.0.0**
+
+4.0.0. FHIR Release 4 (Normative + STU). */
+    N400,
+    /** **4.0.1**
+
+4.0.1. FHIR Release 4 (Normative + STU) with 1 technical errata. */
+    N401,
+    /** **4.1**
+
+4.1. R4B Ballot #1 version. */
+    N41,
+    /** **4.1.0**
+
+4.1.0. R4B Ballot #1 + Connectathon 27 (Virtual). */
+    N410,
+    /** **4.2**
+
+4.2. R5 Preview #1 version. */
+    N42,
+    /** **4.2.0**
+
+4.2.0. R5 Preview #1 + Connectathon 23 (Sydney). */
+    N420,
+    /** **4.3**
+
+4.3. R4B version. */
+    N43,
+    /** **4.3.0**
+
+4.3.0. FHIR Release 4B (Normative + STU). */
+    N430,
+    /** **4.3.0-cibuild**
+
+4.3.0-cibuild. FHIR Release 4B CI-Builld. */
+    N430Cibuild,
+    /** **4.3.0-snapshot1**
+
+4.3.0-snapshot1. FHIR Release 4B Snapshot #1. */
+    N430Snapshot1,
+    /** **4.4**
+
+4.4. R5 Preview #2 version. */
+    N44,
+    /** **4.4.0**
+
+4.4.0. R5 Preview #2 + Connectathon 24 (Virtual). */
+    N440,
+    /** **4.5**
+
+4.5. R5 Preview #3 version. */
+    N45,
+    /** **4.5.0**
+
+4.5.0. R5 Preview #3 + Connectathon 25 (Virtual). */
+    N450,
+    /** **4.6**
+
+4.6. R5 Draft Ballot version. */
+    N46,
+    /** **4.6.0**
+
+4.6.0. R5 Draft Ballot + Connectathon 27 (Virtual). */
+    N460,
+    /** **5.0**
+
+5.0. R5 Versions. */
+    N50,
+    /** **5.0.0**
+
+5.0.0. R5 Final Version. */
+    N500,
+    /** **5.0.0-ballot**
+
+5.0.0-ballot. R5 Ballot. */
+    N500Ballot,
+    /** **5.0.0-cibuild**
+
+5.0.0-cibuild. R5 Rolling ci-build. */
+    N500Cibuild,
+    /** **5.0.0-draft-final**
+
+5.0.0-draft-final. R5 Final QA. */
+    N500DraftFinal,
+    /** **5.0.0-snapshot1**
+
+5.0.0-snapshot1. R5 Preview #2. */
+    N500Snapshot1,
+    /** **5.0.0-snapshot2**
+
+5.0.0-snapshot2. R5 Interim tooling stage. */
+    N500Snapshot2,
+    /** **5.0.0-snapshot3**
+
+5.0.0-snapshot3. R5 January 2023 Staging Release + Connectathon 32. */
+    N500Snapshot3,
+}
+impl ::core::str::FromStr for FHIRVersion {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "0.0" => Ok(Self::N00),
+            "0.0.80" => Ok(Self::N0080),
+            "0.0.81" => Ok(Self::N0081),
+            "0.0.82" => Ok(Self::N0082),
+            "0.01" => Ok(Self::N001),
+            "0.05" => Ok(Self::N005),
+            "0.06" => Ok(Self::N006),
+            "0.11" => Ok(Self::N011),
+            "0.4" => Ok(Self::N04),
+            "0.4.0" => Ok(Self::N040),
+            "0.5" => Ok(Self::N05),
+            "0.5.0" => Ok(Self::N050),
+            "1.0" => Ok(Self::N10),
+            "1.0.0" => Ok(Self::N100),
+            "1.0.1" => Ok(Self::N101),
+            "1.0.2" => Ok(Self::N102),
+            "1.1" => Ok(Self::N11),
+            "1.1.0" => Ok(Self::N110),
+            "1.4" => Ok(Self::N14),
+            "1.4.0" => Ok(Self::N140),
+            "1.6" => Ok(Self::N16),
+            "1.6.0" => Ok(Self::N160),
+            "1.8" => Ok(Self::N18),
+            "1.8.0" => Ok(Self::N180),
+            "3.0" => Ok(Self::N30),
+            "3.0.0" => Ok(Self::N300),
+            "3.0.1" => Ok(Self::N301),
+            "3.0.2" => Ok(Self::N302),
+            "3.3" => Ok(Self::N33),
+            "3.3.0" => Ok(Self::N330),
+            "3.5" => Ok(Self::N35),
+            "3.5.0" => Ok(Self::N350),
+            "4.0" => Ok(Self::N40),
+            "4.0.0" => Ok(Self::N400),
+            "4.0.1" => Ok(Self::N401),
+            "4.1" => Ok(Self::N41),
+            "4.1.0" => Ok(Self::N410),
+            "4.2" => Ok(Self::N42),
+            "4.2.0" => Ok(Self::N420),
+            "4.3" => Ok(Self::N43),
+            "4.3.0" => Ok(Self::N430),
+            "4.3.0-cibuild" => Ok(Self::N430Cibuild),
+            "4.3.0-snapshot1" => Ok(Self::N430Snapshot1),
+            "4.4" => Ok(Self::N44),
+            "4.4.0" => Ok(Self::N440),
+            "4.5" => Ok(Self::N45),
+            "4.5.0" => Ok(Self::N450),
+            "4.6" => Ok(Self::N46),
+            "4.6.0" => Ok(Self::N460),
+            "5.0" => Ok(Self::N50),
+            "5.0.0" => Ok(Self::N500),
+            "5.0.0-ballot" => Ok(Self::N500Ballot),
+            "5.0.0-cibuild" => Ok(Self::N500Cibuild),
+            "5.0.0-draft-final" => Ok(Self::N500DraftFinal),
+            "5.0.0-snapshot1" => Ok(Self::N500Snapshot1),
+            "5.0.0-snapshot2" => Ok(Self::N500Snapshot2),
+            "5.0.0-snapshot3" => Ok(Self::N500Snapshot3),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRVersion {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N00 => "0.0",
+            Self::N0080 => "0.0.80",
+            Self::N0081 => "0.0.81",
+            Self::N0082 => "0.0.82",
+            Self::N001 => "0.01",
+            Self::N005 => "0.05",
+            Self::N006 => "0.06",
+            Self::N011 => "0.11",
+            Self::N04 => "0.4",
+            Self::N040 => "0.4.0",
+            Self::N05 => "0.5",
+            Self::N050 => "0.5.0",
+            Self::N10 => "1.0",
+            Self::N100 => "1.0.0",
+            Self::N101 => "1.0.1",
+            Self::N102 => "1.0.2",
+            Self::N11 => "1.1",
+            Self::N110 => "1.1.0",
+            Self::N14 => "1.4",
+            Self::N140 => "1.4.0",
+            Self::N16 => "1.6",
+            Self::N160 => "1.6.0",
+            Self::N18 => "1.8",
+            Self::N180 => "1.8.0",
+            Self::N30 => "3.0",
+            Self::N300 => "3.0.0",
+            Self::N301 => "3.0.1",
+            Self::N302 => "3.0.2",
+            Self::N33 => "3.3",
+            Self::N330 => "3.3.0",
+            Self::N35 => "3.5",
+            Self::N350 => "3.5.0",
+            Self::N40 => "4.0",
+            Self::N400 => "4.0.0",
+            Self::N401 => "4.0.1",
+            Self::N41 => "4.1",
+            Self::N410 => "4.1.0",
+            Self::N42 => "4.2",
+            Self::N420 => "4.2.0",
+            Self::N43 => "4.3",
+            Self::N430 => "4.3.0",
+            Self::N430Cibuild => "4.3.0-cibuild",
+            Self::N430Snapshot1 => "4.3.0-snapshot1",
+            Self::N44 => "4.4",
+            Self::N440 => "4.4.0",
+            Self::N45 => "4.5",
+            Self::N450 => "4.5.0",
+            Self::N46 => "4.6",
+            Self::N460 => "4.6.0",
+            Self::N50 => "5.0",
+            Self::N500 => "5.0.0",
+            Self::N500Ballot => "5.0.0-ballot",
+            Self::N500Cibuild => "5.0.0-cibuild",
+            Self::N500DraftFinal => "5.0.0-draft-final",
+            Self::N500Snapshot1 => "5.0.0-snapshot1",
+            Self::N500Snapshot2 => "5.0.0-snapshot2",
+            Self::N500Snapshot3 => "5.0.0-snapshot3",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRVersion {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N00 => "0.0",
+            Self::N0080 => "0.0.80",
+            Self::N0081 => "0.0.81",
+            Self::N0082 => "0.0.82",
+            Self::N001 => "0.01",
+            Self::N005 => "0.05",
+            Self::N006 => "0.06",
+            Self::N011 => "0.11",
+            Self::N04 => "0.4",
+            Self::N040 => "0.4.0",
+            Self::N05 => "0.5",
+            Self::N050 => "0.5.0",
+            Self::N10 => "1.0",
+            Self::N100 => "1.0.0",
+            Self::N101 => "1.0.1",
+            Self::N102 => "1.0.2",
+            Self::N11 => "1.1",
+            Self::N110 => "1.1.0",
+            Self::N14 => "1.4",
+            Self::N140 => "1.4.0",
+            Self::N16 => "1.6",
+            Self::N160 => "1.6.0",
+            Self::N18 => "1.8",
+            Self::N180 => "1.8.0",
+            Self::N30 => "3.0",
+            Self::N300 => "3.0.0",
+            Self::N301 => "3.0.1",
+            Self::N302 => "3.0.2",
+            Self::N33 => "3.3",
+            Self::N330 => "3.3.0",
+            Self::N35 => "3.5",
+            Self::N350 => "3.5.0",
+            Self::N40 => "4.0",
+            Self::N400 => "4.0.0",
+            Self::N401 => "4.0.1",
+            Self::N41 => "4.1",
+            Self::N410 => "4.1.0",
+            Self::N42 => "4.2",
+            Self::N420 => "4.2.0",
+            Self::N43 => "4.3",
+            Self::N430 => "4.3.0",
+            Self::N430Cibuild => "4.3.0-cibuild",
+            Self::N430Snapshot1 => "4.3.0-snapshot1",
+            Self::N44 => "4.4",
+            Self::N440 => "4.4.0",
+            Self::N45 => "4.5",
+            Self::N450 => "4.5.0",
+            Self::N46 => "4.6",
+            Self::N460 => "4.6.0",
+            Self::N50 => "5.0",
+            Self::N500 => "5.0.0",
+            Self::N500Ballot => "5.0.0-ballot",
+            Self::N500Cibuild => "5.0.0-cibuild",
+            Self::N500DraftFinal => "5.0.0-draft-final",
+            Self::N500Snapshot1 => "5.0.0-snapshot1",
+            Self::N500Snapshot2 => "5.0.0-snapshot2",
+            Self::N500Snapshot3 => "5.0.0-snapshot3",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRVersion {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRVersion {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRVersion> for Coding {
+    fn from(code: FHIRVersion) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/FHIR-version".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRVersion> for CodeableConcept {
+    fn from(code: FHIRVersion) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {
@@ -28576,6 +33445,230 @@ impl From<GuideParameterCode> for Coding {
 }
 impl From<GuideParameterCode> for CodeableConcept {
     fn from(code: GuideParameterCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[HTTPVerb](http://hl7.org/fhir/ValueSet/http-verb)**. HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum HTTPVerb {
+    /** **DELETE**
+
+DELETE. HTTP DELETE Command. */
+    Delete,
+    /** **GET**
+
+GET. HTTP GET Command. */
+    Get,
+    /** **HEAD**
+
+HEAD. HTTP HEAD Command. */
+    Head,
+    /** **PATCH**
+
+PATCH. HTTP PATCH Command. */
+    Patch,
+    /** **POST**
+
+POST. HTTP POST Command. */
+    Post,
+    /** **PUT**
+
+PUT. HTTP PUT Command. */
+    Put,
+}
+impl ::core::str::FromStr for HTTPVerb {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "DELETE" => Ok(Self::Delete),
+            "GET" => Ok(Self::Get),
+            "HEAD" => Ok(Self::Head),
+            "PATCH" => Ok(Self::Patch),
+            "POST" => Ok(Self::Post),
+            "PUT" => Ok(Self::Put),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for HTTPVerb {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Delete => "DELETE",
+            Self::Get => "GET",
+            Self::Head => "HEAD",
+            Self::Patch => "PATCH",
+            Self::Post => "POST",
+            Self::Put => "PUT",
+        }
+    }
+}
+impl ::std::fmt::Display for HTTPVerb {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Delete => "DELETE",
+            Self::Get => "GET",
+            Self::Head => "HEAD",
+            Self::Patch => "PATCH",
+            Self::Post => "POST",
+            Self::Put => "PUT",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for HTTPVerb {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for HTTPVerb {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<HTTPVerb> for Coding {
+    fn from(code: HTTPVerb) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/http-verb".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<HTTPVerb> for CodeableConcept {
+    fn from(code: HTTPVerb) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[ICD10ProcedureCodes](http://hl7.org/fhir/sid/ex-icd-10-procedures)**. This value set includes sample ICD-10 Procedure codes.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ICD10ProcedureCodes {
+    /** **123001**
+
+PROC-1. Procedure 1 */
+    N123001,
+    /** **123002**
+
+PROC-2. Procedure 2 */
+    N123002,
+    /** **123003**
+
+PROC-3. Procedure 3 */
+    N123003,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for ICD10ProcedureCodes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "123001" => Ok(Self::N123001),
+            "123002" => Ok(Self::N123002),
+            "123003" => Ok(Self::N123003),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for ICD10ProcedureCodes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N123001 => "123001",
+            Self::N123002 => "123002",
+            Self::N123003 => "123003",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for ICD10ProcedureCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N123001 => "PROC-1",
+            Self::N123002 => "PROC-2",
+            Self::N123003 => "PROC-3",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for ICD10ProcedureCodes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for ICD10ProcedureCodes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<ICD10ProcedureCodes> for Coding {
+    fn from(code: ICD10ProcedureCodes) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/sid/ex-icd-10-procedures".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<ICD10ProcedureCodes> for CodeableConcept {
+    fn from(code: ICD10ProcedureCodes) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {
@@ -38081,6 +43174,274 @@ impl From<MessageheaderResponseRequest> for Coding {
 }
 impl From<MessageheaderResponseRequest> for CodeableConcept {
     fn from(code: MessageheaderResponseRequest) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[NHINPurposeOfUse](http://hl7.org/fhir/ValueSet/nhin-purposeofuse)**. This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system.\n\nFHIR version: 2.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum NHINPurposeOfUse {
+    /** **ABUSE**
+
+Abuse. Disclosures about victims of abuse, neglect or domestic violence. */
+    Abuse,
+    /** **COVERAGE**
+
+Coverage. Disclosures for insurance or disability coverage determination */
+    Coverage,
+    /** **DECEASED**
+
+Deceased. Uses and disclosures about decedents. */
+    Deceased,
+    /** **DIRECTORY**
+
+Directory. Use and disclosure for facility directories */
+    Directory,
+    /** **DISASTER**
+
+Disaster. Use and disclosures for disaster relief purposes. */
+    Disaster,
+    /** **DONATION**
+
+Donation. Uses and disclosures for cadaveric organ,  eye or tissue donation purposes */
+    Donation,
+    /** **EMERGENCY**
+
+Emergency. Permission cannot practicably be provided because of the individual's incapacity or an emergency. */
+    Emergency,
+    /** **FAMILY**
+
+Family. Disclose to a family member, other relative, or a close personal friend of the individual */
+    Family,
+    /** **FRAUD**
+
+Fraud. Fraud detection */
+    Fraud,
+    /** **GOVERNMENT**
+
+Government. Uses and disclosures for specialized government functions. */
+    Government,
+    /** **JUDICIAL**
+
+Judicial. Disclosures for judicial and administrative proceedings. */
+    Judicial,
+    /** **LAW**
+
+Law Enforcement. Disclosures for law enforcement purposes. */
+    Law,
+    /** **LEGAL**
+
+Legal. Use or disclosure by the covered entity to defend itself in a legal action */
+    Legal,
+    /** **MARKETING**
+
+Marketing. Marketing */
+    Marketing,
+    /** **OPERATIONS**
+
+Operations. Healthcare Operations */
+    Operations,
+    /** **OVERSIGHT**
+
+Oversight. Uses and disclosures for health oversight activities. */
+    Oversight,
+    /** **PAYMENT**
+
+Payment. Payment */
+    Payment,
+    /** **PRESENT**
+
+Present. Uses and disclosures with the individual present. */
+    Present,
+    /** **PSYCHOTHERAPY**
+
+Psychotherapy. Use or disclosure of Psychotherapy Notes */
+    Psychotherapy,
+    /** **PUBLICHEALTH**
+
+Public Health. Uses and disclosures for public health activities. */
+    Publichealth,
+    /** **REQUEST**
+
+Request. Request of the Individual */
+    Request,
+    /** **RESEARCH**
+
+Research. Uses and disclosures for research purposes. */
+    Research,
+    /** **SYSADMIN**
+
+Sysadmin. System Administration */
+    Sysadmin,
+    /** **THREAT**
+
+Threat. Uses and disclosures to avert a serious threat to health or safety. */
+    Threat,
+    /** **TRAINING**
+
+Training. Use or disclosure by the covered entity for its own training programs */
+    Training,
+    /** **TREATMENT**
+
+Treatment. Treatment */
+    Treatment,
+    /** **WORKERSCOMP**
+
+Worker's Comp. Disclosures for workers' compensation. */
+    Workerscomp,
+}
+impl ::core::str::FromStr for NHINPurposeOfUse {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "ABUSE" => Ok(Self::Abuse),
+            "COVERAGE" => Ok(Self::Coverage),
+            "DECEASED" => Ok(Self::Deceased),
+            "DIRECTORY" => Ok(Self::Directory),
+            "DISASTER" => Ok(Self::Disaster),
+            "DONATION" => Ok(Self::Donation),
+            "EMERGENCY" => Ok(Self::Emergency),
+            "FAMILY" => Ok(Self::Family),
+            "FRAUD" => Ok(Self::Fraud),
+            "GOVERNMENT" => Ok(Self::Government),
+            "JUDICIAL" => Ok(Self::Judicial),
+            "LAW" => Ok(Self::Law),
+            "LEGAL" => Ok(Self::Legal),
+            "MARKETING" => Ok(Self::Marketing),
+            "OPERATIONS" => Ok(Self::Operations),
+            "OVERSIGHT" => Ok(Self::Oversight),
+            "PAYMENT" => Ok(Self::Payment),
+            "PRESENT" => Ok(Self::Present),
+            "PSYCHOTHERAPY" => Ok(Self::Psychotherapy),
+            "PUBLICHEALTH" => Ok(Self::Publichealth),
+            "REQUEST" => Ok(Self::Request),
+            "RESEARCH" => Ok(Self::Research),
+            "SYSADMIN" => Ok(Self::Sysadmin),
+            "THREAT" => Ok(Self::Threat),
+            "TRAINING" => Ok(Self::Training),
+            "TREATMENT" => Ok(Self::Treatment),
+            "WORKERSCOMP" => Ok(Self::Workerscomp),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for NHINPurposeOfUse {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Abuse => "ABUSE",
+            Self::Coverage => "COVERAGE",
+            Self::Deceased => "DECEASED",
+            Self::Directory => "DIRECTORY",
+            Self::Disaster => "DISASTER",
+            Self::Donation => "DONATION",
+            Self::Emergency => "EMERGENCY",
+            Self::Family => "FAMILY",
+            Self::Fraud => "FRAUD",
+            Self::Government => "GOVERNMENT",
+            Self::Judicial => "JUDICIAL",
+            Self::Law => "LAW",
+            Self::Legal => "LEGAL",
+            Self::Marketing => "MARKETING",
+            Self::Operations => "OPERATIONS",
+            Self::Oversight => "OVERSIGHT",
+            Self::Payment => "PAYMENT",
+            Self::Present => "PRESENT",
+            Self::Psychotherapy => "PSYCHOTHERAPY",
+            Self::Publichealth => "PUBLICHEALTH",
+            Self::Request => "REQUEST",
+            Self::Research => "RESEARCH",
+            Self::Sysadmin => "SYSADMIN",
+            Self::Threat => "THREAT",
+            Self::Training => "TRAINING",
+            Self::Treatment => "TREATMENT",
+            Self::Workerscomp => "WORKERSCOMP",
+        }
+    }
+}
+impl ::std::fmt::Display for NHINPurposeOfUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Abuse => "Abuse",
+            Self::Coverage => "Coverage",
+            Self::Deceased => "Deceased",
+            Self::Directory => "Directory",
+            Self::Disaster => "Disaster",
+            Self::Donation => "Donation",
+            Self::Emergency => "Emergency",
+            Self::Family => "Family",
+            Self::Fraud => "Fraud",
+            Self::Government => "Government",
+            Self::Judicial => "Judicial",
+            Self::Law => "Law Enforcement",
+            Self::Legal => "Legal",
+            Self::Marketing => "Marketing",
+            Self::Operations => "Operations",
+            Self::Oversight => "Oversight",
+            Self::Payment => "Payment",
+            Self::Present => "Present",
+            Self::Psychotherapy => "Psychotherapy",
+            Self::Publichealth => "Public Health",
+            Self::Request => "Request",
+            Self::Research => "Research",
+            Self::Sysadmin => "Sysadmin",
+            Self::Threat => "Threat",
+            Self::Training => "Training",
+            Self::Treatment => "Treatment",
+            Self::Workerscomp => "Worker's Comp",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for NHINPurposeOfUse {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for NHINPurposeOfUse {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<NHINPurposeOfUse> for Coding {
+    fn from(code: NHINPurposeOfUse) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/nhin-purposeofuse".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<NHINPurposeOfUse> for CodeableConcept {
+    fn from(code: NHINPurposeOfUse) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {
@@ -49021,6 +54382,2549 @@ impl From<RestfulSecurityService> for Coding {
 }
 impl From<RestfulSecurityService> for CodeableConcept {
     fn from(code: RestfulSecurityService) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[SPDXLicense](http://hl7.org/fhir/ValueSet/spdx-license)**. The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/).\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum SPDXLicense {
+    /** **0BSD**
+
+BSD Zero Clause License. BSD Zero Clause License. */
+    N0Bsd,
+    /** **AAL**
+
+Attribution Assurance License. Attribution Assurance License. */
+    Aal,
+    /** **ADSL**
+
+Amazon Digital Services License. Amazon Digital Services License. */
+    Adsl,
+    /** **AFL-1.1**
+
+Academic Free License v1.1. Academic Free License v1.1. */
+    Afl11,
+    /** **AFL-1.2**
+
+Academic Free License v1.2. Academic Free License v1.2. */
+    Afl12,
+    /** **AFL-2.0**
+
+Academic Free License v2.0. Academic Free License v2.0. */
+    Afl20,
+    /** **AFL-2.1**
+
+Academic Free License v2.1. Academic Free License v2.1. */
+    Afl21,
+    /** **AFL-3.0**
+
+Academic Free License v3.0. Academic Free License v3.0. */
+    Afl30,
+    /** **AGPL-1.0-only**
+
+Affero General Public License v1.0 only. Affero General Public License v1.0 only. */
+    Agpl10Only,
+    /** **AGPL-1.0-or-later**
+
+Affero General Public License v1.0 or later. Affero General Public License v1.0 or later. */
+    Agpl10OrLater,
+    /** **AGPL-3.0-only**
+
+GNU Affero General Public License v3.0 only. GNU Affero General Public License v3.0 only. */
+    Agpl30Only,
+    /** **AGPL-3.0-or-later**
+
+GNU Affero General Public License v3.0 or later. GNU Affero General Public License v3.0 or later. */
+    Agpl30OrLater,
+    /** **AMDPLPA**
+
+AMD's plpa_map.c License. AMD's plpa_map.c License. */
+    Amdplpa,
+    /** **AML**
+
+Apple MIT License. Apple MIT License. */
+    Aml,
+    /** **AMPAS**
+
+Academy of Motion Picture Arts and Sciences BSD. Academy of Motion Picture Arts and Sciences BSD. */
+    Ampas,
+    /** **ANTLR-PD**
+
+ANTLR Software Rights Notice. ANTLR Software Rights Notice. */
+    AntlrPd,
+    /** **APAFML**
+
+Adobe Postscript AFM License. Adobe Postscript AFM License. */
+    Apafml,
+    /** **APL-1.0**
+
+Adaptive Public License 1.0. Adaptive Public License 1.0. */
+    Apl10,
+    /** **APSL-1.0**
+
+Apple Public Source License 1.0. Apple Public Source License 1.0. */
+    Apsl10,
+    /** **APSL-1.1**
+
+Apple Public Source License 1.1. Apple Public Source License 1.1. */
+    Apsl11,
+    /** **APSL-1.2**
+
+Apple Public Source License 1.2. Apple Public Source License 1.2. */
+    Apsl12,
+    /** **APSL-2.0**
+
+Apple Public Source License 2.0. Apple Public Source License 2.0. */
+    Apsl20,
+    /** **Abstyles**
+
+Abstyles License. Abstyles License. */
+    Abstyles,
+    /** **Adobe-2006**
+
+Adobe Systems Incorporated Source Code License Agreement. Adobe Systems Incorporated Source Code License Agreement. */
+    Adobe2006,
+    /** **Adobe-Glyph**
+
+Adobe Glyph List License. Adobe Glyph List License. */
+    AdobeGlyph,
+    /** **Afmparse**
+
+Afmparse License. Afmparse License. */
+    Afmparse,
+    /** **Aladdin**
+
+Aladdin Free Public License. Aladdin Free Public License. */
+    Aladdin,
+    /** **Apache-1.0**
+
+Apache License 1.0. Apache License 1.0. */
+    Apache10,
+    /** **Apache-1.1**
+
+Apache License 1.1. Apache License 1.1. */
+    Apache11,
+    /** **Apache-2.0**
+
+Apache License 2.0. Apache License 2.0. */
+    Apache20,
+    /** **Artistic-1.0**
+
+Artistic License 1.0. Artistic License 1.0. */
+    Artistic10,
+    /** **Artistic-1.0-Perl**
+
+Artistic License 1.0 (Perl). Artistic License 1.0 (Perl). */
+    Artistic10Perl,
+    /** **Artistic-1.0-cl8**
+
+Artistic License 1.0 w/clause 8. Artistic License 1.0 w/clause 8. */
+    Artistic10Cl8,
+    /** **Artistic-2.0**
+
+Artistic License 2.0. Artistic License 2.0. */
+    Artistic20,
+    /** **BSD-1-Clause**
+
+BSD 1-Clause License. BSD 1-Clause License. */
+    Bsd1Clause,
+    /** **BSD-2-Clause**
+
+BSD 2-Clause "Simplified" License. BSD 2-Clause "Simplified" License. */
+    Bsd2Clause,
+    /** **BSD-2-Clause-FreeBSD**
+
+BSD 2-Clause FreeBSD License. BSD 2-Clause FreeBSD License. */
+    Bsd2ClauseFreeBSD,
+    /** **BSD-2-Clause-NetBSD**
+
+BSD 2-Clause NetBSD License. BSD 2-Clause NetBSD License. */
+    Bsd2ClauseNetBSD,
+    /** **BSD-2-Clause-Patent**
+
+BSD-2-Clause Plus Patent License. BSD-2-Clause Plus Patent License. */
+    Bsd2ClausePatent,
+    /** **BSD-3-Clause**
+
+BSD 3-Clause "New" or "Revised" License. BSD 3-Clause "New" or "Revised" License. */
+    Bsd3Clause,
+    /** **BSD-3-Clause-Attribution**
+
+BSD with attribution. BSD with attribution. */
+    Bsd3ClauseAttribution,
+    /** **BSD-3-Clause-Clear**
+
+BSD 3-Clause Clear License. BSD 3-Clause Clear License. */
+    Bsd3ClauseClear,
+    /** **BSD-3-Clause-LBNL**
+
+Lawrence Berkeley National Labs BSD variant license. Lawrence Berkeley National Labs BSD variant license. */
+    Bsd3ClauseLBNL,
+    /** **BSD-3-Clause-No-Nuclear-License**
+
+BSD 3-Clause No Nuclear License. BSD 3-Clause No Nuclear License. */
+    Bsd3ClauseNoNuclearLicense,
+    /** **BSD-3-Clause-No-Nuclear-License-2014**
+
+BSD 3-Clause No Nuclear License 2014. BSD 3-Clause No Nuclear License 2014. */
+    Bsd3ClauseNoNuclearLicense2014,
+    /** **BSD-3-Clause-No-Nuclear-Warranty**
+
+BSD 3-Clause No Nuclear Warranty. BSD 3-Clause No Nuclear Warranty. */
+    Bsd3ClauseNoNuclearWarranty,
+    /** **BSD-4-Clause**
+
+BSD 4-Clause "Original" or "Old" License. BSD 4-Clause "Original" or "Old" License. */
+    Bsd4Clause,
+    /** **BSD-4-Clause-UC**
+
+BSD-4-Clause (University of California-Specific). BSD-4-Clause (University of California-Specific). */
+    Bsd4ClauseUC,
+    /** **BSD-Protection**
+
+BSD Protection License. BSD Protection License. */
+    BsdProtection,
+    /** **BSD-Source-Code**
+
+BSD Source Code Attribution. BSD Source Code Attribution. */
+    BsdSourceCode,
+    /** **BSL-1.0**
+
+Boost Software License 1.0. Boost Software License 1.0. */
+    Bsl10,
+    /** **Bahyph**
+
+Bahyph License. Bahyph License. */
+    Bahyph,
+    /** **Barr**
+
+Barr License. Barr License. */
+    Barr,
+    /** **Beerware**
+
+Beerware License. Beerware License. */
+    Beerware,
+    /** **BitTorrent-1.0**
+
+BitTorrent Open Source License v1.0. BitTorrent Open Source License v1.0. */
+    BitTorrent10,
+    /** **BitTorrent-1.1**
+
+BitTorrent Open Source License v1.1. BitTorrent Open Source License v1.1. */
+    BitTorrent11,
+    /** **Borceux**
+
+Borceux license. Borceux license. */
+    Borceux,
+    /** **CATOSL-1.1**
+
+Computer Associates Trusted Open Source License 1.1. Computer Associates Trusted Open Source License 1.1. */
+    Catosl11,
+    /** **CC-BY-1.0**
+
+Creative Commons Attribution 1.0 Generic. Creative Commons Attribution 1.0 Generic. */
+    CcBy10,
+    /** **CC-BY-2.0**
+
+Creative Commons Attribution 2.0 Generic. Creative Commons Attribution 2.0 Generic. */
+    CcBy20,
+    /** **CC-BY-2.5**
+
+Creative Commons Attribution 2.5 Generic. Creative Commons Attribution 2.5 Generic. */
+    CcBy25,
+    /** **CC-BY-3.0**
+
+Creative Commons Attribution 3.0 Unported. Creative Commons Attribution 3.0 Unported. */
+    CcBy30,
+    /** **CC-BY-4.0**
+
+Creative Commons Attribution 4.0 International. Creative Commons Attribution 4.0 International. */
+    CcBy40,
+    /** **CC-BY-NC-1.0**
+
+Creative Commons Attribution Non Commercial 1.0 Generic. Creative Commons Attribution Non Commercial 1.0 Generic. */
+    CcByNc10,
+    /** **CC-BY-NC-2.0**
+
+Creative Commons Attribution Non Commercial 2.0 Generic. Creative Commons Attribution Non Commercial 2.0 Generic. */
+    CcByNc20,
+    /** **CC-BY-NC-2.5**
+
+Creative Commons Attribution Non Commercial 2.5 Generic. Creative Commons Attribution Non Commercial 2.5 Generic. */
+    CcByNc25,
+    /** **CC-BY-NC-3.0**
+
+Creative Commons Attribution Non Commercial 3.0 Unported. Creative Commons Attribution Non Commercial 3.0 Unported. */
+    CcByNc30,
+    /** **CC-BY-NC-4.0**
+
+Creative Commons Attribution Non Commercial 4.0 International. Creative Commons Attribution Non Commercial 4.0 International. */
+    CcByNc40,
+    /** **CC-BY-NC-ND-1.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic. Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic. */
+    CcByNcNd10,
+    /** **CC-BY-NC-ND-2.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic. Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic. */
+    CcByNcNd20,
+    /** **CC-BY-NC-ND-2.5**
+
+Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic. Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic. */
+    CcByNcNd25,
+    /** **CC-BY-NC-ND-3.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported. Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported. */
+    CcByNcNd30,
+    /** **CC-BY-NC-ND-4.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 4.0 International. Creative Commons Attribution Non Commercial No Derivatives 4.0 International. */
+    CcByNcNd40,
+    /** **CC-BY-NC-SA-1.0**
+
+Creative Commons Attribution Non Commercial Share Alike 1.0 Generic. Creative Commons Attribution Non Commercial Share Alike 1.0 Generic. */
+    CcByNcSa10,
+    /** **CC-BY-NC-SA-2.0**
+
+Creative Commons Attribution Non Commercial Share Alike 2.0 Generic. Creative Commons Attribution Non Commercial Share Alike 2.0 Generic. */
+    CcByNcSa20,
+    /** **CC-BY-NC-SA-2.5**
+
+Creative Commons Attribution Non Commercial Share Alike 2.5 Generic. Creative Commons Attribution Non Commercial Share Alike 2.5 Generic. */
+    CcByNcSa25,
+    /** **CC-BY-NC-SA-3.0**
+
+Creative Commons Attribution Non Commercial Share Alike 3.0 Unported. Creative Commons Attribution Non Commercial Share Alike 3.0 Unported. */
+    CcByNcSa30,
+    /** **CC-BY-NC-SA-4.0**
+
+Creative Commons Attribution Non Commercial Share Alike 4.0 International. Creative Commons Attribution Non Commercial Share Alike 4.0 International. */
+    CcByNcSa40,
+    /** **CC-BY-ND-1.0**
+
+Creative Commons Attribution No Derivatives 1.0 Generic. Creative Commons Attribution No Derivatives 1.0 Generic. */
+    CcByNd10,
+    /** **CC-BY-ND-2.0**
+
+Creative Commons Attribution No Derivatives 2.0 Generic. Creative Commons Attribution No Derivatives 2.0 Generic. */
+    CcByNd20,
+    /** **CC-BY-ND-2.5**
+
+Creative Commons Attribution No Derivatives 2.5 Generic. Creative Commons Attribution No Derivatives 2.5 Generic. */
+    CcByNd25,
+    /** **CC-BY-ND-3.0**
+
+Creative Commons Attribution No Derivatives 3.0 Unported. Creative Commons Attribution No Derivatives 3.0 Unported. */
+    CcByNd30,
+    /** **CC-BY-ND-4.0**
+
+Creative Commons Attribution No Derivatives 4.0 International. Creative Commons Attribution No Derivatives 4.0 International. */
+    CcByNd40,
+    /** **CC-BY-SA-1.0**
+
+Creative Commons Attribution Share Alike 1.0 Generic. Creative Commons Attribution Share Alike 1.0 Generic. */
+    CcBySa10,
+    /** **CC-BY-SA-2.0**
+
+Creative Commons Attribution Share Alike 2.0 Generic. Creative Commons Attribution Share Alike 2.0 Generic. */
+    CcBySa20,
+    /** **CC-BY-SA-2.5**
+
+Creative Commons Attribution Share Alike 2.5 Generic. Creative Commons Attribution Share Alike 2.5 Generic. */
+    CcBySa25,
+    /** **CC-BY-SA-3.0**
+
+Creative Commons Attribution Share Alike 3.0 Unported. Creative Commons Attribution Share Alike 3.0 Unported. */
+    CcBySa30,
+    /** **CC-BY-SA-4.0**
+
+Creative Commons Attribution Share Alike 4.0 International. Creative Commons Attribution Share Alike 4.0 International. */
+    CcBySa40,
+    /** **CC0-1.0**
+
+Creative Commons Zero v1.0 Universal. Creative Commons Zero v1.0 Universal. */
+    Cc010,
+    /** **CDDL-1.0**
+
+Common Development and Distribution License 1.0. Common Development and Distribution License 1.0. */
+    Cddl10,
+    /** **CDDL-1.1**
+
+Common Development and Distribution License 1.1. Common Development and Distribution License 1.1. */
+    Cddl11,
+    /** **CDLA-Permissive-1.0**
+
+Community Data License Agreement Permissive 1.0. Community Data License Agreement Permissive 1.0. */
+    CdlaPermissive10,
+    /** **CDLA-Sharing-1.0**
+
+Community Data License Agreement Sharing 1.0. Community Data License Agreement Sharing 1.0. */
+    CdlaSharing10,
+    /** **CECILL-1.0**
+
+CeCILL Free Software License Agreement v1.0. CeCILL Free Software License Agreement v1.0. */
+    Cecill10,
+    /** **CECILL-1.1**
+
+CeCILL Free Software License Agreement v1.1. CeCILL Free Software License Agreement v1.1. */
+    Cecill11,
+    /** **CECILL-2.0**
+
+CeCILL Free Software License Agreement v2.0. CeCILL Free Software License Agreement v2.0. */
+    Cecill20,
+    /** **CECILL-2.1**
+
+CeCILL Free Software License Agreement v2.1. CeCILL Free Software License Agreement v2.1. */
+    Cecill21,
+    /** **CECILL-B**
+
+CeCILL-B Free Software License Agreement. CeCILL-B Free Software License Agreement. */
+    CecillB,
+    /** **CECILL-C**
+
+CeCILL-C Free Software License Agreement. CeCILL-C Free Software License Agreement. */
+    CecillC,
+    /** **CNRI-Jython**
+
+CNRI Jython License. CNRI Jython License. */
+    CnriJython,
+    /** **CNRI-Python**
+
+CNRI Python License. CNRI Python License. */
+    CnriPython,
+    /** **CNRI-Python-GPL-Compatible**
+
+CNRI Python Open Source GPL Compatible License Agreement. CNRI Python Open Source GPL Compatible License Agreement. */
+    CnriPythonGPLCompatible,
+    /** **CPAL-1.0**
+
+Common Public Attribution License 1.0. Common Public Attribution License 1.0. */
+    Cpal10,
+    /** **CPL-1.0**
+
+Common Public License 1.0. Common Public License 1.0. */
+    Cpl10,
+    /** **CPOL-1.02**
+
+Code Project Open License 1.02. Code Project Open License 1.02. */
+    Cpol102,
+    /** **CUA-OPL-1.0**
+
+CUA Office Public License v1.0. CUA Office Public License v1.0. */
+    CuaOpl10,
+    /** **Caldera**
+
+Caldera License. Caldera License. */
+    Caldera,
+    /** **ClArtistic**
+
+Clarified Artistic License. Clarified Artistic License. */
+    ClArtistic,
+    /** **Condor-1.1**
+
+Condor Public License v1.1. Condor Public License v1.1. */
+    Condor11,
+    /** **Crossword**
+
+Crossword License. Crossword License. */
+    Crossword,
+    /** **CrystalStacker**
+
+CrystalStacker License. CrystalStacker License. */
+    CrystalStacker,
+    /** **Cube**
+
+Cube License. Cube License. */
+    Cube,
+    /** **D-FSL-1.0**
+
+Deutsche Freie Software Lizenz. Deutsche Freie Software Lizenz. */
+    DFsl10,
+    /** **DOC**
+
+DOC License. DOC License. */
+    Doc,
+    /** **DSDP**
+
+DSDP License. DSDP License. */
+    Dsdp,
+    /** **Dotseqn**
+
+Dotseqn License. Dotseqn License. */
+    Dotseqn,
+    /** **ECL-1.0**
+
+Educational Community License v1.0. Educational Community License v1.0. */
+    Ecl10,
+    /** **ECL-2.0**
+
+Educational Community License v2.0. Educational Community License v2.0. */
+    Ecl20,
+    /** **EFL-1.0**
+
+Eiffel Forum License v1.0. Eiffel Forum License v1.0. */
+    Efl10,
+    /** **EFL-2.0**
+
+Eiffel Forum License v2.0. Eiffel Forum License v2.0. */
+    Efl20,
+    /** **EPL-1.0**
+
+Eclipse Public License 1.0. Eclipse Public License 1.0. */
+    Epl10,
+    /** **EPL-2.0**
+
+Eclipse Public License 2.0. Eclipse Public License 2.0. */
+    Epl20,
+    /** **EUDatagrid**
+
+EU DataGrid Software License. EU DataGrid Software License. */
+    Eudatagrid,
+    /** **EUPL-1.0**
+
+European Union Public License 1.0. European Union Public License 1.0. */
+    Eupl10,
+    /** **EUPL-1.1**
+
+European Union Public License 1.1. European Union Public License 1.1. */
+    Eupl11,
+    /** **EUPL-1.2**
+
+European Union Public License 1.2. European Union Public License 1.2. */
+    Eupl12,
+    /** **Entessa**
+
+Entessa Public License v1.0. Entessa Public License v1.0. */
+    Entessa,
+    /** **ErlPL-1.1**
+
+Erlang Public License v1.1. Erlang Public License v1.1. */
+    ErlPL11,
+    /** **Eurosym**
+
+Eurosym License. Eurosym License. */
+    Eurosym,
+    /** **FSFAP**
+
+FSF All Permissive License. FSF All Permissive License. */
+    Fsfap,
+    /** **FSFUL**
+
+FSF Unlimited License. FSF Unlimited License. */
+    Fsful,
+    /** **FSFULLR**
+
+FSF Unlimited License (with License Retention). FSF Unlimited License (with License Retention). */
+    Fsfullr,
+    /** **FTL**
+
+Freetype Project License. Freetype Project License. */
+    Ftl,
+    /** **Fair**
+
+Fair License. Fair License. */
+    Fair,
+    /** **Frameworx-1.0**
+
+Frameworx Open License 1.0. Frameworx Open License 1.0. */
+    Frameworx10,
+    /** **FreeImage**
+
+FreeImage Public License v1.0. FreeImage Public License v1.0. */
+    FreeImage,
+    /** **GFDL-1.1-only**
+
+GNU Free Documentation License v1.1 only. GNU Free Documentation License v1.1 only. */
+    Gfdl11Only,
+    /** **GFDL-1.1-or-later**
+
+GNU Free Documentation License v1.1 or later. GNU Free Documentation License v1.1 or later. */
+    Gfdl11OrLater,
+    /** **GFDL-1.2-only**
+
+GNU Free Documentation License v1.2 only. GNU Free Documentation License v1.2 only. */
+    Gfdl12Only,
+    /** **GFDL-1.2-or-later**
+
+GNU Free Documentation License v1.2 or later. GNU Free Documentation License v1.2 or later. */
+    Gfdl12OrLater,
+    /** **GFDL-1.3-only**
+
+GNU Free Documentation License v1.3 only. GNU Free Documentation License v1.3 only. */
+    Gfdl13Only,
+    /** **GFDL-1.3-or-later**
+
+GNU Free Documentation License v1.3 or later. GNU Free Documentation License v1.3 or later. */
+    Gfdl13OrLater,
+    /** **GL2PS**
+
+GL2PS License. GL2PS License. */
+    Gl2Ps,
+    /** **GPL-1.0-only**
+
+GNU General Public License v1.0 only. GNU General Public License v1.0 only. */
+    Gpl10Only,
+    /** **GPL-1.0-or-later**
+
+GNU General Public License v1.0 or later. GNU General Public License v1.0 or later. */
+    Gpl10OrLater,
+    /** **GPL-2.0-only**
+
+GNU General Public License v2.0 only. GNU General Public License v2.0 only. */
+    Gpl20Only,
+    /** **GPL-2.0-or-later**
+
+GNU General Public License v2.0 or later. GNU General Public License v2.0 or later. */
+    Gpl20OrLater,
+    /** **GPL-3.0-only**
+
+GNU General Public License v3.0 only. GNU General Public License v3.0 only. */
+    Gpl30Only,
+    /** **GPL-3.0-or-later**
+
+GNU General Public License v3.0 or later. GNU General Public License v3.0 or later. */
+    Gpl30OrLater,
+    /** **Giftware**
+
+Giftware License. Giftware License. */
+    Giftware,
+    /** **Glide**
+
+3dfx Glide License. 3dfx Glide License. */
+    Glide,
+    /** **Glulxe**
+
+Glulxe License. Glulxe License. */
+    Glulxe,
+    /** **HPND**
+
+Historical Permission Notice and Disclaimer. Historical Permission Notice and Disclaimer. */
+    Hpnd,
+    /** **HaskellReport**
+
+Haskell Language Report License. Haskell Language Report License. */
+    HaskellReport,
+    /** **IBM-pibs**
+
+IBM PowerPC Initialization and Boot Software. IBM PowerPC Initialization and Boot Software. */
+    IbmPibs,
+    /** **ICU**
+
+ICU License. ICU License. */
+    Icu,
+    /** **IJG**
+
+Independent JPEG Group License. Independent JPEG Group License. */
+    Ijg,
+    /** **IPA**
+
+IPA Font License. IPA Font License. */
+    Ipa,
+    /** **IPL-1.0**
+
+IBM Public License v1.0. IBM Public License v1.0. */
+    Ipl10,
+    /** **ISC**
+
+ISC License. ISC License. */
+    Isc,
+    /** **ImageMagick**
+
+ImageMagick License. ImageMagick License. */
+    ImageMagick,
+    /** **Imlib2**
+
+Imlib2 License. Imlib2 License. */
+    Imlib2,
+    /** **Info-ZIP**
+
+Info-ZIP License. Info-ZIP License. */
+    InfoZIP,
+    /** **Intel**
+
+Intel Open Source License. Intel Open Source License. */
+    Intel,
+    /** **Intel-ACPI**
+
+Intel ACPI Software License Agreement. Intel ACPI Software License Agreement. */
+    IntelACPI,
+    /** **Interbase-1.0**
+
+Interbase Public License v1.0. Interbase Public License v1.0. */
+    Interbase10,
+    /** **JSON**
+
+JSON License. JSON License. */
+    Json,
+    /** **JasPer-2.0**
+
+JasPer License. JasPer License. */
+    JasPer20,
+    /** **LAL-1.2**
+
+Licence Art Libre 1.2. Licence Art Libre 1.2. */
+    Lal12,
+    /** **LAL-1.3**
+
+Licence Art Libre 1.3. Licence Art Libre 1.3. */
+    Lal13,
+    /** **LGPL-2.0-only**
+
+GNU Library General Public License v2 only. GNU Library General Public License v2 only. */
+    Lgpl20Only,
+    /** **LGPL-2.0-or-later**
+
+GNU Library General Public License v2 or later. GNU Library General Public License v2 or later. */
+    Lgpl20OrLater,
+    /** **LGPL-2.1-only**
+
+GNU Lesser General Public License v2.1 only. GNU Lesser General Public License v2.1 only. */
+    Lgpl21Only,
+    /** **LGPL-2.1-or-later**
+
+GNU Lesser General Public License v2.1 or later. GNU Lesser General Public License v2.1 or later. */
+    Lgpl21OrLater,
+    /** **LGPL-3.0-only**
+
+GNU Lesser General Public License v3.0 only. GNU Lesser General Public License v3.0 only. */
+    Lgpl30Only,
+    /** **LGPL-3.0-or-later**
+
+GNU Lesser General Public License v3.0 or later. GNU Lesser General Public License v3.0 or later. */
+    Lgpl30OrLater,
+    /** **LGPLLR**
+
+Lesser General Public License For Linguistic Resources. Lesser General Public License For Linguistic Resources. */
+    Lgpllr,
+    /** **LPL-1.0**
+
+Lucent Public License Version 1.0. Lucent Public License Version 1.0. */
+    Lpl10,
+    /** **LPL-1.02**
+
+Lucent Public License v1.02. Lucent Public License v1.02. */
+    Lpl102,
+    /** **LPPL-1.0**
+
+LaTeX Project Public License v1.0. LaTeX Project Public License v1.0. */
+    Lppl10,
+    /** **LPPL-1.1**
+
+LaTeX Project Public License v1.1. LaTeX Project Public License v1.1. */
+    Lppl11,
+    /** **LPPL-1.2**
+
+LaTeX Project Public License v1.2. LaTeX Project Public License v1.2. */
+    Lppl12,
+    /** **LPPL-1.3a**
+
+LaTeX Project Public License v1.3a. LaTeX Project Public License v1.3a. */
+    Lppl13A,
+    /** **LPPL-1.3c**
+
+LaTeX Project Public License v1.3c. LaTeX Project Public License v1.3c. */
+    Lppl13C,
+    /** **Latex2e**
+
+Latex2e License. Latex2e License. */
+    Latex2E,
+    /** **Leptonica**
+
+Leptonica License. Leptonica License. */
+    Leptonica,
+    /** **LiLiQ-P-1.1**
+
+Licence Libre du Québec – Permissive version 1.1. Licence Libre du Québec – Permissive version 1.1. */
+    LiLiQP11,
+    /** **LiLiQ-R-1.1**
+
+Licence Libre du Québec – Réciprocité version 1.1. Licence Libre du Québec – Réciprocité version 1.1. */
+    LiLiQR11,
+    /** **LiLiQ-Rplus-1.1**
+
+Licence Libre du Québec – Réciprocité forte version 1.1. Licence Libre du Québec – Réciprocité forte version 1.1. */
+    LiLiQRplus11,
+    /** **Libpng**
+
+libpng License. libpng License. */
+    Libpng,
+    /** **Linux-OpenIB**
+
+Linux Kernel Variant of OpenIB.org license. Linux Kernel Variant of OpenIB.org license. */
+    LinuxOpenIB,
+    /** **MIT**
+
+MIT License. MIT License. */
+    Mit,
+    /** **MIT-0**
+
+MIT No Attribution. MIT No Attribution. */
+    Mit0,
+    /** **MIT-CMU**
+
+CMU License. CMU License. */
+    MitCmu,
+    /** **MIT-advertising**
+
+Enlightenment License (e16). Enlightenment License (e16). */
+    MitAdvertising,
+    /** **MIT-enna**
+
+enna License. enna License. */
+    MitEnna,
+    /** **MIT-feh**
+
+feh License. feh License. */
+    MitFeh,
+    /** **MITNFA**
+
+MIT +no-false-attribs license. MIT +no-false-attribs license. */
+    Mitnfa,
+    /** **MPL-1.0**
+
+Mozilla Public License 1.0. Mozilla Public License 1.0. */
+    Mpl10,
+    /** **MPL-1.1**
+
+Mozilla Public License 1.1. Mozilla Public License 1.1. */
+    Mpl11,
+    /** **MPL-2.0**
+
+Mozilla Public License 2.0. Mozilla Public License 2.0. */
+    Mpl20,
+    /** **MPL-2.0-no-copyleft-exception**
+
+Mozilla Public License 2.0 (no copyleft exception). Mozilla Public License 2.0 (no copyleft exception). */
+    Mpl20NoCopyleftException,
+    /** **MS-PL**
+
+Microsoft Public License. Microsoft Public License. */
+    MsPl,
+    /** **MS-RL**
+
+Microsoft Reciprocal License. Microsoft Reciprocal License. */
+    MsRl,
+    /** **MTLL**
+
+Matrix Template Library License. Matrix Template Library License. */
+    Mtll,
+    /** **MakeIndex**
+
+MakeIndex License. MakeIndex License. */
+    MakeIndex,
+    /** **MirOS**
+
+MirOS License. MirOS License. */
+    MirOS,
+    /** **Motosoto**
+
+Motosoto License. Motosoto License. */
+    Motosoto,
+    /** **Multics**
+
+Multics License. Multics License. */
+    Multics,
+    /** **Mup**
+
+Mup License. Mup License. */
+    Mup,
+    /** **NASA-1.3**
+
+NASA Open Source Agreement 1.3. NASA Open Source Agreement 1.3. */
+    Nasa13,
+    /** **NBPL-1.0**
+
+Net Boolean Public License v1. Net Boolean Public License v1. */
+    Nbpl10,
+    /** **NCSA**
+
+University of Illinois/NCSA Open Source License. University of Illinois/NCSA Open Source License. */
+    Ncsa,
+    /** **NGPL**
+
+Nethack General Public License. Nethack General Public License. */
+    Ngpl,
+    /** **NLOD-1.0**
+
+Norwegian Licence for Open Government Data. Norwegian Licence for Open Government Data. */
+    Nlod10,
+    /** **NLPL**
+
+No Limit Public License. No Limit Public License. */
+    Nlpl,
+    /** **NOSL**
+
+Netizen Open Source License. Netizen Open Source License. */
+    Nosl,
+    /** **NPL-1.0**
+
+Netscape Public License v1.0. Netscape Public License v1.0. */
+    Npl10,
+    /** **NPL-1.1**
+
+Netscape Public License v1.1. Netscape Public License v1.1. */
+    Npl11,
+    /** **NPOSL-3.0**
+
+Non-Profit Open Software License 3.0. Non-Profit Open Software License 3.0. */
+    Nposl30,
+    /** **NRL**
+
+NRL License. NRL License. */
+    Nrl,
+    /** **NTP**
+
+NTP License. NTP License. */
+    Ntp,
+    /** **Naumen**
+
+Naumen Public License. Naumen Public License. */
+    Naumen,
+    /** **Net-SNMP**
+
+Net-SNMP License. Net-SNMP License. */
+    NetSNMP,
+    /** **NetCDF**
+
+NetCDF license. NetCDF license. */
+    NetCDF,
+    /** **Newsletr**
+
+Newsletr License. Newsletr License. */
+    Newsletr,
+    /** **Nokia**
+
+Nokia Open Source License. Nokia Open Source License. */
+    Nokia,
+    /** **Noweb**
+
+Noweb License. Noweb License. */
+    Noweb,
+    /** **OCCT-PL**
+
+Open CASCADE Technology Public License. Open CASCADE Technology Public License. */
+    OcctPl,
+    /** **OCLC-2.0**
+
+OCLC Research Public License 2.0. OCLC Research Public License 2.0. */
+    Oclc20,
+    /** **ODbL-1.0**
+
+ODC Open Database License v1.0. ODC Open Database License v1.0. */
+    OdbL10,
+    /** **OFL-1.0**
+
+SIL Open Font License 1.0. SIL Open Font License 1.0. */
+    Ofl10,
+    /** **OFL-1.1**
+
+SIL Open Font License 1.1. SIL Open Font License 1.1. */
+    Ofl11,
+    /** **OGTSL**
+
+Open Group Test Suite License. Open Group Test Suite License. */
+    Ogtsl,
+    /** **OLDAP-1.1**
+
+Open LDAP Public License v1.1. Open LDAP Public License v1.1. */
+    Oldap11,
+    /** **OLDAP-1.2**
+
+Open LDAP Public License v1.2. Open LDAP Public License v1.2. */
+    Oldap12,
+    /** **OLDAP-1.3**
+
+Open LDAP Public License v1.3. Open LDAP Public License v1.3. */
+    Oldap13,
+    /** **OLDAP-1.4**
+
+Open LDAP Public License v1.4. Open LDAP Public License v1.4. */
+    Oldap14,
+    /** **OLDAP-2.0**
+
+Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B). Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B). */
+    Oldap20,
+    /** **OLDAP-2.0.1**
+
+Open LDAP Public License v2.0.1. Open LDAP Public License v2.0.1. */
+    Oldap201,
+    /** **OLDAP-2.1**
+
+Open LDAP Public License v2.1. Open LDAP Public License v2.1. */
+    Oldap21,
+    /** **OLDAP-2.2**
+
+Open LDAP Public License v2.2. Open LDAP Public License v2.2. */
+    Oldap22,
+    /** **OLDAP-2.2.1**
+
+Open LDAP Public License v2.2.1. Open LDAP Public License v2.2.1. */
+    Oldap221,
+    /** **OLDAP-2.2.2**
+
+Open LDAP Public License 2.2.2. Open LDAP Public License 2.2.2. */
+    Oldap222,
+    /** **OLDAP-2.3**
+
+Open LDAP Public License v2.3. Open LDAP Public License v2.3. */
+    Oldap23,
+    /** **OLDAP-2.4**
+
+Open LDAP Public License v2.4. Open LDAP Public License v2.4. */
+    Oldap24,
+    /** **OLDAP-2.5**
+
+Open LDAP Public License v2.5. Open LDAP Public License v2.5. */
+    Oldap25,
+    /** **OLDAP-2.6**
+
+Open LDAP Public License v2.6. Open LDAP Public License v2.6. */
+    Oldap26,
+    /** **OLDAP-2.7**
+
+Open LDAP Public License v2.7. Open LDAP Public License v2.7. */
+    Oldap27,
+    /** **OLDAP-2.8**
+
+Open LDAP Public License v2.8. Open LDAP Public License v2.8. */
+    Oldap28,
+    /** **OML**
+
+Open Market License. Open Market License. */
+    Oml,
+    /** **OPL-1.0**
+
+Open Public License v1.0. Open Public License v1.0. */
+    Opl10,
+    /** **OSET-PL-2.1**
+
+OSET Public License version 2.1. OSET Public License version 2.1. */
+    OsetPl21,
+    /** **OSL-1.0**
+
+Open Software License 1.0. Open Software License 1.0. */
+    Osl10,
+    /** **OSL-1.1**
+
+Open Software License 1.1. Open Software License 1.1. */
+    Osl11,
+    /** **OSL-2.0**
+
+Open Software License 2.0. Open Software License 2.0. */
+    Osl20,
+    /** **OSL-2.1**
+
+Open Software License 2.1. Open Software License 2.1. */
+    Osl21,
+    /** **OSL-3.0**
+
+Open Software License 3.0. Open Software License 3.0. */
+    Osl30,
+    /** **OpenSSL**
+
+OpenSSL License. OpenSSL License. */
+    OpenSSL,
+    /** **PDDL-1.0**
+
+ODC Public Domain Dedication & License 1.0. ODC Public Domain Dedication & License 1.0. */
+    Pddl10,
+    /** **PHP-3.0**
+
+PHP License v3.0. PHP License v3.0. */
+    Php30,
+    /** **PHP-3.01**
+
+PHP License v3.01. PHP License v3.01. */
+    Php301,
+    /** **Plexus**
+
+Plexus Classworlds License. Plexus Classworlds License. */
+    Plexus,
+    /** **PostgreSQL**
+
+PostgreSQL License. PostgreSQL License. */
+    PostgreSQL,
+    /** **Python-2.0**
+
+Python License 2.0. Python License 2.0. */
+    Python20,
+    /** **QPL-1.0**
+
+Q Public License 1.0. Q Public License 1.0. */
+    Qpl10,
+    /** **Qhull**
+
+Qhull License. Qhull License. */
+    Qhull,
+    /** **RHeCos-1.1**
+
+Red Hat eCos Public License v1.1. Red Hat eCos Public License v1.1. */
+    RheCos11,
+    /** **RPL-1.1**
+
+Reciprocal Public License 1.1. Reciprocal Public License 1.1. */
+    Rpl11,
+    /** **RPL-1.5**
+
+Reciprocal Public License 1.5. Reciprocal Public License 1.5. */
+    Rpl15,
+    /** **RPSL-1.0**
+
+RealNetworks Public Source License v1.0. RealNetworks Public Source License v1.0. */
+    Rpsl10,
+    /** **RSA-MD**
+
+RSA Message-Digest License. RSA Message-Digest License. */
+    RsaMd,
+    /** **RSCPL**
+
+Ricoh Source Code Public License. Ricoh Source Code Public License. */
+    Rscpl,
+    /** **Rdisc**
+
+Rdisc License. Rdisc License. */
+    Rdisc,
+    /** **Ruby**
+
+Ruby License. Ruby License. */
+    Ruby,
+    /** **SAX-PD**
+
+Sax Public Domain Notice. Sax Public Domain Notice. */
+    SaxPd,
+    /** **SCEA**
+
+SCEA Shared Source License. SCEA Shared Source License. */
+    Scea,
+    /** **SGI-B-1.0**
+
+SGI Free Software License B v1.0. SGI Free Software License B v1.0. */
+    SgiB10,
+    /** **SGI-B-1.1**
+
+SGI Free Software License B v1.1. SGI Free Software License B v1.1. */
+    SgiB11,
+    /** **SGI-B-2.0**
+
+SGI Free Software License B v2.0. SGI Free Software License B v2.0. */
+    SgiB20,
+    /** **SISSL**
+
+Sun Industry Standards Source License v1.1. Sun Industry Standards Source License v1.1. */
+    Sissl,
+    /** **SISSL-1.2**
+
+Sun Industry Standards Source License v1.2. Sun Industry Standards Source License v1.2. */
+    Sissl12,
+    /** **SMLNJ**
+
+Standard ML of New Jersey License. Standard ML of New Jersey License. */
+    Smlnj,
+    /** **SMPPL**
+
+Secure Messaging Protocol Public License. Secure Messaging Protocol Public License. */
+    Smppl,
+    /** **SNIA**
+
+SNIA Public License 1.1. SNIA Public License 1.1. */
+    Snia,
+    /** **SPL-1.0**
+
+Sun Public License v1.0. Sun Public License v1.0. */
+    Spl10,
+    /** **SWL**
+
+Scheme Widget Library (SWL) Software License Agreement. Scheme Widget Library (SWL) Software License Agreement. */
+    Swl,
+    /** **Saxpath**
+
+Saxpath License. Saxpath License. */
+    Saxpath,
+    /** **Sendmail**
+
+Sendmail License. Sendmail License. */
+    Sendmail,
+    /** **SimPL-2.0**
+
+Simple Public License 2.0. Simple Public License 2.0. */
+    SimPL20,
+    /** **Sleepycat**
+
+Sleepycat License. Sleepycat License. */
+    Sleepycat,
+    /** **Spencer-86**
+
+Spencer License 86. Spencer License 86. */
+    Spencer86,
+    /** **Spencer-94**
+
+Spencer License 94. Spencer License 94. */
+    Spencer94,
+    /** **Spencer-99**
+
+Spencer License 99. Spencer License 99. */
+    Spencer99,
+    /** **SugarCRM-1.1.3**
+
+SugarCRM Public License v1.1.3. SugarCRM Public License v1.1.3. */
+    SugarCRM113,
+    /** **TCL**
+
+TCL/TK License. TCL/TK License. */
+    Tcl,
+    /** **TCP-wrappers**
+
+TCP Wrappers License. TCP Wrappers License. */
+    TcpWrappers,
+    /** **TMate**
+
+TMate Open Source License. TMate Open Source License. */
+    Tmate,
+    /** **TORQUE-1.1**
+
+TORQUE v2.5+ Software License v1.1. TORQUE v2.5+ Software License v1.1. */
+    Torque11,
+    /** **TOSL**
+
+Trusster Open Source License. Trusster Open Source License. */
+    Tosl,
+    /** **UPL-1.0**
+
+Universal Permissive License v1.0. Universal Permissive License v1.0. */
+    Upl10,
+    /** **Unicode-DFS-2015**
+
+Unicode License Agreement - Data Files and Software (2015). Unicode License Agreement - Data Files and Software (2015). */
+    UnicodeDFS2015,
+    /** **Unicode-DFS-2016**
+
+Unicode License Agreement - Data Files and Software (2016). Unicode License Agreement - Data Files and Software (2016). */
+    UnicodeDFS2016,
+    /** **Unicode-TOU**
+
+Unicode Terms of Use. Unicode Terms of Use. */
+    UnicodeTOU,
+    /** **Unlicense**
+
+The Unlicense. The Unlicense. */
+    Unlicense,
+    /** **VOSTROM**
+
+VOSTROM Public License for Open Source. VOSTROM Public License for Open Source. */
+    Vostrom,
+    /** **VSL-1.0**
+
+Vovida Software License v1.0. Vovida Software License v1.0. */
+    Vsl10,
+    /** **Vim**
+
+Vim License. Vim License. */
+    Vim,
+    /** **W3C**
+
+W3C Software Notice and License (2002-12-31). W3C Software Notice and License (2002-12-31). */
+    W3C,
+    /** **W3C-19980720**
+
+W3C Software Notice and License (1998-07-20). W3C Software Notice and License (1998-07-20). */
+    W3C19980720,
+    /** **W3C-20150513**
+
+W3C Software Notice and Document License (2015-05-13). W3C Software Notice and Document License (2015-05-13). */
+    W3C20150513,
+    /** **WTFPL**
+
+Do What The F*ck You Want To Public License. Do What The F*ck You Want To Public License. */
+    Wtfpl,
+    /** **Watcom-1.0**
+
+Sybase Open Watcom Public License 1.0. Sybase Open Watcom Public License 1.0. */
+    Watcom10,
+    /** **Wsuipa**
+
+Wsuipa License. Wsuipa License. */
+    Wsuipa,
+    /** **X11**
+
+X11 License. X11 License. */
+    X11,
+    /** **XFree86-1.1**
+
+XFree86 License 1.1. XFree86 License 1.1. */
+    Xfree8611,
+    /** **XSkat**
+
+XSkat License. XSkat License. */
+    Xskat,
+    /** **Xerox**
+
+Xerox License. Xerox License. */
+    Xerox,
+    /** **Xnet**
+
+X.Net License. X.Net License. */
+    Xnet,
+    /** **YPL-1.0**
+
+Yahoo! Public License v1.0. Yahoo! Public License v1.0. */
+    Ypl10,
+    /** **YPL-1.1**
+
+Yahoo! Public License v1.1. Yahoo! Public License v1.1. */
+    Ypl11,
+    /** **ZPL-1.1**
+
+Zope Public License 1.1. Zope Public License 1.1. */
+    Zpl11,
+    /** **ZPL-2.0**
+
+Zope Public License 2.0. Zope Public License 2.0. */
+    Zpl20,
+    /** **ZPL-2.1**
+
+Zope Public License 2.1. Zope Public License 2.1. */
+    Zpl21,
+    /** **Zed**
+
+Zed License. Zed License. */
+    Zed,
+    /** **Zend-2.0**
+
+Zend License v2.0. Zend License v2.0. */
+    Zend20,
+    /** **Zimbra-1.3**
+
+Zimbra Public License v1.3. Zimbra Public License v1.3. */
+    Zimbra13,
+    /** **Zimbra-1.4**
+
+Zimbra Public License v1.4. Zimbra Public License v1.4. */
+    Zimbra14,
+    /** **Zlib**
+
+zlib License. zlib License. */
+    Zlib,
+    /** **bzip2-1.0.5**
+
+bzip2 and libbzip2 License v1.0.5. bzip2 and libbzip2 License v1.0.5. */
+    Bzip2105,
+    /** **bzip2-1.0.6**
+
+bzip2 and libbzip2 License v1.0.6. bzip2 and libbzip2 License v1.0.6. */
+    Bzip2106,
+    /** **curl**
+
+curl License. curl License. */
+    Curl,
+    /** **diffmark**
+
+diffmark license. diffmark license. */
+    Diffmark,
+    /** **dvipdfm**
+
+dvipdfm License. dvipdfm License. */
+    Dvipdfm,
+    /** **eGenix**
+
+eGenix.com Public License 1.1.0. eGenix.com Public License 1.1.0. */
+    Egenix,
+    /** **gSOAP-1.3b**
+
+gSOAP Public License v1.3b. gSOAP Public License v1.3b. */
+    Gsoap13B,
+    /** **gnuplot**
+
+gnuplot License. gnuplot License. */
+    Gnuplot,
+    /** **iMatix**
+
+iMatix Standard Function Library Agreement. iMatix Standard Function Library Agreement. */
+    Imatix,
+    /** **libtiff**
+
+libtiff License. libtiff License. */
+    Libtiff,
+    /** **mpich2**
+
+mpich2 License. mpich2 License. */
+    Mpich2,
+    /** **not-open-source**
+
+Not open source. Not an open source license. */
+    NotOpenSource,
+    /** **psfrag**
+
+psfrag License. psfrag License. */
+    Psfrag,
+    /** **psutils**
+
+psutils License. psutils License. */
+    Psutils,
+    /** **xinetd**
+
+xinetd License. xinetd License. */
+    Xinetd,
+    /** **xpp**
+
+XPP License. XPP License. */
+    Xpp,
+    /** **zlib-acknowledgement**
+
+zlib/libpng License with Acknowledgement. zlib/libpng License with Acknowledgement. */
+    ZlibAcknowledgement,
+}
+impl ::core::str::FromStr for SPDXLicense {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "0BSD" => Ok(Self::N0Bsd),
+            "AAL" => Ok(Self::Aal),
+            "ADSL" => Ok(Self::Adsl),
+            "AFL-1.1" => Ok(Self::Afl11),
+            "AFL-1.2" => Ok(Self::Afl12),
+            "AFL-2.0" => Ok(Self::Afl20),
+            "AFL-2.1" => Ok(Self::Afl21),
+            "AFL-3.0" => Ok(Self::Afl30),
+            "AGPL-1.0-only" => Ok(Self::Agpl10Only),
+            "AGPL-1.0-or-later" => Ok(Self::Agpl10OrLater),
+            "AGPL-3.0-only" => Ok(Self::Agpl30Only),
+            "AGPL-3.0-or-later" => Ok(Self::Agpl30OrLater),
+            "AMDPLPA" => Ok(Self::Amdplpa),
+            "AML" => Ok(Self::Aml),
+            "AMPAS" => Ok(Self::Ampas),
+            "ANTLR-PD" => Ok(Self::AntlrPd),
+            "APAFML" => Ok(Self::Apafml),
+            "APL-1.0" => Ok(Self::Apl10),
+            "APSL-1.0" => Ok(Self::Apsl10),
+            "APSL-1.1" => Ok(Self::Apsl11),
+            "APSL-1.2" => Ok(Self::Apsl12),
+            "APSL-2.0" => Ok(Self::Apsl20),
+            "Abstyles" => Ok(Self::Abstyles),
+            "Adobe-2006" => Ok(Self::Adobe2006),
+            "Adobe-Glyph" => Ok(Self::AdobeGlyph),
+            "Afmparse" => Ok(Self::Afmparse),
+            "Aladdin" => Ok(Self::Aladdin),
+            "Apache-1.0" => Ok(Self::Apache10),
+            "Apache-1.1" => Ok(Self::Apache11),
+            "Apache-2.0" => Ok(Self::Apache20),
+            "Artistic-1.0" => Ok(Self::Artistic10),
+            "Artistic-1.0-Perl" => Ok(Self::Artistic10Perl),
+            "Artistic-1.0-cl8" => Ok(Self::Artistic10Cl8),
+            "Artistic-2.0" => Ok(Self::Artistic20),
+            "BSD-1-Clause" => Ok(Self::Bsd1Clause),
+            "BSD-2-Clause" => Ok(Self::Bsd2Clause),
+            "BSD-2-Clause-FreeBSD" => Ok(Self::Bsd2ClauseFreeBSD),
+            "BSD-2-Clause-NetBSD" => Ok(Self::Bsd2ClauseNetBSD),
+            "BSD-2-Clause-Patent" => Ok(Self::Bsd2ClausePatent),
+            "BSD-3-Clause" => Ok(Self::Bsd3Clause),
+            "BSD-3-Clause-Attribution" => Ok(Self::Bsd3ClauseAttribution),
+            "BSD-3-Clause-Clear" => Ok(Self::Bsd3ClauseClear),
+            "BSD-3-Clause-LBNL" => Ok(Self::Bsd3ClauseLBNL),
+            "BSD-3-Clause-No-Nuclear-License" => Ok(Self::Bsd3ClauseNoNuclearLicense),
+            "BSD-3-Clause-No-Nuclear-License-2014" => {
+                Ok(Self::Bsd3ClauseNoNuclearLicense2014)
+            }
+            "BSD-3-Clause-No-Nuclear-Warranty" => Ok(Self::Bsd3ClauseNoNuclearWarranty),
+            "BSD-4-Clause" => Ok(Self::Bsd4Clause),
+            "BSD-4-Clause-UC" => Ok(Self::Bsd4ClauseUC),
+            "BSD-Protection" => Ok(Self::BsdProtection),
+            "BSD-Source-Code" => Ok(Self::BsdSourceCode),
+            "BSL-1.0" => Ok(Self::Bsl10),
+            "Bahyph" => Ok(Self::Bahyph),
+            "Barr" => Ok(Self::Barr),
+            "Beerware" => Ok(Self::Beerware),
+            "BitTorrent-1.0" => Ok(Self::BitTorrent10),
+            "BitTorrent-1.1" => Ok(Self::BitTorrent11),
+            "Borceux" => Ok(Self::Borceux),
+            "CATOSL-1.1" => Ok(Self::Catosl11),
+            "CC-BY-1.0" => Ok(Self::CcBy10),
+            "CC-BY-2.0" => Ok(Self::CcBy20),
+            "CC-BY-2.5" => Ok(Self::CcBy25),
+            "CC-BY-3.0" => Ok(Self::CcBy30),
+            "CC-BY-4.0" => Ok(Self::CcBy40),
+            "CC-BY-NC-1.0" => Ok(Self::CcByNc10),
+            "CC-BY-NC-2.0" => Ok(Self::CcByNc20),
+            "CC-BY-NC-2.5" => Ok(Self::CcByNc25),
+            "CC-BY-NC-3.0" => Ok(Self::CcByNc30),
+            "CC-BY-NC-4.0" => Ok(Self::CcByNc40),
+            "CC-BY-NC-ND-1.0" => Ok(Self::CcByNcNd10),
+            "CC-BY-NC-ND-2.0" => Ok(Self::CcByNcNd20),
+            "CC-BY-NC-ND-2.5" => Ok(Self::CcByNcNd25),
+            "CC-BY-NC-ND-3.0" => Ok(Self::CcByNcNd30),
+            "CC-BY-NC-ND-4.0" => Ok(Self::CcByNcNd40),
+            "CC-BY-NC-SA-1.0" => Ok(Self::CcByNcSa10),
+            "CC-BY-NC-SA-2.0" => Ok(Self::CcByNcSa20),
+            "CC-BY-NC-SA-2.5" => Ok(Self::CcByNcSa25),
+            "CC-BY-NC-SA-3.0" => Ok(Self::CcByNcSa30),
+            "CC-BY-NC-SA-4.0" => Ok(Self::CcByNcSa40),
+            "CC-BY-ND-1.0" => Ok(Self::CcByNd10),
+            "CC-BY-ND-2.0" => Ok(Self::CcByNd20),
+            "CC-BY-ND-2.5" => Ok(Self::CcByNd25),
+            "CC-BY-ND-3.0" => Ok(Self::CcByNd30),
+            "CC-BY-ND-4.0" => Ok(Self::CcByNd40),
+            "CC-BY-SA-1.0" => Ok(Self::CcBySa10),
+            "CC-BY-SA-2.0" => Ok(Self::CcBySa20),
+            "CC-BY-SA-2.5" => Ok(Self::CcBySa25),
+            "CC-BY-SA-3.0" => Ok(Self::CcBySa30),
+            "CC-BY-SA-4.0" => Ok(Self::CcBySa40),
+            "CC0-1.0" => Ok(Self::Cc010),
+            "CDDL-1.0" => Ok(Self::Cddl10),
+            "CDDL-1.1" => Ok(Self::Cddl11),
+            "CDLA-Permissive-1.0" => Ok(Self::CdlaPermissive10),
+            "CDLA-Sharing-1.0" => Ok(Self::CdlaSharing10),
+            "CECILL-1.0" => Ok(Self::Cecill10),
+            "CECILL-1.1" => Ok(Self::Cecill11),
+            "CECILL-2.0" => Ok(Self::Cecill20),
+            "CECILL-2.1" => Ok(Self::Cecill21),
+            "CECILL-B" => Ok(Self::CecillB),
+            "CECILL-C" => Ok(Self::CecillC),
+            "CNRI-Jython" => Ok(Self::CnriJython),
+            "CNRI-Python" => Ok(Self::CnriPython),
+            "CNRI-Python-GPL-Compatible" => Ok(Self::CnriPythonGPLCompatible),
+            "CPAL-1.0" => Ok(Self::Cpal10),
+            "CPL-1.0" => Ok(Self::Cpl10),
+            "CPOL-1.02" => Ok(Self::Cpol102),
+            "CUA-OPL-1.0" => Ok(Self::CuaOpl10),
+            "Caldera" => Ok(Self::Caldera),
+            "ClArtistic" => Ok(Self::ClArtistic),
+            "Condor-1.1" => Ok(Self::Condor11),
+            "Crossword" => Ok(Self::Crossword),
+            "CrystalStacker" => Ok(Self::CrystalStacker),
+            "Cube" => Ok(Self::Cube),
+            "D-FSL-1.0" => Ok(Self::DFsl10),
+            "DOC" => Ok(Self::Doc),
+            "DSDP" => Ok(Self::Dsdp),
+            "Dotseqn" => Ok(Self::Dotseqn),
+            "ECL-1.0" => Ok(Self::Ecl10),
+            "ECL-2.0" => Ok(Self::Ecl20),
+            "EFL-1.0" => Ok(Self::Efl10),
+            "EFL-2.0" => Ok(Self::Efl20),
+            "EPL-1.0" => Ok(Self::Epl10),
+            "EPL-2.0" => Ok(Self::Epl20),
+            "EUDatagrid" => Ok(Self::Eudatagrid),
+            "EUPL-1.0" => Ok(Self::Eupl10),
+            "EUPL-1.1" => Ok(Self::Eupl11),
+            "EUPL-1.2" => Ok(Self::Eupl12),
+            "Entessa" => Ok(Self::Entessa),
+            "ErlPL-1.1" => Ok(Self::ErlPL11),
+            "Eurosym" => Ok(Self::Eurosym),
+            "FSFAP" => Ok(Self::Fsfap),
+            "FSFUL" => Ok(Self::Fsful),
+            "FSFULLR" => Ok(Self::Fsfullr),
+            "FTL" => Ok(Self::Ftl),
+            "Fair" => Ok(Self::Fair),
+            "Frameworx-1.0" => Ok(Self::Frameworx10),
+            "FreeImage" => Ok(Self::FreeImage),
+            "GFDL-1.1-only" => Ok(Self::Gfdl11Only),
+            "GFDL-1.1-or-later" => Ok(Self::Gfdl11OrLater),
+            "GFDL-1.2-only" => Ok(Self::Gfdl12Only),
+            "GFDL-1.2-or-later" => Ok(Self::Gfdl12OrLater),
+            "GFDL-1.3-only" => Ok(Self::Gfdl13Only),
+            "GFDL-1.3-or-later" => Ok(Self::Gfdl13OrLater),
+            "GL2PS" => Ok(Self::Gl2Ps),
+            "GPL-1.0-only" => Ok(Self::Gpl10Only),
+            "GPL-1.0-or-later" => Ok(Self::Gpl10OrLater),
+            "GPL-2.0-only" => Ok(Self::Gpl20Only),
+            "GPL-2.0-or-later" => Ok(Self::Gpl20OrLater),
+            "GPL-3.0-only" => Ok(Self::Gpl30Only),
+            "GPL-3.0-or-later" => Ok(Self::Gpl30OrLater),
+            "Giftware" => Ok(Self::Giftware),
+            "Glide" => Ok(Self::Glide),
+            "Glulxe" => Ok(Self::Glulxe),
+            "HPND" => Ok(Self::Hpnd),
+            "HaskellReport" => Ok(Self::HaskellReport),
+            "IBM-pibs" => Ok(Self::IbmPibs),
+            "ICU" => Ok(Self::Icu),
+            "IJG" => Ok(Self::Ijg),
+            "IPA" => Ok(Self::Ipa),
+            "IPL-1.0" => Ok(Self::Ipl10),
+            "ISC" => Ok(Self::Isc),
+            "ImageMagick" => Ok(Self::ImageMagick),
+            "Imlib2" => Ok(Self::Imlib2),
+            "Info-ZIP" => Ok(Self::InfoZIP),
+            "Intel" => Ok(Self::Intel),
+            "Intel-ACPI" => Ok(Self::IntelACPI),
+            "Interbase-1.0" => Ok(Self::Interbase10),
+            "JSON" => Ok(Self::Json),
+            "JasPer-2.0" => Ok(Self::JasPer20),
+            "LAL-1.2" => Ok(Self::Lal12),
+            "LAL-1.3" => Ok(Self::Lal13),
+            "LGPL-2.0-only" => Ok(Self::Lgpl20Only),
+            "LGPL-2.0-or-later" => Ok(Self::Lgpl20OrLater),
+            "LGPL-2.1-only" => Ok(Self::Lgpl21Only),
+            "LGPL-2.1-or-later" => Ok(Self::Lgpl21OrLater),
+            "LGPL-3.0-only" => Ok(Self::Lgpl30Only),
+            "LGPL-3.0-or-later" => Ok(Self::Lgpl30OrLater),
+            "LGPLLR" => Ok(Self::Lgpllr),
+            "LPL-1.0" => Ok(Self::Lpl10),
+            "LPL-1.02" => Ok(Self::Lpl102),
+            "LPPL-1.0" => Ok(Self::Lppl10),
+            "LPPL-1.1" => Ok(Self::Lppl11),
+            "LPPL-1.2" => Ok(Self::Lppl12),
+            "LPPL-1.3a" => Ok(Self::Lppl13A),
+            "LPPL-1.3c" => Ok(Self::Lppl13C),
+            "Latex2e" => Ok(Self::Latex2E),
+            "Leptonica" => Ok(Self::Leptonica),
+            "LiLiQ-P-1.1" => Ok(Self::LiLiQP11),
+            "LiLiQ-R-1.1" => Ok(Self::LiLiQR11),
+            "LiLiQ-Rplus-1.1" => Ok(Self::LiLiQRplus11),
+            "Libpng" => Ok(Self::Libpng),
+            "Linux-OpenIB" => Ok(Self::LinuxOpenIB),
+            "MIT" => Ok(Self::Mit),
+            "MIT-0" => Ok(Self::Mit0),
+            "MIT-CMU" => Ok(Self::MitCmu),
+            "MIT-advertising" => Ok(Self::MitAdvertising),
+            "MIT-enna" => Ok(Self::MitEnna),
+            "MIT-feh" => Ok(Self::MitFeh),
+            "MITNFA" => Ok(Self::Mitnfa),
+            "MPL-1.0" => Ok(Self::Mpl10),
+            "MPL-1.1" => Ok(Self::Mpl11),
+            "MPL-2.0" => Ok(Self::Mpl20),
+            "MPL-2.0-no-copyleft-exception" => Ok(Self::Mpl20NoCopyleftException),
+            "MS-PL" => Ok(Self::MsPl),
+            "MS-RL" => Ok(Self::MsRl),
+            "MTLL" => Ok(Self::Mtll),
+            "MakeIndex" => Ok(Self::MakeIndex),
+            "MirOS" => Ok(Self::MirOS),
+            "Motosoto" => Ok(Self::Motosoto),
+            "Multics" => Ok(Self::Multics),
+            "Mup" => Ok(Self::Mup),
+            "NASA-1.3" => Ok(Self::Nasa13),
+            "NBPL-1.0" => Ok(Self::Nbpl10),
+            "NCSA" => Ok(Self::Ncsa),
+            "NGPL" => Ok(Self::Ngpl),
+            "NLOD-1.0" => Ok(Self::Nlod10),
+            "NLPL" => Ok(Self::Nlpl),
+            "NOSL" => Ok(Self::Nosl),
+            "NPL-1.0" => Ok(Self::Npl10),
+            "NPL-1.1" => Ok(Self::Npl11),
+            "NPOSL-3.0" => Ok(Self::Nposl30),
+            "NRL" => Ok(Self::Nrl),
+            "NTP" => Ok(Self::Ntp),
+            "Naumen" => Ok(Self::Naumen),
+            "Net-SNMP" => Ok(Self::NetSNMP),
+            "NetCDF" => Ok(Self::NetCDF),
+            "Newsletr" => Ok(Self::Newsletr),
+            "Nokia" => Ok(Self::Nokia),
+            "Noweb" => Ok(Self::Noweb),
+            "OCCT-PL" => Ok(Self::OcctPl),
+            "OCLC-2.0" => Ok(Self::Oclc20),
+            "ODbL-1.0" => Ok(Self::OdbL10),
+            "OFL-1.0" => Ok(Self::Ofl10),
+            "OFL-1.1" => Ok(Self::Ofl11),
+            "OGTSL" => Ok(Self::Ogtsl),
+            "OLDAP-1.1" => Ok(Self::Oldap11),
+            "OLDAP-1.2" => Ok(Self::Oldap12),
+            "OLDAP-1.3" => Ok(Self::Oldap13),
+            "OLDAP-1.4" => Ok(Self::Oldap14),
+            "OLDAP-2.0" => Ok(Self::Oldap20),
+            "OLDAP-2.0.1" => Ok(Self::Oldap201),
+            "OLDAP-2.1" => Ok(Self::Oldap21),
+            "OLDAP-2.2" => Ok(Self::Oldap22),
+            "OLDAP-2.2.1" => Ok(Self::Oldap221),
+            "OLDAP-2.2.2" => Ok(Self::Oldap222),
+            "OLDAP-2.3" => Ok(Self::Oldap23),
+            "OLDAP-2.4" => Ok(Self::Oldap24),
+            "OLDAP-2.5" => Ok(Self::Oldap25),
+            "OLDAP-2.6" => Ok(Self::Oldap26),
+            "OLDAP-2.7" => Ok(Self::Oldap27),
+            "OLDAP-2.8" => Ok(Self::Oldap28),
+            "OML" => Ok(Self::Oml),
+            "OPL-1.0" => Ok(Self::Opl10),
+            "OSET-PL-2.1" => Ok(Self::OsetPl21),
+            "OSL-1.0" => Ok(Self::Osl10),
+            "OSL-1.1" => Ok(Self::Osl11),
+            "OSL-2.0" => Ok(Self::Osl20),
+            "OSL-2.1" => Ok(Self::Osl21),
+            "OSL-3.0" => Ok(Self::Osl30),
+            "OpenSSL" => Ok(Self::OpenSSL),
+            "PDDL-1.0" => Ok(Self::Pddl10),
+            "PHP-3.0" => Ok(Self::Php30),
+            "PHP-3.01" => Ok(Self::Php301),
+            "Plexus" => Ok(Self::Plexus),
+            "PostgreSQL" => Ok(Self::PostgreSQL),
+            "Python-2.0" => Ok(Self::Python20),
+            "QPL-1.0" => Ok(Self::Qpl10),
+            "Qhull" => Ok(Self::Qhull),
+            "RHeCos-1.1" => Ok(Self::RheCos11),
+            "RPL-1.1" => Ok(Self::Rpl11),
+            "RPL-1.5" => Ok(Self::Rpl15),
+            "RPSL-1.0" => Ok(Self::Rpsl10),
+            "RSA-MD" => Ok(Self::RsaMd),
+            "RSCPL" => Ok(Self::Rscpl),
+            "Rdisc" => Ok(Self::Rdisc),
+            "Ruby" => Ok(Self::Ruby),
+            "SAX-PD" => Ok(Self::SaxPd),
+            "SCEA" => Ok(Self::Scea),
+            "SGI-B-1.0" => Ok(Self::SgiB10),
+            "SGI-B-1.1" => Ok(Self::SgiB11),
+            "SGI-B-2.0" => Ok(Self::SgiB20),
+            "SISSL" => Ok(Self::Sissl),
+            "SISSL-1.2" => Ok(Self::Sissl12),
+            "SMLNJ" => Ok(Self::Smlnj),
+            "SMPPL" => Ok(Self::Smppl),
+            "SNIA" => Ok(Self::Snia),
+            "SPL-1.0" => Ok(Self::Spl10),
+            "SWL" => Ok(Self::Swl),
+            "Saxpath" => Ok(Self::Saxpath),
+            "Sendmail" => Ok(Self::Sendmail),
+            "SimPL-2.0" => Ok(Self::SimPL20),
+            "Sleepycat" => Ok(Self::Sleepycat),
+            "Spencer-86" => Ok(Self::Spencer86),
+            "Spencer-94" => Ok(Self::Spencer94),
+            "Spencer-99" => Ok(Self::Spencer99),
+            "SugarCRM-1.1.3" => Ok(Self::SugarCRM113),
+            "TCL" => Ok(Self::Tcl),
+            "TCP-wrappers" => Ok(Self::TcpWrappers),
+            "TMate" => Ok(Self::Tmate),
+            "TORQUE-1.1" => Ok(Self::Torque11),
+            "TOSL" => Ok(Self::Tosl),
+            "UPL-1.0" => Ok(Self::Upl10),
+            "Unicode-DFS-2015" => Ok(Self::UnicodeDFS2015),
+            "Unicode-DFS-2016" => Ok(Self::UnicodeDFS2016),
+            "Unicode-TOU" => Ok(Self::UnicodeTOU),
+            "Unlicense" => Ok(Self::Unlicense),
+            "VOSTROM" => Ok(Self::Vostrom),
+            "VSL-1.0" => Ok(Self::Vsl10),
+            "Vim" => Ok(Self::Vim),
+            "W3C" => Ok(Self::W3C),
+            "W3C-19980720" => Ok(Self::W3C19980720),
+            "W3C-20150513" => Ok(Self::W3C20150513),
+            "WTFPL" => Ok(Self::Wtfpl),
+            "Watcom-1.0" => Ok(Self::Watcom10),
+            "Wsuipa" => Ok(Self::Wsuipa),
+            "X11" => Ok(Self::X11),
+            "XFree86-1.1" => Ok(Self::Xfree8611),
+            "XSkat" => Ok(Self::Xskat),
+            "Xerox" => Ok(Self::Xerox),
+            "Xnet" => Ok(Self::Xnet),
+            "YPL-1.0" => Ok(Self::Ypl10),
+            "YPL-1.1" => Ok(Self::Ypl11),
+            "ZPL-1.1" => Ok(Self::Zpl11),
+            "ZPL-2.0" => Ok(Self::Zpl20),
+            "ZPL-2.1" => Ok(Self::Zpl21),
+            "Zed" => Ok(Self::Zed),
+            "Zend-2.0" => Ok(Self::Zend20),
+            "Zimbra-1.3" => Ok(Self::Zimbra13),
+            "Zimbra-1.4" => Ok(Self::Zimbra14),
+            "Zlib" => Ok(Self::Zlib),
+            "bzip2-1.0.5" => Ok(Self::Bzip2105),
+            "bzip2-1.0.6" => Ok(Self::Bzip2106),
+            "curl" => Ok(Self::Curl),
+            "diffmark" => Ok(Self::Diffmark),
+            "dvipdfm" => Ok(Self::Dvipdfm),
+            "eGenix" => Ok(Self::Egenix),
+            "gSOAP-1.3b" => Ok(Self::Gsoap13B),
+            "gnuplot" => Ok(Self::Gnuplot),
+            "iMatix" => Ok(Self::Imatix),
+            "libtiff" => Ok(Self::Libtiff),
+            "mpich2" => Ok(Self::Mpich2),
+            "not-open-source" => Ok(Self::NotOpenSource),
+            "psfrag" => Ok(Self::Psfrag),
+            "psutils" => Ok(Self::Psutils),
+            "xinetd" => Ok(Self::Xinetd),
+            "xpp" => Ok(Self::Xpp),
+            "zlib-acknowledgement" => Ok(Self::ZlibAcknowledgement),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for SPDXLicense {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N0Bsd => "0BSD",
+            Self::Aal => "AAL",
+            Self::Adsl => "ADSL",
+            Self::Afl11 => "AFL-1.1",
+            Self::Afl12 => "AFL-1.2",
+            Self::Afl20 => "AFL-2.0",
+            Self::Afl21 => "AFL-2.1",
+            Self::Afl30 => "AFL-3.0",
+            Self::Agpl10Only => "AGPL-1.0-only",
+            Self::Agpl10OrLater => "AGPL-1.0-or-later",
+            Self::Agpl30Only => "AGPL-3.0-only",
+            Self::Agpl30OrLater => "AGPL-3.0-or-later",
+            Self::Amdplpa => "AMDPLPA",
+            Self::Aml => "AML",
+            Self::Ampas => "AMPAS",
+            Self::AntlrPd => "ANTLR-PD",
+            Self::Apafml => "APAFML",
+            Self::Apl10 => "APL-1.0",
+            Self::Apsl10 => "APSL-1.0",
+            Self::Apsl11 => "APSL-1.1",
+            Self::Apsl12 => "APSL-1.2",
+            Self::Apsl20 => "APSL-2.0",
+            Self::Abstyles => "Abstyles",
+            Self::Adobe2006 => "Adobe-2006",
+            Self::AdobeGlyph => "Adobe-Glyph",
+            Self::Afmparse => "Afmparse",
+            Self::Aladdin => "Aladdin",
+            Self::Apache10 => "Apache-1.0",
+            Self::Apache11 => "Apache-1.1",
+            Self::Apache20 => "Apache-2.0",
+            Self::Artistic10 => "Artistic-1.0",
+            Self::Artistic10Perl => "Artistic-1.0-Perl",
+            Self::Artistic10Cl8 => "Artistic-1.0-cl8",
+            Self::Artistic20 => "Artistic-2.0",
+            Self::Bsd1Clause => "BSD-1-Clause",
+            Self::Bsd2Clause => "BSD-2-Clause",
+            Self::Bsd2ClauseFreeBSD => "BSD-2-Clause-FreeBSD",
+            Self::Bsd2ClauseNetBSD => "BSD-2-Clause-NetBSD",
+            Self::Bsd2ClausePatent => "BSD-2-Clause-Patent",
+            Self::Bsd3Clause => "BSD-3-Clause",
+            Self::Bsd3ClauseAttribution => "BSD-3-Clause-Attribution",
+            Self::Bsd3ClauseClear => "BSD-3-Clause-Clear",
+            Self::Bsd3ClauseLBNL => "BSD-3-Clause-LBNL",
+            Self::Bsd3ClauseNoNuclearLicense => "BSD-3-Clause-No-Nuclear-License",
+            Self::Bsd3ClauseNoNuclearLicense2014 => {
+                "BSD-3-Clause-No-Nuclear-License-2014"
+            }
+            Self::Bsd3ClauseNoNuclearWarranty => "BSD-3-Clause-No-Nuclear-Warranty",
+            Self::Bsd4Clause => "BSD-4-Clause",
+            Self::Bsd4ClauseUC => "BSD-4-Clause-UC",
+            Self::BsdProtection => "BSD-Protection",
+            Self::BsdSourceCode => "BSD-Source-Code",
+            Self::Bsl10 => "BSL-1.0",
+            Self::Bahyph => "Bahyph",
+            Self::Barr => "Barr",
+            Self::Beerware => "Beerware",
+            Self::BitTorrent10 => "BitTorrent-1.0",
+            Self::BitTorrent11 => "BitTorrent-1.1",
+            Self::Borceux => "Borceux",
+            Self::Catosl11 => "CATOSL-1.1",
+            Self::CcBy10 => "CC-BY-1.0",
+            Self::CcBy20 => "CC-BY-2.0",
+            Self::CcBy25 => "CC-BY-2.5",
+            Self::CcBy30 => "CC-BY-3.0",
+            Self::CcBy40 => "CC-BY-4.0",
+            Self::CcByNc10 => "CC-BY-NC-1.0",
+            Self::CcByNc20 => "CC-BY-NC-2.0",
+            Self::CcByNc25 => "CC-BY-NC-2.5",
+            Self::CcByNc30 => "CC-BY-NC-3.0",
+            Self::CcByNc40 => "CC-BY-NC-4.0",
+            Self::CcByNcNd10 => "CC-BY-NC-ND-1.0",
+            Self::CcByNcNd20 => "CC-BY-NC-ND-2.0",
+            Self::CcByNcNd25 => "CC-BY-NC-ND-2.5",
+            Self::CcByNcNd30 => "CC-BY-NC-ND-3.0",
+            Self::CcByNcNd40 => "CC-BY-NC-ND-4.0",
+            Self::CcByNcSa10 => "CC-BY-NC-SA-1.0",
+            Self::CcByNcSa20 => "CC-BY-NC-SA-2.0",
+            Self::CcByNcSa25 => "CC-BY-NC-SA-2.5",
+            Self::CcByNcSa30 => "CC-BY-NC-SA-3.0",
+            Self::CcByNcSa40 => "CC-BY-NC-SA-4.0",
+            Self::CcByNd10 => "CC-BY-ND-1.0",
+            Self::CcByNd20 => "CC-BY-ND-2.0",
+            Self::CcByNd25 => "CC-BY-ND-2.5",
+            Self::CcByNd30 => "CC-BY-ND-3.0",
+            Self::CcByNd40 => "CC-BY-ND-4.0",
+            Self::CcBySa10 => "CC-BY-SA-1.0",
+            Self::CcBySa20 => "CC-BY-SA-2.0",
+            Self::CcBySa25 => "CC-BY-SA-2.5",
+            Self::CcBySa30 => "CC-BY-SA-3.0",
+            Self::CcBySa40 => "CC-BY-SA-4.0",
+            Self::Cc010 => "CC0-1.0",
+            Self::Cddl10 => "CDDL-1.0",
+            Self::Cddl11 => "CDDL-1.1",
+            Self::CdlaPermissive10 => "CDLA-Permissive-1.0",
+            Self::CdlaSharing10 => "CDLA-Sharing-1.0",
+            Self::Cecill10 => "CECILL-1.0",
+            Self::Cecill11 => "CECILL-1.1",
+            Self::Cecill20 => "CECILL-2.0",
+            Self::Cecill21 => "CECILL-2.1",
+            Self::CecillB => "CECILL-B",
+            Self::CecillC => "CECILL-C",
+            Self::CnriJython => "CNRI-Jython",
+            Self::CnriPython => "CNRI-Python",
+            Self::CnriPythonGPLCompatible => "CNRI-Python-GPL-Compatible",
+            Self::Cpal10 => "CPAL-1.0",
+            Self::Cpl10 => "CPL-1.0",
+            Self::Cpol102 => "CPOL-1.02",
+            Self::CuaOpl10 => "CUA-OPL-1.0",
+            Self::Caldera => "Caldera",
+            Self::ClArtistic => "ClArtistic",
+            Self::Condor11 => "Condor-1.1",
+            Self::Crossword => "Crossword",
+            Self::CrystalStacker => "CrystalStacker",
+            Self::Cube => "Cube",
+            Self::DFsl10 => "D-FSL-1.0",
+            Self::Doc => "DOC",
+            Self::Dsdp => "DSDP",
+            Self::Dotseqn => "Dotseqn",
+            Self::Ecl10 => "ECL-1.0",
+            Self::Ecl20 => "ECL-2.0",
+            Self::Efl10 => "EFL-1.0",
+            Self::Efl20 => "EFL-2.0",
+            Self::Epl10 => "EPL-1.0",
+            Self::Epl20 => "EPL-2.0",
+            Self::Eudatagrid => "EUDatagrid",
+            Self::Eupl10 => "EUPL-1.0",
+            Self::Eupl11 => "EUPL-1.1",
+            Self::Eupl12 => "EUPL-1.2",
+            Self::Entessa => "Entessa",
+            Self::ErlPL11 => "ErlPL-1.1",
+            Self::Eurosym => "Eurosym",
+            Self::Fsfap => "FSFAP",
+            Self::Fsful => "FSFUL",
+            Self::Fsfullr => "FSFULLR",
+            Self::Ftl => "FTL",
+            Self::Fair => "Fair",
+            Self::Frameworx10 => "Frameworx-1.0",
+            Self::FreeImage => "FreeImage",
+            Self::Gfdl11Only => "GFDL-1.1-only",
+            Self::Gfdl11OrLater => "GFDL-1.1-or-later",
+            Self::Gfdl12Only => "GFDL-1.2-only",
+            Self::Gfdl12OrLater => "GFDL-1.2-or-later",
+            Self::Gfdl13Only => "GFDL-1.3-only",
+            Self::Gfdl13OrLater => "GFDL-1.3-or-later",
+            Self::Gl2Ps => "GL2PS",
+            Self::Gpl10Only => "GPL-1.0-only",
+            Self::Gpl10OrLater => "GPL-1.0-or-later",
+            Self::Gpl20Only => "GPL-2.0-only",
+            Self::Gpl20OrLater => "GPL-2.0-or-later",
+            Self::Gpl30Only => "GPL-3.0-only",
+            Self::Gpl30OrLater => "GPL-3.0-or-later",
+            Self::Giftware => "Giftware",
+            Self::Glide => "Glide",
+            Self::Glulxe => "Glulxe",
+            Self::Hpnd => "HPND",
+            Self::HaskellReport => "HaskellReport",
+            Self::IbmPibs => "IBM-pibs",
+            Self::Icu => "ICU",
+            Self::Ijg => "IJG",
+            Self::Ipa => "IPA",
+            Self::Ipl10 => "IPL-1.0",
+            Self::Isc => "ISC",
+            Self::ImageMagick => "ImageMagick",
+            Self::Imlib2 => "Imlib2",
+            Self::InfoZIP => "Info-ZIP",
+            Self::Intel => "Intel",
+            Self::IntelACPI => "Intel-ACPI",
+            Self::Interbase10 => "Interbase-1.0",
+            Self::Json => "JSON",
+            Self::JasPer20 => "JasPer-2.0",
+            Self::Lal12 => "LAL-1.2",
+            Self::Lal13 => "LAL-1.3",
+            Self::Lgpl20Only => "LGPL-2.0-only",
+            Self::Lgpl20OrLater => "LGPL-2.0-or-later",
+            Self::Lgpl21Only => "LGPL-2.1-only",
+            Self::Lgpl21OrLater => "LGPL-2.1-or-later",
+            Self::Lgpl30Only => "LGPL-3.0-only",
+            Self::Lgpl30OrLater => "LGPL-3.0-or-later",
+            Self::Lgpllr => "LGPLLR",
+            Self::Lpl10 => "LPL-1.0",
+            Self::Lpl102 => "LPL-1.02",
+            Self::Lppl10 => "LPPL-1.0",
+            Self::Lppl11 => "LPPL-1.1",
+            Self::Lppl12 => "LPPL-1.2",
+            Self::Lppl13A => "LPPL-1.3a",
+            Self::Lppl13C => "LPPL-1.3c",
+            Self::Latex2E => "Latex2e",
+            Self::Leptonica => "Leptonica",
+            Self::LiLiQP11 => "LiLiQ-P-1.1",
+            Self::LiLiQR11 => "LiLiQ-R-1.1",
+            Self::LiLiQRplus11 => "LiLiQ-Rplus-1.1",
+            Self::Libpng => "Libpng",
+            Self::LinuxOpenIB => "Linux-OpenIB",
+            Self::Mit => "MIT",
+            Self::Mit0 => "MIT-0",
+            Self::MitCmu => "MIT-CMU",
+            Self::MitAdvertising => "MIT-advertising",
+            Self::MitEnna => "MIT-enna",
+            Self::MitFeh => "MIT-feh",
+            Self::Mitnfa => "MITNFA",
+            Self::Mpl10 => "MPL-1.0",
+            Self::Mpl11 => "MPL-1.1",
+            Self::Mpl20 => "MPL-2.0",
+            Self::Mpl20NoCopyleftException => "MPL-2.0-no-copyleft-exception",
+            Self::MsPl => "MS-PL",
+            Self::MsRl => "MS-RL",
+            Self::Mtll => "MTLL",
+            Self::MakeIndex => "MakeIndex",
+            Self::MirOS => "MirOS",
+            Self::Motosoto => "Motosoto",
+            Self::Multics => "Multics",
+            Self::Mup => "Mup",
+            Self::Nasa13 => "NASA-1.3",
+            Self::Nbpl10 => "NBPL-1.0",
+            Self::Ncsa => "NCSA",
+            Self::Ngpl => "NGPL",
+            Self::Nlod10 => "NLOD-1.0",
+            Self::Nlpl => "NLPL",
+            Self::Nosl => "NOSL",
+            Self::Npl10 => "NPL-1.0",
+            Self::Npl11 => "NPL-1.1",
+            Self::Nposl30 => "NPOSL-3.0",
+            Self::Nrl => "NRL",
+            Self::Ntp => "NTP",
+            Self::Naumen => "Naumen",
+            Self::NetSNMP => "Net-SNMP",
+            Self::NetCDF => "NetCDF",
+            Self::Newsletr => "Newsletr",
+            Self::Nokia => "Nokia",
+            Self::Noweb => "Noweb",
+            Self::OcctPl => "OCCT-PL",
+            Self::Oclc20 => "OCLC-2.0",
+            Self::OdbL10 => "ODbL-1.0",
+            Self::Ofl10 => "OFL-1.0",
+            Self::Ofl11 => "OFL-1.1",
+            Self::Ogtsl => "OGTSL",
+            Self::Oldap11 => "OLDAP-1.1",
+            Self::Oldap12 => "OLDAP-1.2",
+            Self::Oldap13 => "OLDAP-1.3",
+            Self::Oldap14 => "OLDAP-1.4",
+            Self::Oldap20 => "OLDAP-2.0",
+            Self::Oldap201 => "OLDAP-2.0.1",
+            Self::Oldap21 => "OLDAP-2.1",
+            Self::Oldap22 => "OLDAP-2.2",
+            Self::Oldap221 => "OLDAP-2.2.1",
+            Self::Oldap222 => "OLDAP-2.2.2",
+            Self::Oldap23 => "OLDAP-2.3",
+            Self::Oldap24 => "OLDAP-2.4",
+            Self::Oldap25 => "OLDAP-2.5",
+            Self::Oldap26 => "OLDAP-2.6",
+            Self::Oldap27 => "OLDAP-2.7",
+            Self::Oldap28 => "OLDAP-2.8",
+            Self::Oml => "OML",
+            Self::Opl10 => "OPL-1.0",
+            Self::OsetPl21 => "OSET-PL-2.1",
+            Self::Osl10 => "OSL-1.0",
+            Self::Osl11 => "OSL-1.1",
+            Self::Osl20 => "OSL-2.0",
+            Self::Osl21 => "OSL-2.1",
+            Self::Osl30 => "OSL-3.0",
+            Self::OpenSSL => "OpenSSL",
+            Self::Pddl10 => "PDDL-1.0",
+            Self::Php30 => "PHP-3.0",
+            Self::Php301 => "PHP-3.01",
+            Self::Plexus => "Plexus",
+            Self::PostgreSQL => "PostgreSQL",
+            Self::Python20 => "Python-2.0",
+            Self::Qpl10 => "QPL-1.0",
+            Self::Qhull => "Qhull",
+            Self::RheCos11 => "RHeCos-1.1",
+            Self::Rpl11 => "RPL-1.1",
+            Self::Rpl15 => "RPL-1.5",
+            Self::Rpsl10 => "RPSL-1.0",
+            Self::RsaMd => "RSA-MD",
+            Self::Rscpl => "RSCPL",
+            Self::Rdisc => "Rdisc",
+            Self::Ruby => "Ruby",
+            Self::SaxPd => "SAX-PD",
+            Self::Scea => "SCEA",
+            Self::SgiB10 => "SGI-B-1.0",
+            Self::SgiB11 => "SGI-B-1.1",
+            Self::SgiB20 => "SGI-B-2.0",
+            Self::Sissl => "SISSL",
+            Self::Sissl12 => "SISSL-1.2",
+            Self::Smlnj => "SMLNJ",
+            Self::Smppl => "SMPPL",
+            Self::Snia => "SNIA",
+            Self::Spl10 => "SPL-1.0",
+            Self::Swl => "SWL",
+            Self::Saxpath => "Saxpath",
+            Self::Sendmail => "Sendmail",
+            Self::SimPL20 => "SimPL-2.0",
+            Self::Sleepycat => "Sleepycat",
+            Self::Spencer86 => "Spencer-86",
+            Self::Spencer94 => "Spencer-94",
+            Self::Spencer99 => "Spencer-99",
+            Self::SugarCRM113 => "SugarCRM-1.1.3",
+            Self::Tcl => "TCL",
+            Self::TcpWrappers => "TCP-wrappers",
+            Self::Tmate => "TMate",
+            Self::Torque11 => "TORQUE-1.1",
+            Self::Tosl => "TOSL",
+            Self::Upl10 => "UPL-1.0",
+            Self::UnicodeDFS2015 => "Unicode-DFS-2015",
+            Self::UnicodeDFS2016 => "Unicode-DFS-2016",
+            Self::UnicodeTOU => "Unicode-TOU",
+            Self::Unlicense => "Unlicense",
+            Self::Vostrom => "VOSTROM",
+            Self::Vsl10 => "VSL-1.0",
+            Self::Vim => "Vim",
+            Self::W3C => "W3C",
+            Self::W3C19980720 => "W3C-19980720",
+            Self::W3C20150513 => "W3C-20150513",
+            Self::Wtfpl => "WTFPL",
+            Self::Watcom10 => "Watcom-1.0",
+            Self::Wsuipa => "Wsuipa",
+            Self::X11 => "X11",
+            Self::Xfree8611 => "XFree86-1.1",
+            Self::Xskat => "XSkat",
+            Self::Xerox => "Xerox",
+            Self::Xnet => "Xnet",
+            Self::Ypl10 => "YPL-1.0",
+            Self::Ypl11 => "YPL-1.1",
+            Self::Zpl11 => "ZPL-1.1",
+            Self::Zpl20 => "ZPL-2.0",
+            Self::Zpl21 => "ZPL-2.1",
+            Self::Zed => "Zed",
+            Self::Zend20 => "Zend-2.0",
+            Self::Zimbra13 => "Zimbra-1.3",
+            Self::Zimbra14 => "Zimbra-1.4",
+            Self::Zlib => "Zlib",
+            Self::Bzip2105 => "bzip2-1.0.5",
+            Self::Bzip2106 => "bzip2-1.0.6",
+            Self::Curl => "curl",
+            Self::Diffmark => "diffmark",
+            Self::Dvipdfm => "dvipdfm",
+            Self::Egenix => "eGenix",
+            Self::Gsoap13B => "gSOAP-1.3b",
+            Self::Gnuplot => "gnuplot",
+            Self::Imatix => "iMatix",
+            Self::Libtiff => "libtiff",
+            Self::Mpich2 => "mpich2",
+            Self::NotOpenSource => "not-open-source",
+            Self::Psfrag => "psfrag",
+            Self::Psutils => "psutils",
+            Self::Xinetd => "xinetd",
+            Self::Xpp => "xpp",
+            Self::ZlibAcknowledgement => "zlib-acknowledgement",
+        }
+    }
+}
+impl ::std::fmt::Display for SPDXLicense {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0Bsd => "BSD Zero Clause License",
+            Self::Aal => "Attribution Assurance License",
+            Self::Adsl => "Amazon Digital Services License",
+            Self::Afl11 => "Academic Free License v1.1",
+            Self::Afl12 => "Academic Free License v1.2",
+            Self::Afl20 => "Academic Free License v2.0",
+            Self::Afl21 => "Academic Free License v2.1",
+            Self::Afl30 => "Academic Free License v3.0",
+            Self::Agpl10Only => "Affero General Public License v1.0 only",
+            Self::Agpl10OrLater => "Affero General Public License v1.0 or later",
+            Self::Agpl30Only => "GNU Affero General Public License v3.0 only",
+            Self::Agpl30OrLater => "GNU Affero General Public License v3.0 or later",
+            Self::Amdplpa => "AMD's plpa_map.c License",
+            Self::Aml => "Apple MIT License",
+            Self::Ampas => "Academy of Motion Picture Arts and Sciences BSD",
+            Self::AntlrPd => "ANTLR Software Rights Notice",
+            Self::Apafml => "Adobe Postscript AFM License",
+            Self::Apl10 => "Adaptive Public License 1.0",
+            Self::Apsl10 => "Apple Public Source License 1.0",
+            Self::Apsl11 => "Apple Public Source License 1.1",
+            Self::Apsl12 => "Apple Public Source License 1.2",
+            Self::Apsl20 => "Apple Public Source License 2.0",
+            Self::Abstyles => "Abstyles License",
+            Self::Adobe2006 => "Adobe Systems Incorporated Source Code License Agreement",
+            Self::AdobeGlyph => "Adobe Glyph List License",
+            Self::Afmparse => "Afmparse License",
+            Self::Aladdin => "Aladdin Free Public License",
+            Self::Apache10 => "Apache License 1.0",
+            Self::Apache11 => "Apache License 1.1",
+            Self::Apache20 => "Apache License 2.0",
+            Self::Artistic10 => "Artistic License 1.0",
+            Self::Artistic10Perl => "Artistic License 1.0 (Perl)",
+            Self::Artistic10Cl8 => "Artistic License 1.0 w/clause 8",
+            Self::Artistic20 => "Artistic License 2.0",
+            Self::Bsd1Clause => "BSD 1-Clause License",
+            Self::Bsd2Clause => "BSD 2-Clause \"Simplified\" License",
+            Self::Bsd2ClauseFreeBSD => "BSD 2-Clause FreeBSD License",
+            Self::Bsd2ClauseNetBSD => "BSD 2-Clause NetBSD License",
+            Self::Bsd2ClausePatent => "BSD-2-Clause Plus Patent License",
+            Self::Bsd3Clause => "BSD 3-Clause \"New\" or \"Revised\" License",
+            Self::Bsd3ClauseAttribution => "BSD with attribution",
+            Self::Bsd3ClauseClear => "BSD 3-Clause Clear License",
+            Self::Bsd3ClauseLBNL => "Lawrence Berkeley National Labs BSD variant license",
+            Self::Bsd3ClauseNoNuclearLicense => "BSD 3-Clause No Nuclear License",
+            Self::Bsd3ClauseNoNuclearLicense2014 => {
+                "BSD 3-Clause No Nuclear License 2014"
+            }
+            Self::Bsd3ClauseNoNuclearWarranty => "BSD 3-Clause No Nuclear Warranty",
+            Self::Bsd4Clause => "BSD 4-Clause \"Original\" or \"Old\" License",
+            Self::Bsd4ClauseUC => "BSD-4-Clause (University of California-Specific)",
+            Self::BsdProtection => "BSD Protection License",
+            Self::BsdSourceCode => "BSD Source Code Attribution",
+            Self::Bsl10 => "Boost Software License 1.0",
+            Self::Bahyph => "Bahyph License",
+            Self::Barr => "Barr License",
+            Self::Beerware => "Beerware License",
+            Self::BitTorrent10 => "BitTorrent Open Source License v1.0",
+            Self::BitTorrent11 => "BitTorrent Open Source License v1.1",
+            Self::Borceux => "Borceux license",
+            Self::Catosl11 => "Computer Associates Trusted Open Source License 1.1",
+            Self::CcBy10 => "Creative Commons Attribution 1.0 Generic",
+            Self::CcBy20 => "Creative Commons Attribution 2.0 Generic",
+            Self::CcBy25 => "Creative Commons Attribution 2.5 Generic",
+            Self::CcBy30 => "Creative Commons Attribution 3.0 Unported",
+            Self::CcBy40 => "Creative Commons Attribution 4.0 International",
+            Self::CcByNc10 => "Creative Commons Attribution Non Commercial 1.0 Generic",
+            Self::CcByNc20 => "Creative Commons Attribution Non Commercial 2.0 Generic",
+            Self::CcByNc25 => "Creative Commons Attribution Non Commercial 2.5 Generic",
+            Self::CcByNc30 => "Creative Commons Attribution Non Commercial 3.0 Unported",
+            Self::CcByNc40 => {
+                "Creative Commons Attribution Non Commercial 4.0 International"
+            }
+            Self::CcByNcNd10 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic"
+            }
+            Self::CcByNcNd20 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic"
+            }
+            Self::CcByNcNd25 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic"
+            }
+            Self::CcByNcNd30 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported"
+            }
+            Self::CcByNcNd40 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 4.0 International"
+            }
+            Self::CcByNcSa10 => {
+                "Creative Commons Attribution Non Commercial Share Alike 1.0 Generic"
+            }
+            Self::CcByNcSa20 => {
+                "Creative Commons Attribution Non Commercial Share Alike 2.0 Generic"
+            }
+            Self::CcByNcSa25 => {
+                "Creative Commons Attribution Non Commercial Share Alike 2.5 Generic"
+            }
+            Self::CcByNcSa30 => {
+                "Creative Commons Attribution Non Commercial Share Alike 3.0 Unported"
+            }
+            Self::CcByNcSa40 => {
+                "Creative Commons Attribution Non Commercial Share Alike 4.0 International"
+            }
+            Self::CcByNd10 => "Creative Commons Attribution No Derivatives 1.0 Generic",
+            Self::CcByNd20 => "Creative Commons Attribution No Derivatives 2.0 Generic",
+            Self::CcByNd25 => "Creative Commons Attribution No Derivatives 2.5 Generic",
+            Self::CcByNd30 => "Creative Commons Attribution No Derivatives 3.0 Unported",
+            Self::CcByNd40 => {
+                "Creative Commons Attribution No Derivatives 4.0 International"
+            }
+            Self::CcBySa10 => "Creative Commons Attribution Share Alike 1.0 Generic",
+            Self::CcBySa20 => "Creative Commons Attribution Share Alike 2.0 Generic",
+            Self::CcBySa25 => "Creative Commons Attribution Share Alike 2.5 Generic",
+            Self::CcBySa30 => "Creative Commons Attribution Share Alike 3.0 Unported",
+            Self::CcBySa40 => {
+                "Creative Commons Attribution Share Alike 4.0 International"
+            }
+            Self::Cc010 => "Creative Commons Zero v1.0 Universal",
+            Self::Cddl10 => "Common Development and Distribution License 1.0",
+            Self::Cddl11 => "Common Development and Distribution License 1.1",
+            Self::CdlaPermissive10 => "Community Data License Agreement Permissive 1.0",
+            Self::CdlaSharing10 => "Community Data License Agreement Sharing 1.0",
+            Self::Cecill10 => "CeCILL Free Software License Agreement v1.0",
+            Self::Cecill11 => "CeCILL Free Software License Agreement v1.1",
+            Self::Cecill20 => "CeCILL Free Software License Agreement v2.0",
+            Self::Cecill21 => "CeCILL Free Software License Agreement v2.1",
+            Self::CecillB => "CeCILL-B Free Software License Agreement",
+            Self::CecillC => "CeCILL-C Free Software License Agreement",
+            Self::CnriJython => "CNRI Jython License",
+            Self::CnriPython => "CNRI Python License",
+            Self::CnriPythonGPLCompatible => {
+                "CNRI Python Open Source GPL Compatible License Agreement"
+            }
+            Self::Cpal10 => "Common Public Attribution License 1.0",
+            Self::Cpl10 => "Common Public License 1.0",
+            Self::Cpol102 => "Code Project Open License 1.02",
+            Self::CuaOpl10 => "CUA Office Public License v1.0",
+            Self::Caldera => "Caldera License",
+            Self::ClArtistic => "Clarified Artistic License",
+            Self::Condor11 => "Condor Public License v1.1",
+            Self::Crossword => "Crossword License",
+            Self::CrystalStacker => "CrystalStacker License",
+            Self::Cube => "Cube License",
+            Self::DFsl10 => "Deutsche Freie Software Lizenz",
+            Self::Doc => "DOC License",
+            Self::Dsdp => "DSDP License",
+            Self::Dotseqn => "Dotseqn License",
+            Self::Ecl10 => "Educational Community License v1.0",
+            Self::Ecl20 => "Educational Community License v2.0",
+            Self::Efl10 => "Eiffel Forum License v1.0",
+            Self::Efl20 => "Eiffel Forum License v2.0",
+            Self::Epl10 => "Eclipse Public License 1.0",
+            Self::Epl20 => "Eclipse Public License 2.0",
+            Self::Eudatagrid => "EU DataGrid Software License",
+            Self::Eupl10 => "European Union Public License 1.0",
+            Self::Eupl11 => "European Union Public License 1.1",
+            Self::Eupl12 => "European Union Public License 1.2",
+            Self::Entessa => "Entessa Public License v1.0",
+            Self::ErlPL11 => "Erlang Public License v1.1",
+            Self::Eurosym => "Eurosym License",
+            Self::Fsfap => "FSF All Permissive License",
+            Self::Fsful => "FSF Unlimited License",
+            Self::Fsfullr => "FSF Unlimited License (with License Retention)",
+            Self::Ftl => "Freetype Project License",
+            Self::Fair => "Fair License",
+            Self::Frameworx10 => "Frameworx Open License 1.0",
+            Self::FreeImage => "FreeImage Public License v1.0",
+            Self::Gfdl11Only => "GNU Free Documentation License v1.1 only",
+            Self::Gfdl11OrLater => "GNU Free Documentation License v1.1 or later",
+            Self::Gfdl12Only => "GNU Free Documentation License v1.2 only",
+            Self::Gfdl12OrLater => "GNU Free Documentation License v1.2 or later",
+            Self::Gfdl13Only => "GNU Free Documentation License v1.3 only",
+            Self::Gfdl13OrLater => "GNU Free Documentation License v1.3 or later",
+            Self::Gl2Ps => "GL2PS License",
+            Self::Gpl10Only => "GNU General Public License v1.0 only",
+            Self::Gpl10OrLater => "GNU General Public License v1.0 or later",
+            Self::Gpl20Only => "GNU General Public License v2.0 only",
+            Self::Gpl20OrLater => "GNU General Public License v2.0 or later",
+            Self::Gpl30Only => "GNU General Public License v3.0 only",
+            Self::Gpl30OrLater => "GNU General Public License v3.0 or later",
+            Self::Giftware => "Giftware License",
+            Self::Glide => "3dfx Glide License",
+            Self::Glulxe => "Glulxe License",
+            Self::Hpnd => "Historical Permission Notice and Disclaimer",
+            Self::HaskellReport => "Haskell Language Report License",
+            Self::IbmPibs => "IBM PowerPC Initialization and Boot Software",
+            Self::Icu => "ICU License",
+            Self::Ijg => "Independent JPEG Group License",
+            Self::Ipa => "IPA Font License",
+            Self::Ipl10 => "IBM Public License v1.0",
+            Self::Isc => "ISC License",
+            Self::ImageMagick => "ImageMagick License",
+            Self::Imlib2 => "Imlib2 License",
+            Self::InfoZIP => "Info-ZIP License",
+            Self::Intel => "Intel Open Source License",
+            Self::IntelACPI => "Intel ACPI Software License Agreement",
+            Self::Interbase10 => "Interbase Public License v1.0",
+            Self::Json => "JSON License",
+            Self::JasPer20 => "JasPer License",
+            Self::Lal12 => "Licence Art Libre 1.2",
+            Self::Lal13 => "Licence Art Libre 1.3",
+            Self::Lgpl20Only => "GNU Library General Public License v2 only",
+            Self::Lgpl20OrLater => "GNU Library General Public License v2 or later",
+            Self::Lgpl21Only => "GNU Lesser General Public License v2.1 only",
+            Self::Lgpl21OrLater => "GNU Lesser General Public License v2.1 or later",
+            Self::Lgpl30Only => "GNU Lesser General Public License v3.0 only",
+            Self::Lgpl30OrLater => "GNU Lesser General Public License v3.0 or later",
+            Self::Lgpllr => "Lesser General Public License For Linguistic Resources",
+            Self::Lpl10 => "Lucent Public License Version 1.0",
+            Self::Lpl102 => "Lucent Public License v1.02",
+            Self::Lppl10 => "LaTeX Project Public License v1.0",
+            Self::Lppl11 => "LaTeX Project Public License v1.1",
+            Self::Lppl12 => "LaTeX Project Public License v1.2",
+            Self::Lppl13A => "LaTeX Project Public License v1.3a",
+            Self::Lppl13C => "LaTeX Project Public License v1.3c",
+            Self::Latex2E => "Latex2e License",
+            Self::Leptonica => "Leptonica License",
+            Self::LiLiQP11 => "Licence Libre du Québec – Permissive version 1.1",
+            Self::LiLiQR11 => "Licence Libre du Québec – Réciprocité version 1.1",
+            Self::LiLiQRplus11 => {
+                "Licence Libre du Québec – Réciprocité forte version 1.1"
+            }
+            Self::Libpng => "libpng License",
+            Self::LinuxOpenIB => "Linux Kernel Variant of OpenIB.org license",
+            Self::Mit => "MIT License",
+            Self::Mit0 => "MIT No Attribution",
+            Self::MitCmu => "CMU License",
+            Self::MitAdvertising => "Enlightenment License (e16)",
+            Self::MitEnna => "enna License",
+            Self::MitFeh => "feh License",
+            Self::Mitnfa => "MIT +no-false-attribs license",
+            Self::Mpl10 => "Mozilla Public License 1.0",
+            Self::Mpl11 => "Mozilla Public License 1.1",
+            Self::Mpl20 => "Mozilla Public License 2.0",
+            Self::Mpl20NoCopyleftException => {
+                "Mozilla Public License 2.0 (no copyleft exception)"
+            }
+            Self::MsPl => "Microsoft Public License",
+            Self::MsRl => "Microsoft Reciprocal License",
+            Self::Mtll => "Matrix Template Library License",
+            Self::MakeIndex => "MakeIndex License",
+            Self::MirOS => "MirOS License",
+            Self::Motosoto => "Motosoto License",
+            Self::Multics => "Multics License",
+            Self::Mup => "Mup License",
+            Self::Nasa13 => "NASA Open Source Agreement 1.3",
+            Self::Nbpl10 => "Net Boolean Public License v1",
+            Self::Ncsa => "University of Illinois/NCSA Open Source License",
+            Self::Ngpl => "Nethack General Public License",
+            Self::Nlod10 => "Norwegian Licence for Open Government Data",
+            Self::Nlpl => "No Limit Public License",
+            Self::Nosl => "Netizen Open Source License",
+            Self::Npl10 => "Netscape Public License v1.0",
+            Self::Npl11 => "Netscape Public License v1.1",
+            Self::Nposl30 => "Non-Profit Open Software License 3.0",
+            Self::Nrl => "NRL License",
+            Self::Ntp => "NTP License",
+            Self::Naumen => "Naumen Public License",
+            Self::NetSNMP => "Net-SNMP License",
+            Self::NetCDF => "NetCDF license",
+            Self::Newsletr => "Newsletr License",
+            Self::Nokia => "Nokia Open Source License",
+            Self::Noweb => "Noweb License",
+            Self::OcctPl => "Open CASCADE Technology Public License",
+            Self::Oclc20 => "OCLC Research Public License 2.0",
+            Self::OdbL10 => "ODC Open Database License v1.0",
+            Self::Ofl10 => "SIL Open Font License 1.0",
+            Self::Ofl11 => "SIL Open Font License 1.1",
+            Self::Ogtsl => "Open Group Test Suite License",
+            Self::Oldap11 => "Open LDAP Public License v1.1",
+            Self::Oldap12 => "Open LDAP Public License v1.2",
+            Self::Oldap13 => "Open LDAP Public License v1.3",
+            Self::Oldap14 => "Open LDAP Public License v1.4",
+            Self::Oldap20 => "Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)",
+            Self::Oldap201 => "Open LDAP Public License v2.0.1",
+            Self::Oldap21 => "Open LDAP Public License v2.1",
+            Self::Oldap22 => "Open LDAP Public License v2.2",
+            Self::Oldap221 => "Open LDAP Public License v2.2.1",
+            Self::Oldap222 => "Open LDAP Public License 2.2.2",
+            Self::Oldap23 => "Open LDAP Public License v2.3",
+            Self::Oldap24 => "Open LDAP Public License v2.4",
+            Self::Oldap25 => "Open LDAP Public License v2.5",
+            Self::Oldap26 => "Open LDAP Public License v2.6",
+            Self::Oldap27 => "Open LDAP Public License v2.7",
+            Self::Oldap28 => "Open LDAP Public License v2.8",
+            Self::Oml => "Open Market License",
+            Self::Opl10 => "Open Public License v1.0",
+            Self::OsetPl21 => "OSET Public License version 2.1",
+            Self::Osl10 => "Open Software License 1.0",
+            Self::Osl11 => "Open Software License 1.1",
+            Self::Osl20 => "Open Software License 2.0",
+            Self::Osl21 => "Open Software License 2.1",
+            Self::Osl30 => "Open Software License 3.0",
+            Self::OpenSSL => "OpenSSL License",
+            Self::Pddl10 => "ODC Public Domain Dedication & License 1.0",
+            Self::Php30 => "PHP License v3.0",
+            Self::Php301 => "PHP License v3.01",
+            Self::Plexus => "Plexus Classworlds License",
+            Self::PostgreSQL => "PostgreSQL License",
+            Self::Python20 => "Python License 2.0",
+            Self::Qpl10 => "Q Public License 1.0",
+            Self::Qhull => "Qhull License",
+            Self::RheCos11 => "Red Hat eCos Public License v1.1",
+            Self::Rpl11 => "Reciprocal Public License 1.1",
+            Self::Rpl15 => "Reciprocal Public License 1.5",
+            Self::Rpsl10 => "RealNetworks Public Source License v1.0",
+            Self::RsaMd => "RSA Message-Digest License",
+            Self::Rscpl => "Ricoh Source Code Public License",
+            Self::Rdisc => "Rdisc License",
+            Self::Ruby => "Ruby License",
+            Self::SaxPd => "Sax Public Domain Notice",
+            Self::Scea => "SCEA Shared Source License",
+            Self::SgiB10 => "SGI Free Software License B v1.0",
+            Self::SgiB11 => "SGI Free Software License B v1.1",
+            Self::SgiB20 => "SGI Free Software License B v2.0",
+            Self::Sissl => "Sun Industry Standards Source License v1.1",
+            Self::Sissl12 => "Sun Industry Standards Source License v1.2",
+            Self::Smlnj => "Standard ML of New Jersey License",
+            Self::Smppl => "Secure Messaging Protocol Public License",
+            Self::Snia => "SNIA Public License 1.1",
+            Self::Spl10 => "Sun Public License v1.0",
+            Self::Swl => "Scheme Widget Library (SWL) Software License Agreement",
+            Self::Saxpath => "Saxpath License",
+            Self::Sendmail => "Sendmail License",
+            Self::SimPL20 => "Simple Public License 2.0",
+            Self::Sleepycat => "Sleepycat License",
+            Self::Spencer86 => "Spencer License 86",
+            Self::Spencer94 => "Spencer License 94",
+            Self::Spencer99 => "Spencer License 99",
+            Self::SugarCRM113 => "SugarCRM Public License v1.1.3",
+            Self::Tcl => "TCL/TK License",
+            Self::TcpWrappers => "TCP Wrappers License",
+            Self::Tmate => "TMate Open Source License",
+            Self::Torque11 => "TORQUE v2.5+ Software License v1.1",
+            Self::Tosl => "Trusster Open Source License",
+            Self::Upl10 => "Universal Permissive License v1.0",
+            Self::UnicodeDFS2015 => {
+                "Unicode License Agreement - Data Files and Software (2015)"
+            }
+            Self::UnicodeDFS2016 => {
+                "Unicode License Agreement - Data Files and Software (2016)"
+            }
+            Self::UnicodeTOU => "Unicode Terms of Use",
+            Self::Unlicense => "The Unlicense",
+            Self::Vostrom => "VOSTROM Public License for Open Source",
+            Self::Vsl10 => "Vovida Software License v1.0",
+            Self::Vim => "Vim License",
+            Self::W3C => "W3C Software Notice and License (2002-12-31)",
+            Self::W3C19980720 => "W3C Software Notice and License (1998-07-20)",
+            Self::W3C20150513 => "W3C Software Notice and Document License (2015-05-13)",
+            Self::Wtfpl => "Do What The F*ck You Want To Public License",
+            Self::Watcom10 => "Sybase Open Watcom Public License 1.0",
+            Self::Wsuipa => "Wsuipa License",
+            Self::X11 => "X11 License",
+            Self::Xfree8611 => "XFree86 License 1.1",
+            Self::Xskat => "XSkat License",
+            Self::Xerox => "Xerox License",
+            Self::Xnet => "X.Net License",
+            Self::Ypl10 => "Yahoo! Public License v1.0",
+            Self::Ypl11 => "Yahoo! Public License v1.1",
+            Self::Zpl11 => "Zope Public License 1.1",
+            Self::Zpl20 => "Zope Public License 2.0",
+            Self::Zpl21 => "Zope Public License 2.1",
+            Self::Zed => "Zed License",
+            Self::Zend20 => "Zend License v2.0",
+            Self::Zimbra13 => "Zimbra Public License v1.3",
+            Self::Zimbra14 => "Zimbra Public License v1.4",
+            Self::Zlib => "zlib License",
+            Self::Bzip2105 => "bzip2 and libbzip2 License v1.0.5",
+            Self::Bzip2106 => "bzip2 and libbzip2 License v1.0.6",
+            Self::Curl => "curl License",
+            Self::Diffmark => "diffmark license",
+            Self::Dvipdfm => "dvipdfm License",
+            Self::Egenix => "eGenix.com Public License 1.1.0",
+            Self::Gsoap13B => "gSOAP Public License v1.3b",
+            Self::Gnuplot => "gnuplot License",
+            Self::Imatix => "iMatix Standard Function Library Agreement",
+            Self::Libtiff => "libtiff License",
+            Self::Mpich2 => "mpich2 License",
+            Self::NotOpenSource => "Not open source",
+            Self::Psfrag => "psfrag License",
+            Self::Psutils => "psutils License",
+            Self::Xinetd => "xinetd License",
+            Self::Xpp => "XPP License",
+            Self::ZlibAcknowledgement => "zlib/libpng License with Acknowledgement",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for SPDXLicense {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for SPDXLicense {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<SPDXLicense> for Coding {
+    fn from(code: SPDXLicense) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/spdx-license".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<SPDXLicense> for CodeableConcept {
+    fn from(code: SPDXLicense) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {
@@ -60309,6 +68213,134 @@ impl From<TypeDerivationRule> for CodeableConcept {
             .into()
     }
 }
+#[doc = "**[UDIEntryType](http://hl7.org/fhir/ValueSet/udi-entry-type)**. Codes to identify how UDI data was entered.\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum UDIEntryType {
+    /** **barcode**
+
+Barcode. a barcodescanner captured the data from the device label. */
+    Barcode,
+    /** **card**
+
+Card. The data originated from a patient's implant card and was read by an operator. */
+    Card,
+    /** **electronic-transmission**
+
+Electronic Transmission. The UDI information was received electronically from the device through a communication protocol, such as the IEEE 11073 20601 version 4 exchange protocol over Bluetooth or USB. */
+    ElectronicTransmission,
+    /** **manual**
+
+Manual. The data was read from the label by a person and manually entered. (e.g.  via a keyboard). */
+    Manual,
+    /** **rfid**
+
+RFID. An RFID chip reader captured the data from the device label. */
+    Rfid,
+    /** **self-reported**
+
+Self Reported. The data originated from a patient source and was not directly scanned or read from a label or card. */
+    SelfReported,
+    /** **unknown**
+
+Unknown. The method of data capture has not been determined. */
+    Unknown,
+}
+impl ::core::str::FromStr for UDIEntryType {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "barcode" => Ok(Self::Barcode),
+            "card" => Ok(Self::Card),
+            "electronic-transmission" => Ok(Self::ElectronicTransmission),
+            "manual" => Ok(Self::Manual),
+            "rfid" => Ok(Self::Rfid),
+            "self-reported" => Ok(Self::SelfReported),
+            "unknown" => Ok(Self::Unknown),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for UDIEntryType {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Barcode => "barcode",
+            Self::Card => "card",
+            Self::ElectronicTransmission => "electronic-transmission",
+            Self::Manual => "manual",
+            Self::Rfid => "rfid",
+            Self::SelfReported => "self-reported",
+            Self::Unknown => "unknown",
+        }
+    }
+}
+impl ::std::fmt::Display for UDIEntryType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Barcode => "Barcode",
+            Self::Card => "Card",
+            Self::ElectronicTransmission => "Electronic Transmission",
+            Self::Manual => "Manual",
+            Self::Rfid => "RFID",
+            Self::SelfReported => "Self Reported",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for UDIEntryType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for UDIEntryType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<UDIEntryType> for Coding {
+    fn from(code: UDIEntryType) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/udi-entry-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<UDIEntryType> for CodeableConcept {
+    fn from(code: UDIEntryType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[UndesirablEffectFrequency](http://hl7.org/fhir/ValueSet/undesirable-effect-frequency)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -61506,6 +69538,172 @@ impl From<VisionEyes> for Coding {
 }
 impl From<VisionEyes> for CodeableConcept {
     fn from(code: VisionEyes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[W3cProvenanceActivityType](http://hl7.org/fhir/w3c-provenance-activity-type)**. This value set includes W3C PROV Data Model Activity concepts, which are treated as codes in this valueset.  Some adaptations were made to make these concepts suitable values for the Provenance.activity element. Coded concepts are from PROV-DM and the display names are their counterparts in PROV-N (human readable notation syntax specification).[code system OID: http://www.w3.org/TR/2013/REC-prov-dm-20130430/ and http://www.w3.org/TR/2013/REC-prov-n-20130430/]\n\nFHIR version: 5.0.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum W3cProvenanceActivityType {
+    /** **Attribution**
+
+wasAttributedTo. Ascribing of an entity (object/document) to an agent. */
+    Attribution,
+    /** **Collection**
+
+isCollectionOf.  An aggregating activity that results in composition of an entity, which provides a structure to some constituents that must themselves be entities. These constituents are said to be member of the collections. */
+    Collection,
+    /** **Communication**
+
+wasInformedBy. The exchange of some unspecified entity by two activities, one activity using some entity generated by the other. A communication implies that activity a2 is dependent on another activity, a1, by way of some unspecified entity that is generated by a1 and used by a2. */
+    Communication,
+    /** **Derivation**
+
+wasDerivedFrom. A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity. For an entity to be transformed from, created from, or resulting from an update to another, there must be some underpinning activity or activities performing the necessary action(s) resulting in such a derivation. A derivation can be described at various levels of precision. In its simplest form, derivation relates two entities. Optionally, attributes can be added to represent further information about the derivation. If the derivation is the result of a single known activity, then this activity can also be optionally expressed. To provide a completely accurate description of the derivation, the generation and usage of the generated and used entities, respectively, can be provided, so as to make the derivation path, through usage, activity, and generation, explicit. Optional information such as activity, generation, and usage can be linked to derivations to aid analysis of provenance and to facilitate provenance-based reproducibility. */
+    Derivation,
+    /** **End**
+
+wasEndedBy. When an activity is deemed to have been ended by an entity, known as trigger. The activity no longer exists after its end. Any usage, generation, or invalidation involving an activity precedes the activity's end. An end may refer to a trigger entity that terminated the activity, or to an activity, known as ender that generated the trigger. */
+    End,
+    /** **Generation**
+
+wasGeneratedBy. The completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation. Given that a generation is the completion of production of an entity, it is instantaneous. */
+    Generation,
+    /** **Invalidation**
+
+wasInvalidatedBy. The start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation. Any generation or usage of an entity precedes its invalidation. Given that an invalidation is the start of destruction, cessation, or expiry, it is instantaneous. */
+    Invalidation,
+    /** **Primary-Source**
+
+wasPrimarySourceOf. Refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. It is also important to note that a given entity might be a primary source for one entity but not another. It is the reason why Primary Source is defined as a relation as opposed to a subtype of Entity. */
+    PrimarySource,
+    /** **Quotation**
+
+wasQuotedFrom. The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author. A quotation relation is a kind of derivation relation, for which an entity was derived from a preceding entity by copying, or 'quoting', some or all of it. */
+    Quotation,
+    /** **Revision**
+
+wasRevisionOf. A derivation for which the resulting entity is a revised version of some original. The implication here is that the resulting entity contains substantial content from the original. A revision relation is a kind of derivation relation from a revised entity to a preceding entity. */
+    Revision,
+    /** **Start**
+
+wasStartedBy. When an activity is deemed to have been started by an entity, known as trigger. The activity did not exist before its start. Any usage, generation, or invalidation involving an activity follows the activity's start. A start may refer to a trigger entity that set off the activity, or to an activity, known as starter, that generated the trigger. Given that a start is when an activity is deemed to have started, it is instantaneous. */
+    Start,
+    /** **Usage**
+
+used. the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.  (Note: This definition is formulated for a given usage; it is permitted for an activity to have used a same entity multiple times.) Given that a usage is the beginning of utilizing an entity, it is instantaneous. */
+    Usage,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for W3cProvenanceActivityType {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "Attribution" => Ok(Self::Attribution),
+            "Collection" => Ok(Self::Collection),
+            "Communication" => Ok(Self::Communication),
+            "Derivation" => Ok(Self::Derivation),
+            "End" => Ok(Self::End),
+            "Generation" => Ok(Self::Generation),
+            "Invalidation" => Ok(Self::Invalidation),
+            "Primary-Source" => Ok(Self::PrimarySource),
+            "Quotation" => Ok(Self::Quotation),
+            "Revision" => Ok(Self::Revision),
+            "Start" => Ok(Self::Start),
+            "Usage" => Ok(Self::Usage),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for W3cProvenanceActivityType {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Attribution => "Attribution",
+            Self::Collection => "Collection",
+            Self::Communication => "Communication",
+            Self::Derivation => "Derivation",
+            Self::End => "End",
+            Self::Generation => "Generation",
+            Self::Invalidation => "Invalidation",
+            Self::PrimarySource => "Primary-Source",
+            Self::Quotation => "Quotation",
+            Self::Revision => "Revision",
+            Self::Start => "Start",
+            Self::Usage => "Usage",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for W3cProvenanceActivityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Attribution => "wasAttributedTo",
+            Self::Collection => "isCollectionOf",
+            Self::Communication => "wasInformedBy",
+            Self::Derivation => "wasDerivedFrom",
+            Self::End => "wasEndedBy",
+            Self::Generation => "wasGeneratedBy",
+            Self::Invalidation => "wasInvalidatedBy",
+            Self::PrimarySource => "wasPrimarySourceOf",
+            Self::Quotation => "wasQuotedFrom",
+            Self::Revision => "wasRevisionOf",
+            Self::Start => "wasStartedBy",
+            Self::Usage => "used",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for W3cProvenanceActivityType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for W3cProvenanceActivityType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<W3cProvenanceActivityType> for Coding {
+    fn from(code: W3cProvenanceActivityType) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/w3c-provenance-activity-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<W3cProvenanceActivityType> for CodeableConcept {
+    fn from(code: W3cProvenanceActivityType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {

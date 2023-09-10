@@ -30,7 +30,10 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, HashMap<Stri
 
 	let codes: Vec<TokenStream> = codes
 		.into_iter()
-		.filter(|code| code.name.is_pascal_case())
+		.filter(|code| {
+			!code.name.starts_with(char::is_lowercase)
+				&& !code.name.contains(|c: char| c.is_whitespace() || c == '-')
+		})
 		.filter(|code| code.content == CodeSystemContentMode::Complete)
 		.inspect(|code| {
 			generated_codes.insert(code.system.clone(), code.name.clone());

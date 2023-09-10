@@ -2605,7 +2605,7 @@ pub struct DataRequirementInner {
 
  */
     #[serde(rename = "type")]
-    pub r#type: String,
+    pub r#type: codes::FHIRTypes,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
@@ -10041,7 +10041,7 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(rename = "type")]
-    pub r#type: String,
+    pub r#type: codes::FHIRTypes,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]

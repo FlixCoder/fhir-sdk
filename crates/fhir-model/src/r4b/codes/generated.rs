@@ -2,6 +2,109 @@
 #![allow(clippy::too_many_lines)]
 use serde::{Serialize, Deserialize};
 use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
+#[doc = "**[ACMECholCodesBlood](http://hl7.org/fhir/CodeSystem/example)**. This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ACMECholCodesBlood {
+    /** **chol**
+
+SChol. Serum Cholesterol */
+    Chol,
+    /** **chol-mass**
+
+SChol (mg/L). Serum Cholesterol, in mg/L */
+    CholMass,
+    /** **chol-mmol**
+
+SChol (mmol/L). Serum Cholesterol, in mmol/L */
+    CholMmol,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for ACMECholCodesBlood {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "chol" => Ok(Self::Chol),
+            "chol-mass" => Ok(Self::CholMass),
+            "chol-mmol" => Ok(Self::CholMmol),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for ACMECholCodesBlood {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Chol => "chol",
+            Self::CholMass => "chol-mass",
+            Self::CholMmol => "chol-mmol",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for ACMECholCodesBlood {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Chol => "SChol",
+            Self::CholMass => "SChol (mg/L)",
+            Self::CholMmol => "SChol (mmol/L)",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for ACMECholCodesBlood {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for ACMECholCodesBlood {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<ACMECholCodesBlood> for Coding {
+    fn from(code: ACMECholCodesBlood) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/CodeSystem/example".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<ACMECholCodesBlood> for CodeableConcept {
+    fn from(code: ACMECholCodesBlood) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[AbstractType](http://hl7.org/fhir/abstract-types)**. A list of the base types defined by this version of the FHIR specification - types that are defined, but for which only specializations actually are created.\n\nFHIR version: 4.3.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum AbstractType {
@@ -31367,6 +31470,768 @@ impl From<ExtraActivityType> for CodeableConcept {
             .into()
     }
 }
+#[doc = "**[FHIRDeviceStatus](http://hl7.org/fhir/ValueSet/device-status)**. The availability status of the device.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceStatus {
+    /** **active**
+
+Active. The device is available for use.  Note: For *implanted devices*  this means that the device is implanted in the patient. */
+    Active,
+    /** **entered-in-error**
+
+Entered in Error. The device was entered in error and voided. */
+    EnteredInError,
+    /** **inactive**
+
+Inactive. The device is no longer available for use (e.g. lost, expired, damaged).  Note: For *implanted devices*  this means that the device has been removed from the patient. */
+    Inactive,
+    /** **unknown**
+
+Unknown. The status of the device has not been determined. */
+    Unknown,
+}
+impl ::core::str::FromStr for FHIRDeviceStatus {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "active" => Ok(Self::Active),
+            "entered-in-error" => Ok(Self::EnteredInError),
+            "inactive" => Ok(Self::Inactive),
+            "unknown" => Ok(Self::Unknown),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceStatus {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Active => "active",
+            Self::EnteredInError => "entered-in-error",
+            Self::Inactive => "inactive",
+            Self::Unknown => "unknown",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceStatus {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceStatus> for Coding {
+    fn from(code: FHIRDeviceStatus) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/device-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceStatus> for CodeableConcept {
+    fn from(code: FHIRDeviceStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRDeviceStatusReason](http://hl7.org/fhir/ValueSet/device-status-reason)**. The availability status reason of the device.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRDeviceStatusReason {
+    /** **hw-discon**
+
+Hardware Disconnected. The device hardware is disconnected. */
+    HwDiscon,
+    /** **not-ready**
+
+Not Ready. The device is not ready. */
+    NotReady,
+    /** **off**
+
+Off. The device is off. */
+    Off,
+    /** **offline**
+
+Offline. The device is offline. */
+    Offline,
+    /** **online**
+
+Online. The device is off. */
+    Online,
+    /** **paused**
+
+Paused. The device is paused. */
+    Paused,
+    /** **standby**
+
+Standby. The device is ready but not actively operating. */
+    Standby,
+    /** **transduc-discon**
+
+Transducer Disconnected. The device transducer is disconnected. */
+    TransducDiscon,
+}
+impl ::core::str::FromStr for FHIRDeviceStatusReason {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "hw-discon" => Ok(Self::HwDiscon),
+            "not-ready" => Ok(Self::NotReady),
+            "off" => Ok(Self::Off),
+            "offline" => Ok(Self::Offline),
+            "online" => Ok(Self::Online),
+            "paused" => Ok(Self::Paused),
+            "standby" => Ok(Self::Standby),
+            "transduc-discon" => Ok(Self::TransducDiscon),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRDeviceStatusReason {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::HwDiscon => "hw-discon",
+            Self::NotReady => "not-ready",
+            Self::Off => "off",
+            Self::Offline => "offline",
+            Self::Online => "online",
+            Self::Paused => "paused",
+            Self::Standby => "standby",
+            Self::TransducDiscon => "transduc-discon",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRDeviceStatusReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::HwDiscon => "Hardware Disconnected",
+            Self::NotReady => "Not Ready",
+            Self::Off => "Off",
+            Self::Offline => "Offline",
+            Self::Online => "Online",
+            Self::Paused => "Paused",
+            Self::Standby => "Standby",
+            Self::TransducDiscon => "Transducer Disconnected",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRDeviceStatusReason {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRDeviceStatusReason {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRDeviceStatusReason> for Coding {
+    fn from(code: FHIRDeviceStatusReason) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/device-status-reason".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRDeviceStatusReason> for CodeableConcept {
+    fn from(code: FHIRDeviceStatusReason) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRPathTypes](http://hl7.org/fhir/ValueSet/fhirpath-types)**. All FHIRPath data types\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRPathTypes {
+    /** **http://hl7.org/fhirpath/System.Boolean**
+
+Boolean. */
+    HttpHl7OrgFhirpathSystemBoolean,
+    /** **http://hl7.org/fhirpath/System.Date**
+
+Date. */
+    HttpHl7OrgFhirpathSystemDate,
+    /** **http://hl7.org/fhirpath/System.DateTime**
+
+DateTime. */
+    HttpHl7OrgFhirpathSystemDateTime,
+    /** **http://hl7.org/fhirpath/System.Decimal**
+
+Decimal. */
+    HttpHl7OrgFhirpathSystemDecimal,
+    /** **http://hl7.org/fhirpath/System.Integer**
+
+Integer. */
+    HttpHl7OrgFhirpathSystemInteger,
+    /** **http://hl7.org/fhirpath/System.String**
+
+String. */
+    HttpHl7OrgFhirpathSystemString,
+    /** **http://hl7.org/fhirpath/System.Time**
+
+Time. */
+    HttpHl7OrgFhirpathSystemTime,
+}
+impl ::core::str::FromStr for FHIRPathTypes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "http://hl7.org/fhirpath/System.Boolean" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemBoolean)
+            }
+            "http://hl7.org/fhirpath/System.Date" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemDate)
+            }
+            "http://hl7.org/fhirpath/System.DateTime" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemDateTime)
+            }
+            "http://hl7.org/fhirpath/System.Decimal" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemDecimal)
+            }
+            "http://hl7.org/fhirpath/System.Integer" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemInteger)
+            }
+            "http://hl7.org/fhirpath/System.String" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemString)
+            }
+            "http://hl7.org/fhirpath/System.Time" => {
+                Ok(Self::HttpHl7OrgFhirpathSystemTime)
+            }
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRPathTypes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::HttpHl7OrgFhirpathSystemBoolean => {
+                "http://hl7.org/fhirpath/System.Boolean"
+            }
+            Self::HttpHl7OrgFhirpathSystemDate => "http://hl7.org/fhirpath/System.Date",
+            Self::HttpHl7OrgFhirpathSystemDateTime => {
+                "http://hl7.org/fhirpath/System.DateTime"
+            }
+            Self::HttpHl7OrgFhirpathSystemDecimal => {
+                "http://hl7.org/fhirpath/System.Decimal"
+            }
+            Self::HttpHl7OrgFhirpathSystemInteger => {
+                "http://hl7.org/fhirpath/System.Integer"
+            }
+            Self::HttpHl7OrgFhirpathSystemString => {
+                "http://hl7.org/fhirpath/System.String"
+            }
+            Self::HttpHl7OrgFhirpathSystemTime => "http://hl7.org/fhirpath/System.Time",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRPathTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::HttpHl7OrgFhirpathSystemBoolean => "Boolean",
+            Self::HttpHl7OrgFhirpathSystemDate => "Date",
+            Self::HttpHl7OrgFhirpathSystemDateTime => "DateTime",
+            Self::HttpHl7OrgFhirpathSystemDecimal => "Decimal",
+            Self::HttpHl7OrgFhirpathSystemInteger => "Integer",
+            Self::HttpHl7OrgFhirpathSystemString => "String",
+            Self::HttpHl7OrgFhirpathSystemTime => "Time",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRPathTypes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRPathTypes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRPathTypes> for Coding {
+    fn from(code: FHIRPathTypes) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/fhirpath-types".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRPathTypes> for CodeableConcept {
+    fn from(code: FHIRPathTypes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRSubstanceStatus](http://hl7.org/fhir/ValueSet/substance-status)**. A code to indicate if the substance is actively used.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRSubstanceStatus {
+    /** **active**
+
+Active. The substance is considered for use or reference. */
+    Active,
+    /** **entered-in-error**
+
+Entered in Error. The substance was entered in error. */
+    EnteredInError,
+    /** **inactive**
+
+Inactive. The substance is considered for reference, but not for use. */
+    Inactive,
+}
+impl ::core::str::FromStr for FHIRSubstanceStatus {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "active" => Ok(Self::Active),
+            "entered-in-error" => Ok(Self::EnteredInError),
+            "inactive" => Ok(Self::Inactive),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRSubstanceStatus {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Active => "active",
+            Self::EnteredInError => "entered-in-error",
+            Self::Inactive => "inactive",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRSubstanceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Active => "Active",
+            Self::EnteredInError => "Entered in Error",
+            Self::Inactive => "Inactive",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRSubstanceStatus {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRSubstanceStatus {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRSubstanceStatus> for Coding {
+    fn from(code: FHIRSubstanceStatus) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/substance-status".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRSubstanceStatus> for CodeableConcept {
+    fn from(code: FHIRSubstanceStatus) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[FHIRVersion](http://hl7.org/fhir/ValueSet/FHIR-version)**. All published FHIR Versions.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum FHIRVersion {
+    /** **0.0.80**
+
+0.0.80. DSTU 1 Official version. */
+    N0080,
+    /** **0.0.81**
+
+0.0.81. DSTU 1 Official version Technical Errata #1. */
+    N0081,
+    /** **0.0.82**
+
+0.0.82. DSTU 1 Official version Technical Errata #2. */
+    N0082,
+    /** **0.01**
+
+0.01. Oldest archived version of FHIR. */
+    N001,
+    /** **0.05**
+
+0.05. 1st Draft for Comment (Sept 2012 Ballot). */
+    N005,
+    /** **0.06**
+
+0.06. 2nd Draft for Comment (January 2013 Ballot). */
+    N006,
+    /** **0.11**
+
+0.11. DSTU 1 Ballot version. */
+    N011,
+    /** **0.4.0**
+
+0.4.0. Draft For Comment (January 2015 Ballot). */
+    N040,
+    /** **0.5.0**
+
+0.5.0. DSTU 2 Ballot version (May 2015 Ballot). */
+    N050,
+    /** **1.0.0**
+
+1.0.0. DSTU 2 QA Preview + CQIF Ballot (Sep 2015). */
+    N100,
+    /** **1.0.1**
+
+1.0.1. DSTU 2 (Official version). */
+    N101,
+    /** **1.0.2**
+
+1.0.2. DSTU 2 (Official version) with 1 technical errata. */
+    N102,
+    /** **1.1.0**
+
+1.1.0. GAO Ballot + draft changes to main FHIR standard. */
+    N110,
+    /** **1.4.0**
+
+1.4.0. CQF on FHIR Ballot + Connectathon 12 (Montreal). */
+    N140,
+    /** **1.6.0**
+
+1.6.0. FHIR STU3 Ballot + Connectathon 13 (Baltimore). */
+    N160,
+    /** **1.8.0**
+
+1.8.0. FHIR STU3 Candidate + Connectathon 14 (San Antonio). */
+    N180,
+    /** **3.0.0**
+
+3.0.0. FHIR Release 3 (STU). */
+    N300,
+    /** **3.0.1**
+
+3.0.1. FHIR Release 3 (STU) with 1 technical errata. */
+    N301,
+    /** **3.0.2**
+
+3.0.2. FHIR Release 3 (STU) with 2 technical errata. */
+    N302,
+    /** **3.3.0**
+
+3.3.0. R4 Ballot #1. */
+    N330,
+    /** **3.5.0**
+
+3.5.0. R4 Ballot #2. */
+    N350,
+    /** **4.0.0**
+
+4.0.0. FHIR Release 4 (Normative + STU). */
+    N400,
+    /** **4.0.1**
+
+4.0.1. FHIR Release 4 Technical Correction. */
+    N401,
+    /** **4.1.0**
+
+4.1.0. FHIR Release 4B Ballot #1. */
+    N410,
+    /** **4.3.0**
+
+4.3.0. FHIR Release 4B. */
+    N430,
+    /** **4.3.0-cibuild**
+
+4.3.0-cibuild. FHIR Release 4B CI-Build. */
+    N430Cibuild,
+    /** **4.3.0-snapshot1**
+
+4.3.0-snapshot1. FHIR Release 4B Snapshot #1. */
+    N430Snapshot1,
+}
+impl ::core::str::FromStr for FHIRVersion {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "0.0.80" => Ok(Self::N0080),
+            "0.0.81" => Ok(Self::N0081),
+            "0.0.82" => Ok(Self::N0082),
+            "0.01" => Ok(Self::N001),
+            "0.05" => Ok(Self::N005),
+            "0.06" => Ok(Self::N006),
+            "0.11" => Ok(Self::N011),
+            "0.4.0" => Ok(Self::N040),
+            "0.5.0" => Ok(Self::N050),
+            "1.0.0" => Ok(Self::N100),
+            "1.0.1" => Ok(Self::N101),
+            "1.0.2" => Ok(Self::N102),
+            "1.1.0" => Ok(Self::N110),
+            "1.4.0" => Ok(Self::N140),
+            "1.6.0" => Ok(Self::N160),
+            "1.8.0" => Ok(Self::N180),
+            "3.0.0" => Ok(Self::N300),
+            "3.0.1" => Ok(Self::N301),
+            "3.0.2" => Ok(Self::N302),
+            "3.3.0" => Ok(Self::N330),
+            "3.5.0" => Ok(Self::N350),
+            "4.0.0" => Ok(Self::N400),
+            "4.0.1" => Ok(Self::N401),
+            "4.1.0" => Ok(Self::N410),
+            "4.3.0" => Ok(Self::N430),
+            "4.3.0-cibuild" => Ok(Self::N430Cibuild),
+            "4.3.0-snapshot1" => Ok(Self::N430Snapshot1),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for FHIRVersion {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N0080 => "0.0.80",
+            Self::N0081 => "0.0.81",
+            Self::N0082 => "0.0.82",
+            Self::N001 => "0.01",
+            Self::N005 => "0.05",
+            Self::N006 => "0.06",
+            Self::N011 => "0.11",
+            Self::N040 => "0.4.0",
+            Self::N050 => "0.5.0",
+            Self::N100 => "1.0.0",
+            Self::N101 => "1.0.1",
+            Self::N102 => "1.0.2",
+            Self::N110 => "1.1.0",
+            Self::N140 => "1.4.0",
+            Self::N160 => "1.6.0",
+            Self::N180 => "1.8.0",
+            Self::N300 => "3.0.0",
+            Self::N301 => "3.0.1",
+            Self::N302 => "3.0.2",
+            Self::N330 => "3.3.0",
+            Self::N350 => "3.5.0",
+            Self::N400 => "4.0.0",
+            Self::N401 => "4.0.1",
+            Self::N410 => "4.1.0",
+            Self::N430 => "4.3.0",
+            Self::N430Cibuild => "4.3.0-cibuild",
+            Self::N430Snapshot1 => "4.3.0-snapshot1",
+        }
+    }
+}
+impl ::std::fmt::Display for FHIRVersion {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0080 => "0.0.80",
+            Self::N0081 => "0.0.81",
+            Self::N0082 => "0.0.82",
+            Self::N001 => "0.01",
+            Self::N005 => "0.05",
+            Self::N006 => "0.06",
+            Self::N011 => "0.11",
+            Self::N040 => "0.4.0",
+            Self::N050 => "0.5.0",
+            Self::N100 => "1.0.0",
+            Self::N101 => "1.0.1",
+            Self::N102 => "1.0.2",
+            Self::N110 => "1.1.0",
+            Self::N140 => "1.4.0",
+            Self::N160 => "1.6.0",
+            Self::N180 => "1.8.0",
+            Self::N300 => "3.0.0",
+            Self::N301 => "3.0.1",
+            Self::N302 => "3.0.2",
+            Self::N330 => "3.3.0",
+            Self::N350 => "3.5.0",
+            Self::N400 => "4.0.0",
+            Self::N401 => "4.0.1",
+            Self::N410 => "4.1.0",
+            Self::N430 => "4.3.0",
+            Self::N430Cibuild => "4.3.0-cibuild",
+            Self::N430Snapshot1 => "4.3.0-snapshot1",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for FHIRVersion {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for FHIRVersion {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<FHIRVersion> for Coding {
+    fn from(code: FHIRVersion) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/FHIR-version".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<FHIRVersion> for CodeableConcept {
+    fn from(code: FHIRVersion) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[FamilyHistoryAbsentReason](http://hl7.org/fhir/ValueSet/history-absent-reason)**. Codes describing the reason why a family member's history is not available.\n\nFHIR version: 4.3.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -34211,6 +35076,127 @@ impl From<GuideParameterCode> for Coding {
 }
 impl From<GuideParameterCode> for CodeableConcept {
     fn from(code: GuideParameterCode) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[HTTPVerb](http://hl7.org/fhir/ValueSet/http-verb)**. HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum HTTPVerb {
+    /** **DELETE**
+
+DELETE. HTTP DELETE Command. */
+    Delete,
+    /** **GET**
+
+GET. HTTP GET Command. */
+    Get,
+    /** **HEAD**
+
+HEAD. HTTP HEAD Command. */
+    Head,
+    /** **PATCH**
+
+PATCH. HTTP PATCH Command. */
+    Patch,
+    /** **POST**
+
+POST. HTTP POST Command. */
+    Post,
+    /** **PUT**
+
+PUT. HTTP PUT Command. */
+    Put,
+}
+impl ::core::str::FromStr for HTTPVerb {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "DELETE" => Ok(Self::Delete),
+            "GET" => Ok(Self::Get),
+            "HEAD" => Ok(Self::Head),
+            "PATCH" => Ok(Self::Patch),
+            "POST" => Ok(Self::Post),
+            "PUT" => Ok(Self::Put),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for HTTPVerb {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Delete => "DELETE",
+            Self::Get => "GET",
+            Self::Head => "HEAD",
+            Self::Patch => "PATCH",
+            Self::Post => "POST",
+            Self::Put => "PUT",
+        }
+    }
+}
+impl ::std::fmt::Display for HTTPVerb {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Delete => "DELETE",
+            Self::Get => "GET",
+            Self::Head => "HEAD",
+            Self::Patch => "PATCH",
+            Self::Post => "POST",
+            Self::Put => "PUT",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for HTTPVerb {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for HTTPVerb {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<HTTPVerb> for Coding {
+    fn from(code: HTTPVerb) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/http-verb".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<HTTPVerb> for CodeableConcept {
+    fn from(code: HTTPVerb) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {
@@ -55202,6 +56188,2549 @@ impl From<RiskProbability> for CodeableConcept {
             .into()
     }
 }
+#[doc = "**[SPDXLicense](http://hl7.org/fhir/ValueSet/spdx-license)**. The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/).\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum SPDXLicense {
+    /** **0BSD**
+
+BSD Zero Clause License. BSD Zero Clause License. */
+    N0Bsd,
+    /** **AAL**
+
+Attribution Assurance License. Attribution Assurance License. */
+    Aal,
+    /** **ADSL**
+
+Amazon Digital Services License. Amazon Digital Services License. */
+    Adsl,
+    /** **AFL-1.1**
+
+Academic Free License v1.1. Academic Free License v1.1. */
+    Afl11,
+    /** **AFL-1.2**
+
+Academic Free License v1.2. Academic Free License v1.2. */
+    Afl12,
+    /** **AFL-2.0**
+
+Academic Free License v2.0. Academic Free License v2.0. */
+    Afl20,
+    /** **AFL-2.1**
+
+Academic Free License v2.1. Academic Free License v2.1. */
+    Afl21,
+    /** **AFL-3.0**
+
+Academic Free License v3.0. Academic Free License v3.0. */
+    Afl30,
+    /** **AGPL-1.0-only**
+
+Affero General Public License v1.0 only. Affero General Public License v1.0 only. */
+    Agpl10Only,
+    /** **AGPL-1.0-or-later**
+
+Affero General Public License v1.0 or later. Affero General Public License v1.0 or later. */
+    Agpl10OrLater,
+    /** **AGPL-3.0-only**
+
+GNU Affero General Public License v3.0 only. GNU Affero General Public License v3.0 only. */
+    Agpl30Only,
+    /** **AGPL-3.0-or-later**
+
+GNU Affero General Public License v3.0 or later. GNU Affero General Public License v3.0 or later. */
+    Agpl30OrLater,
+    /** **AMDPLPA**
+
+AMD's plpa_map.c License. AMD's plpa_map.c License. */
+    Amdplpa,
+    /** **AML**
+
+Apple MIT License. Apple MIT License. */
+    Aml,
+    /** **AMPAS**
+
+Academy of Motion Picture Arts and Sciences BSD. Academy of Motion Picture Arts and Sciences BSD. */
+    Ampas,
+    /** **ANTLR-PD**
+
+ANTLR Software Rights Notice. ANTLR Software Rights Notice. */
+    AntlrPd,
+    /** **APAFML**
+
+Adobe Postscript AFM License. Adobe Postscript AFM License. */
+    Apafml,
+    /** **APL-1.0**
+
+Adaptive Public License 1.0. Adaptive Public License 1.0. */
+    Apl10,
+    /** **APSL-1.0**
+
+Apple Public Source License 1.0. Apple Public Source License 1.0. */
+    Apsl10,
+    /** **APSL-1.1**
+
+Apple Public Source License 1.1. Apple Public Source License 1.1. */
+    Apsl11,
+    /** **APSL-1.2**
+
+Apple Public Source License 1.2. Apple Public Source License 1.2. */
+    Apsl12,
+    /** **APSL-2.0**
+
+Apple Public Source License 2.0. Apple Public Source License 2.0. */
+    Apsl20,
+    /** **Abstyles**
+
+Abstyles License. Abstyles License. */
+    Abstyles,
+    /** **Adobe-2006**
+
+Adobe Systems Incorporated Source Code License Agreement. Adobe Systems Incorporated Source Code License Agreement. */
+    Adobe2006,
+    /** **Adobe-Glyph**
+
+Adobe Glyph List License. Adobe Glyph List License. */
+    AdobeGlyph,
+    /** **Afmparse**
+
+Afmparse License. Afmparse License. */
+    Afmparse,
+    /** **Aladdin**
+
+Aladdin Free Public License. Aladdin Free Public License. */
+    Aladdin,
+    /** **Apache-1.0**
+
+Apache License 1.0. Apache License 1.0. */
+    Apache10,
+    /** **Apache-1.1**
+
+Apache License 1.1. Apache License 1.1. */
+    Apache11,
+    /** **Apache-2.0**
+
+Apache License 2.0. Apache License 2.0. */
+    Apache20,
+    /** **Artistic-1.0**
+
+Artistic License 1.0. Artistic License 1.0. */
+    Artistic10,
+    /** **Artistic-1.0-Perl**
+
+Artistic License 1.0 (Perl). Artistic License 1.0 (Perl). */
+    Artistic10Perl,
+    /** **Artistic-1.0-cl8**
+
+Artistic License 1.0 w/clause 8. Artistic License 1.0 w/clause 8. */
+    Artistic10Cl8,
+    /** **Artistic-2.0**
+
+Artistic License 2.0. Artistic License 2.0. */
+    Artistic20,
+    /** **BSD-1-Clause**
+
+BSD 1-Clause License. BSD 1-Clause License. */
+    Bsd1Clause,
+    /** **BSD-2-Clause**
+
+BSD 2-Clause "Simplified" License. BSD 2-Clause "Simplified" License. */
+    Bsd2Clause,
+    /** **BSD-2-Clause-FreeBSD**
+
+BSD 2-Clause FreeBSD License. BSD 2-Clause FreeBSD License. */
+    Bsd2ClauseFreeBSD,
+    /** **BSD-2-Clause-NetBSD**
+
+BSD 2-Clause NetBSD License. BSD 2-Clause NetBSD License. */
+    Bsd2ClauseNetBSD,
+    /** **BSD-2-Clause-Patent**
+
+BSD-2-Clause Plus Patent License. BSD-2-Clause Plus Patent License. */
+    Bsd2ClausePatent,
+    /** **BSD-3-Clause**
+
+BSD 3-Clause "New" or "Revised" License. BSD 3-Clause "New" or "Revised" License. */
+    Bsd3Clause,
+    /** **BSD-3-Clause-Attribution**
+
+BSD with attribution. BSD with attribution. */
+    Bsd3ClauseAttribution,
+    /** **BSD-3-Clause-Clear**
+
+BSD 3-Clause Clear License. BSD 3-Clause Clear License. */
+    Bsd3ClauseClear,
+    /** **BSD-3-Clause-LBNL**
+
+Lawrence Berkeley National Labs BSD variant license. Lawrence Berkeley National Labs BSD variant license. */
+    Bsd3ClauseLBNL,
+    /** **BSD-3-Clause-No-Nuclear-License**
+
+BSD 3-Clause No Nuclear License. BSD 3-Clause No Nuclear License. */
+    Bsd3ClauseNoNuclearLicense,
+    /** **BSD-3-Clause-No-Nuclear-License-2014**
+
+BSD 3-Clause No Nuclear License 2014. BSD 3-Clause No Nuclear License 2014. */
+    Bsd3ClauseNoNuclearLicense2014,
+    /** **BSD-3-Clause-No-Nuclear-Warranty**
+
+BSD 3-Clause No Nuclear Warranty. BSD 3-Clause No Nuclear Warranty. */
+    Bsd3ClauseNoNuclearWarranty,
+    /** **BSD-4-Clause**
+
+BSD 4-Clause "Original" or "Old" License. BSD 4-Clause "Original" or "Old" License. */
+    Bsd4Clause,
+    /** **BSD-4-Clause-UC**
+
+BSD-4-Clause (University of California-Specific). BSD-4-Clause (University of California-Specific). */
+    Bsd4ClauseUC,
+    /** **BSD-Protection**
+
+BSD Protection License. BSD Protection License. */
+    BsdProtection,
+    /** **BSD-Source-Code**
+
+BSD Source Code Attribution. BSD Source Code Attribution. */
+    BsdSourceCode,
+    /** **BSL-1.0**
+
+Boost Software License 1.0. Boost Software License 1.0. */
+    Bsl10,
+    /** **Bahyph**
+
+Bahyph License. Bahyph License. */
+    Bahyph,
+    /** **Barr**
+
+Barr License. Barr License. */
+    Barr,
+    /** **Beerware**
+
+Beerware License. Beerware License. */
+    Beerware,
+    /** **BitTorrent-1.0**
+
+BitTorrent Open Source License v1.0. BitTorrent Open Source License v1.0. */
+    BitTorrent10,
+    /** **BitTorrent-1.1**
+
+BitTorrent Open Source License v1.1. BitTorrent Open Source License v1.1. */
+    BitTorrent11,
+    /** **Borceux**
+
+Borceux license. Borceux license. */
+    Borceux,
+    /** **CATOSL-1.1**
+
+Computer Associates Trusted Open Source License 1.1. Computer Associates Trusted Open Source License 1.1. */
+    Catosl11,
+    /** **CC-BY-1.0**
+
+Creative Commons Attribution 1.0 Generic. Creative Commons Attribution 1.0 Generic. */
+    CcBy10,
+    /** **CC-BY-2.0**
+
+Creative Commons Attribution 2.0 Generic. Creative Commons Attribution 2.0 Generic. */
+    CcBy20,
+    /** **CC-BY-2.5**
+
+Creative Commons Attribution 2.5 Generic. Creative Commons Attribution 2.5 Generic. */
+    CcBy25,
+    /** **CC-BY-3.0**
+
+Creative Commons Attribution 3.0 Unported. Creative Commons Attribution 3.0 Unported. */
+    CcBy30,
+    /** **CC-BY-4.0**
+
+Creative Commons Attribution 4.0 International. Creative Commons Attribution 4.0 International. */
+    CcBy40,
+    /** **CC-BY-NC-1.0**
+
+Creative Commons Attribution Non Commercial 1.0 Generic. Creative Commons Attribution Non Commercial 1.0 Generic. */
+    CcByNc10,
+    /** **CC-BY-NC-2.0**
+
+Creative Commons Attribution Non Commercial 2.0 Generic. Creative Commons Attribution Non Commercial 2.0 Generic. */
+    CcByNc20,
+    /** **CC-BY-NC-2.5**
+
+Creative Commons Attribution Non Commercial 2.5 Generic. Creative Commons Attribution Non Commercial 2.5 Generic. */
+    CcByNc25,
+    /** **CC-BY-NC-3.0**
+
+Creative Commons Attribution Non Commercial 3.0 Unported. Creative Commons Attribution Non Commercial 3.0 Unported. */
+    CcByNc30,
+    /** **CC-BY-NC-4.0**
+
+Creative Commons Attribution Non Commercial 4.0 International. Creative Commons Attribution Non Commercial 4.0 International. */
+    CcByNc40,
+    /** **CC-BY-NC-ND-1.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic. Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic. */
+    CcByNcNd10,
+    /** **CC-BY-NC-ND-2.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic. Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic. */
+    CcByNcNd20,
+    /** **CC-BY-NC-ND-2.5**
+
+Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic. Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic. */
+    CcByNcNd25,
+    /** **CC-BY-NC-ND-3.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported. Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported. */
+    CcByNcNd30,
+    /** **CC-BY-NC-ND-4.0**
+
+Creative Commons Attribution Non Commercial No Derivatives 4.0 International. Creative Commons Attribution Non Commercial No Derivatives 4.0 International. */
+    CcByNcNd40,
+    /** **CC-BY-NC-SA-1.0**
+
+Creative Commons Attribution Non Commercial Share Alike 1.0 Generic. Creative Commons Attribution Non Commercial Share Alike 1.0 Generic. */
+    CcByNcSa10,
+    /** **CC-BY-NC-SA-2.0**
+
+Creative Commons Attribution Non Commercial Share Alike 2.0 Generic. Creative Commons Attribution Non Commercial Share Alike 2.0 Generic. */
+    CcByNcSa20,
+    /** **CC-BY-NC-SA-2.5**
+
+Creative Commons Attribution Non Commercial Share Alike 2.5 Generic. Creative Commons Attribution Non Commercial Share Alike 2.5 Generic. */
+    CcByNcSa25,
+    /** **CC-BY-NC-SA-3.0**
+
+Creative Commons Attribution Non Commercial Share Alike 3.0 Unported. Creative Commons Attribution Non Commercial Share Alike 3.0 Unported. */
+    CcByNcSa30,
+    /** **CC-BY-NC-SA-4.0**
+
+Creative Commons Attribution Non Commercial Share Alike 4.0 International. Creative Commons Attribution Non Commercial Share Alike 4.0 International. */
+    CcByNcSa40,
+    /** **CC-BY-ND-1.0**
+
+Creative Commons Attribution No Derivatives 1.0 Generic. Creative Commons Attribution No Derivatives 1.0 Generic. */
+    CcByNd10,
+    /** **CC-BY-ND-2.0**
+
+Creative Commons Attribution No Derivatives 2.0 Generic. Creative Commons Attribution No Derivatives 2.0 Generic. */
+    CcByNd20,
+    /** **CC-BY-ND-2.5**
+
+Creative Commons Attribution No Derivatives 2.5 Generic. Creative Commons Attribution No Derivatives 2.5 Generic. */
+    CcByNd25,
+    /** **CC-BY-ND-3.0**
+
+Creative Commons Attribution No Derivatives 3.0 Unported. Creative Commons Attribution No Derivatives 3.0 Unported. */
+    CcByNd30,
+    /** **CC-BY-ND-4.0**
+
+Creative Commons Attribution No Derivatives 4.0 International. Creative Commons Attribution No Derivatives 4.0 International. */
+    CcByNd40,
+    /** **CC-BY-SA-1.0**
+
+Creative Commons Attribution Share Alike 1.0 Generic. Creative Commons Attribution Share Alike 1.0 Generic. */
+    CcBySa10,
+    /** **CC-BY-SA-2.0**
+
+Creative Commons Attribution Share Alike 2.0 Generic. Creative Commons Attribution Share Alike 2.0 Generic. */
+    CcBySa20,
+    /** **CC-BY-SA-2.5**
+
+Creative Commons Attribution Share Alike 2.5 Generic. Creative Commons Attribution Share Alike 2.5 Generic. */
+    CcBySa25,
+    /** **CC-BY-SA-3.0**
+
+Creative Commons Attribution Share Alike 3.0 Unported. Creative Commons Attribution Share Alike 3.0 Unported. */
+    CcBySa30,
+    /** **CC-BY-SA-4.0**
+
+Creative Commons Attribution Share Alike 4.0 International. Creative Commons Attribution Share Alike 4.0 International. */
+    CcBySa40,
+    /** **CC0-1.0**
+
+Creative Commons Zero v1.0 Universal. Creative Commons Zero v1.0 Universal. */
+    Cc010,
+    /** **CDDL-1.0**
+
+Common Development and Distribution License 1.0. Common Development and Distribution License 1.0. */
+    Cddl10,
+    /** **CDDL-1.1**
+
+Common Development and Distribution License 1.1. Common Development and Distribution License 1.1. */
+    Cddl11,
+    /** **CDLA-Permissive-1.0**
+
+Community Data License Agreement Permissive 1.0. Community Data License Agreement Permissive 1.0. */
+    CdlaPermissive10,
+    /** **CDLA-Sharing-1.0**
+
+Community Data License Agreement Sharing 1.0. Community Data License Agreement Sharing 1.0. */
+    CdlaSharing10,
+    /** **CECILL-1.0**
+
+CeCILL Free Software License Agreement v1.0. CeCILL Free Software License Agreement v1.0. */
+    Cecill10,
+    /** **CECILL-1.1**
+
+CeCILL Free Software License Agreement v1.1. CeCILL Free Software License Agreement v1.1. */
+    Cecill11,
+    /** **CECILL-2.0**
+
+CeCILL Free Software License Agreement v2.0. CeCILL Free Software License Agreement v2.0. */
+    Cecill20,
+    /** **CECILL-2.1**
+
+CeCILL Free Software License Agreement v2.1. CeCILL Free Software License Agreement v2.1. */
+    Cecill21,
+    /** **CECILL-B**
+
+CeCILL-B Free Software License Agreement. CeCILL-B Free Software License Agreement. */
+    CecillB,
+    /** **CECILL-C**
+
+CeCILL-C Free Software License Agreement. CeCILL-C Free Software License Agreement. */
+    CecillC,
+    /** **CNRI-Jython**
+
+CNRI Jython License. CNRI Jython License. */
+    CnriJython,
+    /** **CNRI-Python**
+
+CNRI Python License. CNRI Python License. */
+    CnriPython,
+    /** **CNRI-Python-GPL-Compatible**
+
+CNRI Python Open Source GPL Compatible License Agreement. CNRI Python Open Source GPL Compatible License Agreement. */
+    CnriPythonGPLCompatible,
+    /** **CPAL-1.0**
+
+Common Public Attribution License 1.0. Common Public Attribution License 1.0. */
+    Cpal10,
+    /** **CPL-1.0**
+
+Common Public License 1.0. Common Public License 1.0. */
+    Cpl10,
+    /** **CPOL-1.02**
+
+Code Project Open License 1.02. Code Project Open License 1.02. */
+    Cpol102,
+    /** **CUA-OPL-1.0**
+
+CUA Office Public License v1.0. CUA Office Public License v1.0. */
+    CuaOpl10,
+    /** **Caldera**
+
+Caldera License. Caldera License. */
+    Caldera,
+    /** **ClArtistic**
+
+Clarified Artistic License. Clarified Artistic License. */
+    ClArtistic,
+    /** **Condor-1.1**
+
+Condor Public License v1.1. Condor Public License v1.1. */
+    Condor11,
+    /** **Crossword**
+
+Crossword License. Crossword License. */
+    Crossword,
+    /** **CrystalStacker**
+
+CrystalStacker License. CrystalStacker License. */
+    CrystalStacker,
+    /** **Cube**
+
+Cube License. Cube License. */
+    Cube,
+    /** **D-FSL-1.0**
+
+Deutsche Freie Software Lizenz. Deutsche Freie Software Lizenz. */
+    DFsl10,
+    /** **DOC**
+
+DOC License. DOC License. */
+    Doc,
+    /** **DSDP**
+
+DSDP License. DSDP License. */
+    Dsdp,
+    /** **Dotseqn**
+
+Dotseqn License. Dotseqn License. */
+    Dotseqn,
+    /** **ECL-1.0**
+
+Educational Community License v1.0. Educational Community License v1.0. */
+    Ecl10,
+    /** **ECL-2.0**
+
+Educational Community License v2.0. Educational Community License v2.0. */
+    Ecl20,
+    /** **EFL-1.0**
+
+Eiffel Forum License v1.0. Eiffel Forum License v1.0. */
+    Efl10,
+    /** **EFL-2.0**
+
+Eiffel Forum License v2.0. Eiffel Forum License v2.0. */
+    Efl20,
+    /** **EPL-1.0**
+
+Eclipse Public License 1.0. Eclipse Public License 1.0. */
+    Epl10,
+    /** **EPL-2.0**
+
+Eclipse Public License 2.0. Eclipse Public License 2.0. */
+    Epl20,
+    /** **EUDatagrid**
+
+EU DataGrid Software License. EU DataGrid Software License. */
+    Eudatagrid,
+    /** **EUPL-1.0**
+
+European Union Public License 1.0. European Union Public License 1.0. */
+    Eupl10,
+    /** **EUPL-1.1**
+
+European Union Public License 1.1. European Union Public License 1.1. */
+    Eupl11,
+    /** **EUPL-1.2**
+
+European Union Public License 1.2. European Union Public License 1.2. */
+    Eupl12,
+    /** **Entessa**
+
+Entessa Public License v1.0. Entessa Public License v1.0. */
+    Entessa,
+    /** **ErlPL-1.1**
+
+Erlang Public License v1.1. Erlang Public License v1.1. */
+    ErlPL11,
+    /** **Eurosym**
+
+Eurosym License. Eurosym License. */
+    Eurosym,
+    /** **FSFAP**
+
+FSF All Permissive License. FSF All Permissive License. */
+    Fsfap,
+    /** **FSFUL**
+
+FSF Unlimited License. FSF Unlimited License. */
+    Fsful,
+    /** **FSFULLR**
+
+FSF Unlimited License (with License Retention). FSF Unlimited License (with License Retention). */
+    Fsfullr,
+    /** **FTL**
+
+Freetype Project License. Freetype Project License. */
+    Ftl,
+    /** **Fair**
+
+Fair License. Fair License. */
+    Fair,
+    /** **Frameworx-1.0**
+
+Frameworx Open License 1.0. Frameworx Open License 1.0. */
+    Frameworx10,
+    /** **FreeImage**
+
+FreeImage Public License v1.0. FreeImage Public License v1.0. */
+    FreeImage,
+    /** **GFDL-1.1-only**
+
+GNU Free Documentation License v1.1 only. GNU Free Documentation License v1.1 only. */
+    Gfdl11Only,
+    /** **GFDL-1.1-or-later**
+
+GNU Free Documentation License v1.1 or later. GNU Free Documentation License v1.1 or later. */
+    Gfdl11OrLater,
+    /** **GFDL-1.2-only**
+
+GNU Free Documentation License v1.2 only. GNU Free Documentation License v1.2 only. */
+    Gfdl12Only,
+    /** **GFDL-1.2-or-later**
+
+GNU Free Documentation License v1.2 or later. GNU Free Documentation License v1.2 or later. */
+    Gfdl12OrLater,
+    /** **GFDL-1.3-only**
+
+GNU Free Documentation License v1.3 only. GNU Free Documentation License v1.3 only. */
+    Gfdl13Only,
+    /** **GFDL-1.3-or-later**
+
+GNU Free Documentation License v1.3 or later. GNU Free Documentation License v1.3 or later. */
+    Gfdl13OrLater,
+    /** **GL2PS**
+
+GL2PS License. GL2PS License. */
+    Gl2Ps,
+    /** **GPL-1.0-only**
+
+GNU General Public License v1.0 only. GNU General Public License v1.0 only. */
+    Gpl10Only,
+    /** **GPL-1.0-or-later**
+
+GNU General Public License v1.0 or later. GNU General Public License v1.0 or later. */
+    Gpl10OrLater,
+    /** **GPL-2.0-only**
+
+GNU General Public License v2.0 only. GNU General Public License v2.0 only. */
+    Gpl20Only,
+    /** **GPL-2.0-or-later**
+
+GNU General Public License v2.0 or later. GNU General Public License v2.0 or later. */
+    Gpl20OrLater,
+    /** **GPL-3.0-only**
+
+GNU General Public License v3.0 only. GNU General Public License v3.0 only. */
+    Gpl30Only,
+    /** **GPL-3.0-or-later**
+
+GNU General Public License v3.0 or later. GNU General Public License v3.0 or later. */
+    Gpl30OrLater,
+    /** **Giftware**
+
+Giftware License. Giftware License. */
+    Giftware,
+    /** **Glide**
+
+3dfx Glide License. 3dfx Glide License. */
+    Glide,
+    /** **Glulxe**
+
+Glulxe License. Glulxe License. */
+    Glulxe,
+    /** **HPND**
+
+Historical Permission Notice and Disclaimer. Historical Permission Notice and Disclaimer. */
+    Hpnd,
+    /** **HaskellReport**
+
+Haskell Language Report License. Haskell Language Report License. */
+    HaskellReport,
+    /** **IBM-pibs**
+
+IBM PowerPC Initialization and Boot Software. IBM PowerPC Initialization and Boot Software. */
+    IbmPibs,
+    /** **ICU**
+
+ICU License. ICU License. */
+    Icu,
+    /** **IJG**
+
+Independent JPEG Group License. Independent JPEG Group License. */
+    Ijg,
+    /** **IPA**
+
+IPA Font License. IPA Font License. */
+    Ipa,
+    /** **IPL-1.0**
+
+IBM Public License v1.0. IBM Public License v1.0. */
+    Ipl10,
+    /** **ISC**
+
+ISC License. ISC License. */
+    Isc,
+    /** **ImageMagick**
+
+ImageMagick License. ImageMagick License. */
+    ImageMagick,
+    /** **Imlib2**
+
+Imlib2 License. Imlib2 License. */
+    Imlib2,
+    /** **Info-ZIP**
+
+Info-ZIP License. Info-ZIP License. */
+    InfoZIP,
+    /** **Intel**
+
+Intel Open Source License. Intel Open Source License. */
+    Intel,
+    /** **Intel-ACPI**
+
+Intel ACPI Software License Agreement. Intel ACPI Software License Agreement. */
+    IntelACPI,
+    /** **Interbase-1.0**
+
+Interbase Public License v1.0. Interbase Public License v1.0. */
+    Interbase10,
+    /** **JSON**
+
+JSON License. JSON License. */
+    Json,
+    /** **JasPer-2.0**
+
+JasPer License. JasPer License. */
+    JasPer20,
+    /** **LAL-1.2**
+
+Licence Art Libre 1.2. Licence Art Libre 1.2. */
+    Lal12,
+    /** **LAL-1.3**
+
+Licence Art Libre 1.3. Licence Art Libre 1.3. */
+    Lal13,
+    /** **LGPL-2.0-only**
+
+GNU Library General Public License v2 only. GNU Library General Public License v2 only. */
+    Lgpl20Only,
+    /** **LGPL-2.0-or-later**
+
+GNU Library General Public License v2 or later. GNU Library General Public License v2 or later. */
+    Lgpl20OrLater,
+    /** **LGPL-2.1-only**
+
+GNU Lesser General Public License v2.1 only. GNU Lesser General Public License v2.1 only. */
+    Lgpl21Only,
+    /** **LGPL-2.1-or-later**
+
+GNU Lesser General Public License v2.1 or later. GNU Lesser General Public License v2.1 or later. */
+    Lgpl21OrLater,
+    /** **LGPL-3.0-only**
+
+GNU Lesser General Public License v3.0 only. GNU Lesser General Public License v3.0 only. */
+    Lgpl30Only,
+    /** **LGPL-3.0-or-later**
+
+GNU Lesser General Public License v3.0 or later. GNU Lesser General Public License v3.0 or later. */
+    Lgpl30OrLater,
+    /** **LGPLLR**
+
+Lesser General Public License For Linguistic Resources. Lesser General Public License For Linguistic Resources. */
+    Lgpllr,
+    /** **LPL-1.0**
+
+Lucent Public License Version 1.0. Lucent Public License Version 1.0. */
+    Lpl10,
+    /** **LPL-1.02**
+
+Lucent Public License v1.02. Lucent Public License v1.02. */
+    Lpl102,
+    /** **LPPL-1.0**
+
+LaTeX Project Public License v1.0. LaTeX Project Public License v1.0. */
+    Lppl10,
+    /** **LPPL-1.1**
+
+LaTeX Project Public License v1.1. LaTeX Project Public License v1.1. */
+    Lppl11,
+    /** **LPPL-1.2**
+
+LaTeX Project Public License v1.2. LaTeX Project Public License v1.2. */
+    Lppl12,
+    /** **LPPL-1.3a**
+
+LaTeX Project Public License v1.3a. LaTeX Project Public License v1.3a. */
+    Lppl13A,
+    /** **LPPL-1.3c**
+
+LaTeX Project Public License v1.3c. LaTeX Project Public License v1.3c. */
+    Lppl13C,
+    /** **Latex2e**
+
+Latex2e License. Latex2e License. */
+    Latex2E,
+    /** **Leptonica**
+
+Leptonica License. Leptonica License. */
+    Leptonica,
+    /** **LiLiQ-P-1.1**
+
+Licence Libre du Québec – Permissive version 1.1. Licence Libre du Québec – Permissive version 1.1. */
+    LiLiQP11,
+    /** **LiLiQ-R-1.1**
+
+Licence Libre du Québec – Réciprocité version 1.1. Licence Libre du Québec – Réciprocité version 1.1. */
+    LiLiQR11,
+    /** **LiLiQ-Rplus-1.1**
+
+Licence Libre du Québec – Réciprocité forte version 1.1. Licence Libre du Québec – Réciprocité forte version 1.1. */
+    LiLiQRplus11,
+    /** **Libpng**
+
+libpng License. libpng License. */
+    Libpng,
+    /** **Linux-OpenIB**
+
+Linux Kernel Variant of OpenIB.org license. Linux Kernel Variant of OpenIB.org license. */
+    LinuxOpenIB,
+    /** **MIT**
+
+MIT License. MIT License. */
+    Mit,
+    /** **MIT-0**
+
+MIT No Attribution. MIT No Attribution. */
+    Mit0,
+    /** **MIT-CMU**
+
+CMU License. CMU License. */
+    MitCmu,
+    /** **MIT-advertising**
+
+Enlightenment License (e16). Enlightenment License (e16). */
+    MitAdvertising,
+    /** **MIT-enna**
+
+enna License. enna License. */
+    MitEnna,
+    /** **MIT-feh**
+
+feh License. feh License. */
+    MitFeh,
+    /** **MITNFA**
+
+MIT +no-false-attribs license. MIT +no-false-attribs license. */
+    Mitnfa,
+    /** **MPL-1.0**
+
+Mozilla Public License 1.0. Mozilla Public License 1.0. */
+    Mpl10,
+    /** **MPL-1.1**
+
+Mozilla Public License 1.1. Mozilla Public License 1.1. */
+    Mpl11,
+    /** **MPL-2.0**
+
+Mozilla Public License 2.0. Mozilla Public License 2.0. */
+    Mpl20,
+    /** **MPL-2.0-no-copyleft-exception**
+
+Mozilla Public License 2.0 (no copyleft exception). Mozilla Public License 2.0 (no copyleft exception). */
+    Mpl20NoCopyleftException,
+    /** **MS-PL**
+
+Microsoft Public License. Microsoft Public License. */
+    MsPl,
+    /** **MS-RL**
+
+Microsoft Reciprocal License. Microsoft Reciprocal License. */
+    MsRl,
+    /** **MTLL**
+
+Matrix Template Library License. Matrix Template Library License. */
+    Mtll,
+    /** **MakeIndex**
+
+MakeIndex License. MakeIndex License. */
+    MakeIndex,
+    /** **MirOS**
+
+MirOS License. MirOS License. */
+    MirOS,
+    /** **Motosoto**
+
+Motosoto License. Motosoto License. */
+    Motosoto,
+    /** **Multics**
+
+Multics License. Multics License. */
+    Multics,
+    /** **Mup**
+
+Mup License. Mup License. */
+    Mup,
+    /** **NASA-1.3**
+
+NASA Open Source Agreement 1.3. NASA Open Source Agreement 1.3. */
+    Nasa13,
+    /** **NBPL-1.0**
+
+Net Boolean Public License v1. Net Boolean Public License v1. */
+    Nbpl10,
+    /** **NCSA**
+
+University of Illinois/NCSA Open Source License. University of Illinois/NCSA Open Source License. */
+    Ncsa,
+    /** **NGPL**
+
+Nethack General Public License. Nethack General Public License. */
+    Ngpl,
+    /** **NLOD-1.0**
+
+Norwegian Licence for Open Government Data. Norwegian Licence for Open Government Data. */
+    Nlod10,
+    /** **NLPL**
+
+No Limit Public License. No Limit Public License. */
+    Nlpl,
+    /** **NOSL**
+
+Netizen Open Source License. Netizen Open Source License. */
+    Nosl,
+    /** **NPL-1.0**
+
+Netscape Public License v1.0. Netscape Public License v1.0. */
+    Npl10,
+    /** **NPL-1.1**
+
+Netscape Public License v1.1. Netscape Public License v1.1. */
+    Npl11,
+    /** **NPOSL-3.0**
+
+Non-Profit Open Software License 3.0. Non-Profit Open Software License 3.0. */
+    Nposl30,
+    /** **NRL**
+
+NRL License. NRL License. */
+    Nrl,
+    /** **NTP**
+
+NTP License. NTP License. */
+    Ntp,
+    /** **Naumen**
+
+Naumen Public License. Naumen Public License. */
+    Naumen,
+    /** **Net-SNMP**
+
+Net-SNMP License. Net-SNMP License. */
+    NetSNMP,
+    /** **NetCDF**
+
+NetCDF license. NetCDF license. */
+    NetCDF,
+    /** **Newsletr**
+
+Newsletr License. Newsletr License. */
+    Newsletr,
+    /** **Nokia**
+
+Nokia Open Source License. Nokia Open Source License. */
+    Nokia,
+    /** **Noweb**
+
+Noweb License. Noweb License. */
+    Noweb,
+    /** **OCCT-PL**
+
+Open CASCADE Technology Public License. Open CASCADE Technology Public License. */
+    OcctPl,
+    /** **OCLC-2.0**
+
+OCLC Research Public License 2.0. OCLC Research Public License 2.0. */
+    Oclc20,
+    /** **ODbL-1.0**
+
+ODC Open Database License v1.0. ODC Open Database License v1.0. */
+    OdbL10,
+    /** **OFL-1.0**
+
+SIL Open Font License 1.0. SIL Open Font License 1.0. */
+    Ofl10,
+    /** **OFL-1.1**
+
+SIL Open Font License 1.1. SIL Open Font License 1.1. */
+    Ofl11,
+    /** **OGTSL**
+
+Open Group Test Suite License. Open Group Test Suite License. */
+    Ogtsl,
+    /** **OLDAP-1.1**
+
+Open LDAP Public License v1.1. Open LDAP Public License v1.1. */
+    Oldap11,
+    /** **OLDAP-1.2**
+
+Open LDAP Public License v1.2. Open LDAP Public License v1.2. */
+    Oldap12,
+    /** **OLDAP-1.3**
+
+Open LDAP Public License v1.3. Open LDAP Public License v1.3. */
+    Oldap13,
+    /** **OLDAP-1.4**
+
+Open LDAP Public License v1.4. Open LDAP Public License v1.4. */
+    Oldap14,
+    /** **OLDAP-2.0**
+
+Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B). Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B). */
+    Oldap20,
+    /** **OLDAP-2.0.1**
+
+Open LDAP Public License v2.0.1. Open LDAP Public License v2.0.1. */
+    Oldap201,
+    /** **OLDAP-2.1**
+
+Open LDAP Public License v2.1. Open LDAP Public License v2.1. */
+    Oldap21,
+    /** **OLDAP-2.2**
+
+Open LDAP Public License v2.2. Open LDAP Public License v2.2. */
+    Oldap22,
+    /** **OLDAP-2.2.1**
+
+Open LDAP Public License v2.2.1. Open LDAP Public License v2.2.1. */
+    Oldap221,
+    /** **OLDAP-2.2.2**
+
+Open LDAP Public License 2.2.2. Open LDAP Public License 2.2.2. */
+    Oldap222,
+    /** **OLDAP-2.3**
+
+Open LDAP Public License v2.3. Open LDAP Public License v2.3. */
+    Oldap23,
+    /** **OLDAP-2.4**
+
+Open LDAP Public License v2.4. Open LDAP Public License v2.4. */
+    Oldap24,
+    /** **OLDAP-2.5**
+
+Open LDAP Public License v2.5. Open LDAP Public License v2.5. */
+    Oldap25,
+    /** **OLDAP-2.6**
+
+Open LDAP Public License v2.6. Open LDAP Public License v2.6. */
+    Oldap26,
+    /** **OLDAP-2.7**
+
+Open LDAP Public License v2.7. Open LDAP Public License v2.7. */
+    Oldap27,
+    /** **OLDAP-2.8**
+
+Open LDAP Public License v2.8. Open LDAP Public License v2.8. */
+    Oldap28,
+    /** **OML**
+
+Open Market License. Open Market License. */
+    Oml,
+    /** **OPL-1.0**
+
+Open Public License v1.0. Open Public License v1.0. */
+    Opl10,
+    /** **OSET-PL-2.1**
+
+OSET Public License version 2.1. OSET Public License version 2.1. */
+    OsetPl21,
+    /** **OSL-1.0**
+
+Open Software License 1.0. Open Software License 1.0. */
+    Osl10,
+    /** **OSL-1.1**
+
+Open Software License 1.1. Open Software License 1.1. */
+    Osl11,
+    /** **OSL-2.0**
+
+Open Software License 2.0. Open Software License 2.0. */
+    Osl20,
+    /** **OSL-2.1**
+
+Open Software License 2.1. Open Software License 2.1. */
+    Osl21,
+    /** **OSL-3.0**
+
+Open Software License 3.0. Open Software License 3.0. */
+    Osl30,
+    /** **OpenSSL**
+
+OpenSSL License. OpenSSL License. */
+    OpenSSL,
+    /** **PDDL-1.0**
+
+ODC Public Domain Dedication & License 1.0. ODC Public Domain Dedication & License 1.0. */
+    Pddl10,
+    /** **PHP-3.0**
+
+PHP License v3.0. PHP License v3.0. */
+    Php30,
+    /** **PHP-3.01**
+
+PHP License v3.01. PHP License v3.01. */
+    Php301,
+    /** **Plexus**
+
+Plexus Classworlds License. Plexus Classworlds License. */
+    Plexus,
+    /** **PostgreSQL**
+
+PostgreSQL License. PostgreSQL License. */
+    PostgreSQL,
+    /** **Python-2.0**
+
+Python License 2.0. Python License 2.0. */
+    Python20,
+    /** **QPL-1.0**
+
+Q Public License 1.0. Q Public License 1.0. */
+    Qpl10,
+    /** **Qhull**
+
+Qhull License. Qhull License. */
+    Qhull,
+    /** **RHeCos-1.1**
+
+Red Hat eCos Public License v1.1. Red Hat eCos Public License v1.1. */
+    RheCos11,
+    /** **RPL-1.1**
+
+Reciprocal Public License 1.1. Reciprocal Public License 1.1. */
+    Rpl11,
+    /** **RPL-1.5**
+
+Reciprocal Public License 1.5. Reciprocal Public License 1.5. */
+    Rpl15,
+    /** **RPSL-1.0**
+
+RealNetworks Public Source License v1.0. RealNetworks Public Source License v1.0. */
+    Rpsl10,
+    /** **RSA-MD**
+
+RSA Message-Digest License. RSA Message-Digest License. */
+    RsaMd,
+    /** **RSCPL**
+
+Ricoh Source Code Public License. Ricoh Source Code Public License. */
+    Rscpl,
+    /** **Rdisc**
+
+Rdisc License. Rdisc License. */
+    Rdisc,
+    /** **Ruby**
+
+Ruby License. Ruby License. */
+    Ruby,
+    /** **SAX-PD**
+
+Sax Public Domain Notice. Sax Public Domain Notice. */
+    SaxPd,
+    /** **SCEA**
+
+SCEA Shared Source License. SCEA Shared Source License. */
+    Scea,
+    /** **SGI-B-1.0**
+
+SGI Free Software License B v1.0. SGI Free Software License B v1.0. */
+    SgiB10,
+    /** **SGI-B-1.1**
+
+SGI Free Software License B v1.1. SGI Free Software License B v1.1. */
+    SgiB11,
+    /** **SGI-B-2.0**
+
+SGI Free Software License B v2.0. SGI Free Software License B v2.0. */
+    SgiB20,
+    /** **SISSL**
+
+Sun Industry Standards Source License v1.1. Sun Industry Standards Source License v1.1. */
+    Sissl,
+    /** **SISSL-1.2**
+
+Sun Industry Standards Source License v1.2. Sun Industry Standards Source License v1.2. */
+    Sissl12,
+    /** **SMLNJ**
+
+Standard ML of New Jersey License. Standard ML of New Jersey License. */
+    Smlnj,
+    /** **SMPPL**
+
+Secure Messaging Protocol Public License. Secure Messaging Protocol Public License. */
+    Smppl,
+    /** **SNIA**
+
+SNIA Public License 1.1. SNIA Public License 1.1. */
+    Snia,
+    /** **SPL-1.0**
+
+Sun Public License v1.0. Sun Public License v1.0. */
+    Spl10,
+    /** **SWL**
+
+Scheme Widget Library (SWL) Software License Agreement. Scheme Widget Library (SWL) Software License Agreement. */
+    Swl,
+    /** **Saxpath**
+
+Saxpath License. Saxpath License. */
+    Saxpath,
+    /** **Sendmail**
+
+Sendmail License. Sendmail License. */
+    Sendmail,
+    /** **SimPL-2.0**
+
+Simple Public License 2.0. Simple Public License 2.0. */
+    SimPL20,
+    /** **Sleepycat**
+
+Sleepycat License. Sleepycat License. */
+    Sleepycat,
+    /** **Spencer-86**
+
+Spencer License 86. Spencer License 86. */
+    Spencer86,
+    /** **Spencer-94**
+
+Spencer License 94. Spencer License 94. */
+    Spencer94,
+    /** **Spencer-99**
+
+Spencer License 99. Spencer License 99. */
+    Spencer99,
+    /** **SugarCRM-1.1.3**
+
+SugarCRM Public License v1.1.3. SugarCRM Public License v1.1.3. */
+    SugarCRM113,
+    /** **TCL**
+
+TCL/TK License. TCL/TK License. */
+    Tcl,
+    /** **TCP-wrappers**
+
+TCP Wrappers License. TCP Wrappers License. */
+    TcpWrappers,
+    /** **TMate**
+
+TMate Open Source License. TMate Open Source License. */
+    Tmate,
+    /** **TORQUE-1.1**
+
+TORQUE v2.5+ Software License v1.1. TORQUE v2.5+ Software License v1.1. */
+    Torque11,
+    /** **TOSL**
+
+Trusster Open Source License. Trusster Open Source License. */
+    Tosl,
+    /** **UPL-1.0**
+
+Universal Permissive License v1.0. Universal Permissive License v1.0. */
+    Upl10,
+    /** **Unicode-DFS-2015**
+
+Unicode License Agreement - Data Files and Software (2015). Unicode License Agreement - Data Files and Software (2015). */
+    UnicodeDFS2015,
+    /** **Unicode-DFS-2016**
+
+Unicode License Agreement - Data Files and Software (2016). Unicode License Agreement - Data Files and Software (2016). */
+    UnicodeDFS2016,
+    /** **Unicode-TOU**
+
+Unicode Terms of Use. Unicode Terms of Use. */
+    UnicodeTOU,
+    /** **Unlicense**
+
+The Unlicense. The Unlicense. */
+    Unlicense,
+    /** **VOSTROM**
+
+VOSTROM Public License for Open Source. VOSTROM Public License for Open Source. */
+    Vostrom,
+    /** **VSL-1.0**
+
+Vovida Software License v1.0. Vovida Software License v1.0. */
+    Vsl10,
+    /** **Vim**
+
+Vim License. Vim License. */
+    Vim,
+    /** **W3C**
+
+W3C Software Notice and License (2002-12-31). W3C Software Notice and License (2002-12-31). */
+    W3C,
+    /** **W3C-19980720**
+
+W3C Software Notice and License (1998-07-20). W3C Software Notice and License (1998-07-20). */
+    W3C19980720,
+    /** **W3C-20150513**
+
+W3C Software Notice and Document License (2015-05-13). W3C Software Notice and Document License (2015-05-13). */
+    W3C20150513,
+    /** **WTFPL**
+
+Do What The F*ck You Want To Public License. Do What The F*ck You Want To Public License. */
+    Wtfpl,
+    /** **Watcom-1.0**
+
+Sybase Open Watcom Public License 1.0. Sybase Open Watcom Public License 1.0. */
+    Watcom10,
+    /** **Wsuipa**
+
+Wsuipa License. Wsuipa License. */
+    Wsuipa,
+    /** **X11**
+
+X11 License. X11 License. */
+    X11,
+    /** **XFree86-1.1**
+
+XFree86 License 1.1. XFree86 License 1.1. */
+    Xfree8611,
+    /** **XSkat**
+
+XSkat License. XSkat License. */
+    Xskat,
+    /** **Xerox**
+
+Xerox License. Xerox License. */
+    Xerox,
+    /** **Xnet**
+
+X.Net License. X.Net License. */
+    Xnet,
+    /** **YPL-1.0**
+
+Yahoo! Public License v1.0. Yahoo! Public License v1.0. */
+    Ypl10,
+    /** **YPL-1.1**
+
+Yahoo! Public License v1.1. Yahoo! Public License v1.1. */
+    Ypl11,
+    /** **ZPL-1.1**
+
+Zope Public License 1.1. Zope Public License 1.1. */
+    Zpl11,
+    /** **ZPL-2.0**
+
+Zope Public License 2.0. Zope Public License 2.0. */
+    Zpl20,
+    /** **ZPL-2.1**
+
+Zope Public License 2.1. Zope Public License 2.1. */
+    Zpl21,
+    /** **Zed**
+
+Zed License. Zed License. */
+    Zed,
+    /** **Zend-2.0**
+
+Zend License v2.0. Zend License v2.0. */
+    Zend20,
+    /** **Zimbra-1.3**
+
+Zimbra Public License v1.3. Zimbra Public License v1.3. */
+    Zimbra13,
+    /** **Zimbra-1.4**
+
+Zimbra Public License v1.4. Zimbra Public License v1.4. */
+    Zimbra14,
+    /** **Zlib**
+
+zlib License. zlib License. */
+    Zlib,
+    /** **bzip2-1.0.5**
+
+bzip2 and libbzip2 License v1.0.5. bzip2 and libbzip2 License v1.0.5. */
+    Bzip2105,
+    /** **bzip2-1.0.6**
+
+bzip2 and libbzip2 License v1.0.6. bzip2 and libbzip2 License v1.0.6. */
+    Bzip2106,
+    /** **curl**
+
+curl License. curl License. */
+    Curl,
+    /** **diffmark**
+
+diffmark license. diffmark license. */
+    Diffmark,
+    /** **dvipdfm**
+
+dvipdfm License. dvipdfm License. */
+    Dvipdfm,
+    /** **eGenix**
+
+eGenix.com Public License 1.1.0. eGenix.com Public License 1.1.0. */
+    Egenix,
+    /** **gSOAP-1.3b**
+
+gSOAP Public License v1.3b. gSOAP Public License v1.3b. */
+    Gsoap13B,
+    /** **gnuplot**
+
+gnuplot License. gnuplot License. */
+    Gnuplot,
+    /** **iMatix**
+
+iMatix Standard Function Library Agreement. iMatix Standard Function Library Agreement. */
+    Imatix,
+    /** **libtiff**
+
+libtiff License. libtiff License. */
+    Libtiff,
+    /** **mpich2**
+
+mpich2 License. mpich2 License. */
+    Mpich2,
+    /** **not-open-source**
+
+Not open source. Not an open source license. */
+    NotOpenSource,
+    /** **psfrag**
+
+psfrag License. psfrag License. */
+    Psfrag,
+    /** **psutils**
+
+psutils License. psutils License. */
+    Psutils,
+    /** **xinetd**
+
+xinetd License. xinetd License. */
+    Xinetd,
+    /** **xpp**
+
+XPP License. XPP License. */
+    Xpp,
+    /** **zlib-acknowledgement**
+
+zlib/libpng License with Acknowledgement. zlib/libpng License with Acknowledgement. */
+    ZlibAcknowledgement,
+}
+impl ::core::str::FromStr for SPDXLicense {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "0BSD" => Ok(Self::N0Bsd),
+            "AAL" => Ok(Self::Aal),
+            "ADSL" => Ok(Self::Adsl),
+            "AFL-1.1" => Ok(Self::Afl11),
+            "AFL-1.2" => Ok(Self::Afl12),
+            "AFL-2.0" => Ok(Self::Afl20),
+            "AFL-2.1" => Ok(Self::Afl21),
+            "AFL-3.0" => Ok(Self::Afl30),
+            "AGPL-1.0-only" => Ok(Self::Agpl10Only),
+            "AGPL-1.0-or-later" => Ok(Self::Agpl10OrLater),
+            "AGPL-3.0-only" => Ok(Self::Agpl30Only),
+            "AGPL-3.0-or-later" => Ok(Self::Agpl30OrLater),
+            "AMDPLPA" => Ok(Self::Amdplpa),
+            "AML" => Ok(Self::Aml),
+            "AMPAS" => Ok(Self::Ampas),
+            "ANTLR-PD" => Ok(Self::AntlrPd),
+            "APAFML" => Ok(Self::Apafml),
+            "APL-1.0" => Ok(Self::Apl10),
+            "APSL-1.0" => Ok(Self::Apsl10),
+            "APSL-1.1" => Ok(Self::Apsl11),
+            "APSL-1.2" => Ok(Self::Apsl12),
+            "APSL-2.0" => Ok(Self::Apsl20),
+            "Abstyles" => Ok(Self::Abstyles),
+            "Adobe-2006" => Ok(Self::Adobe2006),
+            "Adobe-Glyph" => Ok(Self::AdobeGlyph),
+            "Afmparse" => Ok(Self::Afmparse),
+            "Aladdin" => Ok(Self::Aladdin),
+            "Apache-1.0" => Ok(Self::Apache10),
+            "Apache-1.1" => Ok(Self::Apache11),
+            "Apache-2.0" => Ok(Self::Apache20),
+            "Artistic-1.0" => Ok(Self::Artistic10),
+            "Artistic-1.0-Perl" => Ok(Self::Artistic10Perl),
+            "Artistic-1.0-cl8" => Ok(Self::Artistic10Cl8),
+            "Artistic-2.0" => Ok(Self::Artistic20),
+            "BSD-1-Clause" => Ok(Self::Bsd1Clause),
+            "BSD-2-Clause" => Ok(Self::Bsd2Clause),
+            "BSD-2-Clause-FreeBSD" => Ok(Self::Bsd2ClauseFreeBSD),
+            "BSD-2-Clause-NetBSD" => Ok(Self::Bsd2ClauseNetBSD),
+            "BSD-2-Clause-Patent" => Ok(Self::Bsd2ClausePatent),
+            "BSD-3-Clause" => Ok(Self::Bsd3Clause),
+            "BSD-3-Clause-Attribution" => Ok(Self::Bsd3ClauseAttribution),
+            "BSD-3-Clause-Clear" => Ok(Self::Bsd3ClauseClear),
+            "BSD-3-Clause-LBNL" => Ok(Self::Bsd3ClauseLBNL),
+            "BSD-3-Clause-No-Nuclear-License" => Ok(Self::Bsd3ClauseNoNuclearLicense),
+            "BSD-3-Clause-No-Nuclear-License-2014" => {
+                Ok(Self::Bsd3ClauseNoNuclearLicense2014)
+            }
+            "BSD-3-Clause-No-Nuclear-Warranty" => Ok(Self::Bsd3ClauseNoNuclearWarranty),
+            "BSD-4-Clause" => Ok(Self::Bsd4Clause),
+            "BSD-4-Clause-UC" => Ok(Self::Bsd4ClauseUC),
+            "BSD-Protection" => Ok(Self::BsdProtection),
+            "BSD-Source-Code" => Ok(Self::BsdSourceCode),
+            "BSL-1.0" => Ok(Self::Bsl10),
+            "Bahyph" => Ok(Self::Bahyph),
+            "Barr" => Ok(Self::Barr),
+            "Beerware" => Ok(Self::Beerware),
+            "BitTorrent-1.0" => Ok(Self::BitTorrent10),
+            "BitTorrent-1.1" => Ok(Self::BitTorrent11),
+            "Borceux" => Ok(Self::Borceux),
+            "CATOSL-1.1" => Ok(Self::Catosl11),
+            "CC-BY-1.0" => Ok(Self::CcBy10),
+            "CC-BY-2.0" => Ok(Self::CcBy20),
+            "CC-BY-2.5" => Ok(Self::CcBy25),
+            "CC-BY-3.0" => Ok(Self::CcBy30),
+            "CC-BY-4.0" => Ok(Self::CcBy40),
+            "CC-BY-NC-1.0" => Ok(Self::CcByNc10),
+            "CC-BY-NC-2.0" => Ok(Self::CcByNc20),
+            "CC-BY-NC-2.5" => Ok(Self::CcByNc25),
+            "CC-BY-NC-3.0" => Ok(Self::CcByNc30),
+            "CC-BY-NC-4.0" => Ok(Self::CcByNc40),
+            "CC-BY-NC-ND-1.0" => Ok(Self::CcByNcNd10),
+            "CC-BY-NC-ND-2.0" => Ok(Self::CcByNcNd20),
+            "CC-BY-NC-ND-2.5" => Ok(Self::CcByNcNd25),
+            "CC-BY-NC-ND-3.0" => Ok(Self::CcByNcNd30),
+            "CC-BY-NC-ND-4.0" => Ok(Self::CcByNcNd40),
+            "CC-BY-NC-SA-1.0" => Ok(Self::CcByNcSa10),
+            "CC-BY-NC-SA-2.0" => Ok(Self::CcByNcSa20),
+            "CC-BY-NC-SA-2.5" => Ok(Self::CcByNcSa25),
+            "CC-BY-NC-SA-3.0" => Ok(Self::CcByNcSa30),
+            "CC-BY-NC-SA-4.0" => Ok(Self::CcByNcSa40),
+            "CC-BY-ND-1.0" => Ok(Self::CcByNd10),
+            "CC-BY-ND-2.0" => Ok(Self::CcByNd20),
+            "CC-BY-ND-2.5" => Ok(Self::CcByNd25),
+            "CC-BY-ND-3.0" => Ok(Self::CcByNd30),
+            "CC-BY-ND-4.0" => Ok(Self::CcByNd40),
+            "CC-BY-SA-1.0" => Ok(Self::CcBySa10),
+            "CC-BY-SA-2.0" => Ok(Self::CcBySa20),
+            "CC-BY-SA-2.5" => Ok(Self::CcBySa25),
+            "CC-BY-SA-3.0" => Ok(Self::CcBySa30),
+            "CC-BY-SA-4.0" => Ok(Self::CcBySa40),
+            "CC0-1.0" => Ok(Self::Cc010),
+            "CDDL-1.0" => Ok(Self::Cddl10),
+            "CDDL-1.1" => Ok(Self::Cddl11),
+            "CDLA-Permissive-1.0" => Ok(Self::CdlaPermissive10),
+            "CDLA-Sharing-1.0" => Ok(Self::CdlaSharing10),
+            "CECILL-1.0" => Ok(Self::Cecill10),
+            "CECILL-1.1" => Ok(Self::Cecill11),
+            "CECILL-2.0" => Ok(Self::Cecill20),
+            "CECILL-2.1" => Ok(Self::Cecill21),
+            "CECILL-B" => Ok(Self::CecillB),
+            "CECILL-C" => Ok(Self::CecillC),
+            "CNRI-Jython" => Ok(Self::CnriJython),
+            "CNRI-Python" => Ok(Self::CnriPython),
+            "CNRI-Python-GPL-Compatible" => Ok(Self::CnriPythonGPLCompatible),
+            "CPAL-1.0" => Ok(Self::Cpal10),
+            "CPL-1.0" => Ok(Self::Cpl10),
+            "CPOL-1.02" => Ok(Self::Cpol102),
+            "CUA-OPL-1.0" => Ok(Self::CuaOpl10),
+            "Caldera" => Ok(Self::Caldera),
+            "ClArtistic" => Ok(Self::ClArtistic),
+            "Condor-1.1" => Ok(Self::Condor11),
+            "Crossword" => Ok(Self::Crossword),
+            "CrystalStacker" => Ok(Self::CrystalStacker),
+            "Cube" => Ok(Self::Cube),
+            "D-FSL-1.0" => Ok(Self::DFsl10),
+            "DOC" => Ok(Self::Doc),
+            "DSDP" => Ok(Self::Dsdp),
+            "Dotseqn" => Ok(Self::Dotseqn),
+            "ECL-1.0" => Ok(Self::Ecl10),
+            "ECL-2.0" => Ok(Self::Ecl20),
+            "EFL-1.0" => Ok(Self::Efl10),
+            "EFL-2.0" => Ok(Self::Efl20),
+            "EPL-1.0" => Ok(Self::Epl10),
+            "EPL-2.0" => Ok(Self::Epl20),
+            "EUDatagrid" => Ok(Self::Eudatagrid),
+            "EUPL-1.0" => Ok(Self::Eupl10),
+            "EUPL-1.1" => Ok(Self::Eupl11),
+            "EUPL-1.2" => Ok(Self::Eupl12),
+            "Entessa" => Ok(Self::Entessa),
+            "ErlPL-1.1" => Ok(Self::ErlPL11),
+            "Eurosym" => Ok(Self::Eurosym),
+            "FSFAP" => Ok(Self::Fsfap),
+            "FSFUL" => Ok(Self::Fsful),
+            "FSFULLR" => Ok(Self::Fsfullr),
+            "FTL" => Ok(Self::Ftl),
+            "Fair" => Ok(Self::Fair),
+            "Frameworx-1.0" => Ok(Self::Frameworx10),
+            "FreeImage" => Ok(Self::FreeImage),
+            "GFDL-1.1-only" => Ok(Self::Gfdl11Only),
+            "GFDL-1.1-or-later" => Ok(Self::Gfdl11OrLater),
+            "GFDL-1.2-only" => Ok(Self::Gfdl12Only),
+            "GFDL-1.2-or-later" => Ok(Self::Gfdl12OrLater),
+            "GFDL-1.3-only" => Ok(Self::Gfdl13Only),
+            "GFDL-1.3-or-later" => Ok(Self::Gfdl13OrLater),
+            "GL2PS" => Ok(Self::Gl2Ps),
+            "GPL-1.0-only" => Ok(Self::Gpl10Only),
+            "GPL-1.0-or-later" => Ok(Self::Gpl10OrLater),
+            "GPL-2.0-only" => Ok(Self::Gpl20Only),
+            "GPL-2.0-or-later" => Ok(Self::Gpl20OrLater),
+            "GPL-3.0-only" => Ok(Self::Gpl30Only),
+            "GPL-3.0-or-later" => Ok(Self::Gpl30OrLater),
+            "Giftware" => Ok(Self::Giftware),
+            "Glide" => Ok(Self::Glide),
+            "Glulxe" => Ok(Self::Glulxe),
+            "HPND" => Ok(Self::Hpnd),
+            "HaskellReport" => Ok(Self::HaskellReport),
+            "IBM-pibs" => Ok(Self::IbmPibs),
+            "ICU" => Ok(Self::Icu),
+            "IJG" => Ok(Self::Ijg),
+            "IPA" => Ok(Self::Ipa),
+            "IPL-1.0" => Ok(Self::Ipl10),
+            "ISC" => Ok(Self::Isc),
+            "ImageMagick" => Ok(Self::ImageMagick),
+            "Imlib2" => Ok(Self::Imlib2),
+            "Info-ZIP" => Ok(Self::InfoZIP),
+            "Intel" => Ok(Self::Intel),
+            "Intel-ACPI" => Ok(Self::IntelACPI),
+            "Interbase-1.0" => Ok(Self::Interbase10),
+            "JSON" => Ok(Self::Json),
+            "JasPer-2.0" => Ok(Self::JasPer20),
+            "LAL-1.2" => Ok(Self::Lal12),
+            "LAL-1.3" => Ok(Self::Lal13),
+            "LGPL-2.0-only" => Ok(Self::Lgpl20Only),
+            "LGPL-2.0-or-later" => Ok(Self::Lgpl20OrLater),
+            "LGPL-2.1-only" => Ok(Self::Lgpl21Only),
+            "LGPL-2.1-or-later" => Ok(Self::Lgpl21OrLater),
+            "LGPL-3.0-only" => Ok(Self::Lgpl30Only),
+            "LGPL-3.0-or-later" => Ok(Self::Lgpl30OrLater),
+            "LGPLLR" => Ok(Self::Lgpllr),
+            "LPL-1.0" => Ok(Self::Lpl10),
+            "LPL-1.02" => Ok(Self::Lpl102),
+            "LPPL-1.0" => Ok(Self::Lppl10),
+            "LPPL-1.1" => Ok(Self::Lppl11),
+            "LPPL-1.2" => Ok(Self::Lppl12),
+            "LPPL-1.3a" => Ok(Self::Lppl13A),
+            "LPPL-1.3c" => Ok(Self::Lppl13C),
+            "Latex2e" => Ok(Self::Latex2E),
+            "Leptonica" => Ok(Self::Leptonica),
+            "LiLiQ-P-1.1" => Ok(Self::LiLiQP11),
+            "LiLiQ-R-1.1" => Ok(Self::LiLiQR11),
+            "LiLiQ-Rplus-1.1" => Ok(Self::LiLiQRplus11),
+            "Libpng" => Ok(Self::Libpng),
+            "Linux-OpenIB" => Ok(Self::LinuxOpenIB),
+            "MIT" => Ok(Self::Mit),
+            "MIT-0" => Ok(Self::Mit0),
+            "MIT-CMU" => Ok(Self::MitCmu),
+            "MIT-advertising" => Ok(Self::MitAdvertising),
+            "MIT-enna" => Ok(Self::MitEnna),
+            "MIT-feh" => Ok(Self::MitFeh),
+            "MITNFA" => Ok(Self::Mitnfa),
+            "MPL-1.0" => Ok(Self::Mpl10),
+            "MPL-1.1" => Ok(Self::Mpl11),
+            "MPL-2.0" => Ok(Self::Mpl20),
+            "MPL-2.0-no-copyleft-exception" => Ok(Self::Mpl20NoCopyleftException),
+            "MS-PL" => Ok(Self::MsPl),
+            "MS-RL" => Ok(Self::MsRl),
+            "MTLL" => Ok(Self::Mtll),
+            "MakeIndex" => Ok(Self::MakeIndex),
+            "MirOS" => Ok(Self::MirOS),
+            "Motosoto" => Ok(Self::Motosoto),
+            "Multics" => Ok(Self::Multics),
+            "Mup" => Ok(Self::Mup),
+            "NASA-1.3" => Ok(Self::Nasa13),
+            "NBPL-1.0" => Ok(Self::Nbpl10),
+            "NCSA" => Ok(Self::Ncsa),
+            "NGPL" => Ok(Self::Ngpl),
+            "NLOD-1.0" => Ok(Self::Nlod10),
+            "NLPL" => Ok(Self::Nlpl),
+            "NOSL" => Ok(Self::Nosl),
+            "NPL-1.0" => Ok(Self::Npl10),
+            "NPL-1.1" => Ok(Self::Npl11),
+            "NPOSL-3.0" => Ok(Self::Nposl30),
+            "NRL" => Ok(Self::Nrl),
+            "NTP" => Ok(Self::Ntp),
+            "Naumen" => Ok(Self::Naumen),
+            "Net-SNMP" => Ok(Self::NetSNMP),
+            "NetCDF" => Ok(Self::NetCDF),
+            "Newsletr" => Ok(Self::Newsletr),
+            "Nokia" => Ok(Self::Nokia),
+            "Noweb" => Ok(Self::Noweb),
+            "OCCT-PL" => Ok(Self::OcctPl),
+            "OCLC-2.0" => Ok(Self::Oclc20),
+            "ODbL-1.0" => Ok(Self::OdbL10),
+            "OFL-1.0" => Ok(Self::Ofl10),
+            "OFL-1.1" => Ok(Self::Ofl11),
+            "OGTSL" => Ok(Self::Ogtsl),
+            "OLDAP-1.1" => Ok(Self::Oldap11),
+            "OLDAP-1.2" => Ok(Self::Oldap12),
+            "OLDAP-1.3" => Ok(Self::Oldap13),
+            "OLDAP-1.4" => Ok(Self::Oldap14),
+            "OLDAP-2.0" => Ok(Self::Oldap20),
+            "OLDAP-2.0.1" => Ok(Self::Oldap201),
+            "OLDAP-2.1" => Ok(Self::Oldap21),
+            "OLDAP-2.2" => Ok(Self::Oldap22),
+            "OLDAP-2.2.1" => Ok(Self::Oldap221),
+            "OLDAP-2.2.2" => Ok(Self::Oldap222),
+            "OLDAP-2.3" => Ok(Self::Oldap23),
+            "OLDAP-2.4" => Ok(Self::Oldap24),
+            "OLDAP-2.5" => Ok(Self::Oldap25),
+            "OLDAP-2.6" => Ok(Self::Oldap26),
+            "OLDAP-2.7" => Ok(Self::Oldap27),
+            "OLDAP-2.8" => Ok(Self::Oldap28),
+            "OML" => Ok(Self::Oml),
+            "OPL-1.0" => Ok(Self::Opl10),
+            "OSET-PL-2.1" => Ok(Self::OsetPl21),
+            "OSL-1.0" => Ok(Self::Osl10),
+            "OSL-1.1" => Ok(Self::Osl11),
+            "OSL-2.0" => Ok(Self::Osl20),
+            "OSL-2.1" => Ok(Self::Osl21),
+            "OSL-3.0" => Ok(Self::Osl30),
+            "OpenSSL" => Ok(Self::OpenSSL),
+            "PDDL-1.0" => Ok(Self::Pddl10),
+            "PHP-3.0" => Ok(Self::Php30),
+            "PHP-3.01" => Ok(Self::Php301),
+            "Plexus" => Ok(Self::Plexus),
+            "PostgreSQL" => Ok(Self::PostgreSQL),
+            "Python-2.0" => Ok(Self::Python20),
+            "QPL-1.0" => Ok(Self::Qpl10),
+            "Qhull" => Ok(Self::Qhull),
+            "RHeCos-1.1" => Ok(Self::RheCos11),
+            "RPL-1.1" => Ok(Self::Rpl11),
+            "RPL-1.5" => Ok(Self::Rpl15),
+            "RPSL-1.0" => Ok(Self::Rpsl10),
+            "RSA-MD" => Ok(Self::RsaMd),
+            "RSCPL" => Ok(Self::Rscpl),
+            "Rdisc" => Ok(Self::Rdisc),
+            "Ruby" => Ok(Self::Ruby),
+            "SAX-PD" => Ok(Self::SaxPd),
+            "SCEA" => Ok(Self::Scea),
+            "SGI-B-1.0" => Ok(Self::SgiB10),
+            "SGI-B-1.1" => Ok(Self::SgiB11),
+            "SGI-B-2.0" => Ok(Self::SgiB20),
+            "SISSL" => Ok(Self::Sissl),
+            "SISSL-1.2" => Ok(Self::Sissl12),
+            "SMLNJ" => Ok(Self::Smlnj),
+            "SMPPL" => Ok(Self::Smppl),
+            "SNIA" => Ok(Self::Snia),
+            "SPL-1.0" => Ok(Self::Spl10),
+            "SWL" => Ok(Self::Swl),
+            "Saxpath" => Ok(Self::Saxpath),
+            "Sendmail" => Ok(Self::Sendmail),
+            "SimPL-2.0" => Ok(Self::SimPL20),
+            "Sleepycat" => Ok(Self::Sleepycat),
+            "Spencer-86" => Ok(Self::Spencer86),
+            "Spencer-94" => Ok(Self::Spencer94),
+            "Spencer-99" => Ok(Self::Spencer99),
+            "SugarCRM-1.1.3" => Ok(Self::SugarCRM113),
+            "TCL" => Ok(Self::Tcl),
+            "TCP-wrappers" => Ok(Self::TcpWrappers),
+            "TMate" => Ok(Self::Tmate),
+            "TORQUE-1.1" => Ok(Self::Torque11),
+            "TOSL" => Ok(Self::Tosl),
+            "UPL-1.0" => Ok(Self::Upl10),
+            "Unicode-DFS-2015" => Ok(Self::UnicodeDFS2015),
+            "Unicode-DFS-2016" => Ok(Self::UnicodeDFS2016),
+            "Unicode-TOU" => Ok(Self::UnicodeTOU),
+            "Unlicense" => Ok(Self::Unlicense),
+            "VOSTROM" => Ok(Self::Vostrom),
+            "VSL-1.0" => Ok(Self::Vsl10),
+            "Vim" => Ok(Self::Vim),
+            "W3C" => Ok(Self::W3C),
+            "W3C-19980720" => Ok(Self::W3C19980720),
+            "W3C-20150513" => Ok(Self::W3C20150513),
+            "WTFPL" => Ok(Self::Wtfpl),
+            "Watcom-1.0" => Ok(Self::Watcom10),
+            "Wsuipa" => Ok(Self::Wsuipa),
+            "X11" => Ok(Self::X11),
+            "XFree86-1.1" => Ok(Self::Xfree8611),
+            "XSkat" => Ok(Self::Xskat),
+            "Xerox" => Ok(Self::Xerox),
+            "Xnet" => Ok(Self::Xnet),
+            "YPL-1.0" => Ok(Self::Ypl10),
+            "YPL-1.1" => Ok(Self::Ypl11),
+            "ZPL-1.1" => Ok(Self::Zpl11),
+            "ZPL-2.0" => Ok(Self::Zpl20),
+            "ZPL-2.1" => Ok(Self::Zpl21),
+            "Zed" => Ok(Self::Zed),
+            "Zend-2.0" => Ok(Self::Zend20),
+            "Zimbra-1.3" => Ok(Self::Zimbra13),
+            "Zimbra-1.4" => Ok(Self::Zimbra14),
+            "Zlib" => Ok(Self::Zlib),
+            "bzip2-1.0.5" => Ok(Self::Bzip2105),
+            "bzip2-1.0.6" => Ok(Self::Bzip2106),
+            "curl" => Ok(Self::Curl),
+            "diffmark" => Ok(Self::Diffmark),
+            "dvipdfm" => Ok(Self::Dvipdfm),
+            "eGenix" => Ok(Self::Egenix),
+            "gSOAP-1.3b" => Ok(Self::Gsoap13B),
+            "gnuplot" => Ok(Self::Gnuplot),
+            "iMatix" => Ok(Self::Imatix),
+            "libtiff" => Ok(Self::Libtiff),
+            "mpich2" => Ok(Self::Mpich2),
+            "not-open-source" => Ok(Self::NotOpenSource),
+            "psfrag" => Ok(Self::Psfrag),
+            "psutils" => Ok(Self::Psutils),
+            "xinetd" => Ok(Self::Xinetd),
+            "xpp" => Ok(Self::Xpp),
+            "zlib-acknowledgement" => Ok(Self::ZlibAcknowledgement),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for SPDXLicense {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N0Bsd => "0BSD",
+            Self::Aal => "AAL",
+            Self::Adsl => "ADSL",
+            Self::Afl11 => "AFL-1.1",
+            Self::Afl12 => "AFL-1.2",
+            Self::Afl20 => "AFL-2.0",
+            Self::Afl21 => "AFL-2.1",
+            Self::Afl30 => "AFL-3.0",
+            Self::Agpl10Only => "AGPL-1.0-only",
+            Self::Agpl10OrLater => "AGPL-1.0-or-later",
+            Self::Agpl30Only => "AGPL-3.0-only",
+            Self::Agpl30OrLater => "AGPL-3.0-or-later",
+            Self::Amdplpa => "AMDPLPA",
+            Self::Aml => "AML",
+            Self::Ampas => "AMPAS",
+            Self::AntlrPd => "ANTLR-PD",
+            Self::Apafml => "APAFML",
+            Self::Apl10 => "APL-1.0",
+            Self::Apsl10 => "APSL-1.0",
+            Self::Apsl11 => "APSL-1.1",
+            Self::Apsl12 => "APSL-1.2",
+            Self::Apsl20 => "APSL-2.0",
+            Self::Abstyles => "Abstyles",
+            Self::Adobe2006 => "Adobe-2006",
+            Self::AdobeGlyph => "Adobe-Glyph",
+            Self::Afmparse => "Afmparse",
+            Self::Aladdin => "Aladdin",
+            Self::Apache10 => "Apache-1.0",
+            Self::Apache11 => "Apache-1.1",
+            Self::Apache20 => "Apache-2.0",
+            Self::Artistic10 => "Artistic-1.0",
+            Self::Artistic10Perl => "Artistic-1.0-Perl",
+            Self::Artistic10Cl8 => "Artistic-1.0-cl8",
+            Self::Artistic20 => "Artistic-2.0",
+            Self::Bsd1Clause => "BSD-1-Clause",
+            Self::Bsd2Clause => "BSD-2-Clause",
+            Self::Bsd2ClauseFreeBSD => "BSD-2-Clause-FreeBSD",
+            Self::Bsd2ClauseNetBSD => "BSD-2-Clause-NetBSD",
+            Self::Bsd2ClausePatent => "BSD-2-Clause-Patent",
+            Self::Bsd3Clause => "BSD-3-Clause",
+            Self::Bsd3ClauseAttribution => "BSD-3-Clause-Attribution",
+            Self::Bsd3ClauseClear => "BSD-3-Clause-Clear",
+            Self::Bsd3ClauseLBNL => "BSD-3-Clause-LBNL",
+            Self::Bsd3ClauseNoNuclearLicense => "BSD-3-Clause-No-Nuclear-License",
+            Self::Bsd3ClauseNoNuclearLicense2014 => {
+                "BSD-3-Clause-No-Nuclear-License-2014"
+            }
+            Self::Bsd3ClauseNoNuclearWarranty => "BSD-3-Clause-No-Nuclear-Warranty",
+            Self::Bsd4Clause => "BSD-4-Clause",
+            Self::Bsd4ClauseUC => "BSD-4-Clause-UC",
+            Self::BsdProtection => "BSD-Protection",
+            Self::BsdSourceCode => "BSD-Source-Code",
+            Self::Bsl10 => "BSL-1.0",
+            Self::Bahyph => "Bahyph",
+            Self::Barr => "Barr",
+            Self::Beerware => "Beerware",
+            Self::BitTorrent10 => "BitTorrent-1.0",
+            Self::BitTorrent11 => "BitTorrent-1.1",
+            Self::Borceux => "Borceux",
+            Self::Catosl11 => "CATOSL-1.1",
+            Self::CcBy10 => "CC-BY-1.0",
+            Self::CcBy20 => "CC-BY-2.0",
+            Self::CcBy25 => "CC-BY-2.5",
+            Self::CcBy30 => "CC-BY-3.0",
+            Self::CcBy40 => "CC-BY-4.0",
+            Self::CcByNc10 => "CC-BY-NC-1.0",
+            Self::CcByNc20 => "CC-BY-NC-2.0",
+            Self::CcByNc25 => "CC-BY-NC-2.5",
+            Self::CcByNc30 => "CC-BY-NC-3.0",
+            Self::CcByNc40 => "CC-BY-NC-4.0",
+            Self::CcByNcNd10 => "CC-BY-NC-ND-1.0",
+            Self::CcByNcNd20 => "CC-BY-NC-ND-2.0",
+            Self::CcByNcNd25 => "CC-BY-NC-ND-2.5",
+            Self::CcByNcNd30 => "CC-BY-NC-ND-3.0",
+            Self::CcByNcNd40 => "CC-BY-NC-ND-4.0",
+            Self::CcByNcSa10 => "CC-BY-NC-SA-1.0",
+            Self::CcByNcSa20 => "CC-BY-NC-SA-2.0",
+            Self::CcByNcSa25 => "CC-BY-NC-SA-2.5",
+            Self::CcByNcSa30 => "CC-BY-NC-SA-3.0",
+            Self::CcByNcSa40 => "CC-BY-NC-SA-4.0",
+            Self::CcByNd10 => "CC-BY-ND-1.0",
+            Self::CcByNd20 => "CC-BY-ND-2.0",
+            Self::CcByNd25 => "CC-BY-ND-2.5",
+            Self::CcByNd30 => "CC-BY-ND-3.0",
+            Self::CcByNd40 => "CC-BY-ND-4.0",
+            Self::CcBySa10 => "CC-BY-SA-1.0",
+            Self::CcBySa20 => "CC-BY-SA-2.0",
+            Self::CcBySa25 => "CC-BY-SA-2.5",
+            Self::CcBySa30 => "CC-BY-SA-3.0",
+            Self::CcBySa40 => "CC-BY-SA-4.0",
+            Self::Cc010 => "CC0-1.0",
+            Self::Cddl10 => "CDDL-1.0",
+            Self::Cddl11 => "CDDL-1.1",
+            Self::CdlaPermissive10 => "CDLA-Permissive-1.0",
+            Self::CdlaSharing10 => "CDLA-Sharing-1.0",
+            Self::Cecill10 => "CECILL-1.0",
+            Self::Cecill11 => "CECILL-1.1",
+            Self::Cecill20 => "CECILL-2.0",
+            Self::Cecill21 => "CECILL-2.1",
+            Self::CecillB => "CECILL-B",
+            Self::CecillC => "CECILL-C",
+            Self::CnriJython => "CNRI-Jython",
+            Self::CnriPython => "CNRI-Python",
+            Self::CnriPythonGPLCompatible => "CNRI-Python-GPL-Compatible",
+            Self::Cpal10 => "CPAL-1.0",
+            Self::Cpl10 => "CPL-1.0",
+            Self::Cpol102 => "CPOL-1.02",
+            Self::CuaOpl10 => "CUA-OPL-1.0",
+            Self::Caldera => "Caldera",
+            Self::ClArtistic => "ClArtistic",
+            Self::Condor11 => "Condor-1.1",
+            Self::Crossword => "Crossword",
+            Self::CrystalStacker => "CrystalStacker",
+            Self::Cube => "Cube",
+            Self::DFsl10 => "D-FSL-1.0",
+            Self::Doc => "DOC",
+            Self::Dsdp => "DSDP",
+            Self::Dotseqn => "Dotseqn",
+            Self::Ecl10 => "ECL-1.0",
+            Self::Ecl20 => "ECL-2.0",
+            Self::Efl10 => "EFL-1.0",
+            Self::Efl20 => "EFL-2.0",
+            Self::Epl10 => "EPL-1.0",
+            Self::Epl20 => "EPL-2.0",
+            Self::Eudatagrid => "EUDatagrid",
+            Self::Eupl10 => "EUPL-1.0",
+            Self::Eupl11 => "EUPL-1.1",
+            Self::Eupl12 => "EUPL-1.2",
+            Self::Entessa => "Entessa",
+            Self::ErlPL11 => "ErlPL-1.1",
+            Self::Eurosym => "Eurosym",
+            Self::Fsfap => "FSFAP",
+            Self::Fsful => "FSFUL",
+            Self::Fsfullr => "FSFULLR",
+            Self::Ftl => "FTL",
+            Self::Fair => "Fair",
+            Self::Frameworx10 => "Frameworx-1.0",
+            Self::FreeImage => "FreeImage",
+            Self::Gfdl11Only => "GFDL-1.1-only",
+            Self::Gfdl11OrLater => "GFDL-1.1-or-later",
+            Self::Gfdl12Only => "GFDL-1.2-only",
+            Self::Gfdl12OrLater => "GFDL-1.2-or-later",
+            Self::Gfdl13Only => "GFDL-1.3-only",
+            Self::Gfdl13OrLater => "GFDL-1.3-or-later",
+            Self::Gl2Ps => "GL2PS",
+            Self::Gpl10Only => "GPL-1.0-only",
+            Self::Gpl10OrLater => "GPL-1.0-or-later",
+            Self::Gpl20Only => "GPL-2.0-only",
+            Self::Gpl20OrLater => "GPL-2.0-or-later",
+            Self::Gpl30Only => "GPL-3.0-only",
+            Self::Gpl30OrLater => "GPL-3.0-or-later",
+            Self::Giftware => "Giftware",
+            Self::Glide => "Glide",
+            Self::Glulxe => "Glulxe",
+            Self::Hpnd => "HPND",
+            Self::HaskellReport => "HaskellReport",
+            Self::IbmPibs => "IBM-pibs",
+            Self::Icu => "ICU",
+            Self::Ijg => "IJG",
+            Self::Ipa => "IPA",
+            Self::Ipl10 => "IPL-1.0",
+            Self::Isc => "ISC",
+            Self::ImageMagick => "ImageMagick",
+            Self::Imlib2 => "Imlib2",
+            Self::InfoZIP => "Info-ZIP",
+            Self::Intel => "Intel",
+            Self::IntelACPI => "Intel-ACPI",
+            Self::Interbase10 => "Interbase-1.0",
+            Self::Json => "JSON",
+            Self::JasPer20 => "JasPer-2.0",
+            Self::Lal12 => "LAL-1.2",
+            Self::Lal13 => "LAL-1.3",
+            Self::Lgpl20Only => "LGPL-2.0-only",
+            Self::Lgpl20OrLater => "LGPL-2.0-or-later",
+            Self::Lgpl21Only => "LGPL-2.1-only",
+            Self::Lgpl21OrLater => "LGPL-2.1-or-later",
+            Self::Lgpl30Only => "LGPL-3.0-only",
+            Self::Lgpl30OrLater => "LGPL-3.0-or-later",
+            Self::Lgpllr => "LGPLLR",
+            Self::Lpl10 => "LPL-1.0",
+            Self::Lpl102 => "LPL-1.02",
+            Self::Lppl10 => "LPPL-1.0",
+            Self::Lppl11 => "LPPL-1.1",
+            Self::Lppl12 => "LPPL-1.2",
+            Self::Lppl13A => "LPPL-1.3a",
+            Self::Lppl13C => "LPPL-1.3c",
+            Self::Latex2E => "Latex2e",
+            Self::Leptonica => "Leptonica",
+            Self::LiLiQP11 => "LiLiQ-P-1.1",
+            Self::LiLiQR11 => "LiLiQ-R-1.1",
+            Self::LiLiQRplus11 => "LiLiQ-Rplus-1.1",
+            Self::Libpng => "Libpng",
+            Self::LinuxOpenIB => "Linux-OpenIB",
+            Self::Mit => "MIT",
+            Self::Mit0 => "MIT-0",
+            Self::MitCmu => "MIT-CMU",
+            Self::MitAdvertising => "MIT-advertising",
+            Self::MitEnna => "MIT-enna",
+            Self::MitFeh => "MIT-feh",
+            Self::Mitnfa => "MITNFA",
+            Self::Mpl10 => "MPL-1.0",
+            Self::Mpl11 => "MPL-1.1",
+            Self::Mpl20 => "MPL-2.0",
+            Self::Mpl20NoCopyleftException => "MPL-2.0-no-copyleft-exception",
+            Self::MsPl => "MS-PL",
+            Self::MsRl => "MS-RL",
+            Self::Mtll => "MTLL",
+            Self::MakeIndex => "MakeIndex",
+            Self::MirOS => "MirOS",
+            Self::Motosoto => "Motosoto",
+            Self::Multics => "Multics",
+            Self::Mup => "Mup",
+            Self::Nasa13 => "NASA-1.3",
+            Self::Nbpl10 => "NBPL-1.0",
+            Self::Ncsa => "NCSA",
+            Self::Ngpl => "NGPL",
+            Self::Nlod10 => "NLOD-1.0",
+            Self::Nlpl => "NLPL",
+            Self::Nosl => "NOSL",
+            Self::Npl10 => "NPL-1.0",
+            Self::Npl11 => "NPL-1.1",
+            Self::Nposl30 => "NPOSL-3.0",
+            Self::Nrl => "NRL",
+            Self::Ntp => "NTP",
+            Self::Naumen => "Naumen",
+            Self::NetSNMP => "Net-SNMP",
+            Self::NetCDF => "NetCDF",
+            Self::Newsletr => "Newsletr",
+            Self::Nokia => "Nokia",
+            Self::Noweb => "Noweb",
+            Self::OcctPl => "OCCT-PL",
+            Self::Oclc20 => "OCLC-2.0",
+            Self::OdbL10 => "ODbL-1.0",
+            Self::Ofl10 => "OFL-1.0",
+            Self::Ofl11 => "OFL-1.1",
+            Self::Ogtsl => "OGTSL",
+            Self::Oldap11 => "OLDAP-1.1",
+            Self::Oldap12 => "OLDAP-1.2",
+            Self::Oldap13 => "OLDAP-1.3",
+            Self::Oldap14 => "OLDAP-1.4",
+            Self::Oldap20 => "OLDAP-2.0",
+            Self::Oldap201 => "OLDAP-2.0.1",
+            Self::Oldap21 => "OLDAP-2.1",
+            Self::Oldap22 => "OLDAP-2.2",
+            Self::Oldap221 => "OLDAP-2.2.1",
+            Self::Oldap222 => "OLDAP-2.2.2",
+            Self::Oldap23 => "OLDAP-2.3",
+            Self::Oldap24 => "OLDAP-2.4",
+            Self::Oldap25 => "OLDAP-2.5",
+            Self::Oldap26 => "OLDAP-2.6",
+            Self::Oldap27 => "OLDAP-2.7",
+            Self::Oldap28 => "OLDAP-2.8",
+            Self::Oml => "OML",
+            Self::Opl10 => "OPL-1.0",
+            Self::OsetPl21 => "OSET-PL-2.1",
+            Self::Osl10 => "OSL-1.0",
+            Self::Osl11 => "OSL-1.1",
+            Self::Osl20 => "OSL-2.0",
+            Self::Osl21 => "OSL-2.1",
+            Self::Osl30 => "OSL-3.0",
+            Self::OpenSSL => "OpenSSL",
+            Self::Pddl10 => "PDDL-1.0",
+            Self::Php30 => "PHP-3.0",
+            Self::Php301 => "PHP-3.01",
+            Self::Plexus => "Plexus",
+            Self::PostgreSQL => "PostgreSQL",
+            Self::Python20 => "Python-2.0",
+            Self::Qpl10 => "QPL-1.0",
+            Self::Qhull => "Qhull",
+            Self::RheCos11 => "RHeCos-1.1",
+            Self::Rpl11 => "RPL-1.1",
+            Self::Rpl15 => "RPL-1.5",
+            Self::Rpsl10 => "RPSL-1.0",
+            Self::RsaMd => "RSA-MD",
+            Self::Rscpl => "RSCPL",
+            Self::Rdisc => "Rdisc",
+            Self::Ruby => "Ruby",
+            Self::SaxPd => "SAX-PD",
+            Self::Scea => "SCEA",
+            Self::SgiB10 => "SGI-B-1.0",
+            Self::SgiB11 => "SGI-B-1.1",
+            Self::SgiB20 => "SGI-B-2.0",
+            Self::Sissl => "SISSL",
+            Self::Sissl12 => "SISSL-1.2",
+            Self::Smlnj => "SMLNJ",
+            Self::Smppl => "SMPPL",
+            Self::Snia => "SNIA",
+            Self::Spl10 => "SPL-1.0",
+            Self::Swl => "SWL",
+            Self::Saxpath => "Saxpath",
+            Self::Sendmail => "Sendmail",
+            Self::SimPL20 => "SimPL-2.0",
+            Self::Sleepycat => "Sleepycat",
+            Self::Spencer86 => "Spencer-86",
+            Self::Spencer94 => "Spencer-94",
+            Self::Spencer99 => "Spencer-99",
+            Self::SugarCRM113 => "SugarCRM-1.1.3",
+            Self::Tcl => "TCL",
+            Self::TcpWrappers => "TCP-wrappers",
+            Self::Tmate => "TMate",
+            Self::Torque11 => "TORQUE-1.1",
+            Self::Tosl => "TOSL",
+            Self::Upl10 => "UPL-1.0",
+            Self::UnicodeDFS2015 => "Unicode-DFS-2015",
+            Self::UnicodeDFS2016 => "Unicode-DFS-2016",
+            Self::UnicodeTOU => "Unicode-TOU",
+            Self::Unlicense => "Unlicense",
+            Self::Vostrom => "VOSTROM",
+            Self::Vsl10 => "VSL-1.0",
+            Self::Vim => "Vim",
+            Self::W3C => "W3C",
+            Self::W3C19980720 => "W3C-19980720",
+            Self::W3C20150513 => "W3C-20150513",
+            Self::Wtfpl => "WTFPL",
+            Self::Watcom10 => "Watcom-1.0",
+            Self::Wsuipa => "Wsuipa",
+            Self::X11 => "X11",
+            Self::Xfree8611 => "XFree86-1.1",
+            Self::Xskat => "XSkat",
+            Self::Xerox => "Xerox",
+            Self::Xnet => "Xnet",
+            Self::Ypl10 => "YPL-1.0",
+            Self::Ypl11 => "YPL-1.1",
+            Self::Zpl11 => "ZPL-1.1",
+            Self::Zpl20 => "ZPL-2.0",
+            Self::Zpl21 => "ZPL-2.1",
+            Self::Zed => "Zed",
+            Self::Zend20 => "Zend-2.0",
+            Self::Zimbra13 => "Zimbra-1.3",
+            Self::Zimbra14 => "Zimbra-1.4",
+            Self::Zlib => "Zlib",
+            Self::Bzip2105 => "bzip2-1.0.5",
+            Self::Bzip2106 => "bzip2-1.0.6",
+            Self::Curl => "curl",
+            Self::Diffmark => "diffmark",
+            Self::Dvipdfm => "dvipdfm",
+            Self::Egenix => "eGenix",
+            Self::Gsoap13B => "gSOAP-1.3b",
+            Self::Gnuplot => "gnuplot",
+            Self::Imatix => "iMatix",
+            Self::Libtiff => "libtiff",
+            Self::Mpich2 => "mpich2",
+            Self::NotOpenSource => "not-open-source",
+            Self::Psfrag => "psfrag",
+            Self::Psutils => "psutils",
+            Self::Xinetd => "xinetd",
+            Self::Xpp => "xpp",
+            Self::ZlibAcknowledgement => "zlib-acknowledgement",
+        }
+    }
+}
+impl ::std::fmt::Display for SPDXLicense {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N0Bsd => "BSD Zero Clause License",
+            Self::Aal => "Attribution Assurance License",
+            Self::Adsl => "Amazon Digital Services License",
+            Self::Afl11 => "Academic Free License v1.1",
+            Self::Afl12 => "Academic Free License v1.2",
+            Self::Afl20 => "Academic Free License v2.0",
+            Self::Afl21 => "Academic Free License v2.1",
+            Self::Afl30 => "Academic Free License v3.0",
+            Self::Agpl10Only => "Affero General Public License v1.0 only",
+            Self::Agpl10OrLater => "Affero General Public License v1.0 or later",
+            Self::Agpl30Only => "GNU Affero General Public License v3.0 only",
+            Self::Agpl30OrLater => "GNU Affero General Public License v3.0 or later",
+            Self::Amdplpa => "AMD's plpa_map.c License",
+            Self::Aml => "Apple MIT License",
+            Self::Ampas => "Academy of Motion Picture Arts and Sciences BSD",
+            Self::AntlrPd => "ANTLR Software Rights Notice",
+            Self::Apafml => "Adobe Postscript AFM License",
+            Self::Apl10 => "Adaptive Public License 1.0",
+            Self::Apsl10 => "Apple Public Source License 1.0",
+            Self::Apsl11 => "Apple Public Source License 1.1",
+            Self::Apsl12 => "Apple Public Source License 1.2",
+            Self::Apsl20 => "Apple Public Source License 2.0",
+            Self::Abstyles => "Abstyles License",
+            Self::Adobe2006 => "Adobe Systems Incorporated Source Code License Agreement",
+            Self::AdobeGlyph => "Adobe Glyph List License",
+            Self::Afmparse => "Afmparse License",
+            Self::Aladdin => "Aladdin Free Public License",
+            Self::Apache10 => "Apache License 1.0",
+            Self::Apache11 => "Apache License 1.1",
+            Self::Apache20 => "Apache License 2.0",
+            Self::Artistic10 => "Artistic License 1.0",
+            Self::Artistic10Perl => "Artistic License 1.0 (Perl)",
+            Self::Artistic10Cl8 => "Artistic License 1.0 w/clause 8",
+            Self::Artistic20 => "Artistic License 2.0",
+            Self::Bsd1Clause => "BSD 1-Clause License",
+            Self::Bsd2Clause => "BSD 2-Clause \"Simplified\" License",
+            Self::Bsd2ClauseFreeBSD => "BSD 2-Clause FreeBSD License",
+            Self::Bsd2ClauseNetBSD => "BSD 2-Clause NetBSD License",
+            Self::Bsd2ClausePatent => "BSD-2-Clause Plus Patent License",
+            Self::Bsd3Clause => "BSD 3-Clause \"New\" or \"Revised\" License",
+            Self::Bsd3ClauseAttribution => "BSD with attribution",
+            Self::Bsd3ClauseClear => "BSD 3-Clause Clear License",
+            Self::Bsd3ClauseLBNL => "Lawrence Berkeley National Labs BSD variant license",
+            Self::Bsd3ClauseNoNuclearLicense => "BSD 3-Clause No Nuclear License",
+            Self::Bsd3ClauseNoNuclearLicense2014 => {
+                "BSD 3-Clause No Nuclear License 2014"
+            }
+            Self::Bsd3ClauseNoNuclearWarranty => "BSD 3-Clause No Nuclear Warranty",
+            Self::Bsd4Clause => "BSD 4-Clause \"Original\" or \"Old\" License",
+            Self::Bsd4ClauseUC => "BSD-4-Clause (University of California-Specific)",
+            Self::BsdProtection => "BSD Protection License",
+            Self::BsdSourceCode => "BSD Source Code Attribution",
+            Self::Bsl10 => "Boost Software License 1.0",
+            Self::Bahyph => "Bahyph License",
+            Self::Barr => "Barr License",
+            Self::Beerware => "Beerware License",
+            Self::BitTorrent10 => "BitTorrent Open Source License v1.0",
+            Self::BitTorrent11 => "BitTorrent Open Source License v1.1",
+            Self::Borceux => "Borceux license",
+            Self::Catosl11 => "Computer Associates Trusted Open Source License 1.1",
+            Self::CcBy10 => "Creative Commons Attribution 1.0 Generic",
+            Self::CcBy20 => "Creative Commons Attribution 2.0 Generic",
+            Self::CcBy25 => "Creative Commons Attribution 2.5 Generic",
+            Self::CcBy30 => "Creative Commons Attribution 3.0 Unported",
+            Self::CcBy40 => "Creative Commons Attribution 4.0 International",
+            Self::CcByNc10 => "Creative Commons Attribution Non Commercial 1.0 Generic",
+            Self::CcByNc20 => "Creative Commons Attribution Non Commercial 2.0 Generic",
+            Self::CcByNc25 => "Creative Commons Attribution Non Commercial 2.5 Generic",
+            Self::CcByNc30 => "Creative Commons Attribution Non Commercial 3.0 Unported",
+            Self::CcByNc40 => {
+                "Creative Commons Attribution Non Commercial 4.0 International"
+            }
+            Self::CcByNcNd10 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic"
+            }
+            Self::CcByNcNd20 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic"
+            }
+            Self::CcByNcNd25 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic"
+            }
+            Self::CcByNcNd30 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported"
+            }
+            Self::CcByNcNd40 => {
+                "Creative Commons Attribution Non Commercial No Derivatives 4.0 International"
+            }
+            Self::CcByNcSa10 => {
+                "Creative Commons Attribution Non Commercial Share Alike 1.0 Generic"
+            }
+            Self::CcByNcSa20 => {
+                "Creative Commons Attribution Non Commercial Share Alike 2.0 Generic"
+            }
+            Self::CcByNcSa25 => {
+                "Creative Commons Attribution Non Commercial Share Alike 2.5 Generic"
+            }
+            Self::CcByNcSa30 => {
+                "Creative Commons Attribution Non Commercial Share Alike 3.0 Unported"
+            }
+            Self::CcByNcSa40 => {
+                "Creative Commons Attribution Non Commercial Share Alike 4.0 International"
+            }
+            Self::CcByNd10 => "Creative Commons Attribution No Derivatives 1.0 Generic",
+            Self::CcByNd20 => "Creative Commons Attribution No Derivatives 2.0 Generic",
+            Self::CcByNd25 => "Creative Commons Attribution No Derivatives 2.5 Generic",
+            Self::CcByNd30 => "Creative Commons Attribution No Derivatives 3.0 Unported",
+            Self::CcByNd40 => {
+                "Creative Commons Attribution No Derivatives 4.0 International"
+            }
+            Self::CcBySa10 => "Creative Commons Attribution Share Alike 1.0 Generic",
+            Self::CcBySa20 => "Creative Commons Attribution Share Alike 2.0 Generic",
+            Self::CcBySa25 => "Creative Commons Attribution Share Alike 2.5 Generic",
+            Self::CcBySa30 => "Creative Commons Attribution Share Alike 3.0 Unported",
+            Self::CcBySa40 => {
+                "Creative Commons Attribution Share Alike 4.0 International"
+            }
+            Self::Cc010 => "Creative Commons Zero v1.0 Universal",
+            Self::Cddl10 => "Common Development and Distribution License 1.0",
+            Self::Cddl11 => "Common Development and Distribution License 1.1",
+            Self::CdlaPermissive10 => "Community Data License Agreement Permissive 1.0",
+            Self::CdlaSharing10 => "Community Data License Agreement Sharing 1.0",
+            Self::Cecill10 => "CeCILL Free Software License Agreement v1.0",
+            Self::Cecill11 => "CeCILL Free Software License Agreement v1.1",
+            Self::Cecill20 => "CeCILL Free Software License Agreement v2.0",
+            Self::Cecill21 => "CeCILL Free Software License Agreement v2.1",
+            Self::CecillB => "CeCILL-B Free Software License Agreement",
+            Self::CecillC => "CeCILL-C Free Software License Agreement",
+            Self::CnriJython => "CNRI Jython License",
+            Self::CnriPython => "CNRI Python License",
+            Self::CnriPythonGPLCompatible => {
+                "CNRI Python Open Source GPL Compatible License Agreement"
+            }
+            Self::Cpal10 => "Common Public Attribution License 1.0",
+            Self::Cpl10 => "Common Public License 1.0",
+            Self::Cpol102 => "Code Project Open License 1.02",
+            Self::CuaOpl10 => "CUA Office Public License v1.0",
+            Self::Caldera => "Caldera License",
+            Self::ClArtistic => "Clarified Artistic License",
+            Self::Condor11 => "Condor Public License v1.1",
+            Self::Crossword => "Crossword License",
+            Self::CrystalStacker => "CrystalStacker License",
+            Self::Cube => "Cube License",
+            Self::DFsl10 => "Deutsche Freie Software Lizenz",
+            Self::Doc => "DOC License",
+            Self::Dsdp => "DSDP License",
+            Self::Dotseqn => "Dotseqn License",
+            Self::Ecl10 => "Educational Community License v1.0",
+            Self::Ecl20 => "Educational Community License v2.0",
+            Self::Efl10 => "Eiffel Forum License v1.0",
+            Self::Efl20 => "Eiffel Forum License v2.0",
+            Self::Epl10 => "Eclipse Public License 1.0",
+            Self::Epl20 => "Eclipse Public License 2.0",
+            Self::Eudatagrid => "EU DataGrid Software License",
+            Self::Eupl10 => "European Union Public License 1.0",
+            Self::Eupl11 => "European Union Public License 1.1",
+            Self::Eupl12 => "European Union Public License 1.2",
+            Self::Entessa => "Entessa Public License v1.0",
+            Self::ErlPL11 => "Erlang Public License v1.1",
+            Self::Eurosym => "Eurosym License",
+            Self::Fsfap => "FSF All Permissive License",
+            Self::Fsful => "FSF Unlimited License",
+            Self::Fsfullr => "FSF Unlimited License (with License Retention)",
+            Self::Ftl => "Freetype Project License",
+            Self::Fair => "Fair License",
+            Self::Frameworx10 => "Frameworx Open License 1.0",
+            Self::FreeImage => "FreeImage Public License v1.0",
+            Self::Gfdl11Only => "GNU Free Documentation License v1.1 only",
+            Self::Gfdl11OrLater => "GNU Free Documentation License v1.1 or later",
+            Self::Gfdl12Only => "GNU Free Documentation License v1.2 only",
+            Self::Gfdl12OrLater => "GNU Free Documentation License v1.2 or later",
+            Self::Gfdl13Only => "GNU Free Documentation License v1.3 only",
+            Self::Gfdl13OrLater => "GNU Free Documentation License v1.3 or later",
+            Self::Gl2Ps => "GL2PS License",
+            Self::Gpl10Only => "GNU General Public License v1.0 only",
+            Self::Gpl10OrLater => "GNU General Public License v1.0 or later",
+            Self::Gpl20Only => "GNU General Public License v2.0 only",
+            Self::Gpl20OrLater => "GNU General Public License v2.0 or later",
+            Self::Gpl30Only => "GNU General Public License v3.0 only",
+            Self::Gpl30OrLater => "GNU General Public License v3.0 or later",
+            Self::Giftware => "Giftware License",
+            Self::Glide => "3dfx Glide License",
+            Self::Glulxe => "Glulxe License",
+            Self::Hpnd => "Historical Permission Notice and Disclaimer",
+            Self::HaskellReport => "Haskell Language Report License",
+            Self::IbmPibs => "IBM PowerPC Initialization and Boot Software",
+            Self::Icu => "ICU License",
+            Self::Ijg => "Independent JPEG Group License",
+            Self::Ipa => "IPA Font License",
+            Self::Ipl10 => "IBM Public License v1.0",
+            Self::Isc => "ISC License",
+            Self::ImageMagick => "ImageMagick License",
+            Self::Imlib2 => "Imlib2 License",
+            Self::InfoZIP => "Info-ZIP License",
+            Self::Intel => "Intel Open Source License",
+            Self::IntelACPI => "Intel ACPI Software License Agreement",
+            Self::Interbase10 => "Interbase Public License v1.0",
+            Self::Json => "JSON License",
+            Self::JasPer20 => "JasPer License",
+            Self::Lal12 => "Licence Art Libre 1.2",
+            Self::Lal13 => "Licence Art Libre 1.3",
+            Self::Lgpl20Only => "GNU Library General Public License v2 only",
+            Self::Lgpl20OrLater => "GNU Library General Public License v2 or later",
+            Self::Lgpl21Only => "GNU Lesser General Public License v2.1 only",
+            Self::Lgpl21OrLater => "GNU Lesser General Public License v2.1 or later",
+            Self::Lgpl30Only => "GNU Lesser General Public License v3.0 only",
+            Self::Lgpl30OrLater => "GNU Lesser General Public License v3.0 or later",
+            Self::Lgpllr => "Lesser General Public License For Linguistic Resources",
+            Self::Lpl10 => "Lucent Public License Version 1.0",
+            Self::Lpl102 => "Lucent Public License v1.02",
+            Self::Lppl10 => "LaTeX Project Public License v1.0",
+            Self::Lppl11 => "LaTeX Project Public License v1.1",
+            Self::Lppl12 => "LaTeX Project Public License v1.2",
+            Self::Lppl13A => "LaTeX Project Public License v1.3a",
+            Self::Lppl13C => "LaTeX Project Public License v1.3c",
+            Self::Latex2E => "Latex2e License",
+            Self::Leptonica => "Leptonica License",
+            Self::LiLiQP11 => "Licence Libre du Québec – Permissive version 1.1",
+            Self::LiLiQR11 => "Licence Libre du Québec – Réciprocité version 1.1",
+            Self::LiLiQRplus11 => {
+                "Licence Libre du Québec – Réciprocité forte version 1.1"
+            }
+            Self::Libpng => "libpng License",
+            Self::LinuxOpenIB => "Linux Kernel Variant of OpenIB.org license",
+            Self::Mit => "MIT License",
+            Self::Mit0 => "MIT No Attribution",
+            Self::MitCmu => "CMU License",
+            Self::MitAdvertising => "Enlightenment License (e16)",
+            Self::MitEnna => "enna License",
+            Self::MitFeh => "feh License",
+            Self::Mitnfa => "MIT +no-false-attribs license",
+            Self::Mpl10 => "Mozilla Public License 1.0",
+            Self::Mpl11 => "Mozilla Public License 1.1",
+            Self::Mpl20 => "Mozilla Public License 2.0",
+            Self::Mpl20NoCopyleftException => {
+                "Mozilla Public License 2.0 (no copyleft exception)"
+            }
+            Self::MsPl => "Microsoft Public License",
+            Self::MsRl => "Microsoft Reciprocal License",
+            Self::Mtll => "Matrix Template Library License",
+            Self::MakeIndex => "MakeIndex License",
+            Self::MirOS => "MirOS License",
+            Self::Motosoto => "Motosoto License",
+            Self::Multics => "Multics License",
+            Self::Mup => "Mup License",
+            Self::Nasa13 => "NASA Open Source Agreement 1.3",
+            Self::Nbpl10 => "Net Boolean Public License v1",
+            Self::Ncsa => "University of Illinois/NCSA Open Source License",
+            Self::Ngpl => "Nethack General Public License",
+            Self::Nlod10 => "Norwegian Licence for Open Government Data",
+            Self::Nlpl => "No Limit Public License",
+            Self::Nosl => "Netizen Open Source License",
+            Self::Npl10 => "Netscape Public License v1.0",
+            Self::Npl11 => "Netscape Public License v1.1",
+            Self::Nposl30 => "Non-Profit Open Software License 3.0",
+            Self::Nrl => "NRL License",
+            Self::Ntp => "NTP License",
+            Self::Naumen => "Naumen Public License",
+            Self::NetSNMP => "Net-SNMP License",
+            Self::NetCDF => "NetCDF license",
+            Self::Newsletr => "Newsletr License",
+            Self::Nokia => "Nokia Open Source License",
+            Self::Noweb => "Noweb License",
+            Self::OcctPl => "Open CASCADE Technology Public License",
+            Self::Oclc20 => "OCLC Research Public License 2.0",
+            Self::OdbL10 => "ODC Open Database License v1.0",
+            Self::Ofl10 => "SIL Open Font License 1.0",
+            Self::Ofl11 => "SIL Open Font License 1.1",
+            Self::Ogtsl => "Open Group Test Suite License",
+            Self::Oldap11 => "Open LDAP Public License v1.1",
+            Self::Oldap12 => "Open LDAP Public License v1.2",
+            Self::Oldap13 => "Open LDAP Public License v1.3",
+            Self::Oldap14 => "Open LDAP Public License v1.4",
+            Self::Oldap20 => "Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)",
+            Self::Oldap201 => "Open LDAP Public License v2.0.1",
+            Self::Oldap21 => "Open LDAP Public License v2.1",
+            Self::Oldap22 => "Open LDAP Public License v2.2",
+            Self::Oldap221 => "Open LDAP Public License v2.2.1",
+            Self::Oldap222 => "Open LDAP Public License 2.2.2",
+            Self::Oldap23 => "Open LDAP Public License v2.3",
+            Self::Oldap24 => "Open LDAP Public License v2.4",
+            Self::Oldap25 => "Open LDAP Public License v2.5",
+            Self::Oldap26 => "Open LDAP Public License v2.6",
+            Self::Oldap27 => "Open LDAP Public License v2.7",
+            Self::Oldap28 => "Open LDAP Public License v2.8",
+            Self::Oml => "Open Market License",
+            Self::Opl10 => "Open Public License v1.0",
+            Self::OsetPl21 => "OSET Public License version 2.1",
+            Self::Osl10 => "Open Software License 1.0",
+            Self::Osl11 => "Open Software License 1.1",
+            Self::Osl20 => "Open Software License 2.0",
+            Self::Osl21 => "Open Software License 2.1",
+            Self::Osl30 => "Open Software License 3.0",
+            Self::OpenSSL => "OpenSSL License",
+            Self::Pddl10 => "ODC Public Domain Dedication & License 1.0",
+            Self::Php30 => "PHP License v3.0",
+            Self::Php301 => "PHP License v3.01",
+            Self::Plexus => "Plexus Classworlds License",
+            Self::PostgreSQL => "PostgreSQL License",
+            Self::Python20 => "Python License 2.0",
+            Self::Qpl10 => "Q Public License 1.0",
+            Self::Qhull => "Qhull License",
+            Self::RheCos11 => "Red Hat eCos Public License v1.1",
+            Self::Rpl11 => "Reciprocal Public License 1.1",
+            Self::Rpl15 => "Reciprocal Public License 1.5",
+            Self::Rpsl10 => "RealNetworks Public Source License v1.0",
+            Self::RsaMd => "RSA Message-Digest License",
+            Self::Rscpl => "Ricoh Source Code Public License",
+            Self::Rdisc => "Rdisc License",
+            Self::Ruby => "Ruby License",
+            Self::SaxPd => "Sax Public Domain Notice",
+            Self::Scea => "SCEA Shared Source License",
+            Self::SgiB10 => "SGI Free Software License B v1.0",
+            Self::SgiB11 => "SGI Free Software License B v1.1",
+            Self::SgiB20 => "SGI Free Software License B v2.0",
+            Self::Sissl => "Sun Industry Standards Source License v1.1",
+            Self::Sissl12 => "Sun Industry Standards Source License v1.2",
+            Self::Smlnj => "Standard ML of New Jersey License",
+            Self::Smppl => "Secure Messaging Protocol Public License",
+            Self::Snia => "SNIA Public License 1.1",
+            Self::Spl10 => "Sun Public License v1.0",
+            Self::Swl => "Scheme Widget Library (SWL) Software License Agreement",
+            Self::Saxpath => "Saxpath License",
+            Self::Sendmail => "Sendmail License",
+            Self::SimPL20 => "Simple Public License 2.0",
+            Self::Sleepycat => "Sleepycat License",
+            Self::Spencer86 => "Spencer License 86",
+            Self::Spencer94 => "Spencer License 94",
+            Self::Spencer99 => "Spencer License 99",
+            Self::SugarCRM113 => "SugarCRM Public License v1.1.3",
+            Self::Tcl => "TCL/TK License",
+            Self::TcpWrappers => "TCP Wrappers License",
+            Self::Tmate => "TMate Open Source License",
+            Self::Torque11 => "TORQUE v2.5+ Software License v1.1",
+            Self::Tosl => "Trusster Open Source License",
+            Self::Upl10 => "Universal Permissive License v1.0",
+            Self::UnicodeDFS2015 => {
+                "Unicode License Agreement - Data Files and Software (2015)"
+            }
+            Self::UnicodeDFS2016 => {
+                "Unicode License Agreement - Data Files and Software (2016)"
+            }
+            Self::UnicodeTOU => "Unicode Terms of Use",
+            Self::Unlicense => "The Unlicense",
+            Self::Vostrom => "VOSTROM Public License for Open Source",
+            Self::Vsl10 => "Vovida Software License v1.0",
+            Self::Vim => "Vim License",
+            Self::W3C => "W3C Software Notice and License (2002-12-31)",
+            Self::W3C19980720 => "W3C Software Notice and License (1998-07-20)",
+            Self::W3C20150513 => "W3C Software Notice and Document License (2015-05-13)",
+            Self::Wtfpl => "Do What The F*ck You Want To Public License",
+            Self::Watcom10 => "Sybase Open Watcom Public License 1.0",
+            Self::Wsuipa => "Wsuipa License",
+            Self::X11 => "X11 License",
+            Self::Xfree8611 => "XFree86 License 1.1",
+            Self::Xskat => "XSkat License",
+            Self::Xerox => "Xerox License",
+            Self::Xnet => "X.Net License",
+            Self::Ypl10 => "Yahoo! Public License v1.0",
+            Self::Ypl11 => "Yahoo! Public License v1.1",
+            Self::Zpl11 => "Zope Public License 1.1",
+            Self::Zpl20 => "Zope Public License 2.0",
+            Self::Zpl21 => "Zope Public License 2.1",
+            Self::Zed => "Zed License",
+            Self::Zend20 => "Zend License v2.0",
+            Self::Zimbra13 => "Zimbra Public License v1.3",
+            Self::Zimbra14 => "Zimbra Public License v1.4",
+            Self::Zlib => "zlib License",
+            Self::Bzip2105 => "bzip2 and libbzip2 License v1.0.5",
+            Self::Bzip2106 => "bzip2 and libbzip2 License v1.0.6",
+            Self::Curl => "curl License",
+            Self::Diffmark => "diffmark license",
+            Self::Dvipdfm => "dvipdfm License",
+            Self::Egenix => "eGenix.com Public License 1.1.0",
+            Self::Gsoap13B => "gSOAP Public License v1.3b",
+            Self::Gnuplot => "gnuplot License",
+            Self::Imatix => "iMatix Standard Function Library Agreement",
+            Self::Libtiff => "libtiff License",
+            Self::Mpich2 => "mpich2 License",
+            Self::NotOpenSource => "Not open source",
+            Self::Psfrag => "psfrag License",
+            Self::Psutils => "psutils License",
+            Self::Xinetd => "xinetd License",
+            Self::Xpp => "XPP License",
+            Self::ZlibAcknowledgement => "zlib/libpng License with Acknowledgement",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for SPDXLicense {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for SPDXLicense {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<SPDXLicense> for Coding {
+    fn from(code: SPDXLicense) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/spdx-license".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<SPDXLicense> for CodeableConcept {
+    fn from(code: SPDXLicense) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[SearchComparator](http://hl7.org/fhir/ValueSet/search-comparator)**. What Search Comparator Codes are supported in search.\n\nFHIR version: 4.3.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -66704,6 +70233,349 @@ impl From<TypeDerivationRule> for CodeableConcept {
             .into()
     }
 }
+#[doc = "**[UDIEntryType](http://hl7.org/fhir/ValueSet/udi-entry-type)**. Codes to identify how UDI data was entered.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum UDIEntryType {
+    /** **barcode**
+
+Barcode. a barcodescanner captured the data from the device label. */
+    Barcode,
+    /** **card**
+
+Card. The data originated from a patient's implant card and was read by an operator. */
+    Card,
+    /** **manual**
+
+Manual. The data was read from the label by a person and manually entered. (e.g.  via a keyboard). */
+    Manual,
+    /** **rfid**
+
+RFID. An RFID chip reader captured the data from the device label. */
+    Rfid,
+    /** **self-reported**
+
+Self Reported. The data originated from a patient source and was not directly scanned or read from a label or card. */
+    SelfReported,
+    /** **unknown**
+
+Unknown. The method of data capture has not been determined. */
+    Unknown,
+}
+impl ::core::str::FromStr for UDIEntryType {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "barcode" => Ok(Self::Barcode),
+            "card" => Ok(Self::Card),
+            "manual" => Ok(Self::Manual),
+            "rfid" => Ok(Self::Rfid),
+            "self-reported" => Ok(Self::SelfReported),
+            "unknown" => Ok(Self::Unknown),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for UDIEntryType {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Barcode => "barcode",
+            Self::Card => "card",
+            Self::Manual => "manual",
+            Self::Rfid => "rfid",
+            Self::SelfReported => "self-reported",
+            Self::Unknown => "unknown",
+        }
+    }
+}
+impl ::std::fmt::Display for UDIEntryType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Barcode => "Barcode",
+            Self::Card => "Card",
+            Self::Manual => "Manual",
+            Self::Rfid => "RFID",
+            Self::SelfReported => "Self Reported",
+            Self::Unknown => "Unknown",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for UDIEntryType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for UDIEntryType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<UDIEntryType> for Coding {
+    fn from(code: UDIEntryType) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/udi-entry-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<UDIEntryType> for CodeableConcept {
+    fn from(code: UDIEntryType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[USCLSCodes](http://terminology.hl7.org/CodeSystem/ex-USCLS)**. This value set includes a smattering of USCLS codes.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum USCLSCodes {
+    /** **1101**
+
+Exam, comp, primary. Exam, comp, primary */
+    N1101,
+    /** **1102**
+
+Exam, comp, mixed. Exam, comp, mixed */
+    N1102,
+    /** **1103**
+
+Exam, comp, permanent. Exam, comp, permanent */
+    N1103,
+    /** **11101**
+
+Polishing, 1 unit. Polishing, 1 unit */
+    N11101,
+    /** **11102**
+
+Polishing, 2 unit. Polishing, 2 unit */
+    N11102,
+    /** **11103**
+
+Polishing, 3 unit. Polishing, 3 unit */
+    N11103,
+    /** **11104**
+
+Polishing, 4 unit. Polishing, 4 unit */
+    N11104,
+    /** **1201**
+
+Exam, recall. Exam, recall */
+    N1201,
+    /** **1205**
+
+Exam, emergency. Exam, emergency */
+    N1205,
+    /** **2101**
+
+Radiograph, series (12). Radiograph, series (12) */
+    N2101,
+    /** **2102**
+
+Radiograph, series (16). Radiograph, series (16) */
+    N2102,
+    /** **21211**
+
+Amalgam, 1 surface. Amalgam, 1 surface */
+    N21211,
+    /** **21212**
+
+Amalgam, 2 surface. Amalgam, 2 surface */
+    N21212,
+    /** **2141**
+
+Radiograph, bitewing. Radiograph, bitewing */
+    N2141,
+    /** **2601**
+
+Radiograph, panoramic. Radiograph, panoramic */
+    N2601,
+    /** **27211**
+
+Crown, PFM. Crown, PFM */
+    N27211,
+    /** **67211**
+
+Maryland Bridge. Maryland Bridge */
+    N67211,
+    /** **99111**
+
+Lab, commercial. Lab, commercial */
+    N99111,
+    /** **99333**
+
+Lab, in office. Lab, in office */
+    N99333,
+    /** **99555**
+
+Expense. Expense */
+    N99555,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for USCLSCodes {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "1101" => Ok(Self::N1101),
+            "1102" => Ok(Self::N1102),
+            "1103" => Ok(Self::N1103),
+            "11101" => Ok(Self::N11101),
+            "11102" => Ok(Self::N11102),
+            "11103" => Ok(Self::N11103),
+            "11104" => Ok(Self::N11104),
+            "1201" => Ok(Self::N1201),
+            "1205" => Ok(Self::N1205),
+            "2101" => Ok(Self::N2101),
+            "2102" => Ok(Self::N2102),
+            "21211" => Ok(Self::N21211),
+            "21212" => Ok(Self::N21212),
+            "2141" => Ok(Self::N2141),
+            "2601" => Ok(Self::N2601),
+            "27211" => Ok(Self::N27211),
+            "67211" => Ok(Self::N67211),
+            "99111" => Ok(Self::N99111),
+            "99333" => Ok(Self::N99333),
+            "99555" => Ok(Self::N99555),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for USCLSCodes {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::N1101 => "1101",
+            Self::N1102 => "1102",
+            Self::N1103 => "1103",
+            Self::N11101 => "11101",
+            Self::N11102 => "11102",
+            Self::N11103 => "11103",
+            Self::N11104 => "11104",
+            Self::N1201 => "1201",
+            Self::N1205 => "1205",
+            Self::N2101 => "2101",
+            Self::N2102 => "2102",
+            Self::N21211 => "21211",
+            Self::N21212 => "21212",
+            Self::N2141 => "2141",
+            Self::N2601 => "2601",
+            Self::N27211 => "27211",
+            Self::N67211 => "67211",
+            Self::N99111 => "99111",
+            Self::N99333 => "99333",
+            Self::N99555 => "99555",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for USCLSCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::N1101 => "Exam, comp, primary",
+            Self::N1102 => "Exam, comp, mixed",
+            Self::N1103 => "Exam, comp, permanent",
+            Self::N11101 => "Polishing, 1 unit",
+            Self::N11102 => "Polishing, 2 unit",
+            Self::N11103 => "Polishing, 3 unit",
+            Self::N11104 => "Polishing, 4 unit",
+            Self::N1201 => "Exam, recall",
+            Self::N1205 => "Exam, emergency",
+            Self::N2101 => "Radiograph, series (12)",
+            Self::N2102 => "Radiograph, series (16)",
+            Self::N21211 => "Amalgam, 1 surface",
+            Self::N21212 => "Amalgam, 2 surface",
+            Self::N2141 => "Radiograph, bitewing",
+            Self::N2601 => "Radiograph, panoramic",
+            Self::N27211 => "Crown, PFM",
+            Self::N67211 => "Maryland Bridge",
+            Self::N99111 => "Lab, commercial",
+            Self::N99333 => "Lab, in office",
+            Self::N99555 => "Expense",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for USCLSCodes {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for USCLSCodes {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<USCLSCodes> for Coding {
+    fn from(code: USCLSCodes) -> Self {
+        CodingInner {
+            system: Some("http://terminology.hl7.org/CodeSystem/ex-USCLS".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<USCLSCodes> for CodeableConcept {
+    fn from(code: USCLSCodes) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[UndesirablEffectFrequency](http://hl7.org/fhir/ValueSet/undesirable-effect-frequency)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 4.3.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -67817,6 +71689,172 @@ impl From<VisionEyes> for CodeableConcept {
             .into()
     }
 }
+#[doc = "**[W3cProvenanceActivityType](http://hl7.org/fhir/w3c-provenance-activity-type)**. This value set includes W3C PROV Data Model Activity concepts, which are treated as codes in this valueset.  Some adaptations were made to make these concepts suitable values for the Provenance.activity element. Coded concepts are from PROV-DM and the display names are their counterparts in PROV-N (human readable notation syntax specification).[code system OID: http://www.w3.org/TR/2013/REC-prov-dm-20130430/ and http://www.w3.org/TR/2013/REC-prov-n-20130430/]\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum W3cProvenanceActivityType {
+    /** **Attribution**
+
+wasAttributedTo. Ascribing of an entity (object/document) to an agent. */
+    Attribution,
+    /** **Collection**
+
+isCollectionOf.  An aggregating activity that results in composition of an entity, which provides a structure to some constituents that must themselves be entities. These constituents are said to be member of the collections. */
+    Collection,
+    /** **Communication**
+
+wasInformedBy. The exchange of some unspecified entity by two activities, one activity using some entity generated by the other. A communication implies that activity a2 is dependent on another activity, a1, by way of some unspecified entity that is generated by a1 and used by a2. */
+    Communication,
+    /** **Derivation**
+
+wasDerivedFrom. A transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity. For an entity to be transformed from, created from, or resulting from an update to another, there must be some underpinning activity or activities performing the necessary action(s) resulting in such a derivation. A derivation can be described at various levels of precision. In its simplest form, derivation relates two entities. Optionally, attributes can be added to represent further information about the derivation. If the derivation is the result of a single known activity, then this activity can also be optionally expressed. To provide a completely accurate description of the derivation, the generation and usage of the generated and used entities, respectively, can be provided, so as to make the derivation path, through usage, activity, and generation, explicit. Optional information such as activity, generation, and usage can be linked to derivations to aid analysis of provenance and to facilitate provenance-based reproducibility. */
+    Derivation,
+    /** **End**
+
+wasEndedBy. When an activity is deemed to have been ended by an entity, known as trigger. The activity no longer exists after its end. Any usage, generation, or invalidation involving an activity precedes the activity's end. An end may refer to a trigger entity that terminated the activity, or to an activity, known as ender that generated the trigger. */
+    End,
+    /** **Generation**
+
+wasGeneratedBy. The completion of production of a new entity by an activity. This entity did not exist before generation and becomes available for usage after this generation. Given that a generation is the completion of production of an entity, it is instantaneous. */
+    Generation,
+    /** **Invalidation**
+
+wasInvalidatedBy. The start of the destruction, cessation, or expiry of an existing entity by an activity. The entity is no longer available for use (or further invalidation) after invalidation. Any generation or usage of an entity precedes its invalidation. Given that an invalidation is the start of destruction, cessation, or expiry, it is instantaneous. */
+    Invalidation,
+    /** **Primary-Source**
+
+wasPrimarySourceOf. Refers to something produced by some agent with direct experience and knowledge about the topic, at the time of the topic's study, without benefit from hindsight. Because of the directness of primary sources, they 'speak for themselves' in ways that cannot be captured through the filter of secondary sources. As such, it is important for secondary sources to reference those primary sources from which they were derived, so that their reliability can be investigated. It is also important to note that a given entity might be a primary source for one entity but not another. It is the reason why Primary Source is defined as a relation as opposed to a subtype of Entity. */
+    PrimarySource,
+    /** **Quotation**
+
+wasQuotedFrom. The repeat of (some or all of) an entity, such as text or image, by someone who might or might not be its original author. A quotation relation is a kind of derivation relation, for which an entity was derived from a preceding entity by copying, or 'quoting', some or all of it. */
+    Quotation,
+    /** **Revision**
+
+wasRevisionOf. A derivation for which the resulting entity is a revised version of some original. The implication here is that the resulting entity contains substantial content from the original. A revision relation is a kind of derivation relation from a revised entity to a preceding entity. */
+    Revision,
+    /** **Start**
+
+wasStartedBy. When an activity is deemed to have been started by an entity, known as trigger. The activity did not exist before its start. Any usage, generation, or invalidation involving an activity follows the activity's start. A start may refer to a trigger entity that set off the activity, or to an activity, known as starter, that generated the trigger. Given that a start is when an activity is deemed to have started, it is instantaneous. */
+    Start,
+    /** **Usage**
+
+used. the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity.  (Note: This definition is formulated for a given usage; it is permitted for an activity to have used a same entity multiple times.) Given that a usage is the beginning of utilizing an entity, it is instantaneous. */
+    Usage,
+    /// Custom code value.
+    _Custom(String),
+}
+impl ::core::str::FromStr for W3cProvenanceActivityType {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "Attribution" => Ok(Self::Attribution),
+            "Collection" => Ok(Self::Collection),
+            "Communication" => Ok(Self::Communication),
+            "Derivation" => Ok(Self::Derivation),
+            "End" => Ok(Self::End),
+            "Generation" => Ok(Self::Generation),
+            "Invalidation" => Ok(Self::Invalidation),
+            "Primary-Source" => Ok(Self::PrimarySource),
+            "Quotation" => Ok(Self::Quotation),
+            "Revision" => Ok(Self::Revision),
+            "Start" => Ok(Self::Start),
+            "Usage" => Ok(Self::Usage),
+            _ => Ok(Self::_Custom(s.to_owned())),
+        }
+    }
+}
+impl AsRef<str> for W3cProvenanceActivityType {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Attribution => "Attribution",
+            Self::Collection => "Collection",
+            Self::Communication => "Communication",
+            Self::Derivation => "Derivation",
+            Self::End => "End",
+            Self::Generation => "Generation",
+            Self::Invalidation => "Invalidation",
+            Self::PrimarySource => "Primary-Source",
+            Self::Quotation => "Quotation",
+            Self::Revision => "Revision",
+            Self::Start => "Start",
+            Self::Usage => "Usage",
+            Self::_Custom(s) => s.as_str(),
+        }
+    }
+}
+impl ::std::fmt::Display for W3cProvenanceActivityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Attribution => "wasAttributedTo",
+            Self::Collection => "isCollectionOf",
+            Self::Communication => "wasInformedBy",
+            Self::Derivation => "wasDerivedFrom",
+            Self::End => "wasEndedBy",
+            Self::Generation => "wasGeneratedBy",
+            Self::Invalidation => "wasInvalidatedBy",
+            Self::PrimarySource => "wasPrimarySourceOf",
+            Self::Quotation => "wasQuotedFrom",
+            Self::Revision => "wasRevisionOf",
+            Self::Start => "wasStartedBy",
+            Self::Usage => "used",
+            Self::_Custom(s) => s.as_str(),
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for W3cProvenanceActivityType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for W3cProvenanceActivityType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<W3cProvenanceActivityType> for Coding {
+    fn from(code: W3cProvenanceActivityType) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/w3c-provenance-activity-type".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<W3cProvenanceActivityType> for CodeableConcept {
+    fn from(code: W3cProvenanceActivityType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
 #[doc = "**[WarningType](http://hl7.org/fhir/ValueSet/warning-type)**. Classification of warning type.\n\nFHIR version: 4.3.0."]
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[derive(Copy)]
@@ -67953,6 +71991,120 @@ impl From<WarningType> for Coding {
 }
 impl From<WarningType> for CodeableConcept {
     fn from(code: WarningType) -> Self {
+        let text = format!("{code}");
+        let coding = Coding::from(code);
+        CodeableConceptInner {
+            coding: vec![Some(coding)],
+            text: Some(text),
+            id: None,
+            extension: Vec::new(),
+            coding_ext: Vec::new(),
+            text_ext: None,
+        }
+            .into()
+    }
+}
+#[doc = "**[XPathUsageType](http://hl7.org/fhir/ValueSet/search-xpath-usage)**. How a search parameter relates to the set of elements returned by evaluating its xpath query.\n\nFHIR version: 4.3.0."]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Copy)]
+pub enum XPathUsageType {
+    /** **distance**
+
+Distance. The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle. */
+    Distance,
+    /** **nearby**
+
+Nearby. The search parameter is based on a spatial transform of the selected nodes. */
+    Nearby,
+    /** **normal**
+
+Normal. The search parameter is derived directly from the selected nodes based on the type definitions. */
+    Normal,
+    /** **other**
+
+Other. The interpretation of the xpath statement is unknown (and can't be automated). */
+    Other,
+    /** **phonetic**
+
+Phonetic. The search parameter is derived by a phonetic transform from the selected nodes. */
+    Phonetic,
+}
+impl ::core::str::FromStr for XPathUsageType {
+    type Err = String;
+    #[allow(clippy::match_single_binding)]
+    fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
+        match s {
+            "distance" => Ok(Self::Distance),
+            "nearby" => Ok(Self::Nearby),
+            "normal" => Ok(Self::Normal),
+            "other" => Ok(Self::Other),
+            "phonetic" => Ok(Self::Phonetic),
+            _ => Err(format!("Unknown value: {s}")),
+        }
+    }
+}
+impl AsRef<str> for XPathUsageType {
+    fn as_ref(&self) -> &str {
+        match self {
+            Self::Distance => "distance",
+            Self::Nearby => "nearby",
+            Self::Normal => "normal",
+            Self::Other => "other",
+            Self::Phonetic => "phonetic",
+        }
+    }
+}
+impl ::std::fmt::Display for XPathUsageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        let s = match self {
+            Self::Distance => "Distance",
+            Self::Nearby => "Nearby",
+            Self::Normal => "Normal",
+            Self::Other => "Other",
+            Self::Phonetic => "Phonetic",
+        };
+        write!(f, "{s}")
+    }
+}
+impl<'de> Deserialize<'de> for XPathUsageType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        use serde::de::Error;
+        let string = String::deserialize(deserializer)?;
+        string.parse().map_err(D::Error::custom)
+    }
+}
+impl Serialize for XPathUsageType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.as_ref().serialize(serializer)
+    }
+}
+impl From<XPathUsageType> for Coding {
+    fn from(code: XPathUsageType) -> Self {
+        CodingInner {
+            system: Some("http://hl7.org/fhir/ValueSet/search-xpath-usage".to_owned()),
+            code: Some(code.as_ref().to_owned()),
+            display: Some(format!("{code}")),
+            id: None,
+            extension: Vec::new(),
+            system_ext: None,
+            version: None,
+            version_ext: None,
+            code_ext: None,
+            display_ext: None,
+            user_selected: None,
+            user_selected_ext: None,
+        }
+            .into()
+    }
+}
+impl From<XPathUsageType> for CodeableConcept {
+    fn from(code: XPathUsageType) -> Self {
         let text = format!("{code}");
         let coding = Coding::from(code);
         CodeableConceptInner {

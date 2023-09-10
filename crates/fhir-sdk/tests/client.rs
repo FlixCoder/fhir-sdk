@@ -7,12 +7,13 @@ use eyre::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r5::{
-		codes::{EncounterStatus, IssueSeverity, SearchComparator},
+		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
 		resources::{
-			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
+			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
+			ParametersParameterValue, Patient, Resource, ResourceType,
 		},
-		types::{Identifier, Reference},
+		types::{HumanName, Identifier, Reference},
 	},
 	Date,
 };
@@ -76,6 +77,59 @@ async fn read_referenced() -> Result<()> {
 	let reference = reference_to(&patient).expect("creating reference");
 	let read = client.read_referenced(&reference).await?;
 	assert_eq!(read.as_base_resource().id(), patient.id());
+
+	Ok(())
+}
+
+#[tokio::test]
+async fn patch() -> Result<()> {
+	let client = client()?;
+
+	let mut patient = Patient::builder()
+		.active(false)
+		.gender(AdministrativeGender::Male)
+		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build())])
+		.build();
+	patient.create(&client).await?;
+
+	let date = Date::from_str("2021-02-01").expect("parse Date");
+	client
+		.patch(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
+		.add(
+			"Patient",
+			"birthDate",
+			ParametersParameter::builder()
+				.name("value".to_owned())
+				.value(ParametersParameterValue::Date(date.clone()))
+				.build(),
+		)
+		.delete("Patient.active")
+		.replace(
+			"Patient.gender",
+			ParametersParameter::builder()
+				.name("value".to_owned())
+				.value(ParametersParameterValue::Code("female".to_owned()))
+				.build(),
+		)
+		.insert(
+			"Patient.name",
+			ParametersParameter::builder()
+				.name("value".to_owned())
+				.value(ParametersParameterValue::HumanName(
+					HumanName::builder().family("Family".to_owned()).build(),
+				))
+				.build(),
+			0,
+		)
+		.send()
+		.await?;
+
+	let patient: Patient =
+		client.read(patient.id.as_ref().expect("Patient.id")).await?.expect("Patient should exist");
+	assert_eq!(patient.birth_date, Some(date));
+	assert_eq!(patient.active, None);
+	assert_eq!(patient.gender, Some(AdministrativeGender::Female));
+	assert_eq!(patient.name.len(), 2);
 
 	Ok(())
 }

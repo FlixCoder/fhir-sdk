@@ -5,12 +5,14 @@ use model::{
 	codes::{BundleType, HTTPVerb},
 	resources::{Bundle, BundleEntry, BundleEntryRequest, Resource, ResourceType},
 };
+use reqwest::header::{self, HeaderValue};
 use uuid::Uuid;
 
-use super::{model, Client, Error};
+use super::{model, Client, Error, MIME_TYPE};
 
 /// A batch/transaction request builder.
 #[derive(Debug, Clone)]
+#[must_use = "You probably want to send the batch/transaction"]
 pub struct BatchTransaction {
 	/// The FHIR client.
 	client: Client,
@@ -128,7 +130,13 @@ impl BatchTransaction {
 			.build();
 
 		let url = self.client.url(&[]);
-		let request = self.client.0.client.post(url).json(&bundle);
+		let request = self
+			.client
+			.0
+			.client
+			.post(url)
+			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
+			.json(&bundle);
 
 		let response = self.client.request_settings().make_request(request).await?;
 		if response.status().is_success() {

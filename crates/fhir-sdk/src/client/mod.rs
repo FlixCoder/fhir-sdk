@@ -5,6 +5,7 @@
 mod error;
 mod misc;
 mod paging;
+mod patch;
 mod request;
 mod search;
 mod transaction;
@@ -42,7 +43,7 @@ pub use self::{
 	},
 	write::ResourceWrite,
 };
-use self::{paging::Paged, transaction::BatchTransaction};
+use self::{paging::Paged, patch::Patch, transaction::BatchTransaction};
 
 /// User agent of this client.
 const USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -181,6 +182,30 @@ impl Client {
 		Ok(resource)
 	}
 
+	/// Create a new FHIR resource on the FHIR server. Returns the resource ID
+	/// and version ID.
+	pub async fn create<R: NamedResource + Serialize + Send + Sync>(
+		&self,
+		resource: &R,
+	) -> Result<(String, Option<String>), Error> {
+		let url = self.url(&[R::TYPE.as_str()]);
+		let request = self
+			.0
+			.client
+			.post(url)
+			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
+			.json(resource);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let (id, version_id) = misc::parse_location(response.headers())?;
+			let version_id = version_id.or(misc::parse_etag(response.headers()).ok());
+			Ok((id, version_id))
+		} else {
+			Err(Error::from_response(response).await)
+		}
+	}
+
 	/// Update a FHIR resource (or create it if it did not
 	/// exist). If conditional update is selected, the resource is only updated
 	/// if the version ID matches the expectations.
@@ -192,7 +217,12 @@ impl Client {
 		let id = resource.id().as_ref().ok_or(Error::MissingId)?;
 
 		let url = self.url(&[R::TYPE.as_str(), id]);
-		let mut request = self.0.client.put(url).json(resource);
+		let mut request = self
+			.0
+			.client
+			.put(url)
+			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
+			.json(resource);
 		if conditional {
 			let version_id = resource
 				.meta()
@@ -214,23 +244,10 @@ impl Client {
 		}
 	}
 
-	/// Create a new FHIR resource on the FHIR server. Returns the resource ID
-	/// and version ID.
-	pub async fn create<R: NamedResource + Serialize + Send + Sync>(
-		&self,
-		resource: &R,
-	) -> Result<(String, Option<String>), Error> {
-		let url = self.url(&[R::TYPE.as_str()]);
-		let request = self.0.client.post(url).json(resource);
-
-		let response = self.request_settings().make_request(request).await?;
-		if response.status().is_success() {
-			let (id, version_id) = misc::parse_location(response.headers())?;
-			let version_id = version_id.or(misc::parse_etag(response.headers()).ok());
-			Ok((id, version_id))
-		} else {
-			Err(Error::from_response(response).await)
-		}
+	/// Begin building a patch request for a FHIR resource on the server via the
+	/// `FHIRPath Patch` method.
+	pub fn patch<'a>(&self, resource_type: ResourceType, id: &'a str) -> Patch<'a> {
+		Patch::new(self.clone(), resource_type, id)
 	}
 
 	/// Delete a FHIR resource on the server.
@@ -284,13 +301,11 @@ impl Client {
 	}
 
 	/// Start building a new batch request.
-	#[must_use]
 	pub fn batch(&self) -> BatchTransaction {
 		BatchTransaction::new(self.clone(), false)
 	}
 
 	/// Start building a new transaction request.
-	#[must_use]
 	pub fn transaction(&self) -> BatchTransaction {
 		BatchTransaction::new(self.clone(), true)
 	}
@@ -357,7 +372,12 @@ impl Client {
 			.build();
 
 		let url = self.url(&["Patient", "$match"]);
-		let request = self.0.client.post(url).json(&parameters);
+		let request = self
+			.0
+			.client
+			.post(url)
+			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
+			.json(&parameters);
 
 		let response = self.request_settings().make_request(request).await?;
 		if response.status().is_success() {
@@ -368,6 +388,3 @@ impl Client {
 		}
 	}
 }
-
-#[cfg(test)]
-mod tests;

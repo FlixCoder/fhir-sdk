@@ -18,10 +18,26 @@ use fhir_sdk::{
 };
 use futures::TryStreamExt;
 
+/// Set up a client for testing with the (local) FHIR server.
 fn client() -> Result<Client> {
 	let base_url =
 		env::var("FHIR_SERVER").unwrap_or("http://localhost:8090/fhir/".to_owned()).parse()?;
 	Ok(Client::new(base_url)?)
+}
+
+/// Go through all entries of the bundle, extracting the outcomes and search for
+/// errors inside. Fail if there is any of severity error or fatal.
+fn ensure_batch_succeeded(bundle: Bundle) {
+	let batch_errors = bundle
+		.entry
+		.iter()
+		.flatten()
+		.filter_map(|entry| entry.response.as_ref())
+		.filter_map(|response| response.outcome.as_ref())
+		.filter_map(|resource| <&OperationOutcome>::try_from(resource).ok())
+		.flat_map(|outcome| outcome.issue.iter().flatten())
+		.any(|issue| matches!(issue.severity, IssueSeverity::Error | IssueSeverity::Fatal));
+	assert!(!batch_errors);
 }
 
 #[tokio::test]
@@ -193,17 +209,28 @@ async fn paging() -> Result<()> {
 	Ok(())
 }
 
-/// Go through all entries of the bundle, extracting the outcomes and search for
-/// errors inside. Fail if there is any of severity error or fatal.
-fn ensure_batch_succeeded(bundle: Bundle) {
-	let batch_errors = bundle
+#[tokio::test]
+async fn operation_encounter_everything() -> Result<()> {
+	let client = client()?;
+
+	let mut patient = Patient::builder().build();
+	patient.create(&client).await?;
+	let mut encounter = Encounter::builder()
+		.status(EncounterStatus::Completed)
+		.subject(reference_to(&patient).expect("Patient reference"))
+		.build();
+	encounter.create(&client).await?;
+
+	let bundle =
+		client.operation_encounter_everything(encounter.id.as_ref().expect("Encounter.id")).await?;
+	let contains_patient = bundle
 		.entry
 		.iter()
 		.flatten()
-		.filter_map(|entry| entry.response.as_ref())
-		.filter_map(|response| response.outcome.as_ref())
-		.filter_map(|resource| <&OperationOutcome>::try_from(resource).ok())
-		.flat_map(|outcome| outcome.issue.iter().flatten())
-		.any(|issue| matches!(issue.severity, IssueSeverity::Error | IssueSeverity::Fatal));
-	assert!(!batch_errors);
+		.filter_map(|entry| entry.resource.as_ref())
+		.filter_map(|resource| resource.as_base_resource().id().as_ref())
+		.any(|id| Some(id) == patient.id.as_ref());
+	assert!(contains_patient);
+
+	Ok(())
 }

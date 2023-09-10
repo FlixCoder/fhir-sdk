@@ -21,7 +21,8 @@ use futures::stream::{Stream, TryStreamExt};
 use model::{
 	codes::SearchEntryMode,
 	resources::{
-		BaseResource, CapabilityStatement, NamedResource, Resource, ResourceType, WrongResourceType,
+		BaseResource, Bundle, CapabilityStatement, NamedResource, Resource, ResourceType,
+		WrongResourceType,
 	},
 	types::Reference,
 	JSON_MIME_TYPE,
@@ -292,6 +293,21 @@ impl Client {
 	#[must_use]
 	pub fn transaction(&self) -> BatchTransaction {
 		BatchTransaction::new(self.clone(), true)
+	}
+
+	/// Operation `$everything` on `Encounter`, returning a Bundle with all
+	/// resources for an `Encounter` record.
+	pub async fn operation_encounter_everything(&self, id: &str) -> Result<Bundle, Error> {
+		let url = self.url(&["Encounter", id, "$everything"]);
+		let request = self.0.client.get(url);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let resource: Bundle = response.json().await?;
+			Ok(resource)
+		} else {
+			Err(Error::from_response(response).await)
+		}
 	}
 }
 

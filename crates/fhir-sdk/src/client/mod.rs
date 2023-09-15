@@ -167,7 +167,7 @@ impl Client {
 					self.url(&[resource_type, id])
 				}
 			}
-			ParsedReference::Absolute { url } => {
+			ParsedReference::Absolute { url, .. } => {
 				url.parse().map_err(|_| Error::UrlParse(url.to_owned()))?
 			}
 		};

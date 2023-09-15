@@ -32,31 +32,10 @@ impl CodeableConcept {
 
 impl Reference {
 	/// Parse the [`Reference`] into a [`ParsedReference`]. Returns `None` if
-	/// the `reference` field is empty or the URL does not contain enough
-	/// segments to be valid.
+	/// the `reference` field is empty.
 	#[must_use]
 	pub fn parse(&self) -> Option<ParsedReference<'_>> {
 		let url = self.reference.as_ref()?;
-
-		if url.starts_with('#') {
-			return Some(ParsedReference::Local { id: url.split_at(1).1 });
-		}
-
-		let mut segments = url.rsplit('/');
-		let id_or_version = segments.next()?;
-		let history_or_type = segments.next()?;
-		let (resource_type, id, version_id) = if history_or_type == "_history" {
-			let id = segments.next()?;
-			let resource_type = segments.next()?;
-			(resource_type, id, Some(id_or_version))
-		} else {
-			(history_or_type, id_or_version, None)
-		};
-
-		if segments.next().is_some() {
-			Some(ParsedReference::Absolute { url })
-		} else {
-			Some(ParsedReference::Relative { resource_type, id, version_id })
-		}
+		Some(ParsedReference::new(url))
 	}
 }

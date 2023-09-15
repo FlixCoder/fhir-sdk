@@ -153,7 +153,14 @@ fn reference_parsing() {
 		.reference("https://server.test/fhir/Encounter/1".to_owned())
 		.build();
 	let parsed = reference.parse().expect("parsing reference");
-	assert_eq!(parsed, ParsedReference::Absolute { url: "https://server.test/fhir/Encounter/1" });
+	assert_eq!(
+		parsed,
+		ParsedReference::Absolute {
+			url: "https://server.test/fhir/Encounter/1",
+			resource_type: Some("Encounter"),
+			id: Some("1")
+		}
+	);
 
 	let reference = Reference::builder()
 		.r#type("Encounter".to_owned())
@@ -162,7 +169,11 @@ fn reference_parsing() {
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(
 		parsed,
-		ParsedReference::Absolute { url: "https://server.test/fhir/Encounter/1/_history/1" }
+		ParsedReference::Absolute {
+			url: "https://server.test/fhir/Encounter/1/_history/1",
+			resource_type: Some("Encounter"),
+			id: Some("1")
+		}
 	);
 
 	let reference = Reference::builder()
@@ -187,10 +198,19 @@ fn reference_parsing() {
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(parsed, ParsedReference::Local { id: "1" });
 
-	let reference =
-		Reference::builder().r#type("Task".to_owned()).reference("garbage".to_owned()).build();
-	let parsed = reference.parse();
-	assert_eq!(parsed, None);
+	let reference = Reference::builder()
+		.r#type("Task".to_owned())
+		.reference("http://not-fhir.test/1".to_owned())
+		.build();
+	let parsed = reference.parse().expect("parsing reference");
+	assert_eq!(
+		parsed,
+		ParsedReference::Absolute {
+			url: "http://not-fhir.test/1",
+			resource_type: Some("not-fhir.test"), // irks
+			id: Some("1")
+		}
+	);
 }
 
 #[test]

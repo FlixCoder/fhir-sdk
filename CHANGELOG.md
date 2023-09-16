@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2023-09-16
+
+### Bug Fixes
+
+- Do not filter out codes like HTTPVerb
+- Go deeper into the codes, there are more layers
+
+### Features
+
+- Implement batch/transaction requests
+- Implement Encounter $everything operation
+- Implement Patient $everything and $match
+- Implement PATCH
+
+### Refactor
+
+- Change the way references are parsed
+
+### Testing
+
+- Refactor to use batches
+
 ## [0.5.0] - 2023-09-08
 
 ### Bug Fixes

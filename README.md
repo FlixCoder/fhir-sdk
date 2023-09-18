@@ -74,7 +74,8 @@ For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/ma
 
 ## Testing
 
-Simply set up the FHIR test server using `docker compose up -d` in the workspace root and then run `cargo xtask test`.
+Simply set up the FHIR test environment using `cargo xtask docker -- up -d` and then run `cargo xtask test`.
+If you need sudo to run docker, use the `--sudo` or just `-s` flag on `cargo xtask docker`.
 
 ## Known Problems
 

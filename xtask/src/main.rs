@@ -3,7 +3,7 @@
 
 use std::{env, ffi::OsStr, path::PathBuf, process::Command, str::FromStr};
 
-use clap::Parser;
+use clap::{Args, Parser};
 use color_eyre::{eyre::bail, Result};
 
 /// XTask pattern helper CLI tool.
@@ -12,21 +12,35 @@ use color_eyre::{eyre::bail, Result};
 enum Cli {
 	/// Test command: run all tests with different feature selections.
 	Test,
+	/// Docker command: use this start and stop the docker test environment.
+	#[command(arg_required_else_help = true)]
+	Docker(DockerArgs),
+}
+
+/// Docker command arguments.
+#[derive(Debug, Args)]
+struct DockerArgs {
+	/// Whether to use sudo to execute the command.
+	#[arg(short, long)]
+	sudo: bool,
+	/// Raw arguments passed on to docker compose.
+	#[arg(last = true, raw = true)]
+	compose_args: Vec<String>,
 }
 
 impl Cli {
 	/// Run the CLI.
 	pub fn run(self) -> Result<()> {
+		let workspace_path = PathBuf::from_str(&env::var("CARGO_WORKSPACE_DIR")?)?;
 		match self {
-			Self::Test => Self::run_test()?,
+			Self::Test => Self::run_test(workspace_path)?,
+			Self::Docker(args) => Self::run_docker(workspace_path, args)?,
 		}
 		Ok(())
 	}
 
 	/// Run the test sub-command.
-	fn run_test() -> Result<()> {
-		let workspace_path = PathBuf::from_str(&env::var("CARGO_WORKSPACE_DIR")?)?;
-
+	fn run_test(workspace_path: PathBuf) -> Result<()> {
 		// Run all tests and doc-tests with default features.
 		let mut command = Command::new("cargo");
 		command.args(["test", "--workspace"]).current_dir(&workspace_path);
@@ -51,6 +65,25 @@ impl Cli {
 		run_command(command)?;
 		let mut command = Command::new("cargo");
 		command.args(["check", "-p", "fhir-model", "--no-default-features", "--features", "r5"]);
+		run_command(command)?;
+
+		Ok(())
+	}
+
+	/// Run the docker sub-command.
+	fn run_docker(workspace_path: PathBuf, args: DockerArgs) -> Result<()> {
+		// Run docker compose with the specified arguments.
+		let mut command = if args.sudo {
+			let mut cmd = Command::new("sudo");
+			cmd.arg("docker");
+			cmd
+		} else {
+			Command::new("docker")
+		};
+		command
+			.current_dir(workspace_path.join("docker"))
+			.args(["compose", "--project-name", "fhir", "-f", "hapi-r5.yml"])
+			.args(args.compose_args);
 		run_command(command)?;
 
 		Ok(())

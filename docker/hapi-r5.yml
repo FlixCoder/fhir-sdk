@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 
 services:
   fhir:
@@ -6,13 +6,14 @@ services:
     ports:
       - "8090:8080"
     volumes:
-      - fhir-data:/data/hapi
+      - hapi-r5-db:/data/hapi
     environment:
       hapi.fhir.fhir_version: "R5"
       hapi.fhir.tester.home.fhir_version: "R5"
       hapi.fhir.subscription.resthook_enabled: "true"
+      # For some reason needed to start the server?
       hapi.fhir.subscription.email.from: "test@test.test"
       hapi.fhir.subscription.email.host: "test.test"
 
 volumes:
-  fhir-data:
+  hapi-r5-db:

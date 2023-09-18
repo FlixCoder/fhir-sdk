@@ -3,7 +3,7 @@
 
 use std::{env, ffi::OsStr, path::PathBuf, process::Command, str::FromStr};
 
-use clap::{Args, Parser};
+use clap::{Args, Parser, ValueEnum};
 use color_eyre::{eyre::bail, Result};
 
 /// XTask pattern helper CLI tool.
@@ -23,9 +23,36 @@ struct DockerArgs {
 	/// Whether to use sudo to execute the command.
 	#[arg(short, long)]
 	sudo: bool,
+	/// Which FHIR server to start.
+	#[arg(default_value_t, value_enum)]
+	server: FhirServer,
 	/// Raw arguments passed on to docker compose.
 	#[arg(last = true, raw = true)]
 	compose_args: Vec<String>,
+}
+
+/// Which FHIR servers we are able to start up.
+#[derive(Debug, Clone, Copy, Default, ValueEnum)]
+enum FhirServer {
+	/// Both Hapi servers (R4B and R5).
+	#[default]
+	HapiBoth,
+	/// Hapi server for FHIR R4B.
+	HapiR4b,
+	/// Hapi server for FHIR R5.
+	HapiR5,
+}
+
+impl FhirServer {
+	/// Get the arguments for the docker command to use the appropriate compose
+	/// files.
+	fn compose_args(self) -> &'static [&'static str] {
+		match self {
+			Self::HapiBoth => &["-f", "hapi-r4b.yml", "-f", "hapi-r5.yml"],
+			Self::HapiR4b => &["-f", "hapi-r4b.yml"],
+			Self::HapiR5 => &["-f", "hapi-r5.yml"],
+		}
+	}
 }
 
 impl Cli {
@@ -82,7 +109,8 @@ impl Cli {
 		};
 		command
 			.current_dir(workspace_path.join("docker"))
-			.args(["compose", "--project-name", "fhir", "-f", "hapi-r5.yml"])
+			.args(["compose", "--project-name", "fhir"])
+			.args(args.server.compose_args())
 			.args(args.compose_args);
 		run_command(command)?;
 

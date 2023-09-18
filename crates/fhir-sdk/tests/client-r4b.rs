@@ -1,4 +1,4 @@
-#![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
+#![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
 use std::{env, str::FromStr};
@@ -6,14 +6,14 @@ use std::{env, str::FromStr};
 use eyre::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
-	r5::{
+	r4b::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
 		resources::{
 			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
 			ParametersParameterValue, Patient, Resource, ResourceType,
 		},
-		types::{HumanName, Identifier, Reference},
+		types::{Coding, HumanName, Identifier, Reference},
 	},
 	Date,
 };
@@ -22,7 +22,7 @@ use futures::TryStreamExt;
 /// Set up a client for testing with the (local) FHIR server.
 fn client() -> Result<Client> {
 	let base_url =
-		env::var("FHIR_SERVER").unwrap_or("http://localhost:8090/fhir/".to_owned()).parse()?;
+		env::var("FHIR_SERVER").unwrap_or("http://localhost:8080/fhir/".to_owned()).parse()?;
 	Ok(Client::new(base_url)?)
 }
 
@@ -189,6 +189,12 @@ async fn transaction() -> Result<()> {
 	let _encounter_ref = transaction.create(
 		Encounter::builder()
 			.status(EncounterStatus::Planned)
+			.class(
+				Coding::builder()
+					.system("test-system".to_owned())
+					.code("test-code".to_owned())
+					.build(),
+			)
 			.subject(Reference::builder().reference(patient_ref.clone()).build())
 			.build(),
 	);
@@ -270,7 +276,10 @@ async fn operation_encounter_everything() -> Result<()> {
 	let mut patient = Patient::builder().build();
 	patient.create(&client).await?;
 	let mut encounter = Encounter::builder()
-		.status(EncounterStatus::Completed)
+		.status(EncounterStatus::InProgress)
+		.class(
+			Coding::builder().system("test-system".to_owned()).code("test-code".to_owned()).build(),
+		)
 		.subject(reference_to(&patient).expect("Patient reference"))
 		.build();
 	encounter.create(&client).await?;

@@ -20,10 +20,11 @@ use fhir_model::r5 as model;
 use fhir_model::ParsedReference;
 use futures::stream::{Stream, TryStreamExt};
 use model::{
-	codes::SearchEntryMode,
+	codes::{SearchEntryMode, SubscriptionPayloadContent},
 	resources::{
 		BaseResource, Bundle, CapabilityStatement, NamedResource, Parameters, ParametersParameter,
-		ParametersParameterValue, Patient, Resource, ResourceType, WrongResourceType,
+		ParametersParameterValue, Patient, Resource, ResourceType, SubscriptionStatus,
+		WrongResourceType,
 	},
 	types::Reference,
 	JSON_MIME_TYPE,
@@ -383,6 +384,64 @@ impl Client {
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
+		} else {
+			Err(Error::from_response(response).await)
+		}
+	}
+
+	/// Operation `$status` on `Subscription`, returning the
+	/// `SubcriptionStatus`.
+	pub async fn operation_subscription_status(
+		&self,
+		id: &str,
+	) -> Result<SubscriptionStatus, Error> {
+		let url = self.url(&["Subscription", id, "$status"]);
+		let request = self.0.client.get(url);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let bundle: Bundle = response.json().await?;
+			let resource = bundle
+				.0
+				.entry
+				.into_iter()
+				.flatten()
+				.filter_map(|entry| entry.resource)
+				.find_map(|res| SubscriptionStatus::try_from(res).ok())
+				.ok_or(Error::ResourceNotFound)?;
+			Ok(resource)
+		} else {
+			Err(Error::from_response(response).await)
+		}
+	}
+
+	/// Operation `$events` on `Subscription`, returning the previous
+	/// notifications that were triggered by a topic.
+	pub async fn operation_subscription_events(
+		&self,
+		id: &str,
+		events_since: Option<i64>,
+		events_until: Option<i64>,
+		content: Option<SubscriptionPayloadContent>,
+	) -> Result<Bundle, Error> {
+		let mut queries = Vec::new();
+		if let Some(events_since) = events_since {
+			queries.push(("eventsSinceNumber", events_since.to_string()));
+		}
+		if let Some(events_until) = events_until {
+			queries.push(("eventsUntilNumber", events_until.to_string()));
+		}
+		if let Some(content) = content {
+			queries.push(("content", content.to_string()));
+		}
+
+		let url = self.url(&["Subscription", id, "$events"]);
+		let request = self.0.client.get(url).query(&queries);
+
+		let response = self.request_settings().make_request(request).await?;
+		if response.status().is_success() {
+			let bundle: Bundle = response.json().await?;
+			Ok(bundle)
 		} else {
 			Err(Error::from_response(response).await)
 		}

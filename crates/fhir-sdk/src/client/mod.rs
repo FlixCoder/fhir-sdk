@@ -20,15 +20,16 @@ use fhir_model::r5 as model;
 use fhir_model::ParsedReference;
 use futures::stream::{Stream, TryStreamExt};
 use model::{
-	codes::{SearchEntryMode, SubscriptionPayloadContent},
+	codes::SearchEntryMode,
 	resources::{
 		BaseResource, Bundle, CapabilityStatement, NamedResource, Parameters, ParametersParameter,
-		ParametersParameterValue, Patient, Resource, ResourceType, SubscriptionStatus,
-		WrongResourceType,
+		ParametersParameterValue, Patient, Resource, ResourceType, WrongResourceType,
 	},
 	types::Reference,
 	JSON_MIME_TYPE,
 };
+#[cfg(feature = "r5")]
+use model::{codes::SubscriptionPayloadContent, resources::SubscriptionStatus};
 use reqwest::{
 	header::{self, HeaderMap, HeaderValue},
 	StatusCode, Url,
@@ -391,6 +392,7 @@ impl Client {
 
 	/// Operation `$status` on `Subscription`, returning the
 	/// `SubcriptionStatus`.
+	#[cfg(feature = "r5")]
 	pub async fn operation_subscription_status(
 		&self,
 		id: &str,
@@ -417,6 +419,7 @@ impl Client {
 
 	/// Operation `$events` on `Subscription`, returning the previous
 	/// notifications that were triggered by a topic.
+	#[cfg(feature = "r5")]
 	pub async fn operation_subscription_events(
 		&self,
 		id: &str,

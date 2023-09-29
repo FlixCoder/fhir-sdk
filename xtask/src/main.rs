@@ -41,6 +41,8 @@ enum FhirServer {
 	HapiR4b,
 	/// Hapi server for FHIR R5.
 	HapiR5,
+	/// Medplum server for FHIR R4.
+	MedplumR4,
 }
 
 impl FhirServer {
@@ -48,9 +50,10 @@ impl FhirServer {
 	/// files.
 	fn compose_args(self) -> &'static [&'static str] {
 		match self {
-			Self::HapiBoth => &["-f", "hapi-r4b.yml", "-f", "hapi-r5.yml"],
-			Self::HapiR4b => &["-f", "hapi-r4b.yml"],
-			Self::HapiR5 => &["-f", "hapi-r5.yml"],
+			Self::HapiBoth => &["-f", "databases.yml", "-f", "hapi-r4b.yml", "-f", "hapi-r5.yml"],
+			Self::HapiR4b => &["-f", "databases.yml", "-f", "hapi-r4b.yml"],
+			Self::HapiR5 => &["-f", "databases.yml", "-f", "hapi-r5.yml"],
+			Self::MedplumR4 => &["-f", "databases.yml", "-f", "medplum-r4.yml"],
 		}
 	}
 }

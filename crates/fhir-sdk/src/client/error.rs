@@ -24,9 +24,9 @@ pub enum Error {
 	#[error("Resource is missing version ID")]
 	MissingVersionId,
 
-	/// Error parsing the reference.
-	#[error("Missing or malformed reference URL")]
-	ReferenceParsing,
+	/// Missing reference field in FHIR reference.
+	#[error("Missing reference URL in reference")]
+	MissingReference,
 
 	/// Reference was to local resource.
 	#[error("Tried to fetch local reference")]
@@ -53,20 +53,20 @@ pub enum Error {
 	OperationOutcome(OperationOutcome),
 
 	/// Resource was not found.
-	#[error("Resource was not found")]
-	ResourceNotFound,
+	#[error("Resource `{0}` was not found")]
+	ResourceNotFound(String),
 
 	/// Error parsing ETag to version ID, i.e. missing ETag or wrong format.
-	#[error("Missing or wrong ETag in response")]
-	EtagFailure,
+	#[error("Missing or wrong ETag in response: {0}")]
+	EtagFailure(String),
 
 	/// Response did not provide `Location` header or it failed to parse.
-	#[error("Missing or wrong Location header in response")]
-	LocationFailure,
+	#[error("Missing or wrong Location header in response: {0}")]
+	LocationFailure(String),
 
 	/// Wrong resource was delivered.
-	#[error("Resource type does not fit to the request type")]
-	WrongResourceType,
+	#[error("Resource type {0} is not the requested type {1}")]
+	WrongResourceType(String, String),
 }
 
 impl Error {

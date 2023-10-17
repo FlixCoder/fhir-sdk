@@ -161,8 +161,8 @@ async fn fetch_resource<R: DeserializeOwned>(client: Client, url: Url) -> Result
 	}
 
 	// Fetch a single resource from the given URL.
-	let resource = client.read_generic(url).await?;
-	resource.ok_or(Error::ResourceNotFound)
+	let resource = client.read_generic(url.clone()).await?;
+	resource.ok_or_else(|| Error::ResourceNotFound(url.to_string()))
 }
 
 impl std::fmt::Debug for Paged {

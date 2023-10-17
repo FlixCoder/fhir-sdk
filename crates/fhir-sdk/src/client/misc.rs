@@ -8,15 +8,15 @@ use super::Error;
 pub fn parse_etag(headers: &HeaderMap) -> Result<String, Error> {
 	let etag = headers
 		.get(header::ETAG)
-		.ok_or(Error::EtagFailure)?
+		.ok_or_else(|| Error::EtagFailure("None".to_owned()))?
 		.to_str()
-		.map_err(|_| Error::EtagFailure)?;
+		.map_err(|err| Error::EtagFailure(err.to_string()))?;
 	if etag.starts_with("W/\"") && etag.ends_with('"') {
 		let end = etag.split_at(3).1;
 		let version_id = end.split_at(end.len() - 1).0;
 		Ok(version_id.to_owned())
 	} else {
-		Err(Error::EtagFailure)
+		Err(Error::EtagFailure(etag.to_owned()))
 	}
 }
 
@@ -24,15 +24,17 @@ pub fn parse_etag(headers: &HeaderMap) -> Result<String, Error> {
 pub fn parse_location(headers: &HeaderMap) -> Result<(String, Option<String>), Error> {
 	let location = headers
 		.get(header::LOCATION)
-		.ok_or(Error::LocationFailure)?
+		.ok_or_else(|| Error::LocationFailure("None".to_owned()))?
 		.to_str()
-		.map_err(|_| Error::LocationFailure)?;
+		.map_err(|err| Error::LocationFailure(err.to_string()))?;
 	let mut segments = location.rsplit('/');
-	let id_or_version_id = segments.next().ok_or(Error::LocationFailure)?;
-	let history_or_type = segments.next().ok_or(Error::LocationFailure)?;
+	let id_or_version_id =
+		segments.next().ok_or_else(|| Error::LocationFailure(location.to_owned()))?;
+	let history_or_type =
+		segments.next().ok_or_else(|| Error::LocationFailure(location.to_owned()))?;
 
 	if history_or_type == "_history" {
-		let id = segments.next().ok_or(Error::LocationFailure)?;
+		let id = segments.next().ok_or_else(|| Error::LocationFailure(location.to_owned()))?;
 		Ok((id.to_owned(), Some(id_or_version_id.to_owned())))
 	} else {
 		Ok((id_or_version_id.to_owned(), None))
@@ -61,7 +63,7 @@ mod tests {
 
 		headers.insert(header::ETAG, HeaderValue::from_static("1"));
 		let result = parse_etag(&headers);
-		assert!(matches!(result, Err(Error::EtagFailure)));
+		assert!(matches!(result, Err(Error::EtagFailure(_))));
 	}
 
 	#[test]

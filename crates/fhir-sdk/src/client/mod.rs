@@ -160,7 +160,8 @@ impl Client {
 
 	/// Read the resource that is targeted in the reference.
 	pub async fn read_referenced(&self, reference: &Reference) -> Result<Resource, Error> {
-		let url = match reference.parse().ok_or(Error::ReferenceParsing)? {
+		let parsed_reference = reference.parse().ok_or(Error::MissingReference)?;
+		let url = match parsed_reference {
 			ParsedReference::Local { .. } => return Err(Error::LocalReference),
 			ParsedReference::Relative { resource_type, id, version_id } => {
 				if let Some(version_id) = version_id {
@@ -174,10 +175,16 @@ impl Client {
 			}
 		};
 
-		let resource: Resource = self.read_generic(url).await?.ok_or(Error::ResourceNotFound)?;
+		let resource: Resource = self
+			.read_generic(url.clone())
+			.await?
+			.ok_or_else(|| Error::ResourceNotFound(url.to_string()))?;
 		if let Some(resource_type) = reference.r#type.as_ref() {
 			if resource.resource_type().as_str() != resource_type {
-				return Err(Error::WrongResourceType);
+				return Err(Error::WrongResourceType(
+					resource.resource_type().to_string(),
+					resource_type.clone(),
+				));
 			}
 		}
 
@@ -398,7 +405,7 @@ impl Client {
 		id: &str,
 	) -> Result<SubscriptionStatus, Error> {
 		let url = self.url(&["Subscription", id, "$status"]);
-		let request = self.0.client.get(url);
+		let request = self.0.client.get(url.clone());
 
 		let response = self.request_settings().make_request(request).await?;
 		if response.status().is_success() {
@@ -410,7 +417,7 @@ impl Client {
 				.flatten()
 				.filter_map(|entry| entry.resource)
 				.find_map(|res| SubscriptionStatus::try_from(res).ok())
-				.ok_or(Error::ResourceNotFound)?;
+				.ok_or_else(|| Error::ResourceNotFound(url.to_string()))?;
 			Ok(resource)
 		} else {
 			Err(Error::from_response(response).await)

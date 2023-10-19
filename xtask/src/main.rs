@@ -34,9 +34,9 @@ struct DockerArgs {
 /// Which FHIR servers we are able to start up.
 #[derive(Debug, Clone, Copy, Default, ValueEnum)]
 enum FhirServer {
-	/// Both Hapi servers (R4B and R5).
+	/// Multiple servers for different versions for testing.
 	#[default]
-	HapiBoth,
+	Ci,
 	/// Hapi server for FHIR R4B.
 	HapiR4b,
 	/// Hapi server for FHIR R5.
@@ -50,7 +50,16 @@ impl FhirServer {
 	/// files.
 	fn compose_args(self) -> &'static [&'static str] {
 		match self {
-			Self::HapiBoth => &["-f", "databases.yml", "-f", "hapi-r4b.yml", "-f", "hapi-r5.yml"],
+			Self::Ci => &[
+				"-f",
+				"databases.yml",
+				"-f",
+				"medplum-r4.yml",
+				"-f",
+				"hapi-r4b.yml",
+				"-f",
+				"hapi-r5.yml",
+			],
 			Self::HapiR4b => &["-f", "databases.yml", "-f", "hapi-r4b.yml"],
 			Self::HapiR5 => &["-f", "databases.yml", "-f", "hapi-r5.yml"],
 			Self::MedplumR4 => &["-f", "databases.yml", "-f", "medplum-r4.yml"],

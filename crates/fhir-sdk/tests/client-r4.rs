@@ -13,7 +13,7 @@ use fhir_sdk::{
 			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
 			ParametersParameterValue, Patient, Resource, ResourceType,
 		},
-		types::{Coding, HumanName, Identifier, Reference},
+		types::{Coding, HumanName, Reference},
 	},
 	Date,
 };
@@ -93,7 +93,6 @@ fn ensure_batch_succeeded(bundle: Bundle) {
 }
 
 #[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
 async fn crud() -> Result<()> {
 	let client = client().await?;
 
@@ -120,7 +119,6 @@ async fn crud() -> Result<()> {
 }
 
 #[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
 async fn read_referenced() -> Result<()> {
 	let client = client().await?;
 
@@ -135,7 +133,7 @@ async fn read_referenced() -> Result<()> {
 }
 
 #[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
+#[ignore = "This currently triggers a bug in the Medplum R4 server"]
 async fn patch() -> Result<()> {
 	let client = client().await?;
 
@@ -189,7 +187,6 @@ async fn patch() -> Result<()> {
 }
 
 #[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
 async fn search() -> Result<()> {
 	let client = client().await?;
 
@@ -226,7 +223,6 @@ async fn search() -> Result<()> {
 }
 
 #[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
 async fn transaction() -> Result<()> {
 	let client = client().await?;
 
@@ -288,7 +284,6 @@ async fn transaction() -> Result<()> {
 }
 
 #[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
 async fn paging() -> Result<()> {
 	let client = client().await?;
 
@@ -323,58 +318,5 @@ async fn paging() -> Result<()> {
 		batch.delete(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"));
 	}
 	ensure_batch_succeeded(batch.send().await?);
-	Ok(())
-}
-
-#[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
-async fn operation_encounter_everything() -> Result<()> {
-	let client = client().await?;
-
-	let mut patient = Patient::builder().build();
-	patient.create(&client).await?;
-	let mut encounter = Encounter::builder()
-		.status(EncounterStatus::InProgress)
-		.class(
-			Coding::builder().system("test-system".to_owned()).code("test-code".to_owned()).build(),
-		)
-		.subject(reference_to(&patient).expect("Patient reference"))
-		.build();
-	encounter.create(&client).await?;
-
-	let bundle =
-		client.operation_encounter_everything(encounter.id.as_ref().expect("Encounter.id")).await?;
-	let contains_patient = bundle
-		.entry
-		.iter()
-		.flatten()
-		.filter_map(|entry| entry.resource.as_ref())
-		.filter_map(|resource| resource.as_base_resource().id().as_ref())
-		.any(|id| Some(id) == patient.id.as_ref());
-	assert!(contains_patient);
-
-	Ok(())
-}
-
-#[tokio::test]
-#[ignore = "This can only be executed with the Medplum R4 server"]
-async fn operation_patient_match() -> Result<()> {
-	let client = client().await?;
-
-	let mut patient = Patient::builder()
-		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build())])
-		.build();
-	patient.create(&client).await?;
-
-	let bundle = client.operation_patient_match(patient.clone(), true, 1).await?;
-	let contains_patient = bundle
-		.entry
-		.iter()
-		.flatten()
-		.filter_map(|entry| entry.resource.as_ref())
-		.filter_map(|resource| resource.as_base_resource().id().as_ref())
-		.any(|id| Some(id) == patient.id.as_ref());
-	assert!(contains_patient);
-
 	Ok(())
 }

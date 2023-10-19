@@ -4,9 +4,9 @@ services:
   hapi-r4b:
     image: hapiproject/hapi:latest
     ports:
-      - "8080:8080"
+      - "8090:8080"
     environment:
-      hapi.fhir.server_address: "http://localhost:8080/fhir"
+      hapi.fhir.server_address: "http://localhost:8090/fhir"
       hapi.fhir.fhir_version: "R4B"
       hapi.fhir.tester.home.fhir_version: "R4B"
       hapi.fhir.subscription.resthook_enabled: "true"

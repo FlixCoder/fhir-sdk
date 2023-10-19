@@ -22,7 +22,7 @@ use futures::TryStreamExt;
 /// Set up a client for testing with the (local) FHIR server.
 fn client() -> Result<Client> {
 	let base_url =
-		env::var("FHIR_SERVER").unwrap_or("http://localhost:8080/fhir/".to_owned()).parse()?;
+		env::var("FHIR_SERVER").unwrap_or("http://localhost:8090/fhir/".to_owned()).parse()?;
 	Ok(Client::new(base_url)?)
 }
 

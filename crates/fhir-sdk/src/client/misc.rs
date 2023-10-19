@@ -15,6 +15,12 @@ pub fn parse_etag(headers: &HeaderMap) -> Result<String, Error> {
 		let end = etag.split_at(3).1;
 		let version_id = end.split_at(end.len() - 1).0;
 		Ok(version_id.to_owned())
+	} else if etag.starts_with('"') && etag.ends_with('"') {
+		// Spec says one should use weak etags `W/"version"`, but we can work with it if
+		// the server does not do this.
+		let end = etag.split_at(1).1;
+		let version_id = end.split_at(end.len() - 1).0;
+		Ok(version_id.to_owned())
 	} else {
 		Err(Error::EtagFailure(etag.to_owned()))
 	}

@@ -2,6 +2,7 @@
 //!
 //! Does only work with one FHIR version at a time!
 
+mod builder;
 mod error;
 mod misc;
 mod paging;
@@ -30,13 +31,14 @@ use model::{
 };
 #[cfg(feature = "r5")]
 use model::{codes::SubscriptionPayloadContent, resources::SubscriptionStatus};
-use reqwest::{
+pub use reqwest::{
 	header::{self, HeaderMap, HeaderValue},
 	StatusCode, Url,
 };
 use serde::{de::DeserializeOwned, Serialize};
 
 pub use self::{
+	builder::ClientBuilder,
 	error::Error,
 	request::RequestSettings,
 	search::{
@@ -68,6 +70,12 @@ struct ClientData {
 }
 
 impl Client {
+	/// Start building a new client with custom settings.
+	#[must_use]
+	pub fn builder() -> ClientBuilder {
+		ClientBuilder::default()
+	}
+
 	/// Create a new client with default settings.
 	pub fn new(base_url: Url) -> Result<Self, Error> {
 		if base_url.cannot_be_a_base() {
@@ -101,6 +109,19 @@ impl Client {
 		*self.0.request_settings.lock().expect("mutex poisened") = settings;
 	}
 
+	/// Run a request using the internal request settings.
+	async fn run_request(
+		&self,
+		request: reqwest::RequestBuilder,
+	) -> Result<reqwest::Response, Error> {
+		let mut request_settings = self.request_settings();
+		let (response, modified) = request_settings.make_request(request).await?;
+		if modified {
+			self.set_request_settings(request_settings);
+		}
+		Ok(response)
+	}
+
 	/// Get the URL with the configured base URL and the given path segments.
 	fn url(&self, segments: &[&str]) -> Url {
 		let mut url = self.0.base_url.clone();
@@ -115,7 +136,7 @@ impl Client {
 		let url = self.url(&["metadata"]);
 		let request = self.0.client.get(url);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let capability_statement: CapabilityStatement = response.json().await?;
 			Ok(capability_statement)
@@ -128,7 +149,7 @@ impl Client {
 	async fn read_generic<R: DeserializeOwned>(&self, url: Url) -> Result<Option<R>, Error> {
 		let request = self.0.client.get(url);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: R = response.json().await?;
 			Ok(Some(resource))
@@ -205,7 +226,7 @@ impl Client {
 			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
 			.json(resource);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let (id, version_id) = misc::parse_location(response.headers())?;
 			let version_id = version_id.or(misc::parse_etag(response.headers()).ok());
@@ -243,7 +264,7 @@ impl Client {
 			request = request.header(header::IF_MATCH, if_match);
 		}
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let created = response.status() == StatusCode::CREATED;
 			let version_id = misc::parse_etag(response.headers())?;
@@ -264,7 +285,7 @@ impl Client {
 		let url = self.url(&[resource_type.as_str(), id]);
 		let request = self.0.client.delete(url);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			Ok(())
 		} else {
@@ -325,7 +346,7 @@ impl Client {
 		let url = self.url(&["Encounter", id, "$everything"]);
 		let request = self.0.client.get(url);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
@@ -340,7 +361,7 @@ impl Client {
 		let url = self.url(&["Patient", id, "$everything"]);
 		let request = self.0.client.get(url);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
@@ -388,7 +409,7 @@ impl Client {
 			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
 			.json(&parameters);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
@@ -407,7 +428,7 @@ impl Client {
 		let url = self.url(&["Subscription", id, "$status"]);
 		let request = self.0.client.get(url.clone());
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: Bundle = response.json().await?;
 			let resource = bundle
@@ -448,7 +469,7 @@ impl Client {
 		let url = self.url(&["Subscription", id, "$events"]);
 		let request = self.0.client.get(url).query(&queries);
 
-		let response = self.request_settings().make_request(request).await?;
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: Bundle = response.json().await?;
 			Ok(bundle)

@@ -8,6 +8,10 @@ use super::model::resources::OperationOutcome;
 /// FHIR REST Client Error.
 #[derive(Debug, Error)]
 pub enum Error {
+	/// Builder is missing a field to construct the client.
+	#[error("Builder is missing field `{0}` to construct the client")]
+	BuilderMissingField(&'static str),
+
 	/// URL cannot be a base URL.
 	#[error("Given base URL cannot be a base URL")]
 	UrlCannotBeBase,
@@ -40,6 +44,10 @@ pub enum Error {
 	#[error("Found URL with unexpected origin: {0}")]
 	DifferentOrigin(String),
 
+	/// Auth callback error.
+	#[error("Authorization callback error: {0}")]
+	AuthCallback(String),
+
 	/// HTTP Request error.
 	#[error("Request error: {0}")]
 	Request(#[from] reqwest::Error),
@@ -49,8 +57,8 @@ pub enum Error {
 	Response(StatusCode, String),
 
 	/// OperationOutcome.
-	#[error("OperationOutcome: {0:?}")]
-	OperationOutcome(OperationOutcome),
+	#[error("OperationOutcome({0}): {1:?}")]
+	OperationOutcome(StatusCode, OperationOutcome),
 
 	/// Resource was not found.
 	#[error("Resource `{0}` was not found")]
@@ -84,7 +92,7 @@ impl Error {
 		let status = response.status();
 		let body = response.text().await.unwrap_or_default();
 		if let Ok(outcome) = serde_json::from_str(&body) {
-			Self::OperationOutcome(outcome)
+			Self::OperationOutcome(status, outcome)
 		} else {
 			Self::Response(status, body)
 		}

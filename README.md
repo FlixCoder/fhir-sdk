@@ -46,7 +46,11 @@ use fhir_sdk::TryStreamExt;
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     // Set up the client using the local test server.
-    let client = Client::new("http://localhost:8090/fhir/".parse().unwrap())?;
+    let settings = RequestSettings::default().header(header::AUTHORIZATION, "Bearer token".parse().unwrap());
+    let client = Client::builder()
+        .base_url("http://localhost:8090/fhir/".parse().unwrap())
+        .request_settings(settings)
+        .build()?;
 
     // Create a Patient resource using a typed builder.
     let mut patient = Patient::builder().active(false).build();

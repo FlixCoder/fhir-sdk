@@ -203,7 +203,7 @@ impl<'a> Patch<'a> {
 			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
 			.json(&parameters);
 
-		let response = self.client.request_settings().make_request(request).await?;
+		let response = self.client.run_request(request).await?;
 		if response.status().is_success() {
 			Ok(())
 		} else {

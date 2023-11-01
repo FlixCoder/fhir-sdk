@@ -5,7 +5,7 @@ use std::str::FromStr;
 
 use eyre::Result;
 use fhir_sdk::{
-	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
+	client::{Client, DateSearch, RequestSettings, ResourceWrite, SearchParameters, TokenSearch},
 	r4b::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
@@ -18,6 +18,7 @@ use fhir_sdk::{
 	Date,
 };
 use futures::TryStreamExt;
+use reqwest::header::HeaderValue;
 use serde_json::json;
 use tokio::sync::OnceCell;
 
@@ -26,51 +27,52 @@ fn extract_json_field(json_body: serde_json::Value, field: &str) -> Option<Strin
 	Some(code.to_owned())
 }
 
+async fn medplum_auth() -> Result<HeaderValue> {
+	println!("Getting new authorization token from Medplum");
+
+	let client = reqwest::Client::builder().user_agent("fhir-sdk tests").build()?;
+	let my_challenge = "my_challenge";
+
+	let auth_url = "http://localhost:8080/auth/login";
+	let response = client
+		.post(auth_url)
+		.json(&json!({
+			"email": "admin@example.com",
+			"password": "medplum_admin",
+			"codeChallengeMethod": "plain",
+			"codeChallenge": my_challenge
+		}))
+		.send()
+		.await?
+		.error_for_status()?;
+	let login_code = extract_json_field(response.json().await?, "code")
+		.ok_or_else(|| eyre::eyre!("No code in login response"))?;
+
+	let token_url = "http://localhost:8080/oauth2/token";
+	let response = client
+		.post(token_url)
+		.form(&[
+			("grant_type", "authorization_code"),
+			("code_verifier", my_challenge),
+			("code", &login_code),
+		])
+		.send()
+		.await?
+		.error_for_status()?;
+	let access_token = extract_json_field(response.json().await?, "access_token")
+		.ok_or_else(|| eyre::eyre!("No access_token in login response"))?;
+
+	Ok(format!("Bearer {access_token}").parse()?)
+}
+
 /// Set up a client for testing with the (local) FHIR server.
 async fn client() -> Result<Client> {
 	static CLIENT: OnceCell<Client> = OnceCell::const_new();
 	let client = CLIENT
 		.get_or_try_init(|| async move {
-			let client = reqwest::Client::builder().user_agent("fhir-sdk tests").build()?;
-			let my_challenge = "my_challenge";
-
-			let auth_url = "http://localhost:8080/auth/login";
-			let response = client
-				.post(auth_url)
-				.json(&json!({
-					"email": "admin@example.com",
-					"password": "medplum_admin",
-					"codeChallengeMethod": "plain",
-					"codeChallenge": my_challenge
-				}))
-				.send()
-				.await?
-				.error_for_status()?;
-			let login_code = extract_json_field(response.json().await?, "code")
-				.ok_or_else(|| eyre::eyre!("No code in login response"))?;
-
-			let token_url = "http://localhost:8080/oauth2/token";
-			let response = client
-				.post(token_url)
-				.form(&[
-					("grant_type", "authorization_code"),
-					("code_verifier", my_challenge),
-					("code", &login_code),
-				])
-				.send()
-				.await?
-				.error_for_status()?;
-			let access_token = extract_json_field(response.json().await?, "access_token")
-				.ok_or_else(|| eyre::eyre!("No access_token in login response"))?;
-
 			let base_url = "http://localhost:8080/fhir/R4".parse()?;
-			let client = Client::new(base_url)?;
-			client.set_request_settings(
-				client
-					.request_settings()
-					.header("Authorization".parse()?, format!("Bearer {access_token}").parse()?),
-			);
-
+			let settings = RequestSettings::default().auth_callback(medplum_auth);
+			let client = Client::builder().base_url(base_url).request_settings(settings).build()?;
 			Ok::<_, eyre::Report>(client)
 		})
 		.await?;
@@ -133,7 +135,7 @@ async fn read_referenced() -> Result<()> {
 }
 
 #[tokio::test]
-#[ignore = "This currently triggers a bug in the Medplum R4 server"]
+#[ignore = "This is currently not supported by Medplum"]
 async fn patch() -> Result<()> {
 	let client = client().await?;
 

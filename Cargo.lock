@@ -340,6 +340,7 @@ dependencies = [
  "eyre",
  "fhir-model 0.6.0",
  "futures",
+ "once_cell",
  "reqwest",
  "serde",
  "serde_json",

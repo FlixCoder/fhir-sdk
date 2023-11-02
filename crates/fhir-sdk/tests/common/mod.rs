@@ -1,6 +1,13 @@
 //! Common test functions.
 
-use tokio::sync::OnceCell;
+use once_cell::sync::Lazy;
+use tokio::{runtime::Runtime, sync::OnceCell};
+
+/// Test-global runtime to be stable across multiple tests using the same client
+/// and runtime.
+pub static RUNTIME: Lazy<Runtime> = Lazy::new(|| {
+	tokio::runtime::Builder::new_multi_thread().enable_all().build().expect("creating runtime")
+});
 
 /// Set up logging for the tests.
 pub async fn setup_logging() {

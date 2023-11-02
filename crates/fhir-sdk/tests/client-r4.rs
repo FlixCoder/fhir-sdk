@@ -97,8 +97,12 @@ fn ensure_batch_succeeded(bundle: Bundle) {
 	assert!(!batch_errors);
 }
 
-#[tokio::test]
-async fn crud() -> Result<()> {
+#[test]
+fn crud() -> Result<()> {
+	common::RUNTIME.block_on(crud_inner())
+}
+
+async fn crud_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient = Patient::builder().active(false).build();
@@ -123,8 +127,12 @@ async fn crud() -> Result<()> {
 	Ok(())
 }
 
-#[tokio::test]
-async fn read_referenced() -> Result<()> {
+#[test]
+fn read_referenced() -> Result<()> {
+	common::RUNTIME.block_on(read_referenced_inner())
+}
+
+async fn read_referenced_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient = Patient::builder().build();
@@ -137,9 +145,13 @@ async fn read_referenced() -> Result<()> {
 	Ok(())
 }
 
-#[tokio::test]
+#[test]
 #[ignore = "This is currently not supported by Medplum"]
-async fn patch() -> Result<()> {
+fn patch() -> Result<()> {
+	common::RUNTIME.block_on(patch_inner())
+}
+
+async fn patch_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient = Patient::builder()
@@ -191,8 +203,12 @@ async fn patch() -> Result<()> {
 	Ok(())
 }
 
-#[tokio::test]
-async fn search() -> Result<()> {
+#[test]
+fn search() -> Result<()> {
+	common::RUNTIME.block_on(search_inner())
+}
+
+async fn search_inner() -> Result<()> {
 	let client = client().await?;
 
 	let date_str = "5123-05-05";
@@ -227,8 +243,12 @@ async fn search() -> Result<()> {
 	Ok(())
 }
 
-#[tokio::test]
-async fn transaction() -> Result<()> {
+#[test]
+fn transaction() -> Result<()> {
+	common::RUNTIME.block_on(transaction_inner())
+}
+
+async fn transaction_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient1 = Patient::builder().build();
@@ -288,8 +308,12 @@ async fn transaction() -> Result<()> {
 	Ok(())
 }
 
-#[tokio::test]
-async fn paging() -> Result<()> {
+#[test]
+fn paging() -> Result<()> {
+	common::RUNTIME.block_on(paging_inner())
+}
+
+async fn paging_inner() -> Result<()> {
 	let client = client().await?;
 
 	let date = "5123-05-10";

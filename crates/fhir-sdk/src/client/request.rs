@@ -144,6 +144,7 @@ impl RequestSettings {
 
 		// On authorization failure, retry after resetting the authorization.
 		if response.status() == StatusCode::UNAUTHORIZED {
+			tracing::info!("Hit unauthorized response, calling auth_callback");
 			let auth_value =
 				(auth_callback)().await.map_err(|err| Error::AuthCallback(err.to_string()))?;
 			self.headers.insert(reqwest::header::AUTHORIZATION, auth_value.clone());
@@ -178,8 +179,10 @@ impl RequestSettings {
 		RetryIf::spawn(
 			strategy.take(self.retries),
 			|| async {
+				tracing::debug!("Sending {} request to {}", request.method(), request.url());
 				let request = request.try_clone().ok_or(Error::RequestNotClone)?;
 				let response = client.execute(request).await?;
+				tracing::debug!("Got response: {}", response.status());
 				Ok(response)
 			},
 			Error::should_retry,

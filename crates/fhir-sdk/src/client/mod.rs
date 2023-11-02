@@ -107,6 +107,7 @@ impl Client {
 	pub fn set_request_settings(&self, settings: RequestSettings) {
 		#![allow(clippy::expect_used)] // only happens on panics, so we can panic again.
 		*self.0.request_settings.lock().expect("mutex poisened") = settings;
+		tracing::debug!("New request settings set");
 	}
 
 	/// Run a request using the internal request settings.

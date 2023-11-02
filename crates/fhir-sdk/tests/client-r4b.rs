@@ -1,6 +1,8 @@
 #![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
+mod common;
+
 use std::{env, str::FromStr};
 
 use eyre::Result;
@@ -20,7 +22,8 @@ use fhir_sdk::{
 use futures::TryStreamExt;
 
 /// Set up a client for testing with the (local) FHIR server.
-fn client() -> Result<Client> {
+async fn client() -> Result<Client> {
+	common::setup_logging().await;
 	let base_url =
 		env::var("FHIR_SERVER").unwrap_or("http://localhost:8090/fhir/".to_owned()).parse()?;
 	Ok(Client::new(base_url)?)
@@ -43,7 +46,7 @@ fn ensure_batch_succeeded(bundle: Bundle) {
 
 #[tokio::test]
 async fn crud() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let mut patient = Patient::builder().active(false).build();
 	let id = patient.create(&client).await?;
@@ -69,7 +72,7 @@ async fn crud() -> Result<()> {
 
 #[tokio::test]
 async fn read_referenced() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let mut patient = Patient::builder().build();
 	patient.create(&client).await?;
@@ -83,7 +86,7 @@ async fn read_referenced() -> Result<()> {
 
 #[tokio::test]
 async fn patch() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let mut patient = Patient::builder()
 		.active(false)
@@ -136,7 +139,7 @@ async fn patch() -> Result<()> {
 
 #[tokio::test]
 async fn search() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let date_str = "5123-05-05";
 	let date = Date::from_str(date_str).expect("parse Date");
@@ -172,7 +175,7 @@ async fn search() -> Result<()> {
 
 #[tokio::test]
 async fn transaction() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let mut patient1 = Patient::builder().build();
 	patient1.create(&client).await?;
@@ -233,7 +236,7 @@ async fn transaction() -> Result<()> {
 
 #[tokio::test]
 async fn paging() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let date = "5123-05-10";
 	let n = 99;
@@ -271,7 +274,7 @@ async fn paging() -> Result<()> {
 
 #[tokio::test]
 async fn operation_encounter_everything() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let mut patient = Patient::builder().build();
 	patient.create(&client).await?;
@@ -301,7 +304,7 @@ async fn operation_encounter_everything() -> Result<()> {
 #[tokio::test]
 #[ignore = "Server does not support this"]
 async fn operation_patient_match() -> Result<()> {
-	let client = client()?;
+	let client = client().await?;
 
 	let mut patient = Patient::builder()
 		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build())])

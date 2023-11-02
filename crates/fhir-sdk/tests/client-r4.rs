@@ -1,6 +1,8 @@
 #![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
 #![allow(clippy::expect_used, clippy::print_stdout)]
 
+mod common;
+
 use std::str::FromStr;
 
 use eyre::Result;
@@ -67,6 +69,7 @@ async fn medplum_auth() -> Result<HeaderValue> {
 
 /// Set up a client for testing with the (local) FHIR server.
 async fn client() -> Result<Client> {
+	common::setup_logging().await;
 	static CLIENT: OnceCell<Client> = OnceCell::const_new();
 	let client = CLIENT
 		.get_or_try_init(|| async move {
@@ -312,7 +315,7 @@ async fn paging() -> Result<()> {
 		}))
 		.try_collect()
 		.await?;
-	assert_eq!(patients.len(), n);
+	let patients_len = patients.len();
 
 	println!("Cleaning up..");
 	let mut batch = client.batch();
@@ -320,5 +323,7 @@ async fn paging() -> Result<()> {
 		batch.delete(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"));
 	}
 	ensure_batch_succeeded(batch.send().await?);
+
+	assert_eq!(patients_len, n);
 	Ok(())
 }

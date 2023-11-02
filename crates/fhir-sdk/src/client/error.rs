@@ -81,6 +81,7 @@ impl Error {
 	/// Whether the error should likely be retried.
 	#[must_use]
 	pub fn should_retry(&self) -> bool {
+		tracing::debug!("Checking if error `{self}` should be retried");
 		match self {
 			Self::Request(err) => err.is_connect() || err.is_request() || err.is_timeout(),
 			_ => false,

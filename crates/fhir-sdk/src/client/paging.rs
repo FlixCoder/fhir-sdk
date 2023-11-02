@@ -57,10 +57,14 @@ impl Stream for Paged {
 		mut self: Pin<&mut Self>,
 		cx: &mut std::task::Context<'_>,
 	) -> Poll<Option<Self::Item>> {
+		let span = tracing::trace_span!("Paged::poll_next");
+		let _span_guard = span.enter();
+
 		// Check on single resource future first to output the next resource.
 		if let Some(future_resource) = self.future_resource.as_mut() {
 			let item = ready!(future_resource.as_mut().poll(cx));
 			self.future_resource = None;
+			tracing::trace!("Next `full_url` fetched resource ready");
 			return Poll::Ready(Some(item));
 		}
 
@@ -68,6 +72,7 @@ impl Stream for Paged {
 		if let Some(future_next_page) = self.future_next_page.as_mut() {
 			if let Poll::Ready(next_page) = future_next_page.as_mut().poll(cx) {
 				self.future_next_page = None;
+				tracing::trace!("Next page fetched and ready");
 
 				// Get the Bundle or error out.
 				let bundle = match next_page {
@@ -78,6 +83,7 @@ impl Stream for Paged {
 				// Parse the next page's URL or error out.
 				if let Some(next_url_string) = find_next_page_url(&bundle) {
 					let Ok(next_url) = Url::parse(next_url_string) else {
+						tracing::error!("Could not parse next page URL");
 						return Poll::Ready(Some(Err(Error::UrlParse(next_url_string.clone()))));
 					};
 					self.next_url = Some(next_url);
@@ -91,6 +97,7 @@ impl Stream for Paged {
 		// If there are not enough items in the queue, query the next page.
 		if self.entries.len() < 5 {
 			if let Some(next_page_url) = self.next_url.take() {
+				tracing::trace!("Less than 5 entries left, starting to fetch new page");
 				self.future_next_page =
 					Some(fetch_resource(self.client.clone(), next_page_url).boxed());
 				cx.waker().wake_by_ref();
@@ -107,10 +114,12 @@ impl Stream for Paged {
 				return Poll::Ready(Some(Ok(resource)));
 			} else if let Some(url) = entry.full_url {
 				if let Ok(url) = Url::parse(&url) {
+					tracing::trace!("Next entry needs to be fetched, starting to fetch it");
 					self.future_resource = Some(fetch_resource(self.client.clone(), url).boxed());
 					cx.waker().wake_by_ref();
 					return Poll::Pending;
 				} else {
+					tracing::error!("Could not parse next entry URL");
 					return Poll::Ready(Some(Err(Error::UrlParse(url))));
 				}
 			}
@@ -119,11 +128,14 @@ impl Stream for Paged {
 		// Else check if all resources were consumed or if we are waiting for new
 		// resources to arrive.
 		if self.future_next_page.is_some() {
+			tracing::trace!("Paged results waiting for next page fetch");
 			Poll::Pending
 		} else if self.next_url.is_some() {
+			tracing::trace!("Paged results waiting for next URL fetch");
 			cx.waker().wake_by_ref();
 			Poll::Pending
 		} else {
+			tracing::trace!("Paged results exhausted");
 			Poll::Ready(None)
 		}
 	}

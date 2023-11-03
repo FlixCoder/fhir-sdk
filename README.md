@@ -23,9 +23,9 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
   - [x] IdentifiableResource for all resources with an identifier field
 - [x] Client implementation
   - [x] Create, Read, Update, Delete
-  - [x] Search
-  - [x] Paging
+  - [x] Search + Paging
   - [x] Batch operations / Transactions
+  - [x] Authentication callback
   - [x] Operations
   - [x] Patch
   - [ ] GraphQL
@@ -46,7 +46,8 @@ use fhir_sdk::TryStreamExt;
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     // Set up the client using the local test server.
-    let settings = RequestSettings::default().header(header::AUTHORIZATION, "Bearer token".parse().unwrap());
+    let settings = RequestSettings::default()
+        .header(header::AUTHORIZATION, "Bearer <token>".parse().unwrap());
     let client = Client::builder()
         .base_url("http://localhost:8090/fhir/".parse().unwrap())
         .request_settings(settings)
@@ -83,9 +84,63 @@ If you need sudo to run docker, use the `--sudo` or just `-s` flag on `cargo xta
 
 ## Known Problems
 
-- Due to the big number of big types, the compile time and its memory usage is really high. The auto-generated builders also take a long time during the build time. The builders can be disabled by disabling the `builders` feature to save some resources.
-- The builder cannot use `setter(strip_option)`, because it disables dynamic setting of optional fields.
-- `Vec<Option<T>>` is annoying, but sadly is required to allow `[null, {...}, null]` for extensions..
+- Due to the big number of big types, the compile time and its memory usage is really high. This is due to serde and typed builder derives being highly generic. The builders can be disabled by disabling the `builders` feature to save some resources.
+- The builders cannot use `setter(strip_option)`, because it disables dynamic setting of optional fields.
+- `Vec<Option<T>>` is annoying, but sadly is required to allow `[null, {...}, null]` for using FHIR resources with extensions..
+
+## More examples
+
+### Authentication callback
+
+```rust
+use fhir_sdk::r5::resources::Patient;
+use fhir_sdk::client::*;
+
+async fn my_auth_callback() -> Result<HeaderValue, eyre::Report> {
+    Ok(HeaderValue::from_static("Bearer <token>"))
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Error> {
+    // Set up the client using the local test server.
+    let client = Client::builder()
+        .base_url("http://localhost:8090/fhir/".parse().unwrap())
+        .auth_callback(my_auth_callback)
+        .build()?;
+
+    // Create a Patient resource using a typed builder.
+    let mut patient = Patient::builder().active(false).build();
+    // Push it to the server. On unauthorized failures, the client will call our
+    // auth_callback method to refresh the authorization.
+    patient.create(&client).await?;
+
+    Ok(())
+}
+```
+
+### Resource identifier access
+
+```rust
+use fhir_sdk::r5::{
+    codes::AdministrativeGender,
+    resources::{IdentifiableResource, Patient},
+    types::{Identifier, HumanName},
+};
+
+#[tokio::main]
+async fn main() {
+    // Create a Patient resource using a typed builder.
+    let mut patient = Patient::builder()
+        .active(false)
+        .identifier(vec![Some(Identifier::builder().system("MySystem".to_owned()).value("ID".to_owned()).build())])
+        .gender(AdministrativeGender::Male)
+        .name(vec![Some(HumanName::builder().family("Test".to_owned()).build())])
+        .build();
+
+    // Check the identifier value.
+    assert_eq!(patient.identifier_with_system("MySystem").map(String::as_str), Some("ID"));
+}
+```
 
 ## Lints
 

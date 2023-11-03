@@ -143,7 +143,7 @@ impl Client {
 			.make_request(request.try_clone().ok_or(Error::RequestNotClone)?)
 			.await?;
 
-		// On authorization failure, retry after resetting the authorization header.
+		// On authorization failure, retry after refreshing the authorization header.
 		if response.status() == StatusCode::UNAUTHORIZED {
 			if let Some(auth_callback) = self.auth_callback() {
 				tracing::info!("Hit unauthorized response, calling auth_callback");

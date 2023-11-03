@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.0] - 2023-11-03
+
+### Bug Fixes
+
+- R4B was not compiling with new Subscription operations
+- Make ETag parsing work with non-weak tags
+
+### Features
+
+- Allow spawning different FHIR servers
+- Add Subscription operations to client
+- Implement authorization callback
+- Add tracing
+
+### Miscellaneous Tasks
+
+- Improve error messages
+- Improve README
+
+### Refactor
+
+- Move docker setup to xtask command
+- Make auth_callback part of Client instead of RequestSettings
+
+### Testing
+
+- Make client tests for R4B too
+- Add Medplum as alternative FHIR server to docker setup
+- Test client with medplum server
+- Make all servers run at once to be able to test them at once
+- Fix dispatch dropped errors
+
 ## [0.6.0] - 2023-09-16
 
 ### Bug Fixes

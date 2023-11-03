@@ -7,7 +7,7 @@ use std::str::FromStr;
 
 use eyre::Result;
 use fhir_sdk::{
-	client::{Client, DateSearch, RequestSettings, ResourceWrite, SearchParameters, TokenSearch},
+	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r4b::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
@@ -73,9 +73,10 @@ async fn client() -> Result<Client> {
 	static CLIENT: OnceCell<Client> = OnceCell::const_new();
 	let client = CLIENT
 		.get_or_try_init(|| async move {
-			let base_url = "http://localhost:8080/fhir/R4".parse()?;
-			let settings = RequestSettings::default().auth_callback(medplum_auth);
-			let client = Client::builder().base_url(base_url).request_settings(settings).build()?;
+			let client = Client::builder()
+				.base_url("http://localhost:8080/fhir/R4".parse()?)
+				.auth_callback(medplum_auth)
+				.build()?;
 			Ok::<_, eyre::Report>(client)
 		})
 		.await?;

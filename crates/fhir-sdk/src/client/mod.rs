@@ -12,7 +12,11 @@ mod search;
 mod transaction;
 mod write;
 
-use std::sync::{Arc, Mutex};
+use std::{
+	future::Future,
+	pin::Pin,
+	sync::{Arc, Mutex},
+};
 
 #[cfg(feature = "r4b")]
 use fhir_model::r4b as model;
@@ -58,8 +62,13 @@ const MIME_TYPE: &str = JSON_MIME_TYPE;
 #[derive(Debug, Clone)]
 pub struct Client(Arc<ClientData>);
 
+/// Return type of the auth callback.
+type AuthCallbackReturn = Result<HeaderValue, Box<dyn std::error::Error + Send + Sync>>;
+/// Auth callback function type.
+type AuthCallback =
+	Arc<dyn Fn() -> Pin<Box<dyn Future<Output = AuthCallbackReturn> + Send>> + Send + Sync>;
+
 /// FHIR Rest Client data.
-#[derive(Debug)]
 struct ClientData {
 	/// The FHIR server's base URL.
 	base_url: Url,
@@ -67,6 +76,8 @@ struct ClientData {
 	client: reqwest::Client,
 	/// Request settings.
 	request_settings: Mutex<RequestSettings>,
+	/// Authorization callback method, returning the authorization header value.
+	auth_callback: Mutex<Option<AuthCallback>>,
 }
 
 impl Client {
@@ -92,6 +103,7 @@ impl Client {
 			base_url,
 			client,
 			request_settings: Mutex::new(RequestSettings::default()),
+			auth_callback: Mutex::new(None),
 		};
 		Ok(Self(Arc::new(data)))
 	}
@@ -105,21 +117,47 @@ impl Client {
 
 	/// Set the request settings for this client.
 	pub fn set_request_settings(&self, settings: RequestSettings) {
-		#![allow(clippy::expect_used)] // only happens on panics, so we can panic again.
-		*self.0.request_settings.lock().expect("mutex poisened") = settings;
-		tracing::debug!("New request settings set");
+		tracing::debug!("Setting new request settings");
+		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
+		let mut request_settings = self.0.request_settings.lock().expect("mutex poisened");
+		*request_settings = settings;
 	}
 
-	/// Run a request using the internal request settings.
+	/// Get the auth callback configured in this client.
+	#[must_use]
+	pub fn auth_callback(&self) -> Option<AuthCallback> {
+		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
+		self.0.auth_callback.lock().expect("mutex poisened").clone()
+	}
+
+	/// Run a request using the internal request settings, calling the auth
+	/// callback to retrieve a new Authorization header on `unauthtorized`
+	/// responses.
 	async fn run_request(
 		&self,
 		request: reqwest::RequestBuilder,
 	) -> Result<reqwest::Response, Error> {
+		// Try running the request
 		let mut request_settings = self.request_settings();
-		let (response, modified) = request_settings.make_request(request).await?;
-		if modified {
-			self.set_request_settings(request_settings);
+		let response = request_settings
+			.make_request(request.try_clone().ok_or(Error::RequestNotClone)?)
+			.await?;
+
+		// On authorization failure, retry after resetting the authorization header.
+		if response.status() == StatusCode::UNAUTHORIZED {
+			if let Some(auth_callback) = self.auth_callback() {
+				tracing::info!("Hit unauthorized response, calling auth_callback");
+				let auth_value = (auth_callback)()
+					.await
+					.map_err(|err| Error::AuthCallback(format!("{err:#}")))?;
+				request_settings =
+					request_settings.header(reqwest::header::AUTHORIZATION, auth_value);
+				self.set_request_settings(request_settings.clone());
+				let response = request_settings.make_request(request).await?;
+				return Ok(response);
+			}
 		}
+
 		Ok(response)
 	}
 
@@ -477,5 +515,27 @@ impl Client {
 		} else {
 			Err(Error::from_response(response).await)
 		}
+	}
+}
+
+impl std::fmt::Debug for ClientData {
+	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+		let auth_callback = match self.auth_callback.try_lock() {
+			Ok(inside) => {
+				if inside.is_some() {
+					"Some(<fn>)"
+				} else {
+					"None"
+				}
+			}
+			Err(_) => "<blocked>",
+		};
+
+		f.debug_struct("ClientData")
+			.field("base_url", &self.base_url)
+			.field("client", &self.client)
+			.field("request_settings", &self.request_settings)
+			.field("auth_callback", &auth_callback)
+			.finish()
 	}
 }

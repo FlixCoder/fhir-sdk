@@ -12,6 +12,9 @@ readme = "README.md"
 repository = "https://github.com/FlixCoder/fhir-sdk"
 version = "0.7.0"
 
+[lints]
+workspace = true
+
 [features]
 default = ["r5", "builders", "client", "docs"]
 client = [

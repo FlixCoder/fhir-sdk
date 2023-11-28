@@ -12,8 +12,7 @@ use fhir_sdk::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
 		resources::{
-			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
-			ParametersParameterValue, Patient, Resource, ResourceType,
+			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
 		},
 		types::{Coding, HumanName, Reference},
 	},
@@ -147,12 +146,11 @@ async fn read_referenced_inner() -> Result<()> {
 }
 
 #[test]
-#[ignore = "This is currently not supported by Medplum"]
-fn patch() -> Result<()> {
-	common::RUNTIME.block_on(patch_inner())
+fn patch_via_json() -> Result<()> {
+	common::RUNTIME.block_on(patch_via_json_inner())
 }
 
-async fn patch_inner() -> Result<()> {
+async fn patch_via_json_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient = Patient::builder()
@@ -164,33 +162,11 @@ async fn patch_inner() -> Result<()> {
 
 	let date = Date::from_str("2021-02-01").expect("parse Date");
 	client
-		.patch(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
-		.add(
-			"Patient",
-			"birthDate",
-			ParametersParameter::builder()
-				.name("value".to_owned())
-				.value(ParametersParameterValue::Date(date.clone()))
-				.build(),
-		)
-		.delete("Patient.active")
-		.replace(
-			"Patient.gender",
-			ParametersParameter::builder()
-				.name("value".to_owned())
-				.value(ParametersParameterValue::Code("female".to_owned()))
-				.build(),
-		)
-		.insert(
-			"Patient.name",
-			ParametersParameter::builder()
-				.name("value".to_owned())
-				.value(ParametersParameterValue::HumanName(
-					HumanName::builder().family("Family".to_owned()).build(),
-				))
-				.build(),
-			0,
-		)
+		.patch_via_json(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
+		.add("/birthDate", &date)?
+		.remove("/active")
+		.replace("/gender", AdministrativeGender::Female)?
+		.add("/name/0", HumanName::builder().family("Family".to_owned()).build())?
 		.send()
 		.await?;
 

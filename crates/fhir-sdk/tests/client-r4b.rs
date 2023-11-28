@@ -93,11 +93,11 @@ async fn read_referenced_inner() -> Result<()> {
 }
 
 #[test]
-fn patch() -> Result<()> {
-	common::RUNTIME.block_on(patch_inner())
+fn patch_via_fhir() -> Result<()> {
+	common::RUNTIME.block_on(patch_via_fhir_inner())
 }
 
-async fn patch_inner() -> Result<()> {
+async fn patch_via_fhir_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient = Patient::builder()
@@ -109,7 +109,7 @@ async fn patch_inner() -> Result<()> {
 
 	let date = Date::from_str("2021-02-01").expect("parse Date");
 	client
-		.patch(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
+		.patch_via_fhir(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
 		.add(
 			"Patient",
 			"birthDate",
@@ -136,6 +136,41 @@ async fn patch_inner() -> Result<()> {
 				.build(),
 			0,
 		)
+		.send()
+		.await?;
+
+	let patient: Patient =
+		client.read(patient.id.as_ref().expect("Patient.id")).await?.expect("Patient should exist");
+	assert_eq!(patient.birth_date, Some(date));
+	assert_eq!(patient.active, None);
+	assert_eq!(patient.gender, Some(AdministrativeGender::Female));
+	assert_eq!(patient.name.len(), 2);
+
+	Ok(())
+}
+
+#[test]
+fn patch_via_json() -> Result<()> {
+	common::RUNTIME.block_on(patch_via_json_inner())
+}
+
+async fn patch_via_json_inner() -> Result<()> {
+	let client = client().await?;
+
+	let mut patient = Patient::builder()
+		.active(false)
+		.gender(AdministrativeGender::Male)
+		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build())])
+		.build();
+	patient.create(&client).await?;
+
+	let date = Date::from_str("2021-02-01").expect("parse Date");
+	client
+		.patch_via_json(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
+		.add("/birthDate", &date)?
+		.remove("/active")
+		.replace("/gender", AdministrativeGender::Female)?
+		.add("/name/0", HumanName::builder().family("Family".to_owned()).build())?
 		.send()
 		.await?;
 

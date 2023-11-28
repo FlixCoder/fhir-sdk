@@ -51,7 +51,11 @@ pub use self::{
 	},
 	write::ResourceWrite,
 };
-use self::{paging::Paged, patch::Patch, transaction::BatchTransaction};
+use self::{
+	paging::Paged,
+	patch::{PatchViaFhir, PatchViaJson},
+	transaction::BatchTransaction,
+};
 
 /// User agent of this client.
 const USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -315,8 +319,14 @@ impl Client {
 
 	/// Begin building a patch request for a FHIR resource on the server via the
 	/// `FHIRPath Patch` method.
-	pub fn patch<'a>(&self, resource_type: ResourceType, id: &'a str) -> Patch<'a> {
-		Patch::new(self.clone(), resource_type, id)
+	pub fn patch_via_fhir<'a>(&self, resource_type: ResourceType, id: &'a str) -> PatchViaFhir<'a> {
+		PatchViaFhir::new(self.clone(), resource_type, id)
+	}
+
+	/// Begin building a patch request for a FHIR resource on the server via the
+	/// [`JSON Patch`](https://datatracker.ietf.org/doc/html/rfc6902) method.
+	pub fn patch_via_json<'a>(&self, resource_type: ResourceType, id: &'a str) -> PatchViaJson<'a> {
+		PatchViaJson::new(self.clone(), resource_type, id)
 	}
 
 	/// Delete a FHIR resource on the server.

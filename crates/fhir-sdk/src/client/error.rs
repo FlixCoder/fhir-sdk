@@ -48,6 +48,10 @@ pub enum Error {
 	#[error("Authorization callback error: {0}")]
 	AuthCallback(String),
 
+	/// Serialization/Deserialization error.
+	#[error("JSON error: {0}")]
+	Json(#[from] serde_json::Error),
+
 	/// HTTP Request error.
 	#[error("Request error: {0}")]
 	Request(#[from] reqwest::Error),

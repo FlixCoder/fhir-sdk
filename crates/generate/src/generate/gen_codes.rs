@@ -51,14 +51,14 @@ pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {
 
 	let from_str_impl = from_str_impl(&ident, &code)?;
 	let as_ref_impl = as_ref_impl(&ident, &code)?;
-	let display_impl = display_impl(&ident, &code)?;
+	let fmt_impls = fmt_impls(&ident)?;
 	let deserialize_impl = deserialize_impl(&ident)?;
 	let serialize_impl = serialize_impl(&ident)?;
 	let convert_impls = convert_impls(&ident, &code)?;
 
 	Ok(quote! {
 		#[doc = #documentation]
-		#[derive(Debug, PartialEq, Eq, Clone)]
+		#[derive(PartialEq, Eq, Clone)]
 		#derive_copy
 		pub enum #ident {
 			#(#variants)*
@@ -67,7 +67,7 @@ pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {
 
 		#from_str_impl
 		#as_ref_impl
-		#display_impl
+		#fmt_impls
 		#deserialize_impl
 		#serialize_impl
 		#convert_impls
@@ -128,23 +128,17 @@ fn as_ref_impl(ident: &Ident, code: &Code) -> Result<TokenStream> {
 }
 
 /// Generate Display implementation for the FHIR code.
-fn display_impl(ident: &Ident, code: &Code) -> Result<TokenStream> {
-	let variants = code.items.iter().map(|item| {
-		let variant = variant_ident(&item.code);
-		let display = item.display.as_ref().unwrap_or(&item.code);
-		quote!(Self::#variant => #display,)
-	});
-
-	let custom_branch = (!code.is_value_set).then_some(quote!(Self::_Custom(s) => s.as_str(),));
-
+fn fmt_impls(ident: &Ident) -> Result<TokenStream> {
 	Ok(quote! {
+		impl ::std::fmt::Debug for #ident {
+			fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+				f.write_str(self.as_ref())
+			}
+		}
+
 		impl ::std::fmt::Display for #ident {
 			fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-				let s = match self {
-					#(#variants)*
-					#custom_branch
-				};
-				write!(f, "{s}")
+				f.write_str(self.as_ref())
 			}
 		}
 	})

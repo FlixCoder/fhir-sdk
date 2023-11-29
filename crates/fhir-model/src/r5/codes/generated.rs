@@ -3,7 +3,7 @@
 use serde::{Serialize, Deserialize};
 use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
 #[doc = "**[ACMECholCodesBlood](http://hl7.org/fhir/CodeSystem/example)**. This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ACMECholCodesBlood {
     /** **chol**
 
@@ -42,15 +42,14 @@ impl AsRef<str> for ACMECholCodesBlood {
         }
     }
 }
+impl ::std::fmt::Debug for ACMECholCodesBlood {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ACMECholCodesBlood {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Chol => "SChol",
-            Self::CholMass => "SChol (mg/L)",
-            Self::CholMmol => "SChol (mmol/L)",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ACMECholCodesBlood {
@@ -106,7 +105,7 @@ impl From<ACMECholCodesBlood> for CodeableConcept {
     }
 }
 #[doc = "**[ASTMSignatureTypeCodes](urn:iso-astm:E1762-95:2013)**. The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ASTMSignatureTypeCodes {
     /** **1.2.840.10065.1.12.1.1**
 
@@ -235,30 +234,14 @@ impl AsRef<str> for ASTMSignatureTypeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ASTMSignatureTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ASTMSignatureTypeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N128401006511211 => "Author's Signature",
-            Self::N1284010065112110 => "Identity Witness Signature",
-            Self::N1284010065112111 => "Consent Witness Signature",
-            Self::N1284010065112112 => "Interpreter Signature",
-            Self::N1284010065112113 => "Review Signature",
-            Self::N1284010065112114 => "Source Signature",
-            Self::N1284010065112115 => "Addendum Signature",
-            Self::N1284010065112116 => "Modification Signature",
-            Self::N1284010065112117 => "Administrative (Error/Edit) Signature",
-            Self::N1284010065112118 => "Timestamp Signature",
-            Self::N128401006511212 => "Coauthor's Signature",
-            Self::N128401006511213 => "Co-participant's Signature",
-            Self::N128401006511214 => "Transcriptionist/Recorder Signature",
-            Self::N128401006511215 => "Verification Signature",
-            Self::N128401006511216 => "Validation Signature",
-            Self::N128401006511217 => "Consent Signature",
-            Self::N128401006511218 => "Signature Witness Signature",
-            Self::N128401006511219 => "Event Witness Signature",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ASTMSignatureTypeCodes {
@@ -314,7 +297,7 @@ impl From<ASTMSignatureTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[AccountAggregate](http://hl7.org/fhir/ValueSet/account-aggregate)**. Indicates who is expected to pay a part of the account balance.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountAggregate {
     /** **insurance**
@@ -351,14 +334,14 @@ impl AsRef<str> for AccountAggregate {
         }
     }
 }
+impl ::std::fmt::Debug for AccountAggregate {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AccountAggregate {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Insurance => "Insurance",
-            Self::Patient => "Patient",
-            Self::Total => "Total",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AccountAggregate {
@@ -414,7 +397,7 @@ impl From<AccountAggregate> for CodeableConcept {
     }
 }
 #[doc = "**[AccountBalanceTerm](http://hl7.org/fhir/ValueSet/account-payment-terms)**. Indicates the account balance's age\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountBalanceTerm {
     /** **120**
@@ -463,16 +446,14 @@ impl AsRef<str> for AccountBalanceTerm {
         }
     }
 }
+impl ::std::fmt::Debug for AccountBalanceTerm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AccountBalanceTerm {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N120 => "120 day",
-            Self::N30 => "30 day",
-            Self::N60 => "60 day",
-            Self::N90 => "90 day",
-            Self::Current => "Current",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AccountBalanceTerm {
@@ -530,7 +511,7 @@ impl From<AccountBalanceTerm> for CodeableConcept {
     }
 }
 #[doc = "**[AccountBillingStatus](http://hl7.org/fhir/ValueSet/account-billing-status)**. Indicates whether the account is available to be used for billing purposes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountBillingStatus {
     /** **billing**
@@ -591,18 +572,14 @@ impl AsRef<str> for AccountBillingStatus {
         }
     }
 }
+impl ::std::fmt::Debug for AccountBillingStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AccountBillingStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Billing => "Billing",
-            Self::CarecompleteNotbilled => "CareComplete/Not Billed",
-            Self::ClosedBaddebt => "Closed-Bad Debt",
-            Self::ClosedCombined => "Closed-Combined",
-            Self::ClosedCompleted => "Closed-Completed",
-            Self::ClosedVoided => "Closed-Voided",
-            Self::Open => "Open",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AccountBillingStatus {
@@ -660,7 +637,7 @@ impl From<AccountBillingStatus> for CodeableConcept {
     }
 }
 #[doc = "**[AccountRelationship](http://hl7.org/fhir/ValueSet/account-relationship)**. Relationship between accounts\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountRelationship {
     /** **guarantor**
@@ -691,13 +668,14 @@ impl AsRef<str> for AccountRelationship {
         }
     }
 }
+impl ::std::fmt::Debug for AccountRelationship {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AccountRelationship {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Guarantor => "Guarantor",
-            Self::Parent => "Parent",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AccountRelationship {
@@ -753,7 +731,7 @@ impl From<AccountRelationship> for CodeableConcept {
     }
 }
 #[doc = "**[AccountStatus](http://hl7.org/fhir/ValueSet/account-status)**. Indicates whether the account is available to be used.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AccountStatus {
     /** **active**
@@ -802,16 +780,14 @@ impl AsRef<str> for AccountStatus {
         }
     }
 }
+impl ::std::fmt::Debug for AccountStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AccountStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in error",
-            Self::Inactive => "Inactive",
-            Self::OnHold => "On Hold",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AccountStatus {
@@ -867,7 +843,7 @@ impl From<AccountStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ActionCardinalityBehavior](http://hl7.org/fhir/ValueSet/action-cardinality-behavior)**. Defines behavior for an action or a group for how many times that item may be repeated.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionCardinalityBehavior {
     /** **multiple**
@@ -898,13 +874,14 @@ impl AsRef<str> for ActionCardinalityBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for ActionCardinalityBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionCardinalityBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Multiple => "Multiple",
-            Self::Single => "Single",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionCardinalityBehavior {
@@ -962,7 +939,7 @@ impl From<ActionCardinalityBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionCode](http://hl7.org/fhir/ValueSet/action-code)**. Provides examples of actions to be performed.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionCode {
     /** **collect-information**
@@ -1035,20 +1012,14 @@ impl AsRef<str> for ActionCode {
         }
     }
 }
+impl ::std::fmt::Debug for ActionCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CollectInformation => "Collect information",
-            Self::OrderService => "Order a service",
-            Self::PrescribeMedication => "Prescribe a medication",
-            Self::ProposeDiagnosis => "Propose a diagnosis",
-            Self::RecommendImmunization => "Recommend an immunization",
-            Self::RecordDetectedIssue => "Record a detected issue",
-            Self::RecordInference => "Record an inference",
-            Self::ReportFlag => "Report a flag",
-            Self::SendMessage => "Send a message",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionCode {
@@ -1104,7 +1075,7 @@ impl From<ActionCode> for CodeableConcept {
     }
 }
 #[doc = "**[ActionConditionKind](http://hl7.org/fhir/ValueSet/action-condition-kind)**. Defines the kinds of conditions that can appear on actions.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionConditionKind {
     /** **applicability**
@@ -1141,14 +1112,14 @@ impl AsRef<str> for ActionConditionKind {
         }
     }
 }
+impl ::std::fmt::Debug for ActionConditionKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionConditionKind {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Applicability => "Applicability",
-            Self::Start => "Start",
-            Self::Stop => "Stop",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionConditionKind {
@@ -1206,7 +1177,7 @@ impl From<ActionConditionKind> for CodeableConcept {
     }
 }
 #[doc = "**[ActionGroupingBehavior](http://hl7.org/fhir/ValueSet/action-grouping-behavior)**. Defines organization behavior of a group.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionGroupingBehavior {
     /** **logical-group**
@@ -1243,14 +1214,14 @@ impl AsRef<str> for ActionGroupingBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for ActionGroupingBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionGroupingBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::LogicalGroup => "Logical Group",
-            Self::SentenceGroup => "Sentence Group",
-            Self::VisualGroup => "Visual Group",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionGroupingBehavior {
@@ -1308,7 +1279,7 @@ impl From<ActionGroupingBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionParticipantFunction](http://hl7.org/fhir/ValueSet/action-participant-function)**. The function performed by the participant for the action.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionParticipantFunction {
     /** **author**
@@ -1351,15 +1322,14 @@ impl AsRef<str> for ActionParticipantFunction {
         }
     }
 }
+impl ::std::fmt::Debug for ActionParticipantFunction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionParticipantFunction {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Author => "Author",
-            Self::Performer => "Performer",
-            Self::Reviewer => "Reviewer",
-            Self::Witness => "Witness",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionParticipantFunction {
@@ -1417,7 +1387,7 @@ impl From<ActionParticipantFunction> for CodeableConcept {
     }
 }
 #[doc = "**[ActionParticipantType](http://hl7.org/fhir/ValueSet/action-participant-type)**. The type of participant for the action.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionParticipantType {
     /** **careteam**
@@ -1496,21 +1466,14 @@ impl AsRef<str> for ActionParticipantType {
         }
     }
 }
+impl ::std::fmt::Debug for ActionParticipantType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionParticipantType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Careteam => "CareTeam",
-            Self::Device => "Device",
-            Self::Group => "Group",
-            Self::Healthcareservice => "HealthcareService",
-            Self::Location => "Location",
-            Self::Organization => "Organization",
-            Self::Patient => "Patient",
-            Self::Practitioner => "Practitioner",
-            Self::Practitionerrole => "PractitionerRole",
-            Self::Relatedperson => "RelatedPerson",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionParticipantType {
@@ -1568,7 +1531,7 @@ impl From<ActionParticipantType> for CodeableConcept {
     }
 }
 #[doc = "**[ActionPrecheckBehavior](http://hl7.org/fhir/ValueSet/action-precheck-behavior)**. Defines selection frequency behavior for an action or group.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionPrecheckBehavior {
     /** **no**
@@ -1599,13 +1562,14 @@ impl AsRef<str> for ActionPrecheckBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for ActionPrecheckBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionPrecheckBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::No => "No",
-            Self::Yes => "Yes",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionPrecheckBehavior {
@@ -1663,7 +1627,7 @@ impl From<ActionPrecheckBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionReasonCode](http://hl7.org/fhir/ValueSet/action-reason-code)**. Provides examples of reasons for actions to be performed.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionReasonCode {
     /** **care-gap**
@@ -1712,16 +1676,14 @@ impl AsRef<str> for ActionReasonCode {
         }
     }
 }
+impl ::std::fmt::Debug for ActionReasonCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionReasonCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CareGap => "Care gap detected",
-            Self::DrugDrugInteraction => "Drug-drug interaction",
-            Self::OffPathway => "Off pathway",
-            Self::QualityMeasure => "Quality measure",
-            Self::RiskAssessment => "Risk assessment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionReasonCode {
@@ -1777,7 +1739,7 @@ impl From<ActionReasonCode> for CodeableConcept {
     }
 }
 #[doc = "**[ActionRelationshipType](http://hl7.org/fhir/ValueSet/action-relationship-type)**. Defines the types of relationships between actions.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionRelationshipType {
     /** **after**
@@ -1850,20 +1812,14 @@ impl AsRef<str> for ActionRelationshipType {
         }
     }
 }
+impl ::std::fmt::Debug for ActionRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionRelationshipType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::After => "After",
-            Self::AfterEnd => "After End",
-            Self::AfterStart => "After Start",
-            Self::Before => "Before",
-            Self::BeforeEnd => "Before End",
-            Self::BeforeStart => "Before Start",
-            Self::Concurrent => "Concurrent",
-            Self::ConcurrentWithEnd => "Concurrent With End",
-            Self::ConcurrentWithStart => "Concurrent With Start",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionRelationshipType {
@@ -1921,7 +1877,7 @@ impl From<ActionRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[ActionRequiredBehavior](http://hl7.org/fhir/ValueSet/action-required-behavior)**. Defines expectations around whether an action or action group is required.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionRequiredBehavior {
     /** **could**
@@ -1958,14 +1914,14 @@ impl AsRef<str> for ActionRequiredBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for ActionRequiredBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionRequiredBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Could => "Could",
-            Self::Must => "Must",
-            Self::MustUnlessDocumented => "Must Unless Documented",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionRequiredBehavior {
@@ -2023,7 +1979,7 @@ impl From<ActionRequiredBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionSelectionBehavior](http://hl7.org/fhir/ValueSet/action-selection-behavior)**. Defines selection behavior of a group.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ActionSelectionBehavior {
     /** **all**
@@ -2078,17 +2034,14 @@ impl AsRef<str> for ActionSelectionBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for ActionSelectionBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ActionSelectionBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::All => "All",
-            Self::AllOrNone => "All Or None",
-            Self::Any => "Any",
-            Self::AtMostOne => "At Most One",
-            Self::ExactlyOne => "Exactly One",
-            Self::OneOrMore => "One Or More",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ActionSelectionBehavior {
@@ -2146,7 +2099,7 @@ impl From<ActionSelectionBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[AdditionalBindingPurposeCodes](http://hl7.org/fhir/ValueSet/additional-binding-purpose)**. Additional Binding Purpose\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdditionalBindingPurposeCodes {
     /** **candidate**
@@ -2225,21 +2178,14 @@ impl AsRef<str> for AdditionalBindingPurposeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for AdditionalBindingPurposeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AdditionalBindingPurposeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Candidate => "Candidate Binding",
-            Self::Component => "Component Binding",
-            Self::Current => "Current Binding",
-            Self::Extensible => "Conformance Binding",
-            Self::Maximum => "Maximum Binding",
-            Self::Minimum => "Minimum Binding",
-            Self::Preferred => "Preferred Binding",
-            Self::Required => "Required Binding",
-            Self::Starter => "Starter Binding",
-            Self::Ui => "UI Suggested Binding",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AdditionalBindingPurposeCodes {
@@ -2297,7 +2243,7 @@ impl From<AdditionalBindingPurposeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[AdditionalMonitoring](http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring)**. Extra monitoring defined for a Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdditionalMonitoring {
     /** **BlackTriangleMonitoring**
@@ -2322,12 +2268,14 @@ impl AsRef<str> for AdditionalMonitoring {
         }
     }
 }
+impl ::std::fmt::Debug for AdditionalMonitoring {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AdditionalMonitoring {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BlackTriangleMonitoring => "Requirement for Black Triangle Monitoring",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AdditionalMonitoring {
@@ -2386,7 +2334,7 @@ impl From<AdditionalMonitoring> for CodeableConcept {
     }
 }
 #[doc = "**[AddressType](http://hl7.org/fhir/ValueSet/address-type)**. The type of an address (physical / postal).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AddressType {
     /** **both**
@@ -2423,14 +2371,14 @@ impl AsRef<str> for AddressType {
         }
     }
 }
+impl ::std::fmt::Debug for AddressType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AddressType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Both => "Postal & Physical",
-            Self::Physical => "Physical",
-            Self::Postal => "Postal",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AddressType {
@@ -2486,7 +2434,7 @@ impl From<AddressType> for CodeableConcept {
     }
 }
 #[doc = "**[AddressUse](http://hl7.org/fhir/ValueSet/address-use)**. The use of an address.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AddressUse {
     /** **billing**
@@ -2535,16 +2483,14 @@ impl AsRef<str> for AddressUse {
         }
     }
 }
+impl ::std::fmt::Debug for AddressUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AddressUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Billing => "Billing",
-            Self::Home => "Home",
-            Self::Old => "Old / Incorrect",
-            Self::Temp => "Temporary",
-            Self::Work => "Work",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AddressUse {
@@ -2600,7 +2546,7 @@ impl From<AddressUse> for CodeableConcept {
     }
 }
 #[doc = "**[AdministrableDoseForm](http://hl7.org/fhir/ValueSet/administrable-dose-form)**. Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdministrableDoseForm {
     /** **100000073362**
@@ -3825,212 +3771,14 @@ impl AsRef<str> for AdministrableDoseForm {
         }
     }
 }
+impl ::std::fmt::Debug for AdministrableDoseForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AdministrableDoseForm {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000073362 => "Oral suspension",
-            Self::N100000073363 => "Oral gel",
-            Self::N100000073364 => "Powder for oral solution",
-            Self::N100000073365 => "Granules for oral solution",
-            Self::N100000073367 => "Lyophilisate for suspension",
-            Self::N100000073368 => "Powder for syrup",
-            Self::N100000073369 => "Soluble tablet",
-            Self::N100000073370 => "Herbal tea",
-            Self::N100000073371 => "Instant herbal tea",
-            Self::N100000073372 => "Granules",
-            Self::N100000073373 => "Gastro-resistant granules",
-            Self::N100000073374 => "Modified-release granules",
-            Self::N100000073375 => "Capsule, hard",
-            Self::N100000073376 => "Gastro-resistant capsule, hard",
-            Self::N100000073377 => "Chewable capsule, soft",
-            Self::N100000073378 => "Prolonged-release capsule, soft",
-            Self::N100000073379 => "Modified-release capsule, soft",
-            Self::N100000073380 => "Coated tablet",
-            Self::N100000073642 => "Oral drops, solution",
-            Self::N100000073643 => "Oral drops, suspension",
-            Self::N100000073644 => "Oral drops, emulsion",
-            Self::N100000073645 => "Oral liquid",
-            Self::N100000073646 => "Oral solution",
-            Self::N100000073647 => "Oral emulsion",
-            Self::N100000073648 => "Oral paste",
-            Self::N100000073649 => "Powder for oral suspension",
-            Self::N100000073650 => "Granules for oral suspension",
-            Self::N100000073652 => "Syrup",
-            Self::N100000073653 => "Granules for syrup",
-            Self::N100000073654 => "Dispersible tablet",
-            Self::N100000073655 => "Oral powder",
-            Self::N100000073656 => "Effervescent powder",
-            Self::N100000073657 => "Effervescent granules",
-            Self::N100000073658 => "Prolonged-release granules",
-            Self::N100000073659 => "Cachet",
-            Self::N100000073660 => "Capsule, soft",
-            Self::N100000073661 => "Gastro-resistant capsule, soft",
-            Self::N100000073662 => "Prolonged-release capsule, hard",
-            Self::N100000073663 => "Modified-release capsule, hard",
-            Self::N100000073664 => "Tablet",
-            Self::N100000073665 => "Film-coated tablet",
-            Self::N100000073666 => "Orodispersible tablet",
-            Self::N100000073667 => "Gastro-resistant tablet",
-            Self::N100000073668 => "Modified-release tablet",
-            Self::N100000073669 => "Medicated chewing-gum",
-            Self::N100000073670 => "Pillules",
-            Self::N100000073671 => "Pulsatile-release intraruminal device",
-            Self::N100000073672 => "Premix for medicated feeding stuff",
-            Self::N100000073673 => "Gargle",
-            Self::N100000073674 => "Gargle, powder for solution",
-            Self::N100000073675 => "Oromucosal suspension",
-            Self::N100000073676 => "Oromucosal spray",
-            Self::N100000073677 => "Mouthwash",
-            Self::N100000073678 => "Gingival solution",
-            Self::N100000073679 => "Oromucosal paste",
-            Self::N100000073680 => "Gingival gel",
-            Self::N100000073681 => "Effervescent tablet",
-            Self::N100000073682 => "Oral lyophilisate",
-            Self::N100000073683 => "Prolonged-release tablet",
-            Self::N100000073684 => "Chewable tablet",
-            Self::N100000073685 => "Oral gum",
-            Self::N100000073686 => "Continuous-release intraruminal device",
-            Self::N100000073687 => "Lick block",
-            Self::N100000073688 => "Medicated pellets",
-            Self::N100000073689 => "Concentrate for gargle",
-            Self::N100000073690 => "Gargle, tablet for solution",
-            Self::N100000073691 => "Oromucosal solution",
-            Self::N100000073692 => "Oromucosal drops",
-            Self::N100000073693 => "Sublingual spray",
-            Self::N100000073694 => "Mouthwash, tablet for solution",
-            Self::N100000073695 => "Oromucosal gel",
-            Self::N100000073696 => "Oromucosal cream",
-            Self::N100000073697 => "Gingival paste",
-            Self::N100000073698 => "Sublingual tablet",
-            Self::N100000073699 => "Buccal tablet",
-            Self::N100000073700 => "Compressed lozenge",
-            Self::N100000073701 => "Oromucosal capsule",
-            Self::N100000073702 => "Muco-adhesive buccal tablet",
-            Self::N100000073703 => "Lozenge",
-            Self::N100000073704 => "Pastille",
-            Self::N100000073705 => "Dental gel",
-            Self::N100000073706 => "Dental insert",
-            Self::N100000073707 => "Dental powder",
-            Self::N100000073708 => "Dental suspension",
-            Self::N100000073709 => "Toothpaste",
-            Self::N100000073710 => "Periodontal gel",
-            Self::N100000073711 => "Bath additive",
-            Self::N100000073712 => "Cream",
-            Self::N100000073713 => "Ointment",
-            Self::N100000073714 => "Medicated plaster",
-            Self::N100000073715 => "Shampoo",
-            Self::N100000073716 => "Cutaneous spray, suspension",
-            Self::N100000073717 => "Cutaneous liquid",
-            Self::N100000073718 => "Concentrate for cutaneous solution",
-            Self::N100000073719 => "Cutaneous emulsion",
-            Self::N100000073720 => "Cutaneous patch",
-            Self::N100000073721 => "Periodontal powder",
-            Self::N100000073722 => "Dental stick",
-            Self::N100000073723 => "Dental solution",
-            Self::N100000073724 => "Dental emulsion",
-            Self::N100000073725 => "Periodontal insert",
-            Self::N100000073726 => "Gel",
-            Self::N100000073727 => "Cutaneous paste",
-            Self::N100000073728 => "Cutaneous foam",
-            Self::N100000073729 => "Cutaneous spray, solution",
-            Self::N100000073730 => "Cutaneous spray, powder",
-            Self::N100000073731 => "Cutaneous solution",
-            Self::N100000073732 => "Cutaneous suspension",
-            Self::N100000073733 => "Cutaneous powder",
-            Self::N100000073734 => "Solution for iontophoresis",
-            Self::N100000073735 => "Collodion",
-            Self::N100000073736 => "Poultice",
-            Self::N100000073737 => "Cutaneous sponge",
-            Self::N100000073738 => "Collar",
-            Self::N100000073739 => "Ear tag",
-            Self::N100000073740 => "Dip suspension",
-            Self::N100000073741 => "Transdermal patch",
-            Self::N100000073742 => "Medicated nail lacquer",
-            Self::N100000073743 => "Cutaneous stick",
-            Self::N100000073744 => "Impregnated dressing",
-            Self::N100000073745 => "Medicated pendant",
-            Self::N100000073746 => "Dip solution",
-            Self::N100000073747 => "Dip emulsion",
-            Self::N100000073748 => "Concentrate for dip suspension",
-            Self::N100000073749 => "Powder for dip solution",
-            Self::N100000073750 => "Powder for suspension for fish treatment",
-            Self::N100000073751 => "Pour-on suspension",
-            Self::N100000073752 => "Spot-on solution",
-            Self::N100000073753 => "Spot-on emulsion",
-            Self::N100000073754 => "Teat dip suspension",
-            Self::N100000073755 => "Teat spray solution",
-            Self::N100000073756 => "Solution for skin-prick test",
-            Self::N100000073757 => "Plaster for provocation test",
-            Self::N100000073758 => "Eye gel",
-            Self::N100000073759 => "Eye drops, solution",
-            Self::N100000073760 => "Eye drops, suspension",
-            Self::N100000073761 => "Concentrate for dip solution",
-            Self::N100000073762 => "Concentrate for dip emulsion",
-            Self::N100000073763 => "Concentrate for solution for fish treatment",
-            Self::N100000073764 => "Pour-on solution",
-            Self::N100000073765 => "Pour-on emulsion",
-            Self::N100000073766 => "Spot-on suspension",
-            Self::N100000073767 => "Teat dip solution",
-            Self::N100000073768 => "Teat dip emulsion",
-            Self::N100000073769 => "Transdermal system",
-            Self::N100000073770 => "Solution for skin-scratch test",
-            Self::N100000073771 => "Eye cream",
-            Self::N100000073772 => "Eye ointment",
-            Self::N100000073773 => "Eye drops, emulsion",
-            Self::N100000073775 => "Eye drops, solvent for reconstitution",
-            Self::N100000073776 => "Eye lotion",
-            Self::N100000073777 => "Ophthalmic insert",
-            Self::N100000073778 => "Ear cream",
-            Self::N100000073779 => "Ear ointment",
-            Self::N100000073780 => "Ear drops, suspension",
-            Self::N100000073782 => "Eye drops, prolonged-release",
-            Self::N100000073783 => "Eye lotion, solvent for reconstitution",
-            Self::N100000073784 => "Ophthalmic strip",
-            Self::N100000073785 => "Ear gel",
-            Self::N100000073786 => "Ear drops, solution",
-            Self::N100000073787 => "Ear drops, emulsion",
-            Self::N100000073788 => "Ear powder",
-            Self::N100000073789 => "Ear spray, suspension",
-            Self::N100000073790 => "Ear wash, solution",
-            Self::N100000073791 => "Ear tampon",
-            Self::N100000073792 => "Nasal cream",
-            Self::N100000073793 => "Nasal gel",
-            Self::N100000073794 => "Nasal drops, solution",
-            Self::N100000073795 => "Nasal drops, emulsion",
-            Self::N100000073796 => "Nasal spray, solution",
-            Self::N100000073797 => "Nasal spray, emulsion",
-            Self::N100000073798 => "Nasal stick",
-            Self::N100000073799 => "Vaginal gel",
-            Self::N100000073800 => "Vaginal foam",
-            Self::N100000073802 => "Ear spray, solution",
-            Self::N100000073803 => "Ear spray, emulsion",
-            Self::N100000073804 => "Ear wash, emulsion",
-            Self::N100000073805 => "Ear stick",
-            Self::N100000073806 => "Nasal ointment",
-            Self::N100000073807 => "Nasal drops, suspension",
-            Self::N100000073808 => "Nasal powder",
-            Self::N100000073809 => "Nasal spray, suspension",
-            Self::N100000073810 => "Nasal wash",
-            Self::N100000073811 => "Vaginal cream",
-            Self::N100000073812 => "Vaginal ointment",
-            Self::N100000073813 => "Vaginal solution",
-            Self::N100000073814 => "Vaginal emulsion",
-            Self::N100000073815 => "Pessary",
-            Self::N100000073816 => "Vaginal capsule, soft",
-            Self::N100000073817 => "Effervescent vaginal tablet",
-            Self::N100000073818 => "Vaginal delivery system",
-            Self::N100000073819 => "Rectal cream",
-            Self::N100000073820 => "Rectal foam",
-            Self::N100000073821 => "Vaginal suspension",
-            Self::N100000073822 => "Tablet for vaginal solution",
-            Self::N100000073823 => "Vaginal capsule, hard",
-            Self::N100000073824 => "Vaginal tablet",
-            Self::N100000073825 => "Medicated vaginal tampon",
-            Self::N100000073826 => "Vaginal sponge",
-            Self::N100000073827 => "Rectal gel",
-            Self::N100000073863 => "Solution for injection",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AdministrableDoseForm {
@@ -4088,7 +3836,7 @@ impl From<AdministrableDoseForm> for CodeableConcept {
     }
 }
 #[doc = "**[AdministrationSubPotentReason](http://hl7.org/fhir/CodeSystem/administration-subpotent-reason)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication administration process.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum AdministrationSubPotentReason {
     /** **adversestorage**
 
@@ -4145,18 +3893,14 @@ impl AsRef<str> for AdministrationSubPotentReason {
         }
     }
 }
+impl ::std::fmt::Debug for AdministrationSubPotentReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AdministrationSubPotentReason {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Adversestorage => "Adverse Storage",
-            Self::Coldchainbreak => "Cold Chain Break",
-            Self::Expired => "Expired Product",
-            Self::Partialdose => "Partial Dose",
-            Self::Recall => "Manufacturer Recall",
-            Self::Vomited => "Vomited",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AdministrationSubPotentReason {
@@ -4215,7 +3959,7 @@ impl From<AdministrationSubPotentReason> for CodeableConcept {
     }
 }
 #[doc = "**[AdministrativeGender](http://hl7.org/fhir/ValueSet/administrative-gender)**. The gender of a person used for administrative purposes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdministrativeGender {
     /** **female**
@@ -4258,15 +4002,14 @@ impl AsRef<str> for AdministrativeGender {
         }
     }
 }
+impl ::std::fmt::Debug for AdministrativeGender {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AdministrativeGender {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Female => "Female",
-            Self::Male => "Male",
-            Self::Other => "Other",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AdministrativeGender {
@@ -4324,7 +4067,7 @@ impl From<AdministrativeGender> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventActuality](http://hl7.org/fhir/ValueSet/adverse-event-actuality)**. Overall nature of the adverse event, e.g. real or potential.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AdverseEventActuality {
     /** **actual**
@@ -4355,13 +4098,14 @@ impl AsRef<str> for AdverseEventActuality {
         }
     }
 }
+impl ::std::fmt::Debug for AdverseEventActuality {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AdverseEventActuality {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Actual => "Adverse Event",
-            Self::Potential => "Potential Adverse Event",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AdverseEventActuality {
@@ -4419,7 +4163,7 @@ impl From<AdverseEventActuality> for CodeableConcept {
     }
 }
 #[doc = "**[AggregationMode](http://hl7.org/fhir/ValueSet/resource-aggregation-mode)**. How resource references can be aggregated.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AggregationMode {
     /** **bundled**
@@ -4456,14 +4200,14 @@ impl AsRef<str> for AggregationMode {
         }
     }
 }
+impl ::std::fmt::Debug for AggregationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AggregationMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Bundled => "Bundled",
-            Self::Contained => "Contained",
-            Self::Referenced => "Referenced",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AggregationMode {
@@ -4521,7 +4265,7 @@ impl From<AggregationMode> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceCategory](http://hl7.org/fhir/ValueSet/allergy-intolerance-category)**. Category of an identified substance associated with allergies or intolerances.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCategory {
     /** **biologic**
@@ -4564,15 +4308,14 @@ impl AsRef<str> for AllergyIntoleranceCategory {
         }
     }
 }
+impl ::std::fmt::Debug for AllergyIntoleranceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AllergyIntoleranceCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Biologic => "Biologic",
-            Self::Environment => "Environment",
-            Self::Food => "Food",
-            Self::Medication => "Medication",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AllergyIntoleranceCategory {
@@ -4630,7 +4373,7 @@ impl From<AllergyIntoleranceCategory> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceCriticality](http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality)**. Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCriticality {
     /** **high**
@@ -4667,14 +4410,14 @@ impl AsRef<str> for AllergyIntoleranceCriticality {
         }
     }
 }
+impl ::std::fmt::Debug for AllergyIntoleranceCriticality {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AllergyIntoleranceCriticality {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::High => "High Risk",
-            Self::Low => "Low Risk",
-            Self::UnableToAssess => "Unable to Assess Risk",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AllergyIntoleranceCriticality {
@@ -4732,7 +4475,7 @@ impl From<AllergyIntoleranceCriticality> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceSeverity](http://hl7.org/fhir/ValueSet/reaction-event-severity)**. Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceSeverity {
     /** **mild**
@@ -4769,14 +4512,14 @@ impl AsRef<str> for AllergyIntoleranceSeverity {
         }
     }
 }
+impl ::std::fmt::Debug for AllergyIntoleranceSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AllergyIntoleranceSeverity {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Mild => "Mild",
-            Self::Moderate => "Moderate",
-            Self::Severe => "Severe",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AllergyIntoleranceSeverity {
@@ -4834,7 +4577,7 @@ impl From<AllergyIntoleranceSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceType](http://hl7.org/fhir/ValueSet/allergy-intolerance-type)**. Identification of the underlying physiological mechanism for a Reaction Risk.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceType {
     /** **allergy**
@@ -4865,13 +4608,14 @@ impl AsRef<str> for AllergyIntoleranceType {
         }
     }
 }
+impl ::std::fmt::Debug for AllergyIntoleranceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AllergyIntoleranceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Allergy => "Allergy",
-            Self::Intolerance => "Intolerance",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AllergyIntoleranceType {
@@ -4929,7 +4673,7 @@ impl From<AllergyIntoleranceType> for CodeableConcept {
     }
 }
 #[doc = "**[AnimalTissueType](http://hl7.org/fhir/ValueSet/animal-tissue-type)**. A tissue type of an animal.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AnimalTissueType {
     /** **100000072091**
@@ -6082,200 +5826,14 @@ impl AsRef<str> for AnimalTissueType {
         }
     }
 }
+impl ::std::fmt::Debug for AnimalTissueType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AnimalTissueType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000072091 => "All relevant tissues",
-            Self::N100000072092 => "Fat",
-            Self::N100000072093 => "Honey",
-            Self::N100000072094 => "Liver",
-            Self::N100000072095 => "Fresh Milk",
-            Self::N100000072096 => "Muscle and skin in natural proportions",
-            Self::N100000072104 => "Eggs",
-            Self::N100000072105 => "Skin and fat",
-            Self::N100000072106 => "Kidney",
-            Self::N100000072107 => "Meat and offal",
-            Self::N100000072108 => "Muscle",
-            Self::N100000072109 => "Unspecified",
-            Self::N100000111053 => "Adipose tissue",
-            Self::N100000111054 => "Adrenal",
-            Self::N100000111055 => "Blood vessels",
-            Self::N100000111056 => "Bone",
-            Self::N100000111057 => "Bone marrow",
-            Self::N100000111058 => "Brain",
-            Self::N100000111059 => "Connective tissue",
-            Self::N100000111060 => "Cornea",
-            Self::N100000111061 => "Dental pulp",
-            Self::N100000111062 => "Duodenum",
-            Self::N100000111063 => "Dura mater",
-            Self::N100000111064 => "Egg, embryonated",
-            Self::N100000111065 => "Egg",
-            Self::N100000111066 => "Egg white",
-            Self::N100000111067 => "Egg yolk",
-            Self::N100000111068 => "Embryos",
-            Self::N100000111069 => "Enteric plexuses",
-            Self::N100000111070 => "Esophagus",
-            Self::N100000111071 => "Feathers",
-            Self::N100000111072 => "Foetus",
-            Self::N100000111073 => "Fore-stomach (ruminants only)",
-            Self::N100000111074 => "Gingival tissue",
-            Self::N100000111075 => "Hair",
-            Self::N100000111076 => "Heart/pericardium",
-            Self::N100000111077 => "Hide",
-            Self::N100000111078 => "Hooves",
-            Self::N100000111079 => "Ileum",
-            Self::N100000111080 => "Jejunum",
-            Self::N100000111081 => "Kidney",
-            Self::N100000111082 => "Lard/lard oil",
-            Self::N100000111083 => "Large intestine",
-            Self::N100000111084 => "Liver",
-            Self::N100000111085 => "Lung",
-            Self::N100000111086 => "Lymph nodes",
-            Self::N100000111087 => "Mammary gland",
-            Self::N100000111088 => "Udder",
-            Self::N100000111089 => "Mammary tumour",
-            Self::N100000111090 => "Meat extract",
-            Self::N100000111091 => "Nasopharyngeal",
-            Self::N100000111092 => "Nictitating membrane",
-            Self::N100000111093 => "Nasal mucosa",
-            Self::N100000111094 => "Ovary",
-            Self::N100000111095 => "Pancreas",
-            Self::N100000111096 => "Peripheral nerves",
-            Self::N100000111097 => "Pituitary gland",
-            Self::N100000111098 => "Placenta",
-            Self::N100000111099 => "Prostate",
-            Self::N100000111100 => "Epididymis",
-            Self::N100000111101 => "Seminal vesicle",
-            Self::N100000111102 => "Rennet, calf",
-            Self::N100000111103 => "Retina",
-            Self::N100000111104 => "Optic nerve",
-            Self::N100000111105 => "Salivary gland",
-            Self::N100000111106 => "Shank",
-            Self::N100000111107 => "Skeletal muscle",
-            Self::N100000111108 => "Skin",
-            Self::N100000111109 => "Spinal ganglia",
-            Self::N100000111110 => "Spinal cord",
-            Self::N100000111111 => "Spleen",
-            Self::N100000111112 => "Stomach",
-            Self::N100000111113 => "Abomasum",
-            Self::N100000111114 => "Submaxillary glands",
-            Self::N100000111115 => "Tallow",
-            Self::N100000111116 => "Tendon",
-            Self::N100000111117 => "Testis",
-            Self::N100000111118 => "Thymus",
-            Self::N100000111119 => "Thyroid gland",
-            Self::N100000111120 => "Tongue",
-            Self::N100000111121 => "Tonsil",
-            Self::N100000111122 => "Trachea",
-            Self::N100000111123 => "Trigeminal ganglia",
-            Self::N100000111124 => "Tripe",
-            Self::N100000111125 => "Uterus (Non-gravid)",
-            Self::N100000111126 => "Wool",
-            Self::N100000111127 => "Ascites fluid",
-            Self::N100000111128 => "Bile",
-            Self::N100000111129 => "Blood1",
-            Self::N100000111130 => "Blood, foetal",
-            Self::N100000111131 => "Colostrum",
-            Self::N100000111132 => "Cord blood",
-            Self::N100000111133 => "CSF",
-            Self::N100000111134 => "Faeces",
-            Self::N100000111135 => "Milk",
-            Self::N100000111136 => "Nasal mucus",
-            Self::N100000111137 => "Placenta fluids",
-            Self::N100000111138 => "Plasma",
-            Self::N100000111139 => "Saliva",
-            Self::N100000111140 => "Secretion from bees",
-            Self::N100000111141 => "Semen",
-            Self::N100000111142 => "Serum, calf",
-            Self::N100000111143 => "Serum, donor adult bovine",
-            Self::N100000111144 => "Serum, donor calf",
-            Self::N100000111145 => "Serum, foetal bovine",
-            Self::N100000111146 => "Serum, newborn calf",
-            Self::N100000111147 => "Serum/plasma derivate, adult bovine",
-            Self::N100000111148 => "Serum/plasma, adult bovine",
-            Self::N100000111149 => "Sweat",
-            Self::N100000111150 => "Tears",
-            Self::N100000111151 => "Urine",
-            Self::N100000111152 => "Venom",
-            Self::N100000111153 => "Whey",
-            Self::N100000111154 => "Casein",
-            Self::N100000111155 => "Fermentation products",
-            Self::N100000111156 => "Gelatin",
-            Self::N100000111157 => "Lactose",
-            Self::N100000111158 => "Protein",
-            Self::N100000111159 => "Insulin",
-            Self::N100000111160 => "Collagen",
-            Self::N100000111161 => "Animal Charcoal",
-            Self::N100000111162 => "Peptones",
-            Self::N100000111163 => "Fatty acids",
-            Self::N100000111164 => "Glycerol",
-            Self::N100000125717 => "Not applicable",
-            Self::N100000136180 => "Meat and offal, milk",
-            Self::N100000136181 => "Agar blood",
-            Self::N100000136182 => "Casamino acid",
-            Self::N100000136183 => "Casein, hydrolysate",
-            Self::N100000136184 => "Casein, pancreatic digest",
-            Self::N100000136185 => "Casein, peptides N3",
-            Self::N100000136186 => "Cells",
-            Self::N100000136187 => "Cells, BHK21",
-            Self::N100000136188 => "Cells, CHO",
-            Self::N100000136189 => "Cells, CRFK",
-            Self::N100000136190 => "Cells, embryo SPF",
-            Self::N100000136191 => "Cells, IRC5",
-            Self::N100000136192 => "Cells, kidney",
-            Self::N100000136193 => "Cells, MDCK",
-            Self::N100000136194 => "Cells, red blood",
-            Self::N100000136195 => "Collagen, hydrolysate",
-            Self::N100000136196 => "Cholesterol",
-            Self::N100000136197 => "Egg, SPF embryonated",
-            Self::N100000136198 => "Enzyme",
-            Self::N100000136199 => "Enzyme, pancreatic enzymes",
-            Self::N100000136200 => "Enzyme, pancreatin 6NF",
-            Self::N100000136201 => "Enzyme, pepsin",
-            Self::N100000136202 => "Enzyme, pronase",
-            Self::N100000136203 => "Enzyme, trypsin",
-            Self::N100000136204 => "Heart, digest",
-            Self::N100000136205 => "Heart, extract",
-            Self::N100000136206 => "Intestinal mucosae",
-            Self::N100000136207 => "Lactalbumin hydrolysate",
-            Self::N100000136208 => "Liver, digest",
-            Self::N100000136209 => "Lymphocytes",
-            Self::N100000136210 => "Meat",
-            Self::N100000136211 => "Meat, enzymic hydrolysate",
-            Self::N100000136212 => "Medium, cooked meat",
-            Self::N100000136213 => "Medium, F10-199 medium",
-            Self::N100000136214 => "Medium, FMD culture medium",
-            Self::N100000136215 => "Medium, Glasgow MEM culture",
-            Self::N100000136216 => "Medium, LB Agar Lennox",
-            Self::N100000136217 => "Medium, LB Broth Lennox",
-            Self::N100000136218 => "Medium, modified thioglycolate medium",
-            Self::N100000136219 => "Medium, trypticase soy broth",
-            Self::N100000136220 => "Medium, tryptose phosphate broth",
-            Self::N100000136221 => "Milk, skimmed",
-            Self::N100000136222 => "Pancreas, extract",
-            Self::N100000136223 => "Peptones, casein hydrochloric peptone",
-            Self::N100000136224 => "Peptones, casein tryptic peptone",
-            Self::N100000136225 => "Pituitary extract",
-            Self::N100000136226 => "Rennet",
-            Self::N100000136227 => "Medium, nutrient broth",
-            Self::N100000136228 => "Medium, NZ-Amine",
-            Self::N100000136229 => "Medium, thioglycolate medium",
-            Self::N100000136230 => "Peptones, proteose peptone",
-            Self::N100000136231 => "Serum",
-            Self::N100000136232 => "Serum, albumin",
-            Self::N100000136233 => "Serum, Iron fortified calf",
-            Self::N100000136234 => "Skin, connective tissue and bone",
-            Self::N100000136235 => "Sperm",
-            Self::N100000136236 => "Tryptone",
-            Self::N100000136237 => "Meat, extract desiccated",
-            Self::N100000136247 => "Stomach mucosa",
-            Self::N100000136248 => "Transferin",
-            Self::N100000136554 => "Non-neural",
-            Self::N100000136555 => "Not specified",
-            Self::N100000136556 => "Organ tissue",
-            Self::N100000142485 => "Skin and fat in natural proportions",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AnimalTissueType {
@@ -6331,7 +5889,7 @@ impl From<AnimalTissueType> for CodeableConcept {
     }
 }
 #[doc = "**[AppointmentStatus](http://hl7.org/fhir/ValueSet/appointmentstatus)**. The free/busy status of an appointment.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AppointmentStatus {
     /** **arrived**
@@ -6411,21 +5969,14 @@ impl AsRef<str> for AppointmentStatus {
         }
     }
 }
+impl ::std::fmt::Debug for AppointmentStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AppointmentStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Arrived => "Arrived",
-            Self::Booked => "Booked",
-            Self::Cancelled => "Cancelled",
-            Self::CheckedIn => "Checked In",
-            Self::EnteredInError => "Entered in error",
-            Self::Fulfilled => "Fulfilled",
-            Self::Noshow => "No Show",
-            Self::Pending => "Pending",
-            Self::Proposed => "Proposed",
-            Self::Waitlist => "Waitlisted",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AppointmentStatus {
@@ -6481,7 +6032,7 @@ impl From<AppointmentStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactAssessmentDisposition](http://hl7.org/fhir/ValueSet/artifactassessment-disposition)**. Possible values for the disposition of a comment or change request, typically used for comments and change requests, to indicate the disposition of the responsible party towards the changes suggested by the comment or change request.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactAssessmentDisposition {
     /** **not-persuasive**
@@ -6530,16 +6081,14 @@ impl AsRef<str> for ArtifactAssessmentDisposition {
         }
     }
 }
+impl ::std::fmt::Debug for ArtifactAssessmentDisposition {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ArtifactAssessmentDisposition {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::NotPersuasive => "Not Persuasive",
-            Self::NotPersuasiveWithModification => "Not Persuasive with Modification",
-            Self::Persuasive => "Persuasive",
-            Self::PersuasiveWithModification => "Persuasive with Modification",
-            Self::Unresolved => "Unresolved",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ArtifactAssessmentDisposition {
@@ -6597,7 +6146,7 @@ impl From<ArtifactAssessmentDisposition> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactAssessmentInformationType](http://hl7.org/fhir/ValueSet/artifactassessment-information-type)**. The type of information contained in a component of an artifact assessment.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactAssessmentInformationType {
     /** **change-request**
@@ -6652,17 +6201,14 @@ impl AsRef<str> for ArtifactAssessmentInformationType {
         }
     }
 }
+impl ::std::fmt::Debug for ArtifactAssessmentInformationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ArtifactAssessmentInformationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ChangeRequest => "Change Request",
-            Self::Classifier => "Classifier",
-            Self::Comment => "Comment",
-            Self::Container => "Container",
-            Self::Rating => "Rating",
-            Self::Response => "Response",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ArtifactAssessmentInformationType {
@@ -6721,7 +6267,7 @@ impl From<ArtifactAssessmentInformationType> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactAssessmentWorkflowStatus](http://hl7.org/fhir/ValueSet/artifactassessment-workflow-status)**. Possible values for the workflow status of the comment or assessment, typically used to coordinate workflow around the process of accepting and rejecting changes and comments on the artifact.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactAssessmentWorkflowStatus {
     /** **applied**
@@ -6800,21 +6346,14 @@ impl AsRef<str> for ArtifactAssessmentWorkflowStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ArtifactAssessmentWorkflowStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ArtifactAssessmentWorkflowStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Applied => "Applied",
-            Self::Deferred => "Deferred",
-            Self::Duplicate => "Duplicate",
-            Self::EnteredInError => "Entered in Error",
-            Self::Published => "Published",
-            Self::ResolvedChangeRequired => "Resolved - Change Required",
-            Self::ResolvedNoChange => "Resolved - No Change",
-            Self::Submitted => "Submitted",
-            Self::Triaged => "Triaged",
-            Self::WaitingForInput => "Waiting for Input",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ArtifactAssessmentWorkflowStatus {
@@ -6873,7 +6412,7 @@ impl From<ArtifactAssessmentWorkflowStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactContributionInstanceType](http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type)**. Artifact Contribution Instance Type\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactContributionInstanceType {
     /** **approved**
@@ -6910,14 +6449,14 @@ impl AsRef<str> for ArtifactContributionInstanceType {
         }
     }
 }
+impl ::std::fmt::Debug for ArtifactContributionInstanceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ArtifactContributionInstanceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Approved => "Approved",
-            Self::Edited => "Edited",
-            Self::Reviewed => "Reviewed",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ArtifactContributionInstanceType {
@@ -6976,7 +6515,7 @@ impl From<ArtifactContributionInstanceType> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactContributionType](http://hl7.org/fhir/ValueSet/artifact-contribution-type)**. Citation contribution.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactContributionType {
     /** **conceptualization**
@@ -7079,25 +6618,14 @@ impl AsRef<str> for ArtifactContributionType {
         }
     }
 }
+impl ::std::fmt::Debug for ArtifactContributionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ArtifactContributionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Conceptualization => "Conceptualization",
-            Self::DataCuration => "Data curation",
-            Self::FormalAnalysis => "Formal analysis",
-            Self::FundingAcquisition => "Funding acquisition",
-            Self::Investigation => "Investigation",
-            Self::Methodology => "Methodology",
-            Self::ProjectAdministration => "Project administration",
-            Self::Resources => "Resources",
-            Self::Software => "Software",
-            Self::Supervision => "Supervision",
-            Self::Validation => "Validation",
-            Self::Visualization => "Visualization",
-            Self::WritingOriginalDraft => "Writing - original draft",
-            Self::WritingReviewEditing => "Writing - review & editing",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ArtifactContributionType {
@@ -7155,7 +6683,7 @@ impl From<ArtifactContributionType> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactUrlClassifier](http://hl7.org/fhir/ValueSet/artifact-url-classifier)**. Code the reason for different URLs, eg abstract and full-text.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ArtifactUrlClassifier {
     /** **abstract**
@@ -7264,26 +6792,14 @@ impl AsRef<str> for ArtifactUrlClassifier {
         }
     }
 }
+impl ::std::fmt::Debug for ArtifactUrlClassifier {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ArtifactUrlClassifier {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abstract => "Abstract",
-            Self::CodeRepository => "Code repository",
-            Self::CompressedFile => "Compressed file",
-            Self::ComputableResource => "Computable resource",
-            Self::DoiBased => "DOI Based",
-            Self::FileDirectory => "File directory",
-            Self::FullText => "Full-Text",
-            Self::Json => "JSON",
-            Self::NotSpecified => "Not Specified",
-            Self::Pdf => "PDF",
-            Self::Restricted => "Restricted",
-            Self::Supplement => "Supplement",
-            Self::VersionSpecific => "Version Specific",
-            Self::Webpage => "Webpage",
-            Self::Xml => "XML",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ArtifactUrlClassifier {
@@ -7341,7 +6857,7 @@ impl From<ArtifactUrlClassifier> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionDirectionType](http://hl7.org/fhir/ValueSet/assert-direction-codes)**. The type of direction to use for assertion.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionDirectionType {
     /** **request**
@@ -7372,13 +6888,14 @@ impl AsRef<str> for AssertionDirectionType {
         }
     }
 }
+impl ::std::fmt::Debug for AssertionDirectionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AssertionDirectionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Request => "request",
-            Self::Response => "response",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AssertionDirectionType {
@@ -7436,7 +6953,7 @@ impl From<AssertionDirectionType> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionManualCompletionType](http://hl7.org/fhir/ValueSet/assert-manual-completion-codes)**. The type of manual completion to use for assertion.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionManualCompletionType {
     /** **fail**
@@ -7479,15 +6996,14 @@ impl AsRef<str> for AssertionManualCompletionType {
         }
     }
 }
+impl ::std::fmt::Debug for AssertionManualCompletionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AssertionManualCompletionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Fail => "Fail",
-            Self::Pass => "Pass",
-            Self::Skip => "Skip",
-            Self::Stop => "Stop",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AssertionManualCompletionType {
@@ -7545,7 +7061,7 @@ impl From<AssertionManualCompletionType> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionOperatorType](http://hl7.org/fhir/ValueSet/assert-operator-codes)**. The type of operator to use for assertion.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionOperatorType {
     /** **contains**
@@ -7636,23 +7152,14 @@ impl AsRef<str> for AssertionOperatorType {
         }
     }
 }
+impl ::std::fmt::Debug for AssertionOperatorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AssertionOperatorType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Contains => "contains",
-            Self::Empty => "empty",
-            Self::Equals => "equals",
-            Self::Eval => "evaluate",
-            Self::GreaterThan => "greaterThan",
-            Self::In => "in",
-            Self::LessThan => "lessThan",
-            Self::ManualEval => "manualEvaluate",
-            Self::NotContains => "notContains",
-            Self::NotEmpty => "notEmpty",
-            Self::NotEquals => "notEquals",
-            Self::NotIn => "notIn",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AssertionOperatorType {
@@ -7710,7 +7217,7 @@ impl From<AssertionOperatorType> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionResponseTypes](http://hl7.org/fhir/ValueSet/assert-response-code-types)**. The type of response code to use for assertion.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AssertionResponseTypes {
     /** **accepted**
@@ -7993,55 +7500,14 @@ impl AsRef<str> for AssertionResponseTypes {
         }
     }
 }
+impl ::std::fmt::Debug for AssertionResponseTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AssertionResponseTypes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Accepted => "Accepted",
-            Self::BadGateway => "Bad Gateway",
-            Self::BadRequest => "Bad Request",
-            Self::Conflict => "Conflict",
-            Self::ContentTooLarge => "Content Too Large",
-            Self::Continue => "Continue",
-            Self::Created => "Created",
-            Self::ExpectationFailed => "Expectation Failed",
-            Self::Forbidden => "Forbidden",
-            Self::Found => "Found",
-            Self::GatewayTimeout => "Gateway Timeout",
-            Self::Gone => "Gone",
-            Self::HttpVersionNotSupported => "HTTP Version Not Supported",
-            Self::InternalServerError => "Internal Server Error",
-            Self::LengthRequired => "Length Required",
-            Self::MethodNotAllowed => "Method Not Allowed",
-            Self::MisdirectedRequest => "Misdirected Request",
-            Self::MovedPermanently => "Moved Permanently",
-            Self::MultipleChoices => "Multiple Choices",
-            Self::NoContent => "No Content",
-            Self::NonAuthoritativeInformation => "Non-Authoritative Information",
-            Self::NotAcceptable => "Not Acceptable",
-            Self::NotFound => "Not Found",
-            Self::NotImplemented => "Not Implemented",
-            Self::NotModified => "Not Modified",
-            Self::Okay => "OK",
-            Self::PartialContent => "Partial Content",
-            Self::PaymentRequired => "Payment Required",
-            Self::PermanentRedirect => "Permanent Redirect",
-            Self::PreconditionFailed => "Precondition Failed",
-            Self::ProxyAuthenticationRequired => "Proxy Authentication Required",
-            Self::RangeNotSatisfiable => "Range Not Satisfiable",
-            Self::RequestTimeout => "Request Timeout",
-            Self::ResetContent => "Reset Content",
-            Self::SeeOther => "See Other",
-            Self::ServiceUnavailable => "Service Unavailable",
-            Self::SwitchingProtocols => "Switching Protocols",
-            Self::TemporaryRedirect => "Temporary Redirect",
-            Self::Unauthorized => "Unauthorized",
-            Self::UnprocessableContent => "Unprocessable Content",
-            Self::UnsupportedMediaType => "Unsupported Media Type",
-            Self::UpgradeRequired => "Upgrade Required",
-            Self::UriTooLong => "URI Too Long",
-            Self::UseProxy => "Use Proxy",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AssertionResponseTypes {
@@ -8099,7 +7565,7 @@ impl From<AssertionResponseTypes> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventAction](http://hl7.org/fhir/ValueSet/audit-event-action)**. Indicator for type of action performed during the event that generated the event.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AuditEventAction {
     /** **C**
@@ -8148,16 +7614,14 @@ impl AsRef<str> for AuditEventAction {
         }
     }
 }
+impl ::std::fmt::Debug for AuditEventAction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AuditEventAction {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::C => "Create",
-            Self::D => "Delete",
-            Self::E => "Execute",
-            Self::R => "Read",
-            Self::U => "Update",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AuditEventAction {
@@ -8213,7 +7677,7 @@ impl From<AuditEventAction> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventSeverity](http://hl7.org/fhir/ValueSet/audit-event-severity)**. The severity of the audit entry.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum AuditEventSeverity {
     /** **alert**
@@ -8280,19 +7744,14 @@ impl AsRef<str> for AuditEventSeverity {
         }
     }
 }
+impl ::std::fmt::Debug for AuditEventSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for AuditEventSeverity {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Alert => "Alert",
-            Self::Critical => "Critical",
-            Self::Debug => "Debug",
-            Self::Emergency => "Emergency",
-            Self::Error => "Error",
-            Self::Informational => "Informational",
-            Self::Notice => "Notice",
-            Self::Warning => "Warning",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for AuditEventSeverity {
@@ -8348,7 +7807,7 @@ impl From<AuditEventSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[BeneficiaryRelationshipCodes](http://hl7.org/fhir/ValueSet/relationship)**. This value set includes the Patient to subscriber relationship codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BeneficiaryRelationshipCodes {
     /** **1**
@@ -8397,16 +7856,14 @@ impl AsRef<str> for BeneficiaryRelationshipCodes {
         }
     }
 }
+impl ::std::fmt::Debug for BeneficiaryRelationshipCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BeneficiaryRelationshipCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N1 => "Self",
-            Self::N2 => "Spouse",
-            Self::N3 => "Child",
-            Self::N4 => "Common Law Spouse",
-            Self::N5 => "Other",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BeneficiaryRelationshipCodes {
@@ -8462,7 +7919,7 @@ impl From<BeneficiaryRelationshipCodes> for CodeableConcept {
     }
 }
 #[doc = "**[BindingStrength](http://hl7.org/fhir/ValueSet/binding-strength)**. Indication of the degree of conformance expectations associated with a binding.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BindingStrength {
     /** **example**
@@ -8505,15 +7962,14 @@ impl AsRef<str> for BindingStrength {
         }
     }
 }
+impl ::std::fmt::Debug for BindingStrength {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BindingStrength {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Example => "Example",
-            Self::Extensible => "Extensible",
-            Self::Preferred => "Preferred",
-            Self::Required => "Required",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BindingStrength {
@@ -8569,7 +8025,7 @@ impl From<BindingStrength> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductCategory](http://hl7.org/fhir/ValueSet/product-category)**. Biologically Derived Product Category.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductCategory {
     /** **biologicalAgent**
@@ -8618,16 +8074,14 @@ impl AsRef<str> for BiologicallyDerivedProductCategory {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BiologicalAgent => "BiologicalAgent",
-            Self::Cells => "Cells",
-            Self::Fluid => "Fluid",
-            Self::Organ => "Organ",
-            Self::Tissue => "Tissue",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductCategory {
@@ -8683,7 +8137,7 @@ impl From<BiologicallyDerivedProductCategory> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductCodes](http://hl7.org/fhir/ValueSet/biologicallyderived-productcodes)**. This code system is a subset of ISBT 128 Product Description Codes© published by ICCBBA as a part of the ISBT 128 standard. These codes support characterization and classification of medical products of human origin inclusive of processing conditions such as additives, volumes and handling conditions.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductCodes {
     /** **e0398**
@@ -8756,28 +8210,14 @@ impl AsRef<str> for BiologicallyDerivedProductCodes {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::E0398 => "RED BLOOD CELLS|CPD>AS5/450mL/refg|Irr|ResLeu",
-            Self::E4377 => {
-                "Apheresis RED BLOOD CELLS|ACD-A/XX/refg|Irradiated|1st container"
-            }
-            Self::S1128 => "HPC, APHERESIS/Citrate/XX/refg/Mobilized",
-            Self::S1194 => {
-                "HPC, APHERESIS|NS/XX/<=-120C|10% DMSO|Cryopreserved|Mobilized"
-            }
-            Self::S1195 => "HPC, APHERESIS|NS/XX/<=-120C|5% DMSO|Cryopreserved|Mobilized",
-            Self::S1310 => {
-                "HPC, APHERESIS|None/XX/refg|3rd Party Comp:Yes|Other Additives:Yes|Mobilized|CD34 enriched"
-            }
-            Self::S1398 => "HPC, MARROW|NS/XX/rt|Plasma reduced",
-            Self::S2598 => {
-                "HPC, MARROW|NS/XX/<=-150C|10% DMSO|3rd Party Comp:Yes|Cryopreserved|RBC reduced"
-            }
-            Self::T1396 => "BONE, FEMUR|Frozen|Right|Radiation sterilization",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductCodes {
@@ -8836,7 +8276,7 @@ impl From<BiologicallyDerivedProductCodes> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispense](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status)**. BiologicallyDerivedProductDispense Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispense {
     /** **allocated**
@@ -8903,19 +8343,14 @@ impl AsRef<str> for BiologicallyDerivedProductDispense {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductDispense {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductDispense {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Allocated => "Allocated",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::Issued => "Issued",
-            Self::Preparation => "Preparation",
-            Self::Returned => "Returned",
-            Self::Unfulfilled => "Unfulfilled",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductDispense {
@@ -8974,7 +8409,7 @@ impl From<BiologicallyDerivedProductDispense> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispenseMatchStatus](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status)**. Biologically derived product dispense - match status\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispenseMatchStatus {
     /** **crossmatched**
@@ -9017,15 +8452,14 @@ impl AsRef<str> for BiologicallyDerivedProductDispenseMatchStatus {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductDispenseMatchStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductDispenseMatchStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Crossmatched => "Crossmatched",
-            Self::LeastIncompatible => "Least incompatible",
-            Self::Selected => "Selected",
-            Self::Unmatched => "Unmatched",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductDispenseMatchStatus {
@@ -9084,7 +8518,7 @@ impl From<BiologicallyDerivedProductDispenseMatchStatus> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispenseOriginRelationship](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship)**. Biologically derived product dispense - origin relationship\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispenseOriginRelationship {
     /** **allogeneic**
@@ -9133,16 +8567,14 @@ impl AsRef<str> for BiologicallyDerivedProductDispenseOriginRelationship {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductDispenseOriginRelationship {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductDispenseOriginRelationship {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Allogeneic => "Allogeneic",
-            Self::Autologous => "Autologous",
-            Self::Directed => "Directed",
-            Self::Related => "Related",
-            Self::Xenogenic => "Xenogenic",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductDispenseOriginRelationship {
@@ -9201,7 +8633,7 @@ impl From<BiologicallyDerivedProductDispenseOriginRelationship> for CodeableConc
     }
 }
 #[doc = "**[BiologicallyDerivedProductDispensePerformerFunction](http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function)**. Biologically derived product dispense - performer function\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductDispensePerformerFunction {
     /** **antibody-identification**
@@ -9262,18 +8694,14 @@ impl AsRef<str> for BiologicallyDerivedProductDispensePerformerFunction {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductDispensePerformerFunction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductDispensePerformerFunction {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AntibodyIdentification => "Antibody Identification",
-            Self::AntibodyScreen => "Antibody Screen",
-            Self::Crossmatch => "Crossmatch",
-            Self::GroupAndType => "Group and Type",
-            Self::Receipt => "Receipt",
-            Self::Release => "Release",
-            Self::Transport => "Transport",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductDispensePerformerFunction {
@@ -9332,7 +8760,7 @@ impl From<BiologicallyDerivedProductDispensePerformerFunction> for CodeableConce
     }
 }
 #[doc = "**[BiologicallyDerivedProductStatus](http://hl7.org/fhir/ValueSet/biologicallyderived-product-status)**. Biologically Derived Product Status.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductStatus {
     /** **available**
@@ -9363,13 +8791,14 @@ impl AsRef<str> for BiologicallyDerivedProductStatus {
         }
     }
 }
+impl ::std::fmt::Debug for BiologicallyDerivedProductStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BiologicallyDerivedProductStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Available => "Available",
-            Self::Unavailable => "Unavailable",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BiologicallyDerivedProductStatus {
@@ -9428,7 +8857,7 @@ impl From<BiologicallyDerivedProductStatus> for CodeableConcept {
     }
 }
 #[doc = "**[BundleType](http://hl7.org/fhir/ValueSet/bundle-type)**. Indicates the purpose of a bundle - how it is intended to be used.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum BundleType {
     /** **batch**
@@ -9507,21 +8936,14 @@ impl AsRef<str> for BundleType {
         }
     }
 }
+impl ::std::fmt::Debug for BundleType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for BundleType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Batch => "Batch",
-            Self::BatchResponse => "Batch Response",
-            Self::Collection => "Collection",
-            Self::Document => "Document",
-            Self::History => "History List",
-            Self::Message => "Message",
-            Self::Searchset => "Search Results",
-            Self::SubscriptionNotification => "Subscription Notification",
-            Self::Transaction => "Transaction",
-            Self::TransactionResponse => "Transaction Response",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for BundleType {
@@ -9577,7 +8999,7 @@ impl From<BundleType> for CodeableConcept {
     }
 }
 #[doc = "**[CapabilityStatementKind](http://hl7.org/fhir/ValueSet/capability-statement-kind)**. How a capability statement is intended to be used.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CapabilityStatementKind {
     /** **capability**
@@ -9614,14 +9036,14 @@ impl AsRef<str> for CapabilityStatementKind {
         }
     }
 }
+impl ::std::fmt::Debug for CapabilityStatementKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CapabilityStatementKind {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Capability => "Capability",
-            Self::Instance => "Instance",
-            Self::Requirements => "Requirements",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CapabilityStatementKind {
@@ -9679,7 +9101,7 @@ impl From<CapabilityStatementKind> for CodeableConcept {
     }
 }
 #[doc = "**[CareTeamStatus](http://hl7.org/fhir/ValueSet/care-team-status)**. Indicates the status of the care team.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CareTeamStatus {
     /** **active**
@@ -9728,16 +9150,14 @@ impl AsRef<str> for CareTeamStatus {
         }
     }
 }
+impl ::std::fmt::Debug for CareTeamStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CareTeamStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-            Self::Proposed => "Proposed",
-            Self::Suspended => "Suspended",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CareTeamStatus {
@@ -9793,7 +9213,7 @@ impl From<CareTeamStatus> for CodeableConcept {
     }
 }
 #[doc = "**[CatalogType](http://hl7.org/fhir/catalogType)**. CatalogType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum CatalogType {
     /** **device**
 
@@ -9832,15 +9252,14 @@ impl AsRef<str> for CatalogType {
         }
     }
 }
+impl ::std::fmt::Debug for CatalogType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CatalogType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Device => "Device Catalog",
-            Self::Medication => "Medication Catalog",
-            Self::Protocol => "Protocol List",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CatalogType {
@@ -9896,7 +9315,7 @@ impl From<CatalogType> for CodeableConcept {
     }
 }
 #[doc = "**[CharacteristicCombination](http://hl7.org/fhir/ValueSet/characteristic-combination)**. Logical grouping of characteristics.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CharacteristicCombination {
     /** **all-of**
@@ -9957,18 +9376,14 @@ impl AsRef<str> for CharacteristicCombination {
         }
     }
 }
+impl ::std::fmt::Debug for CharacteristicCombination {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CharacteristicCombination {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AllOf => "All of",
-            Self::AnyOf => "Any of",
-            Self::AtLeast => "At least",
-            Self::AtMost => "At most",
-            Self::Dataset => "Dataset",
-            Self::NetEffect => "Net effect",
-            Self::Statistical => "Statistical",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CharacteristicCombination {
@@ -10026,7 +9441,7 @@ impl From<CharacteristicCombination> for CodeableConcept {
     }
 }
 #[doc = "**[CharacteristicOffset](http://hl7.org/fhir/ValueSet/characteristic-offset)**. Reference point for characteristic.valueQuantity.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CharacteristicOffset {
     /** **LNL**
@@ -10057,13 +9472,14 @@ impl AsRef<str> for CharacteristicOffset {
         }
     }
 }
+impl ::std::fmt::Debug for CharacteristicOffset {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CharacteristicOffset {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Lnl => "Lower Normal Limit",
-            Self::Unl => "Upper Normal Limit",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CharacteristicOffset {
@@ -10121,7 +9537,7 @@ impl From<CharacteristicOffset> for CodeableConcept {
     }
 }
 #[doc = "**[ChargeItemStatus](http://hl7.org/fhir/ValueSet/chargeitem-status)**. Codes identifying the lifecycle stage of a ChargeItem.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ChargeItemStatus {
     /** **aborted**
@@ -10182,18 +9598,14 @@ impl AsRef<str> for ChargeItemStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ChargeItemStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ChargeItemStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Aborted => "Aborted",
-            Self::Billable => "Billable",
-            Self::Billed => "Billed",
-            Self::EnteredInError => "Entered in Error",
-            Self::NotBillable => "Not billable",
-            Self::Planned => "Planned",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ChargeItemStatus {
@@ -10249,7 +9661,7 @@ impl From<ChargeItemStatus> for CodeableConcept {
     }
 }
 #[doc = "**[CitationArtifactClassifier](http://hl7.org/fhir/ValueSet/citation-artifact-classifier)**. Citation artifact classifier\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationArtifactClassifier {
     /** **D000076942**
@@ -10454,42 +9866,14 @@ impl AsRef<str> for CitationArtifactClassifier {
         }
     }
 }
+impl ::std::fmt::Debug for CitationArtifactClassifier {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitationArtifactClassifier {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::D000076942 => "Preprint",
-            Self::D001877 => "Book",
-            Self::D016420 => "Comment",
-            Self::D016422 => "Letter",
-            Self::D016425 => "Published Erratum",
-            Self::D016428 => "Journal Article",
-            Self::D019991 => "Database",
-            Self::D059040 => "Video-Audio Media",
-            Self::D064886 => "Dataset",
-            Self::Electronic => "Electronic",
-            Self::ElectronicPrint => "Electronic-Print",
-            Self::ElectronicECollection => "Electronic-eCollection",
-            Self::Print => "Print",
-            Self::PrintElectronic => "Print Electronic",
-            Self::Audio => "Audio file",
-            Self::CdsArtifact => "Clinical Decision Support Artifact",
-            Self::CommonShare => "Common Share",
-            Self::DatasetUnpublished => "Dataset Unpublished",
-            Self::ExecutableApp => "Executable app",
-            Self::FhirResource => "FHIR Resource",
-            Self::Image => "Image file",
-            Self::InteractiveForm => "Interactive Form",
-            Self::MachineCode => "Machine code",
-            Self::MedlineBase => "Medline Base",
-            Self::PredictionModel => "Prediction Model",
-            Self::ProjectSpecific => "Project Specific",
-            Self::Protocol => "Protocol",
-            Self::Pseudocode => "PseudoCode",
-            Self::StandardSpecification => "Standard Specification",
-            Self::Terminology => "Terminology",
-            Self::Webpage => "Webpage",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitationArtifactClassifier {
@@ -10547,7 +9931,7 @@ impl From<CitationArtifactClassifier> for CodeableConcept {
     }
 }
 #[doc = "**[CitationClassificationType](http://hl7.org/fhir/ValueSet/citation-classification-type)**. Citation classification type\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationClassificationType {
     /** **citation-source**
@@ -10584,14 +9968,14 @@ impl AsRef<str> for CitationClassificationType {
         }
     }
 }
+impl ::std::fmt::Debug for CitationClassificationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitationClassificationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CitationSource => "Citation Source",
-            Self::FevirPlatformUse => "FEvIR Platform Use",
-            Self::MedlineOwner => "MEDLINE Citation Owner",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitationClassificationType {
@@ -10649,7 +10033,7 @@ impl From<CitationClassificationType> for CodeableConcept {
     }
 }
 #[doc = "**[CitationStatusType](http://hl7.org/fhir/ValueSet/citation-status-type)**. Citation status type\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationStatusType {
     /** **medline-completed**
@@ -10838,46 +10222,14 @@ impl AsRef<str> for CitationStatusType {
         }
     }
 }
+impl ::std::fmt::Debug for CitationStatusType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitationStatusType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::MedlineCompleted => "Medline Citation Status of Completed",
-            Self::MedlineInDataReview => "Medline Citation Status of In-Data-Review",
-            Self::MedlineInProcess => "Medline Citation Status of In-Process",
-            Self::MedlineMedline => "Medline Citation Status of MEDLINE",
-            Self::MedlineOldmedline => "Medline Citation Status of OLDMEDLINE",
-            Self::MedlinePublisher => "Medline Citation Status of Publisher",
-            Self::MedlinePubmedNotMedline => {
-                "Medline Citation Status of PubMed-not-MEDLINE"
-            }
-            Self::PubmedPublicationStatusAheadofprint => {
-                "PubMed PublicationStatus of aheadofprint"
-            }
-            Self::PubmedPublicationStatusEpublish => {
-                "PubMed PublicationStatus of epublish"
-            }
-            Self::PubmedPublicationStatusPpublish => {
-                "PubMed PublicationStatus of ppublish"
-            }
-            Self::PubmedPubstatusAccepted => "PubMed Pubstatus of Accepted",
-            Self::PubmedPubstatusAheadofprint => "PubMed Pubstatus of aheadofprint",
-            Self::PubmedPubstatusEcollection => "PubMed Pubstatus of Ecollection",
-            Self::PubmedPubstatusEntrez => "PubMed Pubstatus of Entrez",
-            Self::PubmedPubstatusEpublish => "PubMed Pubstatus of Epublish",
-            Self::PubmedPubstatusMedline => "PubMed Pubstatus of Medline",
-            Self::PubmedPubstatusMedliner => "PubMed Pubstatus of Medliner",
-            Self::PubmedPubstatusPmc => "PubMed Pubstatus of PMC",
-            Self::PubmedPubstatusPmcRelease => "PubMed Pubstatus of PMC release",
-            Self::PubmedPubstatusPmcr => "PubMed Pubstatus of PMCr",
-            Self::PubmedPubstatusPpublish => "PubMed Pubstatus of Ppublish",
-            Self::PubmedPubstatusPremedline => "PubMed Pubstatus of Premedline",
-            Self::PubmedPubstatusPubmed => "PubMed Pubstatus of PubMed",
-            Self::PubmedPubstatusPubmedr => "PubMed Pubstatus of PubMedr",
-            Self::PubmedPubstatusReceived => "PubMed Pubstatus of Received",
-            Self::PubmedPubstatusRetracted => "PubMed Pubstatus of Retracted",
-            Self::PubmedPubstatusRevised => "PubMed Pubstatus of Revised",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitationStatusType {
@@ -10933,7 +10285,7 @@ impl From<CitationStatusType> for CodeableConcept {
     }
 }
 #[doc = "**[CitationSummaryStyle](http://hl7.org/fhir/ValueSet/citation-summary-style)**. The format for display of the citation.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitationSummaryStyle {
     /** **acs**
@@ -11036,25 +10388,14 @@ impl AsRef<str> for CitationSummaryStyle {
         }
     }
 }
+impl ::std::fmt::Debug for CitationSummaryStyle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitationSummaryStyle {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Acs => "American Chemical Society",
-            Self::Ama11 => "American Medical Association 11th edition",
-            Self::Apa6 => "American Psychological Association 6th edition",
-            Self::Apa7 => "American Psychological Association 7th edition",
-            Self::Asa6 => "American Sociological Association 6th edition",
-            Self::ChicagoA17 => "Chicago Style Version 17 Author Date",
-            Self::ChicagoB17 => "Chicago Style Version 17 Full note",
-            Self::Cochrane => "Cochrane Style",
-            Self::Comppub => "Computable Publishing",
-            Self::ElsevierHarvard => "Elsevier-Harvard Style",
-            Self::Ieee => "Institute of Electrical and Electronics Engineers",
-            Self::Mla8 => "Modern Language Association 8th edition",
-            Self::Nature => "Nature Referencing style",
-            Self::Vancouver => "Vancouver style",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitationSummaryStyle {
@@ -11112,7 +10453,7 @@ impl From<CitationSummaryStyle> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactAbstractType](http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type)**. Used to express the reason and specific aspect for the variant abstract, such as language and specific language\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactAbstractType {
     /** **autotranslated**
@@ -11197,22 +10538,14 @@ impl AsRef<str> for CitedArtifactAbstractType {
         }
     }
 }
+impl ::std::fmt::Debug for CitedArtifactAbstractType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitedArtifactAbstractType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Autotranslated => "Different language derived from autotranslation",
-            Self::DifferentPublisher => "Different publisher for abstract",
-            Self::DuplicatePmid => "Different text in additional Medline entry",
-            Self::EarlierAbstract => "Different text in an earlier version",
-            Self::Language => "Different language",
-            Self::LongAbstract => "Long abstract",
-            Self::PlainLanguage => "Plain language",
-            Self::PrimaryHumanUse => "Primary human use",
-            Self::PrimaryMachineUse => "Primary machine use",
-            Self::ShortAbstract => "Short abstract",
-            Self::Truncated => "Truncated",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitedArtifactAbstractType {
@@ -11270,7 +10603,7 @@ impl From<CitedArtifactAbstractType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactClassificationType](http://hl7.org/fhir/ValueSet/cited-artifact-classification-type)**. Cited Artifact Classification Type\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactClassificationType {
     /** **chemical**
@@ -11355,22 +10688,14 @@ impl AsRef<str> for CitedArtifactClassificationType {
         }
     }
 }
+impl ::std::fmt::Debug for CitedArtifactClassificationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitedArtifactClassificationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Chemical => "Chemical",
-            Self::CitationSubset => "Citation subset",
-            Self::Coverage => "Coverage",
-            Self::Keyword => "Keyword",
-            Self::KnowledgeArtifactType => "Knowledge Artifact Type",
-            Self::MeshHeading => "MeSH heading",
-            Self::PublicationType => "Publication type",
-            Self::PublishingModel => "Publishing Model",
-            Self::SupplementalMeshDisease => "Supplemental MeSH for Disease",
-            Self::SupplementalMeshOrganism => "Supplemental MeSH for Organism",
-            Self::SupplementalMeshProtocol => "Supplemental MeSH for Protocol",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitedArtifactClassificationType {
@@ -11429,7 +10754,7 @@ impl From<CitedArtifactClassificationType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactPartType](http://hl7.org/fhir/ValueSet/cited-artifact-part-type)**. To describe the reason for the variant citation, such as version number or subpart specification.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactPartType {
     /** **article-set**
@@ -11502,20 +10827,14 @@ impl AsRef<str> for CitedArtifactPartType {
         }
     }
 }
+impl ::std::fmt::Debug for CitedArtifactPartType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitedArtifactPartType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ArticleSet => "Part of an article set",
-            Self::Figures => "figures",
-            Self::Lines => "lines",
-            Self::Pages => "pages",
-            Self::Paragraphs => "paragraphs",
-            Self::Sections => "sections",
-            Self::Supplement => "Supplement or Appendix",
-            Self::SupplementSubpart => "Supplement or Appendix Subpart",
-            Self::Tables => "tables",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitedArtifactPartType {
@@ -11573,7 +10892,7 @@ impl From<CitedArtifactPartType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactStatusType](http://hl7.org/fhir/ValueSet/cited-artifact-status-type)**. Cited Artifact Status Type\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedArtifactStatusType {
     /** **accepted**
@@ -11688,27 +11007,14 @@ impl AsRef<str> for CitedArtifactStatusType {
         }
     }
 }
+impl ::std::fmt::Debug for CitedArtifactStatusType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitedArtifactStatusType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Accepted => "Accepted",
-            Self::Active => "Active",
-            Self::Approved => "Approved",
-            Self::Archived => "Archived",
-            Self::Created => "Created",
-            Self::Draft => "Draft",
-            Self::PostReviewPrePublished => "Post review pre published",
-            Self::PreReview => "Pre review",
-            Self::PublishedEarlyForm => "Published early form",
-            Self::PublishedFinalForm => "Published final form",
-            Self::Rejected => "Rejected",
-            Self::Retracted => "Retracted",
-            Self::Submitted => "Submitted",
-            Self::UnderReview => "Under review",
-            Self::Unknown => "Unknown",
-            Self::Withdrawn => "Withdrawn",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitedArtifactStatusType {
@@ -11766,7 +11072,7 @@ impl From<CitedArtifactStatusType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedMedium](http://hl7.org/fhir/ValueSet/cited-medium)**. NLM codes Internet or Print.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CitedMedium {
     /** **internet**
@@ -11825,19 +11131,14 @@ impl AsRef<str> for CitedMedium {
         }
     }
 }
+impl ::std::fmt::Debug for CitedMedium {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CitedMedium {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Internet => "Internet",
-            Self::InternetWithoutIssue => "Internet without issue",
-            Self::OfflineDigitalStorage => "Offline Digital Storage",
-            Self::OfflineDigitalStorageWithoutIssue => {
-                "Offline Digital Storage without issue"
-            }
-            Self::Print => "Print",
-            Self::PrintWithoutIssue => "Print without issue",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CitedMedium {
@@ -11893,7 +11194,7 @@ impl From<CitedMedium> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimAdjudicationDecisionCodes](http://hl7.org/fhir/claim-decision)**. This value set provides Claim Adjudication Decision codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ClaimAdjudicationDecisionCodes {
     /** **approved**
 
@@ -11938,16 +11239,14 @@ impl AsRef<str> for ClaimAdjudicationDecisionCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ClaimAdjudicationDecisionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ClaimAdjudicationDecisionCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Approved => "Approved",
-            Self::Denied => "Denied",
-            Self::Partial => "Partial",
-            Self::Pending => "Pending",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ClaimAdjudicationDecisionCodes {
@@ -12003,7 +11302,7 @@ impl From<ClaimAdjudicationDecisionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimAdjudicationDecisionReasonCodes](http://hl7.org/fhir/claim-decision-reason)**. This value set provides example Claim Adjudication Decision Reason codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ClaimAdjudicationDecisionReasonCodes {
     /** **0001**
 
@@ -12054,17 +11353,14 @@ impl AsRef<str> for ClaimAdjudicationDecisionReasonCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ClaimAdjudicationDecisionReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ClaimAdjudicationDecisionReasonCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N0001 => "Not medically necessary",
-            Self::N0002 => "Prior authorization not obtained",
-            Self::N0003 => "Provider out-of-network",
-            Self::N0004 => "Service inconsistent with patient age",
-            Self::N0005 => "Benefit limits exceeded",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ClaimAdjudicationDecisionReasonCodes {
@@ -12120,7 +11416,7 @@ impl From<ClaimAdjudicationDecisionReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimProcessingCodes](http://hl7.org/fhir/ValueSet/eligibility-outcome)**. This value set includes Claim Processing Outcome codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ClaimProcessingCodes {
     /** **complete**
@@ -12163,15 +11459,14 @@ impl AsRef<str> for ClaimProcessingCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ClaimProcessingCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ClaimProcessingCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Complete => "Processing Complete",
-            Self::Error => "Error",
-            Self::Partial => "Partial Processing",
-            Self::Queued => "Queued",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ClaimProcessingCodes {
@@ -12227,7 +11522,7 @@ impl From<ClaimProcessingCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimProcessingOutcomeCodes](http://hl7.org/fhir/claim-outcome)**. This value set includes Claim Processing Outcome codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ClaimProcessingOutcomeCodes {
     /** **complete**
 
@@ -12272,16 +11567,14 @@ impl AsRef<str> for ClaimProcessingOutcomeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ClaimProcessingOutcomeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ClaimProcessingOutcomeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Complete => "Processing Complete",
-            Self::Error => "Error",
-            Self::Partial => "Partial Processing",
-            Self::Queued => "Queued",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ClaimProcessingOutcomeCodes {
@@ -12337,7 +11630,7 @@ impl From<ClaimProcessingOutcomeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClinicalUseDefinitionCategory](http://hl7.org/fhir/ValueSet/clinical-use-definition-category)**. ClinicalUseDefinitionCategory\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ClinicalUseDefinitionCategory {
     /** **DriveAndMachines**
@@ -12374,14 +11667,14 @@ impl AsRef<str> for ClinicalUseDefinitionCategory {
         }
     }
 }
+impl ::std::fmt::Debug for ClinicalUseDefinitionCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ClinicalUseDefinitionCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DriveAndMachines => "Effects on Ability to Drive and Use Machines",
-            Self::Overdose => "Overdose",
-            Self::Pregnancy => "Pregnancy and Lactation",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ClinicalUseDefinitionCategory {
@@ -12440,7 +11733,7 @@ impl From<ClinicalUseDefinitionCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ClinicalUseDefinitionType](http://hl7.org/fhir/ValueSet/clinical-use-definition-type)**. Overall defining type of this clinical use definition.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ClinicalUseDefinitionType {
     /** **contraindication**
@@ -12489,16 +11782,14 @@ impl AsRef<str> for ClinicalUseDefinitionType {
         }
     }
 }
+impl ::std::fmt::Debug for ClinicalUseDefinitionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ClinicalUseDefinitionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Contraindication => "Contraindication",
-            Self::Indication => "Indication",
-            Self::Interaction => "Interaction",
-            Self::UndesirableEffect => "Undesirable Effect",
-            Self::Warning => "Warning",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ClinicalUseDefinitionType {
@@ -12556,7 +11847,7 @@ impl From<ClinicalUseDefinitionType> for CodeableConcept {
     }
 }
 #[doc = "**[CodeSearchSupport](http://hl7.org/fhir/ValueSet/code-search-support)**. The degree to which the server supports the code search parameter on ValueSet, if it is supported.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CodeSearchSupport {
     /** **in-compose**
@@ -12593,14 +11884,14 @@ impl AsRef<str> for CodeSearchSupport {
         }
     }
 }
+impl ::std::fmt::Debug for CodeSearchSupport {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CodeSearchSupport {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::InCompose => "In Compose",
-            Self::InComposeOrExpansion => "In Compose Or Expansion",
-            Self::InExpansion => "In Expansion",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CodeSearchSupport {
@@ -12656,7 +11947,7 @@ impl From<CodeSearchSupport> for CodeableConcept {
     }
 }
 #[doc = "**[CodeSystemContentMode](http://hl7.org/fhir/ValueSet/codesystem-content-mode)**. The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CodeSystemContentMode {
     /** **complete**
@@ -12705,16 +11996,14 @@ impl AsRef<str> for CodeSystemContentMode {
         }
     }
 }
+impl ::std::fmt::Debug for CodeSystemContentMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CodeSystemContentMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Complete => "Complete",
-            Self::Example => "Example",
-            Self::Fragment => "Fragment",
-            Self::NotPresent => "Not Present",
-            Self::Supplement => "Supplement",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CodeSystemContentMode {
@@ -12772,7 +12061,7 @@ impl From<CodeSystemContentMode> for CodeableConcept {
     }
 }
 #[doc = "**[CodeSystemHierarchyMeaning](http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning)**. The meaning of the hierarchy of concepts in a code system.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CodeSystemHierarchyMeaning {
     /** **classified-with**
@@ -12815,15 +12104,14 @@ impl AsRef<str> for CodeSystemHierarchyMeaning {
         }
     }
 }
+impl ::std::fmt::Debug for CodeSystemHierarchyMeaning {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CodeSystemHierarchyMeaning {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ClassifiedWith => "Classified With",
-            Self::GroupedBy => "Grouped By",
-            Self::IsA => "Is-A",
-            Self::PartOf => "Part Of",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CodeSystemHierarchyMeaning {
@@ -12881,7 +12169,7 @@ impl From<CodeSystemHierarchyMeaning> for CodeableConcept {
     }
 }
 #[doc = "**[ColorCodes](http://hl7.org/fhir/color-names)**. This code system represents that named RGB colors found in the [CSS4 specification](https://www.w3.org/TR/css-color-4/). The names are not case sensitive and different cases are encountered in common use (e.g. AliceBlue vs aliceblue.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ColorCodes {
     /** **aliceblue**
 
@@ -13790,160 +13078,14 @@ impl AsRef<str> for ColorCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ColorCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ColorCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Aliceblue => "aliceblue",
-            Self::Antiquewhite => "antiquewhite",
-            Self::Aqua => "aqua",
-            Self::Aquamarine => "aquamarine",
-            Self::Azure => "azure",
-            Self::Beige => "beige",
-            Self::Bisque => "bisque",
-            Self::Black => "black",
-            Self::Blanchedalmond => "blanchedalmond",
-            Self::Blue => "blue",
-            Self::Blueviolet => "blueviolet",
-            Self::Brown => "brown",
-            Self::Burlywood => "burlywood",
-            Self::Cadetblue => "cadetblue",
-            Self::Chartreuse => "chartreuse",
-            Self::Chocolate => "chocolate",
-            Self::Coral => "coral",
-            Self::Cornflowerblue => "cornflowerblue",
-            Self::Cornsilk => "cornsilk",
-            Self::Crimson => "crimson",
-            Self::Cyan => "cyan",
-            Self::Darkblue => "darkblue",
-            Self::Darkcyan => "darkcyan",
-            Self::Darkgoldenrod => "darkgoldenrod",
-            Self::Darkgray => "darkgray",
-            Self::Darkgreen => "darkgreen",
-            Self::Darkgrey => "darkgrey",
-            Self::Darkkhaki => "darkkhaki",
-            Self::Darkmagenta => "darkmagenta",
-            Self::Darkolivegreen => "darkolivegreen",
-            Self::Darkorange => "darkorange",
-            Self::Darkorchid => "darkorchid",
-            Self::Darkred => "darkred",
-            Self::Darksalmon => "darksalmon",
-            Self::Darkseagreen => "darkseagreen",
-            Self::Darkslateblue => "darkslateblue",
-            Self::Darkslategray => "darkslategray",
-            Self::Darkslategrey => "darkslategrey",
-            Self::Darkturquoise => "darkturquoise",
-            Self::Darkviolet => "darkviolet",
-            Self::Deeppink => "deeppink",
-            Self::Deepskyblue => "deepskyblue",
-            Self::Dimgray => "dimgray",
-            Self::Dimgrey => "dimgrey",
-            Self::Dodgerblue => "dodgerblue",
-            Self::Firebrick => "firebrick",
-            Self::Floralwhite => "floralwhite",
-            Self::Forestgreen => "forestgreen",
-            Self::Fuchsia => "fuchsia",
-            Self::Gainsboro => "gainsboro",
-            Self::Ghostwhite => "ghostwhite",
-            Self::Gold => "gold",
-            Self::Goldenrod => "goldenrod",
-            Self::Gray => "gray",
-            Self::Green => "green",
-            Self::Greenyellow => "greenyellow",
-            Self::Grey => "grey",
-            Self::Honeydew => "honeydew",
-            Self::Hotpink => "hotpink",
-            Self::Indianred => "indianred",
-            Self::Indigo => "indigo",
-            Self::Ivory => "ivory",
-            Self::Khaki => "khaki",
-            Self::Lavender => "lavender",
-            Self::Lavenderblush => "lavenderblush",
-            Self::Lawngreen => "lawngreen",
-            Self::Lemonchiffon => "lemonchiffon",
-            Self::Lightblue => "lightblue",
-            Self::Lightcoral => "lightcoral",
-            Self::Lightcyan => "lightcyan",
-            Self::Lightgoldenrodyellow => "lightgoldenrodyellow",
-            Self::Lightgray => "lightgray",
-            Self::Lightgreen => "lightgreen",
-            Self::Lightgrey => "lightgrey",
-            Self::Lightpink => "lightpink",
-            Self::Lightsalmon => "lightsalmon",
-            Self::Lightseagreen => "lightseagreen",
-            Self::Lightskyblue => "lightskyblue",
-            Self::Lightslategray => "lightslategray",
-            Self::Lightslategrey => "lightslategrey",
-            Self::Lightsteelblue => "lightsteelblue",
-            Self::Lightyellow => "lightyellow",
-            Self::Lime => "lime",
-            Self::Limegreen => "limegreen",
-            Self::Linen => "linen",
-            Self::Magenta => "magenta",
-            Self::Maroon => "maroon",
-            Self::Mediumaquamarine => "mediumaquamarine",
-            Self::Mediumblue => "mediumblue",
-            Self::Mediumorchid => "mediumorchid",
-            Self::Mediumpurple => "mediumpurple",
-            Self::Mediumseagreen => "mediumseagreen",
-            Self::Mediumslateblue => "mediumslateblue",
-            Self::Mediumspringgreen => "mediumspringgreen",
-            Self::Mediumturquoise => "mediumturquoise",
-            Self::Mediumvioletred => "mediumvioletred",
-            Self::Midnightblue => "midnightblue",
-            Self::Mintcream => "mintcream",
-            Self::Mistyrose => "mistyrose",
-            Self::Moccasin => "moccasin",
-            Self::Navajowhite => "navajowhite",
-            Self::Navy => "navy",
-            Self::Oldlace => "oldlace",
-            Self::Olive => "olive",
-            Self::Olivedrab => "olivedrab",
-            Self::Orange => "orange",
-            Self::Orangered => "orangered",
-            Self::Orchid => "orchid",
-            Self::Palegoldenrod => "palegoldenrod",
-            Self::Palegreen => "palegreen",
-            Self::Paleturquoise => "paleturquoise",
-            Self::Palevioletred => "palevioletred",
-            Self::Papayawhip => "papayawhip",
-            Self::Peachpuff => "peachpuff",
-            Self::Peru => "peru",
-            Self::Pink => "pink",
-            Self::Plum => "plum",
-            Self::Powderblue => "powderblue",
-            Self::Purple => "purple",
-            Self::Rebeccapurple => "rebeccapurple",
-            Self::Red => "red",
-            Self::Rosybrown => "rosybrown",
-            Self::Royalblue => "royalblue",
-            Self::Saddlebrown => "saddlebrown",
-            Self::Salmon => "salmon",
-            Self::Sandybrown => "sandybrown",
-            Self::Seagreen => "seagreen",
-            Self::Seashell => "seashell",
-            Self::Sienna => "sienna",
-            Self::Silver => "silver",
-            Self::Skyblue => "skyblue",
-            Self::Slateblue => "slateblue",
-            Self::Slategray => "slategray",
-            Self::Slategrey => "slategrey",
-            Self::Snow => "snow",
-            Self::Springgreen => "springgreen",
-            Self::Steelblue => "steelblue",
-            Self::Tan => "tan",
-            Self::Teal => "teal",
-            Self::Thistle => "thistle",
-            Self::Tomato => "tomato",
-            Self::Turquoise => "turquoise",
-            Self::Violet => "violet",
-            Self::Wheat => "wheat",
-            Self::White => "white",
-            Self::Whitesmoke => "whitesmoke",
-            Self::Yellow => "yellow",
-            Self::Yellowgreen => "yellowgreen",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ColorCodes {
@@ -13999,7 +13141,7 @@ impl From<ColorCodes> for CodeableConcept {
     }
 }
 #[doc = "**[CombinedDoseForm](http://hl7.org/fhir/ValueSet/combined-dose-form)**. Dose forms for a product as a whole, considering all individual parts, but before any mixing\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CombinedDoseForm {
     /** **100000073366**
@@ -14480,126 +13622,14 @@ impl AsRef<str> for CombinedDoseForm {
         }
     }
 }
+impl ::std::fmt::Debug for CombinedDoseForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CombinedDoseForm {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000073366 => "Powder and solvent for oral solution",
-            Self::N100000073651 => "Powder and solvent for oral suspension",
-            Self::N100000073774 => "Eye drops, powder and solvent for solution",
-            Self::N100000073781 => "Eye drops, powder and solvent for suspension",
-            Self::N100000073801 => "Ear drops, powder and solvent for suspension",
-            Self::N100000073860 => "Powder and solvent for solution for infusion",
-            Self::N100000073868 => "Powder and solvent for solution for injection",
-            Self::N100000073869 => "Powder and solvent for suspension for injection",
-            Self::N100000073884 => "Powder and solvent for implantation paste",
-            Self::N100000073891 => {
-                "Endotracheopulmonary instillation, powder and solvent for solution"
-            }
-            Self::N100000073892 => "Powder and solvent for endocervical gel",
-            Self::N100000073941 => "Powder and solvent for sealant",
-            Self::N100000073972 => {
-                "Concentrate and solvent for concentrate for solution for infusion"
-            }
-            Self::N100000073973 => "Concentrate and solvent for cutaneous use",
-            Self::N100000073974 => "Concentrate and solvent for injection",
-            Self::N100000073975 => "Concentrate and solvent for solution for infusion",
-            Self::N100000073987 => "Concentrate and diluent for solution for infusion",
-            Self::N100000073988 => "Concentrate and solvent for cutaneous solution",
-            Self::N100000073989 => "Concentrate and solvent for solution for injection",
-            Self::N100000073990 => "Concentrate and solvent for suspension for injection",
-            Self::N100000073999 => "Granules and solvent for suspension for injection",
-            Self::N100000074015 => {
-                "Powder and solvent for concentrate for solution for infusion"
-            }
-            Self::N100000074016 => "Powder and solvent for cutaneous solution",
-            Self::N100000074017 => "Powder and solvent for gingival gel",
-            Self::N100000074018 => {
-                "Powder and solvent for prolonged-release suspension for injection"
-            }
-            Self::N100000074030 => "Powder and solvent for endosinusial solution",
-            Self::N100000074031 => {
-                "Powder and solvent for intraocular instillation solution"
-            }
-            Self::N100000074032 => "Powder and suspension for suspension for injection",
-            Self::N100000074048 => {
-                "Suspension and effervescent granules for oral suspension"
-            }
-            Self::N100000074051 => "Tablet and solvent for rectal suspension",
-            Self::N100000074053 => "Powder and solvent for dental gel",
-            Self::N100000074056 => {
-                "Gas and solvent for dispersion for injection/infusion"
-            }
-            Self::N100000074057 => {
-                "Powder and solvent for solution for injection/infusion"
-            }
-            Self::N100000074061 => "Suspension and solution for spray",
-            Self::N100000074064 => "Tablet and powder for oral solution",
-            Self::N100000075580 => "Emulsion and suspension for emulsion for injection",
-            Self::N100000075584 => "Powder and solvent for dispersion for injection",
-            Self::N100000075587 => "Powder for mouth wash",
-            Self::N100000116137 => "Lyophilisate and solvent for solution for injection",
-            Self::N100000116141 => "Fibrin sealant-powder and solvent for fibrin sealant",
-            Self::N100000116155 => "Granules and solvent for oral suspension",
-            Self::N100000116160 => {
-                "Lyophilisate and solvent for suspension for injection"
-            }
-            Self::N100000116172 => "Powder and gel for gel",
-            Self::N100000116173 => "Powder and solution for solution for injection",
-            Self::N100000116174 => "Powder and solvent for epilesional solution",
-            Self::N100000116175 => "Powder and solvent for intravesical solution",
-            Self::N100000116176 => "Powder and solvent for intravesical suspension",
-            Self::N100000116177 => "Powder and solvent for nebuliser solution",
-            Self::N100000116179 => {
-                "Powder, dispersion and solvent for concentrate for dispersion for infusion"
-            }
-            Self::N100000125746 => "Powder and solvent for emulsion for injection",
-            Self::N100000125747 => "Nasal drops, powder and solvent for solution",
-            Self::N100000125777 => "Suspension and solvent for suspension for injection",
-            Self::N100000136318 => {
-                "Concentrate and solvent for solution for injection/infusion"
-            }
-            Self::N100000136325 => {
-                "Powder and solvent for solution for injection/skin-prick test"
-            }
-            Self::N100000136558 => {
-                "Lyophilisate and solvent for suspension for nasal administration"
-            }
-            Self::N100000136560 => "Powder and solvent for solution for sealant",
-            Self::N100000136907 => "Solution for dispersion for injection/infusion",
-            Self::N100000143502 => "Powder and solution for dental cement",
-            Self::N100000143546 => {
-                "Endotracheopulmonary instillation, powder and solvent for suspension"
-            }
-            Self::N100000143552 => "Powder, solvent and matrix for implantation matrix",
-            Self::N100000156068 => "Nasal drops, lyophilisate and solvent for suspension",
-            Self::N100000157796 => {
-                "Lyophilisate and suspension for suspension for injection"
-            }
-            Self::N100000164467 => {
-                "Powder for concentrate and solution for solution for infusion"
-            }
-            Self::N100000169997 => "Powder and solution for bee-hive solution",
-            Self::N100000170588 => "Suspension and solvent for oral spray",
-            Self::N100000171127 => "Lyophilisate and solvent for oral suspension",
-            Self::N100000171193 => {
-                "Concentrate and solvent for concentrate for oral spray, suspension"
-            }
-            Self::N100000171238 => "Lyophilisate and solvent for oculonasal suspension",
-            Self::N100000171935 => {
-                "Emulsion and lyophilisate for suspension for injection"
-            }
-            Self::N100000174065 => "Powder and solvent for syrup",
-            Self::N200000002161 => "Nasal spray, lyophilisate and solvent for suspension",
-            Self::N200000002287 => "Powder and solution for bee-hive dispersion",
-            Self::N200000004201 => "Solution and dispersion for nebuliser dispersion",
-            Self::N200000004819 => "Effervescent powder and powder for oral suspension",
-            Self::N200000004820 => "Lyophilisate and solvent for emulsion for injection",
-            Self::N200000005547 => "Powder and solution for suspension for injection",
-            Self::N200000010382 => {
-                "Lyophilisate and solvent for suspension for nasal spray or injection"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CombinedDoseForm {
@@ -14655,7 +13685,7 @@ impl From<CombinedDoseForm> for CodeableConcept {
     }
 }
 #[doc = "**[CompartmentType](http://hl7.org/fhir/ValueSet/compartment-type)**. Which type a compartment definition describes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CompartmentType {
     /** **Device**
@@ -14710,17 +13740,14 @@ impl AsRef<str> for CompartmentType {
         }
     }
 }
+impl ::std::fmt::Debug for CompartmentType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CompartmentType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Device => "Device",
-            Self::Encounter => "Encounter",
-            Self::EpisodeOfCare => "EpisodeOfCare",
-            Self::Patient => "Patient",
-            Self::Practitioner => "Practitioner",
-            Self::RelatedPerson => "RelatedPerson",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CompartmentType {
@@ -14776,7 +13803,7 @@ impl From<CompartmentType> for CodeableConcept {
     }
 }
 #[doc = "**[CompositionAttestationMode](http://hl7.org/fhir/ValueSet/composition-attestation-mode)**. The way in which a person authenticated a composition.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CompositionAttestationMode {
     /** **legal**
@@ -14819,15 +13846,14 @@ impl AsRef<str> for CompositionAttestationMode {
         }
     }
 }
+impl ::std::fmt::Debug for CompositionAttestationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CompositionAttestationMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Legal => "Legal",
-            Self::Official => "Official",
-            Self::Personal => "Personal",
-            Self::Professional => "Professional",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CompositionAttestationMode {
@@ -14885,7 +13911,7 @@ impl From<CompositionAttestationMode> for CodeableConcept {
     }
 }
 #[doc = "**[CompositionStatus](http://hl7.org/fhir/ValueSet/composition-status)**. The workflow/clinical status of the composition.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CompositionStatus {
     /** **amended**
@@ -14970,22 +13996,14 @@ impl AsRef<str> for CompositionStatus {
         }
     }
 }
+impl ::std::fmt::Debug for CompositionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CompositionStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Appended => "Appended",
-            Self::Cancelled => "Cancelled",
-            Self::Corrected => "Corrected",
-            Self::Deprecated => "Deprecated",
-            Self::EnteredInError => "Entered in Error",
-            Self::Final => "Final",
-            Self::Partial => "Partial",
-            Self::Preliminary => "Preliminary",
-            Self::Registered => "Registered",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CompositionStatus {
@@ -15041,7 +14059,7 @@ impl From<CompositionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapAttributeType](http://hl7.org/fhir/ValueSet/conceptmap-attribute-type)**. The type of a ConceptMap map attribute value.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapAttributeType {
     /** **Coding**
@@ -15090,16 +14108,14 @@ impl AsRef<str> for ConceptMapAttributeType {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptMapAttributeType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptMapAttributeType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Coding => "Coding",
-            Self::Quantity => "Quantity",
-            Self::Boolean => "boolean",
-            Self::Code => "code",
-            Self::String => "string",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptMapAttributeType {
@@ -15157,7 +14173,7 @@ impl From<ConceptMapAttributeType> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapGroupUnmappedMode](http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode)**. Defines which action to take if there is no match in the group.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapGroupUnmappedMode {
     /** **fixed**
@@ -15194,14 +14210,14 @@ impl AsRef<str> for ConceptMapGroupUnmappedMode {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptMapGroupUnmappedMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptMapGroupUnmappedMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Fixed => "Fixed Code",
-            Self::OtherMap => "Other Map",
-            Self::UseSourceCode => "Use Provided Source Code",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptMapGroupUnmappedMode {
@@ -15259,7 +14275,7 @@ impl From<ConceptMapGroupUnmappedMode> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapProperties](http://hl7.org/fhir/conceptmap-properties)**. A set of common concept properties for use on ConceptMap\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ConceptMapProperties {
     /** **relationshipRefinement**
 
@@ -15286,13 +14302,14 @@ impl AsRef<str> for ConceptMapProperties {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptMapProperties {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptMapProperties {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::RelationshipRefinement => "Relationship Refinement",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptMapProperties {
@@ -15348,7 +14365,7 @@ impl From<ConceptMapProperties> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapPropertyType](http://hl7.org/fhir/ValueSet/conceptmap-property-type)**. The type of a ConceptMap mapping property value.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapPropertyType {
     /** **Coding**
@@ -15409,18 +14426,14 @@ impl AsRef<str> for ConceptMapPropertyType {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptMapPropertyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptMapPropertyType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Coding => "Coding (external reference)",
-            Self::Boolean => "boolean",
-            Self::Code => "code",
-            Self::DateTime => "dateTime",
-            Self::Decimal => "decimal",
-            Self::Integer => "integer",
-            Self::String => "string",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptMapPropertyType {
@@ -15478,7 +14491,7 @@ impl From<ConceptMapPropertyType> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapRelationship](http://hl7.org/fhir/ValueSet/concept-map-relationship)**. The relationship between concepts.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptMapRelationship {
     /** **equivalent**
@@ -15527,16 +14540,14 @@ impl AsRef<str> for ConceptMapRelationship {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptMapRelationship {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptMapRelationship {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Equivalent => "Equivalent",
-            Self::NotRelatedTo => "Not Related To",
-            Self::RelatedTo => "Related To",
-            Self::SourceIsBroaderThanTarget => "Source Is Broader Than Target",
-            Self::SourceIsNarrowerThanTarget => "Source Is Narrower Than Target",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptMapRelationship {
@@ -15594,7 +14605,7 @@ impl From<ConceptMapRelationship> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptProperties](http://hl7.org/fhir/ValueSet/concept-properties)**. A set of common concept properties for use on coded systems throughout the FHIR eco-system.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConceptProperties {
     /** **child**
@@ -15691,24 +14702,14 @@ impl AsRef<str> for ConceptProperties {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptProperties {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptProperties {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Child => "Child",
-            Self::Comment => "Comment",
-            Self::Deprecated => "Deprecated",
-            Self::DeprecationDate => "Deprecation Date",
-            Self::EffectiveDate => "effectiveDate",
-            Self::Inactive => "Inactive",
-            Self::ItemWeight => "itemWeight",
-            Self::NotSelectable => "Not Selectable",
-            Self::Parent => "Parent",
-            Self::PartOf => "Part Of",
-            Self::RetirementDate => "Retirement Date",
-            Self::Status => "Status",
-            Self::Synonym => "Synonym",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptProperties {
@@ -15764,7 +14765,7 @@ impl From<ConceptProperties> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptSubsumptionOutcome](http://hl7.org/fhir/concept-subsumption-outcome)**. Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ConceptSubsumptionOutcome {
     /** **equivalent**
 
@@ -15809,16 +14810,14 @@ impl AsRef<str> for ConceptSubsumptionOutcome {
         }
     }
 }
+impl ::std::fmt::Debug for ConceptSubsumptionOutcome {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConceptSubsumptionOutcome {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Equivalent => "Equivalent",
-            Self::NotSubsumed => "Not-Subsumed",
-            Self::SubsumedBy => "Subsumed-By",
-            Self::Subsumes => "Subsumes",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConceptSubsumptionOutcome {
@@ -15874,7 +14873,7 @@ impl From<ConceptSubsumptionOutcome> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionPreconditionType](http://hl7.org/fhir/ValueSet/condition-precondition-type)**. Kind of precondition for the condition.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionPreconditionType {
     /** **sensitive**
@@ -15905,13 +14904,14 @@ impl AsRef<str> for ConditionPreconditionType {
         }
     }
 }
+impl ::std::fmt::Debug for ConditionPreconditionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConditionPreconditionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Sensitive => "Sensitive",
-            Self::Specific => "Specific",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConditionPreconditionType {
@@ -15969,7 +14969,7 @@ impl From<ConditionPreconditionType> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionQuestionnairePurpose](http://hl7.org/fhir/ValueSet/condition-questionnaire-purpose)**. The use of a questionnaire.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionQuestionnairePurpose {
     /** **diff-diagnosis**
@@ -16006,14 +15006,14 @@ impl AsRef<str> for ConditionQuestionnairePurpose {
         }
     }
 }
+impl ::std::fmt::Debug for ConditionQuestionnairePurpose {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConditionQuestionnairePurpose {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DiffDiagnosis => "Diff Diagnosis",
-            Self::Outcome => "Outcome",
-            Self::Preadmit => "Pre-admit",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConditionQuestionnairePurpose {
@@ -16071,7 +15071,7 @@ impl From<ConditionQuestionnairePurpose> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionalDeleteStatus](http://hl7.org/fhir/ValueSet/conditional-delete-status)**. A code that indicates how the server supports conditional delete.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionalDeleteStatus {
     /** **multiple**
@@ -16108,14 +15108,14 @@ impl AsRef<str> for ConditionalDeleteStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ConditionalDeleteStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConditionalDeleteStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Multiple => "Multiple Deletes Supported",
-            Self::NotSupported => "Not Supported",
-            Self::Single => "Single Deletes Supported",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConditionalDeleteStatus {
@@ -16173,7 +15173,7 @@ impl From<ConditionalDeleteStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionalReadStatus](http://hl7.org/fhir/ValueSet/conditional-read-status)**. A code that indicates how the server supports conditional read.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConditionalReadStatus {
     /** **full-support**
@@ -16216,15 +15216,14 @@ impl AsRef<str> for ConditionalReadStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ConditionalReadStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConditionalReadStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::FullSupport => "Full Support",
-            Self::ModifiedSince => "If-Modified-Since",
-            Self::NotMatch => "If-None-Match",
-            Self::NotSupported => "Not Supported",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConditionalReadStatus {
@@ -16282,7 +15281,7 @@ impl From<ConditionalReadStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConformanceExpectation](http://hl7.org/fhir/ValueSet/conformance-expectation)**. ConformanceExpectation\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConformanceExpectation {
     /** **MAY**
@@ -16325,15 +15324,14 @@ impl AsRef<str> for ConformanceExpectation {
         }
     }
 }
+impl ::std::fmt::Debug for ConformanceExpectation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConformanceExpectation {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::May => "MAY",
-            Self::Shall => "SHALL",
-            Self::Should => "SHOULD",
-            Self::ShouldNot => "SHOULD-NOT",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConformanceExpectation {
@@ -16391,7 +15389,7 @@ impl From<ConformanceExpectation> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentDataMeaning](http://hl7.org/fhir/ValueSet/consent-data-meaning)**. How a resource reference is interpreted when testing consent restrictions.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConsentDataMeaning {
     /** **authoredby**
@@ -16434,15 +15432,14 @@ impl AsRef<str> for ConsentDataMeaning {
         }
     }
 }
+impl ::std::fmt::Debug for ConsentDataMeaning {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConsentDataMeaning {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Authoredby => "AuthoredBy",
-            Self::Dependents => "Dependents",
-            Self::Instance => "Instance",
-            Self::Related => "Related",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConsentDataMeaning {
@@ -16498,7 +15495,7 @@ impl From<ConsentDataMeaning> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentProvisionType](http://hl7.org/fhir/ValueSet/consent-provision-type)**. How a rule statement is applied, such as adding additional consent or removing consent.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConsentProvisionType {
     /** **deny**
@@ -16529,13 +15526,14 @@ impl AsRef<str> for ConsentProvisionType {
         }
     }
 }
+impl ::std::fmt::Debug for ConsentProvisionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConsentProvisionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Deny => "Deny",
-            Self::Permit => "Permit",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConsentProvisionType {
@@ -16593,7 +15591,7 @@ impl From<ConsentProvisionType> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentState](http://hl7.org/fhir/ValueSet/consent-state-codes)**. Indicates the state of the consent.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConsentState {
     /** **active**
@@ -16648,17 +15646,14 @@ impl AsRef<str> for ConsentState {
         }
     }
 }
+impl ::std::fmt::Debug for ConsentState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConsentState {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Draft => "Pending",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-            Self::NotDone => "Abandoned",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConsentState {
@@ -16714,7 +15709,7 @@ impl From<ConsentState> for CodeableConcept {
     }
 }
 #[doc = "**[ConstraintSeverity](http://hl7.org/fhir/ValueSet/constraint-severity)**. SHALL applications comply with this constraint?\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ConstraintSeverity {
     /** **error**
@@ -16745,13 +15740,14 @@ impl AsRef<str> for ConstraintSeverity {
         }
     }
 }
+impl ::std::fmt::Debug for ConstraintSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ConstraintSeverity {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Error => "Error",
-            Self::Warning => "Warning",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ConstraintSeverity {
@@ -16807,7 +15803,7 @@ impl From<ConstraintSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[ContactPointSystem](http://hl7.org/fhir/ValueSet/contact-point-system)**. Telecommunications form for contact point.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContactPointSystem {
     /** **email**
@@ -16868,18 +15864,14 @@ impl AsRef<str> for ContactPointSystem {
         }
     }
 }
+impl ::std::fmt::Debug for ContactPointSystem {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContactPointSystem {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Email => "Email",
-            Self::Fax => "Fax",
-            Self::Other => "Other",
-            Self::Pager => "Pager",
-            Self::Phone => "Phone",
-            Self::Sms => "SMS",
-            Self::Url => "URL",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContactPointSystem {
@@ -16935,7 +15927,7 @@ impl From<ContactPointSystem> for CodeableConcept {
     }
 }
 #[doc = "**[ContactPointUse](http://hl7.org/fhir/ValueSet/contact-point-use)**. Use of contact point.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContactPointUse {
     /** **home**
@@ -16984,16 +15976,14 @@ impl AsRef<str> for ContactPointUse {
         }
     }
 }
+impl ::std::fmt::Debug for ContactPointUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContactPointUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Home => "Home",
-            Self::Mobile => "Mobile",
-            Self::Old => "Old",
-            Self::Temp => "Temp",
-            Self::Work => "Work",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContactPointUse {
@@ -17049,7 +16039,7 @@ impl From<ContactPointUse> for CodeableConcept {
     }
 }
 #[doc = "**[ContractActionStatus](http://hl7.org/fhir/contract-action-status)**. This CodeSystem contains FHIR-defined contract action status types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractActionStatus {
     /** **complete**
 
@@ -17076,13 +16066,14 @@ impl AsRef<str> for ContractActionStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ContractActionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractActionStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Complete => "Complete",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractActionStatus {
@@ -17138,7 +16129,7 @@ impl From<ContractActionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetAvailability](http://hl7.org/fhir/asset-availability)**. This CodeSystem contains FHIR-defined contract asset availability types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractAssetAvailability {
     /** **lease**
 
@@ -17165,13 +16156,14 @@ impl AsRef<str> for ContractAssetAvailability {
         }
     }
 }
+impl ::std::fmt::Debug for ContractAssetAvailability {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractAssetAvailability {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Lease => "Lease",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractAssetAvailability {
@@ -17227,7 +16219,7 @@ impl From<ContractAssetAvailability> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetContext](http://hl7.org/fhir/contract-asset-context)**. This CodeSystem contains FHIR-defined contract asset context types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractAssetContext {
     /** **custodian**
 
@@ -17254,13 +16246,14 @@ impl AsRef<str> for ContractAssetContext {
         }
     }
 }
+impl ::std::fmt::Debug for ContractAssetContext {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractAssetContext {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Custodian => "Custodian",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractAssetContext {
@@ -17316,7 +16309,7 @@ impl From<ContractAssetContext> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetScope](http://hl7.org/fhir/contract-asset-scope)**. This CodeSystem contains FHIR-defined contract asset scope types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractAssetScope {
     /** **thing**
 
@@ -17343,13 +16336,14 @@ impl AsRef<str> for ContractAssetScope {
         }
     }
 }
+impl ::std::fmt::Debug for ContractAssetScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractAssetScope {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Thing => "Thing",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractAssetScope {
@@ -17405,7 +16399,7 @@ impl From<ContractAssetScope> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetSubtype](http://hl7.org/fhir/contract-asset-subtype)**. This CodeSystem contains FHIR-defined contract asset type sub-types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractAssetSubtype {
     /** **participation**
 
@@ -17432,13 +16426,14 @@ impl AsRef<str> for ContractAssetSubtype {
         }
     }
 }
+impl ::std::fmt::Debug for ContractAssetSubtype {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractAssetSubtype {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Participation => "Participation",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractAssetSubtype {
@@ -17494,7 +16489,7 @@ impl From<ContractAssetSubtype> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetType](http://hl7.org/fhir/contract-asset-type)**. This CodeSystem contains FHIR-defined contract asset type types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractAssetType {
     /** **participation**
 
@@ -17521,13 +16516,14 @@ impl AsRef<str> for ContractAssetType {
         }
     }
 }
+impl ::std::fmt::Debug for ContractAssetType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractAssetType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Participation => "Participation",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractAssetType {
@@ -17583,7 +16579,7 @@ impl From<ContractAssetType> for CodeableConcept {
     }
 }
 #[doc = "**[ContractDecisionMode](http://hl7.org/fhir/contract-decision-mode)**. This CodeSystem contains FHIR-defined contract decision mode types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractDecisionMode {
     /** **policy**
 
@@ -17610,13 +16606,14 @@ impl AsRef<str> for ContractDecisionMode {
         }
     }
 }
+impl ::std::fmt::Debug for ContractDecisionMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractDecisionMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Policy => "Policy",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractDecisionMode {
@@ -17672,7 +16669,7 @@ impl From<ContractDecisionMode> for CodeableConcept {
     }
 }
 #[doc = "**[ContractDefinitionSubtype](http://hl7.org/fhir/contract-definition-subtype)**. This CodeSystem contains FHIR-defined contract definition subtypes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractDefinitionSubtype {
     /** **temp**
 
@@ -17699,13 +16696,14 @@ impl AsRef<str> for ContractDefinitionSubtype {
         }
     }
 }
+impl ::std::fmt::Debug for ContractDefinitionSubtype {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractDefinitionSubtype {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Temp => "Temporary Value",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractDefinitionSubtype {
@@ -17761,7 +16759,7 @@ impl From<ContractDefinitionSubtype> for CodeableConcept {
     }
 }
 #[doc = "**[ContractDefinitionType](http://hl7.org/fhir/contract-definition-type)**. This CodeSystem contains FHIR-defined contract definition types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractDefinitionType {
     /** **temp**
 
@@ -17788,13 +16786,14 @@ impl AsRef<str> for ContractDefinitionType {
         }
     }
 }
+impl ::std::fmt::Debug for ContractDefinitionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractDefinitionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Temp => "Temporary Value",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractDefinitionType {
@@ -17850,7 +16849,7 @@ impl From<ContractDefinitionType> for CodeableConcept {
     }
 }
 #[doc = "**[ContractExpirationType](http://hl7.org/fhir/contract-expiration-type)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractExpirationType {
     /** **breach**
 
@@ -17877,13 +16876,14 @@ impl AsRef<str> for ContractExpirationType {
         }
     }
 }
+impl ::std::fmt::Debug for ContractExpirationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractExpirationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Breach => "Breach",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractExpirationType {
@@ -17939,7 +16939,7 @@ impl From<ContractExpirationType> for CodeableConcept {
     }
 }
 #[doc = "**[ContractLegalState](http://hl7.org/fhir/contract-legalstate)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in the [Status Codes Grid](sc.html).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractLegalState {
     /** **amended**
 
@@ -18050,27 +17050,14 @@ impl AsRef<str> for ContractLegalState {
         }
     }
 }
+impl ::std::fmt::Debug for ContractLegalState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractLegalState {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Appended => "Appended",
-            Self::Cancelled => "Cancelled",
-            Self::Disputed => "Disputed",
-            Self::EnteredInError => "Entered in Error",
-            Self::Executable => "Executable",
-            Self::Executed => "Executed",
-            Self::Negotiable => "Negotiable",
-            Self::Offered => "Offered",
-            Self::Policy => "Policy",
-            Self::Rejected => "Rejected",
-            Self::Renewed => "Renewed",
-            Self::Resolved => "Resolved",
-            Self::Revoked => "Revoked",
-            Self::Terminated => "Terminated",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractLegalState {
@@ -18126,7 +17113,7 @@ impl From<ContractLegalState> for CodeableConcept {
     }
 }
 #[doc = "**[ContractPartyRole](http://hl7.org/fhir/contract-party-role)**. This CodeSystem contains FHIR-defined contract party role types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractPartyRole {
     /** **flunky**
 
@@ -18153,13 +17140,14 @@ impl AsRef<str> for ContractPartyRole {
         }
     }
 }
+impl ::std::fmt::Debug for ContractPartyRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractPartyRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Flunky => "FLunky",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractPartyRole {
@@ -18215,7 +17203,7 @@ impl From<ContractPartyRole> for CodeableConcept {
     }
 }
 #[doc = "**[ContractPublicationStatus](http://hl7.org/fhir/contract-publicationstatus)**. This CodeSystem contains FHIR-defined contract publication status types. Each definition includes usage notes explaining the precedence order in contract publication lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractPublicationStatus {
     /** **amended**
 
@@ -18326,27 +17314,14 @@ impl AsRef<str> for ContractPublicationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ContractPublicationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractPublicationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Appended => "Appended",
-            Self::Cancelled => "Cancelled",
-            Self::Disputed => "Disputed",
-            Self::EnteredInError => "Entered in Error",
-            Self::Executable => "Executable",
-            Self::Executed => "Executed",
-            Self::Negotiable => "Negotiable",
-            Self::Offered => "Offered",
-            Self::Policy => "Policy",
-            Self::Rejected => "Rejected",
-            Self::Renewed => "Renewed",
-            Self::Resolved => "Resolved",
-            Self::Revoked => "Revoked",
-            Self::Terminated => "Terminated",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractPublicationStatus {
@@ -18402,7 +17377,7 @@ impl From<ContractPublicationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ContractScope](http://hl7.org/fhir/contract-scope)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractScope {
     /** **policy**
 
@@ -18429,13 +17404,14 @@ impl AsRef<str> for ContractScope {
         }
     }
 }
+impl ::std::fmt::Debug for ContractScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractScope {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Policy => "Policy",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractScope {
@@ -18491,7 +17467,7 @@ impl From<ContractScope> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSecurityCategory](http://hl7.org/fhir/contract-security-category)**. This CodeSystem contains FHIR-defined contract security category types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractSecurityCategory {
     /** **policy**
 
@@ -18518,13 +17494,14 @@ impl AsRef<str> for ContractSecurityCategory {
         }
     }
 }
+impl ::std::fmt::Debug for ContractSecurityCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractSecurityCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Policy => "Policy",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractSecurityCategory {
@@ -18580,7 +17557,7 @@ impl From<ContractSecurityCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSecurityClassification](http://hl7.org/fhir/contract-security-classification)**. This CodeSystem contains FHIR-defined contract security classification types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractSecurityClassification {
     /** **policy**
 
@@ -18607,13 +17584,14 @@ impl AsRef<str> for ContractSecurityClassification {
         }
     }
 }
+impl ::std::fmt::Debug for ContractSecurityClassification {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractSecurityClassification {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Policy => "Policy",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractSecurityClassification {
@@ -18671,7 +17649,7 @@ impl From<ContractSecurityClassification> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSecurityControl](http://hl7.org/fhir/contract-security-control)**. This CodeSystem contains FHIR-defined contract security control types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractSecurityControl {
     /** **policy**
 
@@ -18698,13 +17676,14 @@ impl AsRef<str> for ContractSecurityControl {
         }
     }
 }
+impl ::std::fmt::Debug for ContractSecurityControl {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractSecurityControl {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Policy => "Policy",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractSecurityControl {
@@ -18760,7 +17739,7 @@ impl From<ContractSecurityControl> for CodeableConcept {
     }
 }
 #[doc = "**[ContractStatus](http://hl7.org/fhir/contract-status)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in [the Status Codes Grid](sc.html).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ContractStatus {
     /** **amended**
 
@@ -18871,27 +17850,14 @@ impl AsRef<str> for ContractStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ContractStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContractStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Appended => "Appended",
-            Self::Cancelled => "Cancelled",
-            Self::Disputed => "Disputed",
-            Self::EnteredInError => "Entered in Error",
-            Self::Executable => "Executable",
-            Self::Executed => "Executed",
-            Self::Negotiable => "Negotiable",
-            Self::Offered => "Offered",
-            Self::Policy => "Policy",
-            Self::Rejected => "Rejected",
-            Self::Renewed => "Renewed",
-            Self::Resolved => "Resolved",
-            Self::Revoked => "Revoked",
-            Self::Terminated => "Terminated",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContractStatus {
@@ -18947,7 +17913,7 @@ impl From<ContractStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorRole](http://hl7.org/fhir/ValueSet/contributor-role)**. Used to code the format of the display string.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorRole {
     /** **author**
@@ -19008,18 +17974,14 @@ impl AsRef<str> for ContributorRole {
         }
     }
 }
+impl ::std::fmt::Debug for ContributorRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContributorRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Author => "Author/Creator",
-            Self::Editor => "Editor",
-            Self::Endorser => "Endorser",
-            Self::Funder => "Funder",
-            Self::Informant => "Informant",
-            Self::Publisher => "Publisher",
-            Self::Reviewer => "Reviewer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContributorRole {
@@ -19075,7 +18037,7 @@ impl From<ContributorRole> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorSummarySource](http://hl7.org/fhir/ValueSet/contributor-summary-source)**. Used to code the producer or rule for creating the display string.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorSummarySource {
     /** **article-copy**
@@ -19118,15 +18080,14 @@ impl AsRef<str> for ContributorSummarySource {
         }
     }
 }
+impl ::std::fmt::Debug for ContributorSummarySource {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContributorSummarySource {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ArticleCopy => "Copied from article",
-            Self::CitationManager => "Reported by citation manager",
-            Self::Custom => "custom format",
-            Self::PublisherData => "Publisher provided",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContributorSummarySource {
@@ -19184,7 +18145,7 @@ impl From<ContributorSummarySource> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorSummaryStyle](http://hl7.org/fhir/ValueSet/contributor-summary-style)**. Used to code the format of the display string.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorSummaryStyle {
     /** **a1full**
@@ -19299,43 +18260,14 @@ impl AsRef<str> for ContributorSummaryStyle {
         }
     }
 }
+impl ::std::fmt::Debug for ContributorSummaryStyle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContributorSummaryStyle {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::A1Full => "First author (full name) et al",
-            Self::A1Init => "First author (last name first initials) et al",
-            Self::A3Full => "First 3 authors (full name) et al",
-            Self::A3Init => "First 3 authors (last name first initials) et al",
-            Self::A6Full => "First 6 authors (full name) et al",
-            Self::A6Init => "First 6 authors (last name first initials) et al",
-            Self::Aallfull => "All authors (full name)",
-            Self::Aallfullwithampersand => {
-                "All authors (full name) with an ampersand before last author"
-            }
-            Self::Aallfullwithand => {
-                "All authors (full name) with and before last author"
-            }
-            Self::Aallinit => "All authors (last name first initials)",
-            Self::Aallinitwithampersand => {
-                "All authors (last name first initials) with an ampersand before last author"
-            }
-            Self::Aallinitwithand => {
-                "All authors (last name first initials) with and before last author"
-            }
-            Self::ContrFullByContr => {
-                "Contributorship statement listed by contribution with full names"
-            }
-            Self::ContrFullByPerson => {
-                "Contributorship statement listed by person with full names"
-            }
-            Self::ContrInitByContr => {
-                "Contributorship statement listed by contribution with initials"
-            }
-            Self::ContrInitByPerson => {
-                "Contributorship statement listed by person with initials"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContributorSummaryStyle {
@@ -19393,7 +18325,7 @@ impl From<ContributorSummaryStyle> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorSummaryType](http://hl7.org/fhir/ValueSet/contributor-summary-type)**. Used to code author list statement, contributorship statement, and such.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorSummaryType {
     /** **acknowledgement-list**
@@ -19454,18 +18386,14 @@ impl AsRef<str> for ContributorSummaryType {
         }
     }
 }
+impl ::std::fmt::Debug for ContributorSummaryType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContributorSummaryType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AcknowledgementList => "Acknowledgment list",
-            Self::AcknowledgmentStatement => "Acknowledgment statement",
-            Self::AuthorString => "Author string",
-            Self::CompetingInterestsStatement => "Competing interests statement",
-            Self::ContributorshipList => "Contributorship list",
-            Self::ContributorshipStatement => "Contributorship statement",
-            Self::FundingStatement => "Funding statement",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContributorSummaryType {
@@ -19523,7 +18451,7 @@ impl From<ContributorSummaryType> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorType](http://hl7.org/fhir/ValueSet/contributor-type)**. The type of contributor.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ContributorType {
     /** **author**
@@ -19566,15 +18494,14 @@ impl AsRef<str> for ContributorType {
         }
     }
 }
+impl ::std::fmt::Debug for ContributorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ContributorType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Author => "Author",
-            Self::Editor => "Editor",
-            Self::Endorser => "Endorser",
-            Self::Reviewer => "Reviewer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ContributorType {
@@ -19630,7 +18557,7 @@ impl From<ContributorType> for CodeableConcept {
     }
 }
 #[doc = "**[CriteriaNotExistsBehavior](http://hl7.org/fhir/ValueSet/subscriptiontopic-cr-behavior)**. Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum CriteriaNotExistsBehavior {
     /** **test-fails**
@@ -19661,13 +18588,14 @@ impl AsRef<str> for CriteriaNotExistsBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for CriteriaNotExistsBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for CriteriaNotExistsBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::TestFails => "Test fails",
-            Self::TestPasses => "Test passes",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for CriteriaNotExistsBehavior {
@@ -19725,7 +18653,7 @@ impl From<CriteriaNotExistsBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[DatesEventTypeCodes](http://hl7.org/fhir/datestype)**. This value set includes sample Dates Event Type codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum DatesEventTypeCodes {
     /** **card-issued**
 
@@ -19764,15 +18692,14 @@ impl AsRef<str> for DatesEventTypeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for DatesEventTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DatesEventTypeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CardIssued => "Card Issued",
-            Self::ClaimReceived => "Claim Received",
-            Self::ServiceExpected => "Service Expected",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DatesEventTypeCodes {
@@ -19828,7 +18755,7 @@ impl From<DatesEventTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[DaysOfWeek](http://hl7.org/fhir/ValueSet/days-of-week)**. The days of the week.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DaysOfWeek {
     /** **fri**
@@ -19889,18 +18816,14 @@ impl AsRef<str> for DaysOfWeek {
         }
     }
 }
+impl ::std::fmt::Debug for DaysOfWeek {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DaysOfWeek {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Fri => "Friday",
-            Self::Mon => "Monday",
-            Self::Sat => "Saturday",
-            Self::Sun => "Sunday",
-            Self::Thu => "Thursday",
-            Self::Tue => "Tuesday",
-            Self::Wed => "Wednesday",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DaysOfWeek {
@@ -19956,7 +18879,7 @@ impl From<DaysOfWeek> for CodeableConcept {
     }
 }
 #[doc = "**[DefinitionMethod](http://hl7.org/fhir/ValueSet/definition-method)**. The method used to define, describe, or determine a characteristic value.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DefinitionMethod {
     /** **mean**
@@ -20023,19 +18946,14 @@ impl AsRef<str> for DefinitionMethod {
         }
     }
 }
+impl ::std::fmt::Debug for DefinitionMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DefinitionMethod {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Mean => "Mean",
-            Self::MeanOfMean => "Mean of Means",
-            Self::MeanOfMedian => "Mean of Medians",
-            Self::Median => "Median",
-            Self::MedianOfMean => "Median of Means",
-            Self::MedianOfMedian => "Median of Medians",
-            Self::NonSystematicAssessment => "Non-Systematic Assessment",
-            Self::SystematicAssessment => "Systematic Assessment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DefinitionMethod {
@@ -20091,7 +19009,7 @@ impl From<DefinitionMethod> for CodeableConcept {
     }
 }
 #[doc = "**[DetectedIssueSeverity](http://hl7.org/fhir/ValueSet/detectedissue-severity)**. Indicates the potential degree of impact of the identified issue on the patient.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DetectedIssueSeverity {
     /** **high**
@@ -20128,14 +19046,14 @@ impl AsRef<str> for DetectedIssueSeverity {
         }
     }
 }
+impl ::std::fmt::Debug for DetectedIssueSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DetectedIssueSeverity {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::High => "High",
-            Self::Low => "Low",
-            Self::Moderate => "Moderate",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DetectedIssueSeverity {
@@ -20193,7 +19111,7 @@ impl From<DetectedIssueSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[DetectedIssueStatus](http://hl7.org/fhir/detectedissue-status)**. Indicates the status of the detected issue. This code system contains only status codes that are not already defined and used from the ObservationStatus code system.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum DetectedIssueStatus {
     /** **mitigated**
 
@@ -20220,13 +19138,14 @@ impl AsRef<str> for DetectedIssueStatus {
         }
     }
 }
+impl ::std::fmt::Debug for DetectedIssueStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DetectedIssueStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Mitigated => "Mitigated",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DetectedIssueStatus {
@@ -20282,7 +19201,7 @@ impl From<DetectedIssueStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceAssociation](http://hl7.org/fhir/ValueSet/deviceassociation-status)**. DeviceAssociation Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceAssociation {
     /** **attached**
@@ -20331,16 +19250,14 @@ impl AsRef<str> for DeviceAssociation {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceAssociation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceAssociation {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Attached => "Attached",
-            Self::EnteredInError => "Entered in Error",
-            Self::Explanted => "Explanted",
-            Self::Implanted => "Implanted",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceAssociation {
@@ -20398,7 +19315,7 @@ impl From<DeviceAssociation> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceCorrectiveActionScope](http://hl7.org/fhir/ValueSet/device-correctiveactionscope)**. The type of relation between devices.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceCorrectiveActionScope {
     /** **lot-numbers**
@@ -20435,14 +19352,14 @@ impl AsRef<str> for DeviceCorrectiveActionScope {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceCorrectiveActionScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceCorrectiveActionScope {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::LotNumbers => "Lot Numbers",
-            Self::Model => "Model",
-            Self::SerialNumbers => "Serial Numbers",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceCorrectiveActionScope {
@@ -20500,7 +19417,7 @@ impl From<DeviceCorrectiveActionScope> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceDefinitionRelationType](http://hl7.org/fhir/ValueSet/device-relationtype)**. The type of relation between devices.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceDefinitionRelationType {
     /** **gateway**
@@ -20537,14 +19454,14 @@ impl AsRef<str> for DeviceDefinitionRelationType {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceDefinitionRelationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceDefinitionRelationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Gateway => "Gateway",
-            Self::Previous => "Previous",
-            Self::Replaces => "Replaces",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceDefinitionRelationType {
@@ -20600,7 +19517,7 @@ impl From<DeviceDefinitionRelationType> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceDispenseStatusCodes](http://hl7.org/fhir/ValueSet/devicedispense-status)**. DeviceDispense Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceDispenseStatusCodes {
     /** **cancelled**
@@ -20673,20 +19590,14 @@ impl AsRef<str> for DeviceDispenseStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceDispenseStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceDispenseStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::Declined => "Declined",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::OnHold => "On Hold",
-            Self::Preparation => "Preparation",
-            Self::Stopped => "Stopped",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceDispenseStatusCodes {
@@ -20744,7 +19655,7 @@ impl From<DeviceDispenseStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceDispenseStatusReasonCodes](http://hl7.org/fhir/CodeSystem/devicedispense-status-reason)**. DeviceDispense Status Reason Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum DeviceDispenseStatusReasonCodes {
     /** **contraindication**
 
@@ -20801,18 +19712,14 @@ impl AsRef<str> for DeviceDispenseStatusReasonCodes {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceDispenseStatusReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceDispenseStatusReasonCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Contraindication => "Contraindication",
-            Self::IncompatibleDevice => "Incompatible device",
-            Self::OffMarket => "Off market",
-            Self::OrderExpired => "Order expired",
-            Self::OutOfStock => "Out of Stock",
-            Self::VerbalOrder => "Verbal order",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceDispenseStatusReasonCodes {
@@ -20870,7 +19777,7 @@ impl From<DeviceDispenseStatusReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricCalibrationState](http://hl7.org/fhir/ValueSet/metric-calibration-state)**. Describes the state of a metric calibration.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricCalibrationState {
     /** **calibrated**
@@ -20913,15 +19820,14 @@ impl AsRef<str> for DeviceMetricCalibrationState {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceMetricCalibrationState {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceMetricCalibrationState {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Calibrated => "Calibrated",
-            Self::CalibrationRequired => "Calibration Required",
-            Self::NotCalibrated => "Not Calibrated",
-            Self::Unspecified => "Unspecified",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceMetricCalibrationState {
@@ -20979,7 +19885,7 @@ impl From<DeviceMetricCalibrationState> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricCalibrationType](http://hl7.org/fhir/ValueSet/metric-calibration-type)**. Describes the type of a metric calibration.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricCalibrationType {
     /** **gain**
@@ -21022,15 +19928,14 @@ impl AsRef<str> for DeviceMetricCalibrationType {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceMetricCalibrationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceMetricCalibrationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Gain => "Gain",
-            Self::Offset => "Offset",
-            Self::TwoPoint => "Two Point",
-            Self::Unspecified => "Unspecified",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceMetricCalibrationType {
@@ -21088,7 +19993,7 @@ impl From<DeviceMetricCalibrationType> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricCategory](http://hl7.org/fhir/ValueSet/metric-category)**. Describes the category of the metric.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricCategory {
     /** **calculation**
@@ -21131,15 +20036,14 @@ impl AsRef<str> for DeviceMetricCategory {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceMetricCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceMetricCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Calculation => "Calculation",
-            Self::Measurement => "Measurement",
-            Self::Setting => "Setting",
-            Self::Unspecified => "Unspecified",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceMetricCategory {
@@ -21195,7 +20099,7 @@ impl From<DeviceMetricCategory> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricOperationalStatus](http://hl7.org/fhir/ValueSet/metric-operational-status)**. Describes the operational status of the DeviceMetric.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceMetricOperationalStatus {
     /** **entered-in-error**
@@ -21238,15 +20142,14 @@ impl AsRef<str> for DeviceMetricOperationalStatus {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceMetricOperationalStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceMetricOperationalStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::EnteredInError => "Entered In Error",
-            Self::Off => "Off",
-            Self::On => "On",
-            Self::Standby => "Standby",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceMetricOperationalStatus {
@@ -21304,7 +20207,7 @@ impl From<DeviceMetricOperationalStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceNameType](http://hl7.org/fhir/ValueSet/device-nametype)**. The type of name the device is referred by.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceNameType {
     /** **patient-reported-name**
@@ -21341,14 +20244,14 @@ impl AsRef<str> for DeviceNameType {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceNameType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::PatientReportedName => "Patient Reported name",
-            Self::RegisteredName => "Registered name",
-            Self::UserFriendlyName => "User Friendly name",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceNameType {
@@ -21404,7 +20307,7 @@ impl From<DeviceNameType> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceProductionIdentifierInUDI](http://hl7.org/fhir/device-productidentifierinudi)**. The production identifier(s) that are expected to appear in the UDI carrier.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum DeviceProductionIdentifierInUDI {
     /** **biological-source**
 
@@ -21461,18 +20364,14 @@ impl AsRef<str> for DeviceProductionIdentifierInUDI {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceProductionIdentifierInUDI {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceProductionIdentifierInUDI {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BiologicalSource => "Biological source",
-            Self::ExpirationDate => "Expiration date",
-            Self::LotNumber => "Lot Number",
-            Self::ManufacturedDate => "Manufactured date",
-            Self::SerialNumber => "Serial Number",
-            Self::SoftwareVersion => "Software Version",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceProductionIdentifierInUDI {
@@ -21528,7 +20427,7 @@ impl From<DeviceProductionIdentifierInUDI> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceRegulatoryIdentifierType](http://hl7.org/fhir/devicedefinition-regulatory-identifier-type)**. The type of regulatory identifier.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum DeviceRegulatoryIdentifierType {
     /** **basic**
 
@@ -21567,15 +20466,14 @@ impl AsRef<str> for DeviceRegulatoryIdentifierType {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceRegulatoryIdentifierType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceRegulatoryIdentifierType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Basic => "Basic",
-            Self::License => "License",
-            Self::Master => "Master",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceRegulatoryIdentifierType {
@@ -21634,7 +20532,7 @@ impl From<DeviceRegulatoryIdentifierType> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceUsageAdherenceCode](http://hl7.org/fhir/ValueSet/deviceusage-adherence-code)**. A coded concept indicating the usage of the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceUsageAdherenceCode {
     /** **always**
@@ -21671,14 +20569,14 @@ impl AsRef<str> for DeviceUsageAdherenceCode {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceUsageAdherenceCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceUsageAdherenceCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Always => "Always",
-            Self::Never => "Never",
-            Self::Sometimes => "Sometimes",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceUsageAdherenceCode {
@@ -21736,7 +20634,7 @@ impl From<DeviceUsageAdherenceCode> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceUsageAdherenceReason](http://hl7.org/fhir/ValueSet/deviceusage-adherence-reason)**. A coded concept indicating the reason for the usage of the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceUsageAdherenceReason {
     /** **broken**
@@ -21791,17 +20689,14 @@ impl AsRef<str> for DeviceUsageAdherenceReason {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceUsageAdherenceReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceUsageAdherenceReason {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Broken => "Broken",
-            Self::Burned => "Burned",
-            Self::Forgot => "Forgot",
-            Self::Lost => "Lost",
-            Self::Prescribed => "Prescribed",
-            Self::Stolen => "Stolen",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceUsageAdherenceReason {
@@ -21859,7 +20754,7 @@ impl From<DeviceUsageAdherenceReason> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceUsageStatus](http://hl7.org/fhir/ValueSet/deviceusage-status)**. A coded concept indicating the current status of the Device Usage.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DeviceUsageStatus {
     /** **active**
@@ -21920,18 +20815,14 @@ impl AsRef<str> for DeviceUsageStatus {
         }
     }
 }
+impl ::std::fmt::Debug for DeviceUsageStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DeviceUsageStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered in Error",
-            Self::Intended => "Intended",
-            Self::NotDone => "Not done",
-            Self::OnHold => "On Hold",
-            Self::Stopped => "Stopped",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DeviceUsageStatus {
@@ -21987,7 +20878,7 @@ impl From<DeviceUsageStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DiagnosticReportStatus](http://hl7.org/fhir/ValueSet/diagnostic-report-status)**. The status of the diagnostic report.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DiagnosticReportStatus {
     /** **amended**
@@ -22072,22 +20963,14 @@ impl AsRef<str> for DiagnosticReportStatus {
         }
     }
 }
+impl ::std::fmt::Debug for DiagnosticReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DiagnosticReportStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Appended => "Appended",
-            Self::Cancelled => "Cancelled",
-            Self::Corrected => "Corrected",
-            Self::EnteredInError => "Entered in Error",
-            Self::Final => "Final",
-            Self::Modified => "Modified",
-            Self::Partial => "Partial",
-            Self::Preliminary => "Preliminary",
-            Self::Registered => "Registered",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DiagnosticReportStatus {
@@ -22145,7 +21028,7 @@ impl From<DiagnosticReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DiscriminatorType](http://hl7.org/fhir/ValueSet/discriminator-type)**. How an element value is interpreted when discrimination is evaluated.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DiscriminatorType {
     /** **exists**
@@ -22200,17 +21083,14 @@ impl AsRef<str> for DiscriminatorType {
         }
     }
 }
+impl ::std::fmt::Debug for DiscriminatorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DiscriminatorType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Exists => "Exists",
-            Self::Pattern => "Pattern",
-            Self::Position => "Position",
-            Self::Profile => "Profile",
-            Self::Type => "Type",
-            Self::Value => "Value",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DiscriminatorType {
@@ -22266,7 +21146,7 @@ impl From<DiscriminatorType> for CodeableConcept {
     }
 }
 #[doc = "**[DocumentMode](http://hl7.org/fhir/ValueSet/document-mode)**. Whether the application produces or consumes documents.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DocumentMode {
     /** **consumer**
@@ -22297,13 +21177,14 @@ impl AsRef<str> for DocumentMode {
         }
     }
 }
+impl ::std::fmt::Debug for DocumentMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DocumentMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Consumer => "Consumer",
-            Self::Producer => "Producer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DocumentMode {
@@ -22359,7 +21240,7 @@ impl From<DocumentMode> for CodeableConcept {
     }
 }
 #[doc = "**[DocumentReferenceStatus](http://hl7.org/fhir/ValueSet/document-reference-status)**. The status of the document reference.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DocumentReferenceStatus {
     /** **current**
@@ -22396,14 +21277,14 @@ impl AsRef<str> for DocumentReferenceStatus {
         }
     }
 }
+impl ::std::fmt::Debug for DocumentReferenceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DocumentReferenceStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Current => "Current",
-            Self::EnteredInError => "Entered in Error",
-            Self::Superseded => "Superseded",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DocumentReferenceStatus {
@@ -22461,7 +21342,7 @@ impl From<DocumentReferenceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DocumentRelationshipType](http://hl7.org/fhir/ValueSet/document-relationship-type)**. The type of relationship between documents.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum DocumentRelationshipType {
     /** **appends**
@@ -22516,17 +21397,14 @@ impl AsRef<str> for DocumentRelationshipType {
         }
     }
 }
+impl ::std::fmt::Debug for DocumentRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for DocumentRelationshipType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Appends => "Appends",
-            Self::Incorporates => "Incorporates",
-            Self::Replaces => "Replaces",
-            Self::Signs => "Signs",
-            Self::Summarizes => "Summarizes",
-            Self::Transforms => "Transforms",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for DocumentRelationshipType {
@@ -22584,7 +21462,7 @@ impl From<DocumentRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[ETSISignatureTypeCodes](http://uri.etsi.org/01903/v1.2.2)**. The ETSI TS 101 733 V2.2.1 (2013-04) - Electronic Signatures and Infrastructures (ESI) - defines a set of Commitment Types (Purpose of Signature). ETSI TS 101 903 V1.2.2 defines vocabulary identifiers for these Commitment Types. Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. \n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ETSISignatureTypeCodes {
     /** **ProofOfCreation**
 
@@ -22641,18 +21519,14 @@ impl AsRef<str> for ETSISignatureTypeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ETSISignatureTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ETSISignatureTypeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ProofOfCreation => "Proof of creation",
-            Self::ProofOfDelivery => "Proof of delivery",
-            Self::ProofOfOrigin => "Proof of origin",
-            Self::ProofOfReceipt => "Proof of receipt",
-            Self::ProofOfSender => "Proof of sender",
-            Self::ProofOfapproval => "Proof of approval",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ETSISignatureTypeCodes {
@@ -22708,7 +21582,7 @@ impl From<ETSISignatureTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[EligibilityRequestPurpose](http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EligibilityRequestPurpose {
     /** **auth-requirements**
@@ -22751,15 +21625,14 @@ impl AsRef<str> for EligibilityRequestPurpose {
         }
     }
 }
+impl ::std::fmt::Debug for EligibilityRequestPurpose {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EligibilityRequestPurpose {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AuthRequirements => "Coverage auth-requirements",
-            Self::Benefits => "Coverage benefits",
-            Self::Discovery => "Coverage Discovery",
-            Self::Validation => "Coverage Validation",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EligibilityRequestPurpose {
@@ -22817,7 +21690,7 @@ impl From<EligibilityRequestPurpose> for CodeableConcept {
     }
 }
 #[doc = "**[EligibilityResponsePurpose](http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EligibilityResponsePurpose {
     /** **auth-requirements**
@@ -22860,15 +21733,14 @@ impl AsRef<str> for EligibilityResponsePurpose {
         }
     }
 }
+impl ::std::fmt::Debug for EligibilityResponsePurpose {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EligibilityResponsePurpose {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AuthRequirements => "Coverage auth-requirements",
-            Self::Benefits => "Coverage benefits",
-            Self::Discovery => "Coverage Discovery",
-            Self::Validation => "Coverage Validation",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EligibilityResponsePurpose {
@@ -22926,7 +21798,7 @@ impl From<EligibilityResponsePurpose> for CodeableConcept {
     }
 }
 #[doc = "**[EnableWhenBehavior](http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior)**. Controls how multiple enableWhen values are interpreted -  whether all or any must be true.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EnableWhenBehavior {
     /** **all**
@@ -22957,13 +21829,14 @@ impl AsRef<str> for EnableWhenBehavior {
         }
     }
 }
+impl ::std::fmt::Debug for EnableWhenBehavior {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EnableWhenBehavior {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::All => "All",
-            Self::Any => "Any",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EnableWhenBehavior {
@@ -23021,7 +21894,7 @@ impl From<EnableWhenBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterDiagnosisUse](http://hl7.org/fhir/encounter-diagnosis-use)**. Encounter Condition Use\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum EncounterDiagnosisUse {
     /** **final**
 
@@ -23054,14 +21927,14 @@ impl AsRef<str> for EncounterDiagnosisUse {
         }
     }
 }
+impl ::std::fmt::Debug for EncounterDiagnosisUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EncounterDiagnosisUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Final => "Final",
-            Self::Working => "Working",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EncounterDiagnosisUse {
@@ -23117,7 +21990,7 @@ impl From<EncounterDiagnosisUse> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterLocationStatus](http://hl7.org/fhir/ValueSet/encounter-location-status)**. The status of the location.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EncounterLocationStatus {
     /** **active**
@@ -23164,15 +22037,14 @@ impl AsRef<str> for EncounterLocationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for EncounterLocationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EncounterLocationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Completed => "Completed",
-            Self::Planned => "Planned",
-            Self::Reserved => "Reserved",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EncounterLocationStatus {
@@ -23230,7 +22102,7 @@ impl From<EncounterLocationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterReasonUse](http://hl7.org/fhir/ValueSet/encounter-reason-use)**. Encounter Reason Use\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EncounterReasonUse {
     /** **AD**
@@ -23279,16 +22151,14 @@ impl AsRef<str> for EncounterReasonUse {
         }
     }
 }
+impl ::std::fmt::Debug for EncounterReasonUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EncounterReasonUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ad => "Admitting Diagnosis",
-            Self::Cc => "Chief Complaint",
-            Self::Hc => "Health Concern",
-            Self::Hm => "Health Maintenance (including screening)",
-            Self::Rv => "Reason for Visit",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EncounterReasonUse {
@@ -23344,7 +22214,7 @@ impl From<EncounterReasonUse> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterStatus](http://hl7.org/fhir/ValueSet/encounter-status)**. Current state of the encounter.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EncounterStatus {
     /** **cancelled**
@@ -23417,20 +22287,14 @@ impl AsRef<str> for EncounterStatus {
         }
     }
 }
+impl ::std::fmt::Debug for EncounterStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EncounterStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::Discharged => "Discharged",
-            Self::Discontinued => "Discontinued",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::OnHold => "On Hold",
-            Self::Planned => "Planned",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EncounterStatus {
@@ -23486,7 +22350,7 @@ impl From<EncounterStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EndpointEnvironment](http://hl7.org/fhir/ValueSet/endpoint-environment)**. The environment type of the endpoint.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EndpointEnvironment {
     /** **dev**
@@ -23535,16 +22399,14 @@ impl AsRef<str> for EndpointEnvironment {
         }
     }
 }
+impl ::std::fmt::Debug for EndpointEnvironment {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EndpointEnvironment {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Dev => "Development",
-            Self::Prod => "Production",
-            Self::Staging => "Staging",
-            Self::Test => "Test",
-            Self::Train => "Training",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EndpointEnvironment {
@@ -23600,7 +22462,7 @@ impl From<EndpointEnvironment> for CodeableConcept {
     }
 }
 #[doc = "**[EndpointStatus](http://hl7.org/fhir/ValueSet/endpoint-status)**. The status of the endpoint.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EndpointStatus {
     /** **active**
@@ -23649,16 +22511,14 @@ impl AsRef<str> for EndpointStatus {
         }
     }
 }
+impl ::std::fmt::Debug for EndpointStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EndpointStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in error",
-            Self::Error => "Error",
-            Self::Off => "Off",
-            Self::Suspended => "Suspended",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EndpointStatus {
@@ -23714,7 +22574,7 @@ impl From<EndpointStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EpisodeOfCareStatus](http://hl7.org/fhir/ValueSet/episode-of-care-status)**. The status of the episode of care.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EpisodeOfCareStatus {
     /** **active**
@@ -23775,18 +22635,14 @@ impl AsRef<str> for EpisodeOfCareStatus {
         }
     }
 }
+impl ::std::fmt::Debug for EpisodeOfCareStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EpisodeOfCareStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Cancelled => "Cancelled",
-            Self::EnteredInError => "Entered in Error",
-            Self::Finished => "Finished",
-            Self::Onhold => "On Hold",
-            Self::Planned => "Planned",
-            Self::Waitlist => "Waitlist",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EpisodeOfCareStatus {
@@ -23844,7 +22700,7 @@ impl From<EpisodeOfCareStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EventCapabilityMode](http://hl7.org/fhir/ValueSet/event-capability-mode)**. The mode of a message capability statement.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EventCapabilityMode {
     /** **receiver**
@@ -23875,13 +22731,14 @@ impl AsRef<str> for EventCapabilityMode {
         }
     }
 }
+impl ::std::fmt::Debug for EventCapabilityMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EventCapabilityMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Receiver => "Receiver",
-            Self::Sender => "Sender",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EventCapabilityMode {
@@ -23939,7 +22796,7 @@ impl From<EventCapabilityMode> for CodeableConcept {
     }
 }
 #[doc = "**[EventStatus](http://hl7.org/fhir/ValueSet/event-status)**. Codes identifying the lifecycle stage of an event.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EventStatus {
     /** **completed**
@@ -24006,19 +22863,14 @@ impl AsRef<str> for EventStatus {
         }
     }
 }
+impl ::std::fmt::Debug for EventStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EventStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::NotDone => "Not Done",
-            Self::OnHold => "On Hold",
-            Self::Preparation => "Preparation",
-            Self::Stopped => "Stopped",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EventStatus {
@@ -24074,7 +22926,7 @@ impl From<EventStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EventTiming](http://hl7.org/fhir/event-timing)**. Real-world event relating to the schedule.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum EventTiming {
     /** **AFT**
 
@@ -24173,25 +23025,14 @@ impl AsRef<str> for EventTiming {
         }
     }
 }
+impl ::std::fmt::Debug for EventTiming {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EventTiming {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Aft => "Afternoon",
-            Self::AftEarly => "Early Afternoon",
-            Self::AftLate => "Late Afternoon",
-            Self::Eve => "Evening",
-            Self::EveEarly => "Early Evening",
-            Self::EveLate => "Late Evening",
-            Self::Imd => "Immediate",
-            Self::Morn => "Morning",
-            Self::MornEarly => "Early Morning",
-            Self::MornLate => "Late Morning",
-            Self::Night => "Night",
-            Self::Noon => "Noon",
-            Self::Phs => "After Sleep",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EventTiming {
@@ -24247,7 +23088,7 @@ impl From<EventTiming> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceCertaintyRating](http://hl7.org/fhir/ValueSet/certainty-rating)**. The assessment of quality, confidence, or certainty.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceCertaintyRating {
     /** **absent**
@@ -24362,27 +23203,14 @@ impl AsRef<str> for EvidenceCertaintyRating {
         }
     }
 }
+impl ::std::fmt::Debug for EvidenceCertaintyRating {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EvidenceCertaintyRating {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Absent => "absent",
-            Self::Downcode1 => "reduce rating: -1",
-            Self::Downcode2 => "reduce rating: -2",
-            Self::Downcode3 => "reduce rating: -3",
-            Self::ExtremelySeriousConcern => "extremely serious concern",
-            Self::High => "High quality",
-            Self::Low => "Low quality",
-            Self::Moderate => "Moderate quality",
-            Self::NoChange => "no change to rating",
-            Self::NoConcern => "no serious concern",
-            Self::Present => "present",
-            Self::SeriousConcern => "serious concern",
-            Self::Upcode1 => "increase rating: +1",
-            Self::Upcode2 => "increase rating: +2",
-            Self::VeryLow => "Very low quality",
-            Self::VerySeriousConcern => "very serious concern",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EvidenceCertaintyRating {
@@ -24438,7 +23266,7 @@ impl From<EvidenceCertaintyRating> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceCertaintyType](http://hl7.org/fhir/ValueSet/certainty-type)**. The aspect of quality, confidence, or certainty.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceCertaintyType {
     /** **DoseResponseGradient**
@@ -24511,20 +23339,14 @@ impl AsRef<str> for EvidenceCertaintyType {
         }
     }
 }
+impl ::std::fmt::Debug for EvidenceCertaintyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EvidenceCertaintyType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DoseResponseGradient => "Dose response gradient",
-            Self::Imprecision => "Imprecision",
-            Self::Inconsistency => "Inconsistency",
-            Self::Indirectness => "Indirectness",
-            Self::LargeEffect => "Large effect",
-            Self::Overall => "Overall certainty",
-            Self::PlausibleConfounding => "Plausible confounding",
-            Self::PublicationBias => "Publication bias",
-            Self::RiskOfBias => "Risk of bias",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EvidenceCertaintyType {
@@ -24580,7 +23402,7 @@ impl From<EvidenceCertaintyType> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceClassifier](http://hl7.org/fhir/ValueSet/evidence-classifier-code)**. Commonly used classifiers for evidence sets.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceClassifier {
     /** **AllocConcealNotStated**
@@ -24785,54 +23607,14 @@ impl AsRef<str> for EvidenceClassifier {
         }
     }
 }
+impl ::std::fmt::Debug for EvidenceClassifier {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EvidenceClassifier {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AllocConcealNotStated => "Allocation concealment not stated",
-            Self::BaselineImbalance => "Baseline imbalances",
-            Self::Covid19HumanResearch => {
-                "COVID-19 human data in population, exposure, or outcome"
-            }
-            Self::Covid19Relevant => "COVID-19 relevant (but not specific) article",
-            Self::Covid19Specific => "COVID-19 specific article",
-            Self::Diagnosis => "Article about diagnosis",
-            Self::EarlyTrialTermination => "Early trial termination",
-            Self::Guideline => "Article includes guideline",
-            Self::NoBlinding => "No blinding",
-            Self::NoITT => "No intention-to-treat analysis",
-            Self::NotAssessed => "Not rated, not assessed",
-            Self::NotResearchNotGuideline => "Article is neither research nor guideline",
-            Self::OriginalResearch => "Article includes original research",
-            Self::PreliminaryAnalysis => "Preliminary analysis",
-            Self::Preprint => "Preprint (not final publication)",
-            Self::PreventionAndControl => "Article about prevention and control",
-            Self::PrognosisPrediction => "Article about prognosis or prediction",
-            Self::RatedAsCaseControl => "classified as case-control study",
-            Self::RatedAsComparativeCohort => {
-                "classified as comparative cohort study (observational)"
-            }
-            Self::RatedAsControlledTrial => {
-                "classified as nonrandomized controlled trial (experimental)"
-            }
-            Self::RatedAsMixedMethods => "classified as mixed-methods study",
-            Self::RatedAsNo => "Rated as no, negative, absent, or exclude",
-            Self::RatedAsOther => {
-                "classified as other concept (not elsewhere classified)"
-            }
-            Self::RatedAsRCT => "classified as randomized controlled trial",
-            Self::RatedAsUncontrolledSeries => {
-                "classified as uncontrolled cohort (case series)"
-            }
-            Self::RatedAsYes => {
-                "Rated as yes, affirmative, positive, present, or include"
-            }
-            Self::ResearchProtocol => "Article provides protocol without results",
-            Self::ResearchSynthesis => "Article includes synthesis of research",
-            Self::RiskOfBias => "Risk of bias assessment",
-            Self::SubgroupAnalysis => "Subgroup analysis",
-            Self::Treatment => "Article about treatment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EvidenceClassifier {
@@ -24890,7 +23672,7 @@ impl From<EvidenceClassifier> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceReportType](http://hl7.org/fhir/ValueSet/evidence-report-type)**. The kind of report, such as grouping of classifiers, search results, or human-compiled expression.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceReportType {
     /** **classification**
@@ -24933,15 +23715,14 @@ impl AsRef<str> for EvidenceReportType {
         }
     }
 }
+impl ::std::fmt::Debug for EvidenceReportType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EvidenceReportType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Classification => "Classification",
-            Self::ResourcesCompiled => "Resource Compilation",
-            Self::SearchResults => "Search Results",
-            Self::TextStructured => "Structured Text",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EvidenceReportType {
@@ -24997,7 +23778,7 @@ impl From<EvidenceReportType> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceVariableEvent](http://hl7.org/fhir/ValueSet/evidence-variable-event)**. The event used as a base point (reference point) in time.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceVariableEvent {
     /** **condition-detection**
@@ -25058,18 +23839,14 @@ impl AsRef<str> for EvidenceVariableEvent {
         }
     }
 }
+impl ::std::fmt::Debug for EvidenceVariableEvent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EvidenceVariableEvent {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ConditionDetection => "Detection of Condition",
-            Self::ConditionTreatment => "Treatment of Condition",
-            Self::HospitalAdmission => "Hospital Admission",
-            Self::HospitalDischarge => "Hospital Discharge",
-            Self::OperativeProcedure => "Operative Procedure",
-            Self::StudyStart => "Study Start",
-            Self::TreatmentStart => "Start of Treatment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EvidenceVariableEvent {
@@ -25127,7 +23904,7 @@ impl From<EvidenceVariableEvent> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceVariableHandling](http://hl7.org/fhir/ValueSet/variable-handling)**. The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum EvidenceVariableHandling {
     /** **continuous**
@@ -25170,15 +23947,14 @@ impl AsRef<str> for EvidenceVariableHandling {
         }
     }
 }
+impl ::std::fmt::Debug for EvidenceVariableHandling {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for EvidenceVariableHandling {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Continuous => "continuous variable",
-            Self::Dichotomous => "dichotomous variable",
-            Self::Ordinal => "ordinal variable",
-            Self::Polychotomous => "polychotomous variable",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for EvidenceVariableHandling {
@@ -25234,7 +24010,7 @@ impl From<EvidenceVariableHandling> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleMetadata](http://hl7.org/fhir/CodeSystem/example-metadata)**. This is an example code system that illustrates usage of the metadata resource elements introduced in R5\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ExampleMetadata {
     /** **A**
 
@@ -25273,15 +24049,14 @@ impl AsRef<str> for ExampleMetadata {
         }
     }
 }
+impl ::std::fmt::Debug for ExampleMetadata {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ExampleMetadata {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::A => "A",
-            Self::B => "B",
-            Self::C => "C",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ExampleMetadata {
@@ -25337,7 +24112,7 @@ impl From<ExampleMetadata> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleScenarioActorType](http://hl7.org/fhir/ValueSet/examplescenario-actor-type)**. The type of actor - system or human.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ExampleScenarioActorType {
     /** **person**
@@ -25368,13 +24143,14 @@ impl AsRef<str> for ExampleScenarioActorType {
         }
     }
 }
+impl ::std::fmt::Debug for ExampleScenarioActorType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ExampleScenarioActorType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Person => "Person",
-            Self::System => "System",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ExampleScenarioActorType {
@@ -25432,7 +24208,7 @@ impl From<ExampleScenarioActorType> for CodeableConcept {
     }
 }
 #[doc = "**[ExplanationOfBenefitStatus](http://hl7.org/fhir/ValueSet/explanationofbenefit-status)**. A code specifying the state of the resource instance.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ExplanationOfBenefitStatus {
     /** **active**
@@ -25475,15 +24251,14 @@ impl AsRef<str> for ExplanationOfBenefitStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ExplanationOfBenefitStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ExplanationOfBenefitStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Cancelled => "Cancelled",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered In Error",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ExplanationOfBenefitStatus {
@@ -25541,7 +24316,7 @@ impl From<ExplanationOfBenefitStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ExtensionContextType](http://hl7.org/fhir/ValueSet/extension-context-type)**. How an extension context is interpreted.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ExtensionContextType {
     /** **element**
@@ -25578,14 +24353,14 @@ impl AsRef<str> for ExtensionContextType {
         }
     }
 }
+impl ::std::fmt::Debug for ExtensionContextType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ExtensionContextType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Element => "Element ID",
-            Self::Extension => "Extension URL",
-            Self::Fhirpath => "FHIRPath",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ExtensionContextType {
@@ -25643,7 +24418,7 @@ impl From<ExtensionContextType> for CodeableConcept {
     }
 }
 #[doc = "**[ExtraActivityType](http://hl7.org/fhir/extra-activity-type)**. This value set includes coded concepts not well covered in any of the included valuesets.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ExtraActivityType {
     /** **aggregate**
 
@@ -25682,15 +24457,14 @@ impl AsRef<str> for ExtraActivityType {
         }
     }
 }
+impl ::std::fmt::Debug for ExtraActivityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ExtraActivityType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Aggregate => "aggregate",
-            Self::Compose => "compose",
-            Self::Label => "label",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ExtraActivityType {
@@ -25746,7 +24520,7 @@ impl From<ExtraActivityType> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRCanonicalStatusCodes](http://hl7.org/fhir/ValueSet/resource-status)**. The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRCanonicalStatusCodes {
     /** **abandoned**
@@ -25951,42 +24725,14 @@ impl AsRef<str> for FHIRCanonicalStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRCanonicalStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRCanonicalStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abandoned => "abandoned",
-            Self::Accepted => "accepted",
-            Self::Active => "active",
-            Self::AheadOfTarget => "ahead-of-target",
-            Self::Arrived => "arrived",
-            Self::BehindTarget => "behind-target",
-            Self::BusyUnavailable => "busy-unavailable",
-            Self::Complete => "complete",
-            Self::Confirmed => "confirmed",
-            Self::Declined => "declined",
-            Self::Differential => "differential",
-            Self::Draft => "draft",
-            Self::Error => "error",
-            Self::Failed => "failed",
-            Self::Free => "free",
-            Self::HwDiscon => "hw-discon",
-            Self::Inactive => "inactive",
-            Self::NotReady => "not-ready",
-            Self::OnTarget => "on-target",
-            Self::Partial => "partial",
-            Self::Planned => "planned",
-            Self::Proposed => "proposed",
-            Self::Received => "received",
-            Self::Refuted => "refuted",
-            Self::Replaced => "replaced",
-            Self::Requested => "requested",
-            Self::Resolved => "resolved",
-            Self::Suspended => "suspended",
-            Self::TransducDiscon => "transduc-discon",
-            Self::Unconfirmed => "unconfirmed",
-            Self::Unknown => "unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRCanonicalStatusCodes {
@@ -26042,7 +24788,7 @@ impl From<FHIRCanonicalStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceAssociationOperationStatus](http://hl7.org/fhir/ValueSet/deviceassociation-operationstatus)**. The operational status of the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRDeviceAssociationOperationStatus {
     /** **defective**
@@ -26091,16 +24837,14 @@ impl AsRef<str> for FHIRDeviceAssociationOperationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRDeviceAssociationOperationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRDeviceAssociationOperationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Defective => "Stand By",
-            Self::Off => "Off",
-            Self::On => "On",
-            Self::Standby => "Stand By",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRDeviceAssociationOperationStatus {
@@ -26159,7 +24903,7 @@ impl From<FHIRDeviceAssociationOperationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceAvailabilityStatus](http://hl7.org/fhir/ValueSet/device-availability-status)**. The record status of the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRDeviceAvailabilityStatus {
     /** **available**
@@ -26202,15 +24946,14 @@ impl AsRef<str> for FHIRDeviceAvailabilityStatus {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRDeviceAvailabilityStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRDeviceAvailabilityStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Available => "Available",
-            Self::Damaged => "Damaged",
-            Self::Destroyed => "Destroyed",
-            Self::Lost => "Lost",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRDeviceAvailabilityStatus {
@@ -26268,7 +25011,7 @@ impl From<FHIRDeviceAvailabilityStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceCategory](http://hl7.org/fhir/ValueSet/device-category)**. The category of the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRDeviceCategory {
     /** **active**
@@ -26347,21 +25090,14 @@ impl AsRef<str> for FHIRDeviceCategory {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRDeviceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRDeviceCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Communicating => "communicating",
-            Self::Dme => "Durable Medical Equipment",
-            Self::HomeUse => "Maintenance",
-            Self::Implantable => "Implantable",
-            Self::InVitro => "In vitro",
-            Self::PointOfCare => "Point of Care",
-            Self::Reusable => "Reusable",
-            Self::SingleUse => "Single Use",
-            Self::Software => "Software",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRDeviceCategory {
@@ -26417,7 +25153,7 @@ impl From<FHIRDeviceCategory> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceOperationMode](http://hl7.org/fhir/ValueSet/device-operation-mode)**. The operation mode of the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRDeviceOperationMode {
     /** **demo**
@@ -26466,16 +25202,14 @@ impl AsRef<str> for FHIRDeviceOperationMode {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRDeviceOperationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRDeviceOperationMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Demo => "Demo",
-            Self::Maintenance => "Maintenance",
-            Self::Normal => "Normal",
-            Self::Service => "Service",
-            Self::Test => "Test",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRDeviceOperationMode {
@@ -26533,7 +25267,7 @@ impl From<FHIRDeviceOperationMode> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceSpecializationCategory](http://hl7.org/fhir/ValueSet/device-specification-category)**. The kind of standards used by the device.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRDeviceSpecializationCategory {
     /** **communication**
@@ -26594,18 +25328,14 @@ impl AsRef<str> for FHIRDeviceSpecializationCategory {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRDeviceSpecializationCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRDeviceSpecializationCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Communication => "Communication",
-            Self::Electrical => "Electrical",
-            Self::Exchange => "Exchange",
-            Self::Material => "Material",
-            Self::Measurement => "Measurement",
-            Self::Performance => "Performance",
-            Self::RiskClass => "Risk Class",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRDeviceSpecializationCategory {
@@ -26663,7 +25393,7 @@ impl From<FHIRDeviceSpecializationCategory> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceStatus](http://hl7.org/fhir/ValueSet/device-status)**. The status of the Device record.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRDeviceStatus {
     /** **active**
@@ -26700,14 +25430,14 @@ impl AsRef<str> for FHIRDeviceStatus {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRDeviceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRDeviceStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRDeviceStatus {
@@ -26763,7 +25493,7 @@ impl From<FHIRDeviceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRFormatType](http://hl7.org/fhir/ValueSet/fhir-content-type)**. FHIR Format types\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRFormatType {
     /** **json**
@@ -26800,14 +25530,14 @@ impl AsRef<str> for FHIRFormatType {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRFormatType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRFormatType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Json => "JSON",
-            Self::Ttl => "TTL",
-            Self::Xml => "XML",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRFormatType {
@@ -26863,7 +25593,7 @@ impl From<FHIRFormatType> for CodeableConcept {
     }
 }
 #[doc = "**[FHIROldTypes](http://hl7.org/fhir/ValueSet/fhir-old-types)**. An old resource name no longer used in this version of FHIR (deleted or renamed).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIROldTypes {
     /** **BodySite**
@@ -27134,54 +25864,14 @@ impl AsRef<str> for FHIROldTypes {
         }
     }
 }
+impl ::std::fmt::Debug for FHIROldTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIROldTypes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BodySite => "BodySite",
-            Self::CatalogEntry => "CatalogEntry",
-            Self::Conformance => "Conformance",
-            Self::DataElement => "DataElement",
-            Self::DeviceComponent => "DeviceComponent",
-            Self::DeviceUseRequest => "DeviceUseRequest",
-            Self::DeviceUseStatement => "DeviceUseStatement",
-            Self::DiagnosticOrder => "DiagnosticOrder",
-            Self::DocumentManifest => "DocumentManifest",
-            Self::EffectEvidenceSynthesis => "EffectEvidenceSynthesis",
-            Self::EligibilityRequest => "EligibilityRequest",
-            Self::EligibilityResponse => "EligibilityResponse",
-            Self::ExpansionProfile => "ExpansionProfile",
-            Self::ImagingManifest => "ImagingManifest",
-            Self::ImagingObjectSelection => "ImagingObjectSelection",
-            Self::Media => "Media",
-            Self::MedicationOrder => "MedicationOrder",
-            Self::MedicationUsage => "MedicationUsage",
-            Self::MedicinalProduct => "MedicinalProduct",
-            Self::MedicinalProductAuthorization => "MedicinalProductAuthorization",
-            Self::MedicinalProductContraindication => "MedicinalProductContraindication",
-            Self::MedicinalProductIndication => "MedicinalProductIndication",
-            Self::MedicinalProductIngredient => "MedicinalProductIngredient",
-            Self::MedicinalProductInteraction => "MedicinalProductInteraction",
-            Self::MedicinalProductManufactured => "MedicinalProductManufactured",
-            Self::MedicinalProductPackaged => "MedicinalProductPackaged",
-            Self::MedicinalProductPharmaceutical => "MedicinalProductPharmaceutical",
-            Self::MedicinalProductUndesirableEffect => {
-                "MedicinalProductUndesirableEffect"
-            }
-            Self::Order => "Order",
-            Self::OrderResponse => "OrderResponse",
-            Self::ProcedureRequest => "ProcedureRequest",
-            Self::ProcessRequest => "ProcessRequest",
-            Self::ProcessResponse => "ProcessResponse",
-            Self::ReferralRequest => "ReferralRequest",
-            Self::RequestGroup => "RequestGroup",
-            Self::ResearchDefinition => "ResearchDefinition",
-            Self::ResearchElementDefinition => "ResearchElementDefinition",
-            Self::RiskEvidenceSynthesis => "RiskEvidenceSynthesis",
-            Self::Sequence => "Sequence",
-            Self::ServiceDefinition => "ServiceDefinition",
-            Self::SubstanceSpecification => "SubstanceSpecification",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIROldTypes {
@@ -27237,7 +25927,7 @@ impl From<FHIROldTypes> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRPathTypesCodeSystem](http://hl7.org/fhir/ValueSet/fhirpath-types)**. Data types defined by FHIRPath and used within the FHIR specification\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRPathTypesCodeSystem {
     /** **http://hl7.org/fhirpath/System.Boolean**
@@ -27322,18 +26012,14 @@ impl AsRef<str> for FHIRPathTypesCodeSystem {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRPathTypesCodeSystem {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRPathTypesCodeSystem {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::HttpHl7OrgFhirpathSystemBoolean => "Boolean",
-            Self::HttpHl7OrgFhirpathSystemDate => "Date",
-            Self::HttpHl7OrgFhirpathSystemDateTime => "DateTime",
-            Self::HttpHl7OrgFhirpathSystemDecimal => "Decimal",
-            Self::HttpHl7OrgFhirpathSystemInteger => "Integer",
-            Self::HttpHl7OrgFhirpathSystemString => "String",
-            Self::HttpHl7OrgFhirpathSystemTime => "Time",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRPathTypesCodeSystem {
@@ -27389,7 +26075,7 @@ impl From<FHIRPathTypesCodeSystem> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRRestfulInteractions](http://hl7.org/fhir/ValueSet/restful-interaction)**. The set of interactions defined by the RESTful part of the FHIR specification.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRRestfulInteractions {
     /** **batch**
@@ -27516,29 +26202,14 @@ impl AsRef<str> for FHIRRestfulInteractions {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRRestfulInteractions {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRRestfulInteractions {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Batch => "batch",
-            Self::Capabilities => "capabilities",
-            Self::Create => "create",
-            Self::Delete => "delete",
-            Self::History => "history",
-            Self::HistoryInstance => "history-instance",
-            Self::HistorySystem => "history-system",
-            Self::HistoryType => "history-type",
-            Self::Operation => "operation",
-            Self::Patch => "patch",
-            Self::Read => "read",
-            Self::Search => "search",
-            Self::SearchCompartment => "search-compartment",
-            Self::SearchSystem => "search-system",
-            Self::SearchType => "search-type",
-            Self::Transaction => "transaction",
-            Self::Update => "update",
-            Self::Vread => "vread",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRRestfulInteractions {
@@ -27594,7 +26265,7 @@ impl From<FHIRRestfulInteractions> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRSafetyCheckListEntries](http://hl7.org/fhir/ValueSet/safety-entries)**. The [checklist items](http://hl7.org/fhir/safety.html) defined as part of the FHIR specification.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRSafetyCheckListEntries {
     /** **check-clocks**
@@ -27859,52 +26530,14 @@ impl AsRef<str> for FHIRSafetyCheckListEntries {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRSafetyCheckListEntries {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRSafetyCheckListEntries {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CheckClocks => "check-clocks",
-            Self::CheckConsent => "check-consent",
-            Self::CheckDnsResponses => "check-dns-responses",
-            Self::CheckValidation => "check=validation",
-            Self::CrossResource => "cross-resource",
-            Self::CsDeclare => "cs-declare",
-            Self::Current => "current",
-            Self::DateRendering => "date-rendering",
-            Self::DefaultFilters => "default-filters",
-            Self::DeletionCheck => "deletion-check",
-            Self::DeletionReplication => "deletion-replication",
-            Self::DeletionSupport => "deletion-support",
-            Self::DisplayWarnings => "display-warnings",
-            Self::DistributeAod => "distribute-aod",
-            Self::EnableCors => "enable-cors",
-            Self::ErrorChecks => "error-checks",
-            Self::Identity => "identity",
-            Self::JsonForErrors => "json-for-errors",
-            Self::LifeCycle => "life-cycle",
-            Self::LinkMerge => "link-merge",
-            Self::MissingValues => "missing-values",
-            Self::ModifierExtensions => "modifier-extensions",
-            Self::Modifiers => "modifiers",
-            Self::MustSupport => "must-support",
-            Self::ObsFocus => "obs-focus",
-            Self::RenderNarratives => "render-narratives",
-            Self::SearchParameters => "search-parameters",
-            Self::TimeZone => "time-zone",
-            Self::UseEncryption => "use-encryption",
-            Self::UseFormatHeader => "use-format-header",
-            Self::UseJson => "use-json",
-            Self::UseLabels => "use-labels",
-            Self::UseOpenidconnect => "use-openidconnect",
-            Self::UseOperationOutcome => "use-operation-outcome",
-            Self::UseOuath => "use-ouath",
-            Self::UseProvenance => "use-provenance",
-            Self::UseRbac => "use-rbac",
-            Self::UseSmime => "use-smime",
-            Self::UseTls => "use-tls",
-            Self::UseTlsPerBcp195 => "use-tls-per-bcp195",
-            Self::ValidChecked => "valid-checked",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRSafetyCheckListEntries {
@@ -27960,7 +26593,7 @@ impl From<FHIRSafetyCheckListEntries> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRSubstanceStatus](http://hl7.org/fhir/ValueSet/substance-status)**. A code to indicate if the substance is actively used.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRSubstanceStatus {
     /** **active**
@@ -27997,14 +26630,14 @@ impl AsRef<str> for FHIRSubstanceStatus {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRSubstanceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRSubstanceStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRSubstanceStatus {
@@ -28060,7 +26693,7 @@ impl From<FHIRSubstanceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRTypes](http://hl7.org/fhir/ValueSet/fhir-types)**. One of the types defined as part of this version of FHIR.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRTypes {
     /** **Account**
@@ -29472,244 +28105,14 @@ impl AsRef<str> for FHIRTypes {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRTypes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Account => "Account",
-            Self::ActivityDefinition => "ActivityDefinition",
-            Self::ActorDefinition => "ActorDefinition",
-            Self::Address => "Address",
-            Self::AdministrableProductDefinition => "AdministrableProductDefinition",
-            Self::AdverseEvent => "AdverseEvent",
-            Self::Age => "Age",
-            Self::AllergyIntolerance => "AllergyIntolerance",
-            Self::Annotation => "Annotation",
-            Self::Appointment => "Appointment",
-            Self::AppointmentResponse => "AppointmentResponse",
-            Self::ArtifactAssessment => "ArtifactAssessment",
-            Self::Attachment => "Attachment",
-            Self::AuditEvent => "AuditEvent",
-            Self::Availability => "Availability",
-            Self::BackboneElement => "BackboneElement",
-            Self::BackboneType => "BackboneType",
-            Self::Base => "Base",
-            Self::Basic => "Basic",
-            Self::Binary => "Binary",
-            Self::BiologicallyDerivedProduct => "BiologicallyDerivedProduct",
-            Self::BiologicallyDerivedProductDispense => {
-                "BiologicallyDerivedProductDispense"
-            }
-            Self::BodyStructure => "BodyStructure",
-            Self::Bundle => "Bundle",
-            Self::CanonicalResource => "CanonicalResource",
-            Self::CapabilityStatement => "CapabilityStatement",
-            Self::CarePlan => "CarePlan",
-            Self::CareTeam => "CareTeam",
-            Self::ChargeItem => "ChargeItem",
-            Self::ChargeItemDefinition => "ChargeItemDefinition",
-            Self::Citation => "Citation",
-            Self::Claim => "Claim",
-            Self::ClaimResponse => "ClaimResponse",
-            Self::ClinicalImpression => "ClinicalImpression",
-            Self::ClinicalUseDefinition => "ClinicalUseDefinition",
-            Self::CodeSystem => "CodeSystem",
-            Self::CodeableConcept => "CodeableConcept",
-            Self::CodeableReference => "CodeableReference",
-            Self::Coding => "Coding",
-            Self::Communication => "Communication",
-            Self::CommunicationRequest => "CommunicationRequest",
-            Self::CompartmentDefinition => "CompartmentDefinition",
-            Self::Composition => "Composition",
-            Self::ConceptMap => "ConceptMap",
-            Self::Condition => "Condition",
-            Self::ConditionDefinition => "ConditionDefinition",
-            Self::Consent => "Consent",
-            Self::ContactDetail => "ContactDetail",
-            Self::ContactPoint => "ContactPoint",
-            Self::Contract => "Contract",
-            Self::Contributor => "Contributor",
-            Self::Count => "Count",
-            Self::Coverage => "Coverage",
-            Self::CoverageEligibilityRequest => "CoverageEligibilityRequest",
-            Self::CoverageEligibilityResponse => "CoverageEligibilityResponse",
-            Self::DataRequirement => "DataRequirement",
-            Self::DataType => "DataType",
-            Self::DetectedIssue => "DetectedIssue",
-            Self::Device => "Device",
-            Self::DeviceAssociation => "DeviceAssociation",
-            Self::DeviceDefinition => "DeviceDefinition",
-            Self::DeviceDispense => "DeviceDispense",
-            Self::DeviceMetric => "DeviceMetric",
-            Self::DeviceRequest => "DeviceRequest",
-            Self::DeviceUsage => "DeviceUsage",
-            Self::DiagnosticReport => "DiagnosticReport",
-            Self::Distance => "Distance",
-            Self::DocumentReference => "DocumentReference",
-            Self::DomainResource => "DomainResource",
-            Self::Dosage => "Dosage",
-            Self::Duration => "Duration",
-            Self::Element => "Element",
-            Self::ElementDefinition => "ElementDefinition",
-            Self::Encounter => "Encounter",
-            Self::EncounterHistory => "EncounterHistory",
-            Self::Endpoint => "Endpoint",
-            Self::EnrollmentRequest => "EnrollmentRequest",
-            Self::EnrollmentResponse => "EnrollmentResponse",
-            Self::EpisodeOfCare => "EpisodeOfCare",
-            Self::EventDefinition => "EventDefinition",
-            Self::Evidence => "Evidence",
-            Self::EvidenceReport => "EvidenceReport",
-            Self::EvidenceVariable => "EvidenceVariable",
-            Self::ExampleScenario => "ExampleScenario",
-            Self::ExplanationOfBenefit => "ExplanationOfBenefit",
-            Self::Expression => "Expression",
-            Self::ExtendedContactDetail => "ExtendedContactDetail",
-            Self::Extension => "Extension",
-            Self::FamilyMemberHistory => "FamilyMemberHistory",
-            Self::Flag => "Flag",
-            Self::FormularyItem => "FormularyItem",
-            Self::GenomicStudy => "GenomicStudy",
-            Self::Goal => "Goal",
-            Self::GraphDefinition => "GraphDefinition",
-            Self::Group => "Group",
-            Self::GuidanceResponse => "GuidanceResponse",
-            Self::HealthcareService => "HealthcareService",
-            Self::HumanName => "HumanName",
-            Self::Identifier => "Identifier",
-            Self::ImagingSelection => "ImagingSelection",
-            Self::ImagingStudy => "ImagingStudy",
-            Self::Immunization => "Immunization",
-            Self::ImmunizationEvaluation => "ImmunizationEvaluation",
-            Self::ImmunizationRecommendation => "ImmunizationRecommendation",
-            Self::ImplementationGuide => "ImplementationGuide",
-            Self::Ingredient => "Ingredient",
-            Self::InsurancePlan => "InsurancePlan",
-            Self::InventoryItem => "InventoryItem",
-            Self::InventoryReport => "InventoryReport",
-            Self::Invoice => "Invoice",
-            Self::Library => "Library",
-            Self::Linkage => "Linkage",
-            Self::List => "List",
-            Self::Location => "Location",
-            Self::ManufacturedItemDefinition => "ManufacturedItemDefinition",
-            Self::MarketingStatus => "MarketingStatus",
-            Self::Measure => "Measure",
-            Self::MeasureReport => "MeasureReport",
-            Self::Medication => "Medication",
-            Self::MedicationAdministration => "MedicationAdministration",
-            Self::MedicationDispense => "MedicationDispense",
-            Self::MedicationKnowledge => "MedicationKnowledge",
-            Self::MedicationRequest => "MedicationRequest",
-            Self::MedicationStatement => "MedicationStatement",
-            Self::MedicinalProductDefinition => "MedicinalProductDefinition",
-            Self::MessageDefinition => "MessageDefinition",
-            Self::MessageHeader => "MessageHeader",
-            Self::Meta => "Meta",
-            Self::MetadataResource => "MetadataResource",
-            Self::MolecularSequence => "MolecularSequence",
-            Self::MonetaryComponent => "MonetaryComponent",
-            Self::Money => "Money",
-            Self::NamingSystem => "NamingSystem",
-            Self::Narrative => "Narrative",
-            Self::NutritionIntake => "NutritionIntake",
-            Self::NutritionOrder => "NutritionOrder",
-            Self::NutritionProduct => "NutritionProduct",
-            Self::Observation => "Observation",
-            Self::ObservationDefinition => "ObservationDefinition",
-            Self::OperationDefinition => "OperationDefinition",
-            Self::OperationOutcome => "OperationOutcome",
-            Self::Organization => "Organization",
-            Self::OrganizationAffiliation => "OrganizationAffiliation",
-            Self::PackagedProductDefinition => "PackagedProductDefinition",
-            Self::ParameterDefinition => "ParameterDefinition",
-            Self::Parameters => "Parameters",
-            Self::Patient => "Patient",
-            Self::PaymentNotice => "PaymentNotice",
-            Self::PaymentReconciliation => "PaymentReconciliation",
-            Self::Period => "Period",
-            Self::Permission => "Permission",
-            Self::Person => "Person",
-            Self::PlanDefinition => "PlanDefinition",
-            Self::Practitioner => "Practitioner",
-            Self::PractitionerRole => "PractitionerRole",
-            Self::PrimitiveType => "PrimitiveType",
-            Self::Procedure => "Procedure",
-            Self::ProductShelfLife => "ProductShelfLife",
-            Self::Provenance => "Provenance",
-            Self::Quantity => "Quantity",
-            Self::Questionnaire => "Questionnaire",
-            Self::QuestionnaireResponse => "QuestionnaireResponse",
-            Self::Range => "Range",
-            Self::Ratio => "Ratio",
-            Self::RatioRange => "RatioRange",
-            Self::Reference => "Reference",
-            Self::RegulatedAuthorization => "RegulatedAuthorization",
-            Self::RelatedArtifact => "RelatedArtifact",
-            Self::RelatedPerson => "RelatedPerson",
-            Self::RequestOrchestration => "RequestOrchestration",
-            Self::Requirements => "Requirements",
-            Self::ResearchStudy => "ResearchStudy",
-            Self::ResearchSubject => "ResearchSubject",
-            Self::Resource => "Resource",
-            Self::RiskAssessment => "RiskAssessment",
-            Self::SampledData => "SampledData",
-            Self::Schedule => "Schedule",
-            Self::SearchParameter => "SearchParameter",
-            Self::ServiceRequest => "ServiceRequest",
-            Self::Signature => "Signature",
-            Self::Slot => "Slot",
-            Self::Specimen => "Specimen",
-            Self::SpecimenDefinition => "SpecimenDefinition",
-            Self::StructureDefinition => "StructureDefinition",
-            Self::StructureMap => "StructureMap",
-            Self::Subscription => "Subscription",
-            Self::SubscriptionStatus => "SubscriptionStatus",
-            Self::SubscriptionTopic => "SubscriptionTopic",
-            Self::Substance => "Substance",
-            Self::SubstanceDefinition => "SubstanceDefinition",
-            Self::SubstanceNucleicAcid => "SubstanceNucleicAcid",
-            Self::SubstancePolymer => "SubstancePolymer",
-            Self::SubstanceProtein => "SubstanceProtein",
-            Self::SubstanceReferenceInformation => "SubstanceReferenceInformation",
-            Self::SubstanceSourceMaterial => "SubstanceSourceMaterial",
-            Self::SupplyDelivery => "SupplyDelivery",
-            Self::SupplyRequest => "SupplyRequest",
-            Self::Task => "Task",
-            Self::TerminologyCapabilities => "TerminologyCapabilities",
-            Self::TestPlan => "TestPlan",
-            Self::TestReport => "TestReport",
-            Self::TestScript => "TestScript",
-            Self::Timing => "Timing",
-            Self::Transport => "Transport",
-            Self::TriggerDefinition => "TriggerDefinition",
-            Self::UsageContext => "UsageContext",
-            Self::ValueSet => "ValueSet",
-            Self::VerificationResult => "VerificationResult",
-            Self::VirtualServiceDetail => "VirtualServiceDetail",
-            Self::VisionPrescription => "VisionPrescription",
-            Self::Base64Binary => "base64Binary",
-            Self::Boolean => "boolean",
-            Self::Canonical => "canonical",
-            Self::Code => "code",
-            Self::Date => "date",
-            Self::DateTime => "dateTime",
-            Self::Decimal => "decimal",
-            Self::Id => "id",
-            Self::Instant => "instant",
-            Self::Integer => "integer",
-            Self::Integer64 => "integer64",
-            Self::Markdown => "markdown",
-            Self::Oid => "oid",
-            Self::PositiveInt => "positiveInt",
-            Self::String => "string",
-            Self::Time => "time",
-            Self::UnsignedInt => "unsignedInt",
-            Self::Uri => "uri",
-            Self::Url => "url",
-            Self::Uuid => "uuid",
-            Self::Xhtml => "xhtml",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRTypes {
@@ -29765,7 +28168,7 @@ impl From<FHIRTypes> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRVersion](http://hl7.org/fhir/ValueSet/FHIR-version)**. All published FHIR Versions.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FHIRVersion {
     /** **0.0**
@@ -30126,68 +28529,14 @@ impl AsRef<str> for FHIRVersion {
         }
     }
 }
+impl ::std::fmt::Debug for FHIRVersion {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FHIRVersion {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N00 => "0.0",
-            Self::N0080 => "0.0.80",
-            Self::N0081 => "0.0.81",
-            Self::N0082 => "0.0.82",
-            Self::N001 => "0.01",
-            Self::N005 => "0.05",
-            Self::N006 => "0.06",
-            Self::N011 => "0.11",
-            Self::N04 => "0.4",
-            Self::N040 => "0.4.0",
-            Self::N05 => "0.5",
-            Self::N050 => "0.5.0",
-            Self::N10 => "1.0",
-            Self::N100 => "1.0.0",
-            Self::N101 => "1.0.1",
-            Self::N102 => "1.0.2",
-            Self::N11 => "1.1",
-            Self::N110 => "1.1.0",
-            Self::N14 => "1.4",
-            Self::N140 => "1.4.0",
-            Self::N16 => "1.6",
-            Self::N160 => "1.6.0",
-            Self::N18 => "1.8",
-            Self::N180 => "1.8.0",
-            Self::N30 => "3.0",
-            Self::N300 => "3.0.0",
-            Self::N301 => "3.0.1",
-            Self::N302 => "3.0.2",
-            Self::N33 => "3.3",
-            Self::N330 => "3.3.0",
-            Self::N35 => "3.5",
-            Self::N350 => "3.5.0",
-            Self::N40 => "4.0",
-            Self::N400 => "4.0.0",
-            Self::N401 => "4.0.1",
-            Self::N41 => "4.1",
-            Self::N410 => "4.1.0",
-            Self::N42 => "4.2",
-            Self::N420 => "4.2.0",
-            Self::N43 => "4.3",
-            Self::N430 => "4.3.0",
-            Self::N430Cibuild => "4.3.0-cibuild",
-            Self::N430Snapshot1 => "4.3.0-snapshot1",
-            Self::N44 => "4.4",
-            Self::N440 => "4.4.0",
-            Self::N45 => "4.5",
-            Self::N450 => "4.5.0",
-            Self::N46 => "4.6",
-            Self::N460 => "4.6.0",
-            Self::N50 => "5.0",
-            Self::N500 => "5.0.0",
-            Self::N500Ballot => "5.0.0-ballot",
-            Self::N500Cibuild => "5.0.0-cibuild",
-            Self::N500DraftFinal => "5.0.0-draft-final",
-            Self::N500Snapshot1 => "5.0.0-snapshot1",
-            Self::N500Snapshot2 => "5.0.0-snapshot2",
-            Self::N500Snapshot3 => "5.0.0-snapshot3",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FHIRVersion {
@@ -30243,7 +28592,7 @@ impl From<FHIRVersion> for CodeableConcept {
     }
 }
 #[doc = "**[FamilyHistoryStatus](http://hl7.org/fhir/ValueSet/history-status)**. A code that identifies the status of the family history record.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FamilyHistoryStatus {
     /** **completed**
@@ -30286,15 +28635,14 @@ impl AsRef<str> for FamilyHistoryStatus {
         }
     }
 }
+impl ::std::fmt::Debug for FamilyHistoryStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FamilyHistoryStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered in Error",
-            Self::HealthUnknown => "Health Unknown",
-            Self::Partial => "Partial",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FamilyHistoryStatus {
@@ -30350,7 +28698,7 @@ impl From<FamilyHistoryStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FilterOperator](http://hl7.org/fhir/ValueSet/filter-operator)**. The kind of operation to perform as a part of a property based filter.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FilterOperator {
     /** **=**
@@ -30435,22 +28783,14 @@ impl AsRef<str> for FilterOperator {
         }
     }
 }
+impl ::std::fmt::Debug for FilterOperator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FilterOperator {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Equal => "Equals",
-            Self::ChildOf => "Child Of",
-            Self::DescendentLeaf => "Descendent Leaf",
-            Self::DescendentOf => "Descendent Of (by subsumption)",
-            Self::Exists => "Exists",
-            Self::Generalizes => "Generalizes (by Subsumption)",
-            Self::In => "In Set",
-            Self::IsA => "Is A (by subsumption)",
-            Self::IsNotA => "Not (Is A) (by subsumption)",
-            Self::NotIn => "Not in Set",
-            Self::Regex => "Regular Expression",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FilterOperator {
@@ -30506,7 +28846,7 @@ impl From<FilterOperator> for CodeableConcept {
     }
 }
 #[doc = "**[FinancialResourceStatusCodes](http://hl7.org/fhir/fm-status)**. This value set includes Status codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum FinancialResourceStatusCodes {
     /** **active**
 
@@ -30551,16 +28891,14 @@ impl AsRef<str> for FinancialResourceStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for FinancialResourceStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FinancialResourceStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Cancelled => "Cancelled",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FinancialResourceStatusCodes {
@@ -30616,7 +28954,7 @@ impl From<FinancialResourceStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[FlagStatus](http://hl7.org/fhir/ValueSet/flag-status)**. Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FlagStatus {
     /** **active**
@@ -30653,14 +28991,14 @@ impl AsRef<str> for FlagStatus {
         }
     }
 }
+impl ::std::fmt::Debug for FlagStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FlagStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FlagStatus {
@@ -30716,7 +29054,7 @@ impl From<FlagStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FocusCharacteristicCode](http://hl7.org/fhir/ValueSet/focus-characteristic-code)**. Evidence focus characteristic code.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FocusCharacteristicCode {
     /** **citation**
@@ -30783,19 +29121,14 @@ impl AsRef<str> for FocusCharacteristicCode {
         }
     }
 }
+impl ::std::fmt::Debug for FocusCharacteristicCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FocusCharacteristicCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Citation => "Citation",
-            Self::ClinicalOutcomesObserved => "Observed outcomes are clinical outcomes",
-            Self::Comparator => "Comparator",
-            Self::Exposure => "Exposure",
-            Self::MedicationExposures => "Medication exposures",
-            Self::Outcome => "Outcome",
-            Self::Population => "Population",
-            Self::StudyType => "Study type",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FocusCharacteristicCode {
@@ -30853,7 +29186,7 @@ impl From<FocusCharacteristicCode> for CodeableConcept {
     }
 }
 #[doc = "**[FormularyItemStatusCodes](http://hl7.org/fhir/ValueSet/formularyitem-status)**. FormularyItem Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum FormularyItemStatusCodes {
     /** **active**
@@ -30890,14 +29223,14 @@ impl AsRef<str> for FormularyItemStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for FormularyItemStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for FormularyItemStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for FormularyItemStatusCodes {
@@ -30953,7 +29286,7 @@ impl From<FormularyItemStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[GenomicStudyChangeType](http://hl7.org/fhir/ValueSet/genomicstudy-changetype)**. The change type relevant to GenomicStudy analysis.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyChangeType {
     /** **AA**
@@ -31002,16 +29335,14 @@ impl AsRef<str> for GenomicStudyChangeType {
         }
     }
 }
+impl ::std::fmt::Debug for GenomicStudyChangeType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GenomicStudyChangeType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Aa => "Protein/amino Acids change ",
-            Self::Chr => "Chromosomal changes",
-            Self::Cnv => "Copy number variations",
-            Self::Dna => "DNA change",
-            Self::Rna => "RNA change",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GenomicStudyChangeType {
@@ -31069,7 +29400,7 @@ impl From<GenomicStudyChangeType> for CodeableConcept {
     }
 }
 #[doc = "**[GenomicStudyDataFormat](http://hl7.org/fhir/ValueSet/genomicstudy-dataformat)**. The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyDataFormat {
     /** **bam**
@@ -31332,53 +29663,14 @@ impl AsRef<str> for GenomicStudyDataFormat {
         }
     }
 }
+impl ::std::fmt::Debug for GenomicStudyDataFormat {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GenomicStudyDataFormat {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Bam => "BAM",
-            Self::Bed => "BED",
-            Self::Bedgraph => "BedGraph",
-            Self::Bedpe => "BEDPE",
-            Self::BigWig => "bigWig",
-            Self::Bigbed => "bigBed",
-            Self::BirdsuiteFiles => "Birdsuite-Files",
-            Self::Broadpeak => "broadPeak",
-            Self::Cbs => "CBS",
-            Self::ChemicalReactivityProbingProfiles => {
-                "Chemical-Reactivity-Probing-Profiles"
-            }
-            Self::ChromSizes => "chrom-sizes",
-            Self::Cn => "CN",
-            Self::Cram => "CRAM",
-            Self::CustomFileFormats => "Custom-File-Formats",
-            Self::Cytoband => "Cytoband",
-            Self::Fasta => "FASTA",
-            Self::Gct => "GCT",
-            Self::Genepred => "genePred",
-            Self::GffGtf => "GFF/GTF",
-            Self::Gistic => "GISTIC",
-            Self::Goby => "Goby",
-            Self::Gwas => "GWAS",
-            Self::Igv => "IGV",
-            Self::Loh => "LOH",
-            Self::MafMultipleAlignmentFormat => "MAF-Multiple Alignment Format",
-            Self::MafMutationAnnotationFormat => "MAF-Mutation-Annotation-Format",
-            Self::MergedBamFile => "Merged BAM File",
-            Self::Mut => "MUT",
-            Self::Narrowpeak => "narrowPeak",
-            Self::Psl => "PSL",
-            Self::Res => "RES",
-            Self::RnaSecondaryStructureFormats => "RNA-Secondary-Structure-Formats",
-            Self::Sam => "SAM",
-            Self::SampleInfoAttributesFile => "Sample-Info-Attributes-file",
-            Self::Seg => "SEG",
-            Self::Tdf => "TDF",
-            Self::TrackLine => "Track Line",
-            Self::TypeLine => "Type Line",
-            Self::Vcf => "VCF",
-            Self::Wig => "WIG",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GenomicStudyDataFormat {
@@ -31436,7 +29728,7 @@ impl From<GenomicStudyDataFormat> for CodeableConcept {
     }
 }
 #[doc = "**[GenomicStudyMethodType](http://hl7.org/fhir/ValueSet/genomicstudy-methodtype)**. The method type of the GenomicStudy analysis. These method types and relevant codes were pulled from [National Library of Medicine-Genetic Testing Registry](https://www.ncbi.nlm.nih.gov/gtr/) (NCBI-GTR) values of describing different testing methods on various levels: [major method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Major_method_category.txt), [method category](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Method_category.txt), and [primary methodology](https://ftp.ncbi.nlm.nih.gov/pub/GTR/standard_terms/Primary_test_methodology.txt)\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyMethodType {
     /** **alternative-splicing-detection**
@@ -31989,110 +30281,14 @@ impl AsRef<str> for GenomicStudyMethodType {
         }
     }
 }
+impl ::std::fmt::Debug for GenomicStudyMethodType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GenomicStudyMethodType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AlternativeSplicingDetection => "Alternative splicing detection",
-            Self::Analyte => "Analyte",
-            Self::Aspe => "Allele-specific primer extension (ASPE)",
-            Self::BiDirectionalSangerSequenceAnalysis => {
-                "Bi-directional Sanger Sequence Analysis"
-            }
-            Self::BiochemicalGenetics => "Biochemical Genetics",
-            Self::CBanding => "C-banding",
-            Self::ChromatinImmunoprecipitationOnChip => {
-                "Chromatin Immunoprecipitation on ChIP"
-            }
-            Self::ChromosomeBreakageStudies => "Chromosome breakage studies",
-            Self::Cia => "Chemiluminescent Immunoassay (CIA)",
-            Self::ComparativeGenomicHybridization => "Comparative Genomic Hybridization",
-            Self::Cytogenetics => "Cytogenetics",
-            Self::Damid => "DamID",
-            Self::DeletionDuplicationAnalysis => "Deletion/duplication analysis",
-            Self::DetectionOfHomozygosity => "Detection of homozygosity",
-            Self::DigitalMicrofluidicMicrospheres => "Digital microfluidic microspheres",
-            Self::DigitalVirtualKaryotyping => "Digital / Virtual karyotyping",
-            Self::Elisa => "Enzyme-Linked Immunosorbent Assays (ELISA)",
-            Self::EnzymaticLevels => "Enzymatic levels",
-            Self::EnzymeActivity => "Enzyme activity",
-            Self::EnzymeAssay => "Enzyme assay",
-            Self::Fish => "Fluorescence in situ hybridization (FISH)",
-            Self::FishInterphase => "FISH-interphase",
-            Self::FishMetaphase => "FISH-metaphase",
-            Self::FlowCytometry => "Flow cytometry",
-            Self::Fluorometry => "Fluorometry",
-            Self::FusionGenesMicroarrays => "Fusion genes microarrays",
-            Self::GBanding => "G-banding",
-            Self::GcMs => "Gas chromatographyâ€“mass spectrometry (GC-MS)",
-            Self::GeneExpressionProfiling => "Gene expression profiling",
-            Self::GeneId => "GeneID",
-            Self::GoldNanoparticleProbeTechnology => "Gold nanoparticle probe technology",
-            Self::Hplc => "High-performance liquid chromatography (HPLC)",
-            Self::Immunohistochemistry => "Immunohistochemistry",
-            Self::Karyotyping => "Karyotyping",
-            Self::LcMs => "Liquid chromatography mass spectrometry (LC-MS)",
-            Self::LcMsMs => "Liquid chromatography-tandem mass spectrometry (LC-MS/MS)",
-            Self::LinkageAnalysis => "Linkage analysis",
-            Self::MFish => "Multicolor FISH (M-FISH)",
-            Self::MetaboliteLevels => "Metabolite levels",
-            Self::MethylationAnalysis => "Methylation analysis",
-            Self::MethylationSpecificPcr => "Methylation-specific PCR",
-            Self::Microarray => "Microarray",
-            Self::Mlpa => "Multiplex Ligation-dependent Probe Amplification (MLPA)",
-            Self::MolecularGenetics => "Molecular Genetics",
-            Self::MsMs => "Tandem mass spectrometry (MS/MS)",
-            Self::Msi => "Microsatellite instability testing (MSI)",
-            Self::MutationScanningOfSelectExons => "Mutation scanning of select exons",
-            Self::MutationScanningOfTheEntireCodingRegion => {
-                "Mutation scanning of the entire coding region"
-            }
-            Self::NgsMps => "Next-Generation (NGS)/Massively parallel sequencing (MPS)",
-            Self::Ola => "Oligonucleotide Ligation Assay (OLA)",
-            Self::OligonucleotideHybridizationBasedDnaSequencing => {
-                "Oligonucleotide hybridization-based DNA sequencing"
-            }
-            Self::Other => "Other",
-            Self::Pcr => "PCR",
-            Self::PcrRflpWithSouthernHybridization => {
-                "PCR-RFLP with Southern hybridization"
-            }
-            Self::PcrWithAlleleSpecificHybridization => {
-                "PCR with allele specific hybridization"
-            }
-            Self::ProteinAnalysis => "Protein analysis",
-            Self::ProteinExpression => "Protein expression",
-            Self::ProteinTruncationTest => "Protein truncation test",
-            Self::Pyrosequencing => "Pyrosequencing",
-            Self::QBanding => "Q-banding",
-            Self::Qpcr => "Quantitative PCR (qPCR)",
-            Self::RBanding => "R-banding",
-            Self::Rflp => "RFLP",
-            Self::RnaAnalysis => "RNA analysis",
-            Self::RtLamp => "RT-LAMP",
-            Self::RtPcr => "RT-PCR",
-            Self::RtPcrWithGelAnalysis => "RT-PCR with gel analysis",
-            Self::RtQpcr => "RT-qPCR",
-            Self::SequenceAnalysisOfSelectExons => "Sequence analysis of select exons",
-            Self::SequenceAnalysisOfTheEntireCodingRegion => {
-                "Sequence analysis of the entire coding region"
-            }
-            Self::SilverStaining => "Silver staining",
-            Self::SisterChromatidExchange => "Sister chromatid exchange",
-            Self::Sky => "Spectral karyotyping (SKY)",
-            Self::SnpDetection => "SNP Detection",
-            Self::TBanding => "T-banding",
-            Self::TargetedVariantAnalysis => "Targeted variant analysis",
-            Self::TetraNucleotideRepeatByPcrOrSouthernBlot => {
-                "Tetra-nucleotide repeat by PCR or Southern Blot"
-            }
-            Self::TilingArrays => "Tiling Arrays",
-            Self::TrinucleotideRepeatByPcrOrSouthernBlot => {
-                "Trinucleotide repeat by PCR or Southern Blot"
-            }
-            Self::Udp => "Uniparental disomy study (UPD)",
-            Self::UniDirectionalSangerSequencing => "Uni-directional Sanger sequencing",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GenomicStudyMethodType {
@@ -32150,7 +30346,7 @@ impl From<GenomicStudyMethodType> for CodeableConcept {
     }
 }
 #[doc = "**[GenomicStudyStatus](http://hl7.org/fhir/ValueSet/genomicstudy-status)**. The status of the GenomicStudy.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyStatus {
     /** **available**
@@ -32199,16 +30395,14 @@ impl AsRef<str> for GenomicStudyStatus {
         }
     }
 }
+impl ::std::fmt::Debug for GenomicStudyStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GenomicStudyStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Available => "Available",
-            Self::Cancelled => "Cancelled",
-            Self::EnteredInError => "Entered in Error",
-            Self::Registered => "Registered",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GenomicStudyStatus {
@@ -32264,7 +30458,7 @@ impl From<GenomicStudyStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GenomicStudyType](http://hl7.org/fhir/ValueSet/genomicstudy-type)**. The type relevant to GenomicStudy.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GenomicStudyType {
     /** **alt-splc**
@@ -32355,23 +30549,14 @@ impl AsRef<str> for GenomicStudyType {
         }
     }
 }
+impl ::std::fmt::Debug for GenomicStudyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GenomicStudyType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AltSplc => "Alternative splicing detection",
-            Self::Chromatin => "Chromatin conformation",
-            Self::Cnv => "CNV detection",
-            Self::EpiAltDna => "Epigenetic Alterations -DNA methylation",
-            Self::EpiAltHist => "Epigenetic Alterations - histone modifications",
-            Self::FamVarSegr => "Familial variant segregation",
-            Self::FuncVar => "Functional variation detection",
-            Self::GeneExpression => "Gene expression profiling",
-            Self::PostTransMod => "Post-translational Modification Identification",
-            Self::Snp => "SNP Detection",
-            Self::Str => "STR count",
-            Self::StrucVar => "Structural variation detection",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GenomicStudyType {
@@ -32427,7 +30612,7 @@ impl From<GenomicStudyType> for CodeableConcept {
     }
 }
 #[doc = "**[GoalLifecycleStatus](http://hl7.org/fhir/ValueSet/goal-status)**. Codes that reflect the current state of a goal and whether the goal is still being targeted.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GoalLifecycleStatus {
     /** **accepted**
@@ -32500,20 +30685,14 @@ impl AsRef<str> for GoalLifecycleStatus {
         }
     }
 }
+impl ::std::fmt::Debug for GoalLifecycleStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GoalLifecycleStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Accepted => "Accepted",
-            Self::Active => "Active",
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered in Error",
-            Self::OnHold => "On Hold",
-            Self::Planned => "Planned",
-            Self::Proposed => "Proposed",
-            Self::Rejected => "Rejected",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GoalLifecycleStatus {
@@ -32569,7 +30748,7 @@ impl From<GoalLifecycleStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GraphCompartmentRule](http://hl7.org/fhir/ValueSet/graph-compartment-rule)**. How a compartment must be linked.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GraphCompartmentRule {
     /** **custom**
@@ -32612,15 +30791,14 @@ impl AsRef<str> for GraphCompartmentRule {
         }
     }
 }
+impl ::std::fmt::Debug for GraphCompartmentRule {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GraphCompartmentRule {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Custom => "Custom",
-            Self::Different => "Different",
-            Self::Identical => "Identical",
-            Self::Matching => "Matching",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GraphCompartmentRule {
@@ -32678,7 +30856,7 @@ impl From<GraphCompartmentRule> for CodeableConcept {
     }
 }
 #[doc = "**[GraphCompartmentUse](http://hl7.org/fhir/ValueSet/graph-compartment-use)**. Defines how a compartment rule is used.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GraphCompartmentUse {
     /** **requires**
@@ -32709,13 +30887,14 @@ impl AsRef<str> for GraphCompartmentUse {
         }
     }
 }
+impl ::std::fmt::Debug for GraphCompartmentUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GraphCompartmentUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Requires => "requires",
-            Self::Where => "Where",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GraphCompartmentUse {
@@ -32773,7 +30952,7 @@ impl From<GraphCompartmentUse> for CodeableConcept {
     }
 }
 #[doc = "**[GroupMembershipBasis](http://hl7.org/fhir/ValueSet/group-membership-basis)**. Basis for membership in a group\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GroupMembershipBasis {
     /** **definitional**
@@ -32804,13 +30983,14 @@ impl AsRef<str> for GroupMembershipBasis {
         }
     }
 }
+impl ::std::fmt::Debug for GroupMembershipBasis {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GroupMembershipBasis {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Definitional => "Definitional",
-            Self::Enumerated => "Enumerated",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GroupMembershipBasis {
@@ -32868,7 +31048,7 @@ impl From<GroupMembershipBasis> for CodeableConcept {
     }
 }
 #[doc = "**[GroupType](http://hl7.org/fhir/ValueSet/group-type)**. Types of resources that are part of group.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GroupType {
     /** **animal**
@@ -32947,21 +31127,14 @@ impl AsRef<str> for GroupType {
         }
     }
 }
+impl ::std::fmt::Debug for GroupType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GroupType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Animal => "Animal",
-            Self::Careteam => "CareTeam",
-            Self::Device => "Device",
-            Self::Healthcareservice => "HealthcareService",
-            Self::Location => "Location",
-            Self::Organization => "Organization",
-            Self::Person => "Person",
-            Self::Practitioner => "Practitioner",
-            Self::Relatedperson => "RelatedPerson",
-            Self::Specimen => "Specimen",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GroupType {
@@ -33017,7 +31190,7 @@ impl From<GroupType> for CodeableConcept {
     }
 }
 #[doc = "**[GuidanceModuleCode](http://hl7.org/fhir/ValueSet/guidance-module-code)**. Example guidance module codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GuidanceModuleCode {
     /** **anc-cds**
@@ -33072,17 +31245,14 @@ impl AsRef<str> for GuidanceModuleCode {
         }
     }
 }
+impl ::std::fmt::Debug for GuidanceModuleCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GuidanceModuleCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AncCds => "ANC CDS",
-            Self::BmiCalculator => "BMI Calculator",
-            Self::ChfPathway => "CHF Pathway",
-            Self::Covid19Severity => "COVID-19 Severity Score",
-            Self::MmeCalculator => "MME Calculator",
-            Self::OpioidCds => "Opioid CDS",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GuidanceModuleCode {
@@ -33138,7 +31308,7 @@ impl From<GuidanceModuleCode> for CodeableConcept {
     }
 }
 #[doc = "**[GuidanceResponseStatus](http://hl7.org/fhir/ValueSet/guidance-response-status)**. The status of a guidance response.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GuidanceResponseStatus {
     /** **data-requested**
@@ -33193,17 +31363,14 @@ impl AsRef<str> for GuidanceResponseStatus {
         }
     }
 }
+impl ::std::fmt::Debug for GuidanceResponseStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GuidanceResponseStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DataRequested => "Data Requested",
-            Self::DataRequired => "Data Required",
-            Self::EnteredInError => "Entered In Error",
-            Self::Failure => "Failure",
-            Self::InProgress => "In Progress",
-            Self::Success => "Success",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GuidanceResponseStatus {
@@ -33261,7 +31428,7 @@ impl From<GuidanceResponseStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GuidePageGeneration](http://hl7.org/fhir/ValueSet/guide-page-generation)**. A code that indicates how the page is generated.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum GuidePageGeneration {
     /** **generated**
@@ -33304,15 +31471,14 @@ impl AsRef<str> for GuidePageGeneration {
         }
     }
 }
+impl ::std::fmt::Debug for GuidePageGeneration {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GuidePageGeneration {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Generated => "Generated",
-            Self::Html => "HTML",
-            Self::Markdown => "Markdown",
-            Self::Xml => "XML",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GuidePageGeneration {
@@ -33370,7 +31536,7 @@ impl From<GuidePageGeneration> for CodeableConcept {
     }
 }
 #[doc = "**[GuideParameterCode](http://hl7.org/fhir/guide-parameter-code)**. GuideParameterCode\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum GuideParameterCode {
     /** **apply**
 
@@ -33451,22 +31617,14 @@ impl AsRef<str> for GuideParameterCode {
         }
     }
 }
+impl ::std::fmt::Debug for GuideParameterCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for GuideParameterCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Apply => "Apply Metadata Value",
-            Self::ExpansionParameter => "Expansion Profile",
-            Self::GenerateJson => "Generate JSON",
-            Self::GenerateTurtle => "Generate Turtle",
-            Self::GenerateXml => "Generate XML",
-            Self::HtmlTemplate => "HTML Template",
-            Self::PathPages => "Pages Path",
-            Self::PathResource => "Resource Path",
-            Self::PathTxCache => "Terminology Cache Path",
-            Self::RuleBrokenLinks => "Broken Links Rule",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for GuideParameterCode {
@@ -33522,7 +31680,7 @@ impl From<GuideParameterCode> for CodeableConcept {
     }
 }
 #[doc = "**[HTTPVerb](http://hl7.org/fhir/ValueSet/http-verb)**. HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum HTTPVerb {
     /** **DELETE**
@@ -33577,17 +31735,14 @@ impl AsRef<str> for HTTPVerb {
         }
     }
 }
+impl ::std::fmt::Debug for HTTPVerb {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for HTTPVerb {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Delete => "DELETE",
-            Self::Get => "GET",
-            Self::Head => "HEAD",
-            Self::Patch => "PATCH",
-            Self::Post => "POST",
-            Self::Put => "PUT",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for HTTPVerb {
@@ -33643,7 +31798,7 @@ impl From<HTTPVerb> for CodeableConcept {
     }
 }
 #[doc = "**[ICD10ProcedureCodes](http://hl7.org/fhir/sid/ex-icd-10-procedures)**. This value set includes sample ICD-10 Procedure codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ICD10ProcedureCodes {
     /** **123001**
 
@@ -33682,15 +31837,14 @@ impl AsRef<str> for ICD10ProcedureCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ICD10ProcedureCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ICD10ProcedureCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N123001 => "PROC-1",
-            Self::N123002 => "PROC-2",
-            Self::N123003 => "PROC-3",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ICD10ProcedureCodes {
@@ -33746,7 +31900,7 @@ impl From<ICD10ProcedureCodes> for CodeableConcept {
     }
 }
 #[doc = "**[IdentifierUse](http://hl7.org/fhir/ValueSet/identifier-use)**. Identifies the purpose for this identifier, if known .\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IdentifierUse {
     /** **official**
@@ -33795,16 +31949,14 @@ impl AsRef<str> for IdentifierUse {
         }
     }
 }
+impl ::std::fmt::Debug for IdentifierUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IdentifierUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Official => "Official",
-            Self::Old => "Old",
-            Self::Secondary => "Secondary",
-            Self::Temp => "Temp",
-            Self::Usual => "Usual",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IdentifierUse {
@@ -33860,7 +32012,7 @@ impl From<IdentifierUse> for CodeableConcept {
     }
 }
 #[doc = "**[IdentityAssuranceLevel](http://hl7.org/fhir/ValueSet/identity-assuranceLevel)**. The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IdentityAssuranceLevel {
     /** **level1**
@@ -33903,15 +32055,14 @@ impl AsRef<str> for IdentityAssuranceLevel {
         }
     }
 }
+impl ::std::fmt::Debug for IdentityAssuranceLevel {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IdentityAssuranceLevel {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Level1 => "Level 1",
-            Self::Level2 => "Level 2",
-            Self::Level3 => "Level 3",
-            Self::Level4 => "Level 4",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IdentityAssuranceLevel {
@@ -33969,7 +32120,7 @@ impl From<IdentityAssuranceLevel> for CodeableConcept {
     }
 }
 #[doc = "**[ImagingSelection2DGraphicType](http://hl7.org/fhir/ValueSet/imagingselection-2dgraphictype)**. The type of coordinates describing a 2D image region.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingSelection2DGraphicType {
     /** **circle**
@@ -34018,16 +32169,14 @@ impl AsRef<str> for ImagingSelection2DGraphicType {
         }
     }
 }
+impl ::std::fmt::Debug for ImagingSelection2DGraphicType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ImagingSelection2DGraphicType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Circle => "CIRCLE",
-            Self::Ellipse => "ELLIPSE",
-            Self::Interpolated => "INTERPOLATED",
-            Self::Point => "POINT",
-            Self::Polyline => "POLYLINE",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ImagingSelection2DGraphicType {
@@ -34085,7 +32234,7 @@ impl From<ImagingSelection2DGraphicType> for CodeableConcept {
     }
 }
 #[doc = "**[ImagingSelection3DGraphicType](http://hl7.org/fhir/ValueSet/imagingselection-3dgraphictype)**. The type of coordinates describing an image region.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingSelection3DGraphicType {
     /** **ellipse**
@@ -34140,17 +32289,14 @@ impl AsRef<str> for ImagingSelection3DGraphicType {
         }
     }
 }
+impl ::std::fmt::Debug for ImagingSelection3DGraphicType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ImagingSelection3DGraphicType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ellipse => "ELLIPSE",
-            Self::Ellipsoid => "ELLIPSOID",
-            Self::Multipoint => "MULTIPOINT",
-            Self::Point => "POINT",
-            Self::Polygon => "POLYGON",
-            Self::Polyline => "POLYLINE",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ImagingSelection3DGraphicType {
@@ -34208,7 +32354,7 @@ impl From<ImagingSelection3DGraphicType> for CodeableConcept {
     }
 }
 #[doc = "**[ImagingSelectionStatus](http://hl7.org/fhir/ValueSet/imagingselection-status)**. The status of the ImagingSelection.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingSelectionStatus {
     /** **available**
@@ -34245,14 +32391,14 @@ impl AsRef<str> for ImagingSelectionStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ImagingSelectionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ImagingSelectionStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Available => "Available",
-            Self::EnteredInError => "Entered in Error",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ImagingSelectionStatus {
@@ -34310,7 +32456,7 @@ impl From<ImagingSelectionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ImagingStudyStatus](http://hl7.org/fhir/ValueSet/imagingstudy-status)**. The status of the ImagingStudy.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ImagingStudyStatus {
     /** **available**
@@ -34359,16 +32505,14 @@ impl AsRef<str> for ImagingStudyStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ImagingStudyStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ImagingStudyStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Available => "Available",
-            Self::Cancelled => "Cancelled",
-            Self::EnteredInError => "Entered in Error",
-            Self::Registered => "Registered",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ImagingStudyStatus {
@@ -34424,7 +32568,7 @@ impl From<ImagingStudyStatus> for CodeableConcept {
     }
 }
 #[doc = "**[Indicator](http://hl7.org/fhir/ValueSet/cdshooks-indicator)**. This codesystem captures the indicator codes defined by the CDS Hooks specification. The indicator is included as an element of the cards in a CDS Hooks response and conveys the urgency and/or importance of the information in each card. See [Card Attributes](https://cds-hooks.hl7.org/1.0/#card-attributes) in the CDS Hooks specification for more information.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Indicator {
     /** **critical**
@@ -34461,14 +32605,14 @@ impl AsRef<str> for Indicator {
         }
     }
 }
+impl ::std::fmt::Debug for Indicator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for Indicator {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Critical => "Critical",
-            Self::Info => "Information",
-            Self::Warning => "Warning",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for Indicator {
@@ -34524,7 +32668,7 @@ impl From<Indicator> for CodeableConcept {
     }
 }
 #[doc = "**[IngredientFunction](http://hl7.org/fhir/ValueSet/ingredient-function)**. A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IngredientFunction {
     /** **AlkalizingAgent**
@@ -34555,13 +32699,14 @@ impl AsRef<str> for IngredientFunction {
         }
     }
 }
+impl ::std::fmt::Debug for IngredientFunction {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IngredientFunction {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AlkalizingAgent => "Alkalizing Agent",
-            Self::Antioxidant => "Antioxidant",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IngredientFunction {
@@ -34617,7 +32762,7 @@ impl From<IngredientFunction> for CodeableConcept {
     }
 }
 #[doc = "**[IngredientManufacturerRole](http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role)**. The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IngredientManufacturerRole {
     /** **actual**
@@ -34654,14 +32799,14 @@ impl AsRef<str> for IngredientManufacturerRole {
         }
     }
 }
+impl ::std::fmt::Debug for IngredientManufacturerRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IngredientManufacturerRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Actual => "Manufacturer actually makes this particular ingredient",
-            Self::Allowed => "Manufacturer is specifically allowed for this ingredient",
-            Self::Possible => "Manufacturer is known to make this ingredient in general",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IngredientManufacturerRole {
@@ -34719,7 +32864,7 @@ impl From<IngredientManufacturerRole> for CodeableConcept {
     }
 }
 #[doc = "**[IngredientRole](http://hl7.org/fhir/ValueSet/ingredient-role)**. A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IngredientRole {
     /** **100000072072**
@@ -34792,20 +32937,14 @@ impl AsRef<str> for IngredientRole {
         }
     }
 }
+impl ::std::fmt::Debug for IngredientRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IngredientRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000072072 => "Active",
-            Self::N100000072073 => "Adjuvant",
-            Self::N100000072082 => "Excipient",
-            Self::N100000136065 => "Starting material for excipient",
-            Self::N100000136066 => "Solvent / Diluent",
-            Self::N100000136178 => "Raw materials used in the manufacture of the product",
-            Self::N100000136179 => "Starting material for active substance",
-            Self::N100000136561 => "Overage",
-            Self::N200000003427 => "bioenhancer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IngredientRole {
@@ -34861,7 +33000,7 @@ impl From<IngredientRole> for CodeableConcept {
     }
 }
 #[doc = "**[InteractionIncidence](http://hl7.org/fhir/ValueSet/interaction-incidence)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InteractionIncidence {
     /** **Observed**
@@ -34892,13 +33031,14 @@ impl AsRef<str> for InteractionIncidence {
         }
     }
 }
+impl ::std::fmt::Debug for InteractionIncidence {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InteractionIncidence {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Observed => "Observed",
-            Self::Theoretical => "Theoretical",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InteractionIncidence {
@@ -34956,7 +33096,7 @@ impl From<InteractionIncidence> for CodeableConcept {
     }
 }
 #[doc = "**[InteractionType](http://hl7.org/fhir/ValueSet/interaction-type)**. A categorisation for an interaction between two substances.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InteractionType {
     /** **drug-drug**
@@ -34999,15 +33139,14 @@ impl AsRef<str> for InteractionType {
         }
     }
 }
+impl ::std::fmt::Debug for InteractionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InteractionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DrugDrug => "drug to drug interaction",
-            Self::DrugFood => "drug to food interaction",
-            Self::DrugTest => "drug to laboratory test interaction",
-            Self::Other => "other interaction",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InteractionType {
@@ -35063,7 +33202,7 @@ impl From<InteractionType> for CodeableConcept {
     }
 }
 #[doc = "**[InventoryCountType](http://hl7.org/fhir/ValueSet/inventoryreport-counttype)**. The type of count.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryCountType {
     /** **difference**
@@ -35094,13 +33233,14 @@ impl AsRef<str> for InventoryCountType {
         }
     }
 }
+impl ::std::fmt::Debug for InventoryCountType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InventoryCountType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Difference => "Difference",
-            Self::Snapshot => "Snapshot",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InventoryCountType {
@@ -35158,7 +33298,7 @@ impl From<InventoryCountType> for CodeableConcept {
     }
 }
 #[doc = "**[InventoryItemNameType](http://hl7.org/fhir/ValueSet/inventoryitem-nametype)**. InventoryItem Name Type\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryItemNameType {
     /** **alias**
@@ -35201,15 +33341,14 @@ impl AsRef<str> for InventoryItemNameType {
         }
     }
 }
+impl ::std::fmt::Debug for InventoryItemNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InventoryItemNameType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Alias => "Alias",
-            Self::OriginalName => "Original Name",
-            Self::Preferred => "Preferred",
-            Self::TradeName => "Trade Name",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InventoryItemNameType {
@@ -35267,7 +33406,7 @@ impl From<InventoryItemNameType> for CodeableConcept {
     }
 }
 #[doc = "**[InventoryItemStatus](http://hl7.org/fhir/ValueSet/inventoryitem-status)**. InventoryItem Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryItemStatus {
     /** **active**
@@ -35310,15 +33449,14 @@ impl AsRef<str> for InventoryItemStatus {
         }
     }
 }
+impl ::std::fmt::Debug for InventoryItemStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InventoryItemStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InventoryItemStatus {
@@ -35374,7 +33512,7 @@ impl From<InventoryItemStatus> for CodeableConcept {
     }
 }
 #[doc = "**[InventoryReportStatus](http://hl7.org/fhir/ValueSet/inventoryreport-status)**. The status of the InventoryReport.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InventoryReportStatus {
     /** **active**
@@ -35417,15 +33555,14 @@ impl AsRef<str> for InventoryReportStatus {
         }
     }
 }
+impl ::std::fmt::Debug for InventoryReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InventoryReportStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::Requested => "Requested",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InventoryReportStatus {
@@ -35483,7 +33620,7 @@ impl From<InventoryReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[InvoiceStatus](http://hl7.org/fhir/ValueSet/invoice-status)**. Codes identifying the lifecycle stage of an Invoice.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum InvoiceStatus {
     /** **balanced**
@@ -35532,16 +33669,14 @@ impl AsRef<str> for InvoiceStatus {
         }
     }
 }
+impl ::std::fmt::Debug for InvoiceStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for InvoiceStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Balanced => "balanced",
-            Self::Cancelled => "cancelled",
-            Self::Draft => "draft",
-            Self::EnteredInError => "entered in error",
-            Self::Issued => "issued",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for InvoiceStatus {
@@ -35597,7 +33732,7 @@ impl From<InvoiceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[IssueSeverity](http://hl7.org/fhir/ValueSet/issue-severity)**. How the issue affects the success of the action.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IssueSeverity {
     /** **error**
@@ -35646,16 +33781,14 @@ impl AsRef<str> for IssueSeverity {
         }
     }
 }
+impl ::std::fmt::Debug for IssueSeverity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IssueSeverity {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Error => "Error",
-            Self::Fatal => "Fatal",
-            Self::Information => "Information",
-            Self::Success => "Operation Successful",
-            Self::Warning => "Warning",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IssueSeverity {
@@ -35711,7 +33844,7 @@ impl From<IssueSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[IssueType](http://hl7.org/fhir/ValueSet/issue-type)**. A code that describes the type of issue.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum IssueType {
     /** **business-rule**
@@ -35928,44 +34061,14 @@ impl AsRef<str> for IssueType {
         }
     }
 }
+impl ::std::fmt::Debug for IssueType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for IssueType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BusinessRule => "Business Rule Violation",
-            Self::CodeInvalid => "Invalid Code",
-            Self::Conflict => "Edit Version Conflict",
-            Self::Deleted => "Deleted",
-            Self::Duplicate => "Duplicate",
-            Self::Exception => "Exception",
-            Self::Expired => "Session Expired",
-            Self::Extension => "Unacceptable Extension",
-            Self::Forbidden => "Forbidden",
-            Self::Incomplete => "Incomplete Results",
-            Self::Informational => "Informational Note",
-            Self::Invalid => "Invalid Content",
-            Self::Invariant => "Validation rule failed",
-            Self::LimitedFilter => "Limited Filter Application",
-            Self::LockError => "Lock Error",
-            Self::Login => "Login Required",
-            Self::MultipleMatches => "Multiple Matches",
-            Self::NoStore => "No Store Available",
-            Self::NotFound => "Not Found",
-            Self::NotSupported => "Content not supported",
-            Self::Processing => "Processing Failure",
-            Self::Required => "Required element missing",
-            Self::Security => "Security Problem",
-            Self::Structure => "Structural Issue",
-            Self::Success => "Operation Successful",
-            Self::Suppressed => "Information  Suppressed",
-            Self::Throttled => "Throttled",
-            Self::Timeout => "Timeout",
-            Self::TooCostly => "Operation Too Costly",
-            Self::TooLong => "Content Too Long",
-            Self::Transient => "Transient Issue",
-            Self::Unknown => "Unknown User",
-            Self::Value => "Element value invalid",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for IssueType {
@@ -36021,7 +34124,7 @@ impl From<IssueType> for CodeableConcept {
     }
 }
 #[doc = "**[Kind](http://hl7.org/fhir/ValueSet/coverage-kind)**. The nature of the Coverage details which convey who is paying potentially for health services.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Kind {
     /** **insurance**
@@ -36058,14 +34161,14 @@ impl AsRef<str> for Kind {
         }
     }
 }
+impl ::std::fmt::Debug for Kind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for Kind {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Insurance => "Insurance",
-            Self::Other => "Other",
-            Self::SelfPay => "Self-pay",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for Kind {
@@ -36121,7 +34224,7 @@ impl From<Kind> for CodeableConcept {
     }
 }
 #[doc = "**[KnowledgeRepresentationLevel](http://hl7.org/fhir/uv/cpg/ValueSet/knowledge-representation-level)**. A knowledge representation level, narrative, semi-structured, structured, and executable\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum KnowledgeRepresentationLevel {
     /** **executable**
@@ -36164,15 +34267,14 @@ impl AsRef<str> for KnowledgeRepresentationLevel {
         }
     }
 }
+impl ::std::fmt::Debug for KnowledgeRepresentationLevel {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for KnowledgeRepresentationLevel {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Executable => "Executable",
-            Self::Narrative => "Narrative",
-            Self::SemiStructured => "Semi-Structured",
-            Self::Structured => "Structured",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for KnowledgeRepresentationLevel {
@@ -36231,7 +34333,7 @@ impl From<KnowledgeRepresentationLevel> for CodeableConcept {
     }
 }
 #[doc = "**[LegalStatusOfSupply](http://hl7.org/fhir/ValueSet/legal-status-of-supply)**. The prescription supply types appropriate to a medicinal product\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LegalStatusOfSupply {
     /** **100000072076**
@@ -36298,33 +34400,14 @@ impl AsRef<str> for LegalStatusOfSupply {
         }
     }
 }
+impl ::std::fmt::Debug for LegalStatusOfSupply {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LegalStatusOfSupply {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000072076 => {
-                "Medicinal product not subject to medical prescription"
-            }
-            Self::N100000072077 => {
-                "Medicinal product on medical prescription for renewable or non-renewable delivery"
-            }
-            Self::N100000072078 => {
-                "Medicinal product subject to restricted medical prescription"
-            }
-            Self::N100000072079 => {
-                "Medicinal product on medical prescription for non-renewable delivery"
-            }
-            Self::N100000072084 => "Medicinal product subject to medical prescription",
-            Self::N100000072085 => {
-                "Medicinal product subject to special medical prescription"
-            }
-            Self::N100000072086 => {
-                "Medicinal product on medical prescription for renewable delivery"
-            }
-            Self::N100000157313 => {
-                "Medicinal product subject to special and restricted medical prescription"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LegalStatusOfSupply {
@@ -36382,7 +34465,7 @@ impl From<LegalStatusOfSupply> for CodeableConcept {
     }
 }
 #[doc = "**[LinkRelationTypes](http://hl7.org/fhir/ValueSet/iana-link-relations)**. Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LinkRelationTypes {
     /** **P3Pv1**
@@ -37309,323 +35392,14 @@ impl AsRef<str> for LinkRelationTypes {
         }
     }
 }
+impl ::std::fmt::Debug for LinkRelationTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LinkRelationTypes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::P3Pv1 => "Refers to a P3P privacy policy for the context.",
-            Self::About => {
-                "Refers to a resource that is the subject of the link's context."
-            }
-            Self::Acl => {
-                "Asserts that the link target provides an access control description for the link context."
-            }
-            Self::Alternate => "Refers to a substitute for this context",
-            Self::Amphtml => {
-                "Used to reference alternative content that uses the AMP profile of the HTML format."
-            }
-            Self::Appendix => "Refers to an appendix.",
-            Self::AppleTouchIcon => {
-                "Refers to an icon for the context. Synonym for icon."
-            }
-            Self::AppleTouchStartupImage => "Refers to a launch screen for the context.",
-            Self::Archives => {
-                "Refers to a collection of records, documents, or other\n      materials of historical interest."
-            }
-            Self::Author => "Refers to the context's author.",
-            Self::BlockedBy => {
-                "Identifies the entity that blocks access to a resource\n      following receipt of a legal demand."
-            }
-            Self::Bookmark => "Gives a permanent link to use for bookmarking purposes.",
-            Self::Canonical => {
-                "Designates the preferred version of a resource (the IRI and its contents)."
-            }
-            Self::Chapter => "Refers to a chapter in a collection of resources.",
-            Self::CiteAs => {
-                "Indicates that the link target is preferred over the link context for the purpose of permanent citation."
-            }
-            Self::Collection => {
-                "The target IRI points to a resource which represents the collection resource for the context IRI."
-            }
-            Self::Contents => "Refers to a table of contents.",
-            Self::ConvertedFrom => {
-                "The document linked to was later converted to the\n      document that contains this link relation.  For example, an RFC can\n      have a link to the Internet-Draft that became the RFC; in that case,\n      the link relation would be \"convertedFrom\"."
-            }
-            Self::Copyright => {
-                "Refers to a copyright statement that applies to the\n    link's context."
-            }
-            Self::CreateForm => {
-                "The target IRI points to a resource where a submission form can be obtained."
-            }
-            Self::Current => {
-                "Refers to a resource containing the most recent\n      item(s) in a collection of resources."
-            }
-            Self::Describedby => {
-                "Refers to a resource providing information about the\n      link's context."
-            }
-            Self::Describes => {
-                "The relationship A 'describes' B asserts that\n      resource A provides a description of resource B. There are no\n      constraints on the format or representation of either A or B,\n      neither are there any further constraints on either resource."
-            }
-            Self::Disclosure => {
-                "Refers to a list of patent disclosures made with respect to \n      material for which 'disclosure' relation is specified."
-            }
-            Self::DnsPrefetch => {
-                "Used to indicate an origin that will be used to fetch required \n      resources for the link context, and that the user agent ought to resolve \n      as early as possible."
-            }
-            Self::Duplicate => {
-                "Refers to a resource whose available representations\n      are byte-for-byte identical with the corresponding representations of\n      the context IRI."
-            }
-            Self::Edit => {
-                "Refers to a resource that can be used to edit the\n      link's context."
-            }
-            Self::EditForm => {
-                "The target IRI points to a resource where a submission form for\n      editing associated resource can be obtained."
-            }
-            Self::EditMedia => {
-                "Refers to a resource that can be used to edit media\n      associated with the link's context."
-            }
-            Self::Enclosure => {
-                "Identifies a related resource that is potentially\n      large and might require special handling."
-            }
-            Self::External => {
-                "Refers to a resource that is not part of the same site as the current context."
-            }
-            Self::First => {
-                "An IRI that refers to the furthest preceding resource\n    in a series of resources."
-            }
-            Self::Glossary => "Refers to a glossary of terms.",
-            Self::Help => "Refers to context-sensitive help.",
-            Self::Hosts => {
-                "Refers to a resource hosted by the server indicated by\n      the link context."
-            }
-            Self::Hub => {
-                "Refers to a hub that enables registration for\n    notification of updates to the context."
-            }
-            Self::Icon => "Refers to an icon representing the link's context.",
-            Self::Index => "Refers to an index.",
-            Self::IntervalAfter => {
-                "refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource"
-            }
-            Self::IntervalBefore => {
-                "refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource"
-            }
-            Self::IntervalContains => {
-                "refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"
-            }
-            Self::IntervalDisjoint => {
-                "refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource"
-            }
-            Self::IntervalDuring => {
-                "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"
-            }
-            Self::IntervalEquals => {
-                "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"
-            }
-            Self::IntervalFinishedBy => {
-                "refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"
-            }
-            Self::IntervalFinishes => {
-                "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"
-            }
-            Self::IntervalIn => {
-                "refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource"
-            }
-            Self::IntervalMeets => {
-                "refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource"
-            }
-            Self::IntervalMetBy => {
-                "refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource"
-            }
-            Self::IntervalOverlappedBy => {
-                "refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource"
-            }
-            Self::IntervalOverlaps => {
-                "refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"
-            }
-            Self::IntervalStartedBy => {
-                "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"
-            }
-            Self::IntervalStarts => {
-                "refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"
-            }
-            Self::Item => {
-                "The target IRI points to a resource that is a member of the collection represented by the context IRI."
-            }
-            Self::Last => {
-                "An IRI that refers to the furthest following resource\n      in a series of resources."
-            }
-            Self::LatestVersion => {
-                "Points to a resource containing the latest (e.g.,\n      current) version of the context."
-            }
-            Self::License => "Refers to a license associated with this context.",
-            Self::Linkset => {
-                "The link target of a link with the \"linkset\" relation\n      type provides a set of links, including links in which the link\n      context of the link participates.\n    "
-            }
-            Self::Lrdd => {
-                "Refers to further information about the link's context,\n      expressed as a LRDD (\"Link-based Resource Descriptor Document\")\n      resource.  See  for information about\n      processing this relation type in host-meta documents. When used\n      elsewhere, it refers to additional links and other metadata.\n      Multiple instances indicate additional LRDD resources. LRDD\n      resources MUST have an \"application/xrd+xml\" representation, and\n      MAY have others."
-            }
-            Self::Manifest => "Links to a manifest file for the context.",
-            Self::MaskIcon => {
-                "Refers to a mask that can be applied to the icon for the context."
-            }
-            Self::MediaFeed => {
-                "Refers to a feed of personalised media recommendations relevant to the link context."
-            }
-            Self::Memento => {
-                "The Target IRI points to a Memento, a fixed resource that will not change state anymore."
-            }
-            Self::Micropub => "Links to the context's Micropub endpoint.",
-            Self::Modulepreload => {
-                "Refers to a module that the user agent is to preemptively fetch and store for use in the current context."
-            }
-            Self::Monitor => {
-                "Refers to a resource that can be used to monitor changes in an HTTP resource.\n    "
-            }
-            Self::MonitorGroup => {
-                "Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.\n    "
-            }
-            Self::Next => {
-                "Indicates that the link's context is a part of a series, and\n      that the next in the series is the link target.\n    "
-            }
-            Self::NextArchive => "Refers to the immediately following archive resource.",
-            Self::Nofollow => {
-                "Indicates that the context’s original author or publisher does not endorse the link target."
-            }
-            Self::Noopener => {
-                "Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context."
-            }
-            Self::Noreferrer => {
-                "Indicates that no referrer information is to be leaked when following the link."
-            }
-            Self::Opener => {
-                "Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context."
-            }
-            Self::Openid2LocalId => {
-                "Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier."
-            }
-            Self::Openid2Provider => {
-                "Refers to a resource which accepts OpenID Authentication protocol messages for the context."
-            }
-            Self::Original => "The Target IRI points to an Original Resource.",
-            Self::Payment => "Indicates a resource where payment is accepted.",
-            Self::Pingback => {
-                "Gives the address of the pingback resource for the link context."
-            }
-            Self::Preconnect => {
-                "Used to indicate an origin that will be used to fetch required \n      resources for the link context. Initiating an early connection, which \n      includes the DNS lookup, TCP handshake, and optional TLS negotiation, \n      allows the user agent to mask the high latency costs of establishing a \n      connection."
-            }
-            Self::PredecessorVersion => {
-                "Points to a resource containing the predecessor\n      version in the version history.\n    "
-            }
-            Self::Prefetch => {
-                "The prefetch link relation type is used to identify a resource \n      that might be required by the next navigation from the link context, and \n      that the user agent ought to fetch, such that the user agent can deliver a \n      faster response once the resource is requested in the future."
-            }
-            Self::Preload => {
-                "Refers to a resource that should be loaded early in the \n      processing of the link's context, without blocking rendering."
-            }
-            Self::Prerender => {
-                "Used to identify a resource that might be required by the next \n      navigation from the link context, and that the user agent ought to fetch \n      and execute, such that the user agent can deliver a faster response once \n      the resource is requested in the future."
-            }
-            Self::Prev => {
-                "Indicates that the link's context is a part of a series, and\n      that the previous in the series is the link target.\n    "
-            }
-            Self::PrevArchive => "Refers to the immediately preceding archive resource.",
-            Self::Preview => {
-                "Refers to a resource that provides a preview of the link's context."
-            }
-            Self::Previous => {
-                "Refers to the previous resource in an ordered series\n      of resources.  Synonym for \"prev\"."
-            }
-            Self::PrivacyPolicy => {
-                "Refers to a privacy policy associated with the link's context."
-            }
-            Self::Profile => {
-                "Identifying that a resource representation conforms\nto a certain profile, without affecting the non-profile semantics\nof the resource representation."
-            }
-            Self::Publication => {
-                "Links to a publication manifest. A manifest represents \n      structured information about a publication, such as informative metadata, \n      a list of resources, and a default reading order."
-            }
-            Self::Related => "Identifies a related resource.",
-            Self::Replies => {
-                "Identifies a resource that is a reply to the context\n      of the link.\n    "
-            }
-            Self::Restconf => {
-                "Identifies the root of RESTCONF API as configured on this HTTP server.\n      The \"restconf\" relation defines the root of the API defined in RFC8040.\n      Subsequent revisions of RESTCONF will use alternate relation values to support \n      protocol versioning."
-            }
-            Self::Ruleinput => {
-                "The resource identified by the link target provides an input value to an \n    instance of a rule, where the resource which represents the rule instance is \n    identified by the link context.\n    "
-            }
-            Self::Search => {
-                "Refers to a resource that can be used to search through\n      the link's context and related resources."
-            }
-            Self::Section => "Refers to a section in a collection of resources.",
-            Self::_Self => "Conveys an identifier for the link's context.\n    ",
-            Self::Service => {
-                "Indicates a URI that can be used to retrieve a\n      service document."
-            }
-            Self::ServiceDesc => {
-                "Identifies service description for the context that\n      is primarily intended for consumption by machines."
-            }
-            Self::ServiceDoc => {
-                "Identifies service documentation for the context that\n      is primarily intended for human consumption."
-            }
-            Self::ServiceMeta => {
-                "Identifies general metadata for the context that is\n      primarily intended for consumption by machines."
-            }
-            Self::Sponsored => {
-                "Refers to a resource that is within a context that is \n\t\tsponsored (such as advertising or another compensation agreement)."
-            }
-            Self::Start => {
-                "Refers to the first resource in a collection of\n      resources."
-            }
-            Self::Status => {
-                "Identifies a resource that represents the context's\n      status."
-            }
-            Self::Stylesheet => "Refers to a stylesheet.",
-            Self::Subsection => {
-                "Refers to a resource serving as a subsection in a\n      collection of resources."
-            }
-            Self::SuccessorVersion => {
-                "Points to a resource containing the successor version\n      in the version history.\n    "
-            }
-            Self::Sunset => {
-                "Identifies a resource that provides information about\n      the context's retirement policy.\n    "
-            }
-            Self::Tag => {
-                "Gives a tag (identified by the given address) that applies to\n      the current document.\n    "
-            }
-            Self::TermsOfService => {
-                "Refers to the terms of service associated with the link's context."
-            }
-            Self::Timegate => {
-                "The Target IRI points to a TimeGate for an Original Resource."
-            }
-            Self::Timemap => {
-                "The Target IRI points to a TimeMap for an Original Resource."
-            }
-            Self::Type => {
-                "Refers to a resource identifying the abstract semantic type of which the link's context is considered to be an instance."
-            }
-            Self::Ugc => {
-                "Refers to a resource that is within a context that is User Generated Content.\n    "
-            }
-            Self::Up => {
-                "Refers to a parent document in a hierarchy of\n      documents.\n    "
-            }
-            Self::VersionHistory => {
-                "Points to a resource containing the version history\n      for the context.\n    "
-            }
-            Self::Via => {
-                "Identifies a resource that is the source of the\n      information in the link's context.\n    "
-            }
-            Self::Webmention => {
-                "Identifies a target URI that supports the Webmention protocol.\n    This allows clients that mention a resource in some form of publishing process\n    to contact that endpoint and inform it that this resource has been mentioned."
-            }
-            Self::WorkingCopy => "Points to a working copy for this resource.",
-            Self::WorkingCopyOf => {
-                "Points to the versioned resource from which this\n      working copy was obtained.\n    "
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LinkRelationTypes {
@@ -37681,7 +35455,7 @@ impl From<LinkRelationTypes> for CodeableConcept {
     }
 }
 #[doc = "**[LinkType](http://hl7.org/fhir/ValueSet/link-type)**. The type of link between this Patient resource and other Patient/RelatedPerson resource(s).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LinkType {
     /** **refer**
@@ -37724,15 +35498,14 @@ impl AsRef<str> for LinkType {
         }
     }
 }
+impl ::std::fmt::Debug for LinkType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LinkType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Refer => "Refer",
-            Self::ReplacedBy => "Replaced-by",
-            Self::Replaces => "Replaces",
-            Self::Seealso => "See also",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LinkType {
@@ -37788,7 +35561,7 @@ impl From<LinkType> for CodeableConcept {
     }
 }
 #[doc = "**[LinkageType](http://hl7.org/fhir/ValueSet/linkage-type)**. Used to distinguish different roles a resource can play within a set of linked resources.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LinkageType {
     /** **alternate**
@@ -37825,14 +35598,14 @@ impl AsRef<str> for LinkageType {
         }
     }
 }
+impl ::std::fmt::Debug for LinkageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LinkageType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Alternate => "Alternate Record",
-            Self::Historical => "Historical/Obsolete Record",
-            Self::Source => "Source of Truth",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LinkageType {
@@ -37888,7 +35661,7 @@ impl From<LinkageType> for CodeableConcept {
     }
 }
 #[doc = "**[ListMode](http://hl7.org/fhir/ValueSet/list-mode)**. The processing mode that applies to this list.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ListMode {
     /** **changes**
@@ -37925,14 +35698,14 @@ impl AsRef<str> for ListMode {
         }
     }
 }
+impl ::std::fmt::Debug for ListMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ListMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Changes => "Change List",
-            Self::Snapshot => "Snapshot List",
-            Self::Working => "Working List",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ListMode {
@@ -37988,7 +35761,7 @@ impl From<ListMode> for CodeableConcept {
     }
 }
 #[doc = "**[ListStatus](http://hl7.org/fhir/ValueSet/list-status)**. The current state of the list.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ListStatus {
     /** **current**
@@ -38025,14 +35798,14 @@ impl AsRef<str> for ListStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ListStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ListStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Current => "Current",
-            Self::EnteredInError => "Entered In Error",
-            Self::Retired => "Retired",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ListStatus {
@@ -38088,7 +35861,7 @@ impl From<ListStatus> for CodeableConcept {
     }
 }
 #[doc = "**[LocationCharacteristic](http://hl7.org/fhir/ValueSet/location-characteristic)**. Example Set of Location Characteristics.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LocationCharacteristic {
     /** **has-icu**
@@ -38143,17 +35916,14 @@ impl AsRef<str> for LocationCharacteristic {
         }
     }
 }
+impl ::std::fmt::Debug for LocationCharacteristic {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LocationCharacteristic {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::HasIcu => "has ICU",
-            Self::HasIsoWard => "isolation ward",
-            Self::HasNegPress => "negative pressure rooms available",
-            Self::HasOxyNitro => "oxygen/nitrogen available",
-            Self::HasTranslation => "translation services available",
-            Self::Wheelchair => "Wheelchair accessible",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LocationCharacteristic {
@@ -38211,7 +35981,7 @@ impl From<LocationCharacteristic> for CodeableConcept {
     }
 }
 #[doc = "**[LocationMode](http://hl7.org/fhir/ValueSet/location-mode)**. Indicates whether a resource instance represents a specific location or a class of locations.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LocationMode {
     /** **instance**
@@ -38242,13 +36012,14 @@ impl AsRef<str> for LocationMode {
         }
     }
 }
+impl ::std::fmt::Debug for LocationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LocationMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Instance => "Instance",
-            Self::Kind => "Kind",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LocationMode {
@@ -38304,7 +36075,7 @@ impl From<LocationMode> for CodeableConcept {
     }
 }
 #[doc = "**[LocationStatus](http://hl7.org/fhir/ValueSet/location-status)**. Indicates whether the location is still in use.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum LocationStatus {
     /** **active**
@@ -38341,14 +36112,14 @@ impl AsRef<str> for LocationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for LocationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for LocationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Inactive => "Inactive",
-            Self::Suspended => "Suspended",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for LocationStatus {
@@ -38404,7 +36175,7 @@ impl From<LocationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ManufacturedDoseForm](http://hl7.org/fhir/ValueSet/manufactured-dose-form)**. Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ManufacturedDoseForm {
     /** **100000073362**
@@ -39629,212 +37400,14 @@ impl AsRef<str> for ManufacturedDoseForm {
         }
     }
 }
+impl ::std::fmt::Debug for ManufacturedDoseForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ManufacturedDoseForm {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000073362 => "Oral suspension",
-            Self::N100000073363 => "Oral gel",
-            Self::N100000073364 => "Powder for oral solution",
-            Self::N100000073365 => "Granules for oral solution",
-            Self::N100000073367 => "Lyophilisate for suspension",
-            Self::N100000073368 => "Powder for syrup",
-            Self::N100000073369 => "Soluble tablet",
-            Self::N100000073370 => "Herbal tea",
-            Self::N100000073371 => "Instant herbal tea",
-            Self::N100000073372 => "Granules",
-            Self::N100000073373 => "Gastro-resistant granules",
-            Self::N100000073374 => "Modified-release granules",
-            Self::N100000073375 => "Capsule, hard",
-            Self::N100000073376 => "Gastro-resistant capsule, hard",
-            Self::N100000073377 => "Chewable capsule, soft",
-            Self::N100000073378 => "Prolonged-release capsule, soft",
-            Self::N100000073379 => "Modified-release capsule, soft",
-            Self::N100000073380 => "Coated tablet",
-            Self::N100000073642 => "Oral drops, solution",
-            Self::N100000073643 => "Oral drops, suspension",
-            Self::N100000073644 => "Oral drops, emulsion",
-            Self::N100000073645 => "Oral liquid",
-            Self::N100000073646 => "Oral solution",
-            Self::N100000073647 => "Oral emulsion",
-            Self::N100000073648 => "Oral paste",
-            Self::N100000073649 => "Powder for oral suspension",
-            Self::N100000073650 => "Granules for oral suspension",
-            Self::N100000073652 => "Syrup",
-            Self::N100000073653 => "Granules for syrup",
-            Self::N100000073654 => "Dispersible tablet",
-            Self::N100000073655 => "Oral powder",
-            Self::N100000073656 => "Effervescent powder",
-            Self::N100000073657 => "Effervescent granules",
-            Self::N100000073658 => "Prolonged-release granules",
-            Self::N100000073659 => "Cachet",
-            Self::N100000073660 => "Capsule, soft",
-            Self::N100000073661 => "Gastro-resistant capsule, soft",
-            Self::N100000073662 => "Prolonged-release capsule, hard",
-            Self::N100000073663 => "Modified-release capsule, hard",
-            Self::N100000073664 => "Tablet",
-            Self::N100000073665 => "Film-coated tablet",
-            Self::N100000073666 => "Orodispersible tablet",
-            Self::N100000073667 => "Gastro-resistant tablet",
-            Self::N100000073668 => "Modified-release tablet",
-            Self::N100000073669 => "Medicated chewing-gum",
-            Self::N100000073670 => "Pillules",
-            Self::N100000073671 => "Pulsatile-release intraruminal device",
-            Self::N100000073672 => "Premix for medicated feeding stuff",
-            Self::N100000073673 => "Gargle",
-            Self::N100000073674 => "Gargle, powder for solution",
-            Self::N100000073675 => "Oromucosal suspension",
-            Self::N100000073676 => "Oromucosal spray",
-            Self::N100000073677 => "Mouthwash",
-            Self::N100000073678 => "Gingival solution",
-            Self::N100000073679 => "Oromucosal paste",
-            Self::N100000073680 => "Gingival gel",
-            Self::N100000073681 => "Effervescent tablet",
-            Self::N100000073682 => "Oral lyophilisate",
-            Self::N100000073683 => "Prolonged-release tablet",
-            Self::N100000073684 => "Chewable tablet",
-            Self::N100000073685 => "Oral gum",
-            Self::N100000073686 => "Continuous-release intraruminal device",
-            Self::N100000073687 => "Lick block",
-            Self::N100000073688 => "Medicated pellets",
-            Self::N100000073689 => "Concentrate for gargle",
-            Self::N100000073690 => "Gargle, tablet for solution",
-            Self::N100000073691 => "Oromucosal solution",
-            Self::N100000073692 => "Oromucosal drops",
-            Self::N100000073693 => "Sublingual spray",
-            Self::N100000073694 => "Mouthwash, tablet for solution",
-            Self::N100000073695 => "Oromucosal gel",
-            Self::N100000073696 => "Oromucosal cream",
-            Self::N100000073697 => "Gingival paste",
-            Self::N100000073698 => "Sublingual tablet",
-            Self::N100000073699 => "Buccal tablet",
-            Self::N100000073700 => "Compressed lozenge",
-            Self::N100000073701 => "Oromucosal capsule",
-            Self::N100000073702 => "Muco-adhesive buccal tablet",
-            Self::N100000073703 => "Lozenge",
-            Self::N100000073704 => "Pastille",
-            Self::N100000073705 => "Dental gel",
-            Self::N100000073706 => "Dental insert",
-            Self::N100000073707 => "Dental powder",
-            Self::N100000073708 => "Dental suspension",
-            Self::N100000073709 => "Toothpaste",
-            Self::N100000073710 => "Periodontal gel",
-            Self::N100000073711 => "Bath additive",
-            Self::N100000073712 => "Cream",
-            Self::N100000073713 => "Ointment",
-            Self::N100000073714 => "Medicated plaster",
-            Self::N100000073715 => "Shampoo",
-            Self::N100000073716 => "Cutaneous spray, suspension",
-            Self::N100000073717 => "Cutaneous liquid",
-            Self::N100000073718 => "Concentrate for cutaneous solution",
-            Self::N100000073719 => "Cutaneous emulsion",
-            Self::N100000073720 => "Cutaneous patch",
-            Self::N100000073721 => "Periodontal powder",
-            Self::N100000073722 => "Dental stick",
-            Self::N100000073723 => "Dental solution",
-            Self::N100000073724 => "Dental emulsion",
-            Self::N100000073725 => "Periodontal insert",
-            Self::N100000073726 => "Gel",
-            Self::N100000073727 => "Cutaneous paste",
-            Self::N100000073728 => "Cutaneous foam",
-            Self::N100000073729 => "Cutaneous spray, solution",
-            Self::N100000073730 => "Cutaneous spray, powder",
-            Self::N100000073731 => "Cutaneous solution",
-            Self::N100000073732 => "Cutaneous suspension",
-            Self::N100000073733 => "Cutaneous powder",
-            Self::N100000073734 => "Solution for iontophoresis",
-            Self::N100000073735 => "Collodion",
-            Self::N100000073736 => "Poultice",
-            Self::N100000073737 => "Cutaneous sponge",
-            Self::N100000073738 => "Collar",
-            Self::N100000073739 => "Ear tag",
-            Self::N100000073740 => "Dip suspension",
-            Self::N100000073741 => "Transdermal patch",
-            Self::N100000073742 => "Medicated nail lacquer",
-            Self::N100000073743 => "Cutaneous stick",
-            Self::N100000073744 => "Impregnated dressing",
-            Self::N100000073745 => "Medicated pendant",
-            Self::N100000073746 => "Dip solution",
-            Self::N100000073747 => "Dip emulsion",
-            Self::N100000073748 => "Concentrate for dip suspension",
-            Self::N100000073749 => "Powder for dip solution",
-            Self::N100000073750 => "Powder for suspension for fish treatment",
-            Self::N100000073751 => "Pour-on suspension",
-            Self::N100000073752 => "Spot-on solution",
-            Self::N100000073753 => "Spot-on emulsion",
-            Self::N100000073754 => "Teat dip suspension",
-            Self::N100000073755 => "Teat spray solution",
-            Self::N100000073756 => "Solution for skin-prick test",
-            Self::N100000073757 => "Plaster for provocation test",
-            Self::N100000073758 => "Eye gel",
-            Self::N100000073759 => "Eye drops, solution",
-            Self::N100000073760 => "Eye drops, suspension",
-            Self::N100000073761 => "Concentrate for dip solution",
-            Self::N100000073762 => "Concentrate for dip emulsion",
-            Self::N100000073763 => "Concentrate for solution for fish treatment",
-            Self::N100000073764 => "Pour-on solution",
-            Self::N100000073765 => "Pour-on emulsion",
-            Self::N100000073766 => "Spot-on suspension",
-            Self::N100000073767 => "Teat dip solution",
-            Self::N100000073768 => "Teat dip emulsion",
-            Self::N100000073769 => "Transdermal system",
-            Self::N100000073770 => "Solution for skin-scratch test",
-            Self::N100000073771 => "Eye cream",
-            Self::N100000073772 => "Eye ointment",
-            Self::N100000073773 => "Eye drops, emulsion",
-            Self::N100000073775 => "Eye drops, solvent for reconstitution",
-            Self::N100000073776 => "Eye lotion",
-            Self::N100000073777 => "Ophthalmic insert",
-            Self::N100000073778 => "Ear cream",
-            Self::N100000073779 => "Ear ointment",
-            Self::N100000073780 => "Ear drops, suspension",
-            Self::N100000073782 => "Eye drops, prolonged-release",
-            Self::N100000073783 => "Eye lotion, solvent for reconstitution",
-            Self::N100000073784 => "Ophthalmic strip",
-            Self::N100000073785 => "Ear gel",
-            Self::N100000073786 => "Ear drops, solution",
-            Self::N100000073787 => "Ear drops, emulsion",
-            Self::N100000073788 => "Ear powder",
-            Self::N100000073789 => "Ear spray, suspension",
-            Self::N100000073790 => "Ear wash, solution",
-            Self::N100000073791 => "Ear tampon",
-            Self::N100000073792 => "Nasal cream",
-            Self::N100000073793 => "Nasal gel",
-            Self::N100000073794 => "Nasal drops, solution",
-            Self::N100000073795 => "Nasal drops, emulsion",
-            Self::N100000073796 => "Nasal spray, solution",
-            Self::N100000073797 => "Nasal spray, emulsion",
-            Self::N100000073798 => "Nasal stick",
-            Self::N100000073799 => "Vaginal gel",
-            Self::N100000073800 => "Vaginal foam",
-            Self::N100000073802 => "Ear spray, solution",
-            Self::N100000073803 => "Ear spray, emulsion",
-            Self::N100000073804 => "Ear wash, emulsion",
-            Self::N100000073805 => "Ear stick",
-            Self::N100000073806 => "Nasal ointment",
-            Self::N100000073807 => "Nasal drops, suspension",
-            Self::N100000073808 => "Nasal powder",
-            Self::N100000073809 => "Nasal spray, suspension",
-            Self::N100000073810 => "Nasal wash",
-            Self::N100000073811 => "Vaginal cream",
-            Self::N100000073812 => "Vaginal ointment",
-            Self::N100000073813 => "Vaginal solution",
-            Self::N100000073814 => "Vaginal emulsion",
-            Self::N100000073815 => "Pessary",
-            Self::N100000073816 => "Vaginal capsule, soft",
-            Self::N100000073817 => "Effervescent vaginal tablet",
-            Self::N100000073818 => "Vaginal delivery system",
-            Self::N100000073819 => "Rectal cream",
-            Self::N100000073820 => "Rectal foam",
-            Self::N100000073821 => "Vaginal suspension",
-            Self::N100000073822 => "Tablet for vaginal solution",
-            Self::N100000073823 => "Vaginal capsule, hard",
-            Self::N100000073824 => "Vaginal tablet",
-            Self::N100000073825 => "Medicated vaginal tampon",
-            Self::N100000073826 => "Vaginal sponge",
-            Self::N100000073827 => "Rectal gel",
-            Self::N100000073863 => "Solution for injection",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ManufacturedDoseForm {
@@ -39892,7 +37465,7 @@ impl From<ManufacturedDoseForm> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureAggregateMethod](http://hl7.org/fhir/ValueSet/aggregate-method)**. Aggregation method for a measure (e.g. sum, average, median, minimum, maximum, count)\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureAggregateMethod {
     /** **average**
@@ -39947,17 +37520,14 @@ impl AsRef<str> for MeasureAggregateMethod {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureAggregateMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureAggregateMethod {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Average => "Average",
-            Self::Count => "Count",
-            Self::Maximum => "Maximum",
-            Self::Median => "Median",
-            Self::Minimum => "Minimum",
-            Self::Sum => "Sum",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureAggregateMethod {
@@ -40013,7 +37583,7 @@ impl From<MeasureAggregateMethod> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureDefinitionExample](http://hl7.org/fhir/ValueSet/measure-definition-example)**. Example Measure Definitions for the Measure Resource.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureDefinitionExample {
     /** **screening**
@@ -40048,15 +37618,14 @@ impl AsRef<str> for MeasureDefinitionExample {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureDefinitionExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureDefinitionExample {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Screening => "Screening",
-            Self::StandardizedDepressionScreeningTool => {
-                "Standardized Depression Screening Tool"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureDefinitionExample {
@@ -40114,7 +37683,7 @@ impl From<MeasureDefinitionExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureGroupExample](http://hl7.org/fhir/ValueSet/measure-group-example)**. Example Measure Groups for the Measure Resource.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureGroupExample {
     /** **primary-rate**
@@ -40145,13 +37714,14 @@ impl AsRef<str> for MeasureGroupExample {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureGroupExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureGroupExample {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::PrimaryRate => "Primary Rate",
-            Self::SecondaryRate => "Secondary Rate",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureGroupExample {
@@ -40209,7 +37779,7 @@ impl From<MeasureGroupExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureReportStatus](http://hl7.org/fhir/ValueSet/measure-report-status)**. The status of the measure report.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureReportStatus {
     /** **complete**
@@ -40246,14 +37816,14 @@ impl AsRef<str> for MeasureReportStatus {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureReportStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Complete => "Complete",
-            Self::Error => "Error",
-            Self::Pending => "Pending",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureReportStatus {
@@ -40311,7 +37881,7 @@ impl From<MeasureReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureReportStratifierValueExample](http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example)**. Example Region Value Measure Groups for the Measure Resource.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureReportStratifierValueExample {
     /** **northeast**
@@ -40354,15 +37924,14 @@ impl AsRef<str> for MeasureReportStratifierValueExample {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureReportStratifierValueExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureReportStratifierValueExample {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Northeast => "Northeast",
-            Self::Northwest => "Northwest",
-            Self::Southeast => "Southeast",
-            Self::Southwest => "Soutwest",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureReportStratifierValueExample {
@@ -40421,7 +37990,7 @@ impl From<MeasureReportStratifierValueExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureReportType](http://hl7.org/fhir/ValueSet/measure-report-type)**. The type of the measure report.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureReportType {
     /** **data-exchange**
@@ -40464,15 +38033,14 @@ impl AsRef<str> for MeasureReportType {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureReportType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureReportType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DataExchange => "Data Exchange",
-            Self::Individual => "Individual",
-            Self::SubjectList => "Subject List",
-            Self::Summary => "Summary",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureReportType {
@@ -40528,7 +38096,7 @@ impl From<MeasureReportType> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureStratifierExample](http://hl7.org/fhir/ValueSet/measure-stratifier-example)**. Identifier subgroups in a population for measuring purposes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureStratifierExample {
     /** **age**
@@ -40565,14 +38133,14 @@ impl AsRef<str> for MeasureStratifierExample {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureStratifierExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureStratifierExample {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Age => "Age",
-            Self::Gender => "Gender",
-            Self::Region => "Region",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureStratifierExample {
@@ -40630,7 +38198,7 @@ impl From<MeasureStratifierExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureSupplementalDataExample](http://hl7.org/fhir/ValueSet/measure-supplemental-data-example)**. Identifier supplemental data in a population for measuring purposes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MeasureSupplementalDataExample {
     /** **age**
@@ -40673,15 +38241,14 @@ impl AsRef<str> for MeasureSupplementalDataExample {
         }
     }
 }
+impl ::std::fmt::Debug for MeasureSupplementalDataExample {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MeasureSupplementalDataExample {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Age => "Age",
-            Self::Ethnicity => "Ethnicity",
-            Self::Gender => "Gender",
-            Self::Payer => "Payer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MeasureSupplementalDataExample {
@@ -40740,7 +38307,7 @@ impl From<MeasureSupplementalDataExample> for CodeableConcept {
     }
 }
 #[doc = "**[MedDispenseAdminLocationCodes](http://hl7.org/fhir/ValueSet/medicationdispense-admin-location)**. Medication Dispense Administration Location Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedDispenseAdminLocationCodes {
     /** **community**
@@ -40777,14 +38344,14 @@ impl AsRef<str> for MedDispenseAdminLocationCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedDispenseAdminLocationCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedDispenseAdminLocationCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Community => "Community",
-            Self::Inpatient => "Inpatient",
-            Self::Outpatient => "Outpatient",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedDispenseAdminLocationCodes {
@@ -40843,7 +38410,7 @@ impl From<MedDispenseAdminLocationCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationAdministrationStatusCodes](http://hl7.org/fhir/ValueSet/medication-admin-status)**. MedicationAdministration Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationAdministrationStatusCodes {
     /** **completed**
@@ -40904,18 +38471,14 @@ impl AsRef<str> for MedicationAdministrationStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationAdministrationStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationAdministrationStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::NotDone => "Not Done",
-            Self::OnHold => "On Hold",
-            Self::Stopped => "Stopped",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationAdministrationStatusCodes {
@@ -40973,7 +38536,7 @@ impl From<MedicationAdministrationStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationCostCategoryCodes](http://hl7.org/fhir/ValueSet/medication-cost-category)**. Medication Cost Category Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationCostCategoryCodes {
     /** **banda**
@@ -41004,13 +38567,14 @@ impl AsRef<str> for MedicationCostCategoryCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationCostCategoryCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationCostCategoryCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Banda => "Band A",
-            Self::Bandb => "Band B",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationCostCategoryCodes {
@@ -41068,7 +38632,7 @@ impl From<MedicationCostCategoryCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationDispenseStatusCodes](http://hl7.org/fhir/ValueSet/medicationDispense-status)**. Medication Dispense Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationDispenseStatusCodes {
     /** **cancelled**
@@ -41141,20 +38705,14 @@ impl AsRef<str> for MedicationDispenseStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationDispenseStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationDispenseStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::Declined => "Declined",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::OnHold => "On Hold",
-            Self::Preparation => "Preparation",
-            Self::Stopped => "Stopped",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationDispenseStatusCodes {
@@ -41212,7 +38770,7 @@ impl From<MedicationDispenseStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationDispenseStatusReasonCodes](http://hl7.org/fhir/ValueSet/medicationdispense-status-reason)**. Medication Dispense Status Reason Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationDispenseStatusReasonCodes {
     /** **altchoice**
@@ -41357,32 +38915,14 @@ impl AsRef<str> for MedicationDispenseStatusReasonCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationDispenseStatusReasonCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationDispenseStatusReasonCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Altchoice => "Try another treatment first",
-            Self::Clarif => "Prescription/Request requires clarification",
-            Self::Drughigh => "Drug level too high",
-            Self::Frr01 => "Order Stopped",
-            Self::Frr02 => "Stale-dated Order",
-            Self::Frr03 => "Incomplete data",
-            Self::Frr04 => "Product unavailable",
-            Self::Frr05 => "Ethical/religious",
-            Self::Frr06 => "Unable to provide care",
-            Self::Hospadm => "Admission to hospital",
-            Self::Labint => "Lab interference issues",
-            Self::NonAvail => "Patient not available",
-            Self::Offmarket => "Drug not available - off market",
-            Self::Outofstock => "Drug not available - out of stock",
-            Self::Preg => "Patient is pregnant or breastfeeding",
-            Self::Saig => "Allergy",
-            Self::Sddi => "Drug interacts with another drug",
-            Self::Sdupther => "Duplicate therapy",
-            Self::Sintol => "Suspected intolerance",
-            Self::Surg => "Patient scheduled for surgery",
-            Self::Washout => "Washout",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationDispenseStatusReasonCodes {
@@ -41441,7 +38981,7 @@ impl From<MedicationDispenseStatusReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationDoseAid](http://hl7.org/fhir/ValueSet/medication-dose-aid)**. Medication dose aid\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationDoseAid {
     /** **blisterpack**
@@ -41478,14 +39018,14 @@ impl AsRef<str> for MedicationDoseAid {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationDoseAid {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationDoseAid {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Blisterpack => "Blister Pack",
-            Self::Dosette => "Dosette",
-            Self::Sachets => "Sachets",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationDoseAid {
@@ -41541,7 +39081,7 @@ impl From<MedicationDoseAid> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationIngredientStrengthCodes](http://hl7.org/fhir/ValueSet/medication-ingredientstrength)**. Medication Ingredient Strength Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationIngredientStrengthCodes {
     /** **qs**
@@ -41572,13 +39112,14 @@ impl AsRef<str> for MedicationIngredientStrengthCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationIngredientStrengthCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationIngredientStrengthCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Qs => "QS",
-            Self::Trace => "Trace",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationIngredientStrengthCodes {
@@ -41636,7 +39177,7 @@ impl From<MedicationIngredientStrengthCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationIntendedPerformerRole](http://hl7.org/fhir/ValueSet/medication-intended-performer-role)**. Medication Intended Performer Role\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationIntendedPerformerRole {
     /** **oncologynurse**
@@ -41685,16 +39226,14 @@ impl AsRef<str> for MedicationIntendedPerformerRole {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationIntendedPerformerRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationIntendedPerformerRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Oncologynurse => "Oncology Nurse",
-            Self::Paincontrolnurse => "Pain Control Nurse",
-            Self::Pharmacist => "Pharmacist",
-            Self::Physician => "Physician",
-            Self::Registerednurse => "Registered Nurse",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationIntendedPerformerRole {
@@ -41753,7 +39292,7 @@ impl From<MedicationIntendedPerformerRole> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationKnowledgeStatusCodes](http://hl7.org/fhir/ValueSet/medicationknowledge-status)**. MedicationKnowledge Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationKnowledgeStatusCodes {
     /** **active**
@@ -41790,14 +39329,14 @@ impl AsRef<str> for MedicationKnowledgeStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationKnowledgeStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationKnowledgeStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationKnowledgeStatusCodes {
@@ -41855,7 +39394,7 @@ impl From<MedicationKnowledgeStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationRequestIntentCodes](http://hl7.org/fhir/ValueSet/medicationrequest-intent)**. MedicationRequest Intent Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationRequestIntentCodes {
     /** **filler-order**
@@ -41922,19 +39461,14 @@ impl AsRef<str> for MedicationRequestIntentCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationRequestIntentCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationRequestIntentCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::FillerOrder => "Filler Order",
-            Self::InstanceOrder => "Instance Order",
-            Self::Option => "Option",
-            Self::Order => "Order",
-            Self::OriginalOrder => "Original Order",
-            Self::Plan => "Plan",
-            Self::Proposal => "Proposal",
-            Self::ReflexOrder => "Reflex Order",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationRequestIntentCodes {
@@ -41992,7 +39526,7 @@ impl From<MedicationRequestIntentCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationRequestStatusCodes](http://hl7.org/fhir/ValueSet/medicationrequest-status)**. MedicationRequest Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationRequestStatusCodes {
     /** **active**
@@ -42065,20 +39599,14 @@ impl AsRef<str> for MedicationRequestStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationRequestStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationRequestStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::Draft => "Draft",
-            Self::Ended => "Ended",
-            Self::EnteredInError => "Entered in Error",
-            Self::OnHold => "On Hold",
-            Self::Stopped => "Stopped",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationRequestStatusCodes {
@@ -42136,7 +39664,7 @@ impl From<MedicationRequestStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationStatementAdherenceCodes](http://hl7.org/fhir/ValueSet/medication-statement-adherence)**. MedicationStatement Adherence Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationStatementAdherenceCodes {
     /** **not-taking**
@@ -42221,22 +39749,14 @@ impl AsRef<str> for MedicationStatementAdherenceCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationStatementAdherenceCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationStatementAdherenceCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::NotTaking => "Not Taking",
-            Self::OnHold => "On Hold",
-            Self::OnHoldAsDirected => "On Hold As Directed",
-            Self::OnHoldNotAsDirected => "On Hold Not As Directed",
-            Self::Stopped => "Stopped",
-            Self::StoppedAsDirected => "Stopped As Directed",
-            Self::StoppedNotAsDirected => "Stopped Not As Directed",
-            Self::Taking => "Taking",
-            Self::TakingAsDirected => "Taking As Directed",
-            Self::TakingNotAsDirected => "Taking Not As Directed",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationStatementAdherenceCodes {
@@ -42294,7 +39814,7 @@ impl From<MedicationStatementAdherenceCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationStatementStatusCodes](http://hl7.org/fhir/ValueSet/medication-statement-status)**. MedicationStatement Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationStatementStatusCodes {
     /** **draft**
@@ -42331,14 +39851,14 @@ impl AsRef<str> for MedicationStatementStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationStatementStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationStatementStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::Recorded => "Recorded",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationStatementStatusCodes {
@@ -42396,7 +39916,7 @@ impl From<MedicationStatementStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicationStatusCodes](http://hl7.org/fhir/ValueSet/medication-status)**. Medication Status Codes\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicationStatusCodes {
     /** **active**
@@ -42433,14 +39953,14 @@ impl AsRef<str> for MedicationStatusCodes {
         }
     }
 }
+impl ::std::fmt::Debug for MedicationStatusCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicationStatusCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicationStatusCodes {
@@ -42496,7 +40016,7 @@ impl From<MedicationStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[MedicinalProductDomain](http://hl7.org/fhir/ValueSet/medicinal-product-domain)**. Applicable domain for this product (e.g. human, veterinary).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicinalProductDomain {
     /** **Human**
@@ -42533,14 +40053,14 @@ impl AsRef<str> for MedicinalProductDomain {
         }
     }
 }
+impl ::std::fmt::Debug for MedicinalProductDomain {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicinalProductDomain {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Human => "Human use",
-            Self::HumanAndVeterinary => "Human and Veterinary use",
-            Self::Veterinary => "Veterinary use",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicinalProductDomain {
@@ -42598,7 +40118,7 @@ impl From<MedicinalProductDomain> for CodeableConcept {
     }
 }
 #[doc = "**[MedicinalProductPackageType](http://hl7.org/fhir/ValueSet/medicinal-product-package-type)**. Types of medicinal product packs\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicinalProductPackageType {
     /** **100000073490**
@@ -42689,23 +40209,14 @@ impl AsRef<str> for MedicinalProductPackageType {
         }
     }
 }
+impl ::std::fmt::Debug for MedicinalProductPackageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicinalProductPackageType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000073490 => "Ampoule",
-            Self::N100000073491 => "Applicator",
-            Self::N100000073492 => "Automatic injection device",
-            Self::N100000073493 => "Bag",
-            Self::N100000073494 => "Balling gun",
-            Self::N100000073495 => "Barrel",
-            Self::N100000073496 => "Blister",
-            Self::N100000073497 => "Bottle",
-            Self::N100000073498 => "Box",
-            Self::N100000073547 => "Sachet",
-            Self::N100000073563 => "Vial",
-            Self::N100000143555 => "Pack",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicinalProductPackageType {
@@ -42763,7 +40274,7 @@ impl From<MedicinalProductPackageType> for CodeableConcept {
     }
 }
 #[doc = "**[MedicinalProductType](http://hl7.org/fhir/ValueSet/medicinal-product-type)**. Overall defining type of this Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MedicinalProductType {
     /** **InvestigationalProduct**
@@ -42794,13 +40305,14 @@ impl AsRef<str> for MedicinalProductType {
         }
     }
 }
+impl ::std::fmt::Debug for MedicinalProductType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MedicinalProductType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::InvestigationalProduct => "Investigational Medicinal Product",
-            Self::MedicinalProduct => "Medicinal Product",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MedicinalProductType {
@@ -42858,7 +40370,7 @@ impl From<MedicinalProductType> for CodeableConcept {
     }
 }
 #[doc = "**[MessageEvent](http://hl7.org/fhir/message-events)**. One of the message events defined as part of this version of FHIR.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum MessageEvent {
     /// Custom code value.
     _Custom(String),
@@ -42879,12 +40391,14 @@ impl AsRef<str> for MessageEvent {
         }
     }
 }
+impl ::std::fmt::Debug for MessageEvent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MessageEvent {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MessageEvent {
@@ -42940,7 +40454,7 @@ impl From<MessageEvent> for CodeableConcept {
     }
 }
 #[doc = "**[MessageSignificanceCategory](http://hl7.org/fhir/ValueSet/message-significance-category)**. The impact of the content of a message.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MessageSignificanceCategory {
     /** **consequence**
@@ -42977,14 +40491,14 @@ impl AsRef<str> for MessageSignificanceCategory {
         }
     }
 }
+impl ::std::fmt::Debug for MessageSignificanceCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MessageSignificanceCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Consequence => "Consequence",
-            Self::Currency => "Currency",
-            Self::Notification => "Notification",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MessageSignificanceCategory {
@@ -43042,7 +40556,7 @@ impl From<MessageSignificanceCategory> for CodeableConcept {
     }
 }
 #[doc = "**[MessageTransport](http://hl7.org/fhir/ValueSet/message-transport)**. The protocol used for message transport.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MessageTransport {
     /** **ftp**
@@ -43079,14 +40593,14 @@ impl AsRef<str> for MessageTransport {
         }
     }
 }
+impl ::std::fmt::Debug for MessageTransport {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MessageTransport {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ftp => "FTP",
-            Self::Http => "HTTP",
-            Self::Mllp => "MLLP",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MessageTransport {
@@ -43142,7 +40656,7 @@ impl From<MessageTransport> for CodeableConcept {
     }
 }
 #[doc = "**[MessageheaderResponseRequest](http://hl7.org/fhir/ValueSet/messageheader-response-request)**. HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum MessageheaderResponseRequest {
     /** **always**
@@ -43185,15 +40699,14 @@ impl AsRef<str> for MessageheaderResponseRequest {
         }
     }
 }
+impl ::std::fmt::Debug for MessageheaderResponseRequest {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for MessageheaderResponseRequest {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Always => "Always",
-            Self::Never => "Never",
-            Self::OnError => "Error/reject conditions only",
-            Self::OnSuccess => "Successful completion only",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for MessageheaderResponseRequest {
@@ -43251,7 +40764,7 @@ impl From<MessageheaderResponseRequest> for CodeableConcept {
     }
 }
 #[doc = "**[NHINPurposeOfUse](http://hl7.org/fhir/ValueSet/nhin-purposeofuse)**. This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system.\n\nFHIR version: 2.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NHINPurposeOfUse {
     /** **ABUSE**
@@ -43432,38 +40945,14 @@ impl AsRef<str> for NHINPurposeOfUse {
         }
     }
 }
+impl ::std::fmt::Debug for NHINPurposeOfUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NHINPurposeOfUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abuse => "Abuse",
-            Self::Coverage => "Coverage",
-            Self::Deceased => "Deceased",
-            Self::Directory => "Directory",
-            Self::Disaster => "Disaster",
-            Self::Donation => "Donation",
-            Self::Emergency => "Emergency",
-            Self::Family => "Family",
-            Self::Fraud => "Fraud",
-            Self::Government => "Government",
-            Self::Judicial => "Judicial",
-            Self::Law => "Law Enforcement",
-            Self::Legal => "Legal",
-            Self::Marketing => "Marketing",
-            Self::Operations => "Operations",
-            Self::Oversight => "Oversight",
-            Self::Payment => "Payment",
-            Self::Present => "Present",
-            Self::Psychotherapy => "Psychotherapy",
-            Self::Publichealth => "Public Health",
-            Self::Request => "Request",
-            Self::Research => "Research",
-            Self::Sysadmin => "Sysadmin",
-            Self::Threat => "Threat",
-            Self::Training => "Training",
-            Self::Treatment => "Treatment",
-            Self::Workerscomp => "Worker's Comp",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NHINPurposeOfUse {
@@ -43519,7 +41008,7 @@ impl From<NHINPurposeOfUse> for CodeableConcept {
     }
 }
 #[doc = "**[NameUse](http://hl7.org/fhir/ValueSet/name-use)**. The use of a human name.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NameUse {
     /** **anonymous**
@@ -43580,18 +41069,14 @@ impl AsRef<str> for NameUse {
         }
     }
 }
+impl ::std::fmt::Debug for NameUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NameUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Anonymous => "Anonymous",
-            Self::Maiden => "Name changed for Marriage",
-            Self::Nickname => "Nickname",
-            Self::Official => "Official",
-            Self::Old => "Old",
-            Self::Temp => "Temp",
-            Self::Usual => "Usual",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NameUse {
@@ -43647,7 +41132,7 @@ impl From<NameUse> for CodeableConcept {
     }
 }
 #[doc = "**[NamingSystemIdentifierType](http://hl7.org/fhir/ValueSet/namingsystem-identifier-type)**. Identifies the style of unique identifier used to identify a namespace.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NamingSystemIdentifierType {
     /** **iri-stem**
@@ -43702,17 +41187,14 @@ impl AsRef<str> for NamingSystemIdentifierType {
         }
     }
 }
+impl ::std::fmt::Debug for NamingSystemIdentifierType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NamingSystemIdentifierType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::IriStem => "IRI stem",
-            Self::Oid => "OID",
-            Self::Other => "Other",
-            Self::Uri => "URI",
-            Self::Uuid => "UUID",
-            Self::V2Csmnemonic => "V2CSMNemonic",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NamingSystemIdentifierType {
@@ -43770,7 +41252,7 @@ impl From<NamingSystemIdentifierType> for CodeableConcept {
     }
 }
 #[doc = "**[NamingSystemType](http://hl7.org/fhir/ValueSet/namingsystem-type)**. Identifies the purpose of the naming system.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NamingSystemType {
     /** **codesystem**
@@ -43807,14 +41289,14 @@ impl AsRef<str> for NamingSystemType {
         }
     }
 }
+impl ::std::fmt::Debug for NamingSystemType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NamingSystemType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Codesystem => "Code System",
-            Self::Identifier => "Identifier",
-            Self::Root => "Root",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NamingSystemType {
@@ -43870,7 +41352,7 @@ impl From<NamingSystemType> for CodeableConcept {
     }
 }
 #[doc = "**[NarrativeStatus](http://hl7.org/fhir/ValueSet/narrative-status)**. The status of a resource narrative.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NarrativeStatus {
     /** **additional**
@@ -43913,15 +41395,14 @@ impl AsRef<str> for NarrativeStatus {
         }
     }
 }
+impl ::std::fmt::Debug for NarrativeStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NarrativeStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Additional => "Additional",
-            Self::Empty => "Empty",
-            Self::Extensions => "Extensions",
-            Self::Generated => "Generated",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NarrativeStatus {
@@ -43977,7 +41458,7 @@ impl From<NarrativeStatus> for CodeableConcept {
     }
 }
 #[doc = "**[NoteType](http://hl7.org/fhir/ValueSet/note-type)**. The presentation types of notes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NoteType {
     /** **display**
@@ -44014,14 +41495,14 @@ impl AsRef<str> for NoteType {
         }
     }
 }
+impl ::std::fmt::Debug for NoteType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NoteType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Display => "Display",
-            Self::Print => "Print (Form)",
-            Self::Printoper => "Print (Operator)",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NoteType {
@@ -44077,7 +41558,7 @@ impl From<NoteType> for CodeableConcept {
     }
 }
 #[doc = "**[NutritionProductStatus](http://hl7.org/fhir/ValueSet/nutritionproduct-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum NutritionProductStatus {
     /** **active**
@@ -44114,14 +41595,14 @@ impl AsRef<str> for NutritionProductStatus {
         }
     }
 }
+impl ::std::fmt::Debug for NutritionProductStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for NutritionProductStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Inactive => "Inactive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for NutritionProductStatus {
@@ -44179,7 +41660,7 @@ impl From<NutritionProductStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationDataType](http://hl7.org/fhir/ValueSet/permitted-data-type)**. Permitted data type for observation value.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationDataType {
     /** **CodeableConcept**
@@ -44264,22 +41745,14 @@ impl AsRef<str> for ObservationDataType {
         }
     }
 }
+impl ::std::fmt::Debug for ObservationDataType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ObservationDataType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CodeableConcept => "CodeableConcept",
-            Self::Period => "Period",
-            Self::Quantity => "Quantity",
-            Self::Range => "Range",
-            Self::Ratio => "Ratio",
-            Self::SampledData => "SampledData",
-            Self::Boolean => "boolean",
-            Self::DateTime => "dateTime",
-            Self::Integer => "integer",
-            Self::String => "string",
-            Self::Time => "time",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ObservationDataType {
@@ -44335,7 +41808,7 @@ impl From<ObservationDataType> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationRangeCategory](http://hl7.org/fhir/ValueSet/observation-range-category)**. Codes identifying the category of observation range.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationRangeCategory {
     /** **absolute**
@@ -44372,14 +41845,14 @@ impl AsRef<str> for ObservationRangeCategory {
         }
     }
 }
+impl ::std::fmt::Debug for ObservationRangeCategory {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ObservationRangeCategory {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Absolute => "absolute range",
-            Self::Critical => "critical range",
-            Self::Reference => "reference range",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ObservationRangeCategory {
@@ -44437,7 +41910,7 @@ impl From<ObservationRangeCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationReferenceRangeNormalValue](http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue)**. Codes that describe the normal value in the reference range.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationReferenceRangeNormalValue {
     /** **absent**
@@ -44468,13 +41941,14 @@ impl AsRef<str> for ObservationReferenceRangeNormalValue {
         }
     }
 }
+impl ::std::fmt::Debug for ObservationReferenceRangeNormalValue {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ObservationReferenceRangeNormalValue {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Absent => "Absent",
-            Self::Negative => "Negative",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ObservationReferenceRangeNormalValue {
@@ -44533,7 +42007,7 @@ impl From<ObservationReferenceRangeNormalValue> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationStatus](http://hl7.org/fhir/ValueSet/observation-status)**. Codes providing the status of an observation.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ObservationStatus {
     /** **amended**
@@ -44600,19 +42074,14 @@ impl AsRef<str> for ObservationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ObservationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ObservationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Cancelled => "Cancelled",
-            Self::Corrected => "Corrected",
-            Self::EnteredInError => "Entered in Error",
-            Self::Final => "Final",
-            Self::Preliminary => "Preliminary",
-            Self::Registered => "Registered",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ObservationStatus {
@@ -44668,7 +42137,7 @@ impl From<ObservationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[OperationKind](http://hl7.org/fhir/ValueSet/operation-kind)**. Whether an operation is a normal operation or a query.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OperationKind {
     /** **operation**
@@ -44699,13 +42168,14 @@ impl AsRef<str> for OperationKind {
         }
     }
 }
+impl ::std::fmt::Debug for OperationKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for OperationKind {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Operation => "Operation",
-            Self::Query => "Query",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for OperationKind {
@@ -44761,7 +42231,7 @@ impl From<OperationKind> for CodeableConcept {
     }
 }
 #[doc = "**[OperationOutcomeCodes](http://hl7.org/fhir/operation-outcome)**. Operation Outcome codes for translatable phrases used by FHIR test servers (see Implementation file translations.xml)\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum OperationOutcomeCodes {
     /** **DELETE_MULTIPLE_MATCHES**
 
@@ -45088,93 +42558,14 @@ impl AsRef<str> for OperationOutcomeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for OperationOutcomeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for OperationOutcomeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DeleteMultipleMatches => {
-                "Error: Multiple matches exist for the conditional delete"
-            }
-            Self::MsgAuthRequired => {
-                "You must authenticate before you can use this service"
-            }
-            Self::MsgBadFormat => "Bad Syntax: \"%s\" must be a %s'",
-            Self::MsgBadSyntax => "Bad Syntax in %s",
-            Self::MsgCantParseContent => {
-                "Unable to parse feed (entry content type = \"%s\")"
-            }
-            Self::MsgCantParseRoot => "Unable to parse feed (root element name = \"%s\")",
-            Self::MsgCreated => "New resource created",
-            Self::MsgDateFormat => {
-                "The Date value %s is not in the correct format (Xml Date Format required)"
-            }
-            Self::MsgDeleted => "This resource has been deleted",
-            Self::MsgDeletedDone => "Resource deleted",
-            Self::MsgDeletedId => "The resource \"%s\" has been deleted",
-            Self::MsgDuplicateId => "Duplicate Id %s for resource type %s",
-            Self::MsgErrorParsing => "Error parsing resource Xml (%s)",
-            Self::MsgIdInvalid => "Id \"%s\" has an invalid character \"%s\"",
-            Self::MsgIdTooLong => "Id \"%s\" too long (length limit 36)",
-            Self::MsgInvalidId => "Id not accepted",
-            Self::MsgJsonObject => {
-                "Json Source for a resource should start with an object"
-            }
-            Self::MsgLocalFail => "Unable to resolve local reference to resource %s",
-            Self::MsgNoExist => "Resource Id \"%s\" does not exist",
-            Self::MsgNoMatch => "No Resource found matching the query \"%s\"",
-            Self::MsgNoModule => "No module could be found to handle the request \"%s\"",
-            Self::MsgNoSummary => "No Summary for this resource",
-            Self::MsgOpNotAllowed => {
-                "Operation %s not allowed for resource %s (due to local configuration)"
-            }
-            Self::MsgParamChained => "Unknown chained parameter name \"%s\"",
-            Self::MsgParamInvalid => "Parameter \"%s\" content is invalid",
-            Self::MsgParamModifierInvalid => "Parameter \"%s\" modifier is invalid",
-            Self::MsgParamNoRepeat => "Parameter \"%s\" is not allowed to repeat",
-            Self::MsgParamUnknown => "Parameter \"%s\" not understood",
-            Self::MsgRemoteFail => "Unable to resolve local reference to resource %s",
-            Self::MsgResourceExampleProtected => {
-                "Resources with identity \"example\" cannot be deleted (for testing/training purposes)"
-            }
-            Self::MsgResourceIdFail => "unable to allocate resource id",
-            Self::MsgResourceIdMismatch => "Resource Id Mismatch",
-            Self::MsgResourceIdMissing => "Resource Id Missing",
-            Self::MsgResourceNotAllowed => {
-                "Not allowed to submit a resource for this operation"
-            }
-            Self::MsgResourceRequired => "A resource is required",
-            Self::MsgResourceTypeMismatch => "Resource Type Mismatch",
-            Self::MsgSortUnknown => "Unknown sort parameter name \"%s\"",
-            Self::MsgTransactionDuplicateId => "Duplicate Identifier in transaction: %s",
-            Self::MsgTransactionMissingId => {
-                "Missing Identifier in transaction - an entry.id must be provided"
-            }
-            Self::MsgUnhandledNodeType => "Unhandled xml node type \"%s\"",
-            Self::MsgUnknownContent => "Unknown Content (%s) at %s",
-            Self::MsgUnknownOperation => "unknown FHIR http operation",
-            Self::MsgUnknownType => "Resource Type \"%s\" not recognised",
-            Self::MsgUpdated => "existing resource updated",
-            Self::MsgVersionAware => {
-                "Version aware updates are required for this resource"
-            }
-            Self::MsgVersionAwareConflict => {
-                "Update Conflict (server current version = \"%s\", client version referenced = \"%s\")"
-            }
-            Self::MsgVersionAwareUrl => "Version specific URL not recognised",
-            Self::MsgWrongNs => {
-                "This does not appear to be a FHIR element or resource (wrong namespace \"%s\")"
-            }
-            Self::SearchMultiple => {
-                "Error: Multiple matches exist for %s search parameters \"%s\""
-            }
-            Self::SearchNone => {
-                "Error: no processable search found for %s search parameters \"%s\""
-            }
-            Self::UpdateMultipleMatches => {
-                "Error: Multiple matches exist for the conditional update"
-            }
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for OperationOutcomeCodes {
@@ -45230,7 +42621,7 @@ impl From<OperationOutcomeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[OperationParameterScope](http://hl7.org/fhir/ValueSet/operation-parameter-scope)**. Indicates that a parameter applies when the operation is being invoked at the specified level\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OperationParameterScope {
     /** **instance**
@@ -45267,14 +42658,14 @@ impl AsRef<str> for OperationParameterScope {
         }
     }
 }
+impl ::std::fmt::Debug for OperationParameterScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for OperationParameterScope {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Instance => "Instance",
-            Self::System => "System",
-            Self::Type => "Type",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for OperationParameterScope {
@@ -45332,7 +42723,7 @@ impl From<OperationParameterScope> for CodeableConcept {
     }
 }
 #[doc = "**[OperationParameterUse](http://hl7.org/fhir/ValueSet/operation-parameter-use)**. Whether an operation parameter is an input or an output parameter.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OperationParameterUse {
     /** **in**
@@ -45363,13 +42754,14 @@ impl AsRef<str> for OperationParameterUse {
         }
     }
 }
+impl ::std::fmt::Debug for OperationParameterUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for OperationParameterUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::In => "In",
-            Self::Out => "Out",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for OperationParameterUse {
@@ -45427,7 +42819,7 @@ impl From<OperationParameterUse> for CodeableConcept {
     }
 }
 #[doc = "**[OrganizationAffiliationRole](http://hl7.org/fhir/organization-role)**. This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum OrganizationAffiliationRole {
     /** **HIE/HIO**
 
@@ -45496,20 +42888,14 @@ impl AsRef<str> for OrganizationAffiliationRole {
         }
     }
 }
+impl ::std::fmt::Debug for OrganizationAffiliationRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for OrganizationAffiliationRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::HieHio => "HIE/HIO",
-            Self::Agency => "Agency",
-            Self::Diagnostics => "Diagnostics",
-            Self::Member => "Member",
-            Self::Payer => "Payer",
-            Self::Provider => "Provider",
-            Self::Research => "Research",
-            Self::Supplier => "Supplier",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for OrganizationAffiliationRole {
@@ -45565,7 +42951,7 @@ impl From<OrganizationAffiliationRole> for CodeableConcept {
     }
 }
 #[doc = "**[OrientationType](http://hl7.org/fhir/ValueSet/orientation-type)**. Type for orientation.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum OrientationType {
     /** **antisense**
@@ -45596,13 +42982,14 @@ impl AsRef<str> for OrientationType {
         }
     }
 }
+impl ::std::fmt::Debug for OrientationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for OrientationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Antisense => "Antisense orientation of referenceSeq",
-            Self::Sense => "Sense orientation of referenceSeq",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for OrientationType {
@@ -45658,7 +43045,7 @@ impl From<OrientationType> for CodeableConcept {
     }
 }
 #[doc = "**[PackageMaterial](http://hl7.org/fhir/ValueSet/package-material)**. A material used in the construction of packages and their components.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PackageMaterial {
     /** **200000003200**
@@ -45935,56 +43322,14 @@ impl AsRef<str> for PackageMaterial {
         }
     }
 }
+impl ::std::fmt::Debug for PackageMaterial {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PackageMaterial {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N200000003200 => "Aluminium",
-            Self::N200000003201 => "Cyclic Olefin Copolymer",
-            Self::N200000003202 => "Epoxyphenol",
-            Self::N200000003203 => "Glass",
-            Self::N200000003204 => "Glass type I",
-            Self::N200000003205 => "Glass type II",
-            Self::N200000003206 => "Glass type III",
-            Self::N200000003207 => "Paper",
-            Self::N200000003208 => "Plastic",
-            Self::N200000003209 => "PolyAmide",
-            Self::N200000003210 => "Orientated PolyAmide",
-            Self::N200000003211 => "PolyCarbonate",
-            Self::N200000003212 => "PolyChloroTriFluoroEthylene",
-            Self::N200000003213 => "Polyester",
-            Self::N200000003214 => "PolyEthylene",
-            Self::N200000003215 => "High Density PolyEthylene",
-            Self::N200000003216 => "Low Density PolyEthylene",
-            Self::N200000003217 => "PolyEthylene TerePhthalate",
-            Self::N200000003218 => "Polyolefin",
-            Self::N200000003219 => "PolyPropylene",
-            Self::N200000003220 => "PolyStyrene",
-            Self::N200000003221 => "PolyVinyl Acetate",
-            Self::N200000003222 => "PolyVinyl Chloride",
-            Self::N200000003223 => "Plasticised PolyVinyl Chloride",
-            Self::N200000003224 => {
-                "Non-plasticised PolyVinyl Chloride / Unplasticised PolyVinyl Chloride"
-            }
-            Self::N200000003225 => "PolyVinylidene Chloride",
-            Self::N200000003226 => "Rubber",
-            Self::N200000003227 => "Silicone oil",
-            Self::N200000003228 => "Silicone elastomer",
-            Self::N200000003229 => "Steel",
-            Self::N200000003529 => "Cardboard",
-            Self::N200000012514 => "PolyAcryloNitrile",
-            Self::N200000012515 => "Ethylene acrylic acid copolymer",
-            Self::N200000012521 => "Ethylene meta-acrylic acid",
-            Self::N200000012522 => "Ethylene-Vinyl Alcohol copolymer",
-            Self::N200000012523 => "PolyVinylidene Fluoride",
-            Self::N200000012524 => "Medium Density PolyEthylene",
-            Self::N200000012538 => "Syndiotactic Polypropylene",
-            Self::N200000015521 => "PolyEthylene copolymer",
-            Self::N200000023330 => "Expanded Polyethylene",
-            Self::N200000023332 => "Cyclic Olefin Polymer",
-            Self::N200000025255 => "Silica gel",
-            Self::N200000025257 => "Linear Low Density PolyEthylene",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PackageMaterial {
@@ -46040,7 +43385,7 @@ impl From<PackageMaterial> for CodeableConcept {
     }
 }
 #[doc = "**[PackageType](http://hl7.org/fhir/ValueSet/package-type)**. A high level categorisation of a package.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PackageType {
     /** **MedicinalProductPack**
@@ -46077,14 +43422,14 @@ impl AsRef<str> for PackageType {
         }
     }
 }
+impl ::std::fmt::Debug for PackageType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PackageType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::MedicinalProductPack => "Medicinal product pack",
-            Self::RawMaterialPackage => "Raw material package",
-            Self::ShippingTransportContainer => "Shipping or transport container",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PackageType {
@@ -46140,7 +43485,7 @@ impl From<PackageType> for CodeableConcept {
     }
 }
 #[doc = "**[PackagingType](http://hl7.org/fhir/ValueSet/packaging-type)**. A type of packaging.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PackagingType {
     /** **100000073490**
@@ -46771,113 +44116,14 @@ impl AsRef<str> for PackagingType {
         }
     }
 }
+impl ::std::fmt::Debug for PackagingType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PackagingType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000073490 => "Ampoule",
-            Self::N100000073491 => "Applicator",
-            Self::N100000073492 => "Automatic injection device",
-            Self::N100000073493 => "Bag",
-            Self::N100000073494 => "Balling gun",
-            Self::N100000073495 => "Barrel",
-            Self::N100000073496 => "Blister",
-            Self::N100000073497 => "Bottle",
-            Self::N100000073498 => "Box",
-            Self::N100000073499 => "Brush",
-            Self::N100000073500 => "Brush applicator",
-            Self::N100000073501 => "Cannula",
-            Self::N100000073502 => "Cap",
-            Self::N100000073503 => "Cartridge",
-            Self::N100000073504 => "Child-resistant closure",
-            Self::N100000073505 => "Cup",
-            Self::N100000073506 => "Dabbing applicator",
-            Self::N100000073507 => "Dart",
-            Self::N100000073508 => "Dredging applicator",
-            Self::N100000073509 => "Dredging container",
-            Self::N100000073510 => "Drench gun",
-            Self::N100000073511 => "Dropper applicator",
-            Self::N100000073512 => "Dropper container",
-            Self::N100000073513 => "Fixed cryogenic vessel",
-            Self::N100000073514 => "Gas cylinder",
-            Self::N100000073515 => "High pressure transdermal delivery device",
-            Self::N100000073516 => "Implanter",
-            Self::N100000073517 => "Inhaler",
-            Self::N100000073518 => "In-ovo injection device",
-            Self::N100000073519 => "Injection needle",
-            Self::N100000073520 => "Injection syringe",
-            Self::N100000073521 => "Internal graduated calibration chamber",
-            Self::N100000073522 => "Intramammary syringe",
-            Self::N100000073523 => "Jar",
-            Self::N100000073524 => "Measuring device",
-            Self::N100000073525 => "Measuring spoon",
-            Self::N100000073526 => "Metering pump",
-            Self::N100000073527 => "Metering valve",
-            Self::N100000073528 => "Mobile cryogenic vessel",
-            Self::N100000073529 => "Mouthpiece",
-            Self::N100000073530 => "Multidose container",
-            Self::N100000073531 => "Multidose container with airless pump",
-            Self::N100000073532 => "Multipuncturer",
-            Self::N100000073533 => "Nasal applicator",
-            Self::N100000073534 => "Nebuliser",
-            Self::N100000073535 => "Needle applicator",
-            Self::N100000073536 => "Nozzle",
-            Self::N100000073537 => "Oral syringe",
-            Self::N100000073538 => "Pipette",
-            Self::N100000073539 => "Pipette applicator",
-            Self::N100000073540 => "Pouch",
-            Self::N100000073541 => "Pour-on container",
-            Self::N100000073542 => "Pre-filled gastroenteral tube",
-            Self::N100000073543 => "Pre-filled pen",
-            Self::N100000073544 => "Pre-filled syringe",
-            Self::N100000073545 => "Pressurised container",
-            Self::N100000073546 => "Prick test applicator",
-            Self::N100000073547 => "Sachet",
-            Self::N100000073548 => "Scarifier",
-            Self::N100000073549 => "Screw cap",
-            Self::N100000073550 => "Single-dose container",
-            Self::N100000073551 => "Spatula",
-            Self::N100000073552 => "Spot-on applicator",
-            Self::N100000073553 => "Spray container",
-            Self::N100000073554 => "Spray pump",
-            Self::N100000073555 => "Spray valve",
-            Self::N100000073556 => "Stab vaccinator",
-            Self::N100000073557 => "Stopper",
-            Self::N100000073558 => "Straw",
-            Self::N100000073559 => "Strip",
-            Self::N100000073560 => "Tablet container",
-            Self::N100000073561 => "Tube",
-            Self::N100000073562 => "Vaginal sponge applicator",
-            Self::N100000073563 => "Vial",
-            Self::N100000075664 => "Administration system",
-            Self::N100000116195 => "Calendar package",
-            Self::N100000116196 => "Needle-free injector",
-            Self::N100000116197 => "Roll-on container",
-            Self::N100000125779 => "Multidose container with pump",
-            Self::N100000137702 => "Container",
-            Self::N100000137703 => "Oral applicator",
-            Self::N100000143554 => "Multidose container with metering pump",
-            Self::N100000143555 => "Pack",
-            Self::N100000163233 => "disk",
-            Self::N100000163234 => "plunger",
-            Self::N100000164143 => "infusion port",
-            Self::N100000166980 => "Valve",
-            Self::N100000169899 => "Jerrycan",
-            Self::N100000173982 => "Oral applicator",
-            Self::N100000173983 => "Dose dispenser",
-            Self::N100000174066 => "Unit-dose blister",
-            Self::N100000174067 => "Pre-filled injector",
-            Self::N100000174068 => "Pre-filled oral syringe",
-            Self::N100000174069 => "Pre-filled oral applicator",
-            Self::N100000174070 => "Dose-dispenser cartridge",
-            Self::N200000005068 => "Pen",
-            Self::N200000005585 => "Wrapper",
-            Self::N200000010647 => "Lid",
-            Self::N200000011726 => "Capsule for opening",
-            Self::N200000012539 => "Child-resistant sachet",
-            Self::N200000013191 => "Tamper-evident closure",
-            Self::N200000024874 => "Tablet tube",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PackagingType {
@@ -46933,7 +44179,7 @@ impl From<PackagingType> for CodeableConcept {
     }
 }
 #[doc = "**[ParticipationStatus](http://hl7.org/fhir/ValueSet/participationstatus)**. The Participation status of an appointment.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ParticipationStatus {
     /** **accepted**
@@ -46976,15 +44222,14 @@ impl AsRef<str> for ParticipationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ParticipationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ParticipationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Accepted => "Accepted",
-            Self::Declined => "Declined",
-            Self::NeedsAction => "Needs Action",
-            Self::Tentative => "Tentative",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ParticipationStatus {
@@ -47040,7 +44285,7 @@ impl From<ParticipationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[PatientMedicineChangeTypes](http://hl7.org/fhir/ValueSet/list-item-flag)**. Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PatientMedicineChangeTypes {
     /** **01**
@@ -47095,17 +44340,14 @@ impl AsRef<str> for PatientMedicineChangeTypes {
         }
     }
 }
+impl ::std::fmt::Debug for PatientMedicineChangeTypes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PatientMedicineChangeTypes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N01 => "Unchanged",
-            Self::N02 => "Changed",
-            Self::N03 => "Cancelled",
-            Self::N04 => "Prescribed",
-            Self::N05 => "Ceased",
-            Self::N06 => "Suspended",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PatientMedicineChangeTypes {
@@ -47161,7 +44403,7 @@ impl From<PatientMedicineChangeTypes> for CodeableConcept {
     }
 }
 #[doc = "**[PaymentIssuerTypeCodes](http://hl7.org/fhir/ValueSet/payment-issuertype)**. This value set contains codes for the type of payment issuers.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PaymentIssuerTypeCodes {
     /** **insurance**
@@ -47192,13 +44434,14 @@ impl AsRef<str> for PaymentIssuerTypeCodes {
         }
     }
 }
+impl ::std::fmt::Debug for PaymentIssuerTypeCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PaymentIssuerTypeCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Insurance => "Insurance",
-            Self::Patient => "Patient",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PaymentIssuerTypeCodes {
@@ -47254,7 +44497,7 @@ impl From<PaymentIssuerTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[PaymentKindCodes](http://hl7.org/fhir/ValueSet/payment-kind)**. This value set contains codes for the type of workflow from which payments arise.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PaymentKindCodes {
     /** **deposit**
@@ -47297,15 +44540,14 @@ impl AsRef<str> for PaymentKindCodes {
         }
     }
 }
+impl ::std::fmt::Debug for PaymentKindCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PaymentKindCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Deposit => "Deposit on Account",
-            Self::Kiosk => "Kiosk Payment",
-            Self::Online => "Online Bill Payment",
-            Self::PeriodicPayment => "Periodic Payment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PaymentKindCodes {
@@ -47361,7 +44603,7 @@ impl From<PaymentKindCodes> for CodeableConcept {
     }
 }
 #[doc = "**[PediatricUse](http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use)**. Suitability for age groups, in particular children.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PediatricUse {
     /** **Adolescents**
@@ -47464,27 +44706,14 @@ impl AsRef<str> for PediatricUse {
         }
     }
 }
+impl ::std::fmt::Debug for PediatricUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PediatricUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Adolescents => "Adolescents (12 to < 18 years)",
-            Self::Adults => "Adults (18 to < 65 years)",
-            Self::AdultsAndElderly => "Adult and elderly population (> 18 years)",
-            Self::All => "All",
-            Self::Children => "Children (2 to < 12 years)",
-            Self::Elderly => "Elderly (≥ 65 years)",
-            Self::InUtero => "In utero",
-            Self::Infants => "Infants and toddlers (28 days – 23 months)",
-            Self::Neonate => "Neonate",
-            Self::PediatricPopulation => "Pediatric Population (< 18 years)",
-            Self::Prepubertal => "Prepubertal children (2 years to onset of puberty)",
-            Self::PretermNewborn => "Preterm newborn infants (0 – 27 days)",
-            Self::PubertalAndPostpubertal => {
-                "Pubertal and postpubertal adolescents (onset of puberty to < 18 years)"
-            }
-            Self::TermNewborn => "Term newborn infants (0 – 27 days)",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PediatricUse {
@@ -47542,7 +44771,7 @@ impl From<PediatricUse> for CodeableConcept {
     }
 }
 #[doc = "**[PermissionRuleCombining](http://hl7.org/fhir/permission-rule-combining)**. Codes identifying the rule combining. See XACML Combining algorithms  http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-cos01-en.html\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum PermissionRuleCombining {
     /** **deny-overrides**
 
@@ -47599,18 +44828,14 @@ impl AsRef<str> for PermissionRuleCombining {
         }
     }
 }
+impl ::std::fmt::Debug for PermissionRuleCombining {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PermissionRuleCombining {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DenyOverrides => "Deny-overrides",
-            Self::DenyUnlessPermit => "Deny-unless-permit",
-            Self::OrderedDenyOverrides => "Ordered-deny-overrides",
-            Self::OrderedPermitOverrides => "Ordered-permit-overrides",
-            Self::PermitOverrides => "Permit-overrides",
-            Self::PermitUnlessDeny => "Permit-unless-deny",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PermissionRuleCombining {
@@ -47666,7 +44891,7 @@ impl From<PermissionRuleCombining> for CodeableConcept {
     }
 }
 #[doc = "**[PermissionStatus](http://hl7.org/fhir/ValueSet/permission-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PermissionStatus {
     /** **active**
@@ -47709,15 +44934,14 @@ impl AsRef<str> for PermissionStatus {
         }
     }
 }
+impl ::std::fmt::Debug for PermissionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PermissionStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::Rejected => "Rejected",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PermissionStatus {
@@ -47773,7 +44997,7 @@ impl From<PermissionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[PriceComponentType](http://hl7.org/fhir/ValueSet/price-component-type)**. Codes indicating the kind of the price component.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PriceComponentType {
     /** **base**
@@ -47828,17 +45052,14 @@ impl AsRef<str> for PriceComponentType {
         }
     }
 }
+impl ::std::fmt::Debug for PriceComponentType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PriceComponentType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Base => "base price",
-            Self::Deduction => "deduction",
-            Self::Discount => "discount",
-            Self::Informational => "informational",
-            Self::Surcharge => "surcharge",
-            Self::Tax => "tax",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PriceComponentType {
@@ -47894,7 +45115,7 @@ impl From<PriceComponentType> for CodeableConcept {
     }
 }
 #[doc = "**[ProcedureDeviceActionCodes](http://hl7.org/fhir/device-action)**. Example value set for Procedure Device Action code (what happened to a device during a procedure.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ProcedureDeviceActionCodes {
     /** **explanted**
 
@@ -47933,15 +45154,14 @@ impl AsRef<str> for ProcedureDeviceActionCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ProcedureDeviceActionCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProcedureDeviceActionCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Explanted => "Explanted",
-            Self::Implanted => "Implanted",
-            Self::Manipulated => "Manipulated",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProcedureDeviceActionCodes {
@@ -47997,7 +45217,7 @@ impl From<ProcedureDeviceActionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ProductConfidentiality](http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality)**. Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductConfidentiality {
     /** **CommerciallySensitive**
@@ -48028,13 +45248,14 @@ impl AsRef<str> for ProductConfidentiality {
         }
     }
 }
+impl ::std::fmt::Debug for ProductConfidentiality {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductConfidentiality {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CommerciallySensitive => "Commercially Sensitive",
-            Self::NotCommerciallySensitive => "Not Commercially Sensitive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductConfidentiality {
@@ -48093,7 +45314,7 @@ impl From<ProductConfidentiality> for CodeableConcept {
     }
 }
 #[doc = "**[ProductContactType](http://hl7.org/fhir/ValueSet/medicinal-product-contact-type)**. Contact type for a Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductContactType {
     /** **PVEnquiries**
@@ -48142,20 +45363,14 @@ impl AsRef<str> for ProductContactType {
         }
     }
 }
+impl ::std::fmt::Debug for ProductContactType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductContactType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Pvenquiries => "Pharmacovigilance Enquiry Information",
-            Self::ProcedureContactAfter => {
-                "Person/Company authorised for Communication after procedure"
-            }
-            Self::ProcedureContactDuring => {
-                "Person/Company authorised for Communication during procedure"
-            }
-            Self::ProposedMAH => "Proposed Marketing Authorization Holder/Person",
-            Self::Qppv => "Qualified Person Responsible for Pharmacovigilance",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductContactType {
@@ -48213,7 +45428,7 @@ impl From<ProductContactType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductCrossReferenceType](http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type)**. Relationship to another Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductCrossReferenceType {
     /** **ActualProduct**
@@ -48268,17 +45483,14 @@ impl AsRef<str> for ProductCrossReferenceType {
         }
     }
 }
+impl ::std::fmt::Debug for ProductCrossReferenceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductCrossReferenceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ActualProduct => "Link Virtual to Actual Product",
-            Self::BrandedProduct => "Link Generic to Branded Product",
-            Self::GenericProduct => "Link Branded to Generic Product",
-            Self::InvestigationalProduct => "Link to Investigational Product",
-            Self::Parallel => "Link to Parallel Import Product",
-            Self::VirtualProduct => "Link Actual to Virtual Product",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductCrossReferenceType {
@@ -48337,7 +45549,7 @@ impl From<ProductCrossReferenceType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductIntendedUse](http://hl7.org/fhir/ValueSet/product-intended-use)**. ProductIntendedUse\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductIntendedUse {
     /** **Alleviation**
@@ -48386,16 +45598,14 @@ impl AsRef<str> for ProductIntendedUse {
         }
     }
 }
+impl ::std::fmt::Debug for ProductIntendedUse {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductIntendedUse {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Alleviation => "Alleviation",
-            Self::Diagnosis => "Diagnosis",
-            Self::Monitoring => "Monitoring",
-            Self::Prevention => "Prevention",
-            Self::Treatment => "Treatment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductIntendedUse {
@@ -48451,7 +45661,7 @@ impl From<ProductIntendedUse> for CodeableConcept {
     }
 }
 #[doc = "**[ProductNamePartType](http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type)**. Type of part of a name for a Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductNamePartType {
     /** **ContainerPart**
@@ -48566,27 +45776,14 @@ impl AsRef<str> for ProductNamePartType {
         }
     }
 }
+impl ::std::fmt::Debug for ProductNamePartType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductNamePartType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ContainerPart => "Container or pack part",
-            Self::DelimiterPart => "Delimiter part",
-            Self::DevicePart => "Device part",
-            Self::DoseFormPart => "Pharmaceutical dose form part",
-            Self::FlavorPart => "Flavor part",
-            Self::FormulationPart => "Formulation part",
-            Self::FullName => "Full name",
-            Self::IntendedUsePart => "Intended use part",
-            Self::InventedNamePart => "Invented name part",
-            Self::LegacyNamePart => "Legacy name",
-            Self::PopulationPart => "Target population part",
-            Self::ScientificNamePart => "Scientific name part",
-            Self::SpeciesNamePart => "Target species name part",
-            Self::StrengthPart => "Strength part",
-            Self::TimeOrPeriodPart => "Time/Period part",
-            Self::TrademarkOrCompanyPart => "Trademark or company name part",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductNamePartType {
@@ -48645,7 +45842,7 @@ impl From<ProductNamePartType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductNameType](http://hl7.org/fhir/ValueSet/medicinal-product-name-type)**. Type of a name for a Medicinal Product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductNameType {
     /** **BAN**
@@ -48694,16 +45891,14 @@ impl AsRef<str> for ProductNameType {
         }
     }
 }
+impl ::std::fmt::Debug for ProductNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductNameType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ban => "British Approved Name",
-            Self::Inn => "International Non-Proprietary Name",
-            Self::Innm => "Modified International Non-Proprietary Name",
-            Self::Pinn => "Proposed International Non-Proprietary Name",
-            Self::Rinn => "Recommended International Non-Proprietary Name",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductNameType {
@@ -48761,7 +45956,7 @@ impl From<ProductNameType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductStatus](http://hl7.org/fhir/ValueSet/product-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProductStatus {
     /** **active**
@@ -48792,13 +45987,14 @@ impl AsRef<str> for ProductStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ProductStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProductStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProductStatus {
@@ -48854,7 +46050,7 @@ impl From<ProductStatus> for CodeableConcept {
     }
 }
 #[doc = "**[PropertyRepresentation](http://hl7.org/fhir/ValueSet/property-representation)**. How a property is represented when serialized.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PropertyRepresentation {
     /** **cdaText**
@@ -48903,16 +46099,14 @@ impl AsRef<str> for PropertyRepresentation {
         }
     }
 }
+impl ::std::fmt::Debug for PropertyRepresentation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PropertyRepresentation {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::CdaText => "CDA Text Format",
-            Self::TypeAttr => "Type Attribute",
-            Self::Xhtml => "XHTML",
-            Self::XmlAttr => "XML Attribute",
-            Self::XmlText => "XML Text",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PropertyRepresentation {
@@ -48970,7 +46164,7 @@ impl From<PropertyRepresentation> for CodeableConcept {
     }
 }
 #[doc = "**[PropertyType](http://hl7.org/fhir/ValueSet/concept-property-type)**. The type of a property value.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PropertyType {
     /** **Coding**
@@ -49031,18 +46225,14 @@ impl AsRef<str> for PropertyType {
         }
     }
 }
+impl ::std::fmt::Debug for PropertyType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PropertyType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Coding => "Coding (external reference)",
-            Self::Boolean => "boolean",
-            Self::Code => "code (internal reference)",
-            Self::DateTime => "dateTime",
-            Self::Decimal => "decimal",
-            Self::Integer => "integer",
-            Self::String => "string",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PropertyType {
@@ -49100,7 +46290,7 @@ impl From<PropertyType> for CodeableConcept {
     }
 }
 #[doc = "**[ProvenanceEntityRole](http://hl7.org/fhir/ValueSet/provenance-entity-role)**. How an entity was used in an activity.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ProvenanceEntityRole {
     /** **instantiates**
@@ -49149,16 +46339,14 @@ impl AsRef<str> for ProvenanceEntityRole {
         }
     }
 }
+impl ::std::fmt::Debug for ProvenanceEntityRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ProvenanceEntityRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Instantiates => "Instantiates",
-            Self::Quotation => "Quotation",
-            Self::Removal => "Removal",
-            Self::Revision => "Revision",
-            Self::Source => "Source",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ProvenanceEntityRole {
@@ -49216,7 +46404,7 @@ impl From<ProvenanceEntityRole> for CodeableConcept {
     }
 }
 #[doc = "**[PublicationStatus](http://hl7.org/fhir/ValueSet/publication-status)**. The lifecycle status of an artifact.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PublicationStatus {
     /** **active**
@@ -49259,15 +46447,14 @@ impl AsRef<str> for PublicationStatus {
         }
     }
 }
+impl ::std::fmt::Debug for PublicationStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PublicationStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Draft => "Draft",
-            Self::Retired => "Retired",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PublicationStatus {
@@ -49323,7 +46510,7 @@ impl From<PublicationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[PublishedInType](http://hl7.org/fhir/ValueSet/published-in-type)**. The type of publication such as book, database, or journal.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum PublishedInType {
     /** **D001877**
@@ -49366,15 +46553,14 @@ impl AsRef<str> for PublishedInType {
         }
     }
 }
+impl ::std::fmt::Debug for PublishedInType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for PublishedInType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::D001877 => "Book",
-            Self::D019991 => "Database",
-            Self::D020492 => "Periodical",
-            Self::D064886 => "Dataset",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for PublishedInType {
@@ -49430,7 +46616,7 @@ impl From<PublishedInType> for CodeableConcept {
     }
 }
 #[doc = "**[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator)**. How the Quantity should be understood and represented.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuantityComparator {
     /** **<**
@@ -49479,16 +46665,14 @@ impl AsRef<str> for QuantityComparator {
         }
     }
 }
+impl ::std::fmt::Debug for QuantityComparator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for QuantityComparator {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Less => "Less than",
-            Self::LessOrEqual => "Less or Equal to",
-            Self::Greater => "Greater than",
-            Self::GreaterOrEqual => "Greater or Equal to",
-            Self::Ad => "Sufficient to achieve this total quantity",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for QuantityComparator {
@@ -49544,7 +46728,7 @@ impl From<QuantityComparator> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireAnswerConstraint](http://hl7.org/fhir/questionnaire-answer-constraint)**. Codes that describe the types of constraints possible on a question item that has a list of permitted answers\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum QuestionnaireAnswerConstraint {
     /** **optionsOnly**
 
@@ -49583,15 +46767,14 @@ impl AsRef<str> for QuestionnaireAnswerConstraint {
         }
     }
 }
+impl ::std::fmt::Debug for QuestionnaireAnswerConstraint {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for QuestionnaireAnswerConstraint {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::OptionsOnly => "Options only",
-            Self::OptionsOrString => "Options or string",
-            Self::OptionsOrType => "Options or 'type'",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for QuestionnaireAnswerConstraint {
@@ -49649,7 +46832,7 @@ impl From<QuestionnaireAnswerConstraint> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireItemDisabledDisplay](http://hl7.org/fhir/questionnaire-disabled-display)**. QuestionnaireItemDisabledDisplay\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum QuestionnaireItemDisabledDisplay {
     /** **hidden**
 
@@ -49682,14 +46865,14 @@ impl AsRef<str> for QuestionnaireItemDisabledDisplay {
         }
     }
 }
+impl ::std::fmt::Debug for QuestionnaireItemDisabledDisplay {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for QuestionnaireItemDisabledDisplay {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Hidden => "Hidden",
-            Self::Protected => "Protected",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for QuestionnaireItemDisabledDisplay {
@@ -49747,7 +46930,7 @@ impl From<QuestionnaireItemDisabledDisplay> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireItemOperator](http://hl7.org/fhir/ValueSet/questionnaire-enable-operator)**. The criteria by which a question is enabled.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuestionnaireItemOperator {
     /** **!=**
@@ -49808,18 +46991,14 @@ impl AsRef<str> for QuestionnaireItemOperator {
         }
     }
 }
+impl ::std::fmt::Debug for QuestionnaireItemOperator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for QuestionnaireItemOperator {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::NotEqual => "Not Equals",
-            Self::Less => "Less Than",
-            Self::LessOrEqual => "Less or Equals",
-            Self::Equal => "Equals",
-            Self::Greater => "Greater Than",
-            Self::GreaterOrEqual => "Greater or Equals",
-            Self::Exists => "Exists",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for QuestionnaireItemOperator {
@@ -49877,7 +47056,7 @@ impl From<QuestionnaireItemOperator> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireItemType](http://hl7.org/fhir/ValueSet/item-type)**. Distinguishes groups from questions and display text and indicates data type for questions.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuestionnaireItemType {
     /** **attachment**
@@ -49992,27 +47171,14 @@ impl AsRef<str> for QuestionnaireItemType {
         }
     }
 }
+impl ::std::fmt::Debug for QuestionnaireItemType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for QuestionnaireItemType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Attachment => "Attachment",
-            Self::Boolean => "Boolean",
-            Self::Coding => "Coding",
-            Self::Date => "Date",
-            Self::DateTime => "Date Time",
-            Self::Decimal => "Decimal",
-            Self::Display => "Display",
-            Self::Group => "Group",
-            Self::Integer => "Integer",
-            Self::Quantity => "Quantity",
-            Self::Question => "Question",
-            Self::Reference => "Reference",
-            Self::String => "String",
-            Self::Text => "Text",
-            Self::Time => "Time",
-            Self::Url => "Url",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for QuestionnaireItemType {
@@ -50068,7 +47234,7 @@ impl From<QuestionnaireItemType> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireResponseStatus](http://hl7.org/fhir/ValueSet/questionnaire-answers-status)**. Lifecycle status of the questionnaire response.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum QuestionnaireResponseStatus {
     /** **amended**
@@ -50117,16 +47283,14 @@ impl AsRef<str> for QuestionnaireResponseStatus {
         }
     }
 }
+impl ::std::fmt::Debug for QuestionnaireResponseStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for QuestionnaireResponseStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Amended => "Amended",
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProgress => "In Progress",
-            Self::Stopped => "Stopped",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for QuestionnaireResponseStatus {
@@ -50184,7 +47348,7 @@ impl From<QuestionnaireResponseStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ReasonMedicationNotGivenCodes](http://hl7.org/fhir/reason-medication-not-given)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ReasonMedicationNotGivenCodes {
     /** **a**
 
@@ -50229,16 +47393,14 @@ impl AsRef<str> for ReasonMedicationNotGivenCodes {
         }
     }
 }
+impl ::std::fmt::Debug for ReasonMedicationNotGivenCodes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ReasonMedicationNotGivenCodes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::A => "None",
-            Self::B => "Away",
-            Self::C => "Asleep",
-            Self::D => "Vomit",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ReasonMedicationNotGivenCodes {
@@ -50294,7 +47456,7 @@ impl From<ReasonMedicationNotGivenCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ReferenceHandlingPolicy](http://hl7.org/fhir/ValueSet/reference-handling-policy)**. A set of flags that defines how references are supported.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReferenceHandlingPolicy {
     /** **enforced**
@@ -50343,16 +47505,14 @@ impl AsRef<str> for ReferenceHandlingPolicy {
         }
     }
 }
+impl ::std::fmt::Debug for ReferenceHandlingPolicy {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ReferenceHandlingPolicy {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Enforced => "Reference Integrity Enforced",
-            Self::Literal => "Literal References",
-            Self::Local => "Local References Only",
-            Self::Logical => "Logical References",
-            Self::Resolves => "Resolves References",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ReferenceHandlingPolicy {
@@ -50410,7 +47570,7 @@ impl From<ReferenceHandlingPolicy> for CodeableConcept {
     }
 }
 #[doc = "**[ReferenceVersionRules](http://hl7.org/fhir/ValueSet/reference-version-rules)**. Whether a reference needs to be version specific or version independent, or whether either can be used.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReferenceVersionRules {
     /** **either**
@@ -50447,14 +47607,14 @@ impl AsRef<str> for ReferenceVersionRules {
         }
     }
 }
+impl ::std::fmt::Debug for ReferenceVersionRules {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ReferenceVersionRules {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Either => "Either Specific or independent",
-            Self::Independent => "Version independent",
-            Self::Specific => "Version Specific",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ReferenceVersionRules {
@@ -50512,7 +47672,7 @@ impl From<ReferenceVersionRules> for CodeableConcept {
     }
 }
 #[doc = "**[RegulatedAuthorizationBasis](http://hl7.org/fhir/ValueSet/regulated-authorization-basis)**. RegulatedAuthorizationBasis\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationBasis {
     /** **Bibliographical**
@@ -50591,25 +47751,14 @@ impl AsRef<str> for RegulatedAuthorizationBasis {
         }
     }
 }
+impl ::std::fmt::Debug for RegulatedAuthorizationBasis {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RegulatedAuthorizationBasis {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Bibliographical => "Bibliographical application (stand-alone)",
-            Self::Full => "Full application",
-            Self::KnownHumanBlood => {
-                "Known human blood/plasma derived ancillary medicinal substance"
-            }
-            Self::KnownSubstance => "Known active substance",
-            Self::NewSubstance => "New active substance",
-            Self::ParallelTrade => "Parallel traded products",
-            Self::SimilarBiological => "Similar biological application",
-            Self::TemporaryUse => "Authorizations for temporary use",
-            Self::TraditionalUse => {
-                "Traditional use registration for herbal medicinal product application"
-            }
-            Self::WellEstablishedUse => "Well-established use application",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RegulatedAuthorizationBasis {
@@ -50667,7 +47816,7 @@ impl From<RegulatedAuthorizationBasis> for CodeableConcept {
     }
 }
 #[doc = "**[RegulatedAuthorizationCaseType](http://hl7.org/fhir/ValueSet/regulated-authorization-case-type)**. RegulatedAuthorizationCaseType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationCaseType {
     /** **100000155699**
@@ -50818,33 +47967,14 @@ impl AsRef<str> for RegulatedAuthorizationCaseType {
         }
     }
 }
+impl ::std::fmt::Debug for RegulatedAuthorizationCaseType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RegulatedAuthorizationCaseType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000155699 => "Specific Obligation",
-            Self::AnnualReassessment => "Annual Reassessment",
-            Self::Flu => "FLU STRAIN UPDATE",
-            Self::FollowUp => "Follow-up Measure",
-            Self::InitialMAA => "Initial Marketing Authorization Application",
-            Self::LiftingSuspension => "Lifting of a Suspension",
-            Self::LineExtension => "Line Extension",
-            Self::Orphan => "Orphan Designation Application",
-            Self::Pandemic => "PANDEMIC UPDATE",
-            Self::Psur => "Periodic Safety Update Report",
-            Self::PaediatricSubmission => "Paediatric Submission",
-            Self::Rmp => "Risk Management Plan",
-            Self::Reformatting => "Reformatting",
-            Self::Renewal => "Renewal",
-            Self::RepeatUse => "Repeat Use Procedure",
-            Self::ReviewSuspension => "Review of a Suspension of MA",
-            Self::SignalDetection => "Signal detection",
-            Self::SupplementalInformation => "Supplemental Information",
-            Self::TransferMA => "Transfer of a marketing authorization",
-            Self::UrgentSafetyRestriction => "Urgent Safety Restriction",
-            Self::Variation => "Variation",
-            Self::Withdrawal => "Withdrawal",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RegulatedAuthorizationCaseType {
@@ -50903,7 +48033,7 @@ impl From<RegulatedAuthorizationCaseType> for CodeableConcept {
     }
 }
 #[doc = "**[RegulatedAuthorizationType](http://hl7.org/fhir/ValueSet/regulated-authorization-type)**. RegulatedAuthorizationType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationType {
     /** **MarketingAuth**
@@ -50940,14 +48070,14 @@ impl AsRef<str> for RegulatedAuthorizationType {
         }
     }
 }
+impl ::std::fmt::Debug for RegulatedAuthorizationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RegulatedAuthorizationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::MarketingAuth => "Marketing Authorization",
-            Self::Orphan => "Orphan Drug Authorization",
-            Self::Pediatric => "Pediatric Use Drug Authorization",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RegulatedAuthorizationType {
@@ -51005,7 +48135,7 @@ impl From<RegulatedAuthorizationType> for CodeableConcept {
     }
 }
 #[doc = "**[RelatedArtifactType](http://hl7.org/fhir/ValueSet/related-artifact-type)**. The type of relationship to the related artifact.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RelatedArtifactType {
     /** **amended-with**
@@ -51240,47 +48370,14 @@ impl AsRef<str> for RelatedArtifactType {
         }
     }
 }
+impl ::std::fmt::Debug for RelatedArtifactType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RelatedArtifactType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AmendedWith => "Amended With",
-            Self::Amends => "Amends",
-            Self::AppendedWith => "Appended With",
-            Self::Appends => "Appends",
-            Self::Citation => "Citation",
-            Self::CiteAs => "Cite As",
-            Self::CitedBy => "Cited By",
-            Self::Cites => "Cites",
-            Self::CommentIn => "Has Comment In",
-            Self::CommentsOn => "Is Comment On",
-            Self::ComposedOf => "Composed Of",
-            Self::ContainedIn => "Contained In",
-            Self::Contains => "Contains",
-            Self::CorrectionIn => "Correction In",
-            Self::Corrects => "Corrects",
-            Self::CreatedWith => "Created With",
-            Self::DependsOn => "Depends On",
-            Self::DerivedFrom => "Derived From",
-            Self::Documentation => "Documentation",
-            Self::Documents => "Documents",
-            Self::Justification => "Justification",
-            Self::PartOf => "Part Of",
-            Self::Predecessor => "Predecessor",
-            Self::ReplacedWith => "Replaced With",
-            Self::Replaces => "Replaces",
-            Self::RetractedBy => "Retracted By",
-            Self::Retracts => "Retracts",
-            Self::Signs => "Signs",
-            Self::SimilarTo => "Similar To",
-            Self::SpecificationOf => "Specification Of",
-            Self::Successor => "Successor",
-            Self::SupportedWith => "Supported With",
-            Self::Supports => "Supports",
-            Self::TransformedInto => "Transformed Into",
-            Self::TransformedWith => "Transformed With",
-            Self::Transforms => "Transforms",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RelatedArtifactType {
@@ -51338,7 +48435,7 @@ impl From<RelatedArtifactType> for CodeableConcept {
     }
 }
 #[doc = "**[RelatedArtifactTypeExpanded](http://hl7.org/fhir/ValueSet/related-artifact-type-expanded)**. The type of relationship to the cited artifact.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RelatedArtifactTypeExpanded {
     /** **amended-with**
@@ -51585,49 +48682,14 @@ impl AsRef<str> for RelatedArtifactTypeExpanded {
         }
     }
 }
+impl ::std::fmt::Debug for RelatedArtifactTypeExpanded {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RelatedArtifactTypeExpanded {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AmendedWith => "Amended With",
-            Self::Amends => "Amends",
-            Self::AppendedWith => "Appended With",
-            Self::Appends => "Appends",
-            Self::Citation => "Citation",
-            Self::CiteAs => "Cite As",
-            Self::CitedBy => "Cited By",
-            Self::Cites => "Cites",
-            Self::CommentIn => "Has Comment In",
-            Self::CommentsOn => "Is Comment On",
-            Self::ComposedOf => "Composed Of",
-            Self::ContainedIn => "Contained In",
-            Self::Contains => "Contains",
-            Self::CorrectionIn => "Correction In",
-            Self::Corrects => "Corrects",
-            Self::CreatedWith => "Created With",
-            Self::DependsOn => "Depends On",
-            Self::DerivedFrom => "Derived From",
-            Self::Documentation => "Documentation",
-            Self::Documents => "Documents",
-            Self::Justification => "Justification",
-            Self::PartOf => "Part Of",
-            Self::Predecessor => "Predecessor",
-            Self::ReplacedWith => "Replaced With",
-            Self::Replaces => "Replaces",
-            Self::Reprint => "Reprint",
-            Self::ReprintOf => "Reprint Of",
-            Self::RetractedBy => "Retracted By",
-            Self::Retracts => "Retracts",
-            Self::Signs => "Signs",
-            Self::SimilarTo => "Similar To",
-            Self::SpecificationOf => "Specification Of",
-            Self::Successor => "Successor",
-            Self::SupportedWith => "Supported With",
-            Self::Supports => "Supports",
-            Self::TransformedInto => "Transformed Into",
-            Self::TransformedWith => "Transformed With",
-            Self::Transforms => "Transforms",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RelatedArtifactTypeExpanded {
@@ -51685,7 +48747,7 @@ impl From<RelatedArtifactTypeExpanded> for CodeableConcept {
     }
 }
 #[doc = "**[RemittanceOutcome](http://hl7.org/fhir/ValueSet/remittance-outcome)**. The outcome of the processing.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RemittanceOutcome {
     /** **complete**
@@ -51722,14 +48784,14 @@ impl AsRef<str> for RemittanceOutcome {
         }
     }
 }
+impl ::std::fmt::Debug for RemittanceOutcome {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RemittanceOutcome {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Complete => "Complete",
-            Self::Error => "Error",
-            Self::Partial => "Partial",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RemittanceOutcome {
@@ -51785,7 +48847,7 @@ impl From<RemittanceOutcome> for CodeableConcept {
     }
 }
 #[doc = "**[ReportRelationshipType](http://hl7.org/fhir/ValueSet/report-relation-type)**. The type of relationship between reports.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReportRelationshipType {
     /** **amendedWith**
@@ -51852,19 +48914,14 @@ impl AsRef<str> for ReportRelationshipType {
         }
     }
 }
+impl ::std::fmt::Debug for ReportRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ReportRelationshipType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AmendedWith => "Amended With",
-            Self::Amends => "Amends",
-            Self::AppendedWith => "Appended With",
-            Self::Appends => "Appends",
-            Self::ReplacedWith => "Replaced With",
-            Self::Replaces => "Replaces",
-            Self::TransformedWith => "Transformed With",
-            Self::Transforms => "Transforms",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ReportRelationshipType {
@@ -51920,7 +48977,7 @@ impl From<ReportRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[ReportSectionType](http://hl7.org/fhir/ValueSet/evidence-report-section)**. Evidence Report Section Type.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ReportSectionType {
     /** **Assertion**
@@ -52113,57 +49170,14 @@ impl AsRef<str> for ReportSectionType {
         }
     }
 }
+impl ::std::fmt::Debug for ReportSectionType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ReportSectionType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Assertion => "Assertion",
-            Self::CertaintyOfEvidence => "Certainty of Evidence",
-            Self::ColumnHeader => "Column Header",
-            Self::ColumnHeaders => "Column Headers",
-            Self::ControlGroupAloneEvidence => {
-                "Evidence Results for the control exposure only"
-            }
-            Self::EfficacyOutcomes => "Efficacy-outcomes",
-            Self::Evidence => "Evidence Results",
-            Self::EvidenceClassifier => "Evidence Classifier section",
-            Self::EvidenceVariable => "Evidence Variables used",
-            Self::EvidenceVariableExposure => {
-                "Evidence Variable in variable role Exposure"
-            }
-            Self::EvidenceVariableIntended => {
-                "Evidence Variables intended for interpretation"
-            }
-            Self::EvidenceVariableObserved => "Evidence Variables actually observed",
-            Self::EvidenceVariableOutcome => {
-                "Evidence Variable in variable role Outcome (MeasuredVariable)"
-            }
-            Self::EvidenceVariablePopulation => {
-                "Evidence Variable in variable role Population"
-            }
-            Self::HarmsOutcomes => "Harms outcomes",
-            Self::Header => "Header",
-            Self::InterventionGroupAloneEvidence => {
-                "Evidence Results for the intervention exposure only"
-            }
-            Self::InterventionVsControlEvidence => {
-                "Evidence Results for comparison of Intervention and Control"
-            }
-            Self::Reasons => "Reasons",
-            Self::References => "References",
-            Self::RowHeaders => "Row Headers",
-            Self::SampleSize => "Sample Size",
-            Self::SummaryOfBodyOfEvidenceFindings => {
-                "Summary of Body of Evidence Findings"
-            }
-            Self::SummaryOfIndividualStudyFindings => {
-                "Summary of Individual Study Findings"
-            }
-            Self::Table => "Table",
-            Self::Tables => "Tables",
-            Self::TextSummary => "Text Summary",
-            Self::Warnings => "Warnings",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ReportSectionType {
@@ -52221,7 +49235,7 @@ impl From<ReportSectionType> for CodeableConcept {
     }
 }
 #[doc = "**[RequestIntent](http://hl7.org/fhir/ValueSet/request-intent)**. Codes indicating the degree of authority/intentionality associated with a request.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RequestIntent {
     /** **directive**
@@ -52294,20 +49308,14 @@ impl AsRef<str> for RequestIntent {
         }
     }
 }
+impl ::std::fmt::Debug for RequestIntent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RequestIntent {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Directive => "Directive",
-            Self::FillerOrder => "Filler Order",
-            Self::InstanceOrder => "Instance Order",
-            Self::Option => "Option",
-            Self::Order => "Order",
-            Self::OriginalOrder => "Original Order",
-            Self::Plan => "Plan",
-            Self::Proposal => "Proposal",
-            Self::ReflexOrder => "Reflex Order",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RequestIntent {
@@ -52363,7 +49371,7 @@ impl From<RequestIntent> for CodeableConcept {
     }
 }
 #[doc = "**[RequestPriority](http://hl7.org/fhir/ValueSet/request-priority)**. Identifies the level of importance to be assigned to actioning the request.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RequestPriority {
     /** **asap**
@@ -52406,15 +49414,14 @@ impl AsRef<str> for RequestPriority {
         }
     }
 }
+impl ::std::fmt::Debug for RequestPriority {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RequestPriority {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Asap => "ASAP",
-            Self::Routine => "Routine",
-            Self::Stat => "STAT",
-            Self::Urgent => "Urgent",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RequestPriority {
@@ -52470,7 +49477,7 @@ impl From<RequestPriority> for CodeableConcept {
     }
 }
 #[doc = "**[RequestStatus](http://hl7.org/fhir/ValueSet/request-status)**. Codes identifying the lifecycle stage of a request.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RequestStatus {
     /** **active**
@@ -52531,18 +49538,14 @@ impl AsRef<str> for RequestStatus {
         }
     }
 }
+impl ::std::fmt::Debug for RequestStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RequestStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Completed => "Completed",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::OnHold => "On Hold",
-            Self::Revoked => "Revoked",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RequestStatus {
@@ -52598,7 +49601,7 @@ impl From<RequestStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyArmType](http://hl7.org/fhir/ValueSet/research-study-arm-type)**. Codes for the main intent of the study.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyArmType {
     /** **active-comparator**
@@ -52653,17 +49656,14 @@ impl AsRef<str> for ResearchStudyArmType {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyArmType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyArmType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ActiveComparator => "Active Comparator",
-            Self::Experimental => "Experimental",
-            Self::NoIntervention => "No Intervention",
-            Self::OtherArmType => "Other Arm Type",
-            Self::PlaceboComparator => "Placebo Comparator",
-            Self::ShamComparator => "Sham Comparator",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyArmType {
@@ -52721,7 +49721,7 @@ impl From<ResearchStudyArmType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyClassifiers](http://hl7.org/fhir/ValueSet/research-study-classifiers)**. Codes for use in ResearchStudy Resource. This resource (this entire set of content) is being used for active development of a ResearchStudyClassifiers CodeSystem for use for supporting multiple value sets in the FHIR ResearchStudy StructureDefinition.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyClassifiers {
     /** **fda-regulated-device**
@@ -52764,15 +49764,14 @@ impl AsRef<str> for ResearchStudyClassifiers {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyClassifiers {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyClassifiers {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::FdaRegulatedDevice => "FDA regulated device",
-            Self::FdaRegulatedDrug => "FDA regulated drug",
-            Self::IrbExempt => "IRB-exempt",
-            Self::MpgParagraph23B => "MPG Paragraph 23b",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyClassifiers {
@@ -52830,7 +49829,7 @@ impl From<ResearchStudyClassifiers> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyFocusType](http://hl7.org/fhir/ValueSet/research-study-focus-type)**. Codes for the main intent of the study.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyFocusType {
     /** **device**
@@ -52873,15 +49872,14 @@ impl AsRef<str> for ResearchStudyFocusType {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyFocusType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyFocusType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Device => "Device",
-            Self::Factor => "Factor",
-            Self::Intervention => "Intervention",
-            Self::Medication => "Medication",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyFocusType {
@@ -52939,7 +49937,7 @@ impl From<ResearchStudyFocusType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyObjectiveType](http://hl7.org/fhir/ValueSet/research-study-objective-type)**. Codes for the kind of study objective.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyObjectiveType {
     /** **exploratory**
@@ -52976,14 +49974,14 @@ impl AsRef<str> for ResearchStudyObjectiveType {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyObjectiveType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyObjectiveType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Exploratory => "Exploratory",
-            Self::Primary => "Primary",
-            Self::Secondary => "Secondary",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyObjectiveType {
@@ -53041,7 +50039,7 @@ impl From<ResearchStudyObjectiveType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyPartyOrganizationType](http://hl7.org/fhir/ValueSet/research-study-party-organization-type)**. This is a ResearchStudy's party organization type.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPartyOrganizationType {
     /** **academic**
@@ -53096,17 +50094,14 @@ impl AsRef<str> for ResearchStudyPartyOrganizationType {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyPartyOrganizationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyPartyOrganizationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Academic => "Academic",
-            Self::Fda => "FDA",
-            Self::Government => "Government",
-            Self::Industry => "Industry",
-            Self::Nih => "NIH",
-            Self::Nonprofit => "Nonprofit",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyPartyOrganizationType {
@@ -53165,7 +50160,7 @@ impl From<ResearchStudyPartyOrganizationType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyPartyRole](http://hl7.org/fhir/ValueSet/research-study-party-role)**. This is a ResearchStudy's party role.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPartyRole {
     /** **collaborator**
@@ -53256,23 +50251,14 @@ impl AsRef<str> for ResearchStudyPartyRole {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyPartyRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyPartyRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Collaborator => "collaborator",
-            Self::FundingSource => "funding-source",
-            Self::GeneralContact => "general-contact",
-            Self::Irb => "Institutional Review Board",
-            Self::LeadSponsor => "lead-sponsor",
-            Self::PrimaryInvestigator => "primary-investigator",
-            Self::RecruitmentContact => "recruitment-contact",
-            Self::Sponsor => "sponsor",
-            Self::SponsorInvestigator => "sponsor-investigator",
-            Self::StudyChair => "study-chair",
-            Self::StudyDirector => "study-director",
-            Self::SubInvestigator => "sub-investigator",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyPartyRole {
@@ -53330,7 +50316,7 @@ impl From<ResearchStudyPartyRole> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyPhase](http://hl7.org/fhir/ValueSet/research-study-phase)**. Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPhase {
     /** **early-phase-1**
@@ -53397,19 +50383,14 @@ impl AsRef<str> for ResearchStudyPhase {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyPhase {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyPhase {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::EarlyPhase1 => "Early Phase 1",
-            Self::NA => "N/A",
-            Self::Phase1 => "Phase 1",
-            Self::Phase1Phase2 => "Phase 1/Phase 2",
-            Self::Phase2 => "Phase 2",
-            Self::Phase2Phase3 => "Phase 2/Phase 3",
-            Self::Phase3 => "Phase 3",
-            Self::Phase4 => "Phase 4",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyPhase {
@@ -53465,7 +50446,7 @@ impl From<ResearchStudyPhase> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyPrimaryPurposeType](http://hl7.org/fhir/ValueSet/research-study-prim-purp-type)**. Codes for the main intent of a research study.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyPrimaryPurposeType {
     /** **basic-science**
@@ -53532,19 +50513,14 @@ impl AsRef<str> for ResearchStudyPrimaryPurposeType {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyPrimaryPurposeType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyPrimaryPurposeType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BasicScience => "Basic Science",
-            Self::DeviceFeasibility => "Device Feasibility",
-            Self::Diagnostic => "Diagnostic",
-            Self::HealthServicesResearch => "Health Services Research",
-            Self::Prevention => "Prevention",
-            Self::Screening => "Screening",
-            Self::SupportiveCare => "Supportive Care",
-            Self::Treatment => "Treatment",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyPrimaryPurposeType {
@@ -53602,7 +50578,7 @@ impl From<ResearchStudyPrimaryPurposeType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyReasonStopped](http://hl7.org/fhir/ValueSet/research-study-reason-stopped)**. Codes for why the study ended prematurely.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyReasonStopped {
     /** **accrual-goal-met**
@@ -53653,19 +50629,14 @@ impl AsRef<str> for ResearchStudyReasonStopped {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyReasonStopped {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyReasonStopped {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::AccrualGoalMet => "Accrual Goal Met",
-            Self::ClosedDueToLackOfStudyProgress => {
-                "Closed due to lack of study progress"
-            }
-            Self::ClosedDueToToxicity => "Closed due to toxicity",
-            Self::TemporarilyClosedPerStudyDesign => {
-                "Temporarily closed per study design"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyReasonStopped {
@@ -53723,7 +50694,7 @@ impl From<ResearchStudyReasonStopped> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyStatus](http://hl7.org/fhir/ValueSet/research-study-status)**. Codes that convey the current status of the research study.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResearchStudyStatus {
     /** **active**
@@ -53850,30 +50821,14 @@ impl AsRef<str> for ResearchStudyStatus {
         }
     }
 }
+impl ::std::fmt::Debug for ResearchStudyStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResearchStudyStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::ActiveButNotRecruiting => "Active, not recruiting",
-            Self::AdministrativelyCompleted => "Administratively Completed",
-            Self::Approved => "Approved",
-            Self::ClosedToAccrual => "Closed to Accrual",
-            Self::ClosedToAccrualAndIntervention => "Closed to Accrual and Intervention",
-            Self::Completed => "Completed",
-            Self::Disapproved => "Disapproved",
-            Self::EnrollingByInvitation => "Enrolling by invitation",
-            Self::InReview => "In Review",
-            Self::NotYetRecruiting => "Not yet recruiting",
-            Self::OverallStudy => "Overall study",
-            Self::Recruiting => "Recruiting",
-            Self::TemporarilyClosedToAccrual => "Temporarily Closed to Accrual",
-            Self::TemporarilyClosedToAccrualAndIntervention => {
-                "Temporarily Closed to Accrual and Intervention"
-            }
-            Self::Terminated => "Terminated",
-            Self::Withdrawn => "Withdrawn",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResearchStudyStatus {
@@ -53931,7 +50886,7 @@ impl From<ResearchStudyStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ResourceValidationMode](http://hl7.org/fhir/resource-validation-mode)**. ResourceValidationMode\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum ResourceValidationMode {
     /** **create**
 
@@ -53976,16 +50931,14 @@ impl AsRef<str> for ResourceValidationMode {
         }
     }
 }
+impl ::std::fmt::Debug for ResourceValidationMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResourceValidationMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Create => "Validate for Create",
-            Self::Delete => "Validate for Delete",
-            Self::Profile => "Validate Against a Profile",
-            Self::Update => "Validate for Update",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResourceValidationMode {
@@ -54041,7 +50994,7 @@ impl From<ResourceValidationMode> for CodeableConcept {
     }
 }
 #[doc = "**[ResourceVersionPolicy](http://hl7.org/fhir/ValueSet/versioning-policy)**. How the system supports versioning for a resource.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResourceVersionPolicy {
     /** **no-version**
@@ -54078,14 +51031,14 @@ impl AsRef<str> for ResourceVersionPolicy {
         }
     }
 }
+impl ::std::fmt::Debug for ResourceVersionPolicy {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResourceVersionPolicy {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::NoVersion => "No VersionId Support",
-            Self::Versioned => "Versioned",
-            Self::VersionedUpdate => "VersionId tracked fully",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResourceVersionPolicy {
@@ -54141,7 +51094,7 @@ impl From<ResourceVersionPolicy> for CodeableConcept {
     }
 }
 #[doc = "**[ResponseType](http://hl7.org/fhir/ValueSet/response-code)**. The kind of response to a message.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ResponseType {
     /** **fatal-error**
@@ -54178,14 +51131,14 @@ impl AsRef<str> for ResponseType {
         }
     }
 }
+impl ::std::fmt::Debug for ResponseType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ResponseType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::FatalError => "Fatal Error",
-            Self::Ok => "OK",
-            Self::TransientError => "Transient Error",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ResponseType {
@@ -54241,7 +51194,7 @@ impl From<ResponseType> for CodeableConcept {
     }
 }
 #[doc = "**[RestfulCapabilityMode](http://hl7.org/fhir/ValueSet/restful-capability-mode)**. The mode of a RESTful capability statement.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RestfulCapabilityMode {
     /** **client**
@@ -54272,13 +51225,14 @@ impl AsRef<str> for RestfulCapabilityMode {
         }
     }
 }
+impl ::std::fmt::Debug for RestfulCapabilityMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RestfulCapabilityMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Client => "Client",
-            Self::Server => "Server",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RestfulCapabilityMode {
@@ -54336,7 +51290,7 @@ impl From<RestfulCapabilityMode> for CodeableConcept {
     }
 }
 #[doc = "**[RestfulSecurityService](http://hl7.org/fhir/ValueSet/restful-security-service)**. Types of security services used with FHIR.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum RestfulSecurityService {
     /** **Basic**
@@ -54391,17 +51345,14 @@ impl AsRef<str> for RestfulSecurityService {
         }
     }
 }
+impl ::std::fmt::Debug for RestfulSecurityService {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for RestfulSecurityService {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Basic => "Basic",
-            Self::Certificates => "Certificates",
-            Self::Kerberos => "Kerberos",
-            Self::Ntlm => "NTLM",
-            Self::Oauth => "OAuth",
-            Self::SmartOnFHIR => "SMART-on-FHIR",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for RestfulSecurityService {
@@ -54459,7 +51410,7 @@ impl From<RestfulSecurityService> for CodeableConcept {
     }
 }
 #[doc = "**[SPDXLicense](http://hl7.org/fhir/ValueSet/spdx-license)**. The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/).\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SPDXLicense {
     /** **0BSD**
@@ -56558,395 +53509,14 @@ impl AsRef<str> for SPDXLicense {
         }
     }
 }
+impl ::std::fmt::Debug for SPDXLicense {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SPDXLicense {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N0Bsd => "BSD Zero Clause License",
-            Self::Aal => "Attribution Assurance License",
-            Self::Adsl => "Amazon Digital Services License",
-            Self::Afl11 => "Academic Free License v1.1",
-            Self::Afl12 => "Academic Free License v1.2",
-            Self::Afl20 => "Academic Free License v2.0",
-            Self::Afl21 => "Academic Free License v2.1",
-            Self::Afl30 => "Academic Free License v3.0",
-            Self::Agpl10Only => "Affero General Public License v1.0 only",
-            Self::Agpl10OrLater => "Affero General Public License v1.0 or later",
-            Self::Agpl30Only => "GNU Affero General Public License v3.0 only",
-            Self::Agpl30OrLater => "GNU Affero General Public License v3.0 or later",
-            Self::Amdplpa => "AMD's plpa_map.c License",
-            Self::Aml => "Apple MIT License",
-            Self::Ampas => "Academy of Motion Picture Arts and Sciences BSD",
-            Self::AntlrPd => "ANTLR Software Rights Notice",
-            Self::Apafml => "Adobe Postscript AFM License",
-            Self::Apl10 => "Adaptive Public License 1.0",
-            Self::Apsl10 => "Apple Public Source License 1.0",
-            Self::Apsl11 => "Apple Public Source License 1.1",
-            Self::Apsl12 => "Apple Public Source License 1.2",
-            Self::Apsl20 => "Apple Public Source License 2.0",
-            Self::Abstyles => "Abstyles License",
-            Self::Adobe2006 => "Adobe Systems Incorporated Source Code License Agreement",
-            Self::AdobeGlyph => "Adobe Glyph List License",
-            Self::Afmparse => "Afmparse License",
-            Self::Aladdin => "Aladdin Free Public License",
-            Self::Apache10 => "Apache License 1.0",
-            Self::Apache11 => "Apache License 1.1",
-            Self::Apache20 => "Apache License 2.0",
-            Self::Artistic10 => "Artistic License 1.0",
-            Self::Artistic10Perl => "Artistic License 1.0 (Perl)",
-            Self::Artistic10Cl8 => "Artistic License 1.0 w/clause 8",
-            Self::Artistic20 => "Artistic License 2.0",
-            Self::Bsd1Clause => "BSD 1-Clause License",
-            Self::Bsd2Clause => "BSD 2-Clause \"Simplified\" License",
-            Self::Bsd2ClauseFreeBSD => "BSD 2-Clause FreeBSD License",
-            Self::Bsd2ClauseNetBSD => "BSD 2-Clause NetBSD License",
-            Self::Bsd2ClausePatent => "BSD-2-Clause Plus Patent License",
-            Self::Bsd3Clause => "BSD 3-Clause \"New\" or \"Revised\" License",
-            Self::Bsd3ClauseAttribution => "BSD with attribution",
-            Self::Bsd3ClauseClear => "BSD 3-Clause Clear License",
-            Self::Bsd3ClauseLBNL => "Lawrence Berkeley National Labs BSD variant license",
-            Self::Bsd3ClauseNoNuclearLicense => "BSD 3-Clause No Nuclear License",
-            Self::Bsd3ClauseNoNuclearLicense2014 => {
-                "BSD 3-Clause No Nuclear License 2014"
-            }
-            Self::Bsd3ClauseNoNuclearWarranty => "BSD 3-Clause No Nuclear Warranty",
-            Self::Bsd4Clause => "BSD 4-Clause \"Original\" or \"Old\" License",
-            Self::Bsd4ClauseUC => "BSD-4-Clause (University of California-Specific)",
-            Self::BsdProtection => "BSD Protection License",
-            Self::BsdSourceCode => "BSD Source Code Attribution",
-            Self::Bsl10 => "Boost Software License 1.0",
-            Self::Bahyph => "Bahyph License",
-            Self::Barr => "Barr License",
-            Self::Beerware => "Beerware License",
-            Self::BitTorrent10 => "BitTorrent Open Source License v1.0",
-            Self::BitTorrent11 => "BitTorrent Open Source License v1.1",
-            Self::Borceux => "Borceux license",
-            Self::Catosl11 => "Computer Associates Trusted Open Source License 1.1",
-            Self::CcBy10 => "Creative Commons Attribution 1.0 Generic",
-            Self::CcBy20 => "Creative Commons Attribution 2.0 Generic",
-            Self::CcBy25 => "Creative Commons Attribution 2.5 Generic",
-            Self::CcBy30 => "Creative Commons Attribution 3.0 Unported",
-            Self::CcBy40 => "Creative Commons Attribution 4.0 International",
-            Self::CcByNc10 => "Creative Commons Attribution Non Commercial 1.0 Generic",
-            Self::CcByNc20 => "Creative Commons Attribution Non Commercial 2.0 Generic",
-            Self::CcByNc25 => "Creative Commons Attribution Non Commercial 2.5 Generic",
-            Self::CcByNc30 => "Creative Commons Attribution Non Commercial 3.0 Unported",
-            Self::CcByNc40 => {
-                "Creative Commons Attribution Non Commercial 4.0 International"
-            }
-            Self::CcByNcNd10 => {
-                "Creative Commons Attribution Non Commercial No Derivatives 1.0 Generic"
-            }
-            Self::CcByNcNd20 => {
-                "Creative Commons Attribution Non Commercial No Derivatives 2.0 Generic"
-            }
-            Self::CcByNcNd25 => {
-                "Creative Commons Attribution Non Commercial No Derivatives 2.5 Generic"
-            }
-            Self::CcByNcNd30 => {
-                "Creative Commons Attribution Non Commercial No Derivatives 3.0 Unported"
-            }
-            Self::CcByNcNd40 => {
-                "Creative Commons Attribution Non Commercial No Derivatives 4.0 International"
-            }
-            Self::CcByNcSa10 => {
-                "Creative Commons Attribution Non Commercial Share Alike 1.0 Generic"
-            }
-            Self::CcByNcSa20 => {
-                "Creative Commons Attribution Non Commercial Share Alike 2.0 Generic"
-            }
-            Self::CcByNcSa25 => {
-                "Creative Commons Attribution Non Commercial Share Alike 2.5 Generic"
-            }
-            Self::CcByNcSa30 => {
-                "Creative Commons Attribution Non Commercial Share Alike 3.0 Unported"
-            }
-            Self::CcByNcSa40 => {
-                "Creative Commons Attribution Non Commercial Share Alike 4.0 International"
-            }
-            Self::CcByNd10 => "Creative Commons Attribution No Derivatives 1.0 Generic",
-            Self::CcByNd20 => "Creative Commons Attribution No Derivatives 2.0 Generic",
-            Self::CcByNd25 => "Creative Commons Attribution No Derivatives 2.5 Generic",
-            Self::CcByNd30 => "Creative Commons Attribution No Derivatives 3.0 Unported",
-            Self::CcByNd40 => {
-                "Creative Commons Attribution No Derivatives 4.0 International"
-            }
-            Self::CcBySa10 => "Creative Commons Attribution Share Alike 1.0 Generic",
-            Self::CcBySa20 => "Creative Commons Attribution Share Alike 2.0 Generic",
-            Self::CcBySa25 => "Creative Commons Attribution Share Alike 2.5 Generic",
-            Self::CcBySa30 => "Creative Commons Attribution Share Alike 3.0 Unported",
-            Self::CcBySa40 => {
-                "Creative Commons Attribution Share Alike 4.0 International"
-            }
-            Self::Cc010 => "Creative Commons Zero v1.0 Universal",
-            Self::Cddl10 => "Common Development and Distribution License 1.0",
-            Self::Cddl11 => "Common Development and Distribution License 1.1",
-            Self::CdlaPermissive10 => "Community Data License Agreement Permissive 1.0",
-            Self::CdlaSharing10 => "Community Data License Agreement Sharing 1.0",
-            Self::Cecill10 => "CeCILL Free Software License Agreement v1.0",
-            Self::Cecill11 => "CeCILL Free Software License Agreement v1.1",
-            Self::Cecill20 => "CeCILL Free Software License Agreement v2.0",
-            Self::Cecill21 => "CeCILL Free Software License Agreement v2.1",
-            Self::CecillB => "CeCILL-B Free Software License Agreement",
-            Self::CecillC => "CeCILL-C Free Software License Agreement",
-            Self::CnriJython => "CNRI Jython License",
-            Self::CnriPython => "CNRI Python License",
-            Self::CnriPythonGPLCompatible => {
-                "CNRI Python Open Source GPL Compatible License Agreement"
-            }
-            Self::Cpal10 => "Common Public Attribution License 1.0",
-            Self::Cpl10 => "Common Public License 1.0",
-            Self::Cpol102 => "Code Project Open License 1.02",
-            Self::CuaOpl10 => "CUA Office Public License v1.0",
-            Self::Caldera => "Caldera License",
-            Self::ClArtistic => "Clarified Artistic License",
-            Self::Condor11 => "Condor Public License v1.1",
-            Self::Crossword => "Crossword License",
-            Self::CrystalStacker => "CrystalStacker License",
-            Self::Cube => "Cube License",
-            Self::DFsl10 => "Deutsche Freie Software Lizenz",
-            Self::Doc => "DOC License",
-            Self::Dsdp => "DSDP License",
-            Self::Dotseqn => "Dotseqn License",
-            Self::Ecl10 => "Educational Community License v1.0",
-            Self::Ecl20 => "Educational Community License v2.0",
-            Self::Efl10 => "Eiffel Forum License v1.0",
-            Self::Efl20 => "Eiffel Forum License v2.0",
-            Self::Epl10 => "Eclipse Public License 1.0",
-            Self::Epl20 => "Eclipse Public License 2.0",
-            Self::Eudatagrid => "EU DataGrid Software License",
-            Self::Eupl10 => "European Union Public License 1.0",
-            Self::Eupl11 => "European Union Public License 1.1",
-            Self::Eupl12 => "European Union Public License 1.2",
-            Self::Entessa => "Entessa Public License v1.0",
-            Self::ErlPL11 => "Erlang Public License v1.1",
-            Self::Eurosym => "Eurosym License",
-            Self::Fsfap => "FSF All Permissive License",
-            Self::Fsful => "FSF Unlimited License",
-            Self::Fsfullr => "FSF Unlimited License (with License Retention)",
-            Self::Ftl => "Freetype Project License",
-            Self::Fair => "Fair License",
-            Self::Frameworx10 => "Frameworx Open License 1.0",
-            Self::FreeImage => "FreeImage Public License v1.0",
-            Self::Gfdl11Only => "GNU Free Documentation License v1.1 only",
-            Self::Gfdl11OrLater => "GNU Free Documentation License v1.1 or later",
-            Self::Gfdl12Only => "GNU Free Documentation License v1.2 only",
-            Self::Gfdl12OrLater => "GNU Free Documentation License v1.2 or later",
-            Self::Gfdl13Only => "GNU Free Documentation License v1.3 only",
-            Self::Gfdl13OrLater => "GNU Free Documentation License v1.3 or later",
-            Self::Gl2Ps => "GL2PS License",
-            Self::Gpl10Only => "GNU General Public License v1.0 only",
-            Self::Gpl10OrLater => "GNU General Public License v1.0 or later",
-            Self::Gpl20Only => "GNU General Public License v2.0 only",
-            Self::Gpl20OrLater => "GNU General Public License v2.0 or later",
-            Self::Gpl30Only => "GNU General Public License v3.0 only",
-            Self::Gpl30OrLater => "GNU General Public License v3.0 or later",
-            Self::Giftware => "Giftware License",
-            Self::Glide => "3dfx Glide License",
-            Self::Glulxe => "Glulxe License",
-            Self::Hpnd => "Historical Permission Notice and Disclaimer",
-            Self::HaskellReport => "Haskell Language Report License",
-            Self::IbmPibs => "IBM PowerPC Initialization and Boot Software",
-            Self::Icu => "ICU License",
-            Self::Ijg => "Independent JPEG Group License",
-            Self::Ipa => "IPA Font License",
-            Self::Ipl10 => "IBM Public License v1.0",
-            Self::Isc => "ISC License",
-            Self::ImageMagick => "ImageMagick License",
-            Self::Imlib2 => "Imlib2 License",
-            Self::InfoZIP => "Info-ZIP License",
-            Self::Intel => "Intel Open Source License",
-            Self::IntelACPI => "Intel ACPI Software License Agreement",
-            Self::Interbase10 => "Interbase Public License v1.0",
-            Self::Json => "JSON License",
-            Self::JasPer20 => "JasPer License",
-            Self::Lal12 => "Licence Art Libre 1.2",
-            Self::Lal13 => "Licence Art Libre 1.3",
-            Self::Lgpl20Only => "GNU Library General Public License v2 only",
-            Self::Lgpl20OrLater => "GNU Library General Public License v2 or later",
-            Self::Lgpl21Only => "GNU Lesser General Public License v2.1 only",
-            Self::Lgpl21OrLater => "GNU Lesser General Public License v2.1 or later",
-            Self::Lgpl30Only => "GNU Lesser General Public License v3.0 only",
-            Self::Lgpl30OrLater => "GNU Lesser General Public License v3.0 or later",
-            Self::Lgpllr => "Lesser General Public License For Linguistic Resources",
-            Self::Lpl10 => "Lucent Public License Version 1.0",
-            Self::Lpl102 => "Lucent Public License v1.02",
-            Self::Lppl10 => "LaTeX Project Public License v1.0",
-            Self::Lppl11 => "LaTeX Project Public License v1.1",
-            Self::Lppl12 => "LaTeX Project Public License v1.2",
-            Self::Lppl13A => "LaTeX Project Public License v1.3a",
-            Self::Lppl13C => "LaTeX Project Public License v1.3c",
-            Self::Latex2E => "Latex2e License",
-            Self::Leptonica => "Leptonica License",
-            Self::LiLiQP11 => "Licence Libre du Québec – Permissive version 1.1",
-            Self::LiLiQR11 => "Licence Libre du Québec – Réciprocité version 1.1",
-            Self::LiLiQRplus11 => {
-                "Licence Libre du Québec – Réciprocité forte version 1.1"
-            }
-            Self::Libpng => "libpng License",
-            Self::LinuxOpenIB => "Linux Kernel Variant of OpenIB.org license",
-            Self::Mit => "MIT License",
-            Self::Mit0 => "MIT No Attribution",
-            Self::MitCmu => "CMU License",
-            Self::MitAdvertising => "Enlightenment License (e16)",
-            Self::MitEnna => "enna License",
-            Self::MitFeh => "feh License",
-            Self::Mitnfa => "MIT +no-false-attribs license",
-            Self::Mpl10 => "Mozilla Public License 1.0",
-            Self::Mpl11 => "Mozilla Public License 1.1",
-            Self::Mpl20 => "Mozilla Public License 2.0",
-            Self::Mpl20NoCopyleftException => {
-                "Mozilla Public License 2.0 (no copyleft exception)"
-            }
-            Self::MsPl => "Microsoft Public License",
-            Self::MsRl => "Microsoft Reciprocal License",
-            Self::Mtll => "Matrix Template Library License",
-            Self::MakeIndex => "MakeIndex License",
-            Self::MirOS => "MirOS License",
-            Self::Motosoto => "Motosoto License",
-            Self::Multics => "Multics License",
-            Self::Mup => "Mup License",
-            Self::Nasa13 => "NASA Open Source Agreement 1.3",
-            Self::Nbpl10 => "Net Boolean Public License v1",
-            Self::Ncsa => "University of Illinois/NCSA Open Source License",
-            Self::Ngpl => "Nethack General Public License",
-            Self::Nlod10 => "Norwegian Licence for Open Government Data",
-            Self::Nlpl => "No Limit Public License",
-            Self::Nosl => "Netizen Open Source License",
-            Self::Npl10 => "Netscape Public License v1.0",
-            Self::Npl11 => "Netscape Public License v1.1",
-            Self::Nposl30 => "Non-Profit Open Software License 3.0",
-            Self::Nrl => "NRL License",
-            Self::Ntp => "NTP License",
-            Self::Naumen => "Naumen Public License",
-            Self::NetSNMP => "Net-SNMP License",
-            Self::NetCDF => "NetCDF license",
-            Self::Newsletr => "Newsletr License",
-            Self::Nokia => "Nokia Open Source License",
-            Self::Noweb => "Noweb License",
-            Self::OcctPl => "Open CASCADE Technology Public License",
-            Self::Oclc20 => "OCLC Research Public License 2.0",
-            Self::OdbL10 => "ODC Open Database License v1.0",
-            Self::Ofl10 => "SIL Open Font License 1.0",
-            Self::Ofl11 => "SIL Open Font License 1.1",
-            Self::Ogtsl => "Open Group Test Suite License",
-            Self::Oldap11 => "Open LDAP Public License v1.1",
-            Self::Oldap12 => "Open LDAP Public License v1.2",
-            Self::Oldap13 => "Open LDAP Public License v1.3",
-            Self::Oldap14 => "Open LDAP Public License v1.4",
-            Self::Oldap20 => "Open LDAP Public License v2.0 (or possibly 2.0A and 2.0B)",
-            Self::Oldap201 => "Open LDAP Public License v2.0.1",
-            Self::Oldap21 => "Open LDAP Public License v2.1",
-            Self::Oldap22 => "Open LDAP Public License v2.2",
-            Self::Oldap221 => "Open LDAP Public License v2.2.1",
-            Self::Oldap222 => "Open LDAP Public License 2.2.2",
-            Self::Oldap23 => "Open LDAP Public License v2.3",
-            Self::Oldap24 => "Open LDAP Public License v2.4",
-            Self::Oldap25 => "Open LDAP Public License v2.5",
-            Self::Oldap26 => "Open LDAP Public License v2.6",
-            Self::Oldap27 => "Open LDAP Public License v2.7",
-            Self::Oldap28 => "Open LDAP Public License v2.8",
-            Self::Oml => "Open Market License",
-            Self::Opl10 => "Open Public License v1.0",
-            Self::OsetPl21 => "OSET Public License version 2.1",
-            Self::Osl10 => "Open Software License 1.0",
-            Self::Osl11 => "Open Software License 1.1",
-            Self::Osl20 => "Open Software License 2.0",
-            Self::Osl21 => "Open Software License 2.1",
-            Self::Osl30 => "Open Software License 3.0",
-            Self::OpenSSL => "OpenSSL License",
-            Self::Pddl10 => "ODC Public Domain Dedication & License 1.0",
-            Self::Php30 => "PHP License v3.0",
-            Self::Php301 => "PHP License v3.01",
-            Self::Plexus => "Plexus Classworlds License",
-            Self::PostgreSQL => "PostgreSQL License",
-            Self::Python20 => "Python License 2.0",
-            Self::Qpl10 => "Q Public License 1.0",
-            Self::Qhull => "Qhull License",
-            Self::RheCos11 => "Red Hat eCos Public License v1.1",
-            Self::Rpl11 => "Reciprocal Public License 1.1",
-            Self::Rpl15 => "Reciprocal Public License 1.5",
-            Self::Rpsl10 => "RealNetworks Public Source License v1.0",
-            Self::RsaMd => "RSA Message-Digest License",
-            Self::Rscpl => "Ricoh Source Code Public License",
-            Self::Rdisc => "Rdisc License",
-            Self::Ruby => "Ruby License",
-            Self::SaxPd => "Sax Public Domain Notice",
-            Self::Scea => "SCEA Shared Source License",
-            Self::SgiB10 => "SGI Free Software License B v1.0",
-            Self::SgiB11 => "SGI Free Software License B v1.1",
-            Self::SgiB20 => "SGI Free Software License B v2.0",
-            Self::Sissl => "Sun Industry Standards Source License v1.1",
-            Self::Sissl12 => "Sun Industry Standards Source License v1.2",
-            Self::Smlnj => "Standard ML of New Jersey License",
-            Self::Smppl => "Secure Messaging Protocol Public License",
-            Self::Snia => "SNIA Public License 1.1",
-            Self::Spl10 => "Sun Public License v1.0",
-            Self::Swl => "Scheme Widget Library (SWL) Software License Agreement",
-            Self::Saxpath => "Saxpath License",
-            Self::Sendmail => "Sendmail License",
-            Self::SimPL20 => "Simple Public License 2.0",
-            Self::Sleepycat => "Sleepycat License",
-            Self::Spencer86 => "Spencer License 86",
-            Self::Spencer94 => "Spencer License 94",
-            Self::Spencer99 => "Spencer License 99",
-            Self::SugarCRM113 => "SugarCRM Public License v1.1.3",
-            Self::Tcl => "TCL/TK License",
-            Self::TcpWrappers => "TCP Wrappers License",
-            Self::Tmate => "TMate Open Source License",
-            Self::Torque11 => "TORQUE v2.5+ Software License v1.1",
-            Self::Tosl => "Trusster Open Source License",
-            Self::Upl10 => "Universal Permissive License v1.0",
-            Self::UnicodeDFS2015 => {
-                "Unicode License Agreement - Data Files and Software (2015)"
-            }
-            Self::UnicodeDFS2016 => {
-                "Unicode License Agreement - Data Files and Software (2016)"
-            }
-            Self::UnicodeTOU => "Unicode Terms of Use",
-            Self::Unlicense => "The Unlicense",
-            Self::Vostrom => "VOSTROM Public License for Open Source",
-            Self::Vsl10 => "Vovida Software License v1.0",
-            Self::Vim => "Vim License",
-            Self::W3C => "W3C Software Notice and License (2002-12-31)",
-            Self::W3C19980720 => "W3C Software Notice and License (1998-07-20)",
-            Self::W3C20150513 => "W3C Software Notice and Document License (2015-05-13)",
-            Self::Wtfpl => "Do What The F*ck You Want To Public License",
-            Self::Watcom10 => "Sybase Open Watcom Public License 1.0",
-            Self::Wsuipa => "Wsuipa License",
-            Self::X11 => "X11 License",
-            Self::Xfree8611 => "XFree86 License 1.1",
-            Self::Xskat => "XSkat License",
-            Self::Xerox => "Xerox License",
-            Self::Xnet => "X.Net License",
-            Self::Ypl10 => "Yahoo! Public License v1.0",
-            Self::Ypl11 => "Yahoo! Public License v1.1",
-            Self::Zpl11 => "Zope Public License 1.1",
-            Self::Zpl20 => "Zope Public License 2.0",
-            Self::Zpl21 => "Zope Public License 2.1",
-            Self::Zed => "Zed License",
-            Self::Zend20 => "Zend License v2.0",
-            Self::Zimbra13 => "Zimbra Public License v1.3",
-            Self::Zimbra14 => "Zimbra Public License v1.4",
-            Self::Zlib => "zlib License",
-            Self::Bzip2105 => "bzip2 and libbzip2 License v1.0.5",
-            Self::Bzip2106 => "bzip2 and libbzip2 License v1.0.6",
-            Self::Curl => "curl License",
-            Self::Diffmark => "diffmark license",
-            Self::Dvipdfm => "dvipdfm License",
-            Self::Egenix => "eGenix.com Public License 1.1.0",
-            Self::Gsoap13B => "gSOAP Public License v1.3b",
-            Self::Gnuplot => "gnuplot License",
-            Self::Imatix => "iMatix Standard Function Library Agreement",
-            Self::Libtiff => "libtiff License",
-            Self::Mpich2 => "mpich2 License",
-            Self::NotOpenSource => "Not open source",
-            Self::Psfrag => "psfrag License",
-            Self::Psutils => "psutils License",
-            Self::Xinetd => "xinetd License",
-            Self::Xpp => "XPP License",
-            Self::ZlibAcknowledgement => "zlib/libpng License with Acknowledgement",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SPDXLicense {
@@ -57002,7 +53572,7 @@ impl From<SPDXLicense> for CodeableConcept {
     }
 }
 #[doc = "**[SampleSecurityStructuralRoles](http://hl7.org/fhir/sample-security-structural-roles)**. This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions..\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum SampleSecurityStructuralRoles {
     /** **business-manager**
 
@@ -57103,25 +53673,14 @@ impl AsRef<str> for SampleSecurityStructuralRoles {
         }
     }
 }
+impl ::std::fmt::Debug for SampleSecurityStructuralRoles {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SampleSecurityStructuralRoles {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BusinessManager => "Business Manager",
-            Self::ClaimsAdjudicator => "Claims Adjudicator",
-            Self::Dentist => "Dentist",
-            Self::Dietician => "Dietician",
-            Self::GeneralMedicine => "General Medicine",
-            Self::GeneralNursing => "General Nursing",
-            Self::NonRegulatedHealthProfessionals => "Non-Regulated health Professionals",
-            Self::Pediatrics => "Pediatrics",
-            Self::Pharmacy => "Pharmacy",
-            Self::Receptionist => "Receptionist",
-            Self::RegulatedHealthProfessionals => "Regulated Health Professionals",
-            Self::Transcriptionist => "Transcriptionist",
-            Self::Veterinarian => "Veterinarian",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SampleSecurityStructuralRoles {
@@ -57179,7 +53738,7 @@ impl From<SampleSecurityStructuralRoles> for CodeableConcept {
     }
 }
 #[doc = "**[SearchComparator](http://hl7.org/fhir/ValueSet/search-comparator)**. What Search Comparator Codes are supported in search.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchComparator {
     /** **ap**
@@ -57252,20 +53811,14 @@ impl AsRef<str> for SearchComparator {
         }
     }
 }
+impl ::std::fmt::Debug for SearchComparator {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SearchComparator {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ap => "Approximately",
-            Self::Eb => "Ends Before",
-            Self::Eq => "Equals",
-            Self::Ge => "Greater or Equals",
-            Self::Gt => "Greater Than",
-            Self::Le => "Less of Equal",
-            Self::Lt => "Less Than",
-            Self::Ne => "Not Equals",
-            Self::Sa => "Starts After",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SearchComparator {
@@ -57321,7 +53874,7 @@ impl From<SearchComparator> for CodeableConcept {
     }
 }
 #[doc = "**[SearchEntryMode](http://hl7.org/fhir/ValueSet/search-entry-mode)**. Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchEntryMode {
     /** **include**
@@ -57358,14 +53911,14 @@ impl AsRef<str> for SearchEntryMode {
         }
     }
 }
+impl ::std::fmt::Debug for SearchEntryMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SearchEntryMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Include => "Include",
-            Self::Match => "Match",
-            Self::Outcome => "Outcome",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SearchEntryMode {
@@ -57421,7 +53974,7 @@ impl From<SearchEntryMode> for CodeableConcept {
     }
 }
 #[doc = "**[SearchModifierCode](http://hl7.org/fhir/ValueSet/search-modifier-code)**. A supported modifier for a search parameter.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchModifierCode {
     /** **above**
@@ -57530,26 +54083,14 @@ impl AsRef<str> for SearchModifierCode {
         }
     }
 }
+impl ::std::fmt::Debug for SearchModifierCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SearchModifierCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Above => "Above",
-            Self::Below => "Below",
-            Self::CodeText => "Code Text",
-            Self::Contains => "Contains",
-            Self::Exact => "Exact",
-            Self::Identifier => "Identifier",
-            Self::In => "In",
-            Self::Iterate => "Iterate",
-            Self::Missing => "Missing",
-            Self::Not => "Not",
-            Self::NotIn => "Not In",
-            Self::OfType => "Of Type",
-            Self::Text => "Text",
-            Self::TextAdvanced => "Text Advanced",
-            Self::Type => "Type",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SearchModifierCode {
@@ -57605,7 +54146,7 @@ impl From<SearchModifierCode> for CodeableConcept {
     }
 }
 #[doc = "**[SearchParamType](http://hl7.org/fhir/ValueSet/search-param-type)**. Data types allowed to be used for search parameters.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchParamType {
     /** **composite**
@@ -57678,20 +54219,14 @@ impl AsRef<str> for SearchParamType {
         }
     }
 }
+impl ::std::fmt::Debug for SearchParamType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SearchParamType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Composite => "Composite",
-            Self::Date => "Date/DateTime",
-            Self::Number => "Number",
-            Self::Quantity => "Quantity",
-            Self::Reference => "Reference",
-            Self::Special => "Special",
-            Self::String => "String",
-            Self::Token => "Token",
-            Self::Uri => "URI",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SearchParamType {
@@ -57747,7 +54282,7 @@ impl From<SearchParamType> for CodeableConcept {
     }
 }
 #[doc = "**[SearchProcessingModeType](http://hl7.org/fhir/ValueSet/search-processingmode)**. How a search parameter relates to the set of elements returned by evaluating its expression query.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SearchProcessingModeType {
     /** **normal**
@@ -57784,14 +54319,14 @@ impl AsRef<str> for SearchProcessingModeType {
         }
     }
 }
+impl ::std::fmt::Debug for SearchProcessingModeType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SearchProcessingModeType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Normal => "Normal",
-            Self::Other => "Other",
-            Self::Phonetic => "Phonetic",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SearchProcessingModeType {
@@ -57849,7 +54384,7 @@ impl From<SearchProcessingModeType> for CodeableConcept {
     }
 }
 #[doc = "**[SequenceType](http://hl7.org/fhir/ValueSet/sequence-type)**. Type if a sequence -- DNA, RNA, or amino acid sequence.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SequenceType {
     /** **aa**
@@ -57886,14 +54421,14 @@ impl AsRef<str> for SequenceType {
         }
     }
 }
+impl ::std::fmt::Debug for SequenceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SequenceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Aa => "AA Sequence",
-            Self::Dna => "DNA Sequence",
-            Self::Rna => "RNA Sequence",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SequenceType {
@@ -57949,7 +54484,7 @@ impl From<SequenceType> for CodeableConcept {
     }
 }
 #[doc = "**[ServiceMode](http://hl7.org/fhir/ValueSet/service-mode)**. An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ServiceMode {
     /** **chat**
@@ -57992,15 +54527,14 @@ impl AsRef<str> for ServiceMode {
         }
     }
 }
+impl ::std::fmt::Debug for ServiceMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ServiceMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Chat => "Chat/Messaging",
-            Self::InPerson => "In Person",
-            Self::Telephone => "Telephone",
-            Self::Videoconference => "Video Conference",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ServiceMode {
@@ -58056,7 +54590,7 @@ impl From<ServiceMode> for CodeableConcept {
     }
 }
 #[doc = "**[ServiceRequestOrderDetailParameterCode](http://hl7.org/fhir/ValueSet/servicerequest-orderdetail-parameter-code)**. Codes providing the parameter codes for service request details.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum ServiceRequestOrderDetailParameterCode {
     /** **body-elevation**
@@ -58099,15 +54633,14 @@ impl AsRef<str> for ServiceRequestOrderDetailParameterCode {
         }
     }
 }
+impl ::std::fmt::Debug for ServiceRequestOrderDetailParameterCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for ServiceRequestOrderDetailParameterCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::BodyElevation => "Body Elevation",
-            Self::CatheterInsertion => "Catheter Insertion",
-            Self::DeviceConfiguration => "Device Configuration",
-            Self::DeviceSettings => "Device Settings",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for ServiceRequestOrderDetailParameterCode {
@@ -58166,7 +54699,7 @@ impl From<ServiceRequestOrderDetailParameterCode> for CodeableConcept {
     }
 }
 #[doc = "**[SlicingRules](http://hl7.org/fhir/ValueSet/resource-slicing-rules)**. How slices are interpreted when evaluating an instance.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SlicingRules {
     /** **closed**
@@ -58203,14 +54736,14 @@ impl AsRef<str> for SlicingRules {
         }
     }
 }
+impl ::std::fmt::Debug for SlicingRules {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SlicingRules {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Closed => "Closed",
-            Self::Open => "Open",
-            Self::OpenAtEnd => "Open at End",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SlicingRules {
@@ -58268,7 +54801,7 @@ impl From<SlicingRules> for CodeableConcept {
     }
 }
 #[doc = "**[SlotStatus](http://hl7.org/fhir/ValueSet/slotstatus)**. The free/busy status of the slot.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SlotStatus {
     /** **busy**
@@ -58317,16 +54850,14 @@ impl AsRef<str> for SlotStatus {
         }
     }
 }
+impl ::std::fmt::Debug for SlotStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SlotStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Busy => "Busy",
-            Self::BusyTentative => "Busy (Tentative)",
-            Self::BusyUnavailable => "Busy (Unavailable)",
-            Self::EnteredInError => "Entered in error",
-            Self::Free => "Free",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SlotStatus {
@@ -58382,7 +54913,7 @@ impl From<SlotStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SortDirection](http://hl7.org/fhir/ValueSet/sort-direction)**. The possible sort directions, ascending or descending.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SortDirection {
     /** **ascending**
@@ -58413,13 +54944,14 @@ impl AsRef<str> for SortDirection {
         }
     }
 }
+impl ::std::fmt::Debug for SortDirection {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SortDirection {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ascending => "Ascending",
-            Self::Descending => "Descending",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SortDirection {
@@ -58475,7 +55007,7 @@ impl From<SortDirection> for CodeableConcept {
     }
 }
 #[doc = "**[SpecialMeasures](http://hl7.org/fhir/ValueSet/medicinal-product-special-measures)**. Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorization studies.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecialMeasures {
     /** **Post-authorizationStudies**
@@ -58500,14 +55032,14 @@ impl AsRef<str> for SpecialMeasures {
         }
     }
 }
+impl ::std::fmt::Debug for SpecialMeasures {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SpecialMeasures {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::PostAuthorizationStudies => {
-                "Requirement to conduct post-authorization studies"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SpecialMeasures {
@@ -58566,7 +55098,7 @@ impl From<SpecialMeasures> for CodeableConcept {
     }
 }
 #[doc = "**[SpecimenCombined](http://hl7.org/fhir/ValueSet/specimen-combined)**. Codes providing the combined status of the specimen.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenCombined {
     /** **grouped**
@@ -58597,13 +55129,14 @@ impl AsRef<str> for SpecimenCombined {
         }
     }
 }
+impl ::std::fmt::Debug for SpecimenCombined {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SpecimenCombined {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Grouped => "Grouped",
-            Self::Pooled => "Pooled",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SpecimenCombined {
@@ -58659,7 +55192,7 @@ impl From<SpecimenCombined> for CodeableConcept {
     }
 }
 #[doc = "**[SpecimenContainedPreference](http://hl7.org/fhir/ValueSet/specimen-contained-preference)**. Degree of preference of a type of conditioned specimen.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenContainedPreference {
     /** **alternate**
@@ -58690,13 +55223,14 @@ impl AsRef<str> for SpecimenContainedPreference {
         }
     }
 }
+impl ::std::fmt::Debug for SpecimenContainedPreference {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SpecimenContainedPreference {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Alternate => "Alternate",
-            Self::Preferred => "Preferred",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SpecimenContainedPreference {
@@ -58754,7 +55288,7 @@ impl From<SpecimenContainedPreference> for CodeableConcept {
     }
 }
 #[doc = "**[SpecimenRole](http://hl7.org/fhir/ValueSet/specimen-role)**. Codes providing the combined status of the specimen.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenRole {
     /** **b**
@@ -58827,20 +55361,14 @@ impl AsRef<str> for SpecimenRole {
         }
     }
 }
+impl ::std::fmt::Debug for SpecimenRole {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SpecimenRole {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::B => "Blind Sample",
-            Self::C => "Calibrator",
-            Self::E => "Electronic QC",
-            Self::F => "Filler Organization Proficiency",
-            Self::O => "Operator Proficiency",
-            Self::P => "Patient",
-            Self::Q => "Control specimen",
-            Self::R => "Replicate (of patient sample as a control)",
-            Self::V => "Verifying Calibrator",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SpecimenRole {
@@ -58896,7 +55424,7 @@ impl From<SpecimenRole> for CodeableConcept {
     }
 }
 #[doc = "**[SpecimenStatus](http://hl7.org/fhir/ValueSet/specimen-status)**. Codes providing the status/availability of a specimen.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SpecimenStatus {
     /** **available**
@@ -58939,15 +55467,14 @@ impl AsRef<str> for SpecimenStatus {
         }
     }
 }
+impl ::std::fmt::Debug for SpecimenStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SpecimenStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Available => "Available",
-            Self::EnteredInError => "Entered in Error",
-            Self::Unavailable => "Unavailable",
-            Self::Unsatisfactory => "Unsatisfactory",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SpecimenStatus {
@@ -59003,7 +55530,7 @@ impl From<SpecimenStatus> for CodeableConcept {
     }
 }
 #[doc = "**[StatisticModelCode](http://hl7.org/fhir/ValueSet/statistic-model-code)**. The role that the assertion variable plays.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StatisticModelCode {
     /** **adjusted**
@@ -59502,100 +56029,14 @@ impl AsRef<str> for StatisticModelCode {
         }
     }
 }
+impl ::std::fmt::Debug for StatisticModelCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StatisticModelCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Adjusted => "Adjusted analysis",
-            Self::Anova => "ANOVA (ANalysis Of VAriance)",
-            Self::AnovaOneWay => "one-way ANOVA",
-            Self::AnovaThreeWay => "3-way ANOVA",
-            Self::AnovaTwoWay => "2-way ANOVA without replication",
-            Self::AnovaTwoWayReplication => "2-way ANOVA with replication",
-            Self::BinomialDistributionRegression => {
-                "Binomial Distribution for Regression"
-            }
-            Self::ChiSquareTest => "Chi-square test",
-            Self::ChiSquareTestHomogeneity => "Chi-square test for homogeneity",
-            Self::ChiSquareTestTrend => "Chi-square test for trend",
-            Self::CoxProportionalHazards => "Cox Proportional Hazards",
-            Self::DersimonianLairdMethod => "Dersimonian-Laird method",
-            Self::EffectsFixed => "Fixed-effects",
-            Self::EffectsRandom => "Random-effects",
-            Self::EmpiricalBayes => "Empirical Bayes method",
-            Self::FishersExactTest => "Fisher’s exact test",
-            Self::FriedmanTest => "Friedman test",
-            Self::Glm => "GLM (Generalized Linear Model)",
-            Self::GlmGeneralizedLogit => "GLM with generalized logit link",
-            Self::GlmIdentity => "GLM with identity link",
-            Self::GlmLog => "GLM with log link",
-            Self::GlmLogit => "GLM with logit link",
-            Self::GlmProbit => "GLM with probit link",
-            Self::Glmm => "Generalized linear mixed model (GLMM)",
-            Self::GlmmGeneralizedLogit => "GLMM with generalized logit link",
-            Self::GlmmIdentity => "GLMM with identity link",
-            Self::GlmmLog => "GLMM with log link",
-            Self::GlmmLogit => "GLMM with logit link",
-            Self::GlmmProbit => "GLMM with probit link",
-            Self::GoodmanKruskasGamma => "Goodman Kruska’s Gamma",
-            Self::HartungKnapp => "Hartung-Knapp adjustment",
-            Self::HedgesMethod => "Hedges method",
-            Self::HunterSchmidt => "Hunter-Schmidt method",
-            Self::InteractionTerm => "Interaction term",
-            Self::InverseVariance => "Inverse variance method",
-            Self::KendallCorrelation => "Kendall correlation",
-            Self::KruskalWallisTest => "Kruskal Wallis test",
-            Self::LinearRegression => "Linear Regression",
-            Self::LogisticRegression => "Logistic Regression",
-            Self::MannWhitneyUTest => "Mann-Whitney U test",
-            Self::Manova => "multivariate ANOVA (MANOVA)",
-            Self::ManteHaenszelMethod => "Mantel-Haenszel method",
-            Self::MaximumLikelihood => "Maximum Likelihood method",
-            Self::McnemarsTest => "McNemar’s test",
-            Self::MetaAnalysis => "Meta-analysis",
-            Self::ModifiedHartungKnapp => "Modified Hartung-Knapp adjustment",
-            Self::MultinomialDistributionRegression => {
-                "Multinomial Distribution for Regression"
-            }
-            Self::NegativeBinomialRegression => "Negative Binomial Regression",
-            Self::OneSampleTTest => "1-sample t-test",
-            Self::OneTailedTest => "one-tailed test (1 threshold)",
-            Self::PairedTTest => "paired t-test",
-            Self::PauleMandelMethod => "Paule-Mandel method",
-            Self::PearsonCorrelation => "Pearson correlation",
-            Self::PetoMethod => "Peto method",
-            Self::PoissonRegression => "Poisson Regression",
-            Self::PolynomialRegression => "Polynomial Regression",
-            Self::PoolGeneralizedLinearMixedModel => {
-                "Generalized linear mixed model (GLMM)"
-            }
-            Self::PoolInverseVariance => "Inverse variance method",
-            Self::PoolMantelHaenzsel => "Mantel-Haenszel method",
-            Self::PoolPeto => "Peto method",
-            Self::RestrictedLikelihood => "Restricted Maximum Likelihood method",
-            Self::SidikJonkman => "Sidik-Jonkman method",
-            Self::SignTest => "sign test",
-            Self::SpearmanCorrelation => "Spearman correlation",
-            Self::TauDersimonianLaird => "Dersimonian-Laird method",
-            Self::TauEmpiricalBayes => "Empirical Bayes method",
-            Self::TauHedges => "Hedges method",
-            Self::TauHunterSchmidt => "Hunter-Schmidt method",
-            Self::TauMaximumLikelihood => "Maximum Likelihood method",
-            Self::TauPauleMandel => "Paule-Mandel method",
-            Self::TauRestrictedMaximumLikelihood => {
-                "Restricted Maximum Likelihood method"
-            }
-            Self::TauSidikJonkman => "Sidik-Jonkman method",
-            Self::TwoSampleTTest => "2-sample t-test",
-            Self::TwoTailedTest => "two-tailed test (2 thresholds)",
-            Self::WilcoxonRankSumTest => "Wilcoxon rank-sum test",
-            Self::WilcoxonSignedRankTest => "Wilcoxon signed-rank test",
-            Self::Ztest => "z-test",
-            Self::ZeroCellConstant => "Zero-cell adjustment with constant",
-            Self::ZeroCellContinuityCorrection => {
-                "Zero-cell adjustment with continuity correction"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StatisticModelCode {
@@ -59651,7 +56092,7 @@ impl From<StatisticModelCode> for CodeableConcept {
     }
 }
 #[doc = "**[StatisticsCode](http://hl7.org/fhir/ValueSet/observation-statistics)**. The statistical operation parameter -\"statistic\" codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StatisticsCode {
     /** **20-percent**
@@ -59796,32 +56237,14 @@ impl AsRef<str> for StatisticsCode {
         }
     }
 }
+impl ::std::fmt::Debug for StatisticsCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StatisticsCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N20Percent => "20th Percentile",
-            Self::N4Dev => "Quartile Deviation",
-            Self::N4Lower => "Lower Quartile",
-            Self::N4Upper => "Upper Quartile",
-            Self::N51 => "1st Quintile",
-            Self::N52 => "2nd Quintile",
-            Self::N53 => "3rd Quintile",
-            Self::N54 => "4th Quintile",
-            Self::N80Percent => "80th Percentile",
-            Self::Average => "Average",
-            Self::Count => "Count",
-            Self::Kurtosis => "Kurtosis",
-            Self::Maximum => "Maximum",
-            Self::Median => "Median",
-            Self::Minimum => "Minimum",
-            Self::Regression => "Regression",
-            Self::Skew => "Skew",
-            Self::StdDev => "Standard Deviation",
-            Self::Sum => "Sum",
-            Self::TotalCount => "Total Count",
-            Self::Variance => "Variance",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StatisticsCode {
@@ -59879,7 +56302,7 @@ impl From<StatisticsCode> for CodeableConcept {
     }
 }
 #[doc = "**[Status](http://hl7.org/fhir/ValueSet/status)**. The validation status of the target\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Status {
     /** **attested**
@@ -59940,18 +56363,14 @@ impl AsRef<str> for Status {
         }
     }
 }
+impl ::std::fmt::Debug for Status {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for Status {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Attested => "Attested",
-            Self::EnteredInError => "Entered in Error",
-            Self::InProcess => "In process",
-            Self::ReqRevalid => "Requires revalidation",
-            Self::RevalFail => "Re-Validation failed",
-            Self::ValFail => "Validation failed",
-            Self::Validated => "Validated",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for Status {
@@ -60007,7 +56426,7 @@ impl From<Status> for CodeableConcept {
     }
 }
 #[doc = "**[StrandType](http://hl7.org/fhir/ValueSet/strand-type)**. Type for strand.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StrandType {
     /** **crick**
@@ -60038,13 +56457,14 @@ impl AsRef<str> for StrandType {
         }
     }
 }
+impl ::std::fmt::Debug for StrandType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StrandType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Crick => "Crick strand of starting sequence",
-            Self::Watson => "Watson strand of starting sequence",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StrandType {
@@ -60100,7 +56520,7 @@ impl From<StrandType> for CodeableConcept {
     }
 }
 #[doc = "**[StructureDefinitionKind](http://hl7.org/fhir/ValueSet/structure-definition-kind)**. Defines the type of structure that a definition is describing.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureDefinitionKind {
     /** **complex-type**
@@ -60143,15 +56563,14 @@ impl AsRef<str> for StructureDefinitionKind {
         }
     }
 }
+impl ::std::fmt::Debug for StructureDefinitionKind {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureDefinitionKind {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ComplexType => "Complex Data Type",
-            Self::Logical => "Logical",
-            Self::PrimitiveType => "Primitive Data Type",
-            Self::Resource => "Resource",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureDefinitionKind {
@@ -60209,7 +56628,7 @@ impl From<StructureDefinitionKind> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapGroupTypeMode](http://hl7.org/fhir/ValueSet/map-group-type-mode)**. If this is the default rule set to apply for the source type, or this combination of types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapGroupTypeMode {
     /** **type-and-types**
@@ -60240,13 +56659,14 @@ impl AsRef<str> for StructureMapGroupTypeMode {
         }
     }
 }
+impl ::std::fmt::Debug for StructureMapGroupTypeMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureMapGroupTypeMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::TypeAndTypes => "Default for type + combination",
-            Self::Types => "Default for Type Combination",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureMapGroupTypeMode {
@@ -60302,7 +56722,7 @@ impl From<StructureMapGroupTypeMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapInputMode](http://hl7.org/fhir/ValueSet/map-input-mode)**. Mode for this instance of data.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapInputMode {
     /** **source**
@@ -60333,13 +56753,14 @@ impl AsRef<str> for StructureMapInputMode {
         }
     }
 }
+impl ::std::fmt::Debug for StructureMapInputMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureMapInputMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Source => "Source Instance",
-            Self::Target => "Target Instance",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureMapInputMode {
@@ -60395,7 +56816,7 @@ impl From<StructureMapInputMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapModelMode](http://hl7.org/fhir/ValueSet/map-model-mode)**. How the referenced structure is used in this mapping.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapModelMode {
     /** **produced**
@@ -60438,15 +56859,14 @@ impl AsRef<str> for StructureMapModelMode {
         }
     }
 }
+impl ::std::fmt::Debug for StructureMapModelMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureMapModelMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Produced => "Produced Structure Definition",
-            Self::Queried => "Queried Structure Definition",
-            Self::Source => "Source Structure Definition",
-            Self::Target => "Target Structure Definition",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureMapModelMode {
@@ -60502,7 +56922,7 @@ impl From<StructureMapModelMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapSourceListMode](http://hl7.org/fhir/ValueSet/map-source-list-mode)**. If field is a list, how to manage the source.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapSourceListMode {
     /** **first**
@@ -60551,16 +56971,14 @@ impl AsRef<str> for StructureMapSourceListMode {
         }
     }
 }
+impl ::std::fmt::Debug for StructureMapSourceListMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureMapSourceListMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::First => "First",
-            Self::Last => "Last",
-            Self::NotFirst => "All but the first",
-            Self::NotLast => "All but the last",
-            Self::OnlyOne => "Enforce only one",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureMapSourceListMode {
@@ -60616,7 +57034,7 @@ impl From<StructureMapSourceListMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapTargetListMode](http://hl7.org/fhir/ValueSet/map-target-list-mode)**. If field is a list, how to manage the production.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapTargetListMode {
     /** **first**
@@ -60659,15 +57077,14 @@ impl AsRef<str> for StructureMapTargetListMode {
         }
     }
 }
+impl ::std::fmt::Debug for StructureMapTargetListMode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureMapTargetListMode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::First => "First",
-            Self::Last => "Last",
-            Self::Share => "Share",
-            Self::Single => "single",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureMapTargetListMode {
@@ -60723,7 +57140,7 @@ impl From<StructureMapTargetListMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapTransform](http://hl7.org/fhir/ValueSet/map-transform)**. How data is copied/created.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StructureMapTransform {
     /** **append**
@@ -60844,28 +57261,14 @@ impl AsRef<str> for StructureMapTransform {
         }
     }
 }
+impl ::std::fmt::Debug for StructureMapTransform {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StructureMapTransform {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Append => "append",
-            Self::C => "c",
-            Self::Cast => "cast",
-            Self::Cc => "cc",
-            Self::Copy => "copy",
-            Self::Cp => "cp",
-            Self::Create => "create",
-            Self::DateOp => "dateOp",
-            Self::Escape => "escape",
-            Self::Evaluate => "evaluate",
-            Self::Id => "id",
-            Self::Pointer => "pointer",
-            Self::Qty => "qty",
-            Self::Reference => "reference",
-            Self::Translate => "translate",
-            Self::Truncate => "truncate",
-            Self::Uuid => "uuid",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StructureMapTransform {
@@ -60921,7 +57324,7 @@ impl From<StructureMapTransform> for CodeableConcept {
     }
 }
 #[doc = "**[StudyDesign](http://hl7.org/fhir/ValueSet/study-design)**. This is a set of terms for study design characteristics.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum StudyDesign {
     /** **SEVCO:01001**
@@ -61372,85 +57775,14 @@ impl AsRef<str> for StudyDesign {
         }
     }
 }
+impl ::std::fmt::Debug for StudyDesign {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for StudyDesign {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Sevco01001 => "Interventional research",
-            Self::Sevco01002 => "Observational research",
-            Self::Sevco01003 => "randomized assignment",
-            Self::Sevco01004 => "Quasi-Randomized assignment",
-            Self::Sevco01005 => "Non-randomized assignment",
-            Self::Sevco01006 => "simple randomization",
-            Self::Sevco01007 => "stratified randomization",
-            Self::Sevco01008 => "block randomization",
-            Self::Sevco01009 => "adaptive randomization",
-            Self::Sevco01010 => "Comparative study design",
-            Self::Sevco01011 => "Parallel cohort design",
-            Self::Sevco01012 => "Crossover cohort design",
-            Self::Sevco01013 => "Case control design",
-            Self::Sevco01014 => "Matching for comparison",
-            Self::Sevco01015 => "Cluster as unit of allocation",
-            Self::Sevco01016 => "Uncontrolled cohort design",
-            Self::Sevco01017 => "Case report",
-            Self::Sevco01018 => "Time series design",
-            Self::Sevco01019 => "Before and after comparison",
-            Self::Sevco01020 => "Family study design",
-            Self::Sevco01021 => "Twin study design",
-            Self::Sevco01022 => "Population-based design",
-            Self::Sevco01023 => "Non-comparative study design",
-            Self::Sevco01024 => "Controlled crossover cohort design",
-            Self::Sevco01025 => "Single-arm crossover design",
-            Self::Sevco01026 => "Real world data collection",
-            Self::Sevco01027 => "Cross sectional data collection ",
-            Self::Sevco01028 => "Longitudinal data collection",
-            Self::Sevco01029 => "Clinical trial",
-            Self::Sevco01030 => "Phase 1 trial",
-            Self::Sevco01031 => "Exploratory investigational new drug study",
-            Self::Sevco01032 => "Phase 1/Phase 2 trial",
-            Self::Sevco01033 => "Phase 2 trial",
-            Self::Sevco01034 => "Phase 2/Phase 3 trial",
-            Self::Sevco01035 => "Phase 3 Trial",
-            Self::Sevco01036 => "Post-marketing study",
-            Self::Sevco01037 => "Post-Marketing Surveillance study",
-            Self::Sevco01038 => "Expanded Access study",
-            Self::Sevco01039 => "Real world data collection from healthcare records",
-            Self::Sevco01040 => {
-                "Real world data collection from healthcare financing records"
-            }
-            Self::Sevco01041 => "Pragmatic clinical trial",
-            Self::Sevco01042 => "Secondary data collection from a registry",
-            Self::Sevco01043 => "Multicentric",
-            Self::Sevco01044 => "Ecological design",
-            Self::Sevco01045 => "Primary data collection",
-            Self::Sevco01046 => "Real world data collection from monitoring procedures",
-            Self::Sevco01048 => "Real world data collection from testing procedures",
-            Self::Sevco01049 => "Secondary data collection from prior research",
-            Self::Sevco01050 => "Real world data collection from personal health records",
-            Self::Sevco01051 => "Multisite data collection",
-            Self::Sevco01052 => "Includes patient-reported outcome",
-            Self::Sevco01053 => "Includes patient-centered outcome",
-            Self::Sevco01054 => "Includes disease-oriented outcome",
-            Self::Sevco01060 => "Blinding of study participants",
-            Self::Sevco01061 => "Blinding of intervention providers",
-            Self::Sevco01062 => "Blinding of outcome assessors",
-            Self::Sevco01063 => "Blinding of data analysts",
-            Self::Sevco01064 => "Allocation concealment",
-            Self::Sevco01085 => "Includes process measure",
-            Self::Sevco01086 => "Quantitative analysis",
-            Self::Sevco01087 => "Qualitative analysis",
-            Self::Sevco01088 => "Comparison Goal",
-            Self::Sevco01089 => "Study Goal",
-            Self::Sevco01090 => "Comparative Efficacy Goal",
-            Self::Sevco01091 => "Comparative Effectiveness Goal",
-            Self::Sevco01092 => "Comparative Safety Goal",
-            Self::Sevco01093 => "Equivalence Goal",
-            Self::Sevco01094 => "Non-inferiority Goal",
-            Self::Sevco01095 => "Superiority Goal",
-            Self::Sevco01096 => "Evaluation Goal",
-            Self::Sevco01097 => "Derivation Goal",
-            Self::Sevco01098 => "Validation Goal",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for StudyDesign {
@@ -61506,7 +57838,7 @@ impl From<StudyDesign> for CodeableConcept {
     }
 }
 #[doc = "**[SubmitDataUpdateType](http://hl7.org/fhir/ValueSet/submit-data-update-type)**. Concepts for how a measure report consumer and receiver coordinate data exchange updates. The choices are snapshot or incremental updates\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubmitDataUpdateType {
     /** **incremental**
@@ -61537,13 +57869,14 @@ impl AsRef<str> for SubmitDataUpdateType {
         }
     }
 }
+impl ::std::fmt::Debug for SubmitDataUpdateType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubmitDataUpdateType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Incremental => "Incremental",
-            Self::Snapshot => "Snapshot",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubmitDataUpdateType {
@@ -61601,7 +57934,7 @@ impl From<SubmitDataUpdateType> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionNotificationType](http://hl7.org/fhir/ValueSet/subscription-notification-type)**. The type of notification represented by the status message.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubscriptionNotificationType {
     /** **event-notification**
@@ -61650,16 +57983,14 @@ impl AsRef<str> for SubscriptionNotificationType {
         }
     }
 }
+impl ::std::fmt::Debug for SubscriptionNotificationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubscriptionNotificationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::EventNotification => "Event Notification",
-            Self::Handshake => "Handshake",
-            Self::Heartbeat => "Heartbeat",
-            Self::QueryEvent => "Query Event",
-            Self::QueryStatus => "Query Status",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubscriptionNotificationType {
@@ -61717,7 +58048,7 @@ impl From<SubscriptionNotificationType> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionPayloadContent](http://hl7.org/fhir/ValueSet/subscription-payload-content)**. Codes to represent how much resource content to send in the notification payload.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubscriptionPayloadContent {
     /** **empty**
@@ -61754,14 +58085,14 @@ impl AsRef<str> for SubscriptionPayloadContent {
         }
     }
 }
+impl ::std::fmt::Debug for SubscriptionPayloadContent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubscriptionPayloadContent {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Empty => "Empty",
-            Self::FullResource => "Full-resource",
-            Self::IdOnly => "Id-only",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubscriptionPayloadContent {
@@ -61819,7 +58150,7 @@ impl From<SubscriptionPayloadContent> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionStatus](http://hl7.org/fhir/subscription-status)**. This codesystem defines a set of codes that can be used to filter Subscription triggers.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum SubscriptionStatus {
     /** **active**
 
@@ -61870,17 +58201,14 @@ impl AsRef<str> for SubscriptionStatus {
         }
     }
 }
+impl ::std::fmt::Debug for SubscriptionStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubscriptionStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::EnteredInError => "Entered in Error",
-            Self::Error => "Error",
-            Self::Off => "Off",
-            Self::Requested => "Requested",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubscriptionStatus {
@@ -61936,7 +58264,7 @@ impl From<SubscriptionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceAmountType](http://hl7.org/fhir/ValueSet/substance-amount-type)**. The type of a numeric quantity measurement.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceAmountType {
     /** **Approximately**
@@ -61979,15 +58307,14 @@ impl AsRef<str> for SubstanceAmountType {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceAmountType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceAmountType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Approximately => "Approximately",
-            Self::Average => "Average",
-            Self::LessThan => "Less Than",
-            Self::MoreThan => "More Than",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceAmountType {
@@ -62045,7 +58372,7 @@ impl From<SubstanceAmountType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceForm](http://hl7.org/fhir/ValueSet/substance-form)**. SubstanceForm\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceForm {
     /** **base**
@@ -62076,13 +58403,14 @@ impl AsRef<str> for SubstanceForm {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceForm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceForm {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Base => "Base of substance",
-            Self::Salt => "Salt of substance",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceForm {
@@ -62138,7 +58466,7 @@ impl From<SubstanceForm> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceGrade](http://hl7.org/fhir/ValueSet/substance-grade)**. SubstanceGrade\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceGrade {
     /** **BP**
@@ -62187,18 +58515,14 @@ impl AsRef<str> for SubstanceGrade {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceGrade {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceGrade {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Bp => "British Pharmacopoeia",
-            Self::CompanyStandard => "Company Standard",
-            Self::Jp => "Japanese Pharmacopoeia",
-            Self::PhEur => "European Pharmacopoeia",
-            Self::UspNf => {
-                "USP/NF United States Pharmacopeia (USP) and the National Formulary (NF)"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceGrade {
@@ -62254,7 +58578,7 @@ impl From<SubstanceGrade> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceNameAuthority](http://hl7.org/fhir/ValueSet/substance-name-authority)**. SubstanceNameAuthority\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceNameAuthority {
     /** **BAN**
@@ -62363,26 +58687,14 @@ impl AsRef<str> for SubstanceNameAuthority {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceNameAuthority {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceNameAuthority {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ban => "BAN",
-            Self::Cosing => "COSING",
-            Self::Fcc => "FCC",
-            Self::Hab => "HAB",
-            Self::Inci => "INCI",
-            Self::Inn => "INN",
-            Self::Iuis => "IUIS",
-            Self::Jan => "JAN",
-            Self::Jecfa => "JECFA",
-            Self::Martindale => "MARTINDALE",
-            Self::Phf => "PHF",
-            Self::PhEur => "Ph.Eur.",
-            Self::PhF => "PhF (Pharmacopée française)",
-            Self::Usan => "USAN",
-            Self::Usp => "USP",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceNameAuthority {
@@ -62440,7 +58752,7 @@ impl From<SubstanceNameAuthority> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceNameDomain](http://hl7.org/fhir/ValueSet/substance-name-domain)**. SubstanceNameDomain\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceNameDomain {
     /** **ActiveIngredient**
@@ -62471,13 +58783,14 @@ impl AsRef<str> for SubstanceNameDomain {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceNameDomain {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceNameDomain {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ActiveIngredient => "Active Ingredient",
-            Self::FoodColorAdditive => "Food Color Additive",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceNameDomain {
@@ -62535,7 +58848,7 @@ impl From<SubstanceNameDomain> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceNameType](http://hl7.org/fhir/ValueSet/substance-name-type)**. SubstanceNameType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceNameType {
     /** **Brand**
@@ -62572,14 +58885,14 @@ impl AsRef<str> for SubstanceNameType {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceNameType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceNameType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Brand => "brand",
-            Self::Scientific => "scientific",
-            Self::Systematic => "systematic",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceNameType {
@@ -62635,7 +58948,7 @@ impl From<SubstanceNameType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceOpticalActivity](http://hl7.org/fhir/ValueSet/substance-optical-activity)**. The optical rotation type of a substance.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceOpticalActivity {
     /** **+**
@@ -62666,13 +58979,14 @@ impl AsRef<str> for SubstanceOpticalActivity {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceOpticalActivity {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceOpticalActivity {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Plus => "dextrorotary",
-            Self::Minus => "levorotary",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceOpticalActivity {
@@ -62730,7 +59044,7 @@ impl From<SubstanceOpticalActivity> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceRelationshipType](http://hl7.org/fhir/ValueSet/substance-relationship-type)**. The relationship between two substance types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceRelationshipType {
     /** **ActiveMoiety**
@@ -62779,16 +59093,14 @@ impl AsRef<str> for SubstanceRelationshipType {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceRelationshipType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ActiveMoiety => "Active moiety",
-            Self::Impurity => "Impurity of",
-            Self::Polymorph => "Polymorph of",
-            Self::Salt => "Salt to parent",
-            Self::StartingMaterial => "Starting material for",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceRelationshipType {
@@ -62846,7 +59158,7 @@ impl From<SubstanceRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceRepresentationFormat](http://hl7.org/fhir/ValueSet/substance-representation-format)**. SubstanceRepresentationFormat\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceRepresentationFormat {
     /** **CDX**
@@ -62907,18 +59219,14 @@ impl AsRef<str> for SubstanceRepresentationFormat {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceRepresentationFormat {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceRepresentationFormat {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Cdx => "CDX",
-            Self::InChI => "InChI",
-            Self::Molfile => "MOLFILE",
-            Self::Pdb => "PDB",
-            Self::Sdf => "SDF",
-            Self::Smiles => "SMILES",
-            Self::MmCIF => "mmCIF",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceRepresentationFormat {
@@ -62976,7 +59284,7 @@ impl From<SubstanceRepresentationFormat> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceRepresentationType](http://hl7.org/fhir/ValueSet/substance-representation-type)**. SubstanceRepresentationType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceRepresentationType {
     /** **Brand**
@@ -63013,14 +59321,14 @@ impl AsRef<str> for SubstanceRepresentationType {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceRepresentationType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceRepresentationType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Brand => "brand",
-            Self::Scientific => "scientific",
-            Self::Systematic => "systematic",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceRepresentationType {
@@ -63078,7 +59386,7 @@ impl From<SubstanceRepresentationType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialGenus](http://hl7.org/fhir/ValueSet/substance-source-material-genus)**. SubstanceSourceMaterialGenus\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialGenus {
     /** **Ginkgo**
@@ -63115,14 +59423,14 @@ impl AsRef<str> for SubstanceSourceMaterialGenus {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceSourceMaterialGenus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceSourceMaterialGenus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Ginkgo => "Ginkgo",
-            Self::InfluenzavirusA => "Influenza A virus",
-            Self::Mycobacterium => "Mycobacterium",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialGenus {
@@ -63180,7 +59488,7 @@ impl From<SubstanceSourceMaterialGenus> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialPart](http://hl7.org/fhir/ValueSet/substance-source-material-part)**. SubstanceSourceMaterialPart\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialPart {
     /** **Animal**
@@ -63217,14 +59525,14 @@ impl AsRef<str> for SubstanceSourceMaterialPart {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceSourceMaterialPart {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceSourceMaterialPart {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Animal => "animal",
-            Self::Mineral => "mineral",
-            Self::Plant => "plant",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialPart {
@@ -63282,7 +59590,7 @@ impl From<SubstanceSourceMaterialPart> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialSpecies](http://hl7.org/fhir/ValueSet/substance-source-material-species)**. SubstanceSourceMaterialSpecies\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialSpecies {
     /** **GinkgoBiloba**
@@ -63313,13 +59621,14 @@ impl AsRef<str> for SubstanceSourceMaterialSpecies {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceSourceMaterialSpecies {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceSourceMaterialSpecies {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::GinkgoBiloba => "Ginkgo biloba",
-            Self::OleaEuropaea => "Olea europaea",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialSpecies {
@@ -63378,7 +59687,7 @@ impl From<SubstanceSourceMaterialSpecies> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialType](http://hl7.org/fhir/ValueSet/substance-source-material-type)**. SubstanceSourceMaterialType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialType {
     /** **Animal**
@@ -63415,14 +59724,14 @@ impl AsRef<str> for SubstanceSourceMaterialType {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceSourceMaterialType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceSourceMaterialType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Animal => "animal",
-            Self::Mineral => "mineral",
-            Self::Plant => "plant",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceSourceMaterialType {
@@ -63480,7 +59789,7 @@ impl From<SubstanceSourceMaterialType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceStereochemistry](http://hl7.org/fhir/ValueSet/substance-stereochemistry)**. The stereochemistry type of a substance.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceStereochemistry {
     /** **ConstitutionalIsomer**
@@ -63517,14 +59826,14 @@ impl AsRef<str> for SubstanceStereochemistry {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceStereochemistry {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceStereochemistry {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ConstitutionalIsomer => "constitutional isomer",
-            Self::Enantiomer => "enantiomer",
-            Self::Stereoisomer => "stereoisomer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceStereochemistry {
@@ -63582,7 +59891,7 @@ impl From<SubstanceStereochemistry> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceStructureTechnique](http://hl7.org/fhir/ValueSet/substance-structure-technique)**. SubstanceStructureTechnique\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceStructureTechnique {
     /** **HPLC**
@@ -63631,16 +59940,14 @@ impl AsRef<str> for SubstanceStructureTechnique {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceStructureTechnique {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceStructureTechnique {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Hplc => "HPLC",
-            Self::LigandBindingAssay => "Ligand binding assay",
-            Self::Nmr => "NMR",
-            Self::PeptideMapping => "Peptide mapping",
-            Self::XRay => "X-ray",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceStructureTechnique {
@@ -63698,7 +60005,7 @@ impl From<SubstanceStructureTechnique> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceWeightMethod](http://hl7.org/fhir/ValueSet/substance-weight-method)**. SubstanceWeightMethod\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceWeightMethod {
     /** **Calculated**
@@ -63765,21 +60072,14 @@ impl AsRef<str> for SubstanceWeightMethod {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceWeightMethod {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceWeightMethod {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Calculated => "calculated",
-            Self::EndGroupAnalysis => "End-group analysis",
-            Self::EndGroupTitration => "End-group titration",
-            Self::GelPermeationCentrifugation => "gel permeation centrifugation",
-            Self::LighScattering => "light scattering",
-            Self::SdsPage => {
-                "SDS-PAGE (sodium dodecyl sulfate-polyacrylamide gel electrophoresis)"
-            }
-            Self::SizeExclusionChromatography => "Size-exclusion chromatography",
-            Self::Viscosity => "viscosity",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceWeightMethod {
@@ -63837,7 +60137,7 @@ impl From<SubstanceWeightMethod> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceWeightType](http://hl7.org/fhir/ValueSet/substance-weight-type)**. SubstanceWeightType\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SubstanceWeightType {
     /** **Average**
@@ -63874,14 +60174,14 @@ impl AsRef<str> for SubstanceWeightType {
         }
     }
 }
+impl ::std::fmt::Debug for SubstanceWeightType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SubstanceWeightType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Average => "number average",
-            Self::Exact => "exact",
-            Self::WeightAverage => "weight average",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SubstanceWeightType {
@@ -63939,7 +60239,7 @@ impl From<SubstanceWeightType> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyDeliveryStatus](http://hl7.org/fhir/ValueSet/supplydelivery-status)**. Status of the supply delivery.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SupplyDeliveryStatus {
     /** **abandoned**
@@ -63982,15 +60282,14 @@ impl AsRef<str> for SupplyDeliveryStatus {
         }
     }
 }
+impl ::std::fmt::Debug for SupplyDeliveryStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SupplyDeliveryStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abandoned => "Abandoned",
-            Self::Completed => "Delivered",
-            Self::EnteredInError => "Entered In Error",
-            Self::InProgress => "In Progress",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SupplyDeliveryStatus {
@@ -64048,7 +60347,7 @@ impl From<SupplyDeliveryStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyDeliverySupplyItemType](http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype)**. Status of the supply delivery.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SupplyDeliverySupplyItemType {
     /** **biologicallyderivedproduct**
@@ -64085,14 +60384,14 @@ impl AsRef<str> for SupplyDeliverySupplyItemType {
         }
     }
 }
+impl ::std::fmt::Debug for SupplyDeliverySupplyItemType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SupplyDeliverySupplyItemType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Biologicallyderivedproduct => "Biologically Derived Product",
-            Self::Device => "Device",
-            Self::Medication => "Medication",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SupplyDeliverySupplyItemType {
@@ -64150,7 +60449,7 @@ impl From<SupplyDeliverySupplyItemType> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyRequestStatus](http://hl7.org/fhir/ValueSet/supplyrequest-status)**. Status of the supply request.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum SupplyRequestStatus {
     /** **active**
@@ -64211,18 +60510,14 @@ impl AsRef<str> for SupplyRequestStatus {
         }
     }
 }
+impl ::std::fmt::Debug for SupplyRequestStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for SupplyRequestStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "Active",
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::Suspended => "Suspended",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for SupplyRequestStatus {
@@ -64278,7 +60573,7 @@ impl From<SupplyRequestStatus> for CodeableConcept {
     }
 }
 #[doc = "**[TargetSpecies](http://hl7.org/fhir/ValueSet/target-species)**. A species for which a medicinal product is intended.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TargetSpecies {
     /** **100000108874**
@@ -65497,211 +61792,14 @@ impl AsRef<str> for TargetSpecies {
         }
     }
 }
+impl ::std::fmt::Debug for TargetSpecies {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TargetSpecies {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N100000108874 => "Dove",
-            Self::N100000108875 => "Quail",
-            Self::N100000108876 => "Snipe",
-            Self::N100000108877 => "Sparrow",
-            Self::N100000108878 => "Starling",
-            Self::N100000108879 => "Swan",
-            Self::N100000108880 => "Turkey hen",
-            Self::N100000108881 => "Turkey cock",
-            Self::N100000108882 => "Turkeys",
-            Self::N100000108883 => "Turkey for reproduction",
-            Self::N100000108884 => "Poult",
-            Self::N100000108885 => "Turtle dove",
-            Self::N100000108886 => "Bison",
-            Self::N100000108887 => "Buffalo",
-            Self::N100000108888 => "Cows",
-            Self::N100000108889 => "Cow for reproduction",
-            Self::N100000108890 => "Bull for reproduction",
-            Self::N100000108891 => "Ox",
-            Self::N100000108892 => "Bullock",
-            Self::N100000108893 => "Cattle",
-            Self::N100000108894 => "Beef cattle",
-            Self::N100000108895 => "Dairy cattle",
-            Self::N100000108896 => "Dry cow",
-            Self::N100000108897 => "Bull",
-            Self::N100000108898 => "Lactating cow",
-            Self::N100000108899 => "All other food producing species",
-            Self::N100000108900 => "All non-food producing species",
-            Self::N100000108901 => "All species \u{a0}",
-            Self::N100000108902 => "Carnivores",
-            Self::N100000108903 => "Domestic animals",
-            Self::N100000108904 => "Fur animals",
-            Self::N100000108905 => "Game animals",
-            Self::N100000108906 => "Laboratory animals",
-            Self::N100000108907 => "Major species",
-            Self::N100000108908 => "Minor species",
-            Self::N100000108909 => "Ruminant",
-            Self::N100000108910 => "Ruminant and porcine",
-            Self::N100000108911 => "Small animals",
-            Self::N100000108912 => "Crocodile",
-            Self::N100000108913 => "Frog",
-            Self::N100000108914 => "Iguana",
-            Self::N100000108915 => "Lizard",
-            Self::N100000108916 => "Amphibians",
-            Self::N100000108917 => "Reptiles",
-            Self::N100000108918 => "Reptiles for production",
-            Self::N100000108919 => "Snake",
-            Self::N100000108920 => "Tortoise",
-            Self::N100000108921 => "Turtle",
-            Self::N100000108922 => "Honey bees",
-            Self::N100000108923 => "Crustacean",
-            Self::N100000108924 => "Spider",
-            Self::N100000108925 => "Indian hen",
-            Self::N100000108926 => "African Goshawk",
-            Self::N100000108927 => "Black Kite",
-            Self::N100000108928 => "Budgerigar",
-            Self::N100000108929 => "Bustard",
-            Self::N100000108930 => "Buzzard",
-            Self::N100000108931 => "Hen",
-            Self::N100000108932 => "Layer hen",
-            Self::N100000108933 => "Cock",
-            Self::N100000108934 => "Broiler",
-            Self::N100000108935 => "Chickens",
-            Self::N100000108936 => "Chicken embryonated eggs",
-            Self::N100000108937 => "Chicken for reproduction",
-            Self::N100000108938 => "Replacement chick",
-            Self::N100000108939 => "Chick",
-            Self::N100000108940 => "Pullet",
-            Self::N100000108941 => "Cockatiel",
-            Self::N100000108942 => "Cockatoo",
-            Self::N100000108943 => "Common canary",
-            Self::N100000108944 => "Crow",
-            Self::N100000108945 => "Duck",
-            Self::N100000108946 => "Duck broiler",
-            Self::N100000108947 => "Duckling",
-            Self::N100000108948 => "Eagle",
-            Self::N100000108949 => "Emu",
-            Self::N100000108950 => "Goose",
-            Self::N100000108951 => "Guinea fowl",
-            Self::N100000108952 => "Kestrel",
-            Self::N100000108953 => "Kite",
-            Self::N100000108954 => "Macaw",
-            Self::N100000108955 => "Ostrich",
-            Self::N100000108956 => "Birds",
-            Self::N100000108957 => "Fowls",
-            Self::N100000108958 => "Finch",
-            Self::N100000108959 => "Galliformes",
-            Self::N100000108960 => "Game birds",
-            Self::N100000108961 => "Pekin duck",
-            Self::N100000108962 => "Ornamental birds",
-            Self::N100000108963 => "Poultry",
-            Self::N100000108964 => "Owl",
-            Self::N100000108965 => "Parakeet",
-            Self::N100000108966 => "Parrot",
-            Self::N100000108967 => "Partridge",
-            Self::N100000108968 => "Peregrine Falcon",
-            Self::N100000108969 => "Pheasants",
-            Self::N100000108970 => "Carrier pigeon",
-            Self::N100000108971 => "Newborn calves",
-            Self::N100000108972 => "Pregnant cow",
-            Self::N100000108973 => "Pregnant heifer",
-            Self::N100000108974 => "Pre-ruminant cattle",
-            Self::N100000108975 => "Ruminant cattle",
-            Self::N100000108976 => "Wild cattle",
-            Self::N100000108977 => "Calf",
-            Self::N100000108978 => "Heifers",
-            Self::N100000108979 => "Other Bovids",
-            Self::N100000108980 => "Alpaca",
-            Self::N100000108981 => "Camel",
-            Self::N100000108982 => "Llama",
-            Self::N100000108983 => "Other Camelids",
-            Self::N100000108984 => "Bitch",
-            Self::N100000108985 => "Bitch for reproduction",
-            Self::N100000108986 => "Adult male dog",
-            Self::N100000108987 => "Adult male dog for reproduction",
-            Self::N100000108988 => "Dogs",
-            Self::N100000108989 => "Lactating bitch",
-            Self::N100000108990 => "Large dog",
-            Self::N100000108991 => "Medium dog",
-            Self::N100000108992 => "Pregnant bitch",
-            Self::N100000108993 => "Small dog",
-            Self::N100000108994 => "Very large dog",
-            Self::N100000108995 => "Very small dog",
-            Self::N100000108996 => "Puppy",
-            Self::N100000108997 => "Foxes",
-            Self::N100000108998 => "Jackal",
-            Self::N100000108999 => "Other Canids",
-            Self::N100000109000 => "Raccoon dogs",
-            Self::N100000109001 => "Wolf",
-            Self::N100000109002 => "Chamois",
-            Self::N100000109003 => "Other Caprines",
-            Self::N100000109004 => "Adult female goat",
-            Self::N100000109005 => "Adult male goat",
-            Self::N100000109006 => "Dry adult female goat",
-            Self::N100000109007 => "Goats",
-            Self::N100000109008 => "Lactating adult female goat",
-            Self::N100000109009 => "Pregnant adult female goat",
-            Self::N100000109010 => "Pre-ruminant goat",
-            Self::N100000109011 => "Ruminant goat",
-            Self::N100000109012 => "Wild goat",
-            Self::N100000109013 => "Kid",
-            Self::N100000109014 => "Other Ovids",
-            Self::N100000109015 => "Ewe",
-            Self::N100000109016 => "Ram",
-            Self::N100000109017 => "Dry ewe",
-            Self::N100000109018 => "Lactating ewe",
-            Self::N100000109019 => "Pregnant ewe",
-            Self::N100000109020 => "Pre-ruminant sheep",
-            Self::N100000109021 => "Ruminant sheep",
-            Self::N100000109022 => "Sheep",
-            Self::N100000109023 => "Sheep for meat production",
-            Self::N100000109024 => "Dairy sheep",
-            Self::N100000109025 => "Wild sheep",
-            Self::N100000109026 => "Lamb",
-            Self::N100000109027 => "Elk",
-            Self::N100000109028 => "Fallow deer",
-            Self::N100000109029 => "Moose",
-            Self::N100000109030 => "Antelope",
-            Self::N100000109031 => "Cervid",
-            Self::N100000109032 => "Deer",
-            Self::N100000109033 => "Other Deer",
-            Self::N100000109034 => "Red deer",
-            Self::N100000109035 => "Reindeer",
-            Self::N100000109036 => "Roe deer",
-            Self::N100000109037 => "Donkey",
-            Self::N100000109038 => "Mare",
-            Self::N100000109039 => "Gelding",
-            Self::N100000109040 => "Horses",
-            Self::N100000109041 => "Stallion",
-            Self::N100000109042 => "Pony",
-            Self::N100000109043 => "Pregnant mare",
-            Self::N100000109044 => "Non food-producing horse",
-            Self::N100000109045 => "Suckling colt",
-            Self::N100000109046 => "Colt",
-            Self::N100000109047 => "Mule",
-            Self::N100000109048 => "Equid",
-            Self::N100000109049 => "Female equid",
-            Self::N100000109050 => "Other Equids",
-            Self::N100000109051 => "Zebra",
-            Self::N100000109052 => "Bobcat",
-            Self::N100000109053 => "Adult female cat",
-            Self::N100000109054 => "Adult female cat for reproduction",
-            Self::N100000109055 => "Adult male cat",
-            Self::N100000109056 => "Cats",
-            Self::N100000109057 => "Lactating cat",
-            Self::N100000109058 => "Large cat",
-            Self::N100000109059 => "Medium cat",
-            Self::N100000109060 => "Pregnant cat",
-            Self::N100000109061 => "Small cat",
-            Self::N100000109062 => "Kitten",
-            Self::N100000109063 => "Cougar",
-            Self::N100000109064 => "Jaguar",
-            Self::N100000109065 => "Leopard",
-            Self::N100000109066 => "Lion",
-            Self::N100000109067 => "Lynx",
-            Self::N100000109068 => "Other Felids",
-            Self::N100000109069 => "Tiger",
-            Self::N100000109070 => "Tsushima wild cat",
-            Self::N100000109071 => "Other Leporids",
-            Self::N100000109072 => "Hare",
-            Self::N100000109073 => "Female rabbit for reproduction",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TargetSpecies {
@@ -65757,7 +61855,7 @@ impl From<TargetSpecies> for CodeableConcept {
     }
 }
 #[doc = "**[TaskCode](http://hl7.org/fhir/ValueSet/task-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TaskCode {
     /** **abort**
@@ -65824,19 +61922,14 @@ impl AsRef<str> for TaskCode {
         }
     }
 }
+impl ::std::fmt::Debug for TaskCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TaskCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abort => "Mark the focal resource as no longer active",
-            Self::Approve => "Activate/approve the focal resource",
-            Self::Change => "Change the focal resource",
-            Self::Fulfill => "Fulfill the focal request",
-            Self::Instantiate => "Instantiate the focal definition",
-            Self::Replace => "Replace the focal resource with the input resource",
-            Self::Resume => "Re-activate the focal resource",
-            Self::Suspend => "Suspend the focal resource",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TaskCode {
@@ -65892,7 +61985,7 @@ impl From<TaskCode> for CodeableConcept {
     }
 }
 #[doc = "**[TaskIntent](http://hl7.org/fhir/task-intent)**. Distinguishes whether the task is a proposal, plan or full order.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum TaskIntent {
     /** **unknown**
 
@@ -65919,13 +62012,14 @@ impl AsRef<str> for TaskIntent {
         }
     }
 }
+impl ::std::fmt::Debug for TaskIntent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TaskIntent {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Unknown => "Unknown",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TaskIntent {
@@ -65981,7 +62075,7 @@ impl From<TaskIntent> for CodeableConcept {
     }
 }
 #[doc = "**[TaskStatus](http://hl7.org/fhir/ValueSet/task-status)**. The current status of the task.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TaskStatus {
     /** **accepted**
@@ -66072,23 +62166,14 @@ impl AsRef<str> for TaskStatus {
         }
     }
 }
+impl ::std::fmt::Debug for TaskStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TaskStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Accepted => "Accepted",
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::Draft => "Draft",
-            Self::EnteredInError => "Entered in Error",
-            Self::Failed => "Failed",
-            Self::InProgress => "In Progress",
-            Self::OnHold => "On Hold",
-            Self::Ready => "Ready",
-            Self::Received => "Received",
-            Self::Rejected => "Rejected",
-            Self::Requested => "Requested",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TaskStatus {
@@ -66144,7 +62229,7 @@ impl From<TaskStatus> for CodeableConcept {
     }
 }
 #[doc = "**[TaskStatusReason](http://hl7.org/fhir/ValueSet/task-status-reason)**. The current status reason of the task.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TaskStatusReason {
     /** **environmental-issue**
@@ -66193,16 +62278,14 @@ impl AsRef<str> for TaskStatusReason {
         }
     }
 }
+impl ::std::fmt::Debug for TaskStatusReason {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TaskStatusReason {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::EnvironmentalIssue => "Environmental-issue",
-            Self::EquipmentIssue => "Equipment-issue",
-            Self::Misidentified => "Misidentified",
-            Self::Missing => "Missing",
-            Self::PersonnelIssue => "Personnel-issue",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TaskStatusReason {
@@ -66258,7 +62341,7 @@ impl From<TaskStatusReason> for CodeableConcept {
     }
 }
 #[doc = "**[TemplateStatusCodeLifeCycle](urn:oid:2.16.840.1.113883.3.1937.98.11.8)**. Life cycle of the Status Code of a Template Design (Version)\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TemplateStatusCodeLifeCycle {
     /** **active**
@@ -66325,19 +62408,14 @@ impl AsRef<str> for TemplateStatusCodeLifeCycle {
         }
     }
 }
+impl ::std::fmt::Debug for TemplateStatusCodeLifeCycle {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TemplateStatusCodeLifeCycle {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Active => "active",
-            Self::Cancelled => "Cancelled",
-            Self::Draft => "Draft",
-            Self::Pending => "Under pre-publication review",
-            Self::Rejected => "Rejected",
-            Self::Retired => "retired",
-            Self::Review => "In Review",
-            Self::Terminated => "Terminated",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TemplateStatusCodeLifeCycle {
@@ -66393,7 +62471,7 @@ impl From<TemplateStatusCodeLifeCycle> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportActionResult](http://hl7.org/fhir/ValueSet/report-action-result-codes)**. The results of executing an action.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportActionResult {
     /** **error**
@@ -66442,16 +62520,14 @@ impl AsRef<str> for TestReportActionResult {
         }
     }
 }
+impl ::std::fmt::Debug for TestReportActionResult {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestReportActionResult {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Error => "Error",
-            Self::Fail => "Fail",
-            Self::Pass => "Pass",
-            Self::Skip => "Skip",
-            Self::Warning => "Warning",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestReportActionResult {
@@ -66509,7 +62585,7 @@ impl From<TestReportActionResult> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportParticipantType](http://hl7.org/fhir/ValueSet/report-participant-type)**. The type of participant.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportParticipantType {
     /** **client**
@@ -66546,14 +62622,14 @@ impl AsRef<str> for TestReportParticipantType {
         }
     }
 }
+impl ::std::fmt::Debug for TestReportParticipantType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestReportParticipantType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Client => "Client",
-            Self::Server => "Server",
-            Self::TestEngine => "Test Engine",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestReportParticipantType {
@@ -66611,7 +62687,7 @@ impl From<TestReportParticipantType> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportResult](http://hl7.org/fhir/ValueSet/report-result-codes)**. The reported execution result.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportResult {
     /** **fail**
@@ -66648,14 +62724,14 @@ impl AsRef<str> for TestReportResult {
         }
     }
 }
+impl ::std::fmt::Debug for TestReportResult {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestReportResult {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Fail => "Fail",
-            Self::Pass => "Pass",
-            Self::Pending => "Pending",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestReportResult {
@@ -66711,7 +62787,7 @@ impl From<TestReportResult> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportStatus](http://hl7.org/fhir/ValueSet/report-status-codes)**. The current status of the test report.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestReportStatus {
     /** **completed**
@@ -66760,16 +62836,14 @@ impl AsRef<str> for TestReportStatus {
         }
     }
 }
+impl ::std::fmt::Debug for TestReportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestReportStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered In Error",
-            Self::InProgress => "In Progress",
-            Self::Stopped => "Stopped",
-            Self::Waiting => "Waiting",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestReportStatus {
@@ -66825,7 +62899,7 @@ impl From<TestReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptRequestMethodCode](http://hl7.org/fhir/ValueSet/http-operations)**. The allowable request method or HTTP operation codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestScriptRequestMethodCode {
     /** **delete**
@@ -66886,18 +62960,14 @@ impl AsRef<str> for TestScriptRequestMethodCode {
         }
     }
 }
+impl ::std::fmt::Debug for TestScriptRequestMethodCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestScriptRequestMethodCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Delete => "DELETE",
-            Self::Get => "GET",
-            Self::Head => "HEAD",
-            Self::Options => "OPTIONS",
-            Self::Patch => "PATCH",
-            Self::Post => "POST",
-            Self::Put => "PUT",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestScriptRequestMethodCode {
@@ -66953,7 +63023,7 @@ impl From<TestScriptRequestMethodCode> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptScopeConformanceType](http://hl7.org/fhir/ValueSet/testscript-scope-conformance-codes)**. The expectation of whether the test must pass for the system to be considered conformant with the artifact.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestScriptScopeConformanceType {
     /** **optional**
@@ -66990,14 +63060,14 @@ impl AsRef<str> for TestScriptScopeConformanceType {
         }
     }
 }
+impl ::std::fmt::Debug for TestScriptScopeConformanceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestScriptScopeConformanceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Optional => "Optional",
-            Self::Required => "Required",
-            Self::Strict => "Strict",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestScriptScopeConformanceType {
@@ -67056,7 +63126,7 @@ impl From<TestScriptScopeConformanceType> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptScopePhaseType](http://hl7.org/fhir/ValueSet/testscript-scope-phase-codes)**. The phase of testing for this artifact.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TestScriptScopePhaseType {
     /** **integration**
@@ -67093,14 +63163,14 @@ impl AsRef<str> for TestScriptScopePhaseType {
         }
     }
 }
+impl ::std::fmt::Debug for TestScriptScopePhaseType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TestScriptScopePhaseType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Integration => "Integration",
-            Self::Production => "Production",
-            Self::Unit => "Unit",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TestScriptScopePhaseType {
@@ -67158,7 +63228,7 @@ impl From<TestScriptScopePhaseType> for CodeableConcept {
     }
 }
 #[doc = "**[TherapyRelationshipType](http://hl7.org/fhir/ValueSet/therapy-relationship-type)**. Classification of relationship between a therapy and a contraindication or an indication.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TherapyRelationshipType {
     /** **contraindicated-except-with**
@@ -67249,39 +63319,14 @@ impl AsRef<str> for TherapyRelationshipType {
         }
     }
 }
+impl ::std::fmt::Debug for TherapyRelationshipType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TherapyRelationshipType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ContraindicatedExceptWith => {
-                "Contraindicated unless the other therapy is given"
-            }
-            Self::ContraindicatedOnlyWith => {
-                "Only contraindicated if the other therapy is given"
-            }
-            Self::IndicatedExceptWith => {
-                "Indicated except when the other therapy is given"
-            }
-            Self::IndicatedOnlyAfter => {
-                "Indicated only if the other therapy is planned to be given afterwards (prep)"
-            }
-            Self::IndicatedOnlyBefore => {
-                "Indicated only if the other therapy was given before (follow-up)"
-            }
-            Self::IndicatedOnlyWith => {
-                "Indicated only when the other therapy is given (co-occurrent)"
-            }
-            Self::ReplaceOtherTherapy => "Indicated to replace the other therapy",
-            Self::ReplaceOtherTherapyContraindicated => {
-                "Indicated to replace the other contraindicated therapy"
-            }
-            Self::ReplaceOtherTherapyNotEffective => {
-                "Indicated to replace the other therapy not effective on patient"
-            }
-            Self::ReplaceOtherTherapyNotTolerated => {
-                "Indicated to replace the other therapy not well tolerated by patient"
-            }
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TherapyRelationshipType {
@@ -67339,7 +63384,7 @@ impl From<TherapyRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[TimingAbbreviation](http://terminology.hl7.org/CodeSystem/timing-abbreviation)**. Code for a known / defined timing pattern.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum TimingAbbreviation {
     /** **C**
 
@@ -67366,13 +63411,14 @@ impl AsRef<str> for TimingAbbreviation {
         }
     }
 }
+impl ::std::fmt::Debug for TimingAbbreviation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TimingAbbreviation {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::C => "Continuous (frequency)",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TimingAbbreviation {
@@ -67430,7 +63476,7 @@ impl From<TimingAbbreviation> for CodeableConcept {
     }
 }
 #[doc = "**[TitleType](http://hl7.org/fhir/ValueSet/title-type)**. Used to express the reason and specific aspect for the variant title, such as language and specific language.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TitleType {
     /** **acronym**
@@ -67527,26 +63573,14 @@ impl AsRef<str> for TitleType {
         }
     }
 }
+impl ::std::fmt::Debug for TitleType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TitleType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Acronym => "Acronym",
-            Self::Autotranslated => "Different language derived from autotranslation",
-            Self::DuplicateUid => {
-                "Different text for the same object with a different identifier"
-            }
-            Self::EarlierTitle => "Different text in an earlier version",
-            Self::HumanUse => "Human use",
-            Self::Language => "Different language",
-            Self::MachineUse => "Machine use",
-            Self::Official => "Official title",
-            Self::PlainLanguage => "Plain language title",
-            Self::Primary => "Primary title",
-            Self::Scientific => "Scientific title",
-            Self::ShortTitle => "Short title",
-            Self::Subtitle => "Subtitle",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TitleType {
@@ -67602,7 +63636,7 @@ impl From<TitleType> for CodeableConcept {
     }
 }
 #[doc = "**[TransportCode](http://hl7.org/fhir/ValueSet/transport-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TransportCode {
     /** **abort**
@@ -67669,19 +63703,14 @@ impl AsRef<str> for TransportCode {
         }
     }
 }
+impl ::std::fmt::Debug for TransportCode {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TransportCode {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abort => "Mark the focal resource as no longer active",
-            Self::Approve => "Activate/approve the focal resource",
-            Self::Change => "Change the focal resource",
-            Self::Fulfill => "Fulfill the focal request",
-            Self::Instantiate => "Instantiate the focal definition",
-            Self::Replace => "Replace the focal resource with the input resource",
-            Self::Resume => "Re-activate the focal resource",
-            Self::Suspend => "Suspend the focal resource",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TransportCode {
@@ -67737,7 +63766,7 @@ impl From<TransportCode> for CodeableConcept {
     }
 }
 #[doc = "**[TransportIntent](http://hl7.org/fhir/transport-intent)**. Distinguishes whether the transport is a proposal, plan or full order.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum TransportIntent {
     /** **unknown**
 
@@ -67764,13 +63793,14 @@ impl AsRef<str> for TransportIntent {
         }
     }
 }
+impl ::std::fmt::Debug for TransportIntent {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TransportIntent {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Unknown => "Unknown",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TransportIntent {
@@ -67826,7 +63856,7 @@ impl From<TransportIntent> for CodeableConcept {
     }
 }
 #[doc = "**[TransportStatus](http://hl7.org/fhir/ValueSet/transport-status)**. Status of transport.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TransportStatus {
     /** **abandoned**
@@ -67881,17 +63911,14 @@ impl AsRef<str> for TransportStatus {
         }
     }
 }
+impl ::std::fmt::Debug for TransportStatus {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TransportStatus {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Abandoned => "Abandoned",
-            Self::Cancelled => "Cancelled",
-            Self::Completed => "Completed",
-            Self::EnteredInError => "Entered In Error",
-            Self::InProgress => "In Progress",
-            Self::Planned => "Planned",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TransportStatus {
@@ -67947,7 +63974,7 @@ impl From<TransportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[TriggerType](http://hl7.org/fhir/ValueSet/trigger-type)**. The type of trigger.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TriggerType {
     /** **data-access-ended**
@@ -68014,19 +64041,14 @@ impl AsRef<str> for TriggerType {
         }
     }
 }
+impl ::std::fmt::Debug for TriggerType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TriggerType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::DataAccessEnded => "Data Access Ended",
-            Self::DataAccessed => "Data Accessed",
-            Self::DataAdded => "Data Added",
-            Self::DataChanged => "Data Changed",
-            Self::DataModified => "Data Updated",
-            Self::DataRemoved => "Data Removed",
-            Self::NamedEvent => "Named Event",
-            Self::Periodic => "Periodic",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TriggerType {
@@ -68082,7 +64104,7 @@ impl From<TriggerType> for CodeableConcept {
     }
 }
 #[doc = "**[TriggeredBytype](http://hl7.org/fhir/ValueSet/observation-triggeredbytype)**. Codes providing the triggeredBy type of observation.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TriggeredBytype {
     /** **re-run**
@@ -68119,14 +64141,14 @@ impl AsRef<str> for TriggeredBytype {
         }
     }
 }
+impl ::std::fmt::Debug for TriggeredBytype {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TriggeredBytype {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::ReRun => "Re-run (per policy)",
-            Self::Reflex => "Reflex",
-            Self::Repeat => "Repeat (per policy)",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TriggeredBytype {
@@ -68184,7 +64206,7 @@ impl From<TriggeredBytype> for CodeableConcept {
     }
 }
 #[doc = "**[TypeDerivationRule](http://hl7.org/fhir/ValueSet/type-derivation-rule)**. How a type relates to its baseDefinition.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum TypeDerivationRule {
     /** **constraint**
@@ -68215,13 +64237,14 @@ impl AsRef<str> for TypeDerivationRule {
         }
     }
 }
+impl ::std::fmt::Debug for TypeDerivationRule {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for TypeDerivationRule {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Constraint => "Constraint",
-            Self::Specialization => "Specialization",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for TypeDerivationRule {
@@ -68277,7 +64300,7 @@ impl From<TypeDerivationRule> for CodeableConcept {
     }
 }
 #[doc = "**[UDIEntryType](http://hl7.org/fhir/ValueSet/udi-entry-type)**. Codes to identify how UDI data was entered.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UDIEntryType {
     /** **barcode**
@@ -68338,18 +64361,14 @@ impl AsRef<str> for UDIEntryType {
         }
     }
 }
+impl ::std::fmt::Debug for UDIEntryType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for UDIEntryType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Barcode => "Barcode",
-            Self::Card => "Card",
-            Self::ElectronicTransmission => "Electronic Transmission",
-            Self::Manual => "Manual",
-            Self::Rfid => "RFID",
-            Self::SelfReported => "Self Reported",
-            Self::Unknown => "Unknown",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for UDIEntryType {
@@ -68405,7 +64424,7 @@ impl From<UDIEntryType> for CodeableConcept {
     }
 }
 #[doc = "**[UndesirablEffectFrequency](http://hl7.org/fhir/ValueSet/undesirable-effect-frequency)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UndesirablEffectFrequency {
     /** **Common**
@@ -68442,14 +64461,14 @@ impl AsRef<str> for UndesirablEffectFrequency {
         }
     }
 }
+impl ::std::fmt::Debug for UndesirablEffectFrequency {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for UndesirablEffectFrequency {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Common => "Common",
-            Self::Rare => "Rare",
-            Self::Uncommon => "Uncommon",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for UndesirablEffectFrequency {
@@ -68507,7 +64526,7 @@ impl From<UndesirablEffectFrequency> for CodeableConcept {
     }
 }
 #[doc = "**[UnitOfPresentation](http://hl7.org/fhir/ValueSet/unit-of-presentation)**. The presentation type in which an administrable medicinal product is given to a patient.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UnitOfPresentation {
     /** **200000002108**
@@ -68862,67 +64881,14 @@ impl AsRef<str> for UnitOfPresentation {
         }
     }
 }
+impl ::std::fmt::Debug for UnitOfPresentation {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for UnitOfPresentation {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::N200000002108 => "Barrel",
-            Self::N200000002109 => "Blister",
-            Self::N200000002110 => "Block",
-            Self::N200000002111 => "Bottle",
-            Self::N200000002112 => "Cachet",
-            Self::N200000002113 => "Capsule",
-            Self::N200000002114 => "Cartridge",
-            Self::N200000002115 => "Collar",
-            Self::N200000002116 => "Container",
-            Self::N200000002117 => "Cup",
-            Self::N200000002118 => "Cylinder",
-            Self::N200000002119 => "Dart",
-            Self::N200000002120 => "Dressing",
-            Self::N200000002121 => "Drop",
-            Self::N200000002122 => "Film",
-            Self::N200000002123 => "Chewing gum",
-            Self::N200000002124 => "Implant",
-            Self::N200000002125 => "Inhaler",
-            Self::N200000002126 => "Insert",
-            Self::N200000002127 => "Jar",
-            Self::N200000002128 => "Lozenge",
-            Self::N200000002129 => "Lyophilisate",
-            Self::N200000002130 => "Matrix",
-            Self::N200000002131 => "Pad",
-            Self::N200000002132 => "Paper",
-            Self::N200000002133 => "Pastille",
-            Self::N200000002134 => "Patch",
-            Self::N200000002135 => "Pen",
-            Self::N200000002136 => "Pendant",
-            Self::N200000002137 => "Pessary",
-            Self::N200000002138 => "Pillule",
-            Self::N200000002139 => "Pipette",
-            Self::N200000002140 => "Plaster",
-            Self::N200000002141 => "Plug",
-            Self::N200000002142 => "Pouch",
-            Self::N200000002143 => "Sachet",
-            Self::N200000002144 => "Sponge",
-            Self::N200000002145 => "Spoonful",
-            Self::N200000002146 => "Stick",
-            Self::N200000002147 => "Straw",
-            Self::N200000002148 => "Strip",
-            Self::N200000002149 => "Suppository",
-            Self::N200000002150 => "Syringe",
-            Self::N200000002151 => "System",
-            Self::N200000002152 => "Tablet",
-            Self::N200000002153 => "Tag",
-            Self::N200000002154 => "Tampon",
-            Self::N200000002155 => "Thread",
-            Self::N200000002156 => "Tube",
-            Self::N200000002157 => "Vessel",
-            Self::N200000002158 => "Vial",
-            Self::N200000002159 => "Puff",
-            Self::N200000002163 => "Actuation",
-            Self::N200000002164 => "Ampoule",
-            Self::N200000002165 => "Applicator",
-            Self::N200000002166 => "Bag",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for UnitOfPresentation {
@@ -68978,7 +64944,7 @@ impl From<UnitOfPresentation> for CodeableConcept {
     }
 }
 #[doc = "**[UsageContextAgreementScope](http://hl7.org/fhir/ValueSet/usage-context-agreement-scope)**. This codesystem defines codes describing the type of agreement represented by an artifact, for example for use in CanonicalResource.usageContext.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum UsageContextAgreementScope {
     /** **community**
@@ -69033,17 +64999,14 @@ impl AsRef<str> for UsageContextAgreementScope {
         }
     }
 }
+impl ::std::fmt::Debug for UsageContextAgreementScope {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for UsageContextAgreementScope {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Community => "Community",
-            Self::Domain => "Domain",
-            Self::Knowledge => "Knowledge",
-            Self::RealmBase => "Realm Base",
-            Self::SystemDesign => "System Design",
-            Self::SystemImplementation => "System Implementation",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for UsageContextAgreementScope {
@@ -69101,7 +65064,7 @@ impl From<UsageContextAgreementScope> for CodeableConcept {
     }
 }
 #[doc = "**[Use](http://hl7.org/fhir/ValueSet/claim-use)**. The purpose of the Claim: predetermination, preauthorization, claim.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum Use {
     /** **claim**
@@ -69138,14 +65101,14 @@ impl AsRef<str> for Use {
         }
     }
 }
+impl ::std::fmt::Debug for Use {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for Use {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Claim => "Claim",
-            Self::Preauthorization => "Preauthorization",
-            Self::Predetermination => "Predetermination",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for Use {
@@ -69201,7 +65164,7 @@ impl From<Use> for CodeableConcept {
     }
 }
 #[doc = "**[VersionAlgorithm](http://hl7.org/fhir/ValueSet/version-algorithm)**. Indicates the mechanism used to compare versions to determine which is more current.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VersionAlgorithm {
     /** **alpha**
@@ -69250,16 +65213,14 @@ impl AsRef<str> for VersionAlgorithm {
         }
     }
 }
+impl ::std::fmt::Debug for VersionAlgorithm {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for VersionAlgorithm {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Alpha => "Alphabetical",
-            Self::Date => "Date",
-            Self::Integer => "Integer",
-            Self::Natural => "Natural",
-            Self::Semver => "SemVer",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for VersionAlgorithm {
@@ -69315,7 +65276,7 @@ impl From<VersionAlgorithm> for CodeableConcept {
     }
 }
 #[doc = "**[VirtualServiceType](http://hl7.org/fhir/ValueSet/virtual-service-type)**. Example codes for possible virtual service connection types.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VirtualServiceType {
     /** **ms-teams**
@@ -69352,14 +65313,14 @@ impl AsRef<str> for VirtualServiceType {
         }
     }
 }
+impl ::std::fmt::Debug for VirtualServiceType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for VirtualServiceType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::MsTeams => "Microsoft Teams",
-            Self::Whatsapp => "WhatsApp conference call",
-            Self::Zoom => "Zoom web conferencing",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for VirtualServiceType {
@@ -69415,7 +65376,7 @@ impl From<VirtualServiceType> for CodeableConcept {
     }
 }
 #[doc = "**[VisionBase](http://hl7.org/fhir/ValueSet/vision-base-codes)**. A coded concept listing the base codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VisionBase {
     /** **down**
@@ -69458,15 +65419,14 @@ impl AsRef<str> for VisionBase {
         }
     }
 }
+impl ::std::fmt::Debug for VisionBase {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for VisionBase {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Down => "Down",
-            Self::In => "In",
-            Self::Out => "Out",
-            Self::Up => "Up",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for VisionBase {
@@ -69522,7 +65482,7 @@ impl From<VisionBase> for CodeableConcept {
     }
 }
 #[doc = "**[VisionEyes](http://hl7.org/fhir/ValueSet/vision-eye-codes)**. A coded concept listing the eye codes.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum VisionEyes {
     /** **left**
@@ -69553,13 +65513,14 @@ impl AsRef<str> for VisionEyes {
         }
     }
 }
+impl ::std::fmt::Debug for VisionEyes {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for VisionEyes {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Left => "Left Eye",
-            Self::Right => "Right Eye",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for VisionEyes {
@@ -69615,7 +65576,7 @@ impl From<VisionEyes> for CodeableConcept {
     }
 }
 #[doc = "**[W3cProvenanceActivityType](http://hl7.org/fhir/w3c-provenance-activity-type)**. This value set includes W3C PROV Data Model Activity concepts, which are treated as codes in this valueset.  Some adaptations were made to make these concepts suitable values for the Provenance.activity element. Coded concepts are from PROV-DM and the display names are their counterparts in PROV-N (human readable notation syntax specification).[code system OID: http://www.w3.org/TR/2013/REC-prov-dm-20130430/ and http://www.w3.org/TR/2013/REC-prov-n-20130430/]\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 pub enum W3cProvenanceActivityType {
     /** **Attribution**
 
@@ -69708,24 +65669,14 @@ impl AsRef<str> for W3cProvenanceActivityType {
         }
     }
 }
+impl ::std::fmt::Debug for W3cProvenanceActivityType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for W3cProvenanceActivityType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::Attribution => "wasAttributedTo",
-            Self::Collection => "isCollectionOf",
-            Self::Communication => "wasInformedBy",
-            Self::Derivation => "wasDerivedFrom",
-            Self::End => "wasEndedBy",
-            Self::Generation => "wasGeneratedBy",
-            Self::Invalidation => "wasInvalidatedBy",
-            Self::PrimarySource => "wasPrimarySourceOf",
-            Self::Quotation => "wasQuotedFrom",
-            Self::Revision => "wasRevisionOf",
-            Self::Start => "wasStartedBy",
-            Self::Usage => "used",
-            Self::_Custom(s) => s.as_str(),
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for W3cProvenanceActivityType {
@@ -69781,7 +65732,7 @@ impl From<W3cProvenanceActivityType> for CodeableConcept {
     }
 }
 #[doc = "**[WarningType](http://hl7.org/fhir/ValueSet/warning-type)**. Classification of warning type.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum WarningType {
     /** **P313**
@@ -69860,21 +65811,14 @@ impl AsRef<str> for WarningType {
         }
     }
 }
+impl ::std::fmt::Debug for WarningType {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for WarningType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::P313 => "Get medical advice/attention.",
-            Self::P314 => "Get medical advice/attention if you feel unwell.",
-            Self::P315 => "Get immediate medical advice/attention.",
-            Self::P320 => "Specific treatment is urgent (see ... on this label).",
-            Self::P321 => "Specific treatment (see ... on this label).",
-            Self::P322 => "Specific measures (see ... on this label).",
-            Self::P330 => "Rinse mouth.",
-            Self::P331 => "Do NOT induce vomiting.",
-            Self::P361 => "Remove/Take off immediately all contaminated clothing.",
-            Self::P363 => "Wash contaminated clothing before reuse..",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for WarningType {
@@ -69930,7 +65874,7 @@ impl From<WarningType> for CodeableConcept {
     }
 }
 #[doc = "**[WeekOfMonth](http://hl7.org/fhir/ValueSet/week-of-month)**. The set of weeks with in a month.\n\nFHIR version: 5.0.0."]
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone)]
 #[derive(Copy)]
 pub enum WeekOfMonth {
     /** **first**
@@ -69979,16 +65923,14 @@ impl AsRef<str> for WeekOfMonth {
         }
     }
 }
+impl ::std::fmt::Debug for WeekOfMonth {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        f.write_str(self.as_ref())
+    }
+}
 impl ::std::fmt::Display for WeekOfMonth {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        let s = match self {
-            Self::First => "First",
-            Self::Fourth => "Fourth",
-            Self::Last => "Last",
-            Self::Second => "Second",
-            Self::Third => "Third",
-        };
-        write!(f, "{s}")
+        f.write_str(self.as_ref())
     }
 }
 impl<'de> Deserialize<'de> for WeekOfMonth {

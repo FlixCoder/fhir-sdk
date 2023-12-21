@@ -34,7 +34,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 
 ## Not Planned
 
-- XML
+- XML ([fhirbolt](https://github.com/lschmierer/fhirbolt) implements it though)
 
 ## Example
 

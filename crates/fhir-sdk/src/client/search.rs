@@ -410,6 +410,7 @@ impl<'a> SearchParameter for UriSearch<'a> {
 
 /// Search on any item whether it is a missing field using the `missing`
 /// modifier.
+#[derive(Debug, Clone, Copy)]
 pub struct MissingSearch<'a> {
 	/// Name of the field.
 	pub name: &'a str,

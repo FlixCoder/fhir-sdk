@@ -6,7 +6,7 @@ use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
 use super::comments::sanitize;
-use crate::codes::Code;
+use crate::model::codes::Code;
 
 /// Generate a Rust enum for a FHIR code.
 pub fn generate_code_enum(mut code: Code) -> Result<TokenStream> {

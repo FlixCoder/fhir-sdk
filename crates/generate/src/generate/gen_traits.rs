@@ -3,7 +3,6 @@
 use std::collections::HashMap;
 
 use anyhow::{anyhow, Result};
-use fhir_model::r4b::codes::StructureDefinitionKind;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
@@ -12,7 +11,10 @@ use super::{
 	gen_types::{code_field_type_name, construct_field_type},
 	map_field_ident, map_type,
 };
-use crate::structures::{Field, Type};
+use crate::model::{
+	structures::{Field, Type},
+	StructureDefinitionKind,
+};
 
 /// Generate the BaseResource trait and its implementations.
 pub fn generate_base_resource(

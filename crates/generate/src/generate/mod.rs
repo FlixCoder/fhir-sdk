@@ -8,12 +8,11 @@ mod gen_types;
 use std::collections::HashMap;
 
 use anyhow::Result;
-use fhir_model::r4b::codes::{CodeSystemContentMode, StructureDefinitionKind};
 use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
-use crate::{codes::Code, structures::Type};
+use crate::model::{codes::Code, structures::Type, CodeSystemContentMode, StructureDefinitionKind};
 
 /// Generate the Rust code for the FHIR codes.
 pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, HashMap<String, String>)> {

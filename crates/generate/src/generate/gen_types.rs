@@ -3,13 +3,15 @@
 use std::collections::HashMap;
 
 use anyhow::Result;
-use fhir_model::r4b::codes::StructureDefinitionKind;
 use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
 use super::{comments::sanitize, map_field_ident, map_type};
-use crate::structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type};
+use crate::model::{
+	structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type},
+	StructureDefinitionKind,
+};
 
 /// Generate struct definition for a FHIR type.
 pub fn generate_type_struct(

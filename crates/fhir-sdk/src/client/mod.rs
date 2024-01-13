@@ -427,28 +427,33 @@ impl Client {
 		only_certain: bool,
 		count: i32,
 	) -> Result<Bundle, Error> {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let parameters = Parameters::builder()
 			.parameter(vec![
 				Some(
 					ParametersParameter::builder()
 						.name("resource".to_owned())
 						.resource(Resource::from(patient))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("onlyCertainMatches".to_owned())
 						.value(ParametersParameterValue::Boolean(only_certain))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("count".to_owned())
 						.value(ParametersParameterValue::Integer(count))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 			])
-			.build();
+			.build()
+			.unwrap();
 
 		let url = self.url(&["Patient", "$match"]);
 		let request = self

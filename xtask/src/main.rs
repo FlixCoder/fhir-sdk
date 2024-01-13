@@ -85,7 +85,7 @@ impl Cli {
 		command.args(["test", "--workspace"]).current_dir(&workspace_path);
 		run_command(command)?;
 
-		// Run R4 tests.
+		// Run R5 tests.
 		let mut command = Command::new("cargo");
 		command
 			.args([
@@ -93,17 +93,17 @@ impl Cli {
 				"--workspace",
 				"--no-default-features",
 				"--features",
-				"r4b,builders,client",
+				"r5,builders,client",
 			])
 			.current_dir(&workspace_path);
 		run_command(command)?;
 
 		// Make sure the models compile without builders in all FHIR versions.
 		let mut command = Command::new("cargo");
-		command.args(["check", "-p", "fhir-model", "--no-default-features", "--features", "r4b"]);
+		command.args(["clippy", "-p", "fhir-model", "--no-default-features", "--features", "r4b"]);
 		run_command(command)?;
 		let mut command = Command::new("cargo");
-		command.args(["check", "-p", "fhir-model", "--no-default-features", "--features", "r5"]);
+		command.args(["clippy", "-p", "fhir-model", "--no-default-features", "--features", "r5"]);
 		run_command(command)?;
 
 		Ok(())

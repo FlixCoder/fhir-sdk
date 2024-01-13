@@ -76,7 +76,7 @@ pub fn generate_types(
 		use ::core::num::NonZeroU32;
 		use serde::{Serialize, Deserialize};
 		#[cfg(feature = "builders")]
-		use typed_builder::TypedBuilder;
+		use derive_builder::Builder;
 		use super::super::codes;
 		#[allow(unused_imports)] // Integer64 is unused in R4B.
 		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
@@ -85,18 +85,30 @@ pub fn generate_types(
 
 		/// Extension of a field.
 		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-		#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+		#[cfg_attr(feature = "builders", derive(Builder))]
 		#[serde(rename_all = "camelCase")]
-		#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+		#[cfg_attr(feature = "builders", builder(
+			pattern = "owned",
+			name = "FieldExtensionBuilder",
+			build_fn(error = "crate::error::BuilderError")
+		))]
 		pub struct FieldExtension {
 			/// Unique id for inter-element referencing
 			#[serde(default, skip_serializing_if = "Option::is_none")]
-			#[cfg_attr(feature = "builders", builder(default))]
+			#[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
 			pub id: Option<String>,
 			/// Additional content defined by implementations
 			#[serde(default, skip_serializing_if = "Vec::is_empty")]
 			#[cfg_attr(feature = "builders", builder(default))]
 			pub extension: Vec<Extension>,
+		}
+		#[cfg(feature = "builders")]
+		impl FieldExtension {
+			#[doc = "Start building a new FieldExtension."]
+			#[must_use]
+			pub fn builder() -> FieldExtensionBuilder {
+				FieldExtensionBuilder::default()
+			}
 		}
 	})
 }
@@ -134,7 +146,7 @@ pub fn generate_resources(
 		use ::core::num::NonZeroU32;
 		use serde::{Serialize, Deserialize};
 		#[cfg(feature = "builders")]
-		use typed_builder::TypedBuilder;
+		use derive_builder::Builder;
 		use super::super::codes;
 		use super::super::types::*;
 		#[allow(unused_imports)] // Integer64 is unused in R4B.

@@ -40,16 +40,19 @@ impl BatchTransaction {
 		let resource = resource.into();
 		let uuid = format!("urn:uuid:{}", Uuid::new_v4());
 
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let entry = BundleEntry::builder()
 			.full_url(uuid.clone())
 			.request(
 				BundleEntryRequest::builder()
 					.method(HTTPVerb::Post)
 					.url(resource.resource_type().to_string())
-					.build(),
+					.build()
+					.unwrap(),
 			)
 			.resource(resource)
-			.build();
+			.build()
+			.unwrap();
 
 		self.entries.push(Some(entry));
 		uuid
@@ -69,27 +72,26 @@ impl BatchTransaction {
 		let full_url = self.client.url(&[resource_type, resource_id]);
 		let url = format!("{resource_type}/{resource_id}");
 
-		let request = if conditional {
+		let mut request_builder = BundleEntryRequest::builder().method(HTTPVerb::Put).url(url);
+		if conditional {
 			let version_id = resource
 				.as_base_resource()
 				.meta()
 				.as_ref()
 				.and_then(|meta| meta.version_id.as_ref())
 				.ok_or(Error::MissingVersionId)?;
-			BundleEntryRequest::builder()
-				.method(HTTPVerb::Put)
-				.url(url)
-				.if_match(format!("W/\"{version_id}\""))
-				.build()
-		} else {
-			BundleEntryRequest::builder().method(HTTPVerb::Put).url(url).build()
-		};
+			request_builder = request_builder.if_match(format!("W/\"{version_id}\""));
+		}
+		#[allow(clippy::unwrap_used)] // Will always succeed.
+		let request = request_builder.build().unwrap();
 
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let entry = BundleEntry::builder()
 			.full_url(full_url.to_string())
 			.request(request)
 			.resource(resource)
-			.build();
+			.build()
+			.unwrap();
 
 		self.entries.push(Some(entry));
 		Ok(())
@@ -99,9 +101,13 @@ impl BatchTransaction {
 	pub fn delete(&mut self, resource_type: ResourceType, id: &str) {
 		let url = format!("{resource_type}/{id}");
 
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let entry = BundleEntry::builder()
-			.request(BundleEntryRequest::builder().method(HTTPVerb::Delete).url(url).build())
-			.build();
+			.request(
+				BundleEntryRequest::builder().method(HTTPVerb::Delete).url(url).build().unwrap(),
+			)
+			.build()
+			.unwrap();
 
 		self.entries.push(Some(entry));
 	}
@@ -110,9 +116,11 @@ impl BatchTransaction {
 	pub fn read(&mut self, resource_type: ResourceType, id: &str) {
 		let url = format!("{resource_type}/{id}");
 
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let entry = BundleEntry::builder()
-			.request(BundleEntryRequest::builder().method(HTTPVerb::Get).url(url).build())
-			.build();
+			.request(BundleEntryRequest::builder().method(HTTPVerb::Get).url(url).build().unwrap())
+			.build()
+			.unwrap();
 
 		self.entries.push(Some(entry));
 	}
@@ -124,10 +132,12 @@ impl BatchTransaction {
 
 	/// Send the batch or transaction to the server and receive the response.
 	pub async fn send(self) -> Result<Bundle, Error> {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let bundle = Bundle::builder()
 			.r#type(if self.is_transaction { BundleType::Transaction } else { BundleType::Batch })
 			.entry(self.entries)
-			.build();
+			.build()
+			.unwrap();
 
 		let url = self.client.url(&[]);
 		let request = self

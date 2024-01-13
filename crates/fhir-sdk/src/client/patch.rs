@@ -36,6 +36,7 @@ impl<'a> PatchViaFhir<'a> {
 		name: impl Into<String>,
 		value: ParametersParameter,
 	) -> Self {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let parameter = ParametersParameter::builder()
 			.name("operation".to_owned())
 			.part(vec![
@@ -43,23 +44,27 @@ impl<'a> PatchViaFhir<'a> {
 					ParametersParameter::builder()
 						.name("type".to_owned())
 						.value(ParametersParameterValue::Code("add".to_owned()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("path".to_owned())
 						.value(ParametersParameterValue::String(path.into()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("name".to_owned())
 						.value(ParametersParameterValue::String(name.into()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(value),
 			])
-			.build();
+			.build()
+			.unwrap();
 
 		self.operations.push(Some(parameter));
 		self
@@ -75,6 +80,7 @@ impl<'a> PatchViaFhir<'a> {
 		value: ParametersParameter,
 		index: i32,
 	) -> Self {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let parameter = ParametersParameter::builder()
 			.name("operation".to_owned())
 			.part(vec![
@@ -82,23 +88,27 @@ impl<'a> PatchViaFhir<'a> {
 					ParametersParameter::builder()
 						.name("type".to_owned())
 						.value(ParametersParameterValue::Code("insert".to_owned()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("path".to_owned())
 						.value(ParametersParameterValue::String(path.into()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("index".to_owned())
 						.value(ParametersParameterValue::Integer(index))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(value),
 			])
-			.build();
+			.build()
+			.unwrap();
 
 		self.operations.push(Some(parameter));
 		self
@@ -108,6 +118,7 @@ impl<'a> PatchViaFhir<'a> {
 	/// `path` needs to be set according the FHIR defititions, e.g.
 	/// `Patient.active` to delete the `active` field on a `Patient` resource.
 	pub fn delete(mut self, path: impl Into<String>) -> Self {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let parameter = ParametersParameter::builder()
 			.name("operation".to_owned())
 			.part(vec![
@@ -115,16 +126,19 @@ impl<'a> PatchViaFhir<'a> {
 					ParametersParameter::builder()
 						.name("type".to_owned())
 						.value(ParametersParameterValue::Code("delete".to_owned()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("path".to_owned())
 						.value(ParametersParameterValue::String(path.into()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 			])
-			.build();
+			.build()
+			.unwrap();
 
 		self.operations.push(Some(parameter));
 		self
@@ -135,6 +149,7 @@ impl<'a> PatchViaFhir<'a> {
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
 	pub fn replace(mut self, path: impl Into<String>, value: ParametersParameter) -> Self {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let parameter = ParametersParameter::builder()
 			.name("operation".to_owned())
 			.part(vec![
@@ -142,17 +157,20 @@ impl<'a> PatchViaFhir<'a> {
 					ParametersParameter::builder()
 						.name("type".to_owned())
 						.value(ParametersParameterValue::Code("replace".to_owned()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("path".to_owned())
 						.value(ParametersParameterValue::String(path.into()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(value),
 			])
-			.build();
+			.build()
+			.unwrap();
 
 		self.operations.push(Some(parameter));
 		self
@@ -163,6 +181,7 @@ impl<'a> PatchViaFhir<'a> {
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
 	pub fn r#move(mut self, path: impl Into<String>, source: i32, destination: i32) -> Self {
+		#[allow(clippy::unwrap_used)] // Will always succeed.
 		let parameter = ParametersParameter::builder()
 			.name("operation".to_owned())
 			.part(vec![
@@ -170,28 +189,33 @@ impl<'a> PatchViaFhir<'a> {
 					ParametersParameter::builder()
 						.name("type".to_owned())
 						.value(ParametersParameterValue::Code("move".to_owned()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("path".to_owned())
 						.value(ParametersParameterValue::String(path.into()))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("source".to_owned())
 						.value(ParametersParameterValue::Integer(source))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 				Some(
 					ParametersParameter::builder()
 						.name("destination".to_owned())
 						.value(ParametersParameterValue::Integer(destination))
-						.build(),
+						.build()
+						.unwrap(),
 				),
 			])
-			.build();
+			.build()
+			.unwrap();
 
 		self.operations.push(Some(parameter));
 		self
@@ -199,7 +223,8 @@ impl<'a> PatchViaFhir<'a> {
 
 	/// Patch the resource on the FHIR server.
 	pub async fn send(self) -> Result<(), Error> {
-		let parameters = Parameters::builder().parameter(self.operations).build();
+		#[allow(clippy::unwrap_used)] // Will always succeed.
+		let parameters = Parameters::builder().parameter(self.operations).build().unwrap();
 
 		let url = self.client.url(&[self.resource_type.as_str(), self.id]);
 		let request = self

@@ -1,5 +1,5 @@
 #![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
-#![allow(clippy::expect_used, clippy::print_stdout)]
+#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout)]
 
 mod common;
 
@@ -52,7 +52,7 @@ fn crud() -> Result<()> {
 async fn crud_inner() -> Result<()> {
 	let client = client().await?;
 
-	let mut patient = Patient::builder().active(false).build();
+	let mut patient = Patient::builder().active(false).build().unwrap();
 	let id = patient.create(&client).await?;
 	let resource = client.read::<Patient>(&id).await?.expect("should find resource");
 	assert_eq!(resource.active, patient.active);
@@ -82,7 +82,7 @@ fn read_referenced() -> Result<()> {
 async fn read_referenced_inner() -> Result<()> {
 	let client = client().await?;
 
-	let mut patient = Patient::builder().build();
+	let mut patient = Patient::builder().build().unwrap();
 	patient.create(&client).await?;
 
 	let reference = reference_to(&patient).expect("creating reference");
@@ -103,8 +103,9 @@ async fn patch_via_fhir_inner() -> Result<()> {
 	let mut patient = Patient::builder()
 		.active(false)
 		.gender(AdministrativeGender::Male)
-		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build())])
-		.build();
+		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build().unwrap())])
+		.build()
+		.unwrap();
 	patient.create(&client).await?;
 
 	let date = Date::from_str("2021-02-01").expect("parse Date");
@@ -116,7 +117,8 @@ async fn patch_via_fhir_inner() -> Result<()> {
 			ParametersParameter::builder()
 				.name("value".to_owned())
 				.value(ParametersParameterValue::Date(date.clone()))
-				.build(),
+				.build()
+				.unwrap(),
 		)
 		.delete("Patient.active")
 		.replace(
@@ -124,16 +126,18 @@ async fn patch_via_fhir_inner() -> Result<()> {
 			ParametersParameter::builder()
 				.name("value".to_owned())
 				.value(ParametersParameterValue::Code("female".to_owned()))
-				.build(),
+				.build()
+				.unwrap(),
 		)
 		.insert(
 			"Patient.name",
 			ParametersParameter::builder()
 				.name("value".to_owned())
 				.value(ParametersParameterValue::HumanName(
-					HumanName::builder().family("Family".to_owned()).build(),
+					HumanName::builder().family("Family".to_owned()).build().unwrap(),
 				))
-				.build(),
+				.build()
+				.unwrap(),
 			0,
 		)
 		.send()
@@ -160,8 +164,9 @@ async fn patch_via_json_inner() -> Result<()> {
 	let mut patient = Patient::builder()
 		.active(false)
 		.gender(AdministrativeGender::Male)
-		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build())])
-		.build();
+		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build().unwrap())])
+		.build()
+		.unwrap();
 	patient.create(&client).await?;
 
 	let date = Date::from_str("2021-02-01").expect("parse Date");
@@ -170,7 +175,7 @@ async fn patch_via_json_inner() -> Result<()> {
 		.add("/birthDate", &date)?
 		.remove("/active")
 		.replace("/gender", AdministrativeGender::Female)?
-		.add("/name/0", HumanName::builder().family("Family".to_owned()).build())?
+		.add("/name/0", HumanName::builder().family("Family".to_owned()).build().unwrap())?
 		.send()
 		.await?;
 
@@ -195,7 +200,7 @@ async fn search_inner() -> Result<()> {
 	let date_str = "5123-05-05";
 	let date = Date::from_str(date_str).expect("parse Date");
 
-	let mut patient = Patient::builder().active(false).birth_date(date.clone()).build();
+	let mut patient = Patient::builder().active(false).birth_date(date.clone()).build().unwrap();
 	let id = patient.create(&client).await?;
 
 	let patients: Vec<Patient> = client
@@ -232,23 +237,24 @@ fn transaction() -> Result<()> {
 async fn transaction_inner() -> Result<()> {
 	let client = client().await?;
 
-	let mut patient1 = Patient::builder().build();
+	let mut patient1 = Patient::builder().build().unwrap();
 	patient1.create(&client).await?;
-	let mut patient2 = Patient::builder().build();
+	let mut patient2 = Patient::builder().build().unwrap();
 	patient2.create(&client).await?;
-	let mut patient3 = Patient::builder().build();
+	let mut patient3 = Patient::builder().build().unwrap();
 	patient3.create(&client).await?;
 
 	let mut transaction = client.transaction();
 	transaction.delete(ResourceType::Patient, patient1.id.as_ref().expect("Patient.id"));
 	transaction.read(ResourceType::Patient, patient1.id.as_ref().expect("Patient.id"));
 	transaction.update(patient3, true)?;
-	let patient_ref = transaction.create(Patient::builder().build());
+	let patient_ref = transaction.create(Patient::builder().build().unwrap());
 	let _encounter_ref = transaction.create(
 		Encounter::builder()
 			.status(EncounterStatus::Planned)
-			.subject(Reference::builder().reference(patient_ref.clone()).build())
-			.build(),
+			.subject(Reference::builder().reference(patient_ref.clone()).build().unwrap())
+			.build()
+			.unwrap(),
 	);
 
 	let mut entries = transaction.send().await?.0.entry.into_iter().flatten();
@@ -265,7 +271,7 @@ async fn transaction_inner() -> Result<()> {
 		.or(create_encounter.response.as_ref().and_then(|response| response.location.as_ref()))
 		.expect("Encounter ID in response");
 	let Resource::Encounter(encounter) = client
-		.read_referenced(&Reference::builder().reference(encounter_ref.clone()).build())
+		.read_referenced(&Reference::builder().reference(encounter_ref.clone()).build().unwrap())
 		.await?
 	else {
 		panic!("Resource should be Encounter");
@@ -298,7 +304,8 @@ async fn paging_inner() -> Result<()> {
 	let patient = Patient::builder()
 		.active(false)
 		.birth_date(Date::from_str(date).expect("parse Date"))
-		.build();
+		.build()
+		.unwrap();
 	let mut batch = client.batch();
 	for _ in 0..n {
 		batch.create(patient.clone());
@@ -333,12 +340,13 @@ fn operation_encounter_everything() -> Result<()> {
 async fn operation_encounter_everything_inner() -> Result<()> {
 	let client = client().await?;
 
-	let mut patient = Patient::builder().build();
+	let mut patient = Patient::builder().build().unwrap();
 	patient.create(&client).await?;
 	let mut encounter = Encounter::builder()
 		.status(EncounterStatus::Completed)
 		.subject(reference_to(&patient).expect("Patient reference"))
-		.build();
+		.build()
+		.unwrap();
 	encounter.create(&client).await?;
 
 	let bundle =
@@ -365,8 +373,9 @@ async fn operation_patient_match_inner() -> Result<()> {
 	let client = client().await?;
 
 	let mut patient = Patient::builder()
-		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build())])
-		.build();
+		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build().unwrap())])
+		.build()
+		.unwrap();
 	patient.create(&client).await?;
 
 	let bundle = client.operation_patient_match(patient.clone(), true, 1).await?;

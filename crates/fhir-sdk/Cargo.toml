@@ -16,7 +16,7 @@ version = "0.7.0"
 workspace = true
 
 [features]
-default = ["r5", "builders", "client", "docs"]
+default = ["r4b", "builders", "client", "docs"]
 client = [
 	"dep:async-trait",
 	"dep:futures",

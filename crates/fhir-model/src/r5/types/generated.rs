@@ -3,7 +3,7 @@
 use ::core::num::NonZeroU32;
 use serde::{Serialize, Deserialize};
 #[cfg(feature = "builders")]
-use typed_builder::TypedBuilder;
+use derive_builder::Builder;
 use super::super::codes;
 #[allow(unused_imports)]
 use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
@@ -33,15 +33,14 @@ The ISO21090-codedString may be used to provide a coded representation of the co
 
  Note: address is intended to describe postal addresses for administrative purposes, not to describe absolute geographical coordinates.  Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource). */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = AddressBuilder),
-        build_method(into = Address),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "AddressBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct AddressInner {
@@ -51,15 +50,7 @@ pub struct AddressInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -68,15 +59,7 @@ pub struct AddressInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[AddressUse](http://hl7.org/fhir/ValueSet/address-use); home | work | temp | old | billing - purpose of this address**
@@ -85,21 +68,13 @@ pub struct AddressInner {
 
  Applications can assume that an address is current unless it explicitly says that it is temporary or old. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[AddressUse](http://hl7.org/fhir/ValueSet/address-use); home | work | temp | old | billing - purpose of this address** \n\n The purpose of this address. \n\n Applications can assume that an address is current unless it explicitly says that it is temporary or old. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "use")]
     pub r#use: Option<codes::AddressUse>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_use")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#use_ext: Option<FieldExtension>,
     /** **[AddressType](http://hl7.org/fhir/ValueSet/address-type); postal | physical | both**
 
@@ -107,21 +82,13 @@ pub struct AddressInner {
 
  The definition of Address states that "address is intended to describe postal addresses, not physical locations". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[AddressType](http://hl7.org/fhir/ValueSet/address-type); postal | physical | both** \n\n Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both. \n\n The definition of Address states that \"address is intended to describe postal addresses, not physical locations\". However, many applications track whether an address has a dual purpose of being a location that can be visited as well as being a valid delivery destination, and Postal addresses are often used as proxies for physical locations (also see the [Location](location.html#) resource). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Option<codes::AddressType>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **Text representation of the address**
 
@@ -129,21 +96,13 @@ pub struct AddressInner {
 
  Can provide both a text representation and parts. Applications updating an address SHALL ensure that  when both text and parts are present,  no content is included in the text that isn't found in a part. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Text representation of the address** \n\n Specifies the entire address as it should be displayed e.g. on a postal label. This may be provided instead of or as well as the specific parts. \n\n Can provide both a text representation and parts. Applications updating an address SHALL ensure that  when both text and parts are present,  no content is included in the text that isn't found in a part. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_text")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub text_ext: Option<FieldExtension>,
     /** **Street name, number, direction & P.O. Box etc.**
 
@@ -151,21 +110,13 @@ pub struct AddressInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Street name, number, direction & P.O. Box etc.** \n\n This component contains the house number, apartment number, street name, street direction,  P.O. Box number, delivery hints, and similar address information. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "line")]
     pub line: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_line")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub line_ext: Vec<Option<FieldExtension>>,
     /** **Name of city, town etc.**
 
@@ -173,21 +124,13 @@ pub struct AddressInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name of city, town etc.** \n\n The name of the city, town, suburb, village or other community or delivery center. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "city")]
     pub city: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_city")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub city_ext: Option<FieldExtension>,
     /** **District name (aka county)**
 
@@ -195,21 +138,13 @@ pub struct AddressInner {
 
  District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **District name (aka county)** \n\n The name of the administrative area (county). \n\n District is sometimes known as county, but in some regions 'county' is used in place of city (municipality), so county name should be conveyed in city instead. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "district")]
     pub district: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_district")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub district_ext: Option<FieldExtension>,
     /** **Sub-unit of country (abbreviations ok)**
 
@@ -217,21 +152,13 @@ pub struct AddressInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Sub-unit of country (abbreviations ok)** \n\n Sub-unit of a country with limited sovereignty in a federally organized country. A code may be used if codes are in common use (e.g. US 2 letter state codes). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "state")]
     pub state: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_state")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub state_ext: Option<FieldExtension>,
     /** **Postal code for area**
 
@@ -239,21 +166,13 @@ pub struct AddressInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Postal code for area** \n\n A postal code designating a region defined by the postal service. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "postalCode")]
     pub postal_code: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_postalCode")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub postal_code_ext: Option<FieldExtension>,
     /** **Country (e.g. may be ISO 3166 2 or 3 letter code)**
 
@@ -261,21 +180,13 @@ pub struct AddressInner {
 
  ISO 3166 2- or 3- letter codes MAY be used in place of a human readable country name. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Country (e.g. may be ISO 3166 2 or 3 letter code)** \n\n Country - a nation as commonly understood or generally accepted. \n\n ISO 3166 2- or 3- letter codes MAY be used in place of a human readable country name. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "country")]
     pub country: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_country")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub country_ext: Option<FieldExtension>,
     /** **Time period when address was/is in use**
 
@@ -283,22 +194,21 @@ pub struct AddressInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Time period when address was/is in use** \n\n Time period when address was/is in use. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_period")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl AddressBuilder {
+    #[doc = concat!("Finalize building ", "Address", ".")]
+    pub fn build(self) -> Result<Address, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<AddressInner> for Address {
     fn from(inner: AddressInner) -> Self {
@@ -319,8 +229,9 @@ impl ::core::ops::DerefMut for Address {
 impl Address {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> AddressBuilder {
-        AddressInner::builder()
+        AddressBuilder::default()
     }
 }
 /** Age Type: A duration of time during which an organism (or a process) has existed.
@@ -345,15 +256,14 @@ pub struct Age(pub Box<AgeInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = AgeBuilder),
-        build_method(into = Age),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "AgeBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct AgeInner {
@@ -363,15 +273,7 @@ pub struct AgeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -380,15 +282,7 @@ pub struct AgeInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -397,15 +291,7 @@ pub struct AgeInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
@@ -414,15 +300,7 @@ pub struct AgeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /** **Unit representation**
@@ -431,15 +309,7 @@ pub struct AgeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /** **System that defines coded unit form**
@@ -448,15 +318,7 @@ pub struct AgeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /** **Coded form of the unit**
@@ -465,17 +327,16 @@ pub struct AgeInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
+}
+#[cfg(feature = "builders")]
+impl AgeBuilder {
+    #[doc = concat!("Finalize building ", "Age", ".")]
+    pub fn build(self) -> Result<Age, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<AgeInner> for Age {
     fn from(inner: AgeInner) -> Self {
@@ -496,8 +357,9 @@ impl ::core::ops::DerefMut for Age {
 impl Age {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> AgeBuilder {
-        AgeInner::builder()
+        AgeBuilder::default()
     }
 }
 /** Annotation Type: A  text note which also  contains information about who made the statement and when.
@@ -522,15 +384,14 @@ pub struct Annotation(pub Box<AnnotationInner>);
 
  For systems that do not have structured annotations, they can simply communicate a single annotation with no author or time.  This element may need to be included in narrative because of the potential for modifying information.  *Annotations SHOULD NOT* be used to communicate "modifying" information that could be computable. (This is a SHOULD because enforcing user behavior is nearly impossible). */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = AnnotationBuilder),
-        build_method(into = Annotation),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "AnnotationBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct AnnotationInner {
@@ -540,15 +401,7 @@ pub struct AnnotationInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -557,15 +410,7 @@ pub struct AnnotationInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Individual responsible for the annotation**
@@ -574,21 +419,13 @@ pub struct AnnotationInner {
 
  Organization is used when there's no need for specific attribution as to who made the comment. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Individual responsible for the annotation** \n\n The individual responsible for making the annotation. \n\n Organization is used when there's no need for specific attribution as to who made the comment. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub author: Option<AnnotationAuthor>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub author_ext: Option<AnnotationAuthorExtension>,
     /** **When the annotation was made**
 
@@ -596,21 +433,13 @@ pub struct AnnotationInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **When the annotation was made** \n\n Indicates when this particular annotation was made. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "time")]
     pub time: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_time")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub time_ext: Option<FieldExtension>,
     /** **The annotation  - text content (as markdown)**
 
@@ -622,8 +451,15 @@ pub struct AnnotationInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_text")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub text_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl AnnotationBuilder {
+    #[doc = concat!("Finalize building ", "Annotation", ".")]
+    pub fn build(self) -> Result<Annotation, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<AnnotationInner> for Annotation {
     fn from(inner: AnnotationInner) -> Self {
@@ -644,8 +480,9 @@ impl ::core::ops::DerefMut for Annotation {
 impl Annotation {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> AnnotationBuilder {
-        AnnotationInner::builder()
+        AnnotationBuilder::default()
     }
 }
 /// Choice of types for the author[x] field in Annotation
@@ -692,15 +529,14 @@ pub struct Attachment(pub Box<AttachmentInner>);
 
  When providing a summary view (for example with Observation.value[x]) Attachment should be represented with a brief display text such as "Signed Procedure Consent". */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = AttachmentBuilder),
-        build_method(into = Attachment),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "AttachmentBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct AttachmentInner {
@@ -710,15 +546,7 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -727,15 +555,7 @@ pub struct AttachmentInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); Mime type of the content, with charset etc.**
@@ -744,21 +564,13 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); Mime type of the content, with charset etc.** \n\n Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "contentType")]
     pub content_type: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_contentType")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub content_type_ext: Option<FieldExtension>,
     /** **[Language](http://hl7.org/fhir/ValueSet/all-languages); Human language of the content (BCP-47)**
 
@@ -766,21 +578,13 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[Language](http://hl7.org/fhir/ValueSet/all-languages); Human language of the content (BCP-47)** \n\n The human language of the content. The value can be any valid value according to BCP 47. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "language")]
     pub language: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_language")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub language_ext: Option<FieldExtension>,
     /** **Data inline, base64ed**
 
@@ -788,21 +592,13 @@ pub struct AttachmentInner {
 
  The base64-encoded data SHALL be expressed in the same character set as the base resource XML or JSON. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Data inline, base64ed** \n\n The actual data of the attachment - a sequence of bytes, base64 encoded. \n\n The base64-encoded data SHALL be expressed in the same character set as the base resource XML or JSON. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "data")]
     pub data: Option<Base64Binary>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_data")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub data_ext: Option<FieldExtension>,
     /** **Uri where the data can be found**
 
@@ -810,21 +606,13 @@ pub struct AttachmentInner {
 
  If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may reference transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Uri where the data can be found** \n\n A location where the data can be accessed. \n\n If both data and url are provided, the url SHALL point to the same content as the data contains. Urls may be relative references or may reference transient locations such as a wrapping envelope using cid: though this has ramifications for using signatures. Relative URLs are interpreted relative to the service url, like a resource reference, rather than relative to the resource itself. If a URL is provided, it SHALL resolve to actual data. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "url")]
     pub url: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_url")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub url_ext: Option<FieldExtension>,
     /** **Number of bytes of content (if url provided)**
 
@@ -832,21 +620,13 @@ pub struct AttachmentInner {
 
  The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Number of bytes of content (if url provided)** \n\n The number of bytes of data that make up this attachment (before base64 encoding, if that is done). \n\n The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "size")]
     pub size: Option<Integer64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_size")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub size_ext: Option<FieldExtension>,
     /** **Hash of the data (sha-1, base64ed)**
 
@@ -854,21 +634,13 @@ pub struct AttachmentInner {
 
  The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Hash of the data (sha-1, base64ed)** \n\n The calculated hash of the data using SHA-1. Represented using base64. \n\n The hash is calculated on the data prior to base64 encoding, if the data is based64 encoded. The hash is not intended to support digital signatures. Where protection against malicious threats a digital signature should be considered, see [Provenance.signature](provenance-definitions.html#Provenance.signature) for mechanism to protect a resource with a digital signature. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "hash")]
     pub hash: Option<Base64Binary>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_hash")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub hash_ext: Option<FieldExtension>,
     /** **Label to display in place of the data**
 
@@ -876,21 +648,13 @@ pub struct AttachmentInner {
 
  May sometimes be derived from the source filename. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Label to display in place of the data** \n\n A label or set of text to display in place of the data. \n\n May sometimes be derived from the source filename. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "title")]
     pub title: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_title")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub title_ext: Option<FieldExtension>,
     /** **Date attachment was first created**
 
@@ -898,21 +662,13 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Date attachment was first created** \n\n The date that the attachment was first created. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "creation")]
     pub creation: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_creation")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub creation_ext: Option<FieldExtension>,
     /** **Height of the image in pixels (photo/video)**
 
@@ -920,21 +676,13 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Height of the image in pixels (photo/video)** \n\n Height of the image in pixels (photo/video). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "height")]
     pub height: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_height")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub height_ext: Option<FieldExtension>,
     /** **Width of the image in pixels (photo/video)**
 
@@ -942,21 +690,13 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Width of the image in pixels (photo/video)** \n\n Width of the image in pixels (photo/video). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "width")]
     pub width: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_width")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub width_ext: Option<FieldExtension>,
     /** **Number of frames if > 1 (photo)**
 
@@ -964,21 +704,13 @@ pub struct AttachmentInner {
 
  if the number of frames is not supplied, the value may be unknown. Applications should not assume that there is only one frame unless it is explicitly stated. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Number of frames if > 1 (photo)** \n\n The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required. \n\n if the number of frames is not supplied, the value may be unknown. Applications should not assume that there is only one frame unless it is explicitly stated. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "frames")]
     pub frames: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_frames")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub frames_ext: Option<FieldExtension>,
     /** **Length in seconds (audio / video)**
 
@@ -986,21 +718,13 @@ pub struct AttachmentInner {
 
  The duration might differ from occurrencePeriod if recording was paused. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Length in seconds (audio / video)** \n\n The duration of the recording in seconds - for audio and video. \n\n The duration might differ from occurrencePeriod if recording was paused. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "duration")]
     pub duration: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_duration")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub duration_ext: Option<FieldExtension>,
     /** **Number of printed pages**
 
@@ -1008,22 +732,21 @@ pub struct AttachmentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Number of printed pages** \n\n The number of pages when printed. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "pages")]
     pub pages: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_pages")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub pages_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl AttachmentBuilder {
+    #[doc = concat!("Finalize building ", "Attachment", ".")]
+    pub fn build(self) -> Result<Attachment, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<AttachmentInner> for Attachment {
     fn from(inner: AttachmentInner) -> Self {
@@ -1044,8 +767,9 @@ impl ::core::ops::DerefMut for Attachment {
 impl Attachment {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> AttachmentBuilder {
-        AttachmentInner::builder()
+        AttachmentBuilder::default()
     }
 }
 /** Availability Type: Availability data for an {item}.
@@ -1070,15 +794,14 @@ pub struct Availability(pub Box<AvailabilityInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = AvailabilityBuilder),
-        build_method(into = Availability),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "AvailabilityBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct AvailabilityInner {
@@ -1088,15 +811,7 @@ pub struct AvailabilityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1105,15 +820,7 @@ pub struct AvailabilityInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Times the {item} is available**
@@ -1122,21 +829,13 @@ pub struct AvailabilityInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Times the {item} is available** \n\n Times the {item} is available. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "availableTime")]
     pub available_time: Vec<Option<AvailabilityAvailableTime>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_availableTime")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub available_time_ext: Vec<Option<FieldExtension>>,
     /** **Not available during this time due to provided reason**
 
@@ -1144,22 +843,21 @@ pub struct AvailabilityInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Not available during this time due to provided reason** \n\n Not available during this time due to provided reason. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "notAvailableTime")]
     pub not_available_time: Vec<Option<AvailabilityNotAvailableTime>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_notAvailableTime")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub not_available_time_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl AvailabilityBuilder {
+    #[doc = concat!("Finalize building ", "Availability", ".")]
+    pub fn build(self) -> Result<Availability, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<AvailabilityInner> for Availability {
     fn from(inner: AvailabilityInner) -> Self {
@@ -1180,15 +878,23 @@ impl ::core::ops::DerefMut for Availability {
 impl Availability {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> AvailabilityBuilder {
-        AvailabilityInner::builder()
+        AvailabilityBuilder::default()
     }
 }
 /// Sub-fields of the availableTime field in Availability
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "AvailabilityAvailableTimeBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct AvailabilityAvailableTime {
     /** **Unique id for inter-element referencing**
 
@@ -1196,15 +902,7 @@ pub struct AvailabilityAvailableTime {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1213,15 +911,7 @@ pub struct AvailabilityAvailableTime {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[DaysOfWeek](http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun**
@@ -1230,21 +920,13 @@ pub struct AvailabilityAvailableTime {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[DaysOfWeek](http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun** \n\n mon | tue | wed | thu | fri | sat | sun. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "daysOfWeek")]
     pub days_of_week: Vec<Option<codes::DaysOfWeek>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_daysOfWeek")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub days_of_week_ext: Vec<Option<FieldExtension>>,
     /** **Always available? i.e. 24 hour service**
 
@@ -1252,21 +934,13 @@ pub struct AvailabilityAvailableTime {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Always available? i.e. 24 hour service** \n\n Always available? i.e. 24 hour service. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "allDay")]
     pub all_day: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_allDay")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub all_day_ext: Option<FieldExtension>,
     /** **Opening time of day (ignored if allDay = true)**
 
@@ -1274,21 +948,13 @@ pub struct AvailabilityAvailableTime {
 
  The timezone is expected to be specified or implied by the context this datatype is used. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Opening time of day (ignored if allDay = true)** \n\n Opening time of day (ignored if allDay = true). \n\n The timezone is expected to be specified or implied by the context this datatype is used. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "availableStartTime")]
     pub available_start_time: Option<Time>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_availableStartTime")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub available_start_time_ext: Option<FieldExtension>,
     /** **Closing time of day (ignored if allDay = true)**
 
@@ -1296,28 +962,35 @@ pub struct AvailabilityAvailableTime {
 
  The timezone is expected to be specified or implied by the context this datatype is used. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Closing time of day (ignored if allDay = true)** \n\n Closing time of day (ignored if allDay = true). \n\n The timezone is expected to be specified or implied by the context this datatype is used. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "availableEndTime")]
     pub available_end_time: Option<Time>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_availableEndTime")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub available_end_time_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl AvailabilityAvailableTime {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> AvailabilityAvailableTimeBuilder {
+        AvailabilityAvailableTimeBuilder::default()
+    }
 }
 /// Sub-fields of the notAvailableTime field in Availability
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "AvailabilityNotAvailableTimeBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct AvailabilityNotAvailableTime {
     /** **Unique id for inter-element referencing**
 
@@ -1325,15 +998,7 @@ pub struct AvailabilityNotAvailableTime {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1342,15 +1007,7 @@ pub struct AvailabilityNotAvailableTime {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Reason presented to the user explaining why time not available**
@@ -1361,21 +1018,13 @@ pub struct AvailabilityNotAvailableTime {
 
 e.g.2: 'Closed for maintenance over the summer' for this example you would want to include the `during` period, unless this was a university hospital and the "summer" period was well known, but would recommend its inclusion anyway. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reason presented to the user explaining why time not available** \n\n Reason presented to the user explaining why time not available. \n\n The reason will generally be provided to give the textual reason for displaying when the {item} is not available, e.g. 'Closed public holidays' or 'Independence Day'. In cases such as this, the `during` might not be included and local knowledge would be required in such cases (as don't desire to keep updating when the holiday occurs each year).\n\ne.g.2: 'Closed for maintenance over the summer' for this example you would want to include the `during` period, unless this was a university hospital and the \"summer\" period was well known, but would recommend its inclusion anyway. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_description")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub description_ext: Option<FieldExtension>,
     /** **Service not available during this period**
 
@@ -1383,22 +1032,22 @@ e.g.2: 'Closed for maintenance over the summer' for this example you would want 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Service not available during this period** \n\n Service not available during this period. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "during")]
     pub during: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_during")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub during_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl AvailabilityNotAvailableTime {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> AvailabilityNotAvailableTimeBuilder {
+        AvailabilityNotAvailableTimeBuilder::default()
+    }
 }
 /** CodeableConcept Type: A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
 
@@ -1422,15 +1071,14 @@ pub struct CodeableConcept(pub Box<CodeableConceptInner>);
 
  Not all terminology uses fit this general pattern. In some cases, models should not use CodeableConcept and use Coding directly and provide their own structure for managing text, codings, translations and the relationship between elements and pre- and post-coordination. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = CodeableConceptBuilder),
-        build_method(into = CodeableConcept),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "CodeableConceptBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct CodeableConceptInner {
@@ -1440,15 +1088,7 @@ pub struct CodeableConceptInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1457,15 +1097,7 @@ pub struct CodeableConceptInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Code defined by a terminology system**
@@ -1474,21 +1106,13 @@ pub struct CodeableConceptInner {
 
  Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Code defined by a terminology system** \n\n A reference to a code defined by a terminology system. \n\n Codes may be defined very casually in enumerations, or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information.  Ordering of codings is undefined and SHALL NOT be used to infer meaning. Generally, at most only one of the coding values will be labeled as UserSelected = true. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "coding")]
     pub coding: Vec<Option<Coding>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_coding")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub coding_ext: Vec<Option<FieldExtension>>,
     /** **Plain text representation of the concept**
 
@@ -1496,22 +1120,21 @@ pub struct CodeableConceptInner {
 
  Very often the text is the same as a displayName of one of the codings. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Plain text representation of the concept** \n\n A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user. \n\n Very often the text is the same as a displayName of one of the codings. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_text")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub text_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl CodeableConceptBuilder {
+    #[doc = concat!("Finalize building ", "CodeableConcept", ".")]
+    pub fn build(self) -> Result<CodeableConcept, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<CodeableConceptInner> for CodeableConcept {
     fn from(inner: CodeableConceptInner) -> Self {
@@ -1532,8 +1155,9 @@ impl ::core::ops::DerefMut for CodeableConcept {
 impl CodeableConcept {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> CodeableConceptBuilder {
-        CodeableConceptInner::builder()
+        CodeableConceptBuilder::default()
     }
 }
 /** CodeableReference Type: A reference to a resource (by instance), or instead, a reference to a concept defined in a terminology or ontology (by class).
@@ -1558,15 +1182,14 @@ pub struct CodeableReference(pub Box<CodeableReferenceInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = CodeableReferenceBuilder),
-        build_method(into = CodeableReference),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "CodeableReferenceBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct CodeableReferenceInner {
@@ -1576,15 +1199,7 @@ pub struct CodeableReferenceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1593,15 +1208,7 @@ pub struct CodeableReferenceInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Reference to a concept (by class)**
@@ -1610,21 +1217,13 @@ pub struct CodeableReferenceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reference to a concept (by class)** \n\n A reference to a concept - e.g. the information is identified by its general class to the degree of precision found in the terminology. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "concept")]
     pub concept: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_concept")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub concept_ext: Option<FieldExtension>,
     /** **Reference to a resource (by instance)**
 
@@ -1632,22 +1231,21 @@ pub struct CodeableReferenceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reference to a resource (by instance)** \n\n A reference to a resource the provides exact details about the information being referenced. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "reference")]
     pub reference: Option<Reference>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_reference")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub reference_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl CodeableReferenceBuilder {
+    #[doc = concat!("Finalize building ", "CodeableReference", ".")]
+    pub fn build(self) -> Result<CodeableReference, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<CodeableReferenceInner> for CodeableReference {
     fn from(inner: CodeableReferenceInner) -> Self {
@@ -1668,8 +1266,9 @@ impl ::core::ops::DerefMut for CodeableReference {
 impl CodeableReference {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> CodeableReferenceBuilder {
-        CodeableReferenceInner::builder()
+        CodeableReferenceBuilder::default()
     }
 }
 /** Coding Type: A reference to a code defined by a terminology system.
@@ -1694,15 +1293,14 @@ pub struct Coding(pub Box<CodingInner>);
 
  Codes may be defined very casually in enumerations or code lists, up to very formal definitions such as SNOMED CT - see the HL7 v3 Core Principles for more information. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = CodingBuilder),
-        build_method(into = Coding),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "CodingBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct CodingInner {
@@ -1712,15 +1310,7 @@ pub struct CodingInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1729,15 +1319,7 @@ pub struct CodingInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Identity of the terminology system**
@@ -1746,21 +1328,13 @@ pub struct CodingInner {
 
  The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should be an absolute reference to some definition that establishes the system clearly and unambiguously. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Identity of the terminology system** \n\n The identification of the code system that defines the meaning of the symbol in the code. \n\n The URI may be an OID (urn:oid:...) or a UUID (urn:uuid:...).  OIDs and UUIDs SHALL be references to the HL7 OID registry. Otherwise, the URI should come from HL7's list of FHIR defined special URIs or it should be an absolute reference to some definition that establishes the system clearly and unambiguously. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_system")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub system_ext: Option<FieldExtension>,
     /** **Version of the system - if relevant**
 
@@ -1768,21 +1342,13 @@ pub struct CodingInner {
 
  Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Version of the system - if relevant** \n\n The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged. \n\n Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use the date (expressed in FHIR date format) on which that version was officially published as the version date. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "version")]
     pub version: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_version")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub version_ext: Option<FieldExtension>,
     /** **Symbol in syntax defined by the system**
 
@@ -1790,21 +1356,13 @@ pub struct CodingInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Symbol in syntax defined by the system** \n\n A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
     /** **Representation defined by the system**
 
@@ -1812,21 +1370,13 @@ pub struct CodingInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Representation defined by the system** \n\n A representation of the meaning of the code in the system, following the rules of the system. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "display")]
     pub display: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_display")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub display_ext: Option<FieldExtension>,
     /** **If this coding was chosen directly by the user**
 
@@ -1834,22 +1384,21 @@ pub struct CodingInner {
 
  Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **If this coding was chosen directly by the user** \n\n Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays). \n\n Amongst a set of alternatives, a directly chosen code is the most appropriate starting point for new translations. There is some ambiguity about what exactly 'directly chosen' implies, and trading partner agreement may be needed to clarify the use of this element and its consequences more completely. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "userSelected")]
     pub user_selected: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_userSelected")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub user_selected_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl CodingBuilder {
+    #[doc = concat!("Finalize building ", "Coding", ".")]
+    pub fn build(self) -> Result<Coding, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<CodingInner> for Coding {
     fn from(inner: CodingInner) -> Self {
@@ -1870,8 +1419,9 @@ impl ::core::ops::DerefMut for Coding {
 impl Coding {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> CodingBuilder {
-        CodingInner::builder()
+        CodingBuilder::default()
     }
 }
 /** ContactDetail Type: Specifies contact information for a person or organization.
@@ -1896,15 +1446,14 @@ pub struct ContactDetail(pub Box<ContactDetailInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ContactDetailBuilder),
-        build_method(into = ContactDetail),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ContactDetailBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ContactDetailInner {
@@ -1914,15 +1463,7 @@ pub struct ContactDetailInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -1931,15 +1472,7 @@ pub struct ContactDetailInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Name of an individual to contact**
@@ -1948,21 +1481,13 @@ pub struct ContactDetailInner {
 
  If there is no named individual, the telecom information is for the organization as a whole. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name of an individual to contact** \n\n The name of an individual to contact. \n\n If there is no named individual, the telecom information is for the organization as a whole. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_name")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub name_ext: Option<FieldExtension>,
     /** **Contact details for individual or organization**
 
@@ -1970,22 +1495,21 @@ pub struct ContactDetailInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Contact details for individual or organization** \n\n The contact details for the individual (if a name was provided) or the organization. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "telecom")]
     pub telecom: Vec<Option<ContactPoint>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_telecom")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub telecom_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl ContactDetailBuilder {
+    #[doc = concat!("Finalize building ", "ContactDetail", ".")]
+    pub fn build(self) -> Result<ContactDetail, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ContactDetailInner> for ContactDetail {
     fn from(inner: ContactDetailInner) -> Self {
@@ -2006,8 +1530,9 @@ impl ::core::ops::DerefMut for ContactDetail {
 impl ContactDetail {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ContactDetailBuilder {
-        ContactDetailInner::builder()
+        ContactDetailBuilder::default()
     }
 }
 /** ContactPoint Type: Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
@@ -2032,15 +1557,14 @@ pub struct ContactPoint(pub Box<ContactPointInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ContactPointBuilder),
-        build_method(into = ContactPoint),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ContactPointBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ContactPointInner {
@@ -2050,15 +1574,7 @@ pub struct ContactPointInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -2067,15 +1583,7 @@ pub struct ContactPointInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[ContactPointSystem](http://hl7.org/fhir/ValueSet/contact-point-system); phone | fax | email | pager | url | sms | other**
@@ -2084,21 +1592,13 @@ pub struct ContactPointInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[ContactPointSystem](http://hl7.org/fhir/ValueSet/contact-point-system); phone | fax | email | pager | url | sms | other** \n\n Telecommunications form for contact point - what communications system is required to make use of the contact. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<codes::ContactPointSystem>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_system")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub system_ext: Option<FieldExtension>,
     /** **The actual contact point details**
 
@@ -2106,21 +1606,13 @@ pub struct ContactPointInner {
 
  Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The actual contact point details** \n\n The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address). \n\n Additional text data such as phone extension numbers, or notes about use of the contact are sometimes included in the value. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_value")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<FieldExtension>,
     /** **[ContactPointUse](http://hl7.org/fhir/ValueSet/contact-point-use); home | work | temp | old | mobile - purpose of this contact point**
 
@@ -2128,21 +1620,13 @@ pub struct ContactPointInner {
 
  Applications can assume that a contact is current unless it explicitly says that it is temporary or old. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[ContactPointUse](http://hl7.org/fhir/ValueSet/contact-point-use); home | work | temp | old | mobile - purpose of this contact point** \n\n Identifies the purpose for the contact point. \n\n Applications can assume that a contact is current unless it explicitly says that it is temporary or old. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "use")]
     pub r#use: Option<codes::ContactPointUse>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_use")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#use_ext: Option<FieldExtension>,
     /** **Specify preferred order of use (1 = highest)**
 
@@ -2154,21 +1638,13 @@ Ranks need not be unique.  E.g. it's possible to have multiple contacts with ran
 
 Ranks need not be sequential and not all repetitions must have a rank.  For example, it's possible to have 4 contacts with ranks of 2, 5 and two with no rank specified.  That would be interpreted to mean the first is preferred over the second and no preference stated for the remaining contacts. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Specify preferred order of use (1 = highest)** \n\n Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values. \n\n Note that rank does not necessarily follow the order in which the contacts are represented in the instance.\n\nRanks need not be unique.  E.g. it's possible to have multiple contacts with rank=1.  If the ranks have different systems or uses, this would be interpreted to mean \"X is my most preferred phone number, Y is my most preferred email address\" or \"X is my preferred home email and Y is my preferred work email\".  If the system and use for equally-ranked contacts are the same, then the level of preference is equivalent for both repetitions. \n\nRanks need not be sequential and not all repetitions must have a rank.  For example, it's possible to have 4 contacts with ranks of 2, 5 and two with no rank specified.  That would be interpreted to mean the first is preferred over the second and no preference stated for the remaining contacts. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "rank")]
     pub rank: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_rank")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub rank_ext: Option<FieldExtension>,
     /** **Time period when the contact point was/is in use**
 
@@ -2176,22 +1652,21 @@ Ranks need not be sequential and not all repetitions must have a rank.  For exam
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Time period when the contact point was/is in use** \n\n Time period when the contact point was/is in use. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_period")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ContactPointBuilder {
+    #[doc = concat!("Finalize building ", "ContactPoint", ".")]
+    pub fn build(self) -> Result<ContactPoint, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ContactPointInner> for ContactPoint {
     fn from(inner: ContactPointInner) -> Self {
@@ -2212,8 +1687,9 @@ impl ::core::ops::DerefMut for ContactPoint {
 impl ContactPoint {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ContactPointBuilder {
-        ContactPointInner::builder()
+        ContactPointBuilder::default()
     }
 }
 /** Contributor Type: A contributor to the content of a knowledge asset, including authors, editors, reviewers, and endorsers.
@@ -2238,15 +1714,14 @@ pub struct Contributor(pub Box<ContributorInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ContributorBuilder),
-        build_method(into = Contributor),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ContributorBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ContributorInner {
@@ -2256,15 +1731,7 @@ pub struct ContributorInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -2273,15 +1740,7 @@ pub struct ContributorInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[ContributorType](http://hl7.org/fhir/ValueSet/contributor-type); author | editor | reviewer | endorser**
@@ -2294,7 +1753,7 @@ pub struct ContributorInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **Who contributed the content**
 
@@ -2306,7 +1765,7 @@ pub struct ContributorInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_name")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub name_ext: Option<FieldExtension>,
     /** **Contact details of the contributor**
 
@@ -2314,22 +1773,21 @@ pub struct ContributorInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Contact details of the contributor** \n\n Contact details to assist a user in finding and communicating with the contributor. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "contact")]
     pub contact: Vec<Option<ContactDetail>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_contact")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub contact_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl ContributorBuilder {
+    #[doc = concat!("Finalize building ", "Contributor", ".")]
+    pub fn build(self) -> Result<Contributor, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ContributorInner> for Contributor {
     fn from(inner: ContributorInner) -> Self {
@@ -2350,8 +1808,9 @@ impl ::core::ops::DerefMut for Contributor {
 impl Contributor {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ContributorBuilder {
-        ContributorInner::builder()
+        ContributorBuilder::default()
     }
 }
 /** Count Type: A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
@@ -2376,15 +1835,14 @@ pub struct Count(pub Box<CountInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = CountBuilder),
-        build_method(into = Count),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "CountBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct CountInner {
@@ -2394,15 +1852,7 @@ pub struct CountInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -2411,15 +1861,7 @@ pub struct CountInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -2428,15 +1870,7 @@ pub struct CountInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
@@ -2445,15 +1879,7 @@ pub struct CountInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /** **Unit representation**
@@ -2462,15 +1888,7 @@ pub struct CountInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /** **System that defines coded unit form**
@@ -2479,15 +1897,7 @@ pub struct CountInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /** **Coded form of the unit**
@@ -2496,17 +1906,16 @@ pub struct CountInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
+}
+#[cfg(feature = "builders")]
+impl CountBuilder {
+    #[doc = concat!("Finalize building ", "Count", ".")]
+    pub fn build(self) -> Result<Count, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<CountInner> for Count {
     fn from(inner: CountInner) -> Self {
@@ -2527,8 +1936,9 @@ impl ::core::ops::DerefMut for Count {
 impl Count {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> CountBuilder {
-        CountInner::builder()
+        CountBuilder::default()
     }
 }
 /** DataRequirement Type: Describes a required data item for evaluation in terms of the type of data, and optional code or date-based filters of the data.
@@ -2553,15 +1963,14 @@ pub struct DataRequirement(pub Box<DataRequirementInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = DataRequirementBuilder),
-        build_method(into = DataRequirement),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "DataRequirementBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct DataRequirementInner {
@@ -2571,15 +1980,7 @@ pub struct DataRequirementInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -2588,15 +1989,7 @@ pub struct DataRequirementInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[FHIRTypes](http://hl7.org/fhir/ValueSet/fhir-types); The type of the required data**
@@ -2609,7 +2002,7 @@ pub struct DataRequirementInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **The profile of the required data**
 
@@ -2617,21 +2010,13 @@ pub struct DataRequirementInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The profile of the required data** \n\n The profile of the required data, specified as the uri of the profile definition. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "profile")]
     pub profile: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_profile")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub profile_ext: Vec<Option<FieldExtension>>,
     /** **E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device**
 
@@ -2639,21 +2024,13 @@ pub struct DataRequirementInner {
 
  The subject of a data requirement is critical, as the data being specified is determined with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what data is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device** \n\n The intended subjects of the data requirement. If this element is not provided, a Patient subject is assumed. \n\n The subject of a data requirement is critical, as the data being specified is determined with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what data is available based on its relationship to the subject. In CQL, this corresponds to the context declaration. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub subject: Option<DataRequirementSubject>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub subject_ext: Option<DataRequirementSubjectExtension>,
     /** **Indicates specific structure elements that are referenced by the knowledge module**
 
@@ -2663,21 +2040,13 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Indicates specific structure elements that are referenced by the knowledge module** \n\n Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available. \n\nThe value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataRequirement. The path SHALL consist only of identifiers, constant indexers, and .resolve() (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "mustSupport")]
     pub must_support: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_mustSupport")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub must_support_ext: Vec<Option<FieldExtension>>,
     /** **What codes are expected**
 
@@ -2685,21 +2054,13 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What codes are expected** \n\n Code filters specify additional constraints on the data, specifying the value set of interest for a particular element of the data. Each code filter defines an additional constraint on the data, i.e. code filters are AND'ed, not OR'ed. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "codeFilter")]
     pub code_filter: Vec<Option<DataRequirementCodeFilter>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_codeFilter")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub code_filter_ext: Vec<Option<FieldExtension>>,
     /** **What dates/date ranges are expected**
 
@@ -2707,21 +2068,13 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What dates/date ranges are expected** \n\n Date filters specify additional constraints on the data in terms of the applicable date range for specific elements. Each date filter specifies an additional constraint on the data, i.e. date filters are AND'ed, not OR'ed. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "dateFilter")]
     pub date_filter: Vec<Option<DataRequirementDateFilter>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_dateFilter")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub date_filter_ext: Vec<Option<FieldExtension>>,
     /** **What values are expected**
 
@@ -2729,21 +2082,13 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What values are expected** \n\n Value filters specify additional constraints on the data for elements other than code-valued or date-valued. Each value filter specifies an additional constraint on the data (i.e. valueFilters are AND'ed, not OR'ed). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "valueFilter")]
     pub value_filter: Vec<Option<DataRequirementValueFilter>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_valueFilter")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub value_filter_ext: Vec<Option<FieldExtension>>,
     /** **Number of results**
 
@@ -2751,21 +2096,13 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
  This element can be used in combination with the sort element to specify quota requirements such as "the most recent 5" or "the highest 5". */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Number of results** \n\n Specifies a maximum number of results that are required (uses the _count search parameter). \n\n This element can be used in combination with the sort element to specify quota requirements such as \"the most recent 5\" or \"the highest 5\". "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "limit")]
     pub limit: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_limit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub limit_ext: Option<FieldExtension>,
     /** **Order of the results**
 
@@ -2773,22 +2110,21 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
  This element can be used in combination with the sort element to specify quota requirements such as "the most recent 5" or "the highest 5". When multiple sorts are specified, they are applied in the order they appear in the resource. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Order of the results** \n\n Specifies the order of the results to be returned. \n\n This element can be used in combination with the sort element to specify quota requirements such as \"the most recent 5\" or \"the highest 5\". When multiple sorts are specified, they are applied in the order they appear in the resource. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "sort")]
     pub sort: Vec<Option<DataRequirementSort>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_sort")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub sort_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl DataRequirementBuilder {
+    #[doc = concat!("Finalize building ", "DataRequirement", ".")]
+    pub fn build(self) -> Result<DataRequirement, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<DataRequirementInner> for DataRequirement {
     fn from(inner: DataRequirementInner) -> Self {
@@ -2809,8 +2145,9 @@ impl ::core::ops::DerefMut for DataRequirement {
 impl DataRequirement {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> DataRequirementBuilder {
-        DataRequirementInner::builder()
+        DataRequirementBuilder::default()
     }
 }
 /// Choice of types for the subject[x] field in DataRequirement
@@ -2837,9 +2174,16 @@ pub enum DataRequirementSubjectExtension {
 }
 /// Sub-fields of the codeFilter field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "DataRequirementCodeFilterBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct DataRequirementCodeFilter {
     /** **Unique id for inter-element referencing**
 
@@ -2847,15 +2191,7 @@ pub struct DataRequirementCodeFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -2864,15 +2200,7 @@ pub struct DataRequirementCodeFilter {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **A code-valued attribute to filter on**
@@ -2881,21 +2209,13 @@ pub struct DataRequirementCodeFilter {
 
  The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **A code-valued attribute to filter on** \n\n The code-valued attribute of the filter. The specified path SHALL be a FHIRPath resolvable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept. \n\n The path attribute contains a [Simple FHIRPath Subset](fhirpath.html#simple) that allows path traversal, but not calculation. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "path")]
     pub path: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
     /** **A coded (token) parameter to search on**
 
@@ -2903,21 +2223,13 @@ pub struct DataRequirementCodeFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **A coded (token) parameter to search on** \n\n A token parameter that refers to a search parameter defined on the specified type of the DataRequirement, and which searches on elements of type code, Coding, or CodeableConcept. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "searchParam")]
     pub search_param: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_searchParam")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub search_param_ext: Option<FieldExtension>,
     /** **ValueSet for the filter**
 
@@ -2925,21 +2237,13 @@ pub struct DataRequirementCodeFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **ValueSet for the filter** \n\n The valueset for the code filter. The valueSet and code elements are additive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "valueSet")]
     pub value_set: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_valueSet")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_set_ext: Option<FieldExtension>,
     /** **What code is expected**
 
@@ -2947,28 +2251,35 @@ pub struct DataRequirementCodeFilter {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What code is expected** \n\n The codes for the code filter. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes. If codes are specified in addition to a value set, the filter returns items matching a code in the value set or one of the specified codes. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Vec<Option<Coding>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub code_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl DataRequirementCodeFilter {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> DataRequirementCodeFilterBuilder {
+        DataRequirementCodeFilterBuilder::default()
+    }
 }
 /// Sub-fields of the dateFilter field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "DataRequirementDateFilterBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct DataRequirementDateFilter {
     /** **Unique id for inter-element referencing**
 
@@ -2976,15 +2287,7 @@ pub struct DataRequirementDateFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -2993,15 +2296,7 @@ pub struct DataRequirementDateFilter {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **A date-valued attribute to filter on**
@@ -3010,21 +2305,13 @@ pub struct DataRequirementDateFilter {
 
  The path attribute contains a [Simple FHIR Subset](fhirpath.html#simple) that allows path traversal, but not calculation. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **A date-valued attribute to filter on** \n\n The date-valued attribute of the filter. The specified path SHALL be a FHIRPath resolvable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of type date, dateTime, Period, Schedule, or Timing. \n\n The path attribute contains a [Simple FHIR Subset](fhirpath.html#simple) that allows path traversal, but not calculation. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "path")]
     pub path: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
     /** **A date valued parameter to search on**
 
@@ -3032,21 +2319,13 @@ pub struct DataRequirementDateFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **A date valued parameter to search on** \n\n A date parameter that refers to a search parameter defined on the specified type of the DataRequirement, and which searches on elements of type date, dateTime, Period, Schedule, or Timing. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "searchParam")]
     pub search_param: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_searchParam")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub search_param_ext: Option<FieldExtension>,
     /** **The value of the filter, as a Period, DateTime, or Duration value**
 
@@ -3054,22 +2333,22 @@ pub struct DataRequirementDateFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The value of the filter, as a Period, DateTime, or Duration value** \n\n The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime. If a Duration is specified, the filter will return only those data items that fall within Duration before now. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub value: Option<DataRequirementDateFilterValue>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<DataRequirementDateFilterValueExtension>,
+}
+#[cfg(feature = "builders")]
+impl DataRequirementDateFilter {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> DataRequirementDateFilterBuilder {
+        DataRequirementDateFilterBuilder::default()
+    }
 }
 /// Choice of types for the value[x] field in DataRequirementDateFilter
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -3101,9 +2380,16 @@ pub enum DataRequirementDateFilterValueExtension {
 }
 /// Sub-fields of the valueFilter field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "DataRequirementValueFilterBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct DataRequirementValueFilter {
     /** **Unique id for inter-element referencing**
 
@@ -3111,15 +2397,7 @@ pub struct DataRequirementValueFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -3128,15 +2406,7 @@ pub struct DataRequirementValueFilter {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **An attribute to filter on**
@@ -3145,21 +2415,13 @@ pub struct DataRequirementValueFilter {
 
  The path attribute contains a [Simple FHIR Subset](fhirpath.html#simple) that allows path traversal, but not calculation. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **An attribute to filter on** \n\n The attribute of the filter. The specified path SHALL be a FHIRPath resolvable on the specified type of the DataRequirement, and SHALL consist only of identifiers, constant indexers, and .resolve(). The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details). Note that the index must be an integer constant. The path must resolve to an element of a type that is comparable to the valueFilter.value[x] element for the filter. \n\n The path attribute contains a [Simple FHIR Subset](fhirpath.html#simple) that allows path traversal, but not calculation. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "path")]
     pub path: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
     /** **A parameter to search on**
 
@@ -3167,21 +2429,13 @@ pub struct DataRequirementValueFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **A parameter to search on** \n\n A search parameter defined on the specified type of the DataRequirement, and which searches on elements of a type compatible with the type of the valueFilter.value[x] for the filter. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "searchParam")]
     pub search_param: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_searchParam")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub search_param_ext: Option<FieldExtension>,
     /** **[ValueFilterComparator](http://hl7.org/fhir/ValueSet/value-filter-comparator); eq | gt | lt | ge | le | sa | eb**
 
@@ -3189,21 +2443,13 @@ pub struct DataRequirementValueFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[ValueFilterComparator](http://hl7.org/fhir/ValueSet/value-filter-comparator); eq | gt | lt | ge | le | sa | eb** \n\n The comparator to be used to determine whether the value is matching. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_comparator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub comparator_ext: Option<FieldExtension>,
     /** **The value of the filter, as a Period, DateTime, or Duration value**
 
@@ -3211,22 +2457,22 @@ pub struct DataRequirementValueFilter {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The value of the filter, as a Period, DateTime, or Duration value** \n\n The value of the filter. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub value: Option<DataRequirementValueFilterValue>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<DataRequirementValueFilterValueExtension>,
+}
+#[cfg(feature = "builders")]
+impl DataRequirementValueFilter {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> DataRequirementValueFilterBuilder {
+        DataRequirementValueFilterBuilder::default()
+    }
 }
 /// Choice of types for the value[x] field in DataRequirementValueFilter
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -3258,9 +2504,16 @@ pub enum DataRequirementValueFilterValueExtension {
 }
 /// Sub-fields of the sort field in DataRequirement
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "DataRequirementSortBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct DataRequirementSort {
     /** **Unique id for inter-element referencing**
 
@@ -3268,15 +2521,7 @@ pub struct DataRequirementSort {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -3285,15 +2530,7 @@ pub struct DataRequirementSort {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **The name of the attribute to perform the sort**
@@ -3306,7 +2543,7 @@ pub struct DataRequirementSort {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
     /** **[SortDirection](http://hl7.org/fhir/ValueSet/sort-direction); ascending | descending**
 
@@ -3318,8 +2555,16 @@ pub struct DataRequirementSort {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_direction")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub direction_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl DataRequirementSort {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> DataRequirementSortBuilder {
+        DataRequirementSortBuilder::default()
+    }
 }
 /** Distance Type: A length - a value with a unit that is a physical distance.
 
@@ -3343,15 +2588,14 @@ pub struct Distance(pub Box<DistanceInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = DistanceBuilder),
-        build_method(into = Distance),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "DistanceBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct DistanceInner {
@@ -3361,15 +2605,7 @@ pub struct DistanceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -3378,15 +2614,7 @@ pub struct DistanceInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -3395,15 +2623,7 @@ pub struct DistanceInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
@@ -3412,15 +2632,7 @@ pub struct DistanceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /** **Unit representation**
@@ -3429,15 +2641,7 @@ pub struct DistanceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /** **System that defines coded unit form**
@@ -3446,15 +2650,7 @@ pub struct DistanceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /** **Coded form of the unit**
@@ -3463,17 +2659,16 @@ pub struct DistanceInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
+}
+#[cfg(feature = "builders")]
+impl DistanceBuilder {
+    #[doc = concat!("Finalize building ", "Distance", ".")]
+    pub fn build(self) -> Result<Distance, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<DistanceInner> for Distance {
     fn from(inner: DistanceInner) -> Self {
@@ -3494,8 +2689,9 @@ impl ::core::ops::DerefMut for Distance {
 impl Distance {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> DistanceBuilder {
-        DistanceInner::builder()
+        DistanceBuilder::default()
     }
 }
 /** Dosage Type: Indicates how the medication is/was taken or should be taken by the patient.
@@ -3520,15 +2716,14 @@ pub struct Dosage(pub Box<DosageInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = DosageBuilder),
-        build_method(into = Dosage),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "DosageBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct DosageInner {
@@ -3538,15 +2733,7 @@ pub struct DosageInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -3555,15 +2742,7 @@ pub struct DosageInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Extensions that cannot be ignored even if unrecognized**
@@ -3574,15 +2753,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Extensions that cannot be ignored even if unrecognized** \n\n May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "modifierExtension")]
     pub modifier_extension: Vec<Extension>,
     /** **The order of the dosage instructions**
@@ -3591,21 +2762,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The order of the dosage instructions** \n\n Indicates the order in which the dosage instructions should be applied or interpreted. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "sequence")]
     pub sequence: Option<i32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_sequence")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub sequence_ext: Option<FieldExtension>,
     /** **Free text dosage instructions e.g. SIG**
 
@@ -3613,21 +2776,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Free text dosage instructions e.g. SIG** \n\n Free text dosage instructions e.g. SIG. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_text")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub text_ext: Option<FieldExtension>,
     /** **[AdditionalInstruction](http://hl7.org/fhir/ValueSet/additional-instruction-codes); Supplemental instruction or warnings to the patient - e.g. "with meals", "may cause drowsiness"**
 
@@ -3635,21 +2790,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  Information about administration or preparation of the medication (e.g. "infuse as rapidly as possibly via intraperitoneal port" or take "immediately following drug x") should be populated in dosage.text. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[AdditionalInstruction](http://hl7.org/fhir/ValueSet/additional-instruction-codes); Supplemental instruction or warnings to the patient - e.g. \"with meals\", \"may cause drowsiness\"** \n\n Supplemental instructions to the patient on how to take the medication  (e.g. \"with meals\" or\"take half to one hour before food\") or warnings for the patient about the medication (e.g. \"may cause drowsiness\" or \"avoid exposure of skin to direct sunlight or sunlamps\"). \n\n Information about administration or preparation of the medication (e.g. \"infuse as rapidly as possibly via intraperitoneal port\" or take \"immediately following drug x\") should be populated in dosage.text. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "additionalInstruction")]
     pub additional_instruction: Vec<Option<CodeableConcept>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_additionalInstruction")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub additional_instruction_ext: Vec<Option<FieldExtension>>,
     /** **Patient or consumer oriented instructions**
 
@@ -3657,21 +2804,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Patient or consumer oriented instructions** \n\n Instructions in terms that are understood by the patient or consumer. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "patientInstruction")]
     pub patient_instruction: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_patientInstruction")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub patient_instruction_ext: Option<FieldExtension>,
     /** **When medication should be administered**
 
@@ -3679,21 +2818,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  This attribute might not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **When medication should be administered** \n\n When medication should be administered. \n\n This attribute might not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "timing")]
     pub timing: Option<Timing>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_timing")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub timing_ext: Option<FieldExtension>,
     /** **Take "as needed"**
 
@@ -3701,21 +2832,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  Can express "as needed" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Take \"as needed\"** \n\n Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option). \n\n Can express \"as needed\" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "asNeeded")]
     pub as_needed: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_asNeeded")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub as_needed_ext: Option<FieldExtension>,
     /** **[MedicationAsNeededReason](http://hl7.org/fhir/ValueSet/medication-as-needed-reason); Take "as needed" (for x)**
 
@@ -3723,21 +2846,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  Can express "as needed" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be False, then the dose is given according to the schedule and is not "prn" or "as needed". */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MedicationAsNeededReason](http://hl7.org/fhir/ValueSet/medication-as-needed-reason); Take \"as needed\" (for x)** \n\n Indicates whether the Medication is only taken based on a precondition for taking the Medication (CodeableConcept). \n\n Can express \"as needed\" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be False, then the dose is given according to the schedule and is not \"prn\" or \"as needed\". "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "asNeededFor")]
     pub as_needed_for: Vec<Option<CodeableConcept>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_asNeededFor")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub as_needed_for_ext: Vec<Option<FieldExtension>>,
     /** **[MedicationAdministrationSite](http://hl7.org/fhir/ValueSet/approach-site-codes); Body site to administer to**
 
@@ -3745,21 +2860,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [http://hl7.org/fhir/StructureDefinition/bodySite](http://hl7.org/fhir/extensions/StructureDefinition-bodySite.html).  May be a summary code, or a reference to a very precise definition of the location, or both. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MedicationAdministrationSite](http://hl7.org/fhir/ValueSet/approach-site-codes); Body site to administer to** \n\n Body site to administer to. \n\n If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [http://hl7.org/fhir/StructureDefinition/bodySite](http://hl7.org/fhir/extensions/StructureDefinition-bodySite.html).  May be a summary code, or a reference to a very precise definition of the location, or both. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "site")]
     pub site: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_site")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub site_ext: Option<FieldExtension>,
     /** **[RouteOfAdministration](http://hl7.org/fhir/ValueSet/route-codes); How drug should enter body**
 
@@ -3767,21 +2874,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[RouteOfAdministration](http://hl7.org/fhir/ValueSet/route-codes); How drug should enter body** \n\n How drug should enter body. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "route")]
     pub route: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_route")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub route_ext: Option<FieldExtension>,
     /** **[MedicationAdministrationMethod](http://hl7.org/fhir/ValueSet/administration-method-codes); Technique for administering medication**
 
@@ -3789,21 +2888,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  Terminologies used often pre-coordinate this term with the route and or form of administration. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MedicationAdministrationMethod](http://hl7.org/fhir/ValueSet/administration-method-codes); Technique for administering medication** \n\n Technique for administering medication. \n\n Terminologies used often pre-coordinate this term with the route and or form of administration. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "method")]
     pub method: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_method")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub method_ext: Option<FieldExtension>,
     /** **Amount of medication administered, to be administered or typical amount to be administered**
 
@@ -3811,21 +2902,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Amount of medication administered, to be administered or typical amount to be administered** \n\n Depending on the resource,this is the amount of medication administered, to  be administered or typical amount to be administered. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "doseAndRate")]
     pub dose_and_rate: Vec<Option<DosageDoseAndRate>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_doseAndRate")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub dose_and_rate_ext: Vec<Option<FieldExtension>>,
     /** **Upper limit on medication per unit of time**
 
@@ -3833,21 +2916,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  This is intended for use as an adjunct to the dosage when there is an upper cap.  For example "2 tablets every 4 hours to a maximum of 8/day". */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Upper limit on medication per unit of time** \n\n Upper limit on medication per unit of time. \n\n This is intended for use as an adjunct to the dosage when there is an upper cap.  For example \"2 tablets every 4 hours to a maximum of 8/day\". "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "maxDosePerPeriod")]
     pub max_dose_per_period: Vec<Option<Ratio>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_maxDosePerPeriod")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub max_dose_per_period_ext: Vec<Option<FieldExtension>>,
     /** **Upper limit on medication per administration**
 
@@ -3855,21 +2930,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Upper limit on medication per administration** \n\n Upper limit on medication per administration. \n\n This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "maxDosePerAdministration")]
     pub max_dose_per_administration: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_maxDosePerAdministration")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_dose_per_administration_ext: Option<FieldExtension>,
     /** **Upper limit on medication per lifetime of the patient**
 
@@ -3877,22 +2944,21 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Upper limit on medication per lifetime of the patient** \n\n Upper limit on medication per lifetime of the patient. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "maxDosePerLifetime")]
     pub max_dose_per_lifetime: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_maxDosePerLifetime")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_dose_per_lifetime_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl DosageBuilder {
+    #[doc = concat!("Finalize building ", "Dosage", ".")]
+    pub fn build(self) -> Result<Dosage, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<DosageInner> for Dosage {
     fn from(inner: DosageInner) -> Self {
@@ -3913,15 +2979,23 @@ impl ::core::ops::DerefMut for Dosage {
 impl Dosage {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> DosageBuilder {
-        DosageInner::builder()
+        DosageBuilder::default()
     }
 }
 /// Sub-fields of the doseAndRate field in Dosage
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "DosageDoseAndRateBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct DosageDoseAndRate {
     /** **Unique id for inter-element referencing**
 
@@ -3929,15 +3003,7 @@ pub struct DosageDoseAndRate {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -3946,15 +3012,7 @@ pub struct DosageDoseAndRate {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[DoseAndRateType](http://terminology.hl7.org/ValueSet/dose-rate-type); The kind of dose or rate specified**
@@ -3963,21 +3021,13 @@ pub struct DosageDoseAndRate {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[DoseAndRateType](http://terminology.hl7.org/ValueSet/dose-rate-type); The kind of dose or rate specified** \n\n The kind of dose or rate specified, for example, ordered or calculated. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **Amount of medication per dose**
 
@@ -3985,21 +3035,13 @@ pub struct DosageDoseAndRate {
 
  Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Amount of medication per dose** \n\n Amount of medication per dose. \n\n Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub dose: Option<DosageDoseAndRateDose>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub dose_ext: Option<DosageDoseAndRateDoseExtension>,
     /** **Amount of medication per unit of time**
 
@@ -4009,22 +3051,22 @@ pub struct DosageDoseAndRate {
 
 It is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Amount of medication per unit of time** \n\n Amount of medication per unit of time. \n\n It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.\n\nIt is possible to specify a rate over time (for example, 100 ml/hour) using either the rateRatio and rateQuantity.  The rateQuantity approach requires systems to have the capability to parse UCUM grammar where ml/hour is included rather than a specific ratio where the time is specified as the denominator.  Where a rate such as 500ml over 2 hours is specified, the use of rateRatio may be more semantically correct than specifying using a rateQuantity of 250 mg/hour. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub rate: Option<DosageDoseAndRateRate>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub rate_ext: Option<DosageDoseAndRateRateExtension>,
+}
+#[cfg(feature = "builders")]
+impl DosageDoseAndRate {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> DosageDoseAndRateBuilder {
+        DosageDoseAndRateBuilder::default()
+    }
 }
 /// Choice of types for the dose[x] field in DosageDoseAndRate
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -4098,15 +3140,14 @@ pub struct Duration(pub Box<DurationInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = DurationBuilder),
-        build_method(into = Duration),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "DurationBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct DurationInner {
@@ -4116,15 +3157,7 @@ pub struct DurationInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -4133,15 +3166,7 @@ pub struct DurationInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -4150,15 +3175,7 @@ pub struct DurationInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
@@ -4167,15 +3184,7 @@ pub struct DurationInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /** **Unit representation**
@@ -4184,15 +3193,7 @@ pub struct DurationInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /** **System that defines coded unit form**
@@ -4201,15 +3202,7 @@ pub struct DurationInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /** **Coded form of the unit**
@@ -4218,17 +3211,16 @@ pub struct DurationInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
+}
+#[cfg(feature = "builders")]
+impl DurationBuilder {
+    #[doc = concat!("Finalize building ", "Duration", ".")]
+    pub fn build(self) -> Result<Duration, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<DurationInner> for Duration {
     fn from(inner: DurationInner) -> Self {
@@ -4249,8 +3241,9 @@ impl ::core::ops::DerefMut for Duration {
 impl Duration {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> DurationBuilder {
-        DurationInner::builder()
+        DurationBuilder::default()
     }
 }
 /** ElementDefinition Type: Captures constraints on each element within the resource, profile, or extension.
@@ -4275,15 +3268,14 @@ pub struct ElementDefinition(pub Box<ElementDefinitionInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ElementDefinitionBuilder),
-        build_method(into = ElementDefinition),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ElementDefinitionBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ElementDefinitionInner {
@@ -4293,15 +3285,7 @@ pub struct ElementDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -4310,15 +3294,7 @@ pub struct ElementDefinitionInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Extensions that cannot be ignored even if unrecognized**
@@ -4329,15 +3305,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Extensions that cannot be ignored even if unrecognized** \n\n May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "modifierExtension")]
     pub modifier_extension: Vec<Extension>,
     /** **Path of the element in the hierarchy of elements**
@@ -4350,7 +3318,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
     /** **[PropertyRepresentation](http://hl7.org/fhir/ValueSet/property-representation); xmlAttr | xmlText | typeAttr | cdaText | xhtml**
 
@@ -4358,21 +3326,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc.). */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[PropertyRepresentation](http://hl7.org/fhir/ValueSet/property-representation); xmlAttr | xmlText | typeAttr | cdaText | xhtml** \n\n Codes that define how this element is represented in instances, when the deviation varies from the normal case. No extensions are allowed on elements with a representation of 'xmlAttr', no matter what FHIR serialization format is used. \n\n In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc.). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "representation")]
     pub representation: Vec<Option<codes::PropertyRepresentation>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_representation")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub representation_ext: Vec<Option<FieldExtension>>,
     /** **Name for this particular element (in a set of slices)**
 
@@ -4380,21 +3340,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  The name SHALL be unique within the structure within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name for this particular element (in a set of slices)** \n\n The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element. \n\n The name SHALL be unique within the structure within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "sliceName")]
     pub slice_name: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_sliceName")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub slice_name_ext: Option<FieldExtension>,
     /** **If this slice definition constrains an inherited slice definition (or not)**
 
@@ -4402,21 +3354,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  If set to true, an ancestor profile SHALL have a slicing definition with this name.  If set to false, no ancestor profile is permitted to have a slicing definition with this name. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **If this slice definition constrains an inherited slice definition (or not)** \n\n If true, indicates that this slice definition is constraining a slice definition with the same name in an inherited profile. If false, the slice is not overriding any slice in an inherited profile. If missing, the slice might or might not be overriding a slice in an inherited profile, depending on the sliceName. \n\n If set to true, an ancestor profile SHALL have a slicing definition with this name.  If set to false, no ancestor profile is permitted to have a slicing definition with this name. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "sliceIsConstraining")]
     pub slice_is_constraining: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_sliceIsConstraining")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub slice_is_constraining_ext: Option<FieldExtension>,
     /** **Name for element to display with or prompt for element**
 
@@ -4424,21 +3368,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  See also the extension [http://hl7.org/fhir/StructureDefinition/elementdefinition-question](http://hl7.org/fhir/extensions/StructureDefinition-elementdefinition-question.html). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name for element to display with or prompt for element** \n\n A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form. \n\n See also the extension [http://hl7.org/fhir/StructureDefinition/elementdefinition-question](http://hl7.org/fhir/extensions/StructureDefinition-elementdefinition-question.html). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "label")]
     pub label: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_label")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub label_ext: Option<FieldExtension>,
     /** **[ElementDefinitionCode](http://loinc.org/vs); Corresponding codes in terminologies**
 
@@ -4446,21 +3382,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[ElementDefinitionCode](http://loinc.org/vs); Corresponding codes in terminologies** \n\n A code that has the same meaning as the element in a particular terminology. \n\n The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Vec<Option<Coding>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub code_ext: Vec<Option<FieldExtension>>,
     /** **This element is sliced - slices follow**
 
@@ -4468,21 +3396,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  The first element in the sequence, the one that carries the slicing, is the definition that applies to all the slices. This is based on the unconstrained element, but can apply any constraints as appropriate. This may include the common constraints on the children of the element. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **This element is sliced - slices follow** \n\n Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set). \n\n The first element in the sequence, the one that carries the slicing, is the definition that applies to all the slices. This is based on the unconstrained element, but can apply any constraints as appropriate. This may include the common constraints on the children of the element. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "slicing")]
     pub slicing: Option<ElementDefinitionSlicing>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_slicing")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub slicing_ext: Option<FieldExtension>,
     /** **Concise definition for space-constrained presentation**
 
@@ -4490,21 +3410,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  It is easy for a different short definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing short definitions in a profile. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Concise definition for space-constrained presentation** \n\n A concise description of what this element means (e.g. for use in autogenerated summaries). \n\n It is easy for a different short definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing short definitions in a profile. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "short")]
     pub short: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_short")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub short_ext: Option<FieldExtension>,
     /** **Full formal definition as narrative text**
 
@@ -4512,21 +3424,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  It is easy for a different definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing definitions in a profile. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Full formal definition as narrative text** \n\n Provides a complete explanation of the meaning of the data element for human readability.  For the case of elements derived from existing elements (e.g. constraints), the definition SHALL be consistent with the base definition, but convey the meaning of the element in the particular context of use of the resource. (Note: The text you are reading is specified in ElementDefinition.definition). \n\n It is easy for a different definition to change the meaning of an element and this can have nasty downstream consequences. Please be careful when providing definitions in a profile. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "definition")]
     pub definition: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_definition")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub definition_ext: Option<FieldExtension>,
     /** **Comments about the use of this element**
 
@@ -4534,21 +3438,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  If it is possible to capture usage rules using constraints, that mechanism should be used in preference to this element. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Comments about the use of this element** \n\n Explanatory notes and implementation guidance about the data element, including notes about how to use the data properly, exceptions to proper use, etc. (Note: The text you are reading is specified in ElementDefinition.comment). \n\n If it is possible to capture usage rules using constraints, that mechanism should be used in preference to this element. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comment")]
     pub comment: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_comment")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub comment_ext: Option<FieldExtension>,
     /** **Why this resource has been created**
 
@@ -4556,21 +3452,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  This element does not describe the usage of the element (that's done in comments), rather it's for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Why this resource has been created** \n\n This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element. \n\n This element does not describe the usage of the element (that's done in comments), rather it's for traceability of *why* the element is either needed or why the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "requirements")]
     pub requirements: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_requirements")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub requirements_ext: Option<FieldExtension>,
     /** **Other names**
 
@@ -4578,21 +3466,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Other names** \n\n Identifies additional names by which this element might also be known. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "alias")]
     pub alias: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_alias")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub alias_ext: Vec<Option<FieldExtension>>,
     /** **Minimum Cardinality**
 
@@ -4600,21 +3480,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Minimum Cardinality** \n\n The minimum number of times this element SHALL appear in the instance. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "min")]
     pub min: Option<u32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_min")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub min_ext: Option<FieldExtension>,
     /** **Maximum Cardinality (a number or *)**
 
@@ -4622,21 +3494,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Maximum Cardinality (a number or *)** \n\n The maximum number of times this element is permitted to appear in the instance. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "max")]
     pub max: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_max")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_ext: Option<FieldExtension>,
     /** **Base definition information for tools**
 
@@ -4644,21 +3508,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  The base information does not carry any information that could not be determined from the path and related profiles, but making this determination requires both that the related profiles are available, and that the algorithm to determine them be available. For tooling simplicity, the base information must always be populated in element definitions in snap shots, even if it is the same. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Base definition information for tools** \n\n Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. When the element definition is not the original definition of an element - e.g. either in a constraint on another type, or for elements from a super type in a snap shot - then the information in provided in the element definition may be different to the base definition. On the original definition of the element, it will be same. \n\n The base information does not carry any information that could not be determined from the path and related profiles, but making this determination requires both that the related profiles are available, and that the algorithm to determine them be available. For tooling simplicity, the base information must always be populated in element definitions in snap shots, even if it is the same. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "base")]
     pub base: Option<ElementDefinitionBase>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_base")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub base_ext: Option<FieldExtension>,
     /** **Reference to definition of content for the element**
 
@@ -4666,21 +3522,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  ContentReferences can only be defined in specializations, not constrained types, and they cannot be changed and always reference the non-constrained definition. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reference to definition of content for the element** \n\n Identifies an element defined elsewhere in the definition whose content rules should be applied to the current element. ContentReferences bring across all the rules that are in the ElementDefinition for the element, including definitions, cardinality constraints, bindings, invariants etc. \n\n ContentReferences can only be defined in specializations, not constrained types, and they cannot be changed and always reference the non-constrained definition. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "contentReference")]
     pub content_reference: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_contentReference")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub content_reference_ext: Option<FieldExtension>,
     /** **Data type and Profile for this element**
 
@@ -4688,21 +3536,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  The Type of the element can be left blank in a differential constraint, in which case the type is inherited from the resource. Abstract types are not permitted to appear as a type when multiple types are listed.  (I.e. Abstract types cannot be part of a choice). */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Data type and Profile for this element** \n\n The data type or resource that the value of this element is permitted to be. \n\n The Type of the element can be left blank in a differential constraint, in which case the type is inherited from the resource. Abstract types are not permitted to appear as a type when multiple types are listed.  (I.e. Abstract types cannot be part of a choice). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Vec<Option<ElementDefinitionType>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub r#type_ext: Vec<Option<FieldExtension>>,
     /** **Specified value if missing from instance**
 
@@ -4712,21 +3552,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
 No default values are ever defined in the FHIR specification, nor can they be defined in constraints ("profiles") on data types or resources. This element only exists so that default values may be defined in logical models. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Specified value if missing from instance** \n\n The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false'). \n\n Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed, or changed in constraints on content models. Defining default values creates many difficulties in implementation (e.g. when is a value missing?). For these reasons, default values are (and should be) used extremely sparingly. \n\nNo default values are ever defined in the FHIR specification, nor can they be defined in constraints (\"profiles\") on data types or resources. This element only exists so that default values may be defined in logical models. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub default_value: Option<ElementDefinitionDefaultValue>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub default_value_ext: Option<ElementDefinitionDefaultValueExtension>,
     /** **Implicit meaning when this element is missing**
 
@@ -4734,21 +3566,13 @@ No default values are ever defined in the FHIR specification, nor can they be de
 
  Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Implicit meaning when this element is missing** \n\n The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing'). \n\n Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "meaningWhenMissing")]
     pub meaning_when_missing: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_meaningWhenMissing")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub meaning_when_missing_ext: Option<FieldExtension>,
     /** **What the order of the elements means**
 
@@ -4756,21 +3580,13 @@ No default values are ever defined in the FHIR specification, nor can they be de
 
  This element can only be asserted on repeating elements and can only be introduced when defining resources or data types.  It can be further refined profiled elements but if absent in the base type, a profile cannot assert meaning. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What the order of the elements means** \n\n If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning. \n\n This element can only be asserted on repeating elements and can only be introduced when defining resources or data types.  It can be further refined profiled elements but if absent in the base type, a profile cannot assert meaning. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "orderMeaning")]
     pub order_meaning: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_orderMeaning")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub order_meaning_ext: Option<FieldExtension>,
     /** **Value must be exactly this**
 
@@ -4778,21 +3594,13 @@ No default values are ever defined in the FHIR specification, nor can they be de
 
  This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Value must be exactly this** \n\n Specifies a value that SHALL be exactly the value  for this element in the instance, if present. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing. \n\n This is not recommended for Coding and CodeableConcept since these often have highly contextual properties such as version or display. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub fixed: Option<ElementDefinitionFixed>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub fixed_ext: Option<ElementDefinitionFixedExtension>,
     /** **Value must have at least these property values**
 
@@ -4812,21 +3620,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Mostly used for fixing values of CodeableConcept. In general, pattern[x] is not intended for use with primitive types, where is has the same meaning as fixed[x]. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Value must have at least these property values** \n\n Specifies a value that each occurrence of the element in the instance SHALL follow - that is, any value in the pattern must be found in the instance, if the element has a value. Other additional values may be found too. This is effectively constraint by example.  \n\nWhen pattern[x] is used to constrain a primitive, it means that the value provided in the pattern[x] must match the instance value exactly.\n\nWhen an element within a pattern[x] is used to constrain an array, it means that each element provided in the pattern[x] must (recursively) match at least one element from the instance array.\n\nWhen pattern[x] is used to constrain a complex object, it means that each property in the pattern must be present in the complex object, and its value must recursively match -- i.e.,\n\n1. If primitive: it must match exactly the pattern value\n2. If a complex object: it must match (recursively) the pattern value\n3. If an array: it must match (recursively) the pattern value\n\nIf a pattern[x] is declared on a repeating element, the pattern applies to all repetitions.  If the desire is for a pattern to apply to only one element or a subset of elements, slicing must be used. See [Examples of Patterns](elementdefinition-examples.html#pattern-examples) for examples of pattern usage and the effect it will have. \n\n Mostly used for fixing values of CodeableConcept. In general, pattern[x] is not intended for use with primitive types, where is has the same meaning as fixed[x]. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub pattern: Option<ElementDefinitionPattern>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub pattern_ext: Option<ElementDefinitionPatternExtension>,
     /** **Example value (as defined for type)**
 
@@ -4834,21 +3634,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Examples will most commonly be present for data where it's not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Example value (as defined for type)** \n\n A sample value for this element demonstrating the type of information that would typically be found in the element. \n\n Examples will most commonly be present for data where it's not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "example")]
     pub example: Vec<Option<ElementDefinitionExample>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_example")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub example_ext: Vec<Option<FieldExtension>>,
     /** **Minimum Allowed Value (for some types)**
 
@@ -4856,21 +3648,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a [Duration](datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as a canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Minimum Allowed Value (for some types)** \n\n The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity. \n\n Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a [Duration](datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as a canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub min_value: Option<ElementDefinitionMinValue>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub min_value_ext: Option<ElementDefinitionMinValueExtension>,
     /** **Maximum Allowed Value (for some types)**
 
@@ -4878,21 +3662,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a [Duration](datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as a canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Maximum Allowed Value (for some types)** \n\n The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity. \n\n Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a [Duration](datatypes.html#Duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as a canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub max_value: Option<ElementDefinitionMaxValue>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_value_ext: Option<ElementDefinitionMaxValueExtension>,
     /** **Max length for string type data**
 
@@ -4900,21 +3676,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Receivers are not required to reject instances that exceed the maximum length.  The full length could be stored.  In some cases, data might be truncated, though truncation should be undertaken with care and an understanding of the consequences of doing so. If not specified, there is no conformance expectation for length support. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Max length for string type data** \n\n Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element. ```textmaxLength``` SHOULD only be used on primitive data types that have a string representation (see [http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics](http://hl7.org/fhir/extensions/StructureDefinition-structuredefinition-type-characteristics.html)). \n\n Receivers are not required to reject instances that exceed the maximum length.  The full length could be stored.  In some cases, data might be truncated, though truncation should be undertaken with care and an understanding of the consequences of doing so. If not specified, there is no conformance expectation for length support. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "maxLength")]
     pub max_length: Option<i32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_maxLength")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_length_ext: Option<FieldExtension>,
     /** **Reference to invariant about presence**
 
@@ -4922,21 +3690,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reference to invariant about presence** \n\n A reference to an invariant that may make additional statements about the cardinality or value in the instance. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "condition")]
     pub condition: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_condition")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub condition_ext: Vec<Option<FieldExtension>>,
     /** **Condition that must evaluate to true**
 
@@ -4944,21 +3704,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Constraints should be declared on the "context" element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Condition that must evaluate to true** \n\n Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance. \n\n Constraints should be declared on the \"context\" element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "constraint")]
     pub constraint: Vec<Option<ElementDefinitionConstraint>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_constraint")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub constraint_ext: Vec<Option<FieldExtension>>,
     /** **For primitives, that a value must be present - not replaced by an extension**
 
@@ -4966,21 +3718,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Typical extensions that can be provided in place of a the value are [http://hl7.org/fhir/StructureDefinition/data-absent-reason](http://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html),  [http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor](http://hl7.org/fhir/extensions/StructureDefinition-iso21090-nullFlavor.html),  [http://hl7.org/fhir/StructureDefinition/originalText](http://hl7.org/fhir/extensions/StructureDefinition-originalText.html), and [http://hl7.org/fhir/StructureDefinition/cqf-expression](http://hl7.org/fhir/extensions/StructureDefinition-cqf-expression.html). Note that this element has no meaning when a value is provided, and extensions can be provided in addition to a value. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **For primitives, that a value must be present - not replaced by an extension** \n\n Specifies for a primitive data type that the value of the data type cannot be replaced by an extension. \n\n Typical extensions that can be provided in place of a the value are [http://hl7.org/fhir/StructureDefinition/data-absent-reason](http://hl7.org/fhir/extensions/StructureDefinition-data-absent-reason.html),  [http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor](http://hl7.org/fhir/extensions/StructureDefinition-iso21090-nullFlavor.html),  [http://hl7.org/fhir/StructureDefinition/originalText](http://hl7.org/fhir/extensions/StructureDefinition-originalText.html), and [http://hl7.org/fhir/StructureDefinition/cqf-expression](http://hl7.org/fhir/extensions/StructureDefinition-cqf-expression.html). Note that this element has no meaning when a value is provided, and extensions can be provided in addition to a value. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "mustHaveValue")]
     pub must_have_value: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_mustHaveValue")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub must_have_value_ext: Option<FieldExtension>,
     /** **Extensions that are allowed to replace a primitive value**
 
@@ -4988,21 +3732,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  if mustHaveValue is true, then this element should not be present, since no extensions are allowed in place of the value. Note that this element has no impact if the value is present. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Extensions that are allowed to replace a primitive value** \n\n Specifies a list of extensions that can appear in place of a primitive value. \n\n if mustHaveValue is true, then this element should not be present, since no extensions are allowed in place of the value. Note that this element has no impact if the value is present. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "valueAlternatives")]
     pub value_alternatives: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_valueAlternatives")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub value_alternatives_ext: Vec<Option<FieldExtension>>,
     /** **If the element must be supported (discouraged - see obligations)**
 
@@ -5010,21 +3746,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  "Something meaningful" is context dependent and impossible to describe in the base FHIR specification. For this reason, the mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make mustSupport = true if it is false in the base type but cannot make mustSupport = false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of "support" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **If the element must be supported (discouraged - see obligations)** \n\n If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way. Note that this is being phased out and replaced by obligations (see below).  If false, the element may be ignored and not supported. If false, whether to populate or use the data element in any way is at the discretion of the implementation. \n\n \"Something meaningful\" is context dependent and impossible to describe in the base FHIR specification. For this reason, the mustSupport flag is never set to true by the FHIR specification itself - it is only set to true in profiles.  A profile on a type can always make mustSupport = true if it is false in the base type but cannot make mustSupport = false if it is true in the base type.   This is done in [Resource Profiles](profiling.html#mustsupport), where the profile labels an element as mustSupport=true. When a profile does this, it SHALL also make clear exactly what kind of \"support\" is required, as this can mean many things.    Note that an element that has the property IsModifier is not necessarily a \"key\" element (e.g. one of the important elements to make use of the resource), nor is it automatically mustSupport - however both of these things are more likely to be true for IsModifier elements than for other elements. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "mustSupport")]
     pub must_support: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_mustSupport")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub must_support_ext: Option<FieldExtension>,
     /** **If this modifies the meaning of other elements**
 
@@ -5032,21 +3760,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles (except in the special case of the defining a new extension). An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **If this modifies the meaning of other elements** \n\n If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system. When used on the root element in an extension definition, this indicates whether or not the extension is a modifier extension. \n\n Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles (except in the special case of the defining a new extension). An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "isModifier")]
     pub is_modifier: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_isModifier")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub is_modifier_ext: Option<FieldExtension>,
     /** **Reason that this element is marked as a modifier**
 
@@ -5054,21 +3774,13 @@ If a pattern[x] is declared on a repeating element, the pattern applies to all r
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reason that this element is marked as a modifier** \n\n Explains how that element affects the interpretation of the resource or element that contains it. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "isModifierReason")]
     pub is_modifier_reason: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_isModifierReason")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub is_modifier_reason_ext: Option<FieldExtension>,
     /** **Include when _summary = true?**
 
@@ -5084,21 +3796,13 @@ The following datatype properties are exceptions, and are not marked as isSummar
 * Narrative.status, Narrative.div
 * SampledData.data. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Include when _summary = true?** \n\n Whether the element should be included if a client requests a search with the parameter _summary=true. \n\n Some resources include a set of simple metadata, and some very large data. This element is used to reduce the quantity of data returned in searches. Note that servers may pre-cache summarized resources for optimal performance. When a request is made with _summary=true, serializers only include elements marked as 'isSummary = true'. With a few exceptions (listed below), all datatype properties are included in the summary form. In resource and datatype definitions, if an element has a descendant marked as isSummary=true or if it satisfies both of the following conditions, it must be marked as isSummary=true:\n* is at the root or has a parent that is 'mustSupport'\n* has a minimum cardinality of 1 or is a modifier element\n\nThe following datatype properties are exceptions, and are not marked as isSummary:\n* Attachment.data\n* Signature.data, Signature.targetFormat, Signature.sigFormat\n* Narrative.status, Narrative.div\n* SampledData.data. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "isSummary")]
     pub is_summary: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_isSummary")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub is_summary_ext: Option<FieldExtension>,
     /** **ValueSet details if this is coded**
 
@@ -5106,21 +3810,13 @@ The following datatype properties are exceptions, and are not marked as isSummar
 
  For a CodeableConcept, when no codes are allowed - only text, use a binding of strength "required" with a description explaining that no coded values are allowed and what sort of information to put in the "text" element. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **ValueSet details if this is coded** \n\n Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri). \n\n For a CodeableConcept, when no codes are allowed - only text, use a binding of strength \"required\" with a description explaining that no coded values are allowed and what sort of information to put in the \"text\" element. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "binding")]
     pub binding: Option<ElementDefinitionBinding>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_binding")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub binding_ext: Option<FieldExtension>,
     /** **Map element to another set of definitions**
 
@@ -5128,22 +3824,21 @@ The following datatype properties are exceptions, and are not marked as isSummar
 
  Mappings are not necessarily specific enough for safe translation. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Map element to another set of definitions** \n\n Identifies a concept from an external specification that roughly corresponds to this element. \n\n Mappings are not necessarily specific enough for safe translation. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "mapping")]
     pub mapping: Vec<Option<ElementDefinitionMapping>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_mapping")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub mapping_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionBuilder {
+    #[doc = concat!("Finalize building ", "ElementDefinition", ".")]
+    pub fn build(self) -> Result<ElementDefinition, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ElementDefinitionInner> for ElementDefinition {
     fn from(inner: ElementDefinitionInner) -> Self {
@@ -5164,15 +3859,23 @@ impl ::core::ops::DerefMut for ElementDefinition {
 impl ElementDefinition {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ElementDefinitionBuilder {
-        ElementDefinitionInner::builder()
+        ElementDefinitionBuilder::default()
     }
 }
 /// Sub-fields of the slicing field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionSlicingBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionSlicing {
     /** **Unique id for inter-element referencing**
 
@@ -5180,15 +3883,7 @@ pub struct ElementDefinitionSlicing {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -5197,15 +3892,7 @@ pub struct ElementDefinitionSlicing {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Element values that are used to distinguish the slices**
@@ -5214,21 +3901,13 @@ pub struct ElementDefinitionSlicing {
 
  If there is no discriminator, the content is hard to process, so this should be avoided. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Element values that are used to distinguish the slices** \n\n Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices. \n\n If there is no discriminator, the content is hard to process, so this should be avoided. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "discriminator")]
     pub discriminator: Vec<Option<ElementDefinitionSlicingDiscriminator>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_discriminator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub discriminator_ext: Vec<Option<FieldExtension>>,
     /** **Text description of how slicing works (or not)**
 
@@ -5236,21 +3915,13 @@ pub struct ElementDefinitionSlicing {
 
  If it's really not possible to differentiate them, the design should be re-evaluated to make the content usable. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Text description of how slicing works (or not)** \n\n A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated. \n\n If it's really not possible to differentiate them, the design should be re-evaluated to make the content usable. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_description")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub description_ext: Option<FieldExtension>,
     /** **If elements must be in same order as slices**
 
@@ -5258,21 +3929,13 @@ pub struct ElementDefinitionSlicing {
 
  Order should only be required when it is a pressing concern for presentation. Profile authors should consider making the order a feature of the rules about the narrative, not the rules about the data - requiring ordered data makes the profile much less re-usable. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **If elements must be in same order as slices** \n\n If the matching elements have to occur in the same order as defined in the profile. \n\n Order should only be required when it is a pressing concern for presentation. Profile authors should consider making the order a feature of the rules about the narrative, not the rules about the data - requiring ordered data makes the profile much less re-usable. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "ordered")]
     pub ordered: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_ordered")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub ordered_ext: Option<FieldExtension>,
     /** **[SlicingRules](http://hl7.org/fhir/ValueSet/resource-slicing-rules); closed | open | openAtEnd**
 
@@ -5284,14 +3947,29 @@ pub struct ElementDefinitionSlicing {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_rules")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub rules_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionSlicing {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionSlicingBuilder {
+        ElementDefinitionSlicingBuilder::default()
+    }
 }
 /// Sub-fields of the discriminator field in ElementDefinitionSlicing
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionSlicingDiscriminatorBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionSlicingDiscriminator {
     /** **Unique id for inter-element referencing**
 
@@ -5299,15 +3977,7 @@ pub struct ElementDefinitionSlicingDiscriminator {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -5316,15 +3986,7 @@ pub struct ElementDefinitionSlicingDiscriminator {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[DiscriminatorType](http://hl7.org/fhir/ValueSet/discriminator-type); value | exists | type | profile | position**
@@ -5337,7 +3999,7 @@ pub struct ElementDefinitionSlicingDiscriminator {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **Path to element value**
 
@@ -5349,14 +4011,29 @@ pub struct ElementDefinitionSlicingDiscriminator {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionSlicingDiscriminator {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionSlicingDiscriminatorBuilder {
+        ElementDefinitionSlicingDiscriminatorBuilder::default()
+    }
 }
 /// Sub-fields of the base field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionBaseBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionBase {
     /** **Unique id for inter-element referencing**
 
@@ -5364,15 +4041,7 @@ pub struct ElementDefinitionBase {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -5381,15 +4050,7 @@ pub struct ElementDefinitionBase {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Path that identifies the base element**
@@ -5402,7 +4063,7 @@ pub struct ElementDefinitionBase {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_path")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub path_ext: Option<FieldExtension>,
     /** **Min cardinality of the base element**
 
@@ -5414,7 +4075,7 @@ pub struct ElementDefinitionBase {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_min")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub min_ext: Option<FieldExtension>,
     /** **Max cardinality of the base element**
 
@@ -5426,14 +4087,29 @@ pub struct ElementDefinitionBase {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_max")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionBase {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionBaseBuilder {
+        ElementDefinitionBaseBuilder::default()
+    }
 }
 /// Sub-fields of the type field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionTypeBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionType {
     /** **Unique id for inter-element referencing**
 
@@ -5441,15 +4117,7 @@ pub struct ElementDefinitionType {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -5458,15 +4126,7 @@ pub struct ElementDefinitionType {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[ElementDefinitionTypes](http://hl7.org/fhir/ValueSet/elementdefinition-types); Data type or Resource (reference to definition)**
@@ -5479,7 +4139,7 @@ pub struct ElementDefinitionType {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
     /** **Profiles (StructureDefinition or IG) - one must apply**
 
@@ -5487,21 +4147,13 @@ pub struct ElementDefinitionType {
 
  It is possible to profile  backbone element (e.g. part of a resource), using the [http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element](http://hl7.org/fhir/extensions/StructureDefinition-elementdefinition-profile-element.html) extension. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Profiles (StructureDefinition or IG) - one must apply** \n\n Identifies a profile structure or implementation Guide that applies to the datatype this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the type SHALL conform to at least one profile defined in the implementation guide. \n\n It is possible to profile  backbone element (e.g. part of a resource), using the [http://hl7.org/fhir/StructureDefinition/elementdefinition-profile-element](http://hl7.org/fhir/extensions/StructureDefinition-elementdefinition-profile-element.html) extension. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "profile")]
     pub profile: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_profile")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub profile_ext: Vec<Option<FieldExtension>>,
     /** **Profile (StructureDefinition or IG) on the Reference/canonical target - one must apply**
 
@@ -5509,21 +4161,13 @@ pub struct ElementDefinitionType {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Profile (StructureDefinition or IG) on the Reference/canonical target - one must apply** \n\n Used when the type is \"Reference\" or \"canonical\", and identifies a profile structure or implementation Guide that applies to the target of the reference this element refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "targetProfile")]
     pub target_profile: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_targetProfile")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub target_profile_ext: Vec<Option<FieldExtension>>,
     /** **[AggregationMode](http://hl7.org/fhir/ValueSet/resource-aggregation-mode); contained | referenced | bundled - how aggregated**
 
@@ -5531,21 +4175,13 @@ pub struct ElementDefinitionType {
 
  See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[AggregationMode](http://hl7.org/fhir/ValueSet/resource-aggregation-mode); contained | referenced | bundled - how aggregated** \n\n If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle. \n\n See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "aggregation")]
     pub aggregation: Vec<Option<codes::AggregationMode>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_aggregation")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub aggregation_ext: Vec<Option<FieldExtension>>,
     /** **[ReferenceVersionRules](http://hl7.org/fhir/ValueSet/reference-version-rules); either | independent | specific**
 
@@ -5553,22 +4189,22 @@ pub struct ElementDefinitionType {
 
  The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[ReferenceVersionRules](http://hl7.org/fhir/ValueSet/reference-version-rules); either | independent | specific** \n\n Whether this reference needs to be version specific or version independent, or whether either can be used. \n\n The base specification never makes a rule as to which form is allowed, but implementation guides may do this. See [Aggregation Rules](elementdefinition.html#aggregation) for further clarification. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "versioning")]
     pub versioning: Option<codes::ReferenceVersionRules>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_versioning")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub versioning_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionType {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionTypeBuilder {
+        ElementDefinitionTypeBuilder::default()
+    }
 }
 /// Choice of types for the defaultValue[x] field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -6574,9 +5210,16 @@ pub enum ElementDefinitionPatternExtension {
 }
 /// Sub-fields of the example field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionExampleBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionExample {
     /** **Unique id for inter-element referencing**
 
@@ -6584,15 +5227,7 @@ pub struct ElementDefinitionExample {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -6601,15 +5236,7 @@ pub struct ElementDefinitionExample {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Describes the purpose of this example**
@@ -6622,7 +5249,7 @@ pub struct ElementDefinitionExample {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_label")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub label_ext: Option<FieldExtension>,
     /** **Value of Example (one of allowed types)**
 
@@ -6634,8 +5261,16 @@ pub struct ElementDefinitionExample {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<ElementDefinitionExampleValueExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionExample {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionExampleBuilder {
+        ElementDefinitionExampleBuilder::default()
+    }
 }
 /// Choice of types for the value[x] field in ElementDefinitionExample
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -7113,9 +5748,16 @@ pub enum ElementDefinitionMaxValueExtension {
 }
 /// Sub-fields of the constraint field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionConstraintBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionConstraint {
     /** **Unique id for inter-element referencing**
 
@@ -7123,15 +5765,7 @@ pub struct ElementDefinitionConstraint {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -7140,15 +5774,7 @@ pub struct ElementDefinitionConstraint {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Target of 'condition' reference above**
@@ -7161,7 +5787,7 @@ pub struct ElementDefinitionConstraint {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_key")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub key_ext: Option<FieldExtension>,
     /** **Why this constraint is necessary or appropriate**
 
@@ -7169,21 +5795,13 @@ pub struct ElementDefinitionConstraint {
 
  To be used if the reason for the constraint might not be intuitive to all implementers. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Why this constraint is necessary or appropriate** \n\n Description of why this constraint is necessary or appropriate. \n\n To be used if the reason for the constraint might not be intuitive to all implementers. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "requirements")]
     pub requirements: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_requirements")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub requirements_ext: Option<FieldExtension>,
     /** **[ConstraintSeverity](http://hl7.org/fhir/ValueSet/constraint-severity); error | warning**
 
@@ -7195,7 +5813,7 @@ pub struct ElementDefinitionConstraint {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_severity")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub severity_ext: Option<FieldExtension>,
     /** **Suppress warning or hint in profile**
 
@@ -7203,21 +5821,13 @@ pub struct ElementDefinitionConstraint {
 
  This element should only be present in a derived profile where a warning or hint has been determined to be spurious/incorrect. E.g. a warning encouraging the inclusion of an element that the profile explicitly prohibits. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Suppress warning or hint in profile** \n\n If true, indicates that the warning or best practice guideline should be suppressed. \n\n This element should only be present in a derived profile where a warning or hint has been determined to be spurious/incorrect. E.g. a warning encouraging the inclusion of an element that the profile explicitly prohibits. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "suppress")]
     pub suppress: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_suppress")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub suppress_ext: Option<FieldExtension>,
     /** **Human description of constraint**
 
@@ -7229,7 +5839,7 @@ pub struct ElementDefinitionConstraint {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_human")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub human_ext: Option<FieldExtension>,
     /** **FHIRPath expression of constraint**
 
@@ -7237,21 +5847,13 @@ pub struct ElementDefinitionConstraint {
 
  In the absense of an expression, the expression is likely not enforceable by validators, and might be missed by many systems. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **FHIRPath expression of constraint** \n\n A [FHIRPath](fhirpath.html) expression of constraint that can be executed to see if this constraint is met. \n\n In the absense of an expression, the expression is likely not enforceable by validators, and might be missed by many systems. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "expression")]
     pub expression: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_expression")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub expression_ext: Option<FieldExtension>,
     /** **Reference to original source of constraint**
 
@@ -7259,28 +5861,35 @@ pub struct ElementDefinitionConstraint {
 
  This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Reference to original source of constraint** \n\n A reference to the original source of the constraint, for traceability purposes. \n\n This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "source")]
     pub source: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_source")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub source_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionConstraint {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionConstraintBuilder {
+        ElementDefinitionConstraintBuilder::default()
+    }
 }
 /// Sub-fields of the binding field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionBindingBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionBinding {
     /** **Unique id for inter-element referencing**
 
@@ -7288,15 +5897,7 @@ pub struct ElementDefinitionBinding {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -7305,15 +5906,7 @@ pub struct ElementDefinitionBinding {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[BindingStrength](http://hl7.org/fhir/ValueSet/binding-strength); required | extensible | preferred | example**
@@ -7326,7 +5919,7 @@ pub struct ElementDefinitionBinding {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_strength")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub strength_ext: Option<FieldExtension>,
     /** **Intended use of codes in the bound value set**
 
@@ -7334,21 +5927,13 @@ pub struct ElementDefinitionBinding {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Intended use of codes in the bound value set** \n\n Describes the intended use of this particular set of codes. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_description")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub description_ext: Option<FieldExtension>,
     /** **Source of value set**
 
@@ -7356,21 +5941,13 @@ pub struct ElementDefinitionBinding {
 
  The reference may be version-specific or not (e.g. have a |[version] at the end of the canonical URL). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Source of value set** \n\n Refers to the value set that identifies the set of codes the binding refers to. \n\n The reference may be version-specific or not (e.g. have a |[version] at the end of the canonical URL). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "valueSet")]
     pub value_set: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_valueSet")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_set_ext: Option<FieldExtension>,
     /** **Additional Bindings - more rules about the binding**
 
@@ -7378,28 +5955,35 @@ pub struct ElementDefinitionBinding {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional Bindings - more rules about the binding** \n\n Additional bindings that help applications implementing this element. Additional bindings do not replace the main binding but provide more information and/or context. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "additional")]
     pub additional: Vec<Option<ElementDefinitionBindingAdditional>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_additional")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub additional_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionBinding {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionBindingBuilder {
+        ElementDefinitionBindingBuilder::default()
+    }
 }
 /// Sub-fields of the additional field in ElementDefinitionBinding
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionBindingAdditionalBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionBindingAdditional {
     /** **Unique id for inter-element referencing**
 
@@ -7407,15 +5991,7 @@ pub struct ElementDefinitionBindingAdditional {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -7424,15 +6000,7 @@ pub struct ElementDefinitionBindingAdditional {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[AdditionalBindingPurpose](http://hl7.org/fhir/ValueSet/additional-binding-purpose); maximum | minimum | required | extensible | candidate | current | preferred | ui | starter | component**
@@ -7445,7 +6013,7 @@ pub struct ElementDefinitionBindingAdditional {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_purpose")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub purpose_ext: Option<FieldExtension>,
     /** **The value set for the additional binding**
 
@@ -7457,7 +6025,7 @@ pub struct ElementDefinitionBindingAdditional {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_valueSet")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_set_ext: Option<FieldExtension>,
     /** **Documentation of the purpose of use of the binding**
 
@@ -7465,21 +6033,13 @@ pub struct ElementDefinitionBindingAdditional {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Documentation of the purpose of use of the binding** \n\n Documentation of the purpose of use of the bindingproviding additional information about how it is intended to be used. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "documentation")]
     pub documentation: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_documentation")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub documentation_ext: Option<FieldExtension>,
     /** **Concise documentation - for summary tables**
 
@@ -7487,21 +6047,13 @@ pub struct ElementDefinitionBindingAdditional {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Concise documentation - for summary tables** \n\n Concise documentation - for summary tables. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "shortDoco")]
     pub short_doco: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_shortDoco")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub short_doco_ext: Option<FieldExtension>,
     /** **Qualifies the usage - jurisdiction, gender, workflow status etc.**
 
@@ -7509,21 +6061,13 @@ pub struct ElementDefinitionBindingAdditional {
 
  This specification does not define exactly how the context is determined for the usage; typically, this will be described in implementation guides. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Qualifies the usage - jurisdiction, gender, workflow status etc.** \n\n Qualifies the usage of the binding. Typically bindings are qualified by jurisdiction, but they may also be qualified by gender, workflow status, clinical domain etc. The information to decide whether a usege context applies is usually outside the resource, determined by context, and this might present challenges for validation tooling. \n\n This specification does not define exactly how the context is determined for the usage; typically, this will be described in implementation guides. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "usage")]
     pub usage: Vec<Option<UsageContext>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_usage")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub usage_ext: Vec<Option<FieldExtension>>,
     /** **Whether binding can applies to all repeats, or just one**
 
@@ -7531,28 +6075,35 @@ pub struct ElementDefinitionBindingAdditional {
 
  A common pattern is to make a conformance binding to all repeats, and then make a binding that one of the repeats must conform to. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Whether binding can applies to all repeats, or just one** \n\n Whether the binding applies to all repeats, or just to any one of them. This is only relevant for elements that can repeat. \n\n A common pattern is to make a conformance binding to all repeats, and then make a binding that one of the repeats must conform to. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "any")]
     pub any: Option<bool>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_any")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub any_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionBindingAdditional {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionBindingAdditionalBuilder {
+        ElementDefinitionBindingAdditionalBuilder::default()
+    }
 }
 /// Sub-fields of the mapping field in ElementDefinition
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "ElementDefinitionMappingBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct ElementDefinitionMapping {
     /** **Unique id for inter-element referencing**
 
@@ -7560,15 +6111,7 @@ pub struct ElementDefinitionMapping {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -7577,15 +6120,7 @@ pub struct ElementDefinitionMapping {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Reference to mapping declaration**
@@ -7598,7 +6133,7 @@ pub struct ElementDefinitionMapping {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_identity")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub identity_ext: Option<FieldExtension>,
     /** **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); Computable language of mapping**
 
@@ -7606,21 +6141,13 @@ pub struct ElementDefinitionMapping {
 
  If omitted, then there can be no expectation of computational interpretation of the mapping. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); Computable language of mapping** \n\n Identifies the computable language in which mapping.map is expressed. \n\n If omitted, then there can be no expectation of computational interpretation of the mapping. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "language")]
     pub language: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_language")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub language_ext: Option<FieldExtension>,
     /** **Details of the mapping**
 
@@ -7632,7 +6159,7 @@ pub struct ElementDefinitionMapping {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_map")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub map_ext: Option<FieldExtension>,
     /** **Comments about the mapping or its use**
 
@@ -7640,22 +6167,22 @@ pub struct ElementDefinitionMapping {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Comments about the mapping or its use** \n\n Comments that provide information about the mapping or its use. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comment")]
     pub comment: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_comment")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub comment_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ElementDefinitionMapping {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> ElementDefinitionMappingBuilder {
+        ElementDefinitionMappingBuilder::default()
+    }
 }
 /** Expression Type: A expression that is evaluated in a specified context and returns a value. The context of use of the expression must specify the context in which the expression is evaluated, and how the result of the expression is used.
 
@@ -7679,15 +6206,14 @@ pub struct Expression(pub Box<ExpressionInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ExpressionBuilder),
-        build_method(into = Expression),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ExpressionBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ExpressionInner {
@@ -7697,15 +6223,7 @@ pub struct ExpressionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -7714,15 +6232,7 @@ pub struct ExpressionInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Natural language description of the condition**
@@ -7731,21 +6241,13 @@ pub struct ExpressionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Natural language description of the condition** \n\n A brief, natural language description of the condition that effectively communicates the intended semantics. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "description")]
     pub description: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_description")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub description_ext: Option<FieldExtension>,
     /** **Short name assigned to expression for reuse**
 
@@ -7753,21 +6255,13 @@ pub struct ExpressionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Short name assigned to expression for reuse** \n\n A short name assigned to the expression to allow for multiple reuse of the expression in the context where it is defined. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_name")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub name_ext: Option<FieldExtension>,
     /** **[ExpressionLanguage](http://hl7.org/fhir/ValueSet/expression-language); text/cql | text/fhirpath | application/x-fhir-query | etc.**
 
@@ -7775,21 +6269,13 @@ pub struct ExpressionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[ExpressionLanguage](http://hl7.org/fhir/ValueSet/expression-language); text/cql | text/fhirpath | application/x-fhir-query | etc.** \n\n The media type of the language for the expression. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "language")]
     pub language: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_language")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub language_ext: Option<FieldExtension>,
     /** **Expression in specified language**
 
@@ -7797,21 +6283,13 @@ pub struct ExpressionInner {
 
  If Expression.expression and Expression.reference are both present, the Expression.expression might just be a name pointing something within the referenced content. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Expression in specified language** \n\n An expression in the specified language that returns a value. \n\n If Expression.expression and Expression.reference are both present, the Expression.expression might just be a name pointing something within the referenced content. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "expression")]
     pub expression: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_expression")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub expression_ext: Option<FieldExtension>,
     /** **Where the expression is found**
 
@@ -7819,22 +6297,21 @@ pub struct ExpressionInner {
 
  If both a reference and an expression is found, the reference SHALL point to the same expression. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Where the expression is found** \n\n A URI that defines where the expression is found. \n\n If both a reference and an expression is found, the reference SHALL point to the same expression. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "reference")]
     pub reference: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_reference")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub reference_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ExpressionBuilder {
+    #[doc = concat!("Finalize building ", "Expression", ".")]
+    pub fn build(self) -> Result<Expression, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ExpressionInner> for Expression {
     fn from(inner: ExpressionInner) -> Self {
@@ -7855,8 +6332,9 @@ impl ::core::ops::DerefMut for Expression {
 impl Expression {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ExpressionBuilder {
-        ExpressionInner::builder()
+        ExpressionBuilder::default()
     }
 }
 /** ExtendedContactDetail Type: Specifies contact information for a specific purpose over a period of time, might be handled/monitored by a specific named person or organization.
@@ -7881,15 +6359,14 @@ pub struct ExtendedContactDetail(pub Box<ExtendedContactDetailInner>);
 
  This datatype may be sparsely populated, i.e. only contain a purpose and phone number or address, but other cases could be completed filled out. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ExtendedContactDetailBuilder),
-        build_method(into = ExtendedContactDetail),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ExtendedContactDetailBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ExtendedContactDetailInner {
@@ -7899,15 +6376,7 @@ pub struct ExtendedContactDetailInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -7916,15 +6385,7 @@ pub struct ExtendedContactDetailInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[Purpose](http://terminology.hl7.org/ValueSet/contactentity-type); The type of contact**
@@ -7933,21 +6394,13 @@ pub struct ExtendedContactDetailInner {
 
  If no purpose is defined, then these contact details may be used for any purpose. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[Purpose](http://terminology.hl7.org/ValueSet/contactentity-type); The type of contact** \n\n The purpose/type of contact. \n\n If no purpose is defined, then these contact details may be used for any purpose. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "purpose")]
     pub purpose: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_purpose")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub purpose_ext: Option<FieldExtension>,
     /** **Name of an individual to contact**
 
@@ -7955,21 +6408,13 @@ pub struct ExtendedContactDetailInner {
 
  If there is no named individual, the telecom/address information is not generally monitored by a specific individual. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name of an individual to contact** \n\n The name of an individual to contact, some types of contact detail are usually blank. \n\n If there is no named individual, the telecom/address information is not generally monitored by a specific individual. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "name")]
     pub name: Vec<Option<HumanName>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_name")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub name_ext: Vec<Option<FieldExtension>>,
     /** **Contact details (e.g.phone/fax/url)**
 
@@ -7977,21 +6422,13 @@ pub struct ExtendedContactDetailInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Contact details (e.g.phone/fax/url)** \n\n The contact details application for the purpose defined. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "telecom")]
     pub telecom: Vec<Option<ContactPoint>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_telecom")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub telecom_ext: Vec<Option<FieldExtension>>,
     /** **Address for the contact**
 
@@ -7999,21 +6436,13 @@ pub struct ExtendedContactDetailInner {
 
  More than 1 address would be for different purposes, and thus should be entered as a different entry,. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Address for the contact** \n\n Address for the contact. \n\n More than 1 address would be for different purposes, and thus should be entered as a different entry,. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "address")]
     pub address: Option<Address>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_address")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub address_ext: Option<FieldExtension>,
     /** **This contact detail is handled/monitored by a specific organization**
 
@@ -8021,21 +6450,13 @@ pub struct ExtendedContactDetailInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **This contact detail is handled/monitored by a specific organization** \n\n This contact detail is handled/monitored by a specific organization. If the name is provided in the contact, then it is referring to the named individual within this organization. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "organization")]
     pub organization: Option<Reference>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_organization")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub organization_ext: Option<FieldExtension>,
     /** **Period that this contact was valid for usage**
 
@@ -8043,22 +6464,21 @@ pub struct ExtendedContactDetailInner {
 
  If the details have multiple periods, then enter in a new ExtendedContact with the new period. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Period that this contact was valid for usage** \n\n Period that this contact was valid for usage. \n\n If the details have multiple periods, then enter in a new ExtendedContact with the new period. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_period")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ExtendedContactDetailBuilder {
+    #[doc = concat!("Finalize building ", "ExtendedContactDetail", ".")]
+    pub fn build(self) -> Result<ExtendedContactDetail, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ExtendedContactDetailInner> for ExtendedContactDetail {
     fn from(inner: ExtendedContactDetailInner) -> Self {
@@ -8079,8 +6499,9 @@ impl ::core::ops::DerefMut for ExtendedContactDetail {
 impl ExtendedContactDetail {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ExtendedContactDetailBuilder {
-        ExtendedContactDetailInner::builder()
+        ExtendedContactDetailBuilder::default()
     }
 }
 /** Extension Type: Optional Extension Element - found in all resources.
@@ -8105,15 +6526,14 @@ pub struct Extension(pub Box<ExtensionInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ExtensionBuilder),
-        build_method(into = Extension),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ExtensionBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ExtensionInner {
@@ -8123,15 +6543,7 @@ pub struct ExtensionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -8140,15 +6552,7 @@ pub struct ExtensionInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **identifies the meaning of the extension**
@@ -8164,22 +6568,21 @@ pub struct ExtensionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Value of extension** \n\n Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub value: Option<ExtensionValue>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<ExtensionValueExtension>,
+}
+#[cfg(feature = "builders")]
+impl ExtensionBuilder {
+    #[doc = concat!("Finalize building ", "Extension", ".")]
+    pub fn build(self) -> Result<Extension, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ExtensionInner> for Extension {
     fn from(inner: ExtensionInner) -> Self {
@@ -8200,8 +6603,9 @@ impl ::core::ops::DerefMut for Extension {
 impl Extension {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ExtensionBuilder {
-        ExtensionInner::builder()
+        ExtensionBuilder::default()
     }
 }
 /// Choice of types for the value[x] field in Extension
@@ -8560,15 +6964,14 @@ pub struct HumanName(pub Box<HumanNameInner>);
 
  Names may be changed, or repudiated, or people may have different names in different contexts. Names may be divided into parts of different type that have variable significance depending on context, though the division into parts does not always matter. With personal names, the different parts might or might not be imbued with some implicit meaning; various cultures associate different importance with the name parts and the degree to which systems must care about name parts around the world varies widely. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = HumanNameBuilder),
-        build_method(into = HumanName),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "HumanNameBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct HumanNameInner {
@@ -8578,15 +6981,7 @@ pub struct HumanNameInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -8595,15 +6990,7 @@ pub struct HumanNameInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[NameUse](http://hl7.org/fhir/ValueSet/name-use); usual | official | temp | nickname | anonymous | old | maiden**
@@ -8612,21 +6999,13 @@ pub struct HumanNameInner {
 
  Applications can assume that a name is current unless it explicitly says that it is temporary or old. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[NameUse](http://hl7.org/fhir/ValueSet/name-use); usual | official | temp | nickname | anonymous | old | maiden** \n\n Identifies the purpose for this name. \n\n Applications can assume that a name is current unless it explicitly says that it is temporary or old. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "use")]
     pub r#use: Option<codes::NameUse>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_use")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#use_ext: Option<FieldExtension>,
     /** **Text representation of the full name**
 
@@ -8634,21 +7013,13 @@ pub struct HumanNameInner {
 
  Can provide both a text representation and parts. Applications updating a name SHALL ensure that when both text and parts are present,  no content is included in the text that isn't found in a part. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Text representation of the full name** \n\n Specifies the entire name as it should be displayed e.g. on an application UI. This may be provided instead of or as well as the specific parts. \n\n Can provide both a text representation and parts. Applications updating a name SHALL ensure that when both text and parts are present,  no content is included in the text that isn't found in a part. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "text")]
     pub text: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_text")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub text_ext: Option<FieldExtension>,
     /** **Family name (often called 'Surname')**
 
@@ -8656,21 +7027,13 @@ pub struct HumanNameInner {
 
  Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Family name (often called 'Surname')** \n\n The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father. \n\n Family Name may be decomposed into specific parts using extensions (de, nl, es related cultures). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "family")]
     pub family: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_family")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub family_ext: Option<FieldExtension>,
     /** **Given names (not always 'first'). Includes middle names**
 
@@ -8678,21 +7041,13 @@ pub struct HumanNameInner {
 
  If only initials are recorded, they may be used in place of the full name parts. Initials may be separated into multiple given names but often aren't due to paractical limitations.  This element is not called "first name" since given names do not always come first. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Given names (not always 'first'). Includes middle names** \n\n Given name. \n\n If only initials are recorded, they may be used in place of the full name parts. Initials may be separated into multiple given names but often aren't due to paractical limitations.  This element is not called \"first name\" since given names do not always come first. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "given")]
     pub given: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_given")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub given_ext: Vec<Option<FieldExtension>>,
     /** **Parts that come before the name**
 
@@ -8700,21 +7055,13 @@ pub struct HumanNameInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Parts that come before the name** \n\n Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "prefix")]
     pub prefix: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_prefix")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub prefix_ext: Vec<Option<FieldExtension>>,
     /** **Parts that come after the name**
 
@@ -8722,21 +7069,13 @@ pub struct HumanNameInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Parts that come after the name** \n\n Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "suffix")]
     pub suffix: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_suffix")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub suffix_ext: Vec<Option<FieldExtension>>,
     /** **Time period when name was/is in use**
 
@@ -8744,22 +7083,21 @@ pub struct HumanNameInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Time period when name was/is in use** \n\n Indicates the period of time when this name was valid for the named person. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_period")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl HumanNameBuilder {
+    #[doc = concat!("Finalize building ", "HumanName", ".")]
+    pub fn build(self) -> Result<HumanName, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<HumanNameInner> for HumanName {
     fn from(inner: HumanNameInner) -> Self {
@@ -8780,8 +7118,9 @@ impl ::core::ops::DerefMut for HumanName {
 impl HumanName {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> HumanNameBuilder {
-        HumanNameInner::builder()
+        HumanNameBuilder::default()
     }
 }
 /** Identifier Type: An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.
@@ -8806,15 +7145,14 @@ pub struct Identifier(pub Box<IdentifierInner>);
 
  The rules of the identifier.type  determine if a check digit is part of the ID value or sent separately, such as through the checkDigit extension. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = IdentifierBuilder),
-        build_method(into = Identifier),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "IdentifierBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct IdentifierInner {
@@ -8824,15 +7162,7 @@ pub struct IdentifierInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -8841,15 +7171,7 @@ pub struct IdentifierInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[IdentifierUse](http://hl7.org/fhir/ValueSet/identifier-use); usual | official | temp | secondary | old (If known)**
@@ -8858,21 +7180,13 @@ pub struct IdentifierInner {
 
  Applications can assume that an identifier is permanent unless it explicitly says that it is temporary. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[IdentifierUse](http://hl7.org/fhir/ValueSet/identifier-use); usual | official | temp | secondary | old (If known)** \n\n The purpose of this identifier. \n\n Applications can assume that an identifier is permanent unless it explicitly says that it is temporary. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "use")]
     pub r#use: Option<codes::IdentifierUse>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_use")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#use_ext: Option<FieldExtension>,
     /** **[IdentifierType](http://hl7.org/fhir/ValueSet/identifier-type); Description of identifier**
 
@@ -8880,21 +7194,13 @@ pub struct IdentifierInner {
 
  This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[IdentifierType](http://hl7.org/fhir/ValueSet/identifier-type); Description of identifier** \n\n A coded type for the identifier that can be used to determine which identifier to use for a specific purpose. \n\n This element deals only with general categories of identifiers.  It SHOULD not be used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple categories due to common usage.   Where the system is known, a type is unnecessary because the type is always part of the system definition. However systems often need to handle identifiers where the system is not known. There is not a 1:1 relationship between type and system, since many different systems have the same type. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **The namespace for the identifier value**
 
@@ -8902,21 +7208,13 @@ pub struct IdentifierInner {
 
  Identifier.system is always case sensitive. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The namespace for the identifier value** \n\n Establishes the namespace for the value - that is, an absolute URL that describes a set values that are unique. \n\n Identifier.system is always case sensitive. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_system")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub system_ext: Option<FieldExtension>,
     /** **The value that is unique**
 
@@ -8924,21 +7222,13 @@ pub struct IdentifierInner {
 
  If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [http://hl7.org/fhir/StructureDefinition/rendered-value](http://hl7.org/fhir/extensions/StructureDefinition-rendered-value.html)). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The value that is unique** \n\n The portion of the identifier typically relevant to the user and which is unique within the context of the system. \n\n If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value's primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [http://hl7.org/fhir/StructureDefinition/rendered-value](http://hl7.org/fhir/extensions/StructureDefinition-rendered-value.html)). Identifier.value is to be treated as case sensitive unless knowledge of the Identifier.system allows the processer to be confident that non-case-sensitive processing is safe. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_value")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<FieldExtension>,
     /** **Time period when id is/was valid for use**
 
@@ -8946,21 +7236,13 @@ pub struct IdentifierInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Time period when id is/was valid for use** \n\n Time period during which identifier is/was valid for use. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "period")]
     pub period: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_period")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<FieldExtension>,
     /** **Organization that issued id (may be just text)**
 
@@ -8968,22 +7250,21 @@ pub struct IdentifierInner {
 
  The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Organization that issued id (may be just text)** \n\n Organization that issued/manages the identifier. \n\n The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "assigner")]
     pub assigner: Option<Reference>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_assigner")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub assigner_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl IdentifierBuilder {
+    #[doc = concat!("Finalize building ", "Identifier", ".")]
+    pub fn build(self) -> Result<Identifier, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<IdentifierInner> for Identifier {
     fn from(inner: IdentifierInner) -> Self {
@@ -9004,8 +7285,9 @@ impl ::core::ops::DerefMut for Identifier {
 impl Identifier {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> IdentifierBuilder {
-        IdentifierInner::builder()
+        IdentifierBuilder::default()
     }
 }
 /** MarketingStatus Type: The marketing status describes the date when a medicinal product is actually put on the market or the date as of which it is no longer available.
@@ -9030,15 +7312,14 @@ pub struct MarketingStatus(pub Box<MarketingStatusInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = MarketingStatusBuilder),
-        build_method(into = MarketingStatus),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "MarketingStatusBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct MarketingStatusInner {
@@ -9048,15 +7329,7 @@ pub struct MarketingStatusInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -9065,15 +7338,7 @@ pub struct MarketingStatusInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Extensions that cannot be ignored even if unrecognized**
@@ -9084,15 +7349,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Extensions that cannot be ignored even if unrecognized** \n\n May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "modifierExtension")]
     pub modifier_extension: Vec<Extension>,
     /** **The country in which the marketing authorization has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements**
@@ -9101,21 +7358,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The country in which the marketing authorization has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements** \n\n The country in which the marketing authorization has been granted shall be specified It should be specified using the ISO 3166 ‑ 1 alpha-2 code elements. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "country")]
     pub country: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_country")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub country_ext: Option<FieldExtension>,
     /** **Where a Medicines Regulatory Agency has granted a marketing authorization for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified**
 
@@ -9123,21 +7372,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Where a Medicines Regulatory Agency has granted a marketing authorization for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified** \n\n Where a Medicines Regulatory Agency has granted a marketing authorization for which specific provisions within a jurisdiction apply, the jurisdiction can be specified using an appropriate controlled terminology The controlled term and the controlled term identifier shall be specified. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "jurisdiction")]
     pub jurisdiction: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_jurisdiction")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub jurisdiction_ext: Option<FieldExtension>,
     /** **This attribute provides information on the status of the marketing of the medicinal product See ISO/TS 20443 for more information and examples**
 
@@ -9149,7 +7390,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_status")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub status_ext: Option<FieldExtension>,
     /** **The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain**
 
@@ -9157,21 +7398,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain** \n\n The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "dateRange")]
     pub date_range: Option<Period>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_dateRange")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub date_range_ext: Option<FieldExtension>,
     /** **The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain**
 
@@ -9179,22 +7412,21 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain** \n\n The date when the Medicinal Product is placed on the market by the Marketing Authorization Holder (or where applicable, the manufacturer/distributor) in a country and/or jurisdiction shall be provided A complete date consisting of day, month and year shall be specified using the ISO 8601 date format NOTE “Placed on the market” refers to the release of the Medicinal Product into the distribution chain. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "restoreDate")]
     pub restore_date: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_restoreDate")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub restore_date_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl MarketingStatusBuilder {
+    #[doc = concat!("Finalize building ", "MarketingStatus", ".")]
+    pub fn build(self) -> Result<MarketingStatus, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<MarketingStatusInner> for MarketingStatus {
     fn from(inner: MarketingStatusInner) -> Self {
@@ -9215,8 +7447,9 @@ impl ::core::ops::DerefMut for MarketingStatus {
 impl MarketingStatus {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> MarketingStatusBuilder {
-        MarketingStatusInner::builder()
+        MarketingStatusBuilder::default()
     }
 }
 /** Meta Type: The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.
@@ -9241,15 +7474,14 @@ pub struct Meta(pub Box<MetaInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = MetaBuilder),
-        build_method(into = Meta),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "MetaBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct MetaInner {
@@ -9259,15 +7491,7 @@ pub struct MetaInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -9276,15 +7500,7 @@ pub struct MetaInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Version specific identifier**
@@ -9293,21 +7509,13 @@ pub struct MetaInner {
 
  The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Version specific identifier** \n\n The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted. \n\n The server assigns this value, and ignores what the client specifies, except in the case that the server is imposing version integrity on updates/deletes. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "versionId")]
     pub version_id: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_versionId")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub version_id_ext: Option<FieldExtension>,
     /** **When the resource version last changed**
 
@@ -9315,21 +7523,13 @@ pub struct MetaInner {
 
  This element is generally omitted in instances submitted in a PUT or POST. Instead, it is populated in the response instance and when retrieving information using a GET. The server / resource manager sets this value; what a client provides is irrelevant. This is equivalent to the HTTP Last-Modified and SHOULD have the same value on a [read](http.html#read) interaction. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **When the resource version last changed** \n\n When the resource last changed - e.g. when the version changed. \n\n This element is generally omitted in instances submitted in a PUT or POST. Instead, it is populated in the response instance and when retrieving information using a GET. The server / resource manager sets this value; what a client provides is irrelevant. This is equivalent to the HTTP Last-Modified and SHOULD have the same value on a [read](http.html#read) interaction. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "lastUpdated")]
     pub last_updated: Option<Instant>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_lastUpdated")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub last_updated_ext: Option<FieldExtension>,
     /** **Identifies where the resource comes from**
 
@@ -9339,21 +7539,13 @@ pub struct MetaInner {
 
 This element can be used to indicate where the current master source of a resource that has a canonical URL if the resource is no longer hosted at the canonical URL. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Identifies where the resource comes from** \n\n A uri that identifies the source system of the resource. This provides a minimal amount of [Provenance](provenance.html#) information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc. \n\n The exact use of the source (and the possible implied Provenance.entity.role and agent.role) is left to implementer discretion. Only one nominated source is allowed; for additional provenance details, a full Provenance resource should be used. The source may correspond to Provenance.entity.what[x] or Provenance.agent.who[x], though it may be a more general or abstract reference. \n\nThis element can be used to indicate where the current master source of a resource that has a canonical URL if the resource is no longer hosted at the canonical URL. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "source")]
     pub source: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_source")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub source_ext: Option<FieldExtension>,
     /** **Profiles this resource claims to conform to**
 
@@ -9361,21 +7553,13 @@ This element can be used to indicate where the current master source of a resour
 
  It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Profiles this resource claims to conform to** \n\n A list of profiles (references to [StructureDefinition](structuredefinition.html#) resources) that this resource claims to conform to. The URL is a reference to [StructureDefinition.url](structuredefinition-definitions.html#StructureDefinition.url). \n\n It is up to the server and/or other infrastructure of policy to determine whether/how these claims are verified and/or updated over time.  The list of profile URLs is a set. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "profile")]
     pub profile: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_profile")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub profile_ext: Vec<Option<FieldExtension>>,
     /** **[SecurityLabels](http://hl7.org/fhir/ValueSet/security-labels); Security Labels applied to this resource**
 
@@ -9383,21 +7567,13 @@ This element can be used to indicate where the current master source of a resour
 
  The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[SecurityLabels](http://hl7.org/fhir/ValueSet/security-labels); Security Labels applied to this resource** \n\n Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure. \n\n The security labels can be updated without changing the stated version of the resource. The list of security labels is a set. Uniqueness is based the system/code, and version and display are ignored. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "security")]
     pub security: Vec<Option<Coding>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_security")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub security_ext: Vec<Option<FieldExtension>>,
     /** **[Tags](http://hl7.org/fhir/ValueSet/common-tags); Tags applied to this resource**
 
@@ -9405,22 +7581,21 @@ This element can be used to indicate where the current master source of a resour
 
  The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[Tags](http://hl7.org/fhir/ValueSet/common-tags); Tags applied to this resource** \n\n Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource. \n\n The tags can be updated without changing the stated version of the resource. The list of tags is a set. Uniqueness is based the system/code, and version and display are ignored. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "tag")]
     pub tag: Vec<Option<Coding>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_tag")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub tag_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl MetaBuilder {
+    #[doc = concat!("Finalize building ", "Meta", ".")]
+    pub fn build(self) -> Result<Meta, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<MetaInner> for Meta {
     fn from(inner: MetaInner) -> Self {
@@ -9441,8 +7616,9 @@ impl ::core::ops::DerefMut for Meta {
 impl Meta {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> MetaBuilder {
-        MetaInner::builder()
+        MetaBuilder::default()
     }
 }
 /** MonetaryComponent Type: Availability data for an {item}.
@@ -9467,15 +7643,14 @@ pub struct MonetaryComponent(pub Box<MonetaryComponentInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = MonetaryComponentBuilder),
-        build_method(into = MonetaryComponent),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "MonetaryComponentBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct MonetaryComponentInner {
@@ -9485,15 +7660,7 @@ pub struct MonetaryComponentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -9502,15 +7669,7 @@ pub struct MonetaryComponentInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[PriceComponentType](http://hl7.org/fhir/ValueSet/price-component-type); base | surcharge | deduction | discount | tax | informational**
@@ -9523,7 +7682,7 @@ pub struct MonetaryComponentInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **[PriceComponentCode](); Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.**
 
@@ -9531,21 +7690,13 @@ pub struct MonetaryComponentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[PriceComponentCode](); Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.** \n\n Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
     /** **Factor used for calculating this component**
 
@@ -9553,21 +7704,13 @@ pub struct MonetaryComponentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Factor used for calculating this component** \n\n Factor used for calculating this component. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "factor")]
     pub factor: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_factor")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub factor_ext: Option<FieldExtension>,
     /** **Explicit value amount to be used**
 
@@ -9575,22 +7718,21 @@ pub struct MonetaryComponentInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Explicit value amount to be used** \n\n Explicit value amount to be used. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "amount")]
     pub amount: Option<Money>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_amount")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub amount_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl MonetaryComponentBuilder {
+    #[doc = concat!("Finalize building ", "MonetaryComponent", ".")]
+    pub fn build(self) -> Result<MonetaryComponent, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<MonetaryComponentInner> for MonetaryComponent {
     fn from(inner: MonetaryComponentInner) -> Self {
@@ -9611,8 +7753,9 @@ impl ::core::ops::DerefMut for MonetaryComponent {
 impl MonetaryComponent {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> MonetaryComponentBuilder {
-        MonetaryComponentInner::builder()
+        MonetaryComponentBuilder::default()
     }
 }
 /** Money Type: An amount of economic utility in some recognized currency.
@@ -9637,15 +7780,14 @@ pub struct Money(pub Box<MoneyInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = MoneyBuilder),
-        build_method(into = Money),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "MoneyBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct MoneyInner {
@@ -9655,15 +7797,7 @@ pub struct MoneyInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -9672,15 +7806,7 @@ pub struct MoneyInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -9689,21 +7815,13 @@ pub struct MoneyInner {
 
  Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n Numerical value (with implicit precision). \n\n Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_value")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<FieldExtension>,
     /** **[CurrencyCode](http://hl7.org/fhir/ValueSet/currencies); ISO 4217 Currency Code**
 
@@ -9711,22 +7829,21 @@ pub struct MoneyInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[CurrencyCode](http://hl7.org/fhir/ValueSet/currencies); ISO 4217 Currency Code** \n\n ISO 4217 Currency Code. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "currency")]
     pub currency: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_currency")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub currency_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl MoneyBuilder {
+    #[doc = concat!("Finalize building ", "Money", ".")]
+    pub fn build(self) -> Result<Money, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<MoneyInner> for Money {
     fn from(inner: MoneyInner) -> Self {
@@ -9747,8 +7864,9 @@ impl ::core::ops::DerefMut for Money {
 impl Money {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> MoneyBuilder {
-        MoneyInner::builder()
+        MoneyBuilder::default()
     }
 }
 /** Narrative Type: A human-readable summary of the resource conveying the essential clinical and business information for the resource.
@@ -9773,15 +7891,14 @@ pub struct Narrative(pub Box<NarrativeInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = NarrativeBuilder),
-        build_method(into = Narrative),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "NarrativeBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct NarrativeInner {
@@ -9791,15 +7908,7 @@ pub struct NarrativeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -9808,15 +7917,7 @@ pub struct NarrativeInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[NarrativeStatus](http://hl7.org/fhir/ValueSet/narrative-status); generated | extensions | additional | empty**
@@ -9829,7 +7930,7 @@ pub struct NarrativeInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_status")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub status_ext: Option<FieldExtension>,
     /** **Limited xhtml content**
 
@@ -9841,8 +7942,15 @@ pub struct NarrativeInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_div")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub div_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl NarrativeBuilder {
+    #[doc = concat!("Finalize building ", "Narrative", ".")]
+    pub fn build(self) -> Result<Narrative, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<NarrativeInner> for Narrative {
     fn from(inner: NarrativeInner) -> Self {
@@ -9863,8 +7971,9 @@ impl ::core::ops::DerefMut for Narrative {
 impl Narrative {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> NarrativeBuilder {
-        NarrativeInner::builder()
+        NarrativeBuilder::default()
     }
 }
 /** ParameterDefinition Type: The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.
@@ -9889,15 +7998,14 @@ pub struct ParameterDefinition(pub Box<ParameterDefinitionInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ParameterDefinitionBuilder),
-        build_method(into = ParameterDefinition),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ParameterDefinitionBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ParameterDefinitionInner {
@@ -9907,15 +8015,7 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -9924,15 +8024,7 @@ pub struct ParameterDefinitionInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Name used to access the parameter value**
@@ -9941,21 +8033,13 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name used to access the parameter value** \n\n The name of the parameter used to allow access to the value of the parameter in evaluation contexts. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_name")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub name_ext: Option<FieldExtension>,
     /** **[ParameterUse](http://hl7.org/fhir/ValueSet/operation-parameter-use); in | out**
 
@@ -9967,7 +8051,7 @@ pub struct ParameterDefinitionInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_use")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#use_ext: Option<FieldExtension>,
     /** **Minimum cardinality**
 
@@ -9975,21 +8059,13 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Minimum cardinality** \n\n The minimum number of times this parameter SHALL appear in the request or response. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "min")]
     pub min: Option<i32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_min")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub min_ext: Option<FieldExtension>,
     /** **Maximum cardinality (a number of *)**
 
@@ -9997,21 +8073,13 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Maximum cardinality (a number of *)** \n\n The maximum number of times this element is permitted to appear in the request or response. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "max")]
     pub max: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_max")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_ext: Option<FieldExtension>,
     /** **A brief description of the parameter**
 
@@ -10019,21 +8087,13 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **A brief description of the parameter** \n\n A brief discussion of what the parameter is for and how it is used by the module. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "documentation")]
     pub documentation: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_documentation")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub documentation_ext: Option<FieldExtension>,
     /** **[FHIRTypes](http://hl7.org/fhir/ValueSet/fhir-types); What type of value**
 
@@ -10045,7 +8105,7 @@ pub struct ParameterDefinitionInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **What profile the value is expected to be**
 
@@ -10053,22 +8113,21 @@ pub struct ParameterDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What profile the value is expected to be** \n\n If specified, this indicates a profile that the input data must conform to, or that the output data will conform to. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "profile")]
     pub profile: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_profile")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub profile_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ParameterDefinitionBuilder {
+    #[doc = concat!("Finalize building ", "ParameterDefinition", ".")]
+    pub fn build(self) -> Result<ParameterDefinition, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ParameterDefinitionInner> for ParameterDefinition {
     fn from(inner: ParameterDefinitionInner) -> Self {
@@ -10089,8 +8148,9 @@ impl ::core::ops::DerefMut for ParameterDefinition {
 impl ParameterDefinition {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ParameterDefinitionBuilder {
-        ParameterDefinitionInner::builder()
+        ParameterDefinitionBuilder::default()
     }
 }
 /** Period Type: A time period defined by a start and end date and optionally time.
@@ -10119,15 +8179,14 @@ pub struct Period(pub Box<PeriodInner>);
 
 Period is not used for a duration (a measure of elapsed time). See [Duration](datatypes.html#Duration). */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = PeriodBuilder),
-        build_method(into = Period),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "PeriodBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct PeriodInner {
@@ -10137,15 +8196,7 @@ pub struct PeriodInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -10154,15 +8205,7 @@ pub struct PeriodInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Starting time with inclusive boundary**
@@ -10171,21 +8214,13 @@ pub struct PeriodInner {
 
  If the low element is missing, the meaning is that the low boundary is not known. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Starting time with inclusive boundary** \n\n The start of the period. The boundary is inclusive. \n\n If the low element is missing, the meaning is that the low boundary is not known. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "start")]
     pub start: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_start")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub start_ext: Option<FieldExtension>,
     /** **End time with inclusive boundary, if not ongoing**
 
@@ -10193,22 +8228,21 @@ pub struct PeriodInner {
 
  The end value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **End time with inclusive boundary, if not ongoing** \n\n The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time. \n\n The end value includes any matching date/time. i.e. 2012-02-03T10:00:00 is in a period that has an end value of 2012-02-03. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "end")]
     pub end: Option<DateTime>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_end")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub end_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl PeriodBuilder {
+    #[doc = concat!("Finalize building ", "Period", ".")]
+    pub fn build(self) -> Result<Period, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<PeriodInner> for Period {
     fn from(inner: PeriodInner) -> Self {
@@ -10229,8 +8263,9 @@ impl ::core::ops::DerefMut for Period {
 impl Period {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> PeriodBuilder {
-        PeriodInner::builder()
+        PeriodBuilder::default()
     }
 }
 /** ProductShelfLife Type: The shelf-life and storage information for a medicinal product item or container can be described using this class.
@@ -10255,15 +8290,14 @@ pub struct ProductShelfLife(pub Box<ProductShelfLifeInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ProductShelfLifeBuilder),
-        build_method(into = ProductShelfLife),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ProductShelfLifeBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ProductShelfLifeInner {
@@ -10273,15 +8307,7 @@ pub struct ProductShelfLifeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -10290,15 +8316,7 @@ pub struct ProductShelfLifeInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Extensions that cannot be ignored even if unrecognized**
@@ -10309,15 +8327,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Extensions that cannot be ignored even if unrecognized** \n\n May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "modifierExtension")]
     pub modifier_extension: Vec<Extension>,
     /** **This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified**
@@ -10326,21 +8336,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified** \n\n This describes the shelf life, taking into account various scenarios such as shelf life of the packaged Medicinal Product itself, shelf life after transformation where necessary and shelf life after the first opening of a bottle, etc. The shelf life type shall be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used**
 
@@ -10348,21 +8350,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used** \n\n The shelf life time period can be specified using a numerical value for the period of time and its unit of time measurement The unit of measurement shall be specified in accordance with ISO 11240 and the resulting terminology The symbol and the symbol identifier shall be used. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub period: Option<ProductShelfLifePeriod>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<ProductShelfLifePeriodExtension>,
     /** **Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified**
 
@@ -10370,22 +8364,21 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified** \n\n Special precautions for storage, if any, can be specified using an appropriate controlled vocabulary The controlled term and the controlled term identifier shall be specified. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "specialPrecautionsForStorage")]
     pub special_precautions_for_storage: Vec<Option<CodeableConcept>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_specialPrecautionsForStorage")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub special_precautions_for_storage_ext: Vec<Option<FieldExtension>>,
+}
+#[cfg(feature = "builders")]
+impl ProductShelfLifeBuilder {
+    #[doc = concat!("Finalize building ", "ProductShelfLife", ".")]
+    pub fn build(self) -> Result<ProductShelfLife, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ProductShelfLifeInner> for ProductShelfLife {
     fn from(inner: ProductShelfLifeInner) -> Self {
@@ -10406,8 +8399,9 @@ impl ::core::ops::DerefMut for ProductShelfLife {
 impl ProductShelfLife {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ProductShelfLifeBuilder {
-        ProductShelfLifeInner::builder()
+        ProductShelfLifeBuilder::default()
     }
 }
 /// Choice of types for the period[x] field in ProductShelfLife
@@ -10454,15 +8448,14 @@ pub struct Quantity(pub Box<QuantityInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = QuantityBuilder),
-        build_method(into = Quantity),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "QuantityBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct QuantityInner {
@@ -10472,15 +8465,7 @@ pub struct QuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -10489,15 +8474,7 @@ pub struct QuantityInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -10506,21 +8483,13 @@ pub struct QuantityInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_value")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<FieldExtension>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
 
@@ -10528,21 +8497,13 @@ pub struct QuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_comparator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub comparator_ext: Option<FieldExtension>,
     /** **Unit representation**
 
@@ -10550,21 +8511,13 @@ pub struct QuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_unit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub unit_ext: Option<FieldExtension>,
     /** **System that defines coded unit form**
 
@@ -10572,21 +8525,13 @@ pub struct QuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_system")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub system_ext: Option<FieldExtension>,
     /** **Coded form of the unit**
 
@@ -10594,22 +8539,21 @@ pub struct QuantityInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl QuantityBuilder {
+    #[doc = concat!("Finalize building ", "Quantity", ".")]
+    pub fn build(self) -> Result<Quantity, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<QuantityInner> for Quantity {
     fn from(inner: QuantityInner) -> Self {
@@ -10630,8 +8574,9 @@ impl ::core::ops::DerefMut for Quantity {
 impl Quantity {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> QuantityBuilder {
-        QuantityInner::builder()
+        QuantityBuilder::default()
     }
 }
 /** Range Type: A set of ordered Quantities defined by a low and high limit.
@@ -10656,15 +8601,14 @@ pub struct Range(pub Box<RangeInner>);
 
  The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = RangeBuilder),
-        build_method(into = Range),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "RangeBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct RangeInner {
@@ -10674,15 +8618,7 @@ pub struct RangeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -10691,15 +8627,7 @@ pub struct RangeInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Low limit**
@@ -10708,21 +8636,13 @@ pub struct RangeInner {
 
  If the low element is missing, the low boundary is not known. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Low limit** \n\n The low limit. The boundary is inclusive. \n\n If the low element is missing, the low boundary is not known. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "low")]
     pub low: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_low")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub low_ext: Option<FieldExtension>,
     /** **High limit**
 
@@ -10730,22 +8650,21 @@ pub struct RangeInner {
 
  If the high element is missing, the high boundary is not known. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **High limit** \n\n The high limit. The boundary is inclusive. \n\n If the high element is missing, the high boundary is not known. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "high")]
     pub high: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_high")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub high_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl RangeBuilder {
+    #[doc = concat!("Finalize building ", "Range", ".")]
+    pub fn build(self) -> Result<Range, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<RangeInner> for Range {
     fn from(inner: RangeInner) -> Self {
@@ -10766,8 +8685,9 @@ impl ::core::ops::DerefMut for Range {
 impl Range {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> RangeBuilder {
-        RangeInner::builder()
+        RangeBuilder::default()
     }
 }
 /** Ratio Type: A relationship of two Quantity values - expressed as a numerator and a denominator.
@@ -10792,15 +8712,14 @@ pub struct Ratio(pub Box<RatioInner>);
 
  The Ratio datatype should only be used to express a relationship of two numbers if the relationship cannot be suitably expressed using a Quantity and a common unit.  Where the denominator value is known to be fixed to "1", Quantity should be used instead of Ratio. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = RatioBuilder),
-        build_method(into = Ratio),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "RatioBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct RatioInner {
@@ -10810,15 +8729,7 @@ pub struct RatioInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -10827,15 +8738,7 @@ pub struct RatioInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerator value**
@@ -10844,19 +8747,13 @@ pub struct RatioInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(doc = " **Numerator value** \n\n The value of the numerator. \n\n ")
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "numerator")]
     pub numerator: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_numerator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub numerator_ext: Option<FieldExtension>,
     /** **Denominator value**
 
@@ -10864,22 +8761,21 @@ pub struct RatioInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Denominator value** \n\n The value of the denominator. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "denominator")]
     pub denominator: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_denominator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub denominator_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl RatioBuilder {
+    #[doc = concat!("Finalize building ", "Ratio", ".")]
+    pub fn build(self) -> Result<Ratio, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<RatioInner> for Ratio {
     fn from(inner: RatioInner) -> Self {
@@ -10900,8 +8796,9 @@ impl ::core::ops::DerefMut for Ratio {
 impl Ratio {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> RatioBuilder {
-        RatioInner::builder()
+        RatioBuilder::default()
     }
 }
 /** RatioRange Type: A range of ratios expressed as a low and high numerator and a denominator.
@@ -10926,15 +8823,14 @@ pub struct RatioRange(pub Box<RatioRangeInner>);
 
  The stated low and high value are assumed to have arbitrarily high precision when it comes to determining which values are in the range. I.e. 1.99 is not in the range 2 -> 3. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = RatioRangeBuilder),
-        build_method(into = RatioRange),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "RatioRangeBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct RatioRangeInner {
@@ -10944,15 +8840,7 @@ pub struct RatioRangeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -10961,15 +8849,7 @@ pub struct RatioRangeInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Low Numerator limit**
@@ -10978,21 +8858,13 @@ pub struct RatioRangeInner {
 
  If the low element is missing, the low boundary is not known. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Low Numerator limit** \n\n The value of the low limit numerator. \n\n If the low element is missing, the low boundary is not known. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "lowNumerator")]
     pub low_numerator: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_lowNumerator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub low_numerator_ext: Option<FieldExtension>,
     /** **High Numerator limit**
 
@@ -11000,21 +8872,13 @@ pub struct RatioRangeInner {
 
  If the high element is missing, the high boundary is not known. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **High Numerator limit** \n\n The value of the high limit numerator. \n\n If the high element is missing, the high boundary is not known. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "highNumerator")]
     pub high_numerator: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_highNumerator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub high_numerator_ext: Option<FieldExtension>,
     /** **Denominator value**
 
@@ -11022,22 +8886,21 @@ pub struct RatioRangeInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Denominator value** \n\n The value of the denominator. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "denominator")]
     pub denominator: Option<Quantity>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_denominator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub denominator_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl RatioRangeBuilder {
+    #[doc = concat!("Finalize building ", "RatioRange", ".")]
+    pub fn build(self) -> Result<RatioRange, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<RatioRangeInner> for RatioRange {
     fn from(inner: RatioRangeInner) -> Self {
@@ -11058,8 +8921,9 @@ impl ::core::ops::DerefMut for RatioRange {
 impl RatioRange {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> RatioRangeBuilder {
-        RatioRangeInner::builder()
+        RatioRangeBuilder::default()
     }
 }
 /** Reference Type: A reference from one resource to another.
@@ -11084,15 +8948,14 @@ pub struct Reference(pub Box<ReferenceInner>);
 
  References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (allowing for access control, temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL and looking it up in a local registry/repository. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = ReferenceBuilder),
-        build_method(into = Reference),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "ReferenceBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct ReferenceInner {
@@ -11102,15 +8965,7 @@ pub struct ReferenceInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -11119,15 +8974,7 @@ pub struct ReferenceInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Literal reference, Relative, internal or absolute URL**
@@ -11136,21 +8983,13 @@ pub struct ReferenceInner {
 
  Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure "[type]/[id]" then it should be assumed that the reference is to a FHIR RESTful server. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Literal reference, Relative, internal or absolute URL** \n\n A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources. \n\n Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the URL conforms to the structure \"[type]/[id]\" then it should be assumed that the reference is to a FHIR RESTful server. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "reference")]
     pub reference: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_reference")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub reference_ext: Option<FieldExtension>,
     /** **[FHIRResourceTypeExt](http://hl7.org/fhir/ValueSet/resource-types); Type the reference refers to (e.g. "Patient") - must be a resource in resources**
 
@@ -11160,21 +8999,13 @@ The type is the Canonical URL of Resource Definition that is the type this refer
 
  This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a known RESTful URL) or by resolving the target of the reference. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[FHIRResourceTypeExt](http://hl7.org/fhir/ValueSet/resource-types); Type the reference refers to (e.g. \"Patient\") - must be a resource in resources** \n\n The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources). \n\n This element is used to indicate the type of  the target of the reference. This may be used which ever of the other elements are populated (or not). In some cases, the type of the target may be determined by inspection of the reference (e.g. a known RESTful URL) or by resolving the target of the reference. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **Logical reference, when literal reference is not known**
 
@@ -11190,21 +9021,13 @@ Reference is intended to point to a structure that can potentially be expressed 
 
 This element only allows for a single identifier. In the case where additional identifers are required, use the [http://hl7.org/fhir/StructureDefinition/additionalIdentifier](http://hl7.org/fhir/extensions/StructureDefinition-additionalIdentifier.html) extension. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Logical reference, when literal reference is not known** \n\n An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference. \n\n When an identifier is provided in place of a reference, any system processing the reference will only be able to resolve the identifier to a reference if it understands the business context in which the identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. For this reason, none of the useful mechanisms described for working with references (e.g. chaining, includes) are possible, nor should servers be expected to be able resolve the reference. Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see CapabilityStatement.rest.resource.referencePolicy. \n\nWhen both an identifier and a literal reference are provided, the literal reference is preferred. Applications processing the resource are allowed - but not required - to check that the identifier matches the literal reference\n\nApplications converting a logical reference to a literal reference may choose to leave the logical reference present, or remove it.\n\nReference is intended to point to a structure that can potentially be expressed as a FHIR resource, though there is no need for it to exist as an actual FHIR resource instance - except in as much as an application wishes to actual find the target of the reference. The content referred to be the identifier must meet the logical constraints implied by any limitations on what resource types are permitted for the reference.  For example, it would not be legitimate to send the identifier for a drug prescription if the type were Reference(Observation|DiagnosticReport).  One of the use-cases for Reference.identifier is the situation where no FHIR representation exists (where the type is Reference (Any).\n\nThis element only allows for a single identifier. In the case where additional identifers are required, use the [http://hl7.org/fhir/StructureDefinition/additionalIdentifier](http://hl7.org/fhir/extensions/StructureDefinition-additionalIdentifier.html) extension. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "identifier")]
     pub identifier: Option<Identifier>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_identifier")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub identifier_ext: Option<FieldExtension>,
     /** **Text alternative for the resource**
 
@@ -11212,22 +9035,21 @@ This element only allows for a single identifier. In the case where additional i
 
  This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Text alternative for the resource** \n\n Plain text narrative that identifies the resource in addition to the resource reference. \n\n This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what's being referenced, not to fully describe it. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "display")]
     pub display: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_display")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub display_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl ReferenceBuilder {
+    #[doc = concat!("Finalize building ", "Reference", ".")]
+    pub fn build(self) -> Result<Reference, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<ReferenceInner> for Reference {
     fn from(inner: ReferenceInner) -> Self {
@@ -11248,8 +9070,9 @@ impl ::core::ops::DerefMut for Reference {
 impl Reference {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> ReferenceBuilder {
-        ReferenceInner::builder()
+        ReferenceBuilder::default()
     }
 }
 /** RelatedArtifact Type: Related artifacts such as additional documentation, justification, or bibliographic references.
@@ -11274,15 +9097,14 @@ pub struct RelatedArtifact(pub Box<RelatedArtifactInner>);
 
  Each related artifact is either an attachment, or a reference to another knowledge resource, but not both. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = RelatedArtifactBuilder),
-        build_method(into = RelatedArtifact),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "RelatedArtifactBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct RelatedArtifactInner {
@@ -11292,15 +9114,7 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -11309,15 +9123,7 @@ pub struct RelatedArtifactInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[RelatedArtifactType](http://hl7.org/fhir/ValueSet/related-artifact-type); documentation | justification | citation | predecessor | successor | derived-from | depends-on | composed-of | part-of | amends | amended-with | appends | appended-with | cites | cited-by | comments-on | comment-in | contains | contained-in | corrects | correction-in | replaces | replaced-with | retracts | retracted-by | signs | similar-to | supports | supported-with | transforms | transformed-into | transformed-with | documents | specification-of | created-with | cite-as**
@@ -11330,7 +9136,7 @@ pub struct RelatedArtifactInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **[RelatedArtifactClassifier](http://hl7.org/fhir/ValueSet/citation-artifact-classifier); Additional classifiers**
 
@@ -11338,21 +9144,13 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[RelatedArtifactClassifier](http://hl7.org/fhir/ValueSet/citation-artifact-classifier); Additional classifiers** \n\n Provides additional classifiers of the related artifact. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "classifier")]
     pub classifier: Vec<Option<CodeableConcept>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_classifier")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub classifier_ext: Vec<Option<FieldExtension>>,
     /** **Short label**
 
@@ -11360,21 +9158,13 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Short label** \n\n A short label that can be used to reference the citation from elsewhere in the containing artifact, such as a footnote index. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "label")]
     pub label: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_label")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub label_ext: Option<FieldExtension>,
     /** **Brief description of the related artifact**
 
@@ -11382,21 +9172,13 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Brief description of the related artifact** \n\n A brief description of the document or knowledge resource being referenced, suitable for display to a consumer. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "display")]
     pub display: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_display")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub display_ext: Option<FieldExtension>,
     /** **Bibliographic citation for the artifact**
 
@@ -11404,21 +9186,13 @@ pub struct RelatedArtifactInner {
 
  Additional structured information about citations should be captured as extensions. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Bibliographic citation for the artifact** \n\n A bibliographic citation for the related artifact. This text SHOULD be formatted according to an accepted citation format. \n\n Additional structured information about citations should be captured as extensions. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "citation")]
     pub citation: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_citation")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub citation_ext: Option<FieldExtension>,
     /** **What document is being referenced**
 
@@ -11426,21 +9200,13 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What document is being referenced** \n\n The document being referenced, represented as an attachment. This is exclusive with the resource element. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "document")]
     pub document: Option<Attachment>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_document")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub document_ext: Option<FieldExtension>,
     /** **What artifact is being referenced**
 
@@ -11448,21 +9214,13 @@ pub struct RelatedArtifactInner {
 
  If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What artifact is being referenced** \n\n The related artifact, such as a library, value set, profile, or other knowledge resource. \n\n If the type is predecessor, this is a reference to the succeeding knowledge resource. If the type is successor, this is a reference to the prior knowledge resource. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "resource")]
     pub resource: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_resource")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub resource_ext: Option<FieldExtension>,
     /** **What artifact, if not a conformance resource**
 
@@ -11470,21 +9228,13 @@ pub struct RelatedArtifactInner {
 
  If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What artifact, if not a conformance resource** \n\n The related artifact, if the artifact is not a canonical resource, or a resource reference to a canonical resource. \n\n If both resource and resourceReference are present, they SHOULD be consistent and reference the same resource. Although relatedArtifact is intended to support references to definitional resources, there are cases where non-definitional resources can be definitional (such as Location where the kind is mode). Related artifacts SHOULD be used to reference definitional resources, and profiles SHOULD be used to make that explicit for particular use cases. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "resourceReference")]
     pub resource_reference: Option<Reference>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_resourceReference")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub resource_reference_ext: Option<FieldExtension>,
     /** **[RelatedArtifactPublicationStatus](http://hl7.org/fhir/ValueSet/publication-status); draft | active | retired | unknown**
 
@@ -11492,21 +9242,13 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[RelatedArtifactPublicationStatus](http://hl7.org/fhir/ValueSet/publication-status); draft | active | retired | unknown** \n\n The publication status of the artifact being referred to. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "publicationStatus")]
     pub publication_status: Option<codes::PublicationStatus>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_publicationStatus")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub publication_status_ext: Option<FieldExtension>,
     /** **Date of publication of the artifact being referred to**
 
@@ -11514,22 +9256,21 @@ pub struct RelatedArtifactInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Date of publication of the artifact being referred to** \n\n The date of publication of the artifact being referred to. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "publicationDate")]
     pub publication_date: Option<Date>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_publicationDate")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub publication_date_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl RelatedArtifactBuilder {
+    #[doc = concat!("Finalize building ", "RelatedArtifact", ".")]
+    pub fn build(self) -> Result<RelatedArtifact, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<RelatedArtifactInner> for RelatedArtifact {
     fn from(inner: RelatedArtifactInner) -> Self {
@@ -11550,8 +9291,9 @@ impl ::core::ops::DerefMut for RelatedArtifact {
 impl RelatedArtifact {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> RelatedArtifactBuilder {
-        RelatedArtifactInner::builder()
+        RelatedArtifactBuilder::default()
     }
 }
 /** SampledData Type: A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
@@ -11576,15 +9318,14 @@ pub struct SampledData(pub Box<SampledDataInner>);
 
  The data is not interpretable without at least origin, period, and dimensions, but these are optional to allow a separation between the template of measurement and the actual measurement, such as between DeviceCapabilities and DeviceLog.  When providing a summary view (for example with Observation.value[x]) SampledData should be represented with a brief display text such as "Sampled Data". */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = SampledDataBuilder),
-        build_method(into = SampledData),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "SampledDataBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct SampledDataInner {
@@ -11594,15 +9335,7 @@ pub struct SampledDataInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -11611,15 +9344,7 @@ pub struct SampledDataInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Zero value and units**
@@ -11632,7 +9357,7 @@ pub struct SampledDataInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_origin")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub origin_ext: Option<FieldExtension>,
     /** **Number of intervalUnits between samples**
 
@@ -11640,21 +9365,13 @@ pub struct SampledDataInner {
 
  This is usually a whole number. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Number of intervalUnits between samples** \n\n Amount of intervalUnits between samples, e.g. milliseconds for time-based sampling. \n\n This is usually a whole number. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "interval")]
     pub interval: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_interval")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub interval_ext: Option<FieldExtension>,
     /** **[Units](http://hl7.org/fhir/ValueSet/ucum-units); The measurement unit of the interval between samples**
 
@@ -11666,7 +9383,7 @@ pub struct SampledDataInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_intervalUnit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub interval_unit_ext: Option<FieldExtension>,
     /** **Multiply data by this before adding to origin**
 
@@ -11674,21 +9391,13 @@ pub struct SampledDataInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Multiply data by this before adding to origin** \n\n A correction factor that is applied to the sampled data points before they are added to the origin. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "factor")]
     pub factor: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_factor")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub factor_ext: Option<FieldExtension>,
     /** **Lower limit of detection**
 
@@ -11696,21 +9405,13 @@ pub struct SampledDataInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Lower limit of detection** \n\n The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "lowerLimit")]
     pub lower_limit: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_lowerLimit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub lower_limit_ext: Option<FieldExtension>,
     /** **Upper limit of detection**
 
@@ -11718,21 +9419,13 @@ pub struct SampledDataInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Upper limit of detection** \n\n The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "upperLimit")]
     pub upper_limit: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_upperLimit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub upper_limit_ext: Option<FieldExtension>,
     /** **Number of sample points at each time point**
 
@@ -11744,7 +9437,7 @@ pub struct SampledDataInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_dimensions")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub dimensions_ext: Option<FieldExtension>,
     /** **Defines the codes used in the data**
 
@@ -11752,21 +9445,13 @@ pub struct SampledDataInner {
 
  The ConceptMap cannot define meanings for the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l'). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Defines the codes used in the data** \n\n Reference to ConceptMap that defines the codes used in the data. \n\n The ConceptMap cannot define meanings for the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l'). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "codeMap")]
     pub code_map: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_codeMap")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_map_ext: Option<FieldExtension>,
     /** **Offsets, typically in time, at which data values were taken**
 
@@ -11774,21 +9459,13 @@ pub struct SampledDataInner {
 
  If offsets is present, the number of data points must be equal to the number of offsets mlutipled by the dimensions. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Offsets, typically in time, at which data values were taken** \n\n A series of data points which are decimal values separated by a single space (character u20).  The units in which the offsets are expressed are found in intervalUnit.  The absolute point at which the measurements begin SHALL be conveyed outside the scope of this datatype, e.g. Observation.effectiveDateTime for a timing offset. \n\n If offsets is present, the number of data points must be equal to the number of offsets mlutipled by the dimensions. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "offsets")]
     pub offsets: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_offsets")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub offsets_ext: Option<FieldExtension>,
     /** **Decimal values with spaces, or "E" | "U" | "L", or another code**
 
@@ -11796,22 +9473,21 @@ pub struct SampledDataInner {
 
  The data may be missing if it is omitted for summarization purposes. In general, data is required for any actual use of a SampledData. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Decimal values with spaces, or \"E\" | \"U\" | \"L\", or another code** \n\n A series of data points which are decimal values or codes separated by a single space (character u20). The special codes \"E\" (error), \"L\" (below detection limit) and \"U\" (above detection limit) are also defined for used in place of decimal values. \n\n The data may be missing if it is omitted for summarization purposes. In general, data is required for any actual use of a SampledData. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "data")]
     pub data: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_data")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub data_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl SampledDataBuilder {
+    #[doc = concat!("Finalize building ", "SampledData", ".")]
+    pub fn build(self) -> Result<SampledData, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<SampledDataInner> for SampledData {
     fn from(inner: SampledDataInner) -> Self {
@@ -11832,8 +9508,9 @@ impl ::core::ops::DerefMut for SampledData {
 impl SampledData {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> SampledDataBuilder {
-        SampledDataInner::builder()
+        SampledDataBuilder::default()
     }
 }
 /** Signature Type: A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.
@@ -11858,15 +9535,14 @@ pub struct Signature(pub Box<SignatureInner>);
 
  The elements of the Signature Resource are for ease of access of these elements. For digital signatures (Xml DigSig, JWS), the non-repudiation proof comes from the Signature  validation, which includes validation of the referenced objects (e.g. Resources) (a.k.a., Content) in the XML-Signature Detached form. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = SignatureBuilder),
-        build_method(into = Signature),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "SignatureBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct SignatureInner {
@@ -11876,15 +9552,7 @@ pub struct SignatureInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -11893,15 +9561,7 @@ pub struct SignatureInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[SignatureType](http://hl7.org/fhir/ValueSet/signature-type); Indication of the reason the entity signed the object(s)**
@@ -11910,21 +9570,13 @@ pub struct SignatureInner {
 
  Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[SignatureType](http://hl7.org/fhir/ValueSet/signature-type); Indication of the reason the entity signed the object(s)** \n\n An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document. \n\n Examples include attesting to: authorship, correct transcription, and witness of specific event. Also known as a &quot;Commitment Type Indication&quot;. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "type")]
     pub r#type: Vec<Option<Coding>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub r#type_ext: Vec<Option<FieldExtension>>,
     /** **When the signature was created**
 
@@ -11932,21 +9584,13 @@ pub struct SignatureInner {
 
  This should agree with the information in the signature. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **When the signature was created** \n\n When the digital signature was signed. \n\n This should agree with the information in the signature. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "when")]
     pub when: Option<Instant>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_when")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub when_ext: Option<FieldExtension>,
     /** **Who signed**
 
@@ -11954,21 +9598,13 @@ pub struct SignatureInner {
 
  This should agree with the information in the signature. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Who signed** \n\n A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key). \n\n This should agree with the information in the signature. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "who")]
     pub who: Option<Reference>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_who")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub who_ext: Option<FieldExtension>,
     /** **The party represented**
 
@@ -11976,21 +9612,13 @@ pub struct SignatureInner {
 
  The party that can't sign. For example a child. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The party represented** \n\n A reference to an application-usable description of the identity that is represented by the signature. \n\n The party that can't sign. For example a child. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "onBehalfOf")]
     pub on_behalf_of: Option<Reference>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_onBehalfOf")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub on_behalf_of_ext: Option<FieldExtension>,
     /** **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signed resources**
 
@@ -11998,39 +9626,23 @@ pub struct SignatureInner {
 
  "xml", "json" and "ttl" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signed resources** \n\n A mime type that indicates the technical format of the target resources signed by the signature. \n\n \"xml\", \"json\" and \"ttl\" are allowed, which describe the simple encodings described in the specification (and imply appropriate bundle support). Otherwise, mime types are legal here. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "targetFormat")]
     pub target_format: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_targetFormat")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub target_format_ext: Option<FieldExtension>,
     #[doc = " **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signature** \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "]
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[MimeType](http://hl7.org/fhir/ValueSet/mimetypes); The technical format of the signature** \n\n A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "sigFormat")]
     pub sig_format: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_sigFormat")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub sig_format_ext: Option<FieldExtension>,
     /** **The actual signature content (XML DigSig. JWS, picture, etc.)**
 
@@ -12038,22 +9650,21 @@ pub struct SignatureInner {
 
  Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) "Detached Signature" form. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The actual signature content (XML DigSig. JWS, picture, etc.)** \n\n The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty. \n\n Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) \"Detached Signature\" form. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "data")]
     pub data: Option<Base64Binary>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_data")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub data_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl SignatureBuilder {
+    #[doc = concat!("Finalize building ", "Signature", ".")]
+    pub fn build(self) -> Result<Signature, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<SignatureInner> for Signature {
     fn from(inner: SignatureInner) -> Self {
@@ -12074,8 +9685,9 @@ impl ::core::ops::DerefMut for Signature {
 impl Signature {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> SignatureBuilder {
-        SignatureInner::builder()
+        SignatureBuilder::default()
     }
 }
 /** Timing Type: Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.
@@ -12104,15 +9716,14 @@ pub struct Timing(pub Box<TimingInner>);
 
 A Timing schedule can be a list of events and/or criteria for when the event happens, which can be expressed in a structured form and/or as a code. When both event and a repeating specification are provided, the list of events should be understood as an interpretation of the information in the repeat structure. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = TimingBuilder),
-        build_method(into = Timing),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "TimingBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct TimingInner {
@@ -12122,15 +9733,7 @@ pub struct TimingInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -12139,15 +9742,7 @@ pub struct TimingInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Extensions that cannot be ignored even if unrecognized**
@@ -12158,15 +9753,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Extensions that cannot be ignored even if unrecognized** \n\n May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself). \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "modifierExtension")]
     pub modifier_extension: Vec<Extension>,
     /** **When the event occurs**
@@ -12175,21 +9762,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **When the event occurs** \n\n Identifies specific times when the event occurs. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "event")]
     pub event: Vec<Option<DateTime>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_event")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub event_ext: Vec<Option<FieldExtension>>,
     /** **When the event is to occur**
 
@@ -12197,21 +9776,13 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **When the event is to occur** \n\n A set of rules that describe when the event is scheduled. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "repeat")]
     pub repeat: Option<TimingRepeat>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_repeat")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub repeat_ext: Option<FieldExtension>,
     /** **[TimingAbbreviation](http://hl7.org/fhir/ValueSet/timing-abbreviation); C | BID | TID | QID | AM | PM | QD | QOD | +**
 
@@ -12219,22 +9790,21 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 
  BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[TimingAbbreviation](http://hl7.org/fhir/ValueSet/timing-abbreviation); C | BID | TID | QID | AM | PM | QD | QOD | +** \n\n A code for the timing schedule (or just text in code.text). Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code). \n\n BID etc. are defined as 'at institutionally specified times'. For example, an institution may choose that BID is \"always at 7am and 6pm\".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured representation should be used (in this case, specifying the two event times). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl TimingBuilder {
+    #[doc = concat!("Finalize building ", "Timing", ".")]
+    pub fn build(self) -> Result<Timing, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<TimingInner> for Timing {
     fn from(inner: TimingInner) -> Self {
@@ -12255,15 +9825,23 @@ impl ::core::ops::DerefMut for Timing {
 impl Timing {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> TimingBuilder {
-        TimingInner::builder()
+        TimingBuilder::default()
     }
 }
 /// Sub-fields of the repeat field in Timing
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "TimingRepeatBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct TimingRepeat {
     /** **Unique id for inter-element referencing**
 
@@ -12271,15 +9849,7 @@ pub struct TimingRepeat {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -12288,15 +9858,7 @@ pub struct TimingRepeat {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Length/Range of lengths, or (Start and/or end) limits**
@@ -12305,21 +9867,13 @@ pub struct TimingRepeat {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Length/Range of lengths, or (Start and/or end) limits** \n\n Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub bounds: Option<TimingRepeatBounds>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub bounds_ext: Option<TimingRepeatBoundsExtension>,
     /** **Number of times to repeat**
 
@@ -12327,21 +9881,13 @@ pub struct TimingRepeat {
 
  If you have both bounds and count, then this should be understood as within the bounds period, until count times happens. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Number of times to repeat** \n\n A total count of the desired number of repetitions across the duration of the entire timing specification. If countMax is present, this element indicates the lower bound of the allowed range of count values. \n\n If you have both bounds and count, then this should be understood as within the bounds period, until count times happens. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "count")]
     pub count: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_count")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub count_ext: Option<FieldExtension>,
     /** **Maximum number of times to repeat**
 
@@ -12349,21 +9895,13 @@ pub struct TimingRepeat {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Maximum number of times to repeat** \n\n If present, indicates that the count is a range - so to perform the action between [count] and [countMax] times. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "countMax")]
     pub count_max: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_countMax")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub count_max_ext: Option<FieldExtension>,
     /** **How long when it happens**
 
@@ -12371,21 +9909,13 @@ pub struct TimingRepeat {
 
  For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it's part of the timing specification (e.g. exercise). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **How long when it happens** \n\n How long this thing happens for when it happens. If durationMax is present, this element indicates the lower bound of the allowed range of the duration. \n\n For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it's part of the timing specification (e.g. exercise). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "duration")]
     pub duration: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_duration")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub duration_ext: Option<FieldExtension>,
     /** **How long when it happens (Max)**
 
@@ -12393,21 +9923,13 @@ pub struct TimingRepeat {
 
  For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it's part of the timing specification (e.g. exercise). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **How long when it happens (Max)** \n\n If present, indicates that the duration is a range - so to perform the action between [duration] and [durationMax] time length. \n\n For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it's part of the timing specification (e.g. exercise). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "durationMax")]
     pub duration_max: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_durationMax")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub duration_max_ext: Option<FieldExtension>,
     /** **[UnitsOfTime](http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM)**
 
@@ -12416,21 +9938,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[UnitsOfTime](http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM)** \n\n The units of time for the duration, in UCUM units\nNormal practice is to use the 'mo' code as a calendar month when calculating the next occurrence. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "durationUnit")]
     pub duration_unit: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_durationUnit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub duration_unit_ext: Option<FieldExtension>,
     /** **Indicates the number of repetitions that should occur within a period. I.e. Event occurs frequency times per period**
 
@@ -12438,21 +9952,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Indicates the number of repetitions that should occur within a period. I.e. Event occurs frequency times per period** \n\n The number of times to repeat the action within the specified period. If frequencyMax is present, this element indicates the lower bound of the allowed range of the frequency. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "frequency")]
     pub frequency: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_frequency")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub frequency_ext: Option<FieldExtension>,
     /** **Event occurs up to frequencyMax times per period**
 
@@ -12460,21 +9966,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Event occurs up to frequencyMax times per period** \n\n If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "frequencyMax")]
     pub frequency_max: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_frequencyMax")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub frequency_max_ext: Option<FieldExtension>,
     /** **The duration to which the frequency applies. I.e. Event occurs frequency times per period**
 
@@ -12482,21 +9980,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **The duration to which the frequency applies. I.e. Event occurs frequency times per period** \n\n Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period. If periodMax is present, this element indicates the lower bound of the allowed range of the period length. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "period")]
     pub period: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_period")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_ext: Option<FieldExtension>,
     /** **Upper limit of period (3-4 hours)**
 
@@ -12504,21 +9994,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Upper limit of period (3-4 hours)** \n\n If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3-5 days. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "periodMax")]
     pub period_max: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_periodMax")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_max_ext: Option<FieldExtension>,
     /** **[UnitsOfTime](http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM)**
 
@@ -12527,21 +10009,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[UnitsOfTime](http://hl7.org/fhir/ValueSet/units-of-time); s | min | h | d | wk | mo | a - unit of time (UCUM)** \n\n The units of time for the period in UCUM units\nNormal practice is to use the 'mo' code as a calendar month when calculating the next occurrence. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "periodUnit")]
     pub period_unit: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_periodUnit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub period_unit_ext: Option<FieldExtension>,
     /** **[DayOfWeek](http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun**
 
@@ -12549,21 +10023,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  If no days are specified, the action is assumed to happen every day as otherwise specified. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[DayOfWeek](http://hl7.org/fhir/ValueSet/days-of-week); mon | tue | wed | thu | fri | sat | sun** \n\n If one or more days of week is provided, then the action happens only on the specified day(s). \n\n If no days are specified, the action is assumed to happen every day as otherwise specified. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "dayOfWeek")]
     pub day_of_week: Vec<Option<codes::DaysOfWeek>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_dayOfWeek")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub day_of_week_ext: Vec<Option<FieldExtension>>,
     /** **Time of day for action**
 
@@ -12571,21 +10037,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  When time of day is specified, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. If there's a timeOfDay, there cannot be a when, or vice versa. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Time of day for action** \n\n Specified time of day for action to take place. \n\n When time of day is specified, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. If there's a timeOfDay, there cannot be a when, or vice versa. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "timeOfDay")]
     pub time_of_day: Vec<Option<Time>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_timeOfDay")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub time_of_day_ext: Vec<Option<FieldExtension>>,
     /** **[EventTiming](http://hl7.org/fhir/ValueSet/event-timing); Code for time period of occurrence**
 
@@ -12593,21 +10051,13 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  When more than one event is listed, the event is tied to the union of the specified events. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[EventTiming](http://hl7.org/fhir/ValueSet/event-timing); Code for time period of occurrence** \n\n An approximate time period during the day, potentially linked to an event of daily living that indicates when the action should occur. \n\n When more than one event is listed, the event is tied to the union of the specified events. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "when")]
     pub when: Vec<Option<codes::EventTiming>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_when")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub when_ext: Vec<Option<FieldExtension>>,
     /** **Minutes from event (before or after)**
 
@@ -12615,22 +10065,22 @@ Normal practice is to use the 'mo' code as a calendar month when calculating the
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Minutes from event (before or after)** \n\n The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "offset")]
     pub offset: Option<u32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_offset")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub offset_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl TimingRepeat {
+    ///Start building a new instance
+    #[must_use]
+    pub fn builder() -> TimingRepeatBuilder {
+        TimingRepeatBuilder::default()
+    }
 }
 /// Choice of types for the bounds[x] field in TimingRepeat
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -12682,15 +10132,14 @@ pub struct TriggerDefinition(pub Box<TriggerDefinitionInner>);
 
  If an event is a named-event, it means the event is completely pre-coordinated, and no other information can be specified for the event. If the event is one of the data- events, the data and condition elements specify the triggering criteria. The data element specifies the structured component, and the condition element provides additional optional refinement of that structured component. If the event is periodic, the timing element defines when the event is triggered. For both data- and periodic events, a name can be provided as a shorthand for the formal semantics provided by the other elements. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = TriggerDefinitionBuilder),
-        build_method(into = TriggerDefinition),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "TriggerDefinitionBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct TriggerDefinitionInner {
@@ -12700,15 +10149,7 @@ pub struct TriggerDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -12717,15 +10158,7 @@ pub struct TriggerDefinitionInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[TriggerType](http://hl7.org/fhir/ValueSet/trigger-type); named-event | periodic | data-changed | data-added | data-modified | data-removed | data-accessed | data-access-ended**
@@ -12738,7 +10171,7 @@ pub struct TriggerDefinitionInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_type")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub r#type_ext: Option<FieldExtension>,
     /** **Name or URI that identifies the event**
 
@@ -12746,21 +10179,13 @@ pub struct TriggerDefinitionInner {
 
  An event name can be provided for all event types, but is required for named events. If a name is provided for a type other than named events, it is considered to be a shorthand for the semantics described by the formal description of the event. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Name or URI that identifies the event** \n\n A formal name for the event. This may be an absolute URI that identifies the event formally (e.g. from a trigger registry), or a simple relative URI that identifies the event in a local context. \n\n An event name can be provided for all event types, but is required for named events. If a name is provided for a type other than named events, it is considered to be a shorthand for the semantics described by the formal description of the event. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "name")]
     pub name: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_name")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub name_ext: Option<FieldExtension>,
     /** **Coded definition of the event**
 
@@ -12768,21 +10193,13 @@ pub struct TriggerDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded definition of the event** \n\n A code that identifies the event. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<CodeableConcept>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
     /** **What event**
 
@@ -12790,21 +10207,13 @@ pub struct TriggerDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **What event** \n\n A reference to a SubscriptionTopic resource that defines the event. If this element is provided, no other information about the trigger definition may be supplied. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "subscriptionTopic")]
     pub subscription_topic: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_subscriptionTopic")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub subscription_topic_ext: Option<FieldExtension>,
     /** **Timing of the event**
 
@@ -12812,21 +10221,13 @@ pub struct TriggerDefinitionInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Timing of the event** \n\n The timing of the event (if this is a periodic trigger). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub timing: Option<TriggerDefinitionTiming>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub timing_ext: Option<TriggerDefinitionTimingExtension>,
     /** **Triggering data of the event (multiple = 'and')**
 
@@ -12834,21 +10235,13 @@ pub struct TriggerDefinitionInner {
 
  This element shall be present for any data type trigger. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Triggering data of the event (multiple = 'and')** \n\n The triggering data of the event (if this is a data trigger). If more than one data is requirement is specified, then all the data requirements must be true. \n\n This element shall be present for any data type trigger. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "data")]
     pub data: Vec<Option<DataRequirement>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_data")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub data_ext: Vec<Option<FieldExtension>>,
     /** **Whether the event triggers (boolean expression)**
 
@@ -12856,22 +10249,21 @@ pub struct TriggerDefinitionInner {
 
  This element can be only be specified for data type triggers and provides additional semantics for the trigger. The context available within the condition is based on the type of data event. For all events, the current resource will be available as context. In addition, for modification events, the previous resource will also be available. The expression may be inlined, or may be a simple absolute URI, which is a reference to a named expression within a logic library referenced by a library element or extension within the containing resource. If the expression is a FHIR Path expression, it evaluates in the context of a resource of one of the type identified in the data requirement, and may also refer to the variable %previous for delta comparisons on events of type data-changed, data-modified, and data-deleted which will always have the same type. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Whether the event triggers (boolean expression)** \n\n A boolean-valued expression that is evaluated in the context of the container of the trigger definition and returns whether or not the trigger fires. \n\n This element can be only be specified for data type triggers and provides additional semantics for the trigger. The context available within the condition is based on the type of data event. For all events, the current resource will be available as context. In addition, for modification events, the previous resource will also be available. The expression may be inlined, or may be a simple absolute URI, which is a reference to a named expression within a logic library referenced by a library element or extension within the containing resource. If the expression is a FHIR Path expression, it evaluates in the context of a resource of one of the type identified in the data requirement, and may also refer to the variable %previous for delta comparisons on events of type data-changed, data-modified, and data-deleted which will always have the same type. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "condition")]
     pub condition: Option<Expression>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_condition")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub condition_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl TriggerDefinitionBuilder {
+    #[doc = concat!("Finalize building ", "TriggerDefinition", ".")]
+    pub fn build(self) -> Result<TriggerDefinition, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<TriggerDefinitionInner> for TriggerDefinition {
     fn from(inner: TriggerDefinitionInner) -> Self {
@@ -12892,8 +10284,9 @@ impl ::core::ops::DerefMut for TriggerDefinition {
 impl TriggerDefinition {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> TriggerDefinitionBuilder {
-        TriggerDefinitionInner::builder()
+        TriggerDefinitionBuilder::default()
     }
 }
 /// Choice of types for the timing[x] field in TriggerDefinition
@@ -12952,15 +10345,14 @@ pub struct UsageContext(pub Box<UsageContextInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = UsageContextBuilder),
-        build_method(into = UsageContext),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "UsageContextBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct UsageContextInner {
@@ -12970,15 +10362,7 @@ pub struct UsageContextInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -12987,15 +10371,7 @@ pub struct UsageContextInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[UsageContextType](http://terminology.hl7.org/ValueSet/usage-context-type); Type of context being specified**
@@ -13008,7 +10384,7 @@ pub struct UsageContextInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
     /** **Value that defines the context**
 
@@ -13020,8 +10396,15 @@ pub struct UsageContextInner {
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<UsageContextValueExtension>,
+}
+#[cfg(feature = "builders")]
+impl UsageContextBuilder {
+    #[doc = concat!("Finalize building ", "UsageContext", ".")]
+    pub fn build(self) -> Result<UsageContext, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<UsageContextInner> for UsageContext {
     fn from(inner: UsageContextInner) -> Self {
@@ -13042,8 +10425,9 @@ impl ::core::ops::DerefMut for UsageContext {
 impl UsageContext {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> UsageContextBuilder {
-        UsageContextInner::builder()
+        UsageContextBuilder::default()
     }
 }
 /// Choice of types for the value[x] field in UsageContext
@@ -13102,15 +10486,14 @@ pub struct VirtualServiceDetail(pub Box<VirtualServiceDetailInner>);
 
  */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = VirtualServiceDetailBuilder),
-        build_method(into = VirtualServiceDetail),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "VirtualServiceDetailBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct VirtualServiceDetailInner {
@@ -13120,15 +10503,7 @@ pub struct VirtualServiceDetailInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -13137,15 +10512,7 @@ pub struct VirtualServiceDetailInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **[VirtualServiceType](http://hl7.org/fhir/ValueSet/virtual-service-type); Channel Type**
@@ -13156,21 +10523,13 @@ pub struct VirtualServiceDetailInner {
 
 Some profiles could be used for specific types to define what the other values could/should be. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[VirtualServiceType](http://hl7.org/fhir/ValueSet/virtual-service-type); Channel Type** \n\n The type of virtual service to connect to (i.e. Teams, Zoom, Specific VMR technology, WhatsApp). \n\n As this type defines what the virtual service is, it then defines what address and additional information might be relevant.\n\nSome profiles could be used for specific types to define what the other values could/should be. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "channelType")]
     pub channel_type: Option<Coding>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_channelType")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub channel_type_ext: Option<FieldExtension>,
     /** **Contact address/number**
 
@@ -13178,21 +10537,13 @@ Some profiles could be used for specific types to define what the other values c
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Contact address/number** \n\n What address or number needs to be used for a user to connect to the virtual service to join. The channelType informs as to which datatype is appropriate to use (requires knowledge of the specific type). \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(flatten)]
     pub address: Option<VirtualServiceDetailAddress>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(flatten)]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub address_ext: Option<VirtualServiceDetailAddressExtension>,
     /** **Address to see alternative connection details**
 
@@ -13200,21 +10551,13 @@ Some profiles could be used for specific types to define what the other values c
 
  This web address can be used to provide additional details on the call, such as alternative/regional call in numbers, or other associated services. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Address to see alternative connection details** \n\n Address to see alternative connection details. \n\n This web address can be used to provide additional details on the call, such as alternative/regional call in numbers, or other associated services. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "additionalInfo")]
     pub additional_info: Vec<Option<String>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_additionalInfo")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub additional_info_ext: Vec<Option<FieldExtension>>,
     /** **Maximum number of participants supported by the virtual service**
 
@@ -13224,21 +10567,13 @@ Some profiles could be used for specific types to define what the other values c
 
 Typically on-demand services might not have these restrictions. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Maximum number of participants supported by the virtual service** \n\n Maximum number of participants supported by the virtual service. \n\n Some services have only a limitted number of participants permitted to connect at a time, this is typically used in \"shared\" virtual services that you might find on location resources.\n\nTypically on-demand services might not have these restrictions. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "maxParticipants")]
     pub max_participants: Option<NonZeroU32>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_maxParticipants")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub max_participants_ext: Option<FieldExtension>,
     /** **Session Key required by the virtual service**
 
@@ -13248,22 +10583,21 @@ Typically on-demand services might not have these restrictions. */
 
 This could be in cases where a shared number is used, and a session key is added to put into a private line, or to identify the participant in a call. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Session Key required by the virtual service** \n\n Session Key required by the virtual service. \n\n Some services require a session key to be able to access the service once connected.\n\nThis could be in cases where a shared number is used, and a session key is added to put into a private line, or to identify the participant in a call. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "sessionKey")]
     pub session_key: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_sessionKey")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub session_key_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl VirtualServiceDetailBuilder {
+    #[doc = concat!("Finalize building ", "VirtualServiceDetail", ".")]
+    pub fn build(self) -> Result<VirtualServiceDetail, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<VirtualServiceDetailInner> for VirtualServiceDetail {
     fn from(inner: VirtualServiceDetailInner) -> Self {
@@ -13284,8 +10618,9 @@ impl ::core::ops::DerefMut for VirtualServiceDetail {
 impl VirtualServiceDetail {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> VirtualServiceDetailBuilder {
-        VirtualServiceDetailInner::builder()
+        VirtualServiceDetailBuilder::default()
     }
 }
 /// Choice of types for the address[x] field in VirtualServiceDetail
@@ -13344,15 +10679,14 @@ pub struct MoneyQuantity(pub Box<MoneyQuantityInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = MoneyQuantityBuilder),
-        build_method(into = MoneyQuantity),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "MoneyQuantityBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct MoneyQuantityInner {
@@ -13362,15 +10696,7 @@ pub struct MoneyQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -13379,15 +10705,7 @@ pub struct MoneyQuantityInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -13396,21 +10714,13 @@ pub struct MoneyQuantityInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_value")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<FieldExtension>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
 
@@ -13418,21 +10728,13 @@ pub struct MoneyQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Option<codes::QuantityComparator>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_comparator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub comparator_ext: Option<FieldExtension>,
     /** **Unit representation**
 
@@ -13440,21 +10742,13 @@ pub struct MoneyQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_unit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub unit_ext: Option<FieldExtension>,
     /** **System that defines coded unit form**
 
@@ -13462,21 +10756,13 @@ pub struct MoneyQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_system")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub system_ext: Option<FieldExtension>,
     /** **Coded form of the unit**
 
@@ -13484,22 +10770,21 @@ pub struct MoneyQuantityInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl MoneyQuantityBuilder {
+    #[doc = concat!("Finalize building ", "MoneyQuantity", ".")]
+    pub fn build(self) -> Result<MoneyQuantity, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<MoneyQuantityInner> for MoneyQuantity {
     fn from(inner: MoneyQuantityInner) -> Self {
@@ -13520,8 +10805,9 @@ impl ::core::ops::DerefMut for MoneyQuantity {
 impl MoneyQuantity {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> MoneyQuantityBuilder {
-        MoneyQuantityInner::builder()
+        MoneyQuantityBuilder::default()
     }
 }
 /** A fixed quantity (no comparator)
@@ -13546,15 +10832,14 @@ pub struct SimpleQuantity(pub Box<SimpleQuantityInner>);
 
  The context of use may frequently define what kind of quantity this is and therefore what kind of units can be used. The context of use may also restrict the values for the comparator. */
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(
     feature = "builders",
     builder(
-        builder_method(vis = ""),
-        builder_type(name = SimpleQuantityBuilder),
-        build_method(into = SimpleQuantity),
-        field_defaults(setter(into)),
+        pattern = "owned",
+        name = "SimpleQuantityBuilder",
+        build_fn(error = "crate::error::BuilderError", name = "build_inner"),
     )
 )]
 pub struct SimpleQuantityInner {
@@ -13564,15 +10849,7 @@ pub struct SimpleQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unique id for inter-element referencing** \n\n Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "id")]
     pub id: Option<String>,
     /** **Additional content defined by implementations**
@@ -13581,15 +10858,7 @@ pub struct SimpleQuantityInner {
 
  There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Additional content defined by implementations** \n\n May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and managable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. \n\n There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "extension")]
     pub extension: Vec<Extension>,
     /** **Numerical value (with implicit precision)**
@@ -13598,21 +10867,13 @@ pub struct SimpleQuantityInner {
 
  The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Numerical value (with implicit precision)** \n\n The value of the measured amount. The value includes an implicit precision in the presentation of the value. \n\n The implicit precision in the value should always be honored. Monetary values have their own rules for handling precision (refer to standard accounting text books). "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "value")]
     pub value: Option<f64>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_value")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub value_ext: Option<FieldExtension>,
     /** **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value**
 
@@ -13620,21 +10881,13 @@ pub struct SimpleQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator); < | <= | >= | > | ad - how to understand the value** \n\n Not allowed to be used in this context \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "comparator")]
     pub comparator: Vec<Option<codes::QuantityComparator>>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[serde(rename = "_comparator")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default))]
     pub comparator_ext: Vec<Option<FieldExtension>>,
     /** **Unit representation**
 
@@ -13642,21 +10895,13 @@ pub struct SimpleQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Unit representation** \n\n A human-readable form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "unit")]
     pub unit: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_unit")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub unit_ext: Option<FieldExtension>,
     /** **System that defines coded unit form**
 
@@ -13664,21 +10909,13 @@ pub struct SimpleQuantityInner {
 
  */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **System that defines coded unit form** \n\n The identification of the system that provides the coded form of the unit. \n\n "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "system")]
     pub system: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_system")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub system_ext: Option<FieldExtension>,
     /** **Coded form of the unit**
 
@@ -13686,22 +10923,21 @@ pub struct SimpleQuantityInner {
 
  The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. */
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(
-        feature = "builders",
-        builder(
-            default,
-            setter(
-                doc = " **Coded form of the unit** \n\n A computer processable form of the unit in some unit representation system. \n\n The preferred system is UCUM, but SNOMED CT can also be used (for customary units) or ISO 4217 for currency.  The context of use may additionally require a code from a particular system. "
-            )
-        )
-    )]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     #[serde(rename = "code")]
     pub code: Option<String>,
     /// Extension field.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     #[serde(rename = "_code")]
-    #[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub code_ext: Option<FieldExtension>,
+}
+#[cfg(feature = "builders")]
+impl SimpleQuantityBuilder {
+    #[doc = concat!("Finalize building ", "SimpleQuantity", ".")]
+    pub fn build(self) -> Result<SimpleQuantity, crate::error::BuilderError> {
+        self.build_inner().map(Into::into)
+    }
 }
 impl From<SimpleQuantityInner> for SimpleQuantity {
     fn from(inner: SimpleQuantityInner) -> Self {
@@ -13722,22 +10958,38 @@ impl ::core::ops::DerefMut for SimpleQuantity {
 impl SimpleQuantity {
     /// Start building an instance.
     #[cfg(feature = "builders")]
+    #[must_use]
     pub fn builder() -> SimpleQuantityBuilder {
-        SimpleQuantityInner::builder()
+        SimpleQuantityBuilder::default()
     }
 }
 /// Extension of a field.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+#[cfg_attr(feature = "builders", derive(Builder))]
 #[serde(rename_all = "camelCase")]
-#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+#[cfg_attr(
+    feature = "builders",
+    builder(
+        pattern = "owned",
+        name = "FieldExtensionBuilder",
+        build_fn(error = "crate::error::BuilderError")
+    )
+)]
 pub struct FieldExtension {
     /// Unique id for inter-element referencing
     #[serde(default, skip_serializing_if = "Option::is_none")]
-    #[cfg_attr(feature = "builders", builder(default))]
+    #[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
     pub id: Option<String>,
     /// Additional content defined by implementations
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     #[cfg_attr(feature = "builders", builder(default))]
     pub extension: Vec<Extension>,
+}
+#[cfg(feature = "builders")]
+impl FieldExtension {
+    ///Start building a new FieldExtension.
+    #[must_use]
+    pub fn builder() -> FieldExtensionBuilder {
+        FieldExtensionBuilder::default()
+    }
 }

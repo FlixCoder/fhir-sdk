@@ -54,7 +54,7 @@ async fn main() -> Result<(), Error> {
         .build()?;
 
     // Create a Patient resource using a typed builder.
-    let mut patient = Patient::builder().active(false).build();
+    let mut patient = Patient::builder().active(false).build().unwrap();
     // Push it to the server.
     patient.create(&client).await?;
     // The id and versionId is updated automatically this way.
@@ -84,9 +84,9 @@ If you need sudo to run docker, use the `--sudo` or just `-s` flag on `cargo xta
 
 ## Known Problems
 
-- Due to the big number of big types, the compile time and its memory usage is really high. This is due to serde and typed builder derives being highly generic. The builders can be disabled by disabling the `builders` feature to save some resources.
-- The builders cannot use `setter(strip_option)`, because it disables dynamic setting of optional fields.
+- The compile time and its memory usage are really high. This is due to the big serde derives being highly generic. It might be possible to shave some off by manually implementing Deserialize and Serialize, but that is complex.
 - `Vec<Option<T>>` is annoying, but sadly is required to allow `[null, {...}, null]` for using FHIR resources with extensions..
+- It is not supported to replace required fields by an extension.
 
 ## More examples
 
@@ -109,7 +109,7 @@ async fn main() -> Result<(), Error> {
         .build()?;
 
     // Create a Patient resource using a typed builder.
-    let mut patient = Patient::builder().active(false).build();
+    let mut patient = Patient::builder().active(false).build().unwrap();
     // Push it to the server. On unauthorized failures, the client will call our
     // auth_callback method to refresh the authorization.
     patient.create(&client).await?;
@@ -132,10 +132,17 @@ async fn main() {
     // Create a Patient resource using a typed builder.
     let mut patient = Patient::builder()
         .active(false)
-        .identifier(vec![Some(Identifier::builder().system("MySystem".to_owned()).value("ID".to_owned()).build())])
+        .identifier(vec![Some(
+            Identifier::builder()
+                .system("MySystem".to_owned())
+                .value("ID".to_owned())
+                .build()
+                .unwrap()
+        )])
         .gender(AdministrativeGender::Male)
-        .name(vec![Some(HumanName::builder().family("Test".to_owned()).build())])
-        .build();
+        .name(vec![Some(HumanName::builder().family("Test".to_owned()).build().unwrap())])
+        .build()
+        .unwrap();
 
     // Check the identifier value.
     assert_eq!(patient.identifier_with_system("MySystem").map(String::as_str), Some("ID"));

@@ -1,5 +1,5 @@
 #![cfg(all(feature = "r5", feature = "builders"))]
-#![allow(clippy::expect_used, clippy::print_stdout)]
+#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout)]
 
 mod json_compare;
 
@@ -56,18 +56,22 @@ fn builder_works() {
 								.system("system".to_owned())
 								.code("code".to_owned())
 								.display("display".to_owned())
-								.build(),
+								.build()
+								.unwrap(),
 						)])
-						.build(),
+						.build()
+						.unwrap(),
 				)])
-				.build(),
+				.build()
+				.unwrap(),
 		)])
-		.build();
+		.build()
+		.unwrap();
 }
 
 #[test]
 fn resource_conversion() {
-	let patient = Patient::builder().build();
+	let patient = Patient::builder().build().unwrap();
 	let resource: Resource = patient.into();
 	let patient: Patient = resource.try_into().expect("It is a Patient resource");
 	let resource: Resource = patient.into();
@@ -90,7 +94,7 @@ fn coding_concepts() {
 #[test]
 fn resource_traits() {
 	let ty = Patient::TYPE;
-	let mut patient: Resource = Patient::builder().id("1".to_owned()).build().into();
+	let mut patient: Resource = Patient::builder().id("1".to_owned()).build().unwrap().into();
 	assert_eq!(patient.resource_type(), ty);
 
 	assert!(patient.as_base_resource().id().is_some());
@@ -104,9 +108,14 @@ fn resource_traits() {
 fn identifiable_resource() {
 	let patient: Resource = Patient::builder()
 		.identifier(vec![Some(
-			Identifier::builder().system("system".to_owned()).value("bla".to_owned()).build(),
+			Identifier::builder()
+				.system("system".to_owned())
+				.value("bla".to_owned())
+				.build()
+				.unwrap(),
 		)])
 		.build()
+		.unwrap()
 		.into();
 	assert!(patient.as_identifiable_resource().is_some());
 
@@ -125,7 +134,11 @@ fn identifier_search() {
 	let patient = Patient::builder()
 		.identifier(vec![
 			Some(
-				Identifier::builder().system("system1".to_owned()).value("bla1".to_owned()).build(),
+				Identifier::builder()
+					.system("system1".to_owned())
+					.value("bla1".to_owned())
+					.build()
+					.unwrap(),
 			),
 			Some(
 				Identifier::builder()
@@ -135,15 +148,19 @@ fn identifier_search() {
 								Coding::builder()
 									.system("system2".to_owned())
 									.code("code2".to_owned())
-									.build(),
+									.build()
+									.unwrap(),
 							)])
-							.build(),
+							.build()
+							.unwrap(),
 					)
 					.value("bla2".to_owned())
-					.build(),
+					.build()
+					.unwrap(),
 			),
 		])
-		.build();
+		.build()
+		.unwrap();
 
 	assert_eq!(patient.identifier_with_system("system1").map(String::as_str), Some("bla1"));
 	assert_eq!(patient.identifier_with_type("system2", "code2").map(String::as_str), Some("bla2"));
@@ -154,7 +171,8 @@ fn reference_parsing() {
 	let reference = Reference::builder()
 		.r#type("Encounter".to_owned())
 		.reference("https://server.test/fhir/Encounter/1".to_owned())
-		.build();
+		.build()
+		.unwrap();
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(
 		parsed,
@@ -168,7 +186,8 @@ fn reference_parsing() {
 	let reference = Reference::builder()
 		.r#type("Encounter".to_owned())
 		.reference("https://server.test/fhir/Encounter/1/_history/1".to_owned())
-		.build();
+		.build()
+		.unwrap();
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(
 		parsed,
@@ -182,29 +201,35 @@ fn reference_parsing() {
 	let reference = Reference::builder()
 		.r#type("Encounter".to_owned())
 		.reference("Encounter/1".to_owned())
-		.build();
+		.build()
+		.unwrap();
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(
 		parsed,
 		ParsedReference::Relative { resource_type: "Encounter", id: "1", version_id: None }
 	);
 
-	let reference = Reference::builder().reference("Encounter/1/_history/1".to_owned()).build();
+	let reference =
+		Reference::builder().reference("Encounter/1/_history/1".to_owned()).build().unwrap();
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(
 		parsed,
 		ParsedReference::Relative { resource_type: "Encounter", id: "1", version_id: Some("1") }
 	);
 
-	let reference =
-		Reference::builder().r#type("Encounter".to_owned()).reference("#1".to_owned()).build();
+	let reference = Reference::builder()
+		.r#type("Encounter".to_owned())
+		.reference("#1".to_owned())
+		.build()
+		.unwrap();
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(parsed, ParsedReference::Local { id: "1" });
 
 	let reference = Reference::builder()
 		.r#type("Task".to_owned())
 		.reference("http://not-fhir.test/1".to_owned())
-		.build();
+		.build()
+		.unwrap();
 	let parsed = reference.parse().expect("parsing reference");
 	assert_eq!(
 		parsed,
@@ -220,12 +245,37 @@ fn reference_parsing() {
 fn codeable_concept() {
 	let concept = CodeableConcept::builder()
 		.coding(vec![
-			Some(Coding::builder().system("system1".to_owned()).code("code1".to_owned()).build()),
-			Some(Coding::builder().system("system2".to_owned()).code("code2".to_owned()).build()),
-			Some(Coding::builder().system("system3".to_owned()).code("code3".to_owned()).build()),
-			Some(Coding::builder().system("system1".to_owned()).code("code4".to_owned()).build()),
+			Some(
+				Coding::builder()
+					.system("system1".to_owned())
+					.code("code1".to_owned())
+					.build()
+					.unwrap(),
+			),
+			Some(
+				Coding::builder()
+					.system("system2".to_owned())
+					.code("code2".to_owned())
+					.build()
+					.unwrap(),
+			),
+			Some(
+				Coding::builder()
+					.system("system3".to_owned())
+					.code("code3".to_owned())
+					.build()
+					.unwrap(),
+			),
+			Some(
+				Coding::builder()
+					.system("system1".to_owned())
+					.code("code4".to_owned())
+					.build()
+					.unwrap(),
+			),
 		])
-		.build();
+		.build()
+		.unwrap();
 
 	let mut codes1 = concept.codes_with_system("system1");
 	assert_eq!(codes1.next(), Some("code1"));

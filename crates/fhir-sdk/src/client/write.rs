@@ -29,7 +29,9 @@ impl<R: NamedResource + BaseResource + Serialize + Send + Sync> ResourceWrite fo
 		if let Some(meta) = self.meta_mut() {
 			meta.version_id = Some(version_id);
 		} else {
-			self.set_meta(Some(Meta::builder().version_id(version_id).build()));
+			// Meta does not require any field and will succeed building.
+			#[allow(clippy::unwrap_used)]
+			self.set_meta(Some(Meta::builder().version_id(version_id).build().unwrap()));
 		}
 		Ok(created)
 	}
@@ -40,7 +42,9 @@ impl<R: NamedResource + BaseResource + Serialize + Send + Sync> ResourceWrite fo
 		if let Some(meta) = self.meta_mut() {
 			meta.version_id = version_id;
 		} else if let Some(version_id) = version_id {
-			self.set_meta(Some(Meta::builder().version_id(version_id).build()));
+			// Meta does not require any field and will succeed building.
+			#[allow(clippy::unwrap_used)]
+			self.set_meta(Some(Meta::builder().version_id(version_id).build().unwrap()));
 		}
 		Ok(id)
 	}

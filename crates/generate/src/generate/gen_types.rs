@@ -22,6 +22,7 @@ pub fn generate_type_struct(
 	let ident = format_ident!("{name}");
 	let ident_inner = format_ident!("{name}Inner");
 	let ident_builder = format_ident!("{name}Builder");
+	let ident_builder_str = ident_builder.to_string();
 
 	let mut doc_comment = format!(
 		" {} \n\n **[{}]({}) v{}** \n\n {} \n\n {} \n\n ",
@@ -39,11 +40,12 @@ pub fn generate_type_struct(
 
 	let resource_type_field = (ty.kind == StructureDefinitionKind::Resource).then(|| {
 		let serde_default = format!("{name}::resource_type");
+		let builder_default = format!("ResourceType::{ident}");
 		quote! {
 			/// Type of this FHIR resource.
 			#[doc(hidden)]
 			#[serde(default = #serde_default)]
-			#[cfg_attr(feature = "builders", builder(default = ResourceType::#ident, setter(skip)))]
+			#[cfg_attr(feature = "builders", builder(default = #builder_default, setter(skip)))]
 			resource_type: ResourceType,
 		}
 	});
@@ -74,17 +76,24 @@ pub fn generate_type_struct(
 
 		#[doc = #doc_comment]
 		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-		#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+		#[cfg_attr(feature = "builders", derive(Builder))]
 		#[serde(rename_all = "camelCase")]
 		#[cfg_attr(feature = "builders", builder(
-			builder_method(vis = ""),
-			builder_type(name = #ident_builder),
-			build_method(into = #ident),
-			field_defaults(setter(into)),
+			pattern = "owned",
+			name = #ident_builder_str,
+			build_fn(error = "crate::error::BuilderError", name = "build_inner"),
 		))]
 		pub struct #ident_inner {
 			#resource_type_field
 			#(#fields)*
+		}
+
+		#[cfg(feature = "builders")]
+		impl #ident_builder {
+			#[doc = concat!("Finalize building ", #name, ".")]
+			pub fn build(self) -> Result<#ident, crate::error::BuilderError> {
+				self.build_inner().map(Into::into)
+			}
 		}
 
 		#wrapper_impls
@@ -120,8 +129,9 @@ fn wrapper_impls(ident: &Ident, ident_inner: &Ident, ident_builder: &Ident) -> T
 		impl #ident {
 			/// Start building an instance.
 			#[cfg(feature = "builders")]
+			#[must_use]
 			pub fn builder() -> #ident_builder {
-				#ident_inner ::builder()
+				#ident_builder ::default()
 			}
 		}
 	}
@@ -153,7 +163,7 @@ fn generate_field(
 		}
 	});
 	let builder_attr = field.optional().then_some(
-		quote!(#[cfg_attr(feature = "builders", builder(default, setter(doc = #doc_comment)))]),
+		quote!(#[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]),
 	);
 	let serde_rename_or_flatten = if matches!(field, Field::Choice(_)) {
 		quote!(#[serde(flatten)])
@@ -175,7 +185,7 @@ fn generate_field(
 				/// Extension field.
 				#[serde(default, skip_serializing_if = "Vec::is_empty")]
 				#serde_ext
-				#[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+				#[cfg_attr(feature = "builders", builder(default))]
 				pub #ident_ext: Vec<Option<#extension_type>>,
 			}
 		} else {
@@ -183,7 +193,7 @@ fn generate_field(
 				/// Extension field.
 				#[serde(default, skip_serializing_if = "Option::is_none")]
 				#serde_ext
-				#[cfg_attr(feature = "builders", builder(default, setter(doc = "Field extension.")))]
+				#[cfg_attr(feature = "builders", builder(default, setter(strip_option)))]
 				pub #ident_ext: Option<#extension_type>,
 			}
 		}
@@ -326,14 +336,25 @@ fn generate_object_field(
 		.map(|f| generate_field(f, &struct_type, base_type, implemented_codes))
 		.unzip();
 
+	let object_struct_builder = format_ident!("{struct_type}Builder");
+	let object_struct_builder_name = object_struct_builder.to_string();
 	let object_struct = quote! {
 		#[doc = #struct_doc]
 		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-		#[cfg_attr(feature = "builders", derive(TypedBuilder))]
+		#[cfg_attr(feature = "builders", derive(Builder))]
 		#[serde(rename_all = "camelCase")]
-		#[cfg_attr(feature = "builders", builder(field_defaults(setter(into))))]
+		#[cfg_attr(feature = "builders", builder(pattern = "owned", name = #object_struct_builder_name, build_fn(error = "crate::error::BuilderError")))]
 		pub struct #struct_type {
 			#(#fields)*
+		}
+
+		#[cfg(feature = "builders")]
+		impl #struct_type {
+			#[doc = "Start building a new instance"]
+			#[must_use]
+			pub fn builder() -> #object_struct_builder {
+				#object_struct_builder ::default()
+			}
 		}
 	};
 	let structs = [object_struct]

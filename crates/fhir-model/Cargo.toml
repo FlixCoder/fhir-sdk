@@ -17,7 +17,7 @@ version = "0.6.0"
 workspace = true
 
 [features]
-default = ["r4b", "builders"]
+default = ["r5", "builders"]
 builders = ["dep:derive_builder"]
 r4b = []
 r5 = []
@@ -39,5 +39,5 @@ assert-json-diff = "2.0.2"
 serde_json = "1.0.94"
 
 [package.metadata.docs.rs]
-features = ["r4b", "builders"]
+features = ["r5", "builders"]
 no-default-features = true

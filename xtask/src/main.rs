@@ -85,7 +85,7 @@ impl Cli {
 		command.args(["test", "--workspace"]).current_dir(&workspace_path);
 		run_command(command)?;
 
-		// Run R5 tests.
+		// Run R4B tests.
 		let mut command = Command::new("cargo");
 		command
 			.args([
@@ -93,7 +93,7 @@ impl Cli {
 				"--workspace",
 				"--no-default-features",
 				"--features",
-				"r5,builders,client",
+				"r4b,builders,client",
 			])
 			.current_dir(&workspace_path);
 		run_command(command)?;

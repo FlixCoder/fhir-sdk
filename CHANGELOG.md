@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.8.0] - 2024-01-14
+
+### Features
+
+- Implement JSON Patch alongside FHIRPath Patch
+
+### Miscellaneous Tasks
+
+- Improve format implementation generation
+- Add link to fhirbolt
+- Add missing derives on MissingSearch
+
+### Refactor
+
+- Parse FHIR versions separately
+- [**breaking**] Switch back to derive_builder
+- [**breaking**] Change the whole client structure to allow multiple FHIR versions at once
+
 ## [0.7.0] - 2023-11-03
 
 ### Bug Fixes

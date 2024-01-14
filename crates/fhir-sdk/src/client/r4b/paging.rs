@@ -2,20 +2,18 @@
 
 use std::{collections::VecDeque, pin::Pin, task::Poll};
 
+use fhir_model::r4b::resources::{Bundle, BundleEntry, Resource};
 use futures::{future::BoxFuture, ready, FutureExt, Stream};
-#[cfg(feature = "r5")]
-use model::codes::LinkRelationTypes;
-use model::resources::{Bundle, BundleEntry, Resource};
 use reqwest::Url;
 use serde::de::DeserializeOwned;
 
-use super::{model, Client, Error};
+use super::{Client, Error, FhirR4B};
 
 /// Results of a query that can be paged or given via URL only. The resources
 /// can be consumed via the `Stream`/`StreamExt` traits.
 pub struct Paged {
 	/// The FHIR client to make further requests for the next pages.
-	client: Client,
+	client: Client<FhirR4B>,
 	/// The URL of the next page. This is opaque and can be anything the server
 	/// wants. The client ensures it accesses the same server only.
 	next_url: Option<Url>,
@@ -32,7 +30,7 @@ pub struct Paged {
 
 impl Paged {
 	/// Start up a new Paged stream.
-	pub(crate) fn new<FilterFn>(client: Client, url: Url, filter: FilterFn) -> Self
+	pub(crate) fn new<FilterFn>(client: Client<FhirR4B>, url: Url, filter: FilterFn) -> Self
 	where
 		FilterFn: FnMut(&BundleEntry) -> bool + Send + 'static,
 	{
@@ -151,22 +149,14 @@ impl Stream for Paged {
 
 /// Find the URL of the next page of the results returned in the Bundle.
 fn find_next_page_url(bundle: &Bundle) -> Option<&String> {
-	bundle
-		.link
-		.iter()
-		.flatten()
-		.find(|link| {
-			#[cfg(feature = "r5")]
-			let is_next = link.relation == LinkRelationTypes::Next;
-			#[cfg(feature = "r4b")]
-			let is_next = link.relation == "next";
-			is_next
-		})
-		.map(|link| &link.url)
+	bundle.link.iter().flatten().find(|link| link.relation == "next").map(|link| &link.url)
 }
 
 /// Query a resource from a given URL.
-async fn fetch_resource<R: DeserializeOwned>(client: Client, url: Url) -> Result<R, Error> {
+async fn fetch_resource<R: DeserializeOwned>(
+	client: Client<FhirR4B>,
+	url: Url,
+) -> Result<R, Error> {
 	// Make sure we are not forwarded to any malicious server.
 	if url.origin() != client.0.base_url.origin() {
 		return Err(Error::DifferentOrigin(url.to_string()));
@@ -183,9 +173,9 @@ impl std::fmt::Debug for Paged {
 			.field("client", &self.client)
 			.field("next_url", &self.next_url)
 			.field("entries", &self.entries)
-			.field("filter", &())
-			.field("future_resource", &self.future_resource.as_ref().map(|_| ()))
-			.field("future_next_page", &self.future_next_page.as_ref().map(|_| ()))
+			.field("filter", &"_")
+			.field("future_resource", &self.future_resource.as_ref().map(|_| "_"))
+			.field("future_next_page", &self.future_next_page.as_ref().map(|_| "_"))
 			.finish()
 	}
 }

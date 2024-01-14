@@ -1,9 +1,11 @@
 //! Client errors.
 
+#[cfg(feature = "r4b")]
+use fhir_model::r4b;
+#[cfg(feature = "r5")]
+use fhir_model::r5;
 use reqwest::StatusCode;
 use thiserror::Error;
-
-use super::model::resources::OperationOutcome;
 
 /// FHIR REST Client Error.
 #[derive(Debug, Error)]
@@ -60,9 +62,15 @@ pub enum Error {
 	#[error("Got error response ({0}): {1}")]
 	Response(StatusCode, String),
 
+	#[cfg(feature = "r4b")]
 	/// OperationOutcome.
 	#[error("OperationOutcome({0}): {1:?}")]
-	OperationOutcome(StatusCode, OperationOutcome),
+	OperationOutcomeR4B(StatusCode, r4b::resources::OperationOutcome),
+
+	#[cfg(feature = "r5")]
+	/// OperationOutcome.
+	#[error("OperationOutcome({0}): {1:?}")]
+	OperationOutcomeR5(StatusCode, r5::resources::OperationOutcome),
 
 	/// Resource was not found.
 	#[error("Resource `{0}` was not found")]
@@ -92,12 +100,25 @@ impl Error {
 		}
 	}
 
+	#[cfg(feature = "r4b")]
 	/// Extract the error from a response.
-	pub(crate) async fn from_response(response: reqwest::Response) -> Self {
+	pub(crate) async fn from_response_r4b(response: reqwest::Response) -> Self {
 		let status = response.status();
 		let body = response.text().await.unwrap_or_default();
 		if let Ok(outcome) = serde_json::from_str(&body) {
-			Self::OperationOutcome(status, outcome)
+			Self::OperationOutcomeR4B(status, outcome)
+		} else {
+			Self::Response(status, body)
+		}
+	}
+
+	#[cfg(feature = "r5")]
+	/// Extract the error from a response.
+	pub(crate) async fn from_response_r5(response: reqwest::Response) -> Self {
+		let status = response.status();
+		let body = response.text().await.unwrap_or_default();
+		if let Ok(outcome) = serde_json::from_str(&body) {
+			Self::OperationOutcomeR5(status, outcome)
 		} else {
 			Self::Response(status, body)
 		}

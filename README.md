@@ -40,7 +40,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 
 ```rust
 use fhir_sdk::r5::resources::Patient;
-use fhir_sdk::client::*;
+use fhir_sdk::client::{*, r5::*};
 use fhir_sdk::TryStreamExt;
 
 #[tokio::main]

@@ -106,6 +106,11 @@ impl Cli {
 		command.args(["clippy", "-p", "fhir-model", "--no-default-features", "--features", "r5"]);
 		run_command(command)?;
 
+		// Make sure the crate compiles with all features enabled.
+		let mut command = Command::new("cargo");
+		command.args(["clippy", "-p", "fhir-sdk", "--all-features"]);
+		run_command(command)?;
+
 		Ok(())
 	}
 

@@ -18,6 +18,7 @@ workspace = true
 [features]
 default = ["r5", "builders", "client", "docs"]
 client = [
+	"builders",
 	"dep:async-trait",
 	"dep:futures",
 	"dep:reqwest",

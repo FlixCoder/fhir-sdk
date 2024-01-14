@@ -1,21 +1,21 @@
 //! Implementation of building batch/transaction requests and processing the
 //! response.
 
-use model::{
+use fhir_model::r4b::{
 	codes::{BundleType, HTTPVerb},
 	resources::{Bundle, BundleEntry, BundleEntryRequest, Resource, ResourceType},
 };
 use reqwest::header::{self, HeaderValue};
 use uuid::Uuid;
 
-use super::{model, Client, Error, MIME_TYPE};
+use super::{Client, Error, FhirR4B, MIME_TYPE};
 
 /// A batch/transaction request builder.
 #[derive(Debug, Clone)]
 #[must_use = "You probably want to send the batch/transaction"]
 pub struct BatchTransaction {
 	/// The FHIR client.
-	client: Client,
+	client: Client<FhirR4B>,
 	/// If this is a transaction. Otherwise it is a batch request.
 	is_transaction: bool,
 	/// Current entries in the batch or transaction.
@@ -25,7 +25,7 @@ pub struct BatchTransaction {
 impl BatchTransaction {
 	/// Create new batch or transaction builder, given whether it is a
 	/// transaction.
-	pub fn new(client: Client, is_transaction: bool) -> Self {
+	pub fn new(client: Client<FhirR4B>, is_transaction: bool) -> Self {
 		Self { client, is_transaction, entries: Vec::new() }
 	}
 
@@ -145,6 +145,7 @@ impl BatchTransaction {
 			.0
 			.client
 			.post(url)
+			.header(header::ACCEPT, MIME_TYPE)
 			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
 			.json(&bundle);
 
@@ -153,7 +154,7 @@ impl BatchTransaction {
 			let bundle: Bundle = response.json().await?;
 			Ok(bundle)
 		} else {
-			Err(Error::from_response(response).await)
+			Err(Error::from_response_r4b(response).await)
 		}
 	}
 }

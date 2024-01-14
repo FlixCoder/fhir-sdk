@@ -7,7 +7,10 @@ use std::{env, str::FromStr};
 
 use eyre::Result;
 use fhir_sdk::{
-	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
+	client::{
+		r5::{DateSearch, TokenSearch},
+		Client, FhirR5, ResourceWrite, SearchParameters,
+	},
 	r5::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
@@ -22,7 +25,7 @@ use fhir_sdk::{
 use futures::TryStreamExt;
 
 /// Set up a client for testing with the (local) FHIR server.
-async fn client() -> Result<Client> {
+async fn client() -> Result<Client<FhirR5>> {
 	common::setup_logging().await;
 	let base_url =
 		env::var("FHIR_SERVER").unwrap_or("http://localhost:8100/fhir/".to_owned()).parse()?;

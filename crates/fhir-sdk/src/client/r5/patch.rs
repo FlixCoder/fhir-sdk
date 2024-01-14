@@ -1,17 +1,19 @@
 //! Patch request building.
 
-use model::resources::{Parameters, ParametersParameter, ParametersParameterValue, ResourceType};
+use fhir_model::r5::resources::{
+	Parameters, ParametersParameter, ParametersParameterValue, ResourceType,
+};
 use reqwest::header::{self, HeaderValue};
 use serde::Serialize;
 
-use super::{model, Client, Error, MIME_TYPE};
+use super::{Client, Error, FhirR5, MIME_TYPE};
 
 /// Builder for a PATCH request via FHIRPath for a FHIR resource.
 #[derive(Debug, Clone)]
 #[must_use = "You probably want to send the PATCH request"]
 pub struct PatchViaFhir<'a> {
 	/// FHIR client.
-	client: Client,
+	client: Client<FhirR5>,
 	/// Resource type to apply the patch to.
 	resource_type: ResourceType,
 	/// Resource ID to apply the path to.
@@ -22,7 +24,7 @@ pub struct PatchViaFhir<'a> {
 
 impl<'a> PatchViaFhir<'a> {
 	/// Start building a new Patch request.
-	pub fn new(client: Client, resource_type: ResourceType, id: &'a str) -> Self {
+	pub fn new(client: Client<FhirR5>, resource_type: ResourceType, id: &'a str) -> Self {
 		Self { client, resource_type, id, operations: Vec::new() }
 	}
 
@@ -232,6 +234,7 @@ impl<'a> PatchViaFhir<'a> {
 			.0
 			.client
 			.patch(url)
+			.header(header::ACCEPT, MIME_TYPE)
 			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
 			.json(&parameters);
 
@@ -239,7 +242,7 @@ impl<'a> PatchViaFhir<'a> {
 		if response.status().is_success() {
 			Ok(())
 		} else {
-			Err(Error::from_response(response).await)
+			Err(Error::from_response_r5(response).await)
 		}
 	}
 }
@@ -249,7 +252,7 @@ impl<'a> PatchViaFhir<'a> {
 #[must_use = "You probably want to send the PATCH request"]
 pub struct PatchViaJson<'a> {
 	/// FHIR client.
-	client: Client,
+	client: Client<FhirR5>,
 	/// Resource type to apply the patch to.
 	resource_type: ResourceType,
 	/// Resource ID to apply the path to.
@@ -260,7 +263,7 @@ pub struct PatchViaJson<'a> {
 
 impl<'a> PatchViaJson<'a> {
 	/// Start building a new Patch request.
-	pub fn new(client: Client, resource_type: ResourceType, id: &'a str) -> Self {
+	pub fn new(client: Client<FhirR5>, resource_type: ResourceType, id: &'a str) -> Self {
 		Self { client, resource_type, id, operations: Vec::new() }
 	}
 
@@ -359,6 +362,7 @@ impl<'a> PatchViaJson<'a> {
 			.0
 			.client
 			.patch(url)
+			.header(header::ACCEPT, MIME_TYPE)
 			.header(header::CONTENT_TYPE, HeaderValue::from_static("application/json-patch+json"))
 			.json(&self.operations);
 
@@ -366,7 +370,7 @@ impl<'a> PatchViaJson<'a> {
 		if response.status().is_success() {
 			Ok(())
 		} else {
-			Err(Error::from_response(response).await)
+			Err(Error::from_response_r5(response).await)
 		}
 	}
 }

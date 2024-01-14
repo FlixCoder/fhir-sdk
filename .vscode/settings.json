@@ -1,0 +1,7 @@
+{
+	"rust-analyzer.cargo.features": [
+		"r4b",
+		"r5",
+		"client"
+	]
+}

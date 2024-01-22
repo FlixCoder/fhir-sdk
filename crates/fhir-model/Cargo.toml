@@ -19,6 +19,7 @@ workspace = true
 [features]
 default = ["r5", "builders"]
 builders = ["dep:derive_builder"]
+stu3 = []
 r4b = []
 r5 = []
 

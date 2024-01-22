@@ -1,0 +1,126 @@
+{
+  "resourceType": "ValueSet",
+  "id": "use-context",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Context of Use ValueSet</h2><div><p>This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts.</p>\n</div><p><b>Copyright Statement:</b> This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.</p><p>This value set includes codes from the following code systems:</p><ul><li/><li>Import all the codes that are contained in <a href=\"valueset-usps-state.html\">http://hl7.org/fhir/ValueSet/usps-state</a></li><li/><li>Import all the codes that are contained in <a href=\"valueset-practitioner-specialty.html\">http://hl7.org/fhir/ValueSet/practitioner-specialty</a></li><li>Include codes from <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a> where concept  is-a  394733009 (Medical specialties)</li><li>Include all codes defined in <code>urn:iso:std:iso:3166</code></li><li>Include all codes defined in <code>urn:iso:std:iso:3166</code></li><li>Include codes from <code>http://unstats.un.org/unsd/methods/m49/m49.htm</code> where class  =  region</li><li>Include codes from <a href=\"http://www.snomed.org/\"><code>http://snomed.info/sct</code></a> where concept  is-a  387961004 (Kingdom Animalia)</li><li/><li>Import all the codes that are contained in <a href=\"valueset-administrative-gender.html\">http://hl7.org/fhir/ValueSet/administrative-gender</a></li><li/><li>Import all the codes that are contained in <a href=\"valueset-condition-code.html\">http://hl7.org/fhir/ValueSet/condition-code</a></li><li>Include all codes defined in <code>http://nucc.org/provider-taxonomy</code></li><li/><li>Import all the codes that are contained in <a href=\"v3/ActEncounterCode/vs.html\">http://hl7.org/fhir/ValueSet/v3-ActEncounterCode</a></li><li/><li>Import all the codes that are contained in <a href=\"v3/ActTaskCode/vs.html\">http://hl7.org/fhir/ValueSet/v3-ActTaskCode</a></li></ul></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/ValueSet/use-context",
+  "identifier": [
+    {
+      "system": "urn:ietf:rfc:3986",
+      "value": "urn:oid:2.16.840.1.113883.4.642.3.27"
+    }
+  ],
+  "version": "3.0.2",
+  "name": "Context of Use ValueSet",
+  "status": "draft",
+  "experimental": true,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts.",
+  "copyright": "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.",
+  "compose": {
+    "include": [
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/usps-state"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/practitioner-specialty"
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "394733009"
+          }
+        ]
+      },
+      {
+        "system": "urn:iso:std:iso:3166"
+      },
+      {
+        "system": "urn:iso:std:iso:3166"
+      },
+      {
+        "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
+        "filter": [
+          {
+            "property": "class",
+            "op": "=",
+            "value": "region"
+          }
+        ]
+      },
+      {
+        "system": "http://snomed.info/sct",
+        "filter": [
+          {
+            "property": "concept",
+            "op": "is-a",
+            "value": "387961004"
+          }
+        ]
+      },
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/administrative-gender"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/condition-code"
+        ]
+      },
+      {
+        "system": "http://nucc.org/provider-taxonomy"
+      },
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/v3-ActEncounterCode"
+        ]
+      },
+      {
+        "valueSet": [
+          "http://hl7.org/fhir/ValueSet/v3-ActTaskCode"
+        ]
+      }
+    ]
+  }
+}

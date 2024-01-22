@@ -1,0 +1,68 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-detectedissue-severity-v3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v3 map for DetectedIssueSeverity (http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3)</h2><p>Mapping from <a href=\"valueset-detectedissue-severity.html\">http://hl7.org/fhir/ValueSet/detectedissue-severity</a> to <a href=\"v3/SeverityObservation/vs.html\">http://hl7.org/fhir/ValueSet/v3-SeverityObservation</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project) (<a href=\"http://hl7.org/fhir\">http://hl7.org/fhir</a>, <a href=\"mailto:fhir@lists.hl7.org\">fhir@lists.hl7.org</a>). </p><br/><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Equivalence</b></td><td><b>Destination Code</b></td></tr><tr><td>high (High)</td><td>equal</td><td>H (High)</td></tr><tr><td>moderate (Moderate)</td><td>equal</td><td>M (Moderate)</td></tr><tr><td>low (Low)</td><td>equal</td><td>L (Low)</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3",
+  "name": "v3 map for DetectedIssueSeverity",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/detectedissue-severity"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v3-SeverityObservation"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/detectedissue-severity",
+      "target": "http://hl7.org/fhir/v3/ObservationValue",
+      "element": [
+        {
+          "code": "high",
+          "target": [
+            {
+              "code": "H",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "moderate",
+          "target": [
+            {
+              "code": "M",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "low",
+          "target": [
+            {
+              "code": "L",
+              "equivalence": "equal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

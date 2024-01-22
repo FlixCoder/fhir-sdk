@@ -1,0 +1,68 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "name-assembly-order",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>HumanNameAssemblyOrder</h2><div><p>A code that represents the preferred display order of the components of a human name</p>\n</div><p>This code system http://hl7.org/fhir/name-assembly-order defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>NL1<a name=\"name-assembly-order-NL1\"> </a></td><td>Own Name</td><td/></tr><tr><td>NL2<a name=\"name-assembly-order-NL2\"> </a></td><td>Partner Name</td><td/></tr><tr><td>NL3<a name=\"name-assembly-order-NL3\"> </a></td><td>Partner Name followed by Maiden Name</td><td/></tr><tr><td>NL4<a name=\"name-assembly-order-NL4\"> </a></td><td>Own Name followed by Partner Name</td><td/></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/name-assembly-order",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.833"
+  },
+  "version": "3.0.2",
+  "name": "HumanNameAssemblyOrder",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A code that represents the preferred display order of the components of a human name",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/name-assembly-order",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "NL1",
+      "display": "Own Name"
+    },
+    {
+      "code": "NL2",
+      "display": "Partner Name"
+    },
+    {
+      "code": "NL3",
+      "display": "Partner Name followed by Maiden Name"
+    },
+    {
+      "code": "NL4",
+      "display": "Own Name followed by Partner Name"
+    }
+  ]
+}

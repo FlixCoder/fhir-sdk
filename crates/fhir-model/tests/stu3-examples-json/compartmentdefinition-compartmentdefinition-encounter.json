@@ -1,0 +1,440 @@
+{
+  "resourceType": "CompartmentDefinition",
+  "id": "encounter",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>\nThe following resources may be in this compartment:\n</p>\n<table class=\"grid\">\n <tr><td><b>Resource</b></td><td><b>Inclusion Criteria</b></td></tr>\n <tr><td><a href=\"chargeitem.html\">ChargeItem</a></td><td>context</td></tr>\n <tr><td><a href=\"claim.html\">Claim</a></td><td>encounter</td></tr>\n <tr><td><a href=\"clinicalimpression.html\">ClinicalImpression</a></td><td>context</td></tr>\n <tr><td><a href=\"communication.html\">Communication</a></td><td>context</td></tr>\n <tr><td><a href=\"communicationrequest.html\">CommunicationRequest</a></td><td>context</td></tr>\n <tr><td><a href=\"composition.html\">Composition</a></td><td>encounter</td></tr>\n <tr><td><a href=\"condition.html\">Condition</a></td><td>context</td></tr>\n <tr><td><a href=\"devicerequest.html\">DeviceRequest</a></td><td>encounter</td></tr>\n <tr><td><a href=\"diagnosticreport.html\">DiagnosticReport</a></td><td>encounter</td></tr>\n <tr><td><a href=\"documentreference.html\">DocumentReference</a></td><td>encounter</td></tr>\n <tr><td><a href=\"encounter.html\">Encounter</a></td><td>{def}</td></tr>\n <tr><td><a href=\"explanationofbenefit.html\">ExplanationOfBenefit</a></td><td>encounter</td></tr>\n <tr><td><a href=\"medicationadministration.html\">MedicationAdministration</a></td><td>context</td></tr>\n <tr><td><a href=\"medicationrequest.html\">MedicationRequest</a></td><td>context</td></tr>\n <tr><td><a href=\"nutritionorder.html\">NutritionOrder</a></td><td>encounter</td></tr>\n <tr><td><a href=\"observation.html\">Observation</a></td><td>encounter</td></tr>\n <tr><td><a href=\"procedure.html\">Procedure</a></td><td>encounter</td></tr>\n <tr><td><a href=\"procedurerequest.html\">ProcedureRequest</a></td><td>context</td></tr>\n <tr><td><a href=\"questionnaireresponse.html\">QuestionnaireResponse</a></td><td>context</td></tr>\n <tr><td><a href=\"requestgroup.html\">RequestGroup</a></td><td>encounter</td></tr>\n <tr><td><a href=\"visionprescription.html\">VisionPrescription</a></td><td>encounter</td></tr>\n</table>\n<p>\nA resource is in this compartment if the nominated search parameter (or chain) refers to the patient resource that defines the compartment.\n</p>\n<p>\n\n</p>\n<p>\nThe following resources are never in this compartment:\n</p>\n<ul>\n <li><a href=\"account.html\">Account</a></li>\n <li><a href=\"activitydefinition.html\">ActivityDefinition</a></li>\n <li><a href=\"adverseevent.html\">AdverseEvent</a></li>\n <li><a href=\"allergyintolerance.html\">AllergyIntolerance</a></li>\n <li><a href=\"appointment.html\">Appointment</a></li>\n <li><a href=\"appointmentresponse.html\">AppointmentResponse</a></li>\n <li><a href=\"auditevent.html\">AuditEvent</a></li>\n <li><a href=\"basic.html\">Basic</a></li>\n <li><a href=\"binary.html\">Binary</a></li>\n <li><a href=\"bodysite.html\">BodySite</a></li>\n <li><a href=\"bundle.html\">Bundle</a></li>\n <li><a href=\"capabilitystatement.html\">CapabilityStatement</a></li>\n <li><a href=\"careplan.html\">CarePlan</a></li>\n <li><a href=\"careteam.html\">CareTeam</a></li>\n <li><a href=\"claimresponse.html\">ClaimResponse</a></li>\n <li><a href=\"codesystem.html\">CodeSystem</a></li>\n <li><a href=\"compartmentdefinition.html\">CompartmentDefinition</a></li>\n <li><a href=\"conceptmap.html\">ConceptMap</a></li>\n <li><a href=\"consent.html\">Consent</a></li>\n <li><a href=\"contract.html\">Contract</a></li>\n <li><a href=\"coverage.html\">Coverage</a></li>\n <li><a href=\"dataelement.html\">DataElement</a></li>\n <li><a href=\"detectedissue.html\">DetectedIssue</a></li>\n <li><a href=\"device.html\">Device</a></li>\n <li><a href=\"devicecomponent.html\">DeviceComponent</a></li>\n <li><a href=\"devicemetric.html\">DeviceMetric</a></li>\n <li><a href=\"deviceusestatement.html\">DeviceUseStatement</a></li>\n <li><a href=\"documentmanifest.html\">DocumentManifest</a></li>\n <li><a href=\"eligibilityrequest.html\">EligibilityRequest</a></li>\n <li><a href=\"eligibilityresponse.html\">EligibilityResponse</a></li>\n <li><a href=\"endpoint.html\">Endpoint</a></li>\n <li><a href=\"enrollmentrequest.html\">EnrollmentRequest</a></li>\n <li><a href=\"enrollmentresponse.html\">EnrollmentResponse</a></li>\n <li><a href=\"episodeofcare.html\">EpisodeOfCare</a></li>\n <li><a href=\"expansionprofile.html\">ExpansionProfile</a></li>\n <li><a href=\"familymemberhistory.html\">FamilyMemberHistory</a></li>\n <li><a href=\"flag.html\">Flag</a></li>\n <li><a href=\"goal.html\">Goal</a></li>\n <li><a href=\"graphdefinition.html\">GraphDefinition</a></li>\n <li><a href=\"group.html\">Group</a></li>\n <li><a href=\"guidanceresponse.html\">GuidanceResponse</a></li>\n <li><a href=\"healthcareservice.html\">HealthcareService</a></li>\n <li><a href=\"imagingmanifest.html\">ImagingManifest</a></li>\n <li><a href=\"imagingstudy.html\">ImagingStudy</a></li>\n <li><a href=\"immunization.html\">Immunization</a></li>\n <li><a href=\"immunizationrecommendation.html\">ImmunizationRecommendation</a></li>\n <li><a href=\"implementationguide.html\">ImplementationGuide</a></li>\n <li><a href=\"library.html\">Library</a></li>\n <li><a href=\"linkage.html\">Linkage</a></li>\n <li><a href=\"list.html\">List</a></li>\n <li><a href=\"location.html\">Location</a></li>\n <li><a href=\"measure.html\">Measure</a></li>\n <li><a href=\"measurereport.html\">MeasureReport</a></li>\n <li><a href=\"media.html\">Media</a></li>\n <li><a href=\"medication.html\">Medication</a></li>\n <li><a href=\"medicationdispense.html\">MedicationDispense</a></li>\n <li><a href=\"medicationstatement.html\">MedicationStatement</a></li>\n <li><a href=\"messagedefinition.html\">MessageDefinition</a></li>\n <li><a href=\"messageheader.html\">MessageHeader</a></li>\n <li><a href=\"namingsystem.html\">NamingSystem</a></li>\n <li><a href=\"operationdefinition.html\">OperationDefinition</a></li>\n <li><a href=\"operationoutcome.html\">OperationOutcome</a></li>\n <li><a href=\"organization.html\">Organization</a></li>\n <li><a href=\"patient.html\">Patient</a></li>\n <li><a href=\"paymentnotice.html\">PaymentNotice</a></li>\n <li><a href=\"paymentreconciliation.html\">PaymentReconciliation</a></li>\n <li><a href=\"person.html\">Person</a></li>\n <li><a href=\"plandefinition.html\">PlanDefinition</a></li>\n <li><a href=\"practitioner.html\">Practitioner</a></li>\n <li><a href=\"practitionerrole.html\">PractitionerRole</a></li>\n <li><a href=\"processrequest.html\">ProcessRequest</a></li>\n <li><a href=\"processresponse.html\">ProcessResponse</a></li>\n <li><a href=\"provenance.html\">Provenance</a></li>\n <li><a href=\"questionnaire.html\">Questionnaire</a></li>\n <li><a href=\"referralrequest.html\">ReferralRequest</a></li>\n <li><a href=\"relatedperson.html\">RelatedPerson</a></li>\n <li><a href=\"researchstudy.html\">ResearchStudy</a></li>\n <li><a href=\"researchsubject.html\">ResearchSubject</a></li>\n <li><a href=\"riskassessment.html\">RiskAssessment</a></li>\n <li><a href=\"schedule.html\">Schedule</a></li>\n <li><a href=\"searchparameter.html\">SearchParameter</a></li>\n <li><a href=\"sequence.html\">Sequence</a></li>\n <li><a href=\"servicedefinition.html\">ServiceDefinition</a></li>\n <li><a href=\"slot.html\">Slot</a></li>\n <li><a href=\"specimen.html\">Specimen</a></li>\n <li><a href=\"structuredefinition.html\">StructureDefinition</a></li>\n <li><a href=\"structuremap.html\">StructureMap</a></li>\n <li><a href=\"subscription.html\">Subscription</a></li>\n <li><a href=\"substance.html\">Substance</a></li>\n <li><a href=\"supplydelivery.html\">SupplyDelivery</a></li>\n <li><a href=\"supplyrequest.html\">SupplyRequest</a></li>\n <li><a href=\"task.html\">Task</a></li>\n <li><a href=\"testreport.html\">TestReport</a></li>\n <li><a href=\"testscript.html\">TestScript</a></li>\n <li><a href=\"valueset.html\">ValueSet</a></li>\n</ul></div>"
+  },
+  "url": "http://hl7.org/fhir/CompartmentDefinition/encounter",
+  "name": "Base FHIR compartment definition for Encounter",
+  "status": "draft",
+  "experimental": true,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "FHIR Project Team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "There is an instance of the encounter compartment for each encounter resource, and the identity of the compartment is the same as the encounter. The set of resources associated with a particular encounter",
+  "code": "Encounter",
+  "search": true,
+  "resource": [
+    {
+      "code": "Account"
+    },
+    {
+      "code": "ActivityDefinition"
+    },
+    {
+      "code": "AdverseEvent"
+    },
+    {
+      "code": "AllergyIntolerance"
+    },
+    {
+      "code": "Appointment"
+    },
+    {
+      "code": "AppointmentResponse"
+    },
+    {
+      "code": "AuditEvent"
+    },
+    {
+      "code": "Basic"
+    },
+    {
+      "code": "Binary"
+    },
+    {
+      "code": "BodySite"
+    },
+    {
+      "code": "Bundle"
+    },
+    {
+      "code": "CapabilityStatement"
+    },
+    {
+      "code": "CarePlan"
+    },
+    {
+      "code": "CareTeam"
+    },
+    {
+      "code": "ChargeItem",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "Claim",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "ClaimResponse"
+    },
+    {
+      "code": "ClinicalImpression",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "CodeSystem"
+    },
+    {
+      "code": "Communication",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "CommunicationRequest",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "CompartmentDefinition"
+    },
+    {
+      "code": "Composition",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "ConceptMap"
+    },
+    {
+      "code": "Condition",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "Consent"
+    },
+    {
+      "code": "Contract"
+    },
+    {
+      "code": "Coverage"
+    },
+    {
+      "code": "DataElement"
+    },
+    {
+      "code": "DetectedIssue"
+    },
+    {
+      "code": "Device"
+    },
+    {
+      "code": "DeviceComponent"
+    },
+    {
+      "code": "DeviceMetric"
+    },
+    {
+      "code": "DeviceRequest",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "DeviceUseStatement"
+    },
+    {
+      "code": "DiagnosticReport",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "DocumentManifest"
+    },
+    {
+      "code": "DocumentReference",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "EligibilityRequest"
+    },
+    {
+      "code": "EligibilityResponse"
+    },
+    {
+      "code": "Encounter",
+      "param": [
+        "{def}"
+      ]
+    },
+    {
+      "code": "Endpoint"
+    },
+    {
+      "code": "EnrollmentRequest"
+    },
+    {
+      "code": "EnrollmentResponse"
+    },
+    {
+      "code": "EpisodeOfCare"
+    },
+    {
+      "code": "ExpansionProfile"
+    },
+    {
+      "code": "ExplanationOfBenefit",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "FamilyMemberHistory"
+    },
+    {
+      "code": "Flag"
+    },
+    {
+      "code": "Goal"
+    },
+    {
+      "code": "GraphDefinition"
+    },
+    {
+      "code": "Group"
+    },
+    {
+      "code": "GuidanceResponse"
+    },
+    {
+      "code": "HealthcareService"
+    },
+    {
+      "code": "ImagingManifest"
+    },
+    {
+      "code": "ImagingStudy"
+    },
+    {
+      "code": "Immunization"
+    },
+    {
+      "code": "ImmunizationRecommendation"
+    },
+    {
+      "code": "ImplementationGuide"
+    },
+    {
+      "code": "Library"
+    },
+    {
+      "code": "Linkage"
+    },
+    {
+      "code": "List"
+    },
+    {
+      "code": "Location"
+    },
+    {
+      "code": "Measure"
+    },
+    {
+      "code": "MeasureReport"
+    },
+    {
+      "code": "Media"
+    },
+    {
+      "code": "Medication"
+    },
+    {
+      "code": "MedicationAdministration",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "MedicationDispense"
+    },
+    {
+      "code": "MedicationRequest",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "MedicationStatement"
+    },
+    {
+      "code": "MessageDefinition"
+    },
+    {
+      "code": "MessageHeader"
+    },
+    {
+      "code": "NamingSystem"
+    },
+    {
+      "code": "NutritionOrder",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "Observation",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "OperationDefinition"
+    },
+    {
+      "code": "OperationOutcome"
+    },
+    {
+      "code": "Organization"
+    },
+    {
+      "code": "Patient"
+    },
+    {
+      "code": "PaymentNotice"
+    },
+    {
+      "code": "PaymentReconciliation"
+    },
+    {
+      "code": "Person"
+    },
+    {
+      "code": "PlanDefinition"
+    },
+    {
+      "code": "Practitioner"
+    },
+    {
+      "code": "PractitionerRole"
+    },
+    {
+      "code": "Procedure",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "ProcedureRequest",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "ProcessRequest"
+    },
+    {
+      "code": "ProcessResponse"
+    },
+    {
+      "code": "Provenance"
+    },
+    {
+      "code": "Questionnaire"
+    },
+    {
+      "code": "QuestionnaireResponse",
+      "param": [
+        "context"
+      ]
+    },
+    {
+      "code": "ReferralRequest"
+    },
+    {
+      "code": "RelatedPerson"
+    },
+    {
+      "code": "RequestGroup",
+      "param": [
+        "encounter"
+      ]
+    },
+    {
+      "code": "ResearchStudy"
+    },
+    {
+      "code": "ResearchSubject"
+    },
+    {
+      "code": "RiskAssessment"
+    },
+    {
+      "code": "Schedule"
+    },
+    {
+      "code": "SearchParameter"
+    },
+    {
+      "code": "Sequence"
+    },
+    {
+      "code": "ServiceDefinition"
+    },
+    {
+      "code": "Slot"
+    },
+    {
+      "code": "Specimen"
+    },
+    {
+      "code": "StructureDefinition"
+    },
+    {
+      "code": "StructureMap"
+    },
+    {
+      "code": "Subscription"
+    },
+    {
+      "code": "Substance"
+    },
+    {
+      "code": "SupplyDelivery"
+    },
+    {
+      "code": "SupplyRequest"
+    },
+    {
+      "code": "Task"
+    },
+    {
+      "code": "TestReport"
+    },
+    {
+      "code": "TestScript"
+    },
+    {
+      "code": "ValueSet"
+    },
+    {
+      "code": "VisionPrescription",
+      "param": [
+        "encounter"
+      ]
+    }
+  ]
+}

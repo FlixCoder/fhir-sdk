@@ -1,0 +1,75 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "ex-program-code",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Example Program Reason Codes</h2><div><p>This value set includes sample Program Reason Span codes.</p>\n</div><p><b>Copyright Statement:</b> This is an example set.</p><p>This code system http://hl7.org/fhir/ex-programcode defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>as<a name=\"ex-program-code-as\"> </a></td><td>Child Asthma</td><td>Child Asthma Program</td></tr><tr><td>hd<a name=\"ex-program-code-hd\"> </a></td><td>Heamodialisis</td><td>Heamodialisis Program.</td></tr><tr><td>auscr<a name=\"ex-program-code-auscr\"> </a></td><td>Autism Screening</td><td>Autism Screening Program.</td></tr><tr><td>none<a name=\"ex-program-code-none\"> </a></td><td>None</td><td>No program code applies.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Draft"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    }
+  ],
+  "url": "http://hl7.org/fhir/ex-programcode",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.569"
+  },
+  "version": "3.0.2",
+  "name": "Example Program Reason Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes sample Program Reason Span codes.",
+  "copyright": "This is an example set.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/ex-program-code",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "as",
+      "display": "Child Asthma",
+      "definition": "Child Asthma Program"
+    },
+    {
+      "code": "hd",
+      "display": "Heamodialisis",
+      "definition": "Heamodialisis Program."
+    },
+    {
+      "code": "auscr",
+      "display": "Autism Screening",
+      "definition": "Autism Screening Program."
+    },
+    {
+      "code": "none",
+      "display": "None",
+      "definition": "No program code applies."
+    }
+  ]
+}

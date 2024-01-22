@@ -1,0 +1,96 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medication-request-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MedicationRequestStatus</h2><div><p>A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription</p>\n</div><p>This code system http://hl7.org/fhir/medication-request-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>active<a name=\"medication-request-status-active\"> </a></td><td>Active</td><td>The prescription is 'actionable', but not all actions that are implied by it have occurred yet.</td></tr><tr><td>on-hold<a name=\"medication-request-status-on-hold\"> </a></td><td>On Hold</td><td>Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called &quot;suspended&quot;.</td></tr><tr><td>cancelled<a name=\"medication-request-status-cancelled\"> </a></td><td>Cancelled</td><td>The prescription has been withdrawn.</td></tr><tr><td>completed<a name=\"medication-request-status-completed\"> </a></td><td>Completed</td><td>All actions that are implied by the prescription have occurred.</td></tr><tr><td>entered-in-error<a name=\"medication-request-status-entered-in-error\"> </a></td><td>Entered In Error</td><td>The prescription was entered in error.</td></tr><tr><td>stopped<a name=\"medication-request-status-stopped\"> </a></td><td>Stopped</td><td>Actions implied by the prescription are to be permanently halted, before all of them occurred.</td></tr><tr><td>draft<a name=\"medication-request-status-draft\"> </a></td><td>Draft</td><td>The prescription is not yet 'actionable', i.e. it is a work in progress, requires sign-off or verification, and needs to be run through decision support process.</td></tr><tr><td>unknown<a name=\"medication-request-status-unknown\"> </a></td><td>Unknown</td><td>The authoring system does not know which of the status values currently applies for this request</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/medication-request-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.344"
+  },
+  "version": "3.0.2",
+  "name": "MedicationRequestStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A coded concept specifying the state of the prescribing event. Describes the lifecycle of the prescription",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medication-request-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "active",
+      "display": "Active",
+      "definition": "The prescription is 'actionable', but not all actions that are implied by it have occurred yet."
+    },
+    {
+      "code": "on-hold",
+      "display": "On Hold",
+      "definition": "Actions implied by the prescription are to be temporarily halted, but are expected to continue later.  May also be called \"suspended\"."
+    },
+    {
+      "code": "cancelled",
+      "display": "Cancelled",
+      "definition": "The prescription has been withdrawn."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "All actions that are implied by the prescription have occurred."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered In Error",
+      "definition": "The prescription was entered in error."
+    },
+    {
+      "code": "stopped",
+      "display": "Stopped",
+      "definition": "Actions implied by the prescription are to be permanently halted, before all of them occurred."
+    },
+    {
+      "code": "draft",
+      "display": "Draft",
+      "definition": "The prescription is not yet 'actionable', i.e. it is a work in progress, requires sign-off or verification, and needs to be run through decision support process."
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The authoring system does not know which of the status values currently applies for this request"
+    }
+  ]
+}

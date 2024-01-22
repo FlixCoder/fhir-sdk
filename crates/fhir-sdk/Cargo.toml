@@ -32,6 +32,7 @@ client = [
 builders = ["fhir-model/builders"]
 r4b = ["fhir-model/r4b"]
 r5 = ["fhir-model/r5"]
+stu3 = ["fhir-model/stu3"]
 docs = []
 
 [dependencies]

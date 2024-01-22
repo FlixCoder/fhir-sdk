@@ -1,0 +1,64 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "coverage-selfpay",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Coverage SelfPay Codes</h2><div><p>This value set includes Coverage SelfPay codes.</p>\n</div><p><b>Copyright Statement:</b> HL7 International.</p><p>This code system http://hl7.org/fhir/coverage-selfpay defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>pay<a name=\"coverage-selfpay-pay\"> </a></td><td>Pay</td><td>An individual or oraganization is paying directly for goods and services.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/coverage-selfpay",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.520"
+  },
+  "version": "3.0.2",
+  "name": "Coverage SelfPay Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    },
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes Coverage SelfPay codes.",
+  "copyright": "HL7 International.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/coverage-selfpay",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "pay",
+      "display": "Pay",
+      "definition": "An individual or oraganization is paying directly for goods and services."
+    }
+  ]
+}

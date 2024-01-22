@@ -1,0 +1,71 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medication-dispense-category",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MedicationDispenseCategory</h2><div><p>A code describing where the dispensed medication is expected to be consumed or administered</p>\n</div><p>This code system http://hl7.org/fhir/medication-dispense-category defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>inpatient<a name=\"medication-dispense-category-inpatient\"> </a></td><td>Inpatient</td><td>Includes dispenses for medications to be administered or consumed in an inpatient or acute care setting</td></tr><tr><td>outpatient<a name=\"medication-dispense-category-outpatient\"> </a></td><td>Outpatient</td><td>Includes dispenses for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)</td></tr><tr><td>community<a name=\"medication-dispense-category-community\"> </a></td><td>Community</td><td>Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/medication-dispense-category",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.342"
+  },
+  "version": "3.0.2",
+  "name": "MedicationDispenseCategory",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A code describing where the dispensed medication is expected to be consumed or administered",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medication-dispense-category",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "inpatient",
+      "display": "Inpatient",
+      "definition": "Includes dispenses for medications to be administered or consumed in an inpatient or acute care setting"
+    },
+    {
+      "code": "outpatient",
+      "display": "Outpatient",
+      "definition": "Includes dispenses for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)"
+    },
+    {
+      "code": "community",
+      "display": "Community",
+      "definition": "Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)"
+    }
+  ]
+}

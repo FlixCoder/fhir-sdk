@@ -1,0 +1,95 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-observation-relationshiptypes-v3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v3 map for ObservationRelationshipType (http://hl7.org/fhir/ConceptMap/cm-observation-relationshiptypes-v3)</h2><p>Mapping from <a href=\"valueset-observation-relationshiptypes.html\">http://hl7.org/fhir/ValueSet/observation-relationshiptypes</a> to <a href=\"v3/ActRelationshipType/vs.html\">http://hl7.org/fhir/ValueSet/v3-ActRelationshipType</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project) (<a href=\"http://hl7.org/fhir\">http://hl7.org/fhir</a>, <a href=\"mailto:fhir@lists.hl7.org\">fhir@lists.hl7.org</a>). </p><br/><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Equivalence</b></td><td><b>Destination Code</b></td></tr><tr><td>has-member (Has Member)</td><td>equal</td><td>MBR (has member)</td></tr><tr><td>derived-from (Derived From)</td><td>equal</td><td>DRIV (is derived from)</td></tr><tr><td>sequel-to (Sequel To)</td><td>equal</td><td>SEQL (is sequel)</td></tr><tr><td>replaces (Replaces)</td><td>equal</td><td>RPLC (replaces)</td></tr><tr><td>qualified-by (Qualified By)</td><td>equal</td><td>QUALF (has qualifier)</td></tr><tr><td>interfered-by (Interfered By)</td><td>equal</td><td>INTF (interfered by)</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-observation-relationshiptypes-v3",
+  "name": "v3 map for ObservationRelationshipType",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/observation-relationshiptypes"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v3-ActRelationshipType"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/observation-relationshiptypes",
+      "target": "http://hl7.org/fhir/v3/ActRelationshipType",
+      "element": [
+        {
+          "code": "has-member",
+          "target": [
+            {
+              "code": "MBR",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "derived-from",
+          "target": [
+            {
+              "code": "DRIV",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "sequel-to",
+          "target": [
+            {
+              "code": "SEQL",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "replaces",
+          "target": [
+            {
+              "code": "RPLC",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "qualified-by",
+          "target": [
+            {
+              "code": "QUALF",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "interfered-by",
+          "target": [
+            {
+              "code": "INTF",
+              "equivalence": "equal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "adverse-event-outcome",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>AdverseEventOutcome</h2><div><p>TODO (and should this be required?)</p>\n</div><p>This code system http://hl7.org/fhir/adverse-event-outcome defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>resolved<a name=\"adverse-event-outcome-resolved\"> </a></td><td>Resolved</td><td/></tr><tr><td>recovering<a name=\"adverse-event-outcome-recovering\"> </a></td><td>Recovering</td><td/></tr><tr><td>ongoing<a name=\"adverse-event-outcome-ongoing\"> </a></td><td>Ongoing</td><td/></tr><tr><td>resolvedWithSequelae<a name=\"adverse-event-outcome-resolvedWithSequelae\"> </a></td><td>Resolved with Sequelae</td><td/></tr><tr><td>fatal<a name=\"adverse-event-outcome-fatal\"> </a></td><td>Fatal</td><td/></tr><tr><td>unknown<a name=\"adverse-event-outcome-unknown\"> </a></td><td>Unknown</td><td/></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "rcrim"
+    }
+  ],
+  "url": "http://hl7.org/fhir/adverse-event-outcome",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.810"
+  },
+  "version": "3.0.2",
+  "name": "AdverseEventOutcome",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "TODO (and should this be required?)",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/adverse-event-outcome",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "resolved",
+      "display": "Resolved"
+    },
+    {
+      "code": "recovering",
+      "display": "Recovering"
+    },
+    {
+      "code": "ongoing",
+      "display": "Ongoing"
+    },
+    {
+      "code": "resolvedWithSequelae",
+      "display": "Resolved with Sequelae"
+    },
+    {
+      "code": "fatal",
+      "display": "Fatal"
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown"
+    }
+  ]
+}

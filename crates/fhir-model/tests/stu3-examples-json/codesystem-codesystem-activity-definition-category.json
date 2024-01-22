@@ -1,0 +1,67 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "activity-definition-category",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>ActivityDefinitionCategory</h2><div><p>High-level categorization of the type of activity</p>\n</div><p>This code system http://hl7.org/fhir/activity-definition-category defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>treatment<a name=\"activity-definition-category-treatment\"> </a></td><td>Treatment</td><td>The activity is intended to provide or is related to treatment of the patient</td></tr><tr><td>education<a name=\"activity-definition-category-education\"> </a></td><td>Education</td><td>The activity is intended to provide or is related to education of the patient</td></tr><tr><td>assessment<a name=\"activity-definition-category-assessment\"> </a></td><td>Assessment</td><td>The activity is intended to perform or is related to assessment of the patient</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/activity-definition-category",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.776"
+  },
+  "version": "3.0.2",
+  "name": "ActivityDefinitionCategory",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "High-level categorization of the type of activity",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/activity-definition-category",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "treatment",
+      "display": "Treatment",
+      "definition": "The activity is intended to provide or is related to treatment of the patient"
+    },
+    {
+      "code": "education",
+      "display": "Education",
+      "definition": "The activity is intended to provide or is related to education of the patient"
+    },
+    {
+      "code": "assessment",
+      "display": "Assessment",
+      "definition": "The activity is intended to perform or is related to assessment of the patient"
+    }
+  ]
+}

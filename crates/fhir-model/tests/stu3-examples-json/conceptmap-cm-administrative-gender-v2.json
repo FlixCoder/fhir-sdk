@@ -1,0 +1,67 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-administrative-gender-v2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v2 map for AdministrativeGender (http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v2)</h2><p>Mapping from <a href=\"valueset-administrative-gender.html\">http://hl7.org/fhir/ValueSet/administrative-gender</a> to <a href=\"v2/0001/index.html\">http://hl7.org/fhir/ValueSet/v2-0001</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project). </p><br/><table class=\"grid\"><tr><td colspan=\"1\"><b>Source Concept</b></td><td><b>Equivalence</b></td><td colspan=\"1\"><b>Destination Concept</b></td></tr><tr><td><b>Code [http://hl7.org/fhir/administrative-gender]</b></td><td/><td><b>Code [http://hl7.org/fhir/v2/0001]</b></td></tr><tr><td>male (Male)</td><td>:equal</td><td>M (Male)</td></tr><tr><td>female (Female)</td><td>:equal</td><td>F (Female)</td></tr><tr><td>other (Other)</td><td>:wider</td><td>A (Ambiguous)</td></tr><tr><td>unknown (Unknown)</td><td>:equal</td><td>U (Unknown)</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v2",
+  "name": "v2 map for AdministrativeGender",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/administrative-gender"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v2-0001"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/administrative-gender",
+      "target": "http://hl7.org/fhir/v2/0001",
+      "element": [
+        {
+          "code": "male",
+          "target": [
+            {
+              "code": "M",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "female",
+          "target": [
+            {
+              "code": "F",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "other",
+          "target": [
+            {
+              "code": "A",
+              "equivalence": "wider"
+            },
+            {
+              "code": "O",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "code": "unknown",
+          "target": [
+            {
+              "code": "U",
+              "equivalence": "equal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

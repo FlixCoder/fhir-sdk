@@ -1,0 +1,65 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "claim-exception",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Exception Codes</h2><div><p>This value set includes sample Exception codes.</p>\n</div><p><b>Copyright Statement:</b> This is an example set.</p><p>This code system http://hl7.org/fhir/claim-exception defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>student<a name=\"claim-exception-student\"> </a></td><td>Student (Fulltime)</td><td>Fulltime Student</td></tr><tr><td>disabled<a name=\"claim-exception-disabled\"> </a></td><td>Disabled</td><td>Disabled</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/claim-exception",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.573"
+  },
+  "version": "3.0.2",
+  "name": "Exception Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes sample Exception codes.",
+  "copyright": "This is an example set.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/claim-exception",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "student",
+      "display": "Student (Fulltime)",
+      "definition": "Fulltime Student"
+    },
+    {
+      "code": "disabled",
+      "display": "Disabled",
+      "definition": "Disabled"
+    }
+  ]
+}

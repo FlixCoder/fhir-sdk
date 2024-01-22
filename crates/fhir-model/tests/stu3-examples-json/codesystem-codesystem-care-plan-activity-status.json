@@ -1,0 +1,91 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "care-plan-activity-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CarePlanActivityStatus</h2><div><p>Indicates where the activity is at in its overall life cycle.</p>\n</div><p>This code system http://hl7.org/fhir/care-plan-activity-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>not-started<a name=\"care-plan-activity-status-not-started\"> </a></td><td>Not Started</td><td>Activity is planned but no action has yet been taken.</td></tr><tr><td>scheduled<a name=\"care-plan-activity-status-scheduled\"> </a></td><td>Scheduled</td><td>Appointment or other booking has occurred but activity has not yet begun.</td></tr><tr><td>in-progress<a name=\"care-plan-activity-status-in-progress\"> </a></td><td>In Progress</td><td>Activity has been started but is not yet complete.</td></tr><tr><td>on-hold<a name=\"care-plan-activity-status-on-hold\"> </a></td><td>On Hold</td><td>Activity was started but has temporarily ceased with an expectation of resumption at a future time.</td></tr><tr><td>completed<a name=\"care-plan-activity-status-completed\"> </a></td><td>Completed</td><td>The activities have been completed (more or less) as planned.</td></tr><tr><td>cancelled<a name=\"care-plan-activity-status-cancelled\"> </a></td><td>Cancelled</td><td>The activities have been ended prior to completion (perhaps even before they were started).</td></tr><tr><td>unknown<a name=\"care-plan-activity-status-unknown\"> </a></td><td>Unknown</td><td>The authoring system doesn't know the current state of the activity.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pc"
+    }
+  ],
+  "url": "http://hl7.org/fhir/care-plan-activity-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.135"
+  },
+  "version": "3.0.2",
+  "name": "CarePlanActivityStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Indicates where the activity is at in its overall life cycle.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/care-plan-activity-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "not-started",
+      "display": "Not Started",
+      "definition": "Activity is planned but no action has yet been taken."
+    },
+    {
+      "code": "scheduled",
+      "display": "Scheduled",
+      "definition": "Appointment or other booking has occurred but activity has not yet begun."
+    },
+    {
+      "code": "in-progress",
+      "display": "In Progress",
+      "definition": "Activity has been started but is not yet complete."
+    },
+    {
+      "code": "on-hold",
+      "display": "On Hold",
+      "definition": "Activity was started but has temporarily ceased with an expectation of resumption at a future time."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "The activities have been completed (more or less) as planned."
+    },
+    {
+      "code": "cancelled",
+      "display": "Cancelled",
+      "definition": "The activities have been ended prior to completion (perhaps even before they were started)."
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The authoring system doesn't know the current state of the activity."
+    }
+  ]
+}

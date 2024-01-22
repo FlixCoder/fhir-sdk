@@ -1,0 +1,101 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "nutrition-request-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>NutritionOrderStatus</h2><div><p>Codes specifying the state of the request. Describes the lifecycle of the nutrition order.</p>\n</div><p>This code system http://hl7.org/fhir/nutrition-request-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>proposed<a name=\"nutrition-request-status-proposed\"> </a></td><td>Proposed</td><td>The request has been proposed.</td></tr><tr><td>draft<a name=\"nutrition-request-status-draft\"> </a></td><td>Draft</td><td>The request is in preliminary form prior to being sent.</td></tr><tr><td>planned<a name=\"nutrition-request-status-planned\"> </a></td><td>Planned</td><td>The request has been planned.</td></tr><tr><td>requested<a name=\"nutrition-request-status-requested\"> </a></td><td>Requested</td><td>The request has been placed.</td></tr><tr><td>active<a name=\"nutrition-request-status-active\"> </a></td><td>Active</td><td>The request is 'actionable', but not all actions that are implied by it have occurred yet.</td></tr><tr><td>on-hold<a name=\"nutrition-request-status-on-hold\"> </a></td><td>On-Hold</td><td>Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;.</td></tr><tr><td>completed<a name=\"nutrition-request-status-completed\"> </a></td><td>Completed</td><td>All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).</td></tr><tr><td>cancelled<a name=\"nutrition-request-status-cancelled\"> </a></td><td>Cancelled</td><td>The request has been withdrawn and is no longer actionable.</td></tr><tr><td>entered-in-error<a name=\"nutrition-request-status-entered-in-error\"> </a></td><td>Entered in Error</td><td>The request was entered in error and voided.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "oo"
+    }
+  ],
+  "url": "http://hl7.org/fhir/nutrition-request-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.370"
+  },
+  "version": "3.0.2",
+  "name": "NutritionOrderStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes specifying the state of the request. Describes the lifecycle of the nutrition order.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/nutrition-request-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "proposed",
+      "display": "Proposed",
+      "definition": "The request has been proposed."
+    },
+    {
+      "code": "draft",
+      "display": "Draft",
+      "definition": "The request is in preliminary form prior to being sent."
+    },
+    {
+      "code": "planned",
+      "display": "Planned",
+      "definition": "The request has been planned."
+    },
+    {
+      "code": "requested",
+      "display": "Requested",
+      "definition": "The request has been placed."
+    },
+    {
+      "code": "active",
+      "display": "Active",
+      "definition": "The request is 'actionable', but not all actions that are implied by it have occurred yet."
+    },
+    {
+      "code": "on-hold",
+      "display": "On-Hold",
+      "definition": "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called \"suspended\"."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit)."
+    },
+    {
+      "code": "cancelled",
+      "display": "Cancelled",
+      "definition": "The request has been withdrawn and is no longer actionable."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The request was entered in error and voided."
+    }
+  ]
+}

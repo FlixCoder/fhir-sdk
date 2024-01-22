@@ -11,6 +11,8 @@ pub mod r4b;
 pub mod r5;
 mod request;
 mod search;
+#[cfg(feature = "stu3")]
+pub mod stu3;
 mod write;
 
 use std::{
@@ -36,13 +38,19 @@ pub struct FhirR4B;
 /// FHIR client version to use: FHIR R5.
 #[derive(Debug)]
 pub struct FhirR5;
+/// FHIR client version to use: FHIR STU3.
+#[derive(Debug)]
+pub struct FhirStu3;
 
 #[cfg(feature = "r5")]
 /// Default client version.
 type DefaultVersion = FhirR5;
-#[cfg(all(not(feature = "r5"), feature = "r4b"))]
+#[cfg(all(not(feature = "r5"), not(feature = "stu3"), feature = "r4b"))]
 /// Default client version.
 type DefaultVersion = FhirR4B;
+#[cfg(all(not(feature = "r5"), not(feature = "r4b"), feature = "stu3"))]
+/// Default client version.
+type DefaultVersion = FhirStu3;
 
 /// FHIR REST Client.
 #[derive(Debug)]

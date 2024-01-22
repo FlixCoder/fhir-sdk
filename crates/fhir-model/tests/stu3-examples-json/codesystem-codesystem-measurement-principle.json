@@ -1,0 +1,111 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "measurement-principle",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MeasmntPrinciple</h2><div><p>Different measurement principle supported by the device.</p>\n</div><p>This code system http://hl7.org/fhir/measurement-principle defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>other<a name=\"measurement-principle-other\"> </a></td><td>MSP Other</td><td>Measurement principle isn't in the list.</td></tr><tr><td>chemical<a name=\"measurement-principle-chemical\"> </a></td><td>MSP Chemical</td><td>Measurement is done using the chemical principle.</td></tr><tr><td>electrical<a name=\"measurement-principle-electrical\"> </a></td><td>MSP Electrical</td><td>Measurement is done using the electrical principle.</td></tr><tr><td>impedance<a name=\"measurement-principle-impedance\"> </a></td><td>MSP Impedance</td><td>Measurement is done using the impedance principle.</td></tr><tr><td>nuclear<a name=\"measurement-principle-nuclear\"> </a></td><td>MSP Nuclear</td><td>Measurement is done using the nuclear principle.</td></tr><tr><td>optical<a name=\"measurement-principle-optical\"> </a></td><td>MSP Optical</td><td>Measurement is done using the optical principle.</td></tr><tr><td>thermal<a name=\"measurement-principle-thermal\"> </a></td><td>MSP Thermal</td><td>Measurement is done using the thermal principle.</td></tr><tr><td>biological<a name=\"measurement-principle-biological\"> </a></td><td>MSP Biological</td><td>Measurement is done using the biological principle.</td></tr><tr><td>mechanical<a name=\"measurement-principle-mechanical\"> </a></td><td>MSP Mechanical</td><td>Measurement is done using the mechanical principle.</td></tr><tr><td>acoustical<a name=\"measurement-principle-acoustical\"> </a></td><td>MSP Acoustical</td><td>Measurement is done using the acoustical principle.</td></tr><tr><td>manual<a name=\"measurement-principle-manual\"> </a></td><td>MSP Manual</td><td>Measurement is done using the manual principle.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "dev"
+    }
+  ],
+  "url": "http://hl7.org/fhir/measurement-principle",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.619"
+  },
+  "version": "3.0.2",
+  "name": "MeasmntPrinciple",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Different measurement principle supported by the device.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/measurement-principle",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "other",
+      "display": "MSP Other",
+      "definition": "Measurement principle isn't in the list."
+    },
+    {
+      "code": "chemical",
+      "display": "MSP Chemical",
+      "definition": "Measurement is done using the chemical principle."
+    },
+    {
+      "code": "electrical",
+      "display": "MSP Electrical",
+      "definition": "Measurement is done using the electrical principle."
+    },
+    {
+      "code": "impedance",
+      "display": "MSP Impedance",
+      "definition": "Measurement is done using the impedance principle."
+    },
+    {
+      "code": "nuclear",
+      "display": "MSP Nuclear",
+      "definition": "Measurement is done using the nuclear principle."
+    },
+    {
+      "code": "optical",
+      "display": "MSP Optical",
+      "definition": "Measurement is done using the optical principle."
+    },
+    {
+      "code": "thermal",
+      "display": "MSP Thermal",
+      "definition": "Measurement is done using the thermal principle."
+    },
+    {
+      "code": "biological",
+      "display": "MSP Biological",
+      "definition": "Measurement is done using the biological principle."
+    },
+    {
+      "code": "mechanical",
+      "display": "MSP Mechanical",
+      "definition": "Measurement is done using the mechanical principle."
+    },
+    {
+      "code": "acoustical",
+      "display": "MSP Acoustical",
+      "definition": "Measurement is done using the acoustical principle."
+    },
+    {
+      "code": "manual",
+      "display": "MSP Manual",
+      "definition": "Measurement is done using the manual principle."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "data-absent-reason",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "extensions",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>DataAbsentReason</h2><div><p>Used to specify why the normally expected content of the data element is missing.</p>\n</div><p>This code system http://hl7.org/fhir/data-absent-reason defines the following codes:</p><table class=\"codes\"><tr><td><b>Lvl</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td><td><b>Comments</b></td></tr><tr><td>1</td><td>unknown<a name=\"data-absent-reason-unknown\"> </a></td><td>Unknown</td><td>The value is not known.</td><td/></tr><tr><td>1</td><td>asked<a name=\"data-absent-reason-asked\"> </a></td><td>Asked</td><td>The source human does not know the value.</td><td/></tr><tr><td>1</td><td>temp<a name=\"data-absent-reason-temp\"> </a></td><td>Temp</td><td>There is reason to expect (from the workflow) that the value may become known.</td><td/></tr><tr><td>1</td><td>not-asked<a name=\"data-absent-reason-not-asked\"> </a></td><td>Not Asked</td><td>The workflow didn't lead to this value being known.</td><td/></tr><tr><td>1</td><td>masked<a name=\"data-absent-reason-masked\"> </a></td><td>Masked</td><td>The information is not available due to security, privacy or related reasons.</td><td>Using &quot;masked&quot; may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information.</td></tr><tr><td>1</td><td>unsupported<a name=\"data-absent-reason-unsupported\"> </a></td><td>Unsupported</td><td>The source system wasn't capable of supporting this element.</td><td/></tr><tr><td>1</td><td>astext<a name=\"data-absent-reason-astext\"> </a></td><td>As Text</td><td>The content of the data is represented in the resource narrative.</td><td>it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value</td></tr><tr><td>1</td><td>error<a name=\"data-absent-reason-error\"> </a></td><td>Error</td><td>Some system or workflow process error means that the information is not available.</td><td/></tr><tr><td>2</td><td>  NaN<a name=\"data-absent-reason-NaN\"> </a></td><td>Not a Number</td><td>NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.</td><td>This is sometimes an output value from measuring devices</td></tr><tr><td>1</td><td>not-performed<a name=\"data-absent-reason-not-performed\"> </a></td><td>Not Performed</td><td>The value is not available because the observation procedure (test, etc.) was not performed.</td><td/></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/data-absent-reason",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.6"
+  },
+  "version": "3.0.2",
+  "name": "DataAbsentReason",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "description": "Used to specify why the normally expected content of the data element is missing.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/data-absent-reason",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The value is not known."
+    },
+    {
+      "code": "asked",
+      "display": "Asked",
+      "definition": "The source human does not know the value."
+    },
+    {
+      "code": "temp",
+      "display": "Temp",
+      "definition": "There is reason to expect (from the workflow) that the value may become known."
+    },
+    {
+      "code": "not-asked",
+      "display": "Not Asked",
+      "definition": "The workflow didn't lead to this value being known."
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/codesystem-comments",
+          "valueString": "Using \"masked\" may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information."
+        }
+      ],
+      "code": "masked",
+      "display": "Masked",
+      "definition": "The information is not available due to security, privacy or related reasons."
+    },
+    {
+      "code": "unsupported",
+      "display": "Unsupported",
+      "definition": "The source system wasn't capable of supporting this element."
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/codesystem-comments",
+          "valueString": "it may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value"
+        }
+      ],
+      "code": "astext",
+      "display": "As Text",
+      "definition": "The content of the data is represented in the resource narrative."
+    },
+    {
+      "code": "error",
+      "display": "Error",
+      "definition": "Some system or workflow process error means that the information is not available.",
+      "concept": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/codesystem-comments",
+              "valueString": "This is sometimes an output value from measuring devices"
+            }
+          ],
+          "code": "NaN",
+          "display": "Not a Number",
+          "definition": "NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value."
+        }
+      ]
+    },
+    {
+      "code": "not-performed",
+      "display": "Not Performed",
+      "definition": "The value is not available because the observation procedure (test, etc.) was not performed."
+    }
+  ]
+}

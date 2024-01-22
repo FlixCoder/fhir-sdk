@@ -1,0 +1,63 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-administrative-gender-v3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v3 map for AdministrativeGender (http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3)</h2><p>Mapping from <a href=\"valueset-administrative-gender.html\">http://hl7.org/fhir/ValueSet/administrative-gender</a> to <a href=\"v3/AdministrativeGender/vs.html\">http://hl7.org/fhir/ValueSet/v3-AdministrativeGender</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project). </p><br/><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Equivalence</b></td><td><b>Destination Code</b></td></tr><tr><td>male (Male)</td><td>equal</td><td>M (Male)</td></tr><tr><td>female (Female)</td><td>equal</td><td>F (Female)</td></tr><tr><td>other (Other)</td><td>wider</td><td>UN (Undifferentiated)</td></tr><tr><td>unknown (Unknown)</td><td>equal</td><td>UNK</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-administrative-gender-v3",
+  "name": "v3 map for AdministrativeGender",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/administrative-gender"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v3-AdministrativeGender"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/administrative-gender",
+      "target": "http://hl7.org/fhir/v3/AdministrativeGender",
+      "element": [
+        {
+          "code": "male",
+          "target": [
+            {
+              "code": "M",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "female",
+          "target": [
+            {
+              "code": "F",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "other",
+          "target": [
+            {
+              "code": "UN",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "code": "unknown",
+          "target": [
+            {
+              "code": "UNK",
+              "equivalence": "equal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

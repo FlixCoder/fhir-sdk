@@ -1,0 +1,91 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "operational-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>DeviceComponentOperationalStatus</h2><div><p>Codes representing the current status of the device - on, off, suspended, etc.</p>\n</div><p>This code system http://hl7.org/fhir/operational-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>off<a name=\"operational-status-off\"> </a></td><td>Off</td><td>The device is off.</td></tr><tr><td>on<a name=\"operational-status-on\"> </a></td><td>On</td><td>The device is fully operational.</td></tr><tr><td>not-ready<a name=\"operational-status-not-ready\"> </a></td><td>Not Ready</td><td>The device is not ready.</td></tr><tr><td>standby<a name=\"operational-status-standby\"> </a></td><td>Standby</td><td>The device is ready but not actively operating.</td></tr><tr><td>transduc-discon<a name=\"operational-status-transduc-discon\"> </a></td><td>Transducer Diconnected</td><td>The device transducer is diconnected.</td></tr><tr><td>hw-discon<a name=\"operational-status-hw-discon\"> </a></td><td>Hardware Disconnectd</td><td>The device hardware is disconnected.</td></tr><tr><td>entered-in-error<a name=\"operational-status-entered-in-error\"> </a></td><td>Entered In Error</td><td>The device was entered in error.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "dev"
+    }
+  ],
+  "url": "http://hl7.org/fhir/operational-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.896"
+  },
+  "version": "3.0.2",
+  "name": "DeviceComponentOperationalStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes representing the current status of the device - on, off, suspended, etc.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/operational-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "off",
+      "display": "Off",
+      "definition": "The device is off."
+    },
+    {
+      "code": "on",
+      "display": "On",
+      "definition": "The device is fully operational."
+    },
+    {
+      "code": "not-ready",
+      "display": "Not Ready",
+      "definition": "The device is not ready."
+    },
+    {
+      "code": "standby",
+      "display": "Standby",
+      "definition": "The device is ready but not actively operating."
+    },
+    {
+      "code": "transduc-discon",
+      "display": "Transducer Diconnected",
+      "definition": "The device transducer is diconnected."
+    },
+    {
+      "code": "hw-discon",
+      "display": "Hardware Disconnectd",
+      "definition": "The device hardware is disconnected."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered In Error",
+      "definition": "The device was entered in error."
+    }
+  ]
+}

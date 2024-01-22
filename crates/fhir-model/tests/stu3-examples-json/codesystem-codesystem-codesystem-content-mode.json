@@ -1,0 +1,76 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "codesystem-content-mode",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CodeSystemContentMode</h2><div><p>How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource</p>\n</div><p>This code system http://hl7.org/fhir/codesystem-content-mode defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>not-present<a name=\"codesystem-content-mode-not-present\"> </a></td><td>Not Present</td><td>None of the concepts defined by the code system are included in the code system resource</td></tr><tr><td>example<a name=\"codesystem-content-mode-example\"> </a></td><td>Example</td><td>A few representative concepts are included in the code system resource</td></tr><tr><td>fragment<a name=\"codesystem-content-mode-fragment\"> </a></td><td>Fragment</td><td>A subset of the code system concepts are included in the code system resource</td></tr><tr><td>complete<a name=\"codesystem-content-mode-complete\"> </a></td><td>Complete</td><td>All the concepts defined by the code system are included in the code system resource</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "vocab"
+    }
+  ],
+  "url": "http://hl7.org/fhir/codesystem-content-mode",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.766"
+  },
+  "version": "3.0.2",
+  "name": "CodeSystemContentMode",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/codesystem-content-mode",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "not-present",
+      "display": "Not Present",
+      "definition": "None of the concepts defined by the code system are included in the code system resource"
+    },
+    {
+      "code": "example",
+      "display": "Example",
+      "definition": "A few representative concepts are included in the code system resource"
+    },
+    {
+      "code": "fragment",
+      "display": "Fragment",
+      "definition": "A subset of the code system concepts are included in the code system resource"
+    },
+    {
+      "code": "complete",
+      "display": "Complete",
+      "definition": "All the concepts defined by the code system are included in the code system resource"
+    }
+  ]
+}

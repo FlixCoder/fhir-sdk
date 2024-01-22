@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  hapi-stu3:
+    image: hapiproject/hapi:latest
+    ports:
+      - "8110:8080"
+    environment:
+      hapi.fhir.server_address: "http://localhost:8110/fhir"
+      hapi.fhir.fhir_version: "DSTU3"
+      hapi.fhir.tester.home.fhir_version: "DSTU3"
+      hapi.fhir.subscription.resthook_enabled: "true"
+      spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_stu3"
+      spring.datasource.username: "fhir"
+      spring.datasource.password: "password"
+      spring.datasource.driverClassName: "org.postgresql.Driver"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
+      # For some reason needed to start the server?
+      hapi.fhir.subscription.email.from: "test@test.test"
+      hapi.fhir.subscription.email.host: "test.test"
+    depends_on:
+      postgres:
+        condition: service_healthy

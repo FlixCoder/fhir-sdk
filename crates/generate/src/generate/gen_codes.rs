@@ -224,6 +224,7 @@ fn variant_ident(s: &str) -> Ident {
 		"!=" => format_ident!("NotEqual"),
 		"+" => format_ident!("Plus"),
 		"-" => format_ident!("Minus"),
+		"*" => format_ident!("Repeating"),
 		number if number.starts_with(char::is_numeric) => {
 			format_ident!("N{}", number.to_pascal_case())
 		}

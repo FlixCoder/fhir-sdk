@@ -1,0 +1,86 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medication-admin-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MedicationAdministrationStatus</h2><div><p>A set of codes indicating the current status of a MedicationAdministration.</p>\n</div><p>This code system http://hl7.org/fhir/medication-admin-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>in-progress<a name=\"medication-admin-status-in-progress\"> </a></td><td>In Progress</td><td>The administration has started but has not yet completed.</td></tr><tr><td>on-hold<a name=\"medication-admin-status-on-hold\"> </a></td><td>On Hold</td><td>Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;.</td></tr><tr><td>completed<a name=\"medication-admin-status-completed\"> </a></td><td>Completed</td><td>All actions that are implied by the administration have occurred.</td></tr><tr><td>entered-in-error<a name=\"medication-admin-status-entered-in-error\"> </a></td><td>Entered in Error</td><td>The administration was entered in error and therefore nullified.</td></tr><tr><td>stopped<a name=\"medication-admin-status-stopped\"> </a></td><td>Stopped</td><td>Actions implied by the administration have been permanently halted, before all of them occurred.</td></tr><tr><td>unknown<a name=\"medication-admin-status-unknown\"> </a></td><td>Unknown</td><td>The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/medication-admin-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.331"
+  },
+  "version": "3.0.2",
+  "name": "MedicationAdministrationStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A set of codes indicating the current status of a MedicationAdministration.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medication-admin-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "in-progress",
+      "display": "In Progress",
+      "definition": "The administration has started but has not yet completed."
+    },
+    {
+      "code": "on-hold",
+      "display": "On Hold",
+      "definition": "Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\"."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "All actions that are implied by the administration have occurred."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The administration was entered in error and therefore nullified."
+    },
+    {
+      "code": "stopped",
+      "display": "Stopped",
+      "definition": "Actions implied by the administration have been permanently halted, before all of them occurred."
+    },
+    {
+      "code": "unknown",
+      "display": "Unknown",
+      "definition": "The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one."
+    }
+  ]
+}

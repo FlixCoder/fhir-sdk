@@ -1,0 +1,79 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "immunization-recommendation-date-criterion",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Immunization Recommendation Date Criterion Codes</h2><div><p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the definition of dates relevant to recommendations for future doses of vaccines. This value set is provided as a suggestive example.</p>\n</div><p>This code system http://hl7.org/fhir/immunization-recommendation-date-criterion defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>due<a name=\"immunization-recommendation-date-criterion-due\"> </a></td><td>Due</td><td>Date the next dose is considered due.</td></tr><tr><td>recommended<a name=\"immunization-recommendation-date-criterion-recommended\"> </a></td><td>Recommended</td><td>At the recommended date.</td></tr><tr><td>earliest<a name=\"immunization-recommendation-date-criterion-earliest\"> </a></td><td>Earliest Date</td><td>As early as possible.</td></tr><tr><td>overdue<a name=\"immunization-recommendation-date-criterion-overdue\"> </a></td><td>Past Due Date</td><td>Date the next dose is considered overdue.</td></tr><tr><td>latest<a name=\"immunization-recommendation-date-criterion-latest\"> </a></td><td>Latest</td><td>The latest date the next dose is to be given.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pher"
+    }
+  ],
+  "url": "http://hl7.org/fhir/immunization-recommendation-date-criterion",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.299"
+  },
+  "version": "3.0.2",
+  "name": "Immunization Recommendation Date Criterion Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the definition of dates relevant to recommendations for future doses of vaccines. This value set is provided as a suggestive example.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "due",
+      "display": "Due",
+      "definition": "Date the next dose is considered due."
+    },
+    {
+      "code": "recommended",
+      "display": "Recommended",
+      "definition": "At the recommended date."
+    },
+    {
+      "code": "earliest",
+      "display": "Earliest Date",
+      "definition": "As early as possible."
+    },
+    {
+      "code": "overdue",
+      "display": "Past Due Date",
+      "definition": "Date the next dose is considered overdue."
+    },
+    {
+      "code": "latest",
+      "display": "Latest",
+      "definition": "The latest date the next dose is to be given."
+    }
+  ]
+}

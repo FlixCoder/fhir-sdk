@@ -37,6 +37,8 @@ enum FhirServer {
 	/// Multiple servers for different versions for testing.
 	#[default]
 	Ci,
+	/// Hapi server for FHIR STU3.
+	HapiStu3,
 	/// Hapi server for FHIR R4B.
 	HapiR4b,
 	/// Hapi server for FHIR R5.
@@ -59,7 +61,10 @@ impl FhirServer {
 				"hapi-r4b.yml",
 				"-f",
 				"hapi-r5.yml",
+				"-f",
+				"hapi-stu3.yml",
 			],
+			Self::HapiStu3 => &["-f", "databases.yml", "-f", "hapi-stu3.yml"],
 			Self::HapiR4b => &["-f", "databases.yml", "-f", "hapi-r4b.yml"],
 			Self::HapiR5 => &["-f", "databases.yml", "-f", "hapi-r5.yml"],
 			Self::MedplumR4 => &["-f", "databases.yml", "-f", "medplum-r4.yml"],
@@ -98,12 +103,28 @@ impl Cli {
 			.current_dir(&workspace_path);
 		run_command(command)?;
 
+		// Run STU3 tests.
+		let mut command = Command::new("cargo");
+		command
+			.args([
+				"test",
+				"--workspace",
+				"--no-default-features",
+				"--features",
+				"stu3,builders,client",
+			])
+			.current_dir(&workspace_path);
+		run_command(command)?;
+
 		// Make sure the models compile without builders in all FHIR versions.
 		let mut command = Command::new("cargo");
 		command.args(["clippy", "-p", "fhir-model", "--no-default-features", "--features", "r4b"]);
 		run_command(command)?;
 		let mut command = Command::new("cargo");
 		command.args(["clippy", "-p", "fhir-model", "--no-default-features", "--features", "r5"]);
+		run_command(command)?;
+		let mut command = Command::new("cargo");
+		command.args(["clippy", "-p", "fhir-model", "--no-default-features", "--features", "stu3"]);
 		run_command(command)?;
 
 		// Make sure the crate compiles with all features enabled.

@@ -1,0 +1,71 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "clinical-impression-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>ClinicalImpressionStatus</h2><div><p>The workflow state of a clinical impression.</p>\n</div><p>This code system http://hl7.org/fhir/clinical-impression-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>draft<a name=\"clinical-impression-status-draft\"> </a></td><td>In progress</td><td>The assessment is still on-going and results are not yet final.</td></tr><tr><td>completed<a name=\"clinical-impression-status-completed\"> </a></td><td>Completed</td><td>The assessment is done and the results are final.</td></tr><tr><td>entered-in-error<a name=\"clinical-impression-status-entered-in-error\"> </a></td><td>Entered in Error</td><td>This assessment was never actually done and the record is erroneous (e.g. Wrong patient).</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pc"
+    }
+  ],
+  "url": "http://hl7.org/fhir/clinical-impression-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.150"
+  },
+  "version": "3.0.2",
+  "name": "ClinicalImpressionStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The workflow state of a clinical impression.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/clinical-impression-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "draft",
+      "display": "In progress",
+      "definition": "The assessment is still on-going and results are not yet final."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "The assessment is done and the results are final."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "This assessment was never actually done and the record is erroneous (e.g. Wrong patient)."
+    }
+  ]
+}

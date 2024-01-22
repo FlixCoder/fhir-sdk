@@ -1,0 +1,70 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "process-priority",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Process Priority Codes</h2><div><p>This value set includes the financial processing priority codes.</p>\n</div><p><b>Copyright Statement:</b> This is an example set.</p><p>This code system http://hl7.org/fhir/processpriority defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>stat<a name=\"process-priority-stat\"> </a></td><td>Immediate</td><td>Immediately in real time.</td></tr><tr><td>normal<a name=\"process-priority-normal\"> </a></td><td>Normal</td><td>With best effort.</td></tr><tr><td>deferred<a name=\"process-priority-deferred\"> </a></td><td>Deferred</td><td>Later, when possible.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/processpriority",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.545"
+  },
+  "version": "3.0.2",
+  "name": "Process Priority Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes the financial processing priority codes.",
+  "copyright": "This is an example set.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/process-priority",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "stat",
+      "display": "Immediate",
+      "definition": "Immediately in real time."
+    },
+    {
+      "code": "normal",
+      "display": "Normal",
+      "definition": "With best effort."
+    },
+    {
+      "code": "deferred",
+      "display": "Deferred",
+      "definition": "Later, when possible."
+    }
+  ]
+}

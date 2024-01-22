@@ -1,0 +1,88 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-contact-point-system-v2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v2 map for ContactPointSystem (http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2)</h2><p>Mapping from <a href=\"valueset-contact-point-system.html\">http://hl7.org/fhir/ValueSet/contact-point-system</a> to <a href=\"v2/0202/index.html\">http://hl7.org/fhir/ValueSet/v2-0202</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project) (<a href=\"http://hl7.org/fhir\">http://hl7.org/fhir</a>, <a href=\"mailto:fhir@lists.hl7.org\">fhir@lists.hl7.org</a>). </p><br/><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Equivalence</b></td><td><b>Destination Code</b></td><td><b>Comment</b></td></tr><tr><td>phone (Phone)</td><td>equivalent</td><td>PH (Telephone)</td><td/></tr><tr><td>fax (Fax)</td><td>equivalent</td><td>FX (Fax)</td><td/></tr><tr><td>email (Email)</td><td>narrower</td><td>Internet (Internet Address)</td><td>for email addresses</td></tr><tr><td>pager (Pager)</td><td>equivalent</td><td>BP (Beeper)</td><td/></tr><tr><td>url (URL)</td><td>narrower</td><td>Internet (Internet Address)</td><td>for non-email kinds of addresses</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-system-v2",
+  "name": "v2 map for ContactPointSystem",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/contact-point-system"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v2-0202"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/contact-point-system",
+      "target": "http://hl7.org/fhir/v2/0202",
+      "element": [
+        {
+          "code": "phone",
+          "target": [
+            {
+              "code": "PH",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "fax",
+          "target": [
+            {
+              "code": "FX",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "email",
+          "target": [
+            {
+              "code": "Internet",
+              "equivalence": "narrower",
+              "comment": "for email addresses"
+            }
+          ]
+        },
+        {
+          "code": "pager",
+          "target": [
+            {
+              "code": "BP",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "url",
+          "target": [
+            {
+              "code": "Internet",
+              "equivalence": "narrower",
+              "comment": "for non-email kinds of addresses"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

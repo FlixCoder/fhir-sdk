@@ -1,0 +1,96 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "specification-type",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>DeviceSpecificationSpecType</h2><div><p>Codes for device specification types such as serial number, part number, hardware revision, software revision, etc.</p>\n</div><p>This code system http://hl7.org/fhir/specification-type defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>unspecified<a name=\"specification-type-unspecified\"> </a></td><td>Unspecified Production Specification</td><td>Unspecified Production Specification - MDC_ID_PROD_SPEC_UNSPECIFIED</td></tr><tr><td>serial-number<a name=\"specification-type-serial-number\"> </a></td><td>Serial Number</td><td>Serial Number - MDC_ID_PROD_SPEC_SERIAL</td></tr><tr><td>part-number<a name=\"specification-type-part-number\"> </a></td><td>Part Number</td><td>Part Number - MDC_ID_PROD_SPEC_PART</td></tr><tr><td>hardware-revision<a name=\"specification-type-hardware-revision\"> </a></td><td>Hardware Revision</td><td>Hardware Revision - MDC_ID_PROD_SPEC_HW</td></tr><tr><td>software-revision<a name=\"specification-type-software-revision\"> </a></td><td>Software Revision</td><td>Software Revision - MDC_ID_PROD_SPEC_SW</td></tr><tr><td>firmware-revision<a name=\"specification-type-firmware-revision\"> </a></td><td>Firmware Revision</td><td>Firmware Revision - MDC_ID_PROD_SPEC_FW</td></tr><tr><td>protocol-revision<a name=\"specification-type-protocol-revision\"> </a></td><td>Protocol Revision</td><td>Protocol Revision - MDC_ID_PROD_SPEC_PROTOCOL</td></tr><tr><td>gmdn<a name=\"specification-type-gmdn\"> </a></td><td>GMDN</td><td>GMDN - MDC_ID_PROD_SPEC_GMDN</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "dev"
+    }
+  ],
+  "url": "http://hl7.org/fhir/specification-type",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.898"
+  },
+  "version": "3.0.2",
+  "name": "DeviceSpecificationSpecType",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Codes for device specification types such as serial number, part number, hardware revision, software revision, etc.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/specification-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "unspecified",
+      "display": "Unspecified Production Specification",
+      "definition": "Unspecified Production Specification - MDC_ID_PROD_SPEC_UNSPECIFIED"
+    },
+    {
+      "code": "serial-number",
+      "display": "Serial Number",
+      "definition": "Serial Number - MDC_ID_PROD_SPEC_SERIAL"
+    },
+    {
+      "code": "part-number",
+      "display": "Part Number",
+      "definition": "Part Number - MDC_ID_PROD_SPEC_PART"
+    },
+    {
+      "code": "hardware-revision",
+      "display": "Hardware Revision",
+      "definition": "Hardware Revision - MDC_ID_PROD_SPEC_HW"
+    },
+    {
+      "code": "software-revision",
+      "display": "Software Revision",
+      "definition": "Software Revision - MDC_ID_PROD_SPEC_SW"
+    },
+    {
+      "code": "firmware-revision",
+      "display": "Firmware Revision",
+      "definition": "Firmware Revision - MDC_ID_PROD_SPEC_FW"
+    },
+    {
+      "code": "protocol-revision",
+      "display": "Protocol Revision",
+      "definition": "Protocol Revision - MDC_ID_PROD_SPEC_PROTOCOL"
+    },
+    {
+      "code": "gmdn",
+      "display": "GMDN",
+      "definition": "GMDN - MDC_ID_PROD_SPEC_GMDN"
+    }
+  ]
+}

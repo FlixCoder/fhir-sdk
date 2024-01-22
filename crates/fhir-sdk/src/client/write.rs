@@ -5,6 +5,8 @@ use async_trait::async_trait;
 use fhir_model::r4b;
 #[cfg(feature = "r5")]
 use fhir_model::r5;
+#[cfg(feature = "stu3")]
+use fhir_model::stu3;
 use serde::Serialize;
 
 use super::{error::Error, Client};
@@ -104,6 +106,52 @@ where
 	}
 
 	async fn delete(self, client: &Client<super::FhirR5>) -> Result<(), Error> {
+		let id = self.id().as_ref().ok_or(Error::MissingId)?;
+		client.delete(R::TYPE, id).await?;
+		Ok(())
+	}
+}
+
+#[cfg(feature = "stu3")]
+#[async_trait]
+impl<R> ResourceWrite<super::FhirStu3> for R
+where
+	R: stu3::resources::NamedResource + stu3::resources::BaseResource + Serialize + Send + Sync,
+{
+	async fn update(
+		&mut self,
+		conditional: bool,
+		client: &Client<super::FhirStu3>,
+	) -> Result<bool, Error> {
+		let (created, version_id) = client.update(self, conditional).await?;
+		if let Some(meta) = self.meta_mut() {
+			meta.version_id = Some(version_id);
+		} else {
+			// Meta does not require any field and will succeed building.
+			#[allow(clippy::unwrap_used)]
+			self.set_meta(Some(
+				stu3::types::Meta::builder().version_id(version_id).build().unwrap(),
+			));
+		}
+		Ok(created)
+	}
+
+	async fn create(&mut self, client: &Client<super::FhirStu3>) -> Result<String, Error> {
+		let (id, version_id) = client.create(self).await?;
+		self.set_id(Some(id.clone()));
+		if let Some(meta) = self.meta_mut() {
+			meta.version_id = version_id;
+		} else if let Some(version_id) = version_id {
+			// Meta does not require any field and will succeed building.
+			#[allow(clippy::unwrap_used)]
+			self.set_meta(Some(
+				stu3::types::Meta::builder().version_id(version_id).build().unwrap(),
+			));
+		}
+		Ok(id)
+	}
+
+	async fn delete(self, client: &Client<super::FhirStu3>) -> Result<(), Error> {
 		let id = self.id().as_ref().ok_or(Error::MissingId)?;
 		client.delete(R::TYPE, id).await?;
 		Ok(())

@@ -1,0 +1,77 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "questionnaire-usage-mode",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>QuestionnaireItemUsageMode</h2><div><p>Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item</p>\n</div><p>This code system http://hl7.org/fhir/questionnaire-usage-mode defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>capture-display<a name=\"questionnaire-usage-mode-capture-display\"> </a></td><td>Capture &amp; Display</td><td>Render the item regardless of usage mode</td></tr><tr><td>capture<a name=\"questionnaire-usage-mode-capture\"> </a></td><td>Capture Only</td><td>Render the item only when capturing data</td></tr><tr><td>display<a name=\"questionnaire-usage-mode-display\"> </a></td><td>Display Only</td><td>Render the item only when displaying a completed form</td></tr><tr><td>display-non-empty<a name=\"questionnaire-usage-mode-display-non-empty\"> </a></td><td>Display when Answered</td><td>Render the item only when displaying a completed form and the item has been answered (or has child items that have been answered)</td></tr><tr><td>capture-display-non-empty<a name=\"questionnaire-usage-mode-capture-display-non-empty\"> </a></td><td>Capture or, if answered, Display</td><td>Render the item when capturing data or when displaying a completed form and the item has been answered (or has child items that have been answered)</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/questionnaire-usage-mode",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.855"
+  },
+  "version": "3.0.2",
+  "name": "QuestionnaireItemUsageMode",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Identifies the modes of usage of a questionnaire that should enable a particular questionnaire item",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/questionnaire-usage-mode",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "capture-display",
+      "display": "Capture & Display",
+      "definition": "Render the item regardless of usage mode"
+    },
+    {
+      "code": "capture",
+      "display": "Capture Only",
+      "definition": "Render the item only when capturing data"
+    },
+    {
+      "code": "display",
+      "display": "Display Only",
+      "definition": "Render the item only when displaying a completed form"
+    },
+    {
+      "code": "display-non-empty",
+      "display": "Display when Answered",
+      "definition": "Render the item only when displaying a completed form and the item has been answered (or has child items that have been answered)"
+    },
+    {
+      "code": "capture-display-non-empty",
+      "display": "Capture or, if answered, Display",
+      "definition": "Render the item when capturing data or when displaying a completed form and the item has been answered (or has child items that have been answered)"
+    }
+  ]
+}

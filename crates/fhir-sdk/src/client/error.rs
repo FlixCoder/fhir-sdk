@@ -4,6 +4,8 @@
 use fhir_model::r4b;
 #[cfg(feature = "r5")]
 use fhir_model::r5;
+#[cfg(feature = "stu3")]
+use fhir_model::stu3;
 use reqwest::StatusCode;
 use thiserror::Error;
 
@@ -72,6 +74,11 @@ pub enum Error {
 	#[error("OperationOutcome({0}): {1:?}")]
 	OperationOutcomeR5(StatusCode, r5::resources::OperationOutcome),
 
+	#[cfg(feature = "stu3")]
+	/// OperationOutcome.
+	#[error("OperationOutcome({0}): {1:?}")]
+	OperationOutcomeStu3(StatusCode, stu3::resources::OperationOutcome),
+
 	/// Resource was not found.
 	#[error("Resource `{0}` was not found")]
 	ResourceNotFound(String),
@@ -119,6 +126,18 @@ impl Error {
 		let body = response.text().await.unwrap_or_default();
 		if let Ok(outcome) = serde_json::from_str(&body) {
 			Self::OperationOutcomeR5(status, outcome)
+		} else {
+			Self::Response(status, body)
+		}
+	}
+
+	#[cfg(feature = "stu3")]
+	/// Extract the error from a response.
+	pub(crate) async fn from_response_stu3(response: reqwest::Response) -> Self {
+		let status = response.status();
+		let body = response.text().await.unwrap_or_default();
+		if let Ok(outcome) = serde_json::from_str(&body) {
+			Self::OperationOutcomeStu3(status, outcome)
 		} else {
 			Self::Response(status, body)
 		}

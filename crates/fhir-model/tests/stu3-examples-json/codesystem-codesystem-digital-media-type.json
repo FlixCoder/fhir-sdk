@@ -1,0 +1,71 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "digital-media-type",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>DigitalMediaType</h2><div><p>Whether the media is a photo, video, or audio</p>\n</div><p>This code system http://hl7.org/fhir/digital-media-type defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>photo<a name=\"digital-media-type-photo\"> </a></td><td>Photo</td><td>The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents</td></tr><tr><td>video<a name=\"digital-media-type-video\"> </a></td><td>Video</td><td>The media consists of a series of frames that capture a moving image</td></tr><tr><td>audio<a name=\"digital-media-type-audio\"> </a></td><td>Audio</td><td>The media consists of a sound recording</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/digital-media-type",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.326"
+  },
+  "version": "3.0.2",
+  "name": "DigitalMediaType",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Whether the media is a photo, video, or audio",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/digital-media-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "photo",
+      "display": "Photo",
+      "definition": "The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents"
+    },
+    {
+      "code": "video",
+      "display": "Video",
+      "definition": "The media consists of a series of frames that capture a moving image"
+    },
+    {
+      "code": "audio",
+      "display": "Audio",
+      "definition": "The media consists of a sound recording"
+    }
+  ]
+}

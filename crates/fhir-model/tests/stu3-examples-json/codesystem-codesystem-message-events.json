@@ -1,0 +1,112 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "message-events",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MessageEvent</h2><div><p>One of the message events defined as part of FHIR.</p>\n</div><p>This code system http://hl7.org/fhir/message-events defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>CodeSystem-expand<a name=\"message-events-CodeSystem-expand\"> </a></td><td>CodeSystem-expand</td><td>The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message.</td></tr><tr><td>MedicationAdministration-Complete<a name=\"message-events-MedicationAdministration-Complete\"> </a></td><td>MedicationAdministration-Complete</td><td>Change the status of a Medication Administration to show that it is complete.</td></tr><tr><td>MedicationAdministration-Nullification<a name=\"message-events-MedicationAdministration-Nullification\"> </a></td><td>MedicationAdministration-Nullification</td><td>Someone wishes to record that the record of administration of a medication is in error and should be ignored.</td></tr><tr><td>MedicationAdministration-Recording<a name=\"message-events-MedicationAdministration-Recording\"> </a></td><td>MedicationAdministration-Recording</td><td>Indicates that a medication has been recorded against the patient's record.</td></tr><tr><td>MedicationAdministration-Update<a name=\"message-events-MedicationAdministration-Update\"> </a></td><td>MedicationAdministration-Update</td><td>Update a Medication Administration record.</td></tr><tr><td>admin-notify<a name=\"message-events-admin-notify\"> </a></td><td>admin-notify</td><td>Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.</td></tr><tr><td>communication-request<a name=\"message-events-communication-request\"> </a></td><td>communication-request</td><td>Notification to convey information.</td></tr><tr><td>diagnosticreport-provide<a name=\"message-events-diagnosticreport-provide\"> </a></td><td>diagnosticreport-provide</td><td>Provide a diagnostic report, or update a previously provided diagnostic report.</td></tr><tr><td>observation-provide<a name=\"message-events-observation-provide\"> </a></td><td>observation-provide</td><td>Provide a simple observation or update a previously provided simple observation.</td></tr><tr><td>patient-link<a name=\"message-events-patient-link\"> </a></td><td>patient-link</td><td>Notification that two patient records actually identify the same patient.</td></tr><tr><td>patient-unlink<a name=\"message-events-patient-unlink\"> </a></td><td>patient-unlink</td><td>Notification that previous advice that two patient records concern the same patient is now considered incorrect.</td></tr><tr><td>valueset-expand<a name=\"message-events-valueset-expand\"> </a></td><td>valueset-expand</td><td>The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. An expanded value set will be returned, or an error message.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "inm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/message-events",
+  "version": "3.0.2",
+  "name": "MessageEvent",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "One of the message events defined as part of FHIR.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/message-events",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "CodeSystem-expand",
+      "display": "CodeSystem-expand",
+      "definition": "The definition of a code system is used to create a simple collection of codes suitable for use for data entry or validation. An expanded code system will be returned, or an error message."
+    },
+    {
+      "code": "MedicationAdministration-Complete",
+      "display": "MedicationAdministration-Complete",
+      "definition": "Change the status of a Medication Administration to show that it is complete."
+    },
+    {
+      "code": "MedicationAdministration-Nullification",
+      "display": "MedicationAdministration-Nullification",
+      "definition": "Someone wishes to record that the record of administration of a medication is in error and should be ignored."
+    },
+    {
+      "code": "MedicationAdministration-Recording",
+      "display": "MedicationAdministration-Recording",
+      "definition": "Indicates that a medication has been recorded against the patient's record."
+    },
+    {
+      "code": "MedicationAdministration-Update",
+      "display": "MedicationAdministration-Update",
+      "definition": "Update a Medication Administration record."
+    },
+    {
+      "code": "admin-notify",
+      "display": "admin-notify",
+      "definition": "Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use."
+    },
+    {
+      "code": "communication-request",
+      "display": "communication-request",
+      "definition": "Notification to convey information."
+    },
+    {
+      "code": "diagnosticreport-provide",
+      "display": "diagnosticreport-provide",
+      "definition": "Provide a diagnostic report, or update a previously provided diagnostic report."
+    },
+    {
+      "code": "observation-provide",
+      "display": "observation-provide",
+      "definition": "Provide a simple observation or update a previously provided simple observation."
+    },
+    {
+      "code": "patient-link",
+      "display": "patient-link",
+      "definition": "Notification that two patient records actually identify the same patient."
+    },
+    {
+      "code": "patient-unlink",
+      "display": "patient-unlink",
+      "definition": "Notification that previous advice that two patient records concern the same patient is now considered incorrect."
+    },
+    {
+      "code": "valueset-expand",
+      "display": "valueset-expand",
+      "definition": "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. An expanded value set will be returned, or an error message."
+    }
+  ]
+}

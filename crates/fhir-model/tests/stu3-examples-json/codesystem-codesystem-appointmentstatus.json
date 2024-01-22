@@ -1,0 +1,96 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "appointmentstatus",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>AppointmentStatus</h2><div><p>The free/busy status of an appointment.</p>\n</div><p>This code system http://hl7.org/fhir/appointmentstatus defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>proposed<a name=\"appointmentstatus-proposed\"> </a></td><td>Proposed</td><td>None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.</td></tr><tr><td>pending<a name=\"appointmentstatus-pending\"> </a></td><td>Pending</td><td>Some or all of the participant(s) have not finalized their acceptance of the appointment request.</td></tr><tr><td>booked<a name=\"appointmentstatus-booked\"> </a></td><td>Booked</td><td>All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.</td></tr><tr><td>arrived<a name=\"appointmentstatus-arrived\"> </a></td><td>Arrived</td><td>Some of the patients have arrived.</td></tr><tr><td>fulfilled<a name=\"appointmentstatus-fulfilled\"> </a></td><td>Fulfilled</td><td>This appointment has completed and may have resulted in an encounter.</td></tr><tr><td>cancelled<a name=\"appointmentstatus-cancelled\"> </a></td><td>Cancelled</td><td>The appointment has been cancelled.</td></tr><tr><td>noshow<a name=\"appointmentstatus-noshow\"> </a></td><td>No Show</td><td>Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).</td></tr><tr><td>entered-in-error<a name=\"appointmentstatus-entered-in-error\"> </a></td><td>Entered in error</td><td>This instance should not have been part of this patient's medical record.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    }
+  ],
+  "url": "http://hl7.org/fhir/appointmentstatus",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.478"
+  },
+  "version": "3.0.2",
+  "name": "AppointmentStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The free/busy status of an appointment.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/appointmentstatus",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "proposed",
+      "display": "Proposed",
+      "definition": "None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet."
+    },
+    {
+      "code": "pending",
+      "display": "Pending",
+      "definition": "Some or all of the participant(s) have not finalized their acceptance of the appointment request."
+    },
+    {
+      "code": "booked",
+      "display": "Booked",
+      "definition": "All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified."
+    },
+    {
+      "code": "arrived",
+      "display": "Arrived",
+      "definition": "Some of the patients have arrived."
+    },
+    {
+      "code": "fulfilled",
+      "display": "Fulfilled",
+      "definition": "This appointment has completed and may have resulted in an encounter."
+    },
+    {
+      "code": "cancelled",
+      "display": "Cancelled",
+      "definition": "The appointment has been cancelled."
+    },
+    {
+      "code": "noshow",
+      "display": "No Show",
+      "definition": "Some or all of the participant(s) have not/did not appear for the appointment (usually the patient)."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in error",
+      "definition": "This instance should not have been part of this patient's medical record."
+    }
+  ]
+}

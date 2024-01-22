@@ -1,0 +1,75 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "benefit-category",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Benefit Category Codes</h2><div><p>This value set includes a smattering of Benefit Category codes.</p>\n</div><p><b>Copyright Statement:</b> This is an example set.</p><p>This code system http://hl7.org/fhir/benefit-category defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>oral<a name=\"benefit-category-oral\"> </a></td><td>Dental and Oral Health Coverage</td><td>Dental and Oral Health Coverage</td></tr><tr><td>vision<a name=\"benefit-category-vision\"> </a></td><td>Vision Health Coverage</td><td>Vision Health Coverage</td></tr><tr><td>medical<a name=\"benefit-category-medical\"> </a></td><td>Medical Health Coverage</td><td>Medical Health Coverage</td></tr><tr><td>pharmacy<a name=\"benefit-category-pharmacy\"> </a></td><td>Pharmacy Coverage</td><td>Pharmacy Coverage</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/benefit-category",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.595"
+  },
+  "version": "3.0.2",
+  "name": "Benefit Category Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes a smattering of Benefit Category codes.",
+  "copyright": "This is an example set.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/benefit-category",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "oral",
+      "display": "Dental and Oral Health Coverage",
+      "definition": "Dental and Oral Health Coverage"
+    },
+    {
+      "code": "vision",
+      "display": "Vision Health Coverage",
+      "definition": "Vision Health Coverage"
+    },
+    {
+      "code": "medical",
+      "display": "Medical Health Coverage",
+      "definition": "Medical Health Coverage"
+    },
+    {
+      "code": "pharmacy",
+      "display": "Pharmacy Coverage",
+      "definition": "Pharmacy Coverage"
+    }
+  ]
+}

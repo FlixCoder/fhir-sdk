@@ -1,0 +1,593 @@
+{
+  "resourceType": "CompartmentDefinition",
+  "id": "practitioner",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>\nThe following resources may be in this compartment:\n</p>\n<table class=\"grid\">\n <tr><td><b>Resource</b></td><td><b>Inclusion Criteria</b></td></tr>\n <tr><td><a href=\"account.html\">Account</a></td><td>subject</td></tr>\n <tr><td><a href=\"adverseevent.html\">AdverseEvent</a></td><td>recorder</td></tr>\n <tr><td><a href=\"allergyintolerance.html\">AllergyIntolerance</a></td><td>recorder, asserter</td></tr>\n <tr><td><a href=\"appointment.html\">Appointment</a></td><td>actor</td></tr>\n <tr><td><a href=\"appointmentresponse.html\">AppointmentResponse</a></td><td>actor</td></tr>\n <tr><td><a href=\"auditevent.html\">AuditEvent</a></td><td>agent</td></tr>\n <tr><td><a href=\"basic.html\">Basic</a></td><td>author</td></tr>\n <tr><td><a href=\"careplan.html\">CarePlan</a></td><td>performer</td></tr>\n <tr><td><a href=\"careteam.html\">CareTeam</a></td><td>participant</td></tr>\n <tr><td><a href=\"chargeitem.html\">ChargeItem</a></td><td>enterer, participant-actor</td></tr>\n <tr><td><a href=\"claim.html\">Claim</a></td><td>enterer, provider, payee, care-team</td></tr>\n <tr><td><a href=\"claimresponse.html\">ClaimResponse</a></td><td>request-provider</td></tr>\n <tr><td><a href=\"clinicalimpression.html\">ClinicalImpression</a></td><td>assessor</td></tr>\n <tr><td><a href=\"communication.html\">Communication</a></td><td>sender, recipient</td></tr>\n <tr><td><a href=\"communicationrequest.html\">CommunicationRequest</a></td><td>sender, recipient, requester</td></tr>\n <tr><td><a href=\"composition.html\">Composition</a></td><td>subject, author, attester</td></tr>\n <tr><td><a href=\"condition.html\">Condition</a></td><td>asserter</td></tr>\n <tr><td><a href=\"detectedissue.html\">DetectedIssue</a></td><td>author</td></tr>\n <tr><td><a href=\"devicerequest.html\">DeviceRequest</a></td><td>requester, performer</td></tr>\n <tr><td><a href=\"diagnosticreport.html\">DiagnosticReport</a></td><td>performer</td></tr>\n <tr><td><a href=\"documentmanifest.html\">DocumentManifest</a></td><td>subject, author, recipient</td></tr>\n <tr><td><a href=\"documentreference.html\">DocumentReference</a></td><td>subject, author, authenticator</td></tr>\n <tr><td><a href=\"eligibilityrequest.html\">EligibilityRequest</a></td><td>enterer, provider</td></tr>\n <tr><td><a href=\"eligibilityresponse.html\">EligibilityResponse</a></td><td>request-provider</td></tr>\n <tr><td><a href=\"encounter.html\">Encounter</a></td><td>practitioner, participant</td></tr>\n <tr><td><a href=\"episodeofcare.html\">EpisodeOfCare</a></td><td>care-manager</td></tr>\n <tr><td><a href=\"explanationofbenefit.html\">ExplanationOfBenefit</a></td><td>enterer, provider, payee, care-team</td></tr>\n <tr><td><a href=\"flag.html\">Flag</a></td><td>author</td></tr>\n <tr><td><a href=\"group.html\">Group</a></td><td>member</td></tr>\n <tr><td><a href=\"imagingmanifest.html\">ImagingManifest</a></td><td>author</td></tr>\n <tr><td><a href=\"immunization.html\">Immunization</a></td><td>practitioner</td></tr>\n <tr><td><a href=\"linkage.html\">Linkage</a></td><td>author</td></tr>\n <tr><td><a href=\"list.html\">List</a></td><td>source</td></tr>\n <tr><td><a href=\"media.html\">Media</a></td><td>subject, operator</td></tr>\n <tr><td><a href=\"medicationadministration.html\">MedicationAdministration</a></td><td>performer</td></tr>\n <tr><td><a href=\"medicationdispense.html\">MedicationDispense</a></td><td>performer, receiver</td></tr>\n <tr><td><a href=\"medicationrequest.html\">MedicationRequest</a></td><td>requester</td></tr>\n <tr><td><a href=\"medicationstatement.html\">MedicationStatement</a></td><td>source</td></tr>\n <tr><td><a href=\"messageheader.html\">MessageHeader</a></td><td>receiver, author, responsible, enterer</td></tr>\n <tr><td><a href=\"nutritionorder.html\">NutritionOrder</a></td><td>provider</td></tr>\n <tr><td><a href=\"observation.html\">Observation</a></td><td>performer</td></tr>\n <tr><td><a href=\"patient.html\">Patient</a></td><td>general-practitioner</td></tr>\n <tr><td><a href=\"paymentnotice.html\">PaymentNotice</a></td><td>provider</td></tr>\n <tr><td><a href=\"paymentreconciliation.html\">PaymentReconciliation</a></td><td>request-provider</td></tr>\n <tr><td><a href=\"person.html\">Person</a></td><td>practitioner</td></tr>\n <tr><td><a href=\"practitioner.html\">Practitioner</a></td><td>{def}</td></tr>\n <tr><td><a href=\"practitionerrole.html\">PractitionerRole</a></td><td>practitioner</td></tr>\n <tr><td><a href=\"procedure.html\">Procedure</a></td><td>performer</td></tr>\n <tr><td><a href=\"procedurerequest.html\">ProcedureRequest</a></td><td>performer, requester</td></tr>\n <tr><td><a href=\"processrequest.html\">ProcessRequest</a></td><td>provider</td></tr>\n <tr><td><a href=\"processresponse.html\">ProcessResponse</a></td><td>request-provider</td></tr>\n <tr><td><a href=\"provenance.html\">Provenance</a></td><td>agent</td></tr>\n <tr><td><a href=\"questionnaireresponse.html\">QuestionnaireResponse</a></td><td>author, source</td></tr>\n <tr><td><a href=\"referralrequest.html\">ReferralRequest</a></td><td>requester, recipient</td></tr>\n <tr><td><a href=\"requestgroup.html\">RequestGroup</a></td><td>participant, author</td></tr>\n <tr><td><a href=\"researchstudy.html\">ResearchStudy</a></td><td>principalinvestigator</td></tr>\n <tr><td><a href=\"riskassessment.html\">RiskAssessment</a></td><td>performer</td></tr>\n <tr><td><a href=\"schedule.html\">Schedule</a></td><td>actor</td></tr>\n <tr><td><a href=\"specimen.html\">Specimen</a></td><td>collector</td></tr>\n <tr><td><a href=\"supplydelivery.html\">SupplyDelivery</a></td><td>supplier, receiver</td></tr>\n <tr><td><a href=\"supplyrequest.html\">SupplyRequest</a></td><td>requester</td></tr>\n <tr><td><a href=\"visionprescription.html\">VisionPrescription</a></td><td>prescriber</td></tr>\n</table>\n<p>\nA resource is in this compartment if the nominated search parameter (or chain) refers to the patient resource that defines the compartment.\n</p>\n<p>\n\n</p>\n<p>\nThe following resources are never in this compartment:\n</p>\n<ul>\n <li><a href=\"activitydefinition.html\">ActivityDefinition</a></li>\n <li><a href=\"binary.html\">Binary</a></li>\n <li><a href=\"bodysite.html\">BodySite</a></li>\n <li><a href=\"bundle.html\">Bundle</a></li>\n <li><a href=\"capabilitystatement.html\">CapabilityStatement</a></li>\n <li><a href=\"codesystem.html\">CodeSystem</a></li>\n <li><a href=\"compartmentdefinition.html\">CompartmentDefinition</a></li>\n <li><a href=\"conceptmap.html\">ConceptMap</a></li>\n <li><a href=\"consent.html\">Consent</a></li>\n <li><a href=\"contract.html\">Contract</a></li>\n <li><a href=\"coverage.html\">Coverage</a></li>\n <li><a href=\"dataelement.html\">DataElement</a></li>\n <li><a href=\"device.html\">Device</a></li>\n <li><a href=\"devicecomponent.html\">DeviceComponent</a></li>\n <li><a href=\"devicemetric.html\">DeviceMetric</a></li>\n <li><a href=\"deviceusestatement.html\">DeviceUseStatement</a></li>\n <li><a href=\"endpoint.html\">Endpoint</a></li>\n <li><a href=\"enrollmentrequest.html\">EnrollmentRequest</a></li>\n <li><a href=\"enrollmentresponse.html\">EnrollmentResponse</a></li>\n <li><a href=\"expansionprofile.html\">ExpansionProfile</a></li>\n <li><a href=\"familymemberhistory.html\">FamilyMemberHistory</a></li>\n <li><a href=\"goal.html\">Goal</a></li>\n <li><a href=\"graphdefinition.html\">GraphDefinition</a></li>\n <li><a href=\"guidanceresponse.html\">GuidanceResponse</a></li>\n <li><a href=\"healthcareservice.html\">HealthcareService</a></li>\n <li><a href=\"imagingstudy.html\">ImagingStudy</a></li>\n <li><a href=\"immunizationrecommendation.html\">ImmunizationRecommendation</a></li>\n <li><a href=\"implementationguide.html\">ImplementationGuide</a></li>\n <li><a href=\"library.html\">Library</a></li>\n <li><a href=\"location.html\">Location</a></li>\n <li><a href=\"measure.html\">Measure</a></li>\n <li><a href=\"measurereport.html\">MeasureReport</a></li>\n <li><a href=\"medication.html\">Medication</a></li>\n <li><a href=\"messagedefinition.html\">MessageDefinition</a></li>\n <li><a href=\"namingsystem.html\">NamingSystem</a></li>\n <li><a href=\"operationdefinition.html\">OperationDefinition</a></li>\n <li><a href=\"operationoutcome.html\">OperationOutcome</a></li>\n <li><a href=\"organization.html\">Organization</a></li>\n <li><a href=\"plandefinition.html\">PlanDefinition</a></li>\n <li><a href=\"questionnaire.html\">Questionnaire</a></li>\n <li><a href=\"relatedperson.html\">RelatedPerson</a></li>\n <li><a href=\"researchsubject.html\">ResearchSubject</a></li>\n <li><a href=\"searchparameter.html\">SearchParameter</a></li>\n <li><a href=\"sequence.html\">Sequence</a></li>\n <li><a href=\"servicedefinition.html\">ServiceDefinition</a></li>\n <li><a href=\"slot.html\">Slot</a></li>\n <li><a href=\"structuredefinition.html\">StructureDefinition</a></li>\n <li><a href=\"structuremap.html\">StructureMap</a></li>\n <li><a href=\"subscription.html\">Subscription</a></li>\n <li><a href=\"substance.html\">Substance</a></li>\n <li><a href=\"task.html\">Task</a></li>\n <li><a href=\"testreport.html\">TestReport</a></li>\n <li><a href=\"testscript.html\">TestScript</a></li>\n <li><a href=\"valueset.html\">ValueSet</a></li>\n</ul></div>"
+  },
+  "url": "http://hl7.org/fhir/CompartmentDefinition/practitioner",
+  "name": "Base FHIR compartment definition for Practitioner",
+  "status": "draft",
+  "experimental": true,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "FHIR Project Team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "There is an instance of the practitioner compartment for each Practitioner resource, and the identity of the compartment is the same as the Practitioner. The set of resources associated with a particular practitioner",
+  "code": "Practitioner",
+  "search": true,
+  "resource": [
+    {
+      "code": "Account",
+      "param": [
+        "subject"
+      ]
+    },
+    {
+      "code": "ActivityDefinition"
+    },
+    {
+      "code": "AdverseEvent",
+      "param": [
+        "recorder"
+      ]
+    },
+    {
+      "code": "AllergyIntolerance",
+      "param": [
+        "recorder",
+        "asserter"
+      ]
+    },
+    {
+      "code": "Appointment",
+      "param": [
+        "actor"
+      ]
+    },
+    {
+      "code": "AppointmentResponse",
+      "param": [
+        "actor"
+      ]
+    },
+    {
+      "code": "AuditEvent",
+      "param": [
+        "agent"
+      ]
+    },
+    {
+      "code": "Basic",
+      "param": [
+        "author"
+      ]
+    },
+    {
+      "code": "Binary"
+    },
+    {
+      "code": "BodySite"
+    },
+    {
+      "code": "Bundle"
+    },
+    {
+      "code": "CapabilityStatement"
+    },
+    {
+      "code": "CarePlan",
+      "param": [
+        "performer"
+      ]
+    },
+    {
+      "code": "CareTeam",
+      "param": [
+        "participant"
+      ]
+    },
+    {
+      "code": "ChargeItem",
+      "param": [
+        "enterer",
+        "participant-actor"
+      ]
+    },
+    {
+      "code": "Claim",
+      "param": [
+        "enterer",
+        "provider",
+        "payee",
+        "care-team"
+      ]
+    },
+    {
+      "code": "ClaimResponse",
+      "param": [
+        "request-provider"
+      ]
+    },
+    {
+      "code": "ClinicalImpression",
+      "param": [
+        "assessor"
+      ]
+    },
+    {
+      "code": "CodeSystem"
+    },
+    {
+      "code": "Communication",
+      "param": [
+        "sender",
+        "recipient"
+      ]
+    },
+    {
+      "code": "CommunicationRequest",
+      "param": [
+        "sender",
+        "recipient",
+        "requester"
+      ]
+    },
+    {
+      "code": "CompartmentDefinition"
+    },
+    {
+      "code": "Composition",
+      "param": [
+        "subject",
+        "author",
+        "attester"
+      ]
+    },
+    {
+      "code": "ConceptMap"
+    },
+    {
+      "code": "Condition",
+      "param": [
+        "asserter"
+      ]
+    },
+    {
+      "code": "Consent"
+    },
+    {
+      "code": "Contract"
+    },
+    {
+      "code": "Coverage"
+    },
+    {
+      "code": "DataElement"
+    },
+    {
+      "code": "DetectedIssue",
+      "param": [
+        "author"
+      ]
+    },
+    {
+      "code": "Device"
+    },
+    {
+      "code": "DeviceComponent"
+    },
+    {
+      "code": "DeviceMetric"
+    },
+    {
+      "code": "DeviceRequest",
+      "param": [
+        "requester",
+        "performer"
+      ]
+    },
+    {
+      "code": "DeviceUseStatement"
+    },
+    {
+      "code": "DiagnosticReport",
+      "param": [
+        "performer"
+      ]
+    },
+    {
+      "code": "DocumentManifest",
+      "param": [
+        "subject",
+        "author",
+        "recipient"
+      ]
+    },
+    {
+      "code": "DocumentReference",
+      "param": [
+        "subject",
+        "author",
+        "authenticator"
+      ]
+    },
+    {
+      "code": "EligibilityRequest",
+      "param": [
+        "enterer",
+        "provider"
+      ]
+    },
+    {
+      "code": "EligibilityResponse",
+      "param": [
+        "request-provider"
+      ]
+    },
+    {
+      "code": "Encounter",
+      "param": [
+        "practitioner",
+        "participant"
+      ]
+    },
+    {
+      "code": "Endpoint"
+    },
+    {
+      "code": "EnrollmentRequest"
+    },
+    {
+      "code": "EnrollmentResponse"
+    },
+    {
+      "code": "EpisodeOfCare",
+      "param": [
+        "care-manager"
+      ]
+    },
+    {
+      "code": "ExpansionProfile"
+    },
+    {
+      "code": "ExplanationOfBenefit",
+      "param": [
+        "enterer",
+        "provider",
+        "payee",
+        "care-team"
+      ]
+    },
+    {
+      "code": "FamilyMemberHistory"
+    },
+    {
+      "code": "Flag",
+      "param": [
+        "author"
+      ]
+    },
+    {
+      "code": "Goal"
+    },
+    {
+      "code": "GraphDefinition"
+    },
+    {
+      "code": "Group",
+      "param": [
+        "member"
+      ]
+    },
+    {
+      "code": "GuidanceResponse"
+    },
+    {
+      "code": "HealthcareService"
+    },
+    {
+      "code": "ImagingManifest",
+      "param": [
+        "author"
+      ]
+    },
+    {
+      "code": "ImagingStudy"
+    },
+    {
+      "code": "Immunization",
+      "param": [
+        "practitioner"
+      ]
+    },
+    {
+      "code": "ImmunizationRecommendation"
+    },
+    {
+      "code": "ImplementationGuide"
+    },
+    {
+      "code": "Library"
+    },
+    {
+      "code": "Linkage",
+      "param": [
+        "author"
+      ]
+    },
+    {
+      "code": "List",
+      "param": [
+        "source"
+      ]
+    },
+    {
+      "code": "Location"
+    },
+    {
+      "code": "Measure"
+    },
+    {
+      "code": "MeasureReport"
+    },
+    {
+      "code": "Media",
+      "param": [
+        "subject",
+        "operator"
+      ]
+    },
+    {
+      "code": "Medication"
+    },
+    {
+      "code": "MedicationAdministration",
+      "param": [
+        "performer"
+      ]
+    },
+    {
+      "code": "MedicationDispense",
+      "param": [
+        "performer",
+        "receiver"
+      ]
+    },
+    {
+      "code": "MedicationRequest",
+      "param": [
+        "requester"
+      ]
+    },
+    {
+      "code": "MedicationStatement",
+      "param": [
+        "source"
+      ]
+    },
+    {
+      "code": "MessageDefinition"
+    },
+    {
+      "code": "MessageHeader",
+      "param": [
+        "receiver",
+        "author",
+        "responsible",
+        "enterer"
+      ]
+    },
+    {
+      "code": "NamingSystem"
+    },
+    {
+      "code": "NutritionOrder",
+      "param": [
+        "provider"
+      ]
+    },
+    {
+      "code": "Observation",
+      "param": [
+        "performer"
+      ]
+    },
+    {
+      "code": "OperationDefinition"
+    },
+    {
+      "code": "OperationOutcome"
+    },
+    {
+      "code": "Organization"
+    },
+    {
+      "code": "Patient",
+      "param": [
+        "general-practitioner"
+      ]
+    },
+    {
+      "code": "PaymentNotice",
+      "param": [
+        "provider"
+      ]
+    },
+    {
+      "code": "PaymentReconciliation",
+      "param": [
+        "request-provider"
+      ]
+    },
+    {
+      "code": "Person",
+      "param": [
+        "practitioner"
+      ]
+    },
+    {
+      "code": "PlanDefinition"
+    },
+    {
+      "code": "Practitioner",
+      "param": [
+        "{def}"
+      ]
+    },
+    {
+      "code": "PractitionerRole",
+      "param": [
+        "practitioner"
+      ]
+    },
+    {
+      "code": "Procedure",
+      "param": [
+        "performer"
+      ]
+    },
+    {
+      "code": "ProcedureRequest",
+      "param": [
+        "performer",
+        "requester"
+      ]
+    },
+    {
+      "code": "ProcessRequest",
+      "param": [
+        "provider"
+      ]
+    },
+    {
+      "code": "ProcessResponse",
+      "param": [
+        "request-provider"
+      ]
+    },
+    {
+      "code": "Provenance",
+      "param": [
+        "agent"
+      ]
+    },
+    {
+      "code": "Questionnaire"
+    },
+    {
+      "code": "QuestionnaireResponse",
+      "param": [
+        "author",
+        "source"
+      ]
+    },
+    {
+      "code": "ReferralRequest",
+      "param": [
+        "requester",
+        "recipient"
+      ]
+    },
+    {
+      "code": "RelatedPerson"
+    },
+    {
+      "code": "RequestGroup",
+      "param": [
+        "participant",
+        "author"
+      ]
+    },
+    {
+      "code": "ResearchStudy",
+      "param": [
+        "principalinvestigator"
+      ]
+    },
+    {
+      "code": "ResearchSubject"
+    },
+    {
+      "code": "RiskAssessment",
+      "param": [
+        "performer"
+      ]
+    },
+    {
+      "code": "Schedule",
+      "param": [
+        "actor"
+      ]
+    },
+    {
+      "code": "SearchParameter"
+    },
+    {
+      "code": "Sequence"
+    },
+    {
+      "code": "ServiceDefinition"
+    },
+    {
+      "code": "Slot"
+    },
+    {
+      "code": "Specimen",
+      "param": [
+        "collector"
+      ]
+    },
+    {
+      "code": "StructureDefinition"
+    },
+    {
+      "code": "StructureMap"
+    },
+    {
+      "code": "Subscription"
+    },
+    {
+      "code": "Substance"
+    },
+    {
+      "code": "SupplyDelivery",
+      "param": [
+        "supplier",
+        "receiver"
+      ]
+    },
+    {
+      "code": "SupplyRequest",
+      "param": [
+        "requester"
+      ]
+    },
+    {
+      "code": "Task"
+    },
+    {
+      "code": "TestReport"
+    },
+    {
+      "code": "TestScript"
+    },
+    {
+      "code": "ValueSet"
+    },
+    {
+      "code": "VisionPrescription",
+      "param": [
+        "prescriber"
+      ]
+    }
+  ]
+}

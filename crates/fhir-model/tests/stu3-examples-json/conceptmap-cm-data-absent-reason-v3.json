@@ -1,0 +1,108 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-data-absent-reason-v3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v3 map for DataAbsentReason (http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3)</h2><p>Mapping from <a href=\"valueset-data-absent-reason.html\">http://hl7.org/fhir/ValueSet/data-absent-reason</a> to <a href=\"v3/NullFlavor/vs.html\">http://hl7.org/fhir/ValueSet/v3-NullFlavor</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project). </p><br/><table class=\"grid\"><tr><td><b>Source Code</b></td><td><b>Equivalence</b></td><td><b>Destination Code</b></td></tr><tr><td>unknown (Unknown)</td><td>equal</td><td>UNK (unknown)</td></tr><tr><td>asked (Asked)</td><td>equal</td><td>ASKU (asked but unknown)</td></tr><tr><td>temp (Temp)</td><td>equal</td><td>NAV (temporarily unavailable)</td></tr><tr><td>not-asked (Not Asked)</td><td>equal</td><td>NASK (not asked)</td></tr><tr><td>masked (Masked)</td><td>equal</td><td>MSK (masked)</td></tr><tr><td>unsupported (Unsupported)</td><td>wider</td><td>NA (not applicable)</td></tr><tr><td>error (Error)</td><td>wider</td><td>NA (not applicable)</td></tr><tr><td>NaN (Not a Number)</td><td>wider</td><td>NA (not applicable)</td></tr><tr><td>not-performed (Not Performed)</td><td>wider</td><td>NA (not applicable)</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-data-absent-reason-v3",
+  "name": "v3 map for DataAbsentReason",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/data-absent-reason"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v3-NullFlavor"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/data-absent-reason",
+      "target": "http://hl7.org/fhir/v3/NullFlavor",
+      "element": [
+        {
+          "code": "unknown",
+          "target": [
+            {
+              "code": "UNK",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "asked",
+          "target": [
+            {
+              "code": "ASKU",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "temp",
+          "target": [
+            {
+              "code": "NAV",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "not-asked",
+          "target": [
+            {
+              "code": "NASK",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "masked",
+          "target": [
+            {
+              "code": "MSK",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "unsupported",
+          "target": [
+            {
+              "code": "NA",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "code": "error",
+          "target": [
+            {
+              "code": "NA",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "code": "NaN",
+          "target": [
+            {
+              "code": "NA",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "code": "not-performed",
+          "target": [
+            {
+              "code": "NA",
+              "equivalence": "wider"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

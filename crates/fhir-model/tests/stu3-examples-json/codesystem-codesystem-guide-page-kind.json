@@ -1,0 +1,98 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "guide-page-kind",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>GuidePageKind</h2><div><p>The kind of an included page.</p>\n</div><p>This code system http://hl7.org/fhir/guide-page-kind defines the following codes:</p><table class=\"codes\"><tr><td><b>Lvl</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>1</td><td>page<a name=\"guide-page-kind-page\"> </a></td><td>Page</td><td>This is a page of content that is included in the implementation guide. It has no particular function.</td></tr><tr><td>1</td><td>example<a name=\"guide-page-kind-example\"> </a></td><td>Example</td><td>This is a page that represents a human readable rendering of an example.</td></tr><tr><td>1</td><td>list<a name=\"guide-page-kind-list\"> </a></td><td>List</td><td>This is a page that represents a list of resources of one or more types.</td></tr><tr><td>1</td><td>include<a name=\"guide-page-kind-include\"> </a></td><td>Include</td><td>This is a page showing where an included guide is injected.</td></tr><tr><td>1</td><td>directory<a name=\"guide-page-kind-directory\"> </a></td><td>Directory</td><td>This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section.</td></tr><tr><td>2</td><td>  dictionary<a name=\"guide-page-kind-dictionary\"> </a></td><td>Dictionary</td><td>This is a page that creates the listed resources as a dictionary.</td></tr><tr><td>1</td><td>toc<a name=\"guide-page-kind-toc\"> </a></td><td>Table Of Contents</td><td>This is a generated page that contains the table of contents.</td></tr><tr><td>1</td><td>resource<a name=\"guide-page-kind-resource\"> </a></td><td>Resource</td><td>This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/guide-page-kind",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.304"
+  },
+  "version": "3.0.2",
+  "name": "GuidePageKind",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The kind of an included page.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/guide-page-kind",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "page",
+      "display": "Page",
+      "definition": "This is a page of content that is included in the implementation guide. It has no particular function."
+    },
+    {
+      "code": "example",
+      "display": "Example",
+      "definition": "This is a page that represents a human readable rendering of an example."
+    },
+    {
+      "code": "list",
+      "display": "List",
+      "definition": "This is a page that represents a list of resources of one or more types."
+    },
+    {
+      "code": "include",
+      "display": "Include",
+      "definition": "This is a page showing where an included guide is injected."
+    },
+    {
+      "code": "directory",
+      "display": "Directory",
+      "definition": "This is a page that lists the resources of a given type, and also creates pages for all the listed types as other pages in the section.",
+      "concept": [
+        {
+          "code": "dictionary",
+          "display": "Dictionary",
+          "definition": "This is a page that creates the listed resources as a dictionary."
+        }
+      ]
+    },
+    {
+      "code": "toc",
+      "display": "Table Of Contents",
+      "definition": "This is a generated page that contains the table of contents."
+    },
+    {
+      "code": "resource",
+      "display": "Resource",
+      "definition": "This is a page that represents a presented resource. This is typically used for generated conformance resource presentations."
+    }
+  ]
+}

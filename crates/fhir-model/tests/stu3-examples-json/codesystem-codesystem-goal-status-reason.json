@@ -1,0 +1,95 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "goal-status-reason",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>GoalStatusReason</h2><div><p>Example codes indicating the reason for a current status.  Note that these are in no way complete and may not even be appropriate for some uses.</p>\n</div><p>This code system http://hl7.org/fhir/goal-status-reason defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>surgery<a name=\"goal-status-reason-surgery\"> </a></td><td>Surgery</td><td>Goal suspended or ended because of a surgical procedure.</td></tr><tr><td>life-event<a name=\"goal-status-reason-life-event\"> </a></td><td>Life Event</td><td>Goal suspended or ended because of a significant life event (marital change, bereavement, etc.).</td></tr><tr><td>replaced<a name=\"goal-status-reason-replaced\"> </a></td><td>Replaced</td><td>Goal has been superseded by a new goal.</td></tr><tr><td>patient-request<a name=\"goal-status-reason-patient-request\"> </a></td><td>Patient Request</td><td>Patient wishes the goal to be set aside, at least temporarily.</td></tr><tr><td>temp-not-attainable<a name=\"goal-status-reason-temp-not-attainable\"> </a></td><td>Goal Not Attainable Temporarily</td><td>Goal can not be reached temporarily.</td></tr><tr><td>permanent-not-attainable<a name=\"goal-status-reason-permanent-not-attainable\"> </a></td><td>Goal Not Attainable Permanently</td><td>Goal can not be reached permanently.</td></tr><tr><td>financial-barrier<a name=\"goal-status-reason-financial-barrier\"> </a></td><td>Financial Reason</td><td>Goal can not be reached due to financial barrier or reason.</td></tr><tr><td>lack-of-transportation<a name=\"goal-status-reason-lack-of-transportation\"> </a></td><td>Lack Of Transportation</td><td>Goal can not be reached due to a lack of transportation.</td></tr><tr><td>lack-of-social-support<a name=\"goal-status-reason-lack-of-social-support\"> </a></td><td>Lack Of Social Support</td><td>Goal can not be reached due to a lack of social support.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    }
+  ],
+  "url": "http://hl7.org/fhir/goal-status-reason",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.273"
+  },
+  "version": "3.0.2",
+  "name": "GoalStatusReason",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7 International - Patient Care WG",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/patientcare/"
+        }
+      ]
+    }
+  ],
+  "description": "Example codes indicating the reason for a current status.  Note that these are in no way complete and may not even be appropriate for some uses.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/goal-status-reason",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "surgery",
+      "display": "Surgery",
+      "definition": "Goal suspended or ended because of a surgical procedure."
+    },
+    {
+      "code": "life-event",
+      "display": "Life Event",
+      "definition": "Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)."
+    },
+    {
+      "code": "replaced",
+      "display": "Replaced",
+      "definition": "Goal has been superseded by a new goal."
+    },
+    {
+      "code": "patient-request",
+      "display": "Patient Request",
+      "definition": "Patient wishes the goal to be set aside, at least temporarily."
+    },
+    {
+      "code": "temp-not-attainable",
+      "display": "Goal Not Attainable Temporarily",
+      "definition": "Goal can not be reached temporarily."
+    },
+    {
+      "code": "permanent-not-attainable",
+      "display": "Goal Not Attainable Permanently",
+      "definition": "Goal can not be reached permanently."
+    },
+    {
+      "code": "financial-barrier",
+      "display": "Financial Reason",
+      "definition": "Goal can not be reached due to financial barrier or reason."
+    },
+    {
+      "code": "lack-of-transportation",
+      "display": "Lack Of Transportation",
+      "definition": "Goal can not be reached due to a lack of transportation."
+    },
+    {
+      "code": "lack-of-social-support",
+      "display": "Lack Of Social Support",
+      "definition": "Goal can not be reached due to a lack of social support."
+    }
+  ]
+}

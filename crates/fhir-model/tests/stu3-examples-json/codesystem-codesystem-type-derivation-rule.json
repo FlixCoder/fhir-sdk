@@ -1,0 +1,66 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "type-derivation-rule",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>TypeDerivationRule</h2><div><p>How a type relates to its baseDefinition.</p>\n</div><p>This code system http://hl7.org/fhir/type-derivation-rule defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>specialization<a name=\"type-derivation-rule-specialization\"> </a></td><td>Specialization</td><td>This definition defines a new type that adds additional elements to the base type</td></tr><tr><td>constraint<a name=\"type-derivation-rule-constraint\"> </a></td><td>Constraint</td><td>This definition adds additional rules to an existing concrete type</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/type-derivation-rule",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.660"
+  },
+  "version": "3.0.2",
+  "name": "TypeDerivationRule",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "How a type relates to its baseDefinition.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/type-derivation-rule",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "specialization",
+      "display": "Specialization",
+      "definition": "This definition defines a new type that adds additional elements to the base type"
+    },
+    {
+      "code": "constraint",
+      "display": "Constraint",
+      "definition": "This definition adds additional rules to an existing concrete type"
+    }
+  ]
+}

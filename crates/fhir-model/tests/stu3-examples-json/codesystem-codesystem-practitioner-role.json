@@ -1,0 +1,84 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "practitioner-role",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>PractitionerRole</h2><div><p>This example value set defines a set of codes that can be used to indicate the role of a Practitioner.</p>\n</div><p>This code system http://hl7.org/fhir/practitioner-role defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>doctor<a name=\"practitioner-role-doctor\"> </a></td><td>Doctor</td><td>A qualified/registered medical practitioner</td></tr><tr><td>nurse<a name=\"practitioner-role-nurse\"> </a></td><td>Nurse</td><td>A practitoner with nursing experience that may be qualified/registered</td></tr><tr><td>pharmacist<a name=\"practitioner-role-pharmacist\"> </a></td><td>Pharmacist</td><td>A qualified/registered/licensed pharmacist</td></tr><tr><td>researcher<a name=\"practitioner-role-researcher\"> </a></td><td>Researcher</td><td>A practitioner that may perform research</td></tr><tr><td>teacher<a name=\"practitioner-role-teacher\"> </a></td><td>Teacher/educator</td><td>Someone who is able to provide educational services</td></tr><tr><td>ict<a name=\"practitioner-role-ict\"> </a></td><td>ICT professional</td><td>Someone who is qualified in Information and Communication Technologies</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pa"
+    }
+  ],
+  "url": "http://hl7.org/fhir/practitioner-role",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.431"
+  },
+  "version": "3.0.2",
+  "name": "PractitionerRole",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project team",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This example value set defines a set of codes that can be used to indicate the role of a Practitioner.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/practitioner-role",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "doctor",
+      "display": "Doctor",
+      "definition": "A qualified/registered medical practitioner"
+    },
+    {
+      "code": "nurse",
+      "display": "Nurse",
+      "definition": "A practitoner with nursing experience that may be qualified/registered"
+    },
+    {
+      "code": "pharmacist",
+      "display": "Pharmacist",
+      "definition": "A qualified/registered/licensed pharmacist"
+    },
+    {
+      "code": "researcher",
+      "display": "Researcher",
+      "definition": "A practitioner that may perform research"
+    },
+    {
+      "code": "teacher",
+      "display": "Teacher/educator",
+      "definition": "Someone who is able to provide educational services"
+    },
+    {
+      "code": "ict",
+      "display": "ICT professional",
+      "definition": "Someone who is qualified in Information and Communication Technologies"
+    }
+  ]
+}

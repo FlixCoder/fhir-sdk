@@ -1,0 +1,96 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medication-package-form",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MedicationContainer</h2><div><p>A coded concept defining the kind of container a medication package is packaged in</p>\n</div><p>This code system http://hl7.org/fhir/medication-package-form defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>ampoule<a name=\"medication-package-form-ampoule\"> </a></td><td>Ampoule</td><td>A sealed glass capsule containing a liquid</td></tr><tr><td>bottle<a name=\"medication-package-form-bottle\"> </a></td><td>Bottle</td><td>A container, typically made of glass or plastic and with a narrow neck, used for storing liquids.</td></tr><tr><td>box<a name=\"medication-package-form-box\"> </a></td><td>Box</td><td>A container with a flat base and sides, typically square or rectangular and having a lid.</td></tr><tr><td>cartridge<a name=\"medication-package-form-cartridge\"> </a></td><td>Cartridge</td><td>A device of various configuration and composition used with a syringe for the application of anesthetic or other materials to a patient.</td></tr><tr><td>container<a name=\"medication-package-form-container\"> </a></td><td>Container</td><td>A package intended to store pharmaceuticals.</td></tr><tr><td>tube<a name=\"medication-package-form-tube\"> </a></td><td>Tube</td><td>A long, hollow cylinder of metal, plastic, glass, etc., for holding medications, typically creams or ointments</td></tr><tr><td>unitdose<a name=\"medication-package-form-unitdose\"> </a></td><td>Unit Dose Blister</td><td>A dose of medicine prepared in an individual package for convenience, safety or monitoring.</td></tr><tr><td>vial<a name=\"medication-package-form-vial\"> </a></td><td>Vial</td><td>A small container, typically cylindrical and made of glass, used especially for holding liquid medications.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/medication-package-form",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.362"
+  },
+  "version": "3.0.2",
+  "name": "MedicationContainer",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A coded concept defining the kind of container a medication package is packaged in",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medication-package-form",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "ampoule",
+      "display": "Ampoule",
+      "definition": "A sealed glass capsule containing a liquid"
+    },
+    {
+      "code": "bottle",
+      "display": "Bottle",
+      "definition": "A container, typically made of glass or plastic and with a narrow neck, used for storing liquids."
+    },
+    {
+      "code": "box",
+      "display": "Box",
+      "definition": "A container with a flat base and sides, typically square or rectangular and having a lid."
+    },
+    {
+      "code": "cartridge",
+      "display": "Cartridge",
+      "definition": "A device of various configuration and composition used with a syringe for the application of anesthetic or other materials to a patient."
+    },
+    {
+      "code": "container",
+      "display": "Container",
+      "definition": "A package intended to store pharmaceuticals."
+    },
+    {
+      "code": "tube",
+      "display": "Tube",
+      "definition": "A long, hollow cylinder of metal, plastic, glass, etc., for holding medications, typically creams or ointments"
+    },
+    {
+      "code": "unitdose",
+      "display": "Unit Dose Blister",
+      "definition": "A dose of medicine prepared in an individual package for convenience, safety or monitoring."
+    },
+    {
+      "code": "vial",
+      "display": "Vial",
+      "definition": "A small container, typically cylindrical and made of glass, used especially for holding liquid medications."
+    }
+  ]
+}

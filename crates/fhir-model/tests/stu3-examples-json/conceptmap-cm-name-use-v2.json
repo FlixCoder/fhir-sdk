@@ -1,0 +1,108 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-name-use-v2",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v2 map for NameUse (http://hl7.org/fhir/ConceptMap/cm-name-use-v2)</h2><p>Mapping from <a href=\"valueset-name-use.html\">http://hl7.org/fhir/ValueSet/name-use</a> to <a href=\"v2/0200/index.html\">http://hl7.org/fhir/ValueSet/v2-0200</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project) (<a href=\"http://hl7.org/fhir\">http://hl7.org/fhir</a>, <a href=\"mailto:fhir@lists.hl7.org\">fhir@lists.hl7.org</a>). </p><br/><table class=\"grid\"><tr><td colspan=\"1\"><b>Source Concept</b></td><td><b>Equivalence</b></td><td colspan=\"1\"><b>Destination Concept</b></td></tr><tr><td><b>Code [http://hl7.org/fhir/name-use]</b></td><td/><td><b>Code [http://hl7.org/fhir/v2/0200]</b></td></tr><tr><td>usual (Usual)</td><td>:equivalent</td><td>D (Customary Name)</td></tr><tr><td>official (Official)</td><td>:equivalent</td><td>L (Official Registry Name)</td></tr><tr><td>temp (Temp)</td><td>:equivalent</td><td>TEMP (Temporary Name)</td></tr><tr><td>nickname (Nickname)</td><td>:equivalent</td><td>N (Nickname)</td></tr><tr><td>anonymous (Anonymous)</td><td>:equivalent</td><td>S (Pseudonym)</td></tr><tr><td>old (Old)</td><td>:wider</td><td>NOUSE (No Longer To Be Used)</td></tr><tr><td>maiden (Name changed for Marriage)</td><td>:equivalent</td><td>M (Maiden Name)</td></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-name-use-v2",
+  "name": "v2 map for NameUse",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/name-use"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v2-0200"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/name-use",
+      "target": "http://hl7.org/fhir/v2/0200",
+      "element": [
+        {
+          "code": "usual",
+          "target": [
+            {
+              "code": "D",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "official",
+          "target": [
+            {
+              "code": "L",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "temp",
+          "target": [
+            {
+              "code": "TEMP",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "nickname",
+          "target": [
+            {
+              "code": "N",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "anonymous",
+          "target": [
+            {
+              "code": "S",
+              "equivalence": "equivalent"
+            }
+          ]
+        },
+        {
+          "code": "old",
+          "target": [
+            {
+              "code": "NOUSE",
+              "equivalence": "wider"
+            },
+            {
+              "code": "BAD",
+              "equivalence": "wider"
+            }
+          ]
+        },
+        {
+          "code": "maiden",
+          "target": [
+            {
+              "code": "M",
+              "equivalence": "equivalent"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

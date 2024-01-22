@@ -1,0 +1,64 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "adverse-event-causality-result",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>AdverseEventCausalityResult</h2><div><p>TODO</p>\n</div><p>This code system http://hl7.org/fhir/adverse-event-causality-result defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>result1<a name=\"adverse-event-causality-result-result1\"> </a></td><td>placeholder</td><td/></tr><tr><td>result2<a name=\"adverse-event-causality-result-result2\"> </a></td><td>placeholder</td><td/></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "rcrim"
+    }
+  ],
+  "url": "http://hl7.org/fhir/adverse-event-causality-result",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.820"
+  },
+  "version": "3.0.2",
+  "name": "AdverseEventCausalityResult",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "TODO",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/adverse-event-causality-result",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "result1",
+      "display": "placeholder"
+    },
+    {
+      "code": "result2",
+      "display": "placeholder"
+    }
+  ]
+}

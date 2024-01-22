@@ -1,0 +1,76 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "content-type",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>ContentType</h2><div><p>The content or mime type.</p>\n</div><p>This code system http://hl7.org/fhir/content-type defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>xml<a name=\"content-type-xml\"> </a></td><td>xml</td><td>XML content-type corresponding to the application/fhir+xml mime-type.</td></tr><tr><td>json<a name=\"content-type-json\"> </a></td><td>json</td><td>JSON content-type corresponding to the application/fhir+json mime-type.</td></tr><tr><td>ttl<a name=\"content-type-ttl\"> </a></td><td>ttl</td><td>RDF content-type corresponding to the text/turtle mime-type.</td></tr><tr><td>none<a name=\"content-type-none\"> </a></td><td>none</td><td>Prevent the use of the corresponding http header.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 2
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/content-type",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.693"
+  },
+  "version": "3.0.2",
+  "name": "ContentType",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "The content or mime type.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/content-type",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "xml",
+      "display": "xml",
+      "definition": "XML content-type corresponding to the application/fhir+xml mime-type."
+    },
+    {
+      "code": "json",
+      "display": "json",
+      "definition": "JSON content-type corresponding to the application/fhir+json mime-type."
+    },
+    {
+      "code": "ttl",
+      "display": "ttl",
+      "definition": "RDF content-type corresponding to the text/turtle mime-type."
+    },
+    {
+      "code": "none",
+      "display": "none",
+      "definition": "Prevent the use of the corresponding http header."
+    }
+  ]
+}

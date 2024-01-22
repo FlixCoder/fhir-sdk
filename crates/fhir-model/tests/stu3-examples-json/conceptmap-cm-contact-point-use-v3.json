@@ -1,0 +1,92 @@
+{
+  "resourceType": "ConceptMap",
+  "id": "cm-contact-point-use-v3",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>v3 map for ContactPointUse (http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3)</h2><p>Mapping from <a href=\"valueset-contact-point-use.html\">http://hl7.org/fhir/ValueSet/contact-point-use</a> to <a href=\"v3/AddressUse/vs.html\">http://hl7.org/fhir/ValueSet/v3-AddressUse</a></p><p>DRAFT. Published on 19/04/2017 7:44:43 AM by HL7 (FHIR Project) (<a href=\"http://hl7.org/fhir\">http://hl7.org/fhir</a>, <a href=\"mailto:fhir@lists.hl7.org\">fhir@lists.hl7.org</a>). </p><br/><table class=\"grid\"><tr><td colspan=\"1\"><b>Source Concept</b></td><td><b>Equivalence</b></td><td colspan=\"1\"><b>Destination Concept</b></td><td><b>Comment</b></td></tr><tr><td><b>Code [http://hl7.org/fhir/contact-point-use]</b></td><td/><td><b>Code [http://hl7.org/fhir/v3/AddressUse]</b></td><td/></tr><tr><td>home (Home)</td><td>:equal</td><td>H (home address)</td><td/></tr><tr><td>work (Work)</td><td>:equal</td><td>WP (work place)</td><td/></tr><tr><td>temp (Temp)</td><td>:equal</td><td>TMP (temporary address)</td><td/></tr><tr><td>old (Old)</td><td>:narrower</td><td>OLD (no longer in use)</td><td>Old and Bad</td></tr><tr><td>mobile (Mobile)</td><td>:equal</td><td>MC (mobile contact))</td><td/></tr></table></div>"
+  },
+  "url": "http://hl7.org/fhir/ConceptMap/cm-contact-point-use-v3",
+  "name": "v3 map for ContactPointUse",
+  "status": "draft",
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "sourceReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/contact-point-use"
+  },
+  "targetReference": {
+    "reference": "http://hl7.org/fhir/ValueSet/v3-AddressUse"
+  },
+  "group": [
+    {
+      "source": "http://hl7.org/fhir/contact-point-use",
+      "target": "http://hl7.org/fhir/v3/AddressUse",
+      "element": [
+        {
+          "code": "home",
+          "target": [
+            {
+              "code": "H",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "work",
+          "target": [
+            {
+              "code": "WP",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "temp",
+          "target": [
+            {
+              "code": "TMP",
+              "equivalence": "equal"
+            }
+          ]
+        },
+        {
+          "code": "old",
+          "target": [
+            {
+              "code": "OLD",
+              "equivalence": "narrower",
+              "comment": "Old and Bad"
+            },
+            {
+              "code": "BAD",
+              "equivalence": "narrower",
+              "comment": "Old and Bad"
+            }
+          ]
+        },
+        {
+          "code": "mobile",
+          "target": [
+            {
+              "code": "MC",
+              "equivalence": "equal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

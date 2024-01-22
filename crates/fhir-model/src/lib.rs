@@ -9,6 +9,8 @@ mod error;
 pub mod r4b;
 #[cfg(feature = "r5")]
 pub mod r5;
+#[cfg(feature = "stu3")]
+pub mod stu3;
 
 use std::ops::{Deref, DerefMut};
 

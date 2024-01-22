@@ -1,0 +1,94 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "care-plan-activity-category",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>CarePlanActivityCategory</h2><div><p>High-level categorization of the type of activity in a care plan.</p>\n</div><p>This code system http://hl7.org/fhir/care-plan-activity-category defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>diet<a name=\"care-plan-activity-category-diet\"> </a></td><td>Diet</td><td>Plan for the patient to consume food of a specified nature</td></tr><tr><td>drug<a name=\"care-plan-activity-category-drug\"> </a></td><td>Drug</td><td>Plan for the patient to consume/receive a drug, vaccine or other product</td></tr><tr><td>encounter<a name=\"care-plan-activity-category-encounter\"> </a></td><td>Encounter</td><td>Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)</td></tr><tr><td>observation<a name=\"care-plan-activity-category-observation\"> </a></td><td>Observation</td><td>Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)</td></tr><tr><td>procedure<a name=\"care-plan-activity-category-procedure\"> </a></td><td>Procedure</td><td>Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)</td></tr><tr><td>supply<a name=\"care-plan-activity-category-supply\"> </a></td><td>Supply</td><td>Plan to provide something to the patient (medication, medical supply, etc.)</td></tr><tr><td>other<a name=\"care-plan-activity-category-other\"> </a></td><td>Other</td><td>Some other form of action</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "pc"
+    }
+  ],
+  "url": "http://hl7.org/fhir/care-plan-activity-category",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.132"
+  },
+  "version": "1.0.0",
+  "name": "CarePlanActivityCategory",
+  "status": "draft",
+  "experimental": true,
+  "date": "2015-08-31T09:04:04+10:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "High-level categorization of the type of activity in a care plan.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/care-plan-activity-category",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "diet",
+      "display": "Diet",
+      "definition": "Plan for the patient to consume food of a specified nature"
+    },
+    {
+      "code": "drug",
+      "display": "Drug",
+      "definition": "Plan for the patient to consume/receive a drug, vaccine or other product"
+    },
+    {
+      "code": "encounter",
+      "display": "Encounter",
+      "definition": "Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)"
+    },
+    {
+      "code": "observation",
+      "display": "Observation",
+      "definition": "Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)"
+    },
+    {
+      "code": "procedure",
+      "display": "Procedure",
+      "definition": "Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)"
+    },
+    {
+      "code": "supply",
+      "display": "Supply",
+      "definition": "Plan to provide something to the patient (medication, medical supply, etc.)"
+    },
+    {
+      "code": "other",
+      "display": "Other",
+      "definition": "Some other form of action"
+    }
+  ]
+}

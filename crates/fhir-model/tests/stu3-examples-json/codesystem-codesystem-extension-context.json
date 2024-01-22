@@ -1,0 +1,71 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "extension-context",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>ExtensionContext</h2><div><p>How an extension context is interpreted.</p>\n</div><p>This code system http://hl7.org/fhir/extension-context defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>resource<a name=\"extension-context-resource\"> </a></td><td>Resource</td><td>The context is all elements matching a particular resource element path.</td></tr><tr><td>datatype<a name=\"extension-context-datatype\"> </a></td><td>Datatype</td><td>The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).</td></tr><tr><td>extension<a name=\"extension-context-extension\"> </a></td><td>Extension</td><td>The context is a particular extension from a particular profile, a uri that identifies the extension definition.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 5
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/extension-context",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.657"
+  },
+  "version": "3.0.2",
+  "name": "ExtensionContext",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "How an extension context is interpreted.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/extension-context",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "resource",
+      "display": "Resource",
+      "definition": "The context is all elements matching a particular resource element path."
+    },
+    {
+      "code": "datatype",
+      "display": "Datatype",
+      "definition": "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name)."
+    },
+    {
+      "code": "extension",
+      "display": "Extension",
+      "definition": "The context is a particular extension from a particular profile, a uri that identifies the extension definition."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "event-timing",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>EventTiming</h2><div><p>Real world event relating to the schedule.</p>\n</div><p>This code system http://hl7.org/fhir/event-timing defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>MORN<a name=\"event-timing-MORN\"> </a></td><td>Morning</td><td>event occurs during the morning</td></tr><tr><td>AFT<a name=\"event-timing-AFT\"> </a></td><td>Afternoon</td><td>event occurs during the afternoon</td></tr><tr><td>EVE<a name=\"event-timing-EVE\"> </a></td><td>Evening</td><td>event occurs during the evening</td></tr><tr><td>NIGHT<a name=\"event-timing-NIGHT\"> </a></td><td>Night</td><td>event occurs during the night</td></tr><tr><td>PHS<a name=\"event-timing-PHS\"> </a></td><td>After Sleep</td><td>event occurs [offset] after subject goes to sleep</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 0
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fhir"
+    }
+  ],
+  "url": "http://hl7.org/fhir/event-timing",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.69"
+  },
+  "version": "3.0.2",
+  "name": "EventTiming",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "Real world event relating to the schedule.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/event-timing",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "MORN",
+      "display": "Morning",
+      "definition": "event occurs during the morning"
+    },
+    {
+      "code": "AFT",
+      "display": "Afternoon",
+      "definition": "event occurs during the afternoon"
+    },
+    {
+      "code": "EVE",
+      "display": "Evening",
+      "definition": "event occurs during the evening"
+    },
+    {
+      "code": "NIGHT",
+      "display": "Night",
+      "definition": "event occurs during the night"
+    },
+    {
+      "code": "PHS",
+      "display": "After Sleep",
+      "definition": "event occurs [offset] after subject goes to sleep"
+    }
+  ]
+}

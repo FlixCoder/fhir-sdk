@@ -1,0 +1,86 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "medication-statement-status",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>MedicationStatementStatus</h2><div><p>A coded concept indicating the current status of a MedicationStatement.</p>\n</div><p>This code system http://hl7.org/fhir/medication-statement-status defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>active<a name=\"medication-statement-status-active\"> </a></td><td>Active</td><td>The medication is still being taken.</td></tr><tr><td>completed<a name=\"medication-statement-status-completed\"> </a></td><td>Completed</td><td>The medication is no longer being taken.</td></tr><tr><td>entered-in-error<a name=\"medication-statement-status-entered-in-error\"> </a></td><td>Entered in Error</td><td>The statement was recorded incorrectly.</td></tr><tr><td>intended<a name=\"medication-statement-status-intended\"> </a></td><td>Intended</td><td>The medication may be taken at some time in the future.</td></tr><tr><td>stopped<a name=\"medication-statement-status-stopped\"> </a></td><td>Stopped</td><td>Actions implied by the statement have been permanently halted, before all of them occurred.</td></tr><tr><td>on-hold<a name=\"medication-statement-status-on-hold\"> </a></td><td>On Hold</td><td>Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 3
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/medication-statement-status",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.353"
+  },
+  "version": "3.0.2",
+  "name": "MedicationStatementStatus",
+  "status": "draft",
+  "experimental": false,
+  "date": "2019-10-24T11:53:00+11:00",
+  "publisher": "HL7 (FHIR Project)",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        },
+        {
+          "system": "email",
+          "value": "fhir@lists.hl7.org"
+        }
+      ]
+    }
+  ],
+  "description": "A coded concept indicating the current status of a MedicationStatement.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/medication-statement-status",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "active",
+      "display": "Active",
+      "definition": "The medication is still being taken."
+    },
+    {
+      "code": "completed",
+      "display": "Completed",
+      "definition": "The medication is no longer being taken."
+    },
+    {
+      "code": "entered-in-error",
+      "display": "Entered in Error",
+      "definition": "The statement was recorded incorrectly."
+    },
+    {
+      "code": "intended",
+      "display": "Intended",
+      "definition": "The medication may be taken at some time in the future."
+    },
+    {
+      "code": "stopped",
+      "display": "Stopped",
+      "definition": "Actions implied by the statement have been permanently halted, before all of them occurred."
+    },
+    {
+      "code": "on-hold",
+      "display": "On Hold",
+      "definition": "Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called \"suspended\"."
+    }
+  ]
+}

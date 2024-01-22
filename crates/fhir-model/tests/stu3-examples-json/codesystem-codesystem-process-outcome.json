@@ -1,0 +1,70 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "process-outcome",
+  "meta": {
+    "lastUpdated": "2019-10-24T11:53:00+11:00",
+    "profile": [
+      "http://hl7.org/fhir/StructureDefinition/shareablecodesystem"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Process Outcome Codes</h2><div><p>This value set includes sample Process Outcome codes.</p>\n</div><p><b>Copyright Statement:</b> This is an example set.</p><p>This code system http://hl7.org/fhir/processoutcomecodes defines the following codes:</p><table class=\"codes\"><tr><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td>complete<a name=\"process-outcome-complete\"> </a></td><td>Complete</td><td>The requested processing has completed.</td></tr><tr><td>pended<a name=\"process-outcome-pended\"> </a></td><td>Pended</td><td>The requested processing has been suspended.</td></tr><tr><td>error<a name=\"process-outcome-error\"> </a></td><td>Error</td><td>The requested processing has terminated with some errors being found.</td></tr></table></div>"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status",
+      "valueString": "Informative"
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger": 1
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "fm"
+    }
+  ],
+  "url": "http://hl7.org/fhir/processoutcomecodes",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:oid:2.16.840.1.113883.4.642.1.678"
+  },
+  "version": "3.0.2",
+  "name": "Process Outcome Codes",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "Financial Management",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "description": "This value set includes sample Process Outcome codes.",
+  "copyright": "This is an example set.",
+  "caseSensitive": true,
+  "valueSet": "http://hl7.org/fhir/ValueSet/process-outcome",
+  "content": "complete",
+  "concept": [
+    {
+      "code": "complete",
+      "display": "Complete",
+      "definition": "The requested processing has completed."
+    },
+    {
+      "code": "pended",
+      "display": "Pended",
+      "definition": "The requested processing has been suspended."
+    },
+    {
+      "code": "error",
+      "display": "Error",
+      "definition": "The requested processing has terminated with some errors being found."
+    }
+  ]
+}

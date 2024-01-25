@@ -32,15 +32,15 @@ pub use self::{
 	write::ResourceWrite,
 };
 
+/// FHIR client version to use: FHIR STU3.
+#[derive(Debug)]
+pub struct FhirStu3;
 /// FHIR client version to use: FHIR R4B.
 #[derive(Debug)]
 pub struct FhirR4B;
 /// FHIR client version to use: FHIR R5.
 #[derive(Debug)]
 pub struct FhirR5;
-/// FHIR client version to use: FHIR STU3.
-#[derive(Debug)]
-pub struct FhirStu3;
 
 #[cfg(feature = "r5")]
 /// Default client version.

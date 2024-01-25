@@ -45,7 +45,7 @@ pub struct FhirStu3;
 #[cfg(feature = "r5")]
 /// Default client version.
 type DefaultVersion = FhirR5;
-#[cfg(all(not(feature = "r5"), not(feature = "stu3"), feature = "r4b"))]
+#[cfg(all(not(feature = "r5"), feature = "r4b"))]
 /// Default client version.
 type DefaultVersion = FhirR4B;
 #[cfg(all(not(feature = "r5"), not(feature = "r4b"), feature = "stu3"))]

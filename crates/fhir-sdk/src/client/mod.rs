@@ -120,6 +120,12 @@ impl<V: Send + Sync> Client<V> {
 		Client(self.0, PhantomData)
 	}
 
+	/// Switch the client to STU3 mode.
+	#[must_use]
+	pub fn stu3(self) -> Client<FhirStu3> {
+		self.convert_version()
+	}
+
 	/// Switch the client to R4B mode.
 	#[must_use]
 	pub fn r4b(self) -> Client<FhirR4B> {

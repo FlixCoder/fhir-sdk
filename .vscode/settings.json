@@ -1,5 +1,6 @@
 {
 	"rust-analyzer.cargo.features": [
+    "stu3",
 		"r4b",
 		"r5",
 		"client"

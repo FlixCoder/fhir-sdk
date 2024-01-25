@@ -837,7 +837,11 @@ impl From<stu3::types::ElementDefinition> for ChoiceField {
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
 		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
-		let types = element.r#type.into_iter().flatten().map(stu3_type_to_string).collect();
+
+		let mut types: Vec<String> =
+			element.r#type.into_iter().flatten().map(stu3_type_to_string).collect();
+		types.dedup();
+
 		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
 		let is_summary = element.is_summary.unwrap_or(false);
 

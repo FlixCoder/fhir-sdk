@@ -261,11 +261,7 @@ fn generate_choice_field(
 	let enum_type = format_ident!("{type_ident}{}", field.name.replace("[x]", "").to_pascal_case());
 	let enum_doc = format!(" Choice of types for the {} field in {type_ident}", field.name);
 
-	let mut types = field.types.clone();
-
-	types.dedup();
-
-	let variants = types.iter().map(|ty| {
+	let variants = field.types.iter().map(|ty| {
 		let variant_ident = format_ident!("{}", ty.to_pascal_case());
 		let variant_type = map_type(ty);
 		let variant_doc = format!(" Variant accepting the {variant_ident} type.");
@@ -280,7 +276,7 @@ fn generate_choice_field(
 
 	let extension_type = format_ident!("{enum_type}Extension");
 	let extension_doc = format!(" Extension value for {enum_type}.");
-	let extension_variants = types.iter().map(|ty| {
+	let extension_variants = field.types.iter().map(|ty| {
 		let variant_ident = format_ident!("{}", ty.to_pascal_case());
 		let variant_doc = format!(" Variant accepting the {variant_ident} extension.");
 		let rename = format!("_{}", field.name.replace("[x]", &variant_ident.to_string()));

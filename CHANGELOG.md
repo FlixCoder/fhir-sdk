@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.0] - 2024-01-25
+
+### Features
+
+- Add FHIR STU3 -- thanks @jarimayenburg
+
 ## [0.8.0] - 2024-01-14
 
 ### Features

@@ -3,7 +3,7 @@
 
 mod common;
 
-use std::str::FromStr;
+use std::{env, str::FromStr};
 
 use eyre::Result;
 use fhir_sdk::{
@@ -15,27 +15,21 @@ use fhir_sdk::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
 		reference_to,
 		resources::{
-			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
+			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
+			ParametersParameterValue, Patient, Resource, ResourceType,
 		},
-		types::{Coding, HumanName, Reference},
+		types::{Coding, HumanName, Identifier, Reference},
 	},
 	Date,
 };
 use futures::TryStreamExt;
-use tokio::sync::OnceCell;
 
 /// Set up a client for testing with the (local) FHIR server.
 async fn client() -> Result<Client<FhirStu3>> {
-	static CLIENT: OnceCell<Client<FhirStu3>> = OnceCell::const_new();
 	common::setup_logging().await;
-	let client = CLIENT
-		.get_or_try_init(|| async move {
-			let client =
-				Client::builder().base_url("http://localhost:8110/fhir".parse()?).build()?;
-			Ok::<_, eyre::Report>(client)
-		})
-		.await?;
-	Ok(client.clone())
+	let base_url =
+		env::var("FHIR_SERVER").unwrap_or("http://localhost:8110/fhir/".to_owned()).parse()?;
+	Ok(Client::new(base_url)?)
 }
 
 /// Go through all entries of the bundle, extracting the outcomes and search for
@@ -97,6 +91,67 @@ async fn read_referenced_inner() -> Result<()> {
 	let reference = reference_to(&patient).expect("creating reference");
 	let read = client.read_referenced(&reference).await?;
 	assert_eq!(read.as_base_resource().id(), patient.id());
+
+	Ok(())
+}
+
+#[test]
+fn patch_via_fhir() -> Result<()> {
+	common::RUNTIME.block_on(patch_via_fhir_inner())
+}
+
+async fn patch_via_fhir_inner() -> Result<()> {
+	let client = client().await?;
+
+	let mut patient = Patient::builder()
+		.active(false)
+		.gender(AdministrativeGender::Male)
+		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build().unwrap())])
+		.build()
+		.unwrap();
+	patient.create(&client).await?;
+
+	let date = Date::from_str("2021-02-01").expect("parse Date");
+	client
+		.patch_via_fhir(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
+		.add(
+			"Patient",
+			"birthDate",
+			ParametersParameter::builder()
+				.name("value".to_owned())
+				.value(ParametersParameterValue::Date(date.clone()))
+				.build()
+				.unwrap(),
+		)
+		.delete("Patient.active")
+		.replace(
+			"Patient.gender",
+			ParametersParameter::builder()
+				.name("value".to_owned())
+				.value(ParametersParameterValue::Code("female".to_owned()))
+				.build()
+				.unwrap(),
+		)
+		.insert(
+			"Patient.name",
+			ParametersParameter::builder()
+				.name("value".to_owned())
+				.value(ParametersParameterValue::HumanName(
+					HumanName::builder().family("Family".to_owned()).build().unwrap(),
+				))
+				.build()
+				.unwrap(),
+			0,
+		)
+		.send()
+		.await?;
+
+	let patient: Patient =
+		client.read(patient.id.as_ref().expect("Patient.id")).await?.expect("Patient should exist");
+	assert_eq!(patient.birth_date, Some(date));
+	assert_eq!(patient.active, None);
+	assert_eq!(patient.gender, Some(AdministrativeGender::Female));
+	assert_eq!(patient.name.len(), 2);
 
 	Ok(())
 }
@@ -276,7 +331,7 @@ async fn paging_inner() -> Result<()> {
 		}))
 		.try_collect()
 		.await?;
-	let patients_len = patients.len();
+	assert_eq!(patients.len(), n);
 
 	println!("Cleaning up..");
 	let mut batch = client.batch();
@@ -284,7 +339,71 @@ async fn paging_inner() -> Result<()> {
 		batch.delete(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"));
 	}
 	ensure_batch_succeeded(batch.send().await?);
+	Ok(())
+}
 
-	assert_eq!(patients_len, n);
+#[test]
+fn operation_encounter_everything() -> Result<()> {
+	common::RUNTIME.block_on(operation_encounter_everything_inner())
+}
+
+async fn operation_encounter_everything_inner() -> Result<()> {
+	let client = client().await?;
+
+	let mut patient = Patient::builder().build().unwrap();
+	patient.create(&client).await?;
+	let mut encounter = Encounter::builder()
+		.status(EncounterStatus::InProgress)
+		.class(
+			Coding::builder()
+				.system("test-system".to_owned())
+				.code("test-code".to_owned())
+				.build()
+				.unwrap(),
+		)
+		.subject(reference_to(&patient).expect("Patient reference"))
+		.build()
+		.unwrap();
+	encounter.create(&client).await?;
+
+	let bundle =
+		client.operation_encounter_everything(encounter.id.as_ref().expect("Encounter.id")).await?;
+	let contains_patient = bundle
+		.entry
+		.iter()
+		.flatten()
+		.filter_map(|entry| entry.resource.as_ref())
+		.filter_map(|resource| resource.as_base_resource().id().as_ref())
+		.any(|id| Some(id) == patient.id.as_ref());
+	assert!(contains_patient);
+
+	Ok(())
+}
+
+#[test]
+#[ignore = "Server does not support this"]
+fn operation_patient_match() -> Result<()> {
+	common::RUNTIME.block_on(operation_patient_match_inner())
+}
+
+async fn operation_patient_match_inner() -> Result<()> {
+	let client = client().await?;
+
+	let mut patient = Patient::builder()
+		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build().unwrap())])
+		.build()
+		.unwrap();
+	patient.create(&client).await?;
+
+	let bundle = client.operation_patient_match(patient.clone(), true, 1).await?;
+	let contains_patient = bundle
+		.entry
+		.iter()
+		.flatten()
+		.filter_map(|entry| entry.resource.as_ref())
+		.filter_map(|resource| resource.as_base_resource().id().as_ref())
+		.any(|id| Some(id) == patient.id.as_ref());
+	assert!(contains_patient);
+
 	Ok(())
 }

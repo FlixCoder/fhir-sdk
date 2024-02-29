@@ -18,7 +18,7 @@ use base64::prelude::{Engine, BASE64_STANDARD};
 use serde::{Deserialize, Serialize};
 pub use time;
 
-pub use self::date_time::*;
+pub use self::{date_time::*, error::*};
 
 /// Parsed parts of a FHIR reference. Can be one of local reference, relative
 /// reference or absolute reference. The absolute reference is unchecked and can

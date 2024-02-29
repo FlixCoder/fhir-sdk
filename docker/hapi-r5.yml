@@ -18,6 +18,7 @@ services:
       # For some reason needed to start the server?
       hapi.fhir.subscription.email.from: "test@test.test"
       hapi.fhir.subscription.email.host: "test.test"
+      spring.main.allow-bean-definition-overriding: "true"
     depends_on:
       postgres:
         condition: service_healthy

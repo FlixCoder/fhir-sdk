@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.10.0] - 2024-02-29
+
+### Bug Fixes
+
+- Expose BuilderError
+
+### Features
+
+- Impl FromStr for ResourceType and revamp WrongResourceType error
+
+### Miscellaneous Tasks
+
+- Switch generator back to crates io fhir models
+
+### Testing
+
+- Fix docker setup for new versions
+
 ## [0.9.0] - 2024-01-25
 
 ### Features

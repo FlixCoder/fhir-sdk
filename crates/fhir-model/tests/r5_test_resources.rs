@@ -11,11 +11,11 @@ use fhir_model::{
 		resources::{
 			Basic, IdentifiableResource, NamedResource, Patient, RequestOrchestration,
 			RequestOrchestrationAction, RequestOrchestrationActionTiming, Resource,
-			WrongResourceType,
+			StructureDefinition,
 		},
 		types::{CodeableConcept, Coding, Identifier, Reference},
 	},
-	Date, DateTime, ParsedReference,
+	BuilderError, Date, DateTime, ParsedReference, WrongResourceType,
 };
 use serde_json::Value;
 
@@ -40,7 +40,7 @@ fn serialization_deserialization() {
 }
 
 #[test]
-fn builder_works() {
+fn builder_works() -> Result<(), BuilderError> {
 	let _request_group = RequestOrchestration::builder()
 		.status(RequestStatus::Active)
 		.intent(RequestIntent::Order)
@@ -56,17 +56,18 @@ fn builder_works() {
 								.system("system".to_owned())
 								.code("code".to_owned())
 								.display("display".to_owned())
-								.build()
-								.unwrap(),
+								.build()?,
 						)])
-						.build()
-						.unwrap(),
+						.build()?,
 				)])
-				.build()
-				.unwrap(),
+				.build()?,
 		)])
-		.build()
-		.unwrap();
+		.build()?;
+
+	let result = StructureDefinition::builder().build();
+	assert!(result.is_err());
+
+	Ok(())
 }
 
 #[test]

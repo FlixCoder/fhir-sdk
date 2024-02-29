@@ -3,6 +3,18 @@
 #[cfg(feature = "builders")]
 use derive_builder::UninitializedFieldError;
 
+/// Wrong resource type for conversion to the specified type.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct WrongResourceType(pub String, pub String);
+
+impl std::fmt::Display for WrongResourceType {
+	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+		write!(f, "The Resource is of a different type ({}) than requested ({})", self.0, self.1)
+	}
+}
+
+impl std::error::Error for WrongResourceType {}
+
 /// Error that may occur during the String to Date conversion
 #[derive(Debug)]
 pub enum DateFormatError {

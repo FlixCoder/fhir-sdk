@@ -11,12 +11,12 @@ use fhir_model::{
 		resources::{
 			BaseResource, Bundle, CapabilityStatement, NamedResource, Parameters,
 			ParametersParameter, ParametersParameterValue, Patient, Resource, ResourceType,
-			SubscriptionStatus, WrongResourceType,
+			SubscriptionStatus,
 		},
 		types::Reference,
 		JSON_MIME_TYPE,
 	},
-	ParsedReference,
+	ParsedReference, WrongResourceType,
 };
 use futures::{Stream, TryStreamExt};
 use reqwest::{

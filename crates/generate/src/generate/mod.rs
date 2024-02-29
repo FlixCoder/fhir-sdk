@@ -150,7 +150,7 @@ pub fn generate_resources(
 		use super::super::codes;
 		use super::super::types::*;
 		#[allow(unused_imports)] // Integer64 is unused in R4B.
-		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
+		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64, error::WrongResourceType};
 
 		#(#resource_defs)*
 
@@ -165,7 +165,7 @@ pub fn generate_resources(
 		}
 
 		/// Resource type field of the FHIR resources.
-		#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+		#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 		pub enum ResourceType {
 			#(
 				#[doc = stringify!(#resource_names)]
@@ -178,16 +178,6 @@ pub fn generate_resources(
 				f.write_str(self.as_str())
 			}
 		}
-
-		/// Wrong resource type for conversion to the specified type.
-		#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-		pub struct WrongResourceType;
-		impl ::core::fmt::Display for WrongResourceType {
-			fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-				write!(f, "The Resource is of a different type than requested")
-			}
-		}
-		impl ::std::error::Error for WrongResourceType {}
 
 		#resource_conversions
 		#resource_impls
@@ -212,9 +202,10 @@ fn resource_conversion_impls(names: &[Ident]) -> TokenStream {
 				type Error = WrongResourceType;
 
 				fn try_from(resource: Resource) -> Result<Self, Self::Error> {
+					let actual_type = resource.resource_type().to_string();
 					match resource {
 						Resource::#names(r) => Ok(r),
-						_ => Err(WrongResourceType),
+						_ => Err(WrongResourceType(actual_type, stringify!(#names).to_owned())),
 					}
 				}
 			}
@@ -223,9 +214,10 @@ fn resource_conversion_impls(names: &[Ident]) -> TokenStream {
 				type Error = WrongResourceType;
 
 				fn try_from(resource: &'a Resource) -> Result<Self, Self::Error> {
+					let actual_type = resource.resource_type().to_string();
 					match resource {
 						Resource::#names(r) => Ok(r),
-						_ => Err(WrongResourceType),
+						_ => Err(WrongResourceType(actual_type, stringify!(#names).to_owned())),
 					}
 				}
 			}
@@ -234,9 +226,10 @@ fn resource_conversion_impls(names: &[Ident]) -> TokenStream {
 				type Error = WrongResourceType;
 
 				fn try_from(resource: &'a mut Resource) -> Result<Self, Self::Error> {
+					let actual_type = resource.resource_type().to_string();
 					match resource {
 						Resource::#names(r) => Ok(r),
-						_ => Err(WrongResourceType),
+						_ => Err(WrongResourceType(actual_type, stringify!(#names).to_owned())),
 					}
 				}
 			}
@@ -267,6 +260,19 @@ fn resource_impls(names: &[Ident]) -> TokenStream {
 					#(
 						Self::#names => stringify!(#names),
 					)*
+				}
+			}
+		}
+
+		impl std::str::FromStr for ResourceType {
+			type Err = String;
+
+			fn from_str(s: &str) -> Result<Self, Self::Err> {
+				match s {
+					#(
+						stringify!(#names) => Ok(Self::#names),
+					)*
+					_ => Err(format!("Unknown value: {s}")),
 				}
 			}
 		}

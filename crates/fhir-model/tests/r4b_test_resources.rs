@@ -10,11 +10,11 @@ use fhir_model::{
 		codes::{RequestIntent, RequestStatus, RiskProbability},
 		resources::{
 			Basic, IdentifiableResource, NamedResource, Patient, RequestGroup, RequestGroupAction,
-			RequestGroupActionTiming, Resource, StructureDefinition, WrongResourceType,
+			RequestGroupActionTiming, Resource, StructureDefinition,
 		},
 		types::{CodeableConcept, Coding, FieldExtension, Identifier, Reference},
 	},
-	Date, DateTime, ParsedReference,
+	BuilderError, Date, DateTime, ParsedReference, WrongResourceType,
 };
 use serde_json::Value;
 
@@ -39,7 +39,7 @@ fn serialization_deserialization() {
 }
 
 #[test]
-fn builder_works() {
+fn builder_works() -> Result<(), BuilderError> {
 	let _request_group = RequestGroup::builder()
 		.status(RequestStatus::Active)
 		.intent(RequestIntent::Order)
@@ -53,21 +53,19 @@ fn builder_works() {
 								.system("system".to_owned())
 								.code("code".to_owned())
 								.display("display".to_owned())
-								.build()
-								.unwrap(),
+								.build()?,
 						)])
-						.build()
-						.unwrap(),
+						.build()?,
 				)])
-				.build()
-				.unwrap(),
+				.build()?,
 		)])
-		.action_ext(vec![Some(FieldExtension::builder().build().unwrap())])
-		.build()
-		.unwrap();
+		.action_ext(vec![Some(FieldExtension::builder().build()?)])
+		.build()?;
 
 	let result = StructureDefinition::builder().build();
 	assert!(result.is_err());
+
+	Ok(())
 }
 
 #[test]

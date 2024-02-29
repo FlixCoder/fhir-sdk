@@ -53,7 +53,7 @@ async fn main() -> Result<(), Error> {
         .request_settings(settings)
         .build()?;
 
-    // Create a Patient resource using a typed builder.
+    // Create a Patient resource using a builder.
     let mut patient = Patient::builder().active(false).build().unwrap();
     // Push it to the server.
     patient.create(&client).await?;
@@ -108,7 +108,7 @@ async fn main() -> Result<(), Error> {
         .auth_callback(my_auth_callback)
         .build()?;
 
-    // Create a Patient resource using a typed builder.
+    // Create a Patient resource using a builder.
     let mut patient = Patient::builder().active(false).build().unwrap();
     // Push it to the server. On unauthorized failures, the client will call our
     // auth_callback method to refresh the authorization.
@@ -129,7 +129,7 @@ use fhir_sdk::r5::{
 
 #[tokio::main]
 async fn main() {
-    // Create a Patient resource using a typed builder.
+    // Create a Patient resource using a builder.
     let mut patient = Patient::builder()
         .active(false)
         .identifier(vec![Some(

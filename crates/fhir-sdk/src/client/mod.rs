@@ -28,8 +28,11 @@ pub use reqwest::{
 };
 
 pub use self::{
-	builder::ClientBuilder, error::Error, request::RequestSettings, search::SearchParameters,
-	write::ResourceWrite,
+	builder::ClientBuilder,
+	error::Error,
+	request::RequestSettings,
+	search::SearchParameters,
+	write::{AnyResourceWrite, ResourceWrite},
 };
 
 /// FHIR client version to use: FHIR STU3.

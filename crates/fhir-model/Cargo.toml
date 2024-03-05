@@ -24,8 +24,8 @@ r4b = []
 r5 = []
 
 [dependencies]
-base64 = "0.21.3"
-derive_builder = {version = "0.13.0", optional = true}
+base64 = "0.22.0"
+derive_builder = {version = "0.20.0", optional = true}
 serde = {version = "1.0.158", features = ["derive"]}
 time = { version = "0.3.27", features = [
     "formatting",

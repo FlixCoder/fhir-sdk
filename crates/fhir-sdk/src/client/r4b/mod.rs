@@ -121,13 +121,13 @@ impl Client<FhirR4B> {
 		Ok(resource)
 	}
 
-	/// Create a new FHIR resource on the FHIR server. Returns the resource ID
-	/// and version ID.
-	pub async fn create<R: NamedResource + Serialize + Send + Sync>(
+	/// Inner function to create any resource for any resource type.
+	pub(crate) async fn create_generic<R: Serialize + Send + Sync>(
 		&self,
+		resource_type: ResourceType,
 		resource: &R,
 	) -> Result<(String, Option<String>), Error> {
-		let url = self.url(&[R::TYPE.as_str()]);
+		let url = self.url(&[resource_type.as_str()]);
 		let request = self
 			.0
 			.client
@@ -146,17 +146,24 @@ impl Client<FhirR4B> {
 		}
 	}
 
-	/// Update a FHIR resource (or create it if it did not
-	/// exist). If conditional update is selected, the resource is only updated
-	/// if the version ID matches the expectations.
-	pub async fn update<R: NamedResource + BaseResource + Serialize + Send + Sync>(
+	/// Create a new FHIR resource on the FHIR server. Returns the resource ID
+	/// and version ID.
+	pub async fn create<R: NamedResource + Serialize + Send + Sync>(
 		&self,
 		resource: &R,
-		conditional: bool,
-	) -> Result<(bool, String), Error> {
-		let id = resource.id().as_ref().ok_or(Error::MissingId)?;
+	) -> Result<(String, Option<String>), Error> {
+		self.create_generic(R::TYPE, resource).await
+	}
 
-		let url = self.url(&[R::TYPE.as_str(), id]);
+	/// Inner function to update any resource for any resource type.
+	pub(crate) async fn update_generic<R: Serialize + Send + Sync>(
+		&self,
+		resource_type: ResourceType,
+		id: &str,
+		resource: &R,
+		version_id: Option<&str>,
+	) -> Result<(bool, String), Error> {
+		let url = self.url(&[resource_type.as_str(), id]);
 		let mut request = self
 			.0
 			.client
@@ -164,12 +171,7 @@ impl Client<FhirR4B> {
 			.header(header::ACCEPT, MIME_TYPE)
 			.header(header::CONTENT_TYPE, MIME_TYPE)
 			.json(resource);
-		if conditional {
-			let version_id = resource
-				.meta()
-				.as_ref()
-				.and_then(|meta| meta.version_id.as_ref())
-				.ok_or(Error::MissingVersionId)?;
+		if let Some(version_id) = version_id {
 			let if_match = HeaderValue::from_str(&format!("W/\"{version_id}\""))
 				.map_err(|_| Error::MissingVersionId)?;
 			request = request.header(header::IF_MATCH, if_match);
@@ -183,6 +185,27 @@ impl Client<FhirR4B> {
 		} else {
 			Err(Error::from_response_r4b(response).await)
 		}
+	}
+
+	/// Update a FHIR resource (or create it if it did not
+	/// exist). If conditional update is selected, the resource is only updated
+	/// if the version ID matches the expectations.
+	pub async fn update<R: NamedResource + BaseResource + Serialize + Send + Sync>(
+		&self,
+		resource: &R,
+		conditional: bool,
+	) -> Result<(bool, String), Error> {
+		let id = resource.id().as_ref().ok_or(Error::MissingId)?;
+		let version_id = conditional
+			.then(|| {
+				resource
+					.meta()
+					.as_ref()
+					.and_then(|meta| meta.version_id.as_deref())
+					.ok_or(Error::MissingVersionId)
+			})
+			.transpose()?;
+		self.update_generic(R::TYPE, id, resource, version_id).await
 	}
 
 	/// Begin building a patch request for a FHIR resource on the server via the

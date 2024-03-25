@@ -3,7 +3,7 @@
 
 mod common;
 
-use std::{env, str::FromStr};
+use std::str::FromStr;
 
 use eyre::Result;
 use fhir_sdk::{
@@ -23,13 +23,25 @@ use fhir_sdk::{
 	Date,
 };
 use futures::TryStreamExt;
+use tokio::sync::OnceCell;
 
 /// Set up a client for testing with the (local) FHIR server.
 async fn client() -> Result<Client<FhirR4B>> {
+	static CLIENT: OnceCell<Client<FhirR4B>> = OnceCell::const_new();
 	common::setup_logging().await;
-	let base_url =
-		env::var("FHIR_SERVER").unwrap_or("http://localhost:8090/fhir/".to_owned()).parse()?;
-	Ok(Client::new(base_url)?)
+	let client = CLIENT
+		.get_or_try_init(|| async move {
+			let client = Client::builder()
+				.base_url(
+					std::env::var("FHIR_SERVER")
+						.unwrap_or("http://localhost:8090/fhir/".to_owned())
+						.parse()?,
+				)
+				.build()?;
+			Ok::<_, eyre::Report>(client)
+		})
+		.await?;
+	Ok(client.clone())
 }
 
 /// Go through all entries of the bundle, extracting the outcomes and search for

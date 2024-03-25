@@ -49,7 +49,7 @@ async fn main() -> Result<(), Error> {
     let settings = RequestSettings::default()
         .header(header::AUTHORIZATION, "Bearer <token>".parse().unwrap());
     let client = Client::builder()
-        .base_url("http://localhost:8090/fhir/".parse().unwrap())
+        .base_url("http://localhost:8100/fhir/".parse().unwrap())
         .request_settings(settings)
         .build()?;
 
@@ -104,7 +104,7 @@ async fn my_auth_callback() -> Result<HeaderValue, eyre::Report> {
 async fn main() -> Result<(), Error> {
     // Set up the client using the local test server.
     let client = Client::builder()
-        .base_url("http://localhost:8090/fhir/".parse().unwrap())
+        .base_url("http://localhost:8100/fhir/".parse().unwrap())
         .auth_callback(my_auth_callback)
         .build()?;
 

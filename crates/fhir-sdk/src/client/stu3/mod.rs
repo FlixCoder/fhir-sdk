@@ -355,4 +355,32 @@ impl Client<FhirStu3> {
 			Err(Error::from_response_stu3(response).await)
 		}
 	}
+
+	/// Retrieve the history of a resource type or a specific resource.
+	pub async fn history(
+		&self,
+		resource_type: ResourceType,
+		id: Option<&str>,
+	) -> Result<Bundle, Error> {
+		let url = {
+			if let Some(id) = id {
+				self.url(&[resource_type.as_str(), id, "_history"])
+			} else {
+				self.url(&[resource_type.as_str(), "_history"])
+			}
+		};
+		let request = self
+			.0
+			.client
+			.get(url)
+			.header(header::ACCEPT, MIME_TYPE)
+			.header(header::CONTENT_TYPE, MIME_TYPE);
+		let response = self.run_request(request).await?;
+		if response.status().is_success() {
+			let resource: Bundle = response.json().await?;
+			Ok(resource)
+		} else {
+			Err(Error::from_response_stu3(response).await)
+		}
+	}
 }

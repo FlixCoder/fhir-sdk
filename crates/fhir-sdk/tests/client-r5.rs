@@ -12,7 +12,10 @@ use fhir_sdk::{
 		Client, FhirR5, ResourceWrite, SearchParameters,
 	},
 	r5::{
-		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
+		codes::{
+			AdministrativeGender, BundleType, EncounterStatus, HTTPVerb, IssueSeverity,
+			SearchComparator,
+		},
 		reference_to,
 		resources::{
 			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
@@ -390,6 +393,87 @@ async fn operation_patient_match_inner() -> Result<()> {
 		.filter_map(|resource| resource.as_base_resource().id().as_ref())
 		.any(|id| Some(id) == patient.id.as_ref());
 	assert!(contains_patient);
+
+	Ok(())
+}
+
+#[test]
+fn history_without_id() -> Result<()> {
+	common::RUNTIME.block_on(history_without_id_inner())
+}
+
+async fn history_without_id_inner() -> Result<()> {
+	let client = client().await?;
+
+	let mut patient = Patient::builder().language("history1".to_owned()).build().unwrap();
+	let first_patient_id = patient.create(&client).await?;
+
+	let mut patient = Patient::builder().language("history2".to_owned()).build().unwrap();
+	let second_patient_id = patient.create(&client).await?;
+
+	let bundle = client.history(ResourceType::Patient, None).await?;
+	assert_eq!(bundle.r#type, BundleType::History);
+	assert!(bundle.entry.len() >= 2);
+	for id in &[first_patient_id, second_patient_id] {
+		assert!(bundle.entry.iter().any(|entry| {
+			entry
+				.as_ref()
+				.unwrap()
+				.resource
+				.as_ref()
+				.map_or(false, |r| r.as_base_resource().id().as_ref() == Some(id))
+		}));
+	}
+
+	Ok(())
+}
+
+#[test]
+fn history_with_id() -> Result<()> {
+	common::RUNTIME.block_on(history_with_id_inner())
+}
+
+async fn history_with_id_inner() -> Result<()> {
+	let client = client().await?;
+
+	let mut patient = Patient::builder().language("DE".to_owned()).build().unwrap();
+	patient.create(&client).await?;
+
+	patient.language = Some("EN".to_owned());
+	patient.update(false, &client).await?;
+
+	patient.clone().delete(&client).await?;
+
+	let bundle = client.history(ResourceType::Patient, patient.id.as_deref()).await?;
+	assert_eq!(bundle.r#type, BundleType::History);
+	assert_eq!(bundle.entry.len(), 3);
+
+	let Some(response) = bundle.entry[0].as_ref().unwrap().request.as_ref() else {
+		panic!("response should be BundleEntryRequest");
+	};
+
+	assert_eq!(response.method, HTTPVerb::Delete);
+
+	let Some(&Resource::Patient(ref last_version)) =
+		bundle.entry[1].as_ref().unwrap().resource.as_ref()
+	else {
+		panic!("Resource should be Patient");
+	};
+	assert_eq!(
+		last_version.language,
+		Some("EN".to_owned()),
+		"Last version should have language 'EN'"
+	);
+	let Some(&Resource::Patient(ref first_version)) =
+		bundle.entry[2].as_ref().unwrap().resource.as_ref()
+	else {
+		panic!("Resource should be Patient");
+	};
+	assert_eq!(
+		first_version.language,
+		Some("DE".to_owned()),
+		"Last version should have language 'DE'"
+	);
 
 	Ok(())
 }

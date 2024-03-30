@@ -468,8 +468,7 @@ async fn history_with_id_inner() -> Result<()> {
 
 	assert_eq!(response.method, HTTPVerb::Delete);
 
-	let Some(&Resource::Patient(ref last_version)) =
-		bundle.entry[1].as_ref().unwrap().resource.as_ref()
+	let Some(Resource::Patient(last_version)) = bundle.entry[1].as_ref().unwrap().resource.as_ref()
 	else {
 		panic!("Resource should be Patient");
 	};
@@ -478,7 +477,7 @@ async fn history_with_id_inner() -> Result<()> {
 		Some("EN".to_owned()),
 		"Last version should have language 'EN'"
 	);
-	let Some(&Resource::Patient(ref first_version)) =
+	let Some(Resource::Patient(first_version)) =
 		bundle.entry[2].as_ref().unwrap().resource.as_ref()
 	else {
 		panic!("Resource should be Patient");

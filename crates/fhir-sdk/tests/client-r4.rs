@@ -13,8 +13,7 @@ use fhir_sdk::{
 	},
 	r4b::{
 		codes::{
-			AdministrativeGender, BundleType, EncounterStatus, HTTPVerb, IssueSeverity,
-			SearchComparator,
+			AdministrativeGender, BundleType, EncounterStatus, IssueSeverity, SearchComparator,
 		},
 		reference_to,
 		resources::{
@@ -395,12 +394,11 @@ async fn history_with_id_inner() -> Result<()> {
 	assert_eq!(bundle.r#type, BundleType::History);
 	assert_eq!(bundle.entry.len(), 3);
 
-	let Some(response) = bundle.entry[0].as_ref().unwrap().request.as_ref() else {
+	let Some(_response) = bundle.entry[0].as_ref().unwrap().request.as_ref() else {
 		panic!("response should be BundleEntryRequest");
 	};
 
-	let Some(&Resource::Patient(ref last_version)) =
-		bundle.entry[1].as_ref().unwrap().resource.as_ref()
+	let Some(Resource::Patient(last_version)) = bundle.entry[1].as_ref().unwrap().resource.as_ref()
 	else {
 		panic!("Resource should be Patient");
 	};
@@ -409,7 +407,7 @@ async fn history_with_id_inner() -> Result<()> {
 		Some("EN".to_owned()),
 		"Last version should have language 'EN'"
 	);
-	let Some(&Resource::Patient(ref first_version)) =
+	let Some(Resource::Patient(first_version)) =
 		bundle.entry[2].as_ref().unwrap().resource.as_ref()
 	else {
 		panic!("Resource should be Patient");

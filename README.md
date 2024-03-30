@@ -90,6 +90,22 @@ If you need sudo to run docker, use the `--sudo` or just `-s` flag on `cargo xta
 
 ## More examples
 
+### Reading a resource from string/file
+
+```rust
+use fhir_sdk::r5::resources::Resource;
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let resource_str = r#"{
+        "resourceType": "Patient",
+        "id": "my-id",
+        "birthDate": "2024-01-01"
+    }"#;
+    let _resource: Resource = serde_json::from_str(resource_str)?;
+    Ok(())
+}
+```
+
 ### Authentication callback
 
 ```rust

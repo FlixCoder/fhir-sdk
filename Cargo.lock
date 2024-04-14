@@ -391,17 +391,6 @@ checksum = "25cbce373ec4653f1a01a31e8a5e5ec0c622dc27ff9c4e6606eefef5cbbed4a5"
 
 [[package]]
 name = "fhir-model"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "be3d7b692c0985bf650412f3cbf37637806fc325954434b96624fc46ef9e0b06"
-dependencies = [
- "base64 0.21.7",
- "serde",
- "time",
-]
-
-[[package]]
-name = "fhir-model"
 version = "0.10.0"
 dependencies = [
  "assert-json-diff",
@@ -409,6 +398,17 @@ dependencies = [
  "derive_builder",
  "serde",
  "serde_json",
+ "time",
+]
+
+[[package]]
+name = "fhir-model"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "46befc6dd827fd2dddea7b0cfab807aff6d65c36a2f1652e59a1cf4d3c163bf3"
+dependencies = [
+ "base64 0.22.0",
+ "serde",
  "time",
 ]
 
@@ -557,7 +557,7 @@ version = "0.1.0"
 dependencies = [
  "Inflector",
  "anyhow",
- "fhir-model 0.9.0",
+ "fhir-model 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "once_cell",
  "prettyplease",
  "proc-macro2",

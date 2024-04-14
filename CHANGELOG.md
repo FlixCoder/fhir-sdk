@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.11.0] - 2024-04-14
+
+### Documentation
+
+- Add example for JSON deserialization
+
+### Features
+
+- Add and implement AnyResourceWrite for Resource
+- Add REST call `history`
+
+### Miscellaneous Tasks
+
+- Bump dependencies
+- Bump reqwest to 0.12, going to hyper 1.0
+
 ## [0.10.0] - 2024-02-29
 
 ### Bug Fixes

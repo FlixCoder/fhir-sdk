@@ -67,12 +67,14 @@ impl<V> ClientBuilder<V> {
 	#[must_use]
 	pub fn auth_callback<F, O, E>(mut self, auth: F) -> Self
 	where
-		F: Fn() -> O + Send + Sync + Copy + 'static,
+		F: Fn() -> O + Send + Sync + Clone + 'static,
 		O: Future<Output = Result<HeaderValue, E>> + Send,
 		E: Into<Box<dyn std::error::Error + Send + Sync>>,
 	{
-		self.auth_callback =
-			Some(Arc::new(move || Box::pin(async move { (auth)().await.map_err(Into::into) })));
+		self.auth_callback = Some(Arc::new(move || {
+			let auth = auth.clone();
+			Box::pin(async move { (auth)().await.map_err(Into::into) })
+		}));
 		self
 	}
 

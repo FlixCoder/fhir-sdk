@@ -56,7 +56,8 @@ impl<V> ClientBuilder<V> {
 		self
 	}
 
-	/// User agent to use for requests.
+	/// User agent to use for requests. This is ignored if a Reqwest client is
+	/// passed to the builder using the client() method.
 	#[must_use]
 	pub fn user_agent(mut self, user_agent: String) -> Self {
 		self.user_agent = Some(user_agent);

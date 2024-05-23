@@ -17,6 +17,8 @@ const DEFAULT_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARG
 pub struct ClientBuilder<Version = super::DefaultVersion> {
 	/// The FHIR server's base URL.
 	base_url: Option<Url>,
+	/// Reqwest Client
+	client: Option<reqwest::Client>,
 	/// User agent to use for requests.
 	user_agent: Option<String>,
 	/// Request settings.
@@ -31,6 +33,7 @@ impl<V> Default for ClientBuilder<V> {
 	fn default() -> Self {
 		Self {
 			base_url: None,
+			client: None,
 			user_agent: None,
 			request_settings: None,
 			auth_callback: None,
@@ -44,6 +47,12 @@ impl<V> ClientBuilder<V> {
 	#[must_use]
 	pub fn base_url(mut self, base_url: Url) -> Self {
 		self.base_url = Some(base_url);
+		self
+	}
+
+	/// Reqwest client
+	pub fn client(mut self, client: reqwest::Client) -> Self {
+		self.client = Some(client);
 		self
 	}
 
@@ -87,8 +96,13 @@ impl<V> ClientBuilder<V> {
 			return Err(Error::UrlCannotBeBase);
 		}
 
-		let user_agent = self.user_agent.as_deref().unwrap_or(DEFAULT_USER_AGENT);
-		let client = reqwest::Client::builder().user_agent(user_agent).build()?;
+		let client = match self.client {
+			Some(client) => client,
+			None => {
+				let user_agent = self.user_agent.as_deref().unwrap_or(DEFAULT_USER_AGENT);
+				reqwest::Client::builder().user_agent(user_agent).build()?
+			}
+		};
 
 		let request_settings = self.request_settings.unwrap_or_default();
 
@@ -106,6 +120,7 @@ impl<V> Clone for ClientBuilder<V> {
 	fn clone(&self) -> Self {
 		Self {
 			base_url: self.base_url.clone(),
+			client: self.client.clone(),
 			user_agent: self.user_agent.clone(),
 			request_settings: self.request_settings.clone(),
 			auth_callback: self.auth_callback.clone(),

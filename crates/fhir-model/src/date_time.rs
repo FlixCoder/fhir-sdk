@@ -177,7 +177,7 @@ impl FromStr for Instant {
 	type Err = Parse;
 
 	fn from_str(s: &str) -> Result<Self, Self::Err> {
-		Ok(Instant(time::OffsetDateTime::parse(s, &Rfc3339)?))
+		Ok(Instant(OffsetDateTime::parse(s, &Rfc3339)?))
 	}
 }
 

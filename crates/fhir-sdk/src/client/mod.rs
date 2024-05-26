@@ -161,8 +161,7 @@ impl<V: Send + Sync> Client<V> {
 				let auth_value = (auth_callback)()
 					.await
 					.map_err(|err| Error::AuthCallback(format!("{err:#}")))?;
-				request_settings =
-					request_settings.header(reqwest::header::AUTHORIZATION, auth_value);
+				request_settings = request_settings.header(header::AUTHORIZATION, auth_value);
 				self.set_request_settings(request_settings.clone());
 				let response = request_settings.make_request(request).await?;
 				return Ok(response);

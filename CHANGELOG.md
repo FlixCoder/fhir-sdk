@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.12.0] - 2024-05-26
+
+### Features
+
+- Allow Clone callbacks in ClientBuilder::auth_callback
+- Allow Custom Reqwest Client
+
 ## [0.11.0] - 2024-04-14
 
 ### Documentation

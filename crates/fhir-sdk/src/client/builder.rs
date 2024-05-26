@@ -51,6 +51,7 @@ impl<V> ClientBuilder<V> {
 	}
 
 	/// Reqwest client
+	#[must_use]
 	pub fn client(mut self, client: reqwest::Client) -> Self {
 		self.client = Some(client);
 		self

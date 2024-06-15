@@ -22,10 +22,13 @@ pub struct Type {
 	/// Base definition.
 	pub base: Option<String>,
 	/// Status of the definition.
+	#[allow(dead_code)] // Might be used later.
 	pub status: PublicationStatus,
 	/// Whether it is experimental.
+	#[allow(dead_code)] // Might be used later.
 	pub experimental: bool,
 	/// Type of this type.
+	#[allow(dead_code)] // Might be used later.
 	pub r#type: String,
 	/// Elements.
 	pub elements: ObjectField,
@@ -137,15 +140,19 @@ pub struct ObjectField {
 	/// Whether this is a base type field.
 	pub is_base_field: bool,
 	/// Base type.
+	#[allow(dead_code)] // Might be used later.
 	pub r#type: Option<String>,
 	/// Type name of this object.
+	#[allow(dead_code)] // Might be used later.
 	pub type_name: Option<String>,
 	/// Content reference to re-use a type definition from somewhere else in
 	/// this type.
 	pub content_reference: Option<String>,
 	/// Whether this field is a modifier field.
+	#[allow(dead_code)] // Might be used later.
 	pub is_modifier: bool,
 	/// Whether this field is part of the summary.
+	#[allow(dead_code)] // Might be used later.
 	pub is_summary: bool,
 
 	/// Sub-fields.
@@ -250,8 +257,10 @@ pub struct CodeField {
 	/// ValueSet URL of the code.
 	pub code_url: Option<String>,
 	/// Whether this field is a modifier field.
+	#[allow(dead_code)] // Might be used later.
 	pub is_modifier: bool,
 	/// Whether this field is part of the summary.
+	#[allow(dead_code)] // Might be used later.
 	pub is_summary: bool,
 }
 
@@ -275,7 +284,9 @@ pub struct ChoiceField {
 	/// Name of the possible types.
 	pub types: Vec<String>,
 	/// Whether this field is a modifier field.
+	#[allow(dead_code)] // Might be used later.
 	pub is_modifier: bool,
 	/// Whether this field is part of the summary.
+	#[allow(dead_code)] // Might be used later.
 	pub is_summary: bool,
 }

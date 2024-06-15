@@ -3,7 +3,7 @@
 use serde::{Serialize, Deserialize};
 use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
 #[doc = "**[ACMECholCodesBlood](http://hl7.org/fhir/CodeSystem/example)**. This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ACMECholCodesBlood {
     /** **chol**
 
@@ -105,7 +105,7 @@ impl From<ACMECholCodesBlood> for CodeableConcept {
     }
 }
 #[doc = "**[AbstractType](http://hl7.org/fhir/abstract-types)**. A list of the base types defined by this version of the FHIR specification - types that are defined, but for which only specializations actually are created.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AbstractType {
     /** **Any**
 
@@ -201,7 +201,7 @@ impl From<AbstractType> for CodeableConcept {
     }
 }
 #[doc = "**[AccountStatus](http://hl7.org/fhir/ValueSet/account-status)**. Indicates whether the account is available to be used.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AccountStatus {
     /** **active**
@@ -313,7 +313,7 @@ impl From<AccountStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ActionCardinalityBehavior](http://hl7.org/fhir/ValueSet/action-cardinality-behavior)**. Defines behavior for an action or a group for how many times that item may be repeated.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionCardinalityBehavior {
     /** **multiple**
@@ -409,7 +409,7 @@ impl From<ActionCardinalityBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionCode](http://hl7.org/fhir/ValueSet/action-code)**. Provides examples of actions to be performed.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionCode {
     /** **collect-information**
@@ -545,7 +545,7 @@ impl From<ActionCode> for CodeableConcept {
     }
 }
 #[doc = "**[ActionConditionKind](http://hl7.org/fhir/ValueSet/action-condition-kind)**. Defines the kinds of conditions that can appear on actions.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionConditionKind {
     /** **applicability**
@@ -647,7 +647,7 @@ impl From<ActionConditionKind> for CodeableConcept {
     }
 }
 #[doc = "**[ActionGroupingBehavior](http://hl7.org/fhir/ValueSet/action-grouping-behavior)**. Defines organization behavior of a group.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionGroupingBehavior {
     /** **logical-group**
@@ -749,7 +749,7 @@ impl From<ActionGroupingBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionParticipantType](http://hl7.org/fhir/ValueSet/action-participant-type)**. The type of participant for the action.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionParticipantType {
     /** **device**
@@ -857,7 +857,7 @@ impl From<ActionParticipantType> for CodeableConcept {
     }
 }
 #[doc = "**[ActionPrecheckBehavior](http://hl7.org/fhir/ValueSet/action-precheck-behavior)**. Defines selection frequency behavior for an action or group.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionPrecheckBehavior {
     /** **no**
@@ -953,7 +953,7 @@ impl From<ActionPrecheckBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionReasonCode](http://hl7.org/fhir/ValueSet/action-reason-code)**. Provides examples of reasons for actions to be performed.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionReasonCode {
     /** **care-gap**
@@ -1065,7 +1065,7 @@ impl From<ActionReasonCode> for CodeableConcept {
     }
 }
 #[doc = "**[ActionRelationshipType](http://hl7.org/fhir/ValueSet/action-relationship-type)**. Defines the types of relationships between actions.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionRelationshipType {
     /** **after**
@@ -1203,7 +1203,7 @@ impl From<ActionRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[ActionRequiredBehavior](http://hl7.org/fhir/ValueSet/action-required-behavior)**. Defines expectations around whether an action or action group is required.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionRequiredBehavior {
     /** **could**
@@ -1305,7 +1305,7 @@ impl From<ActionRequiredBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionSelectionBehavior](http://hl7.org/fhir/ValueSet/action-selection-behavior)**. Defines selection behavior of a group.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionSelectionBehavior {
     /** **all**
@@ -1425,7 +1425,7 @@ impl From<ActionSelectionBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[ActionType](http://hl7.org/fhir/ValueSet/action-type)**. The type of action to be performed.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ActionType {
     /** **create**
@@ -1531,7 +1531,7 @@ impl From<ActionType> for CodeableConcept {
     }
 }
 #[doc = "**[AdditionalMonitoring](http://hl7.org/fhir/ValueSet/medicinal-product-additional-monitoring)**. Extra monitoring defined for a Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdditionalMonitoring {
     /** **BlackTriangleMonitoring**
@@ -1622,7 +1622,7 @@ impl From<AdditionalMonitoring> for CodeableConcept {
     }
 }
 #[doc = "**[AddressType](http://hl7.org/fhir/ValueSet/address-type)**. The type of an address (physical / postal).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AddressType {
     /** **both**
@@ -1722,7 +1722,7 @@ impl From<AddressType> for CodeableConcept {
     }
 }
 #[doc = "**[AddressUse](http://hl7.org/fhir/ValueSet/address-use)**. The use of an address.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AddressUse {
     /** **billing**
@@ -1834,7 +1834,7 @@ impl From<AddressUse> for CodeableConcept {
     }
 }
 #[doc = "**[AdjudicationCodes](http://terminology.hl7.org/CodeSystem/adjudication)**. This value set includes a smattering of Adjudication codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AdjudicationCodes {
     /** **benefit**
 
@@ -1968,7 +1968,7 @@ impl From<AdjudicationCodes> for CodeableConcept {
     }
 }
 #[doc = "**[AdjudicationReasonCodes](http://terminology.hl7.org/CodeSystem/adjudication-reason)**. This value set includes smattering of Adjudication Reason codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AdjudicationReasonCodes {
     /** **ar001**
 
@@ -2066,7 +2066,7 @@ impl From<AdjudicationReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[AdministrableDoseForm](http://hl7.org/fhir/ValueSet/administrable-dose-form)**. Dose form for a medication, in the form suitable for administering to the patient, after mixing, where necessary.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdministrableDoseForm {
     /** **100000073362**
@@ -3356,7 +3356,7 @@ impl From<AdministrableDoseForm> for CodeableConcept {
     }
 }
 #[doc = "**[AdministrativeGender](http://hl7.org/fhir/ValueSet/administrative-gender)**. The gender of a person used for administrative purposes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdministrativeGender {
     /** **female**
@@ -3464,7 +3464,7 @@ impl From<AdministrativeGender> for CodeableConcept {
     }
 }
 #[doc = "**[AdmitSource](http://terminology.hl7.org/CodeSystem/admit-source)**. This codesystem defines a set of codes that can be used to indicate from where the patient came in.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AdmitSource {
     /** **born**
 
@@ -3610,7 +3610,7 @@ impl From<AdmitSource> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventActuality](http://hl7.org/fhir/ValueSet/adverse-event-actuality)**. Overall nature of the adverse event, e.g. real or potential.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventActuality {
     /** **actual**
@@ -3706,7 +3706,7 @@ impl From<AdverseEventActuality> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventCategory](http://hl7.org/fhir/ValueSet/adverse-event-category)**. Overall categorization of the event, e.g. product-related or situational.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventCategory {
     /** **expired-drug**
@@ -3876,7 +3876,7 @@ impl From<AdverseEventCategory> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventCausalityAssessment](http://hl7.org/fhir/ValueSet/adverse-event-causality-assess)**. Codes for the assessment of whether the entity caused the event.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventCausalityAssessment {
     /** **Certain**
@@ -3996,7 +3996,7 @@ impl From<AdverseEventCausalityAssessment> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventCausalityMethod](http://hl7.org/fhir/ValueSet/adverse-event-causality-method)**. TODO.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventCausalityMethod {
     /** **Bayesian**
@@ -4098,7 +4098,7 @@ impl From<AdverseEventCausalityMethod> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventOutcome](http://hl7.org/fhir/ValueSet/adverse-event-outcome)**. TODO (and should this be required?).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventOutcome {
     /** **fatal**
@@ -4218,7 +4218,7 @@ impl From<AdverseEventOutcome> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventSeriousness](http://hl7.org/fhir/ValueSet/adverse-event-seriousness)**. Overall seriousness of this event for the patient.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventSeriousness {
     /** **Non-serious**
@@ -4354,7 +4354,7 @@ impl From<AdverseEventSeriousness> for CodeableConcept {
     }
 }
 #[doc = "**[AdverseEventSeverity](http://hl7.org/fhir/ValueSet/adverse-event-severity)**. The severity of the adverse event itself, in direct relation to the subject.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AdverseEventSeverity {
     /** **mild**
@@ -4456,7 +4456,7 @@ impl From<AdverseEventSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[AggregationMode](http://hl7.org/fhir/ValueSet/resource-aggregation-mode)**. How resource references can be aggregated.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AggregationMode {
     /** **bundled**
@@ -4558,7 +4558,7 @@ impl From<AggregationMode> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceCategory](http://hl7.org/fhir/ValueSet/allergy-intolerance-category)**. Category of an identified substance associated with allergies or intolerances.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCategory {
     /** **biologic**
@@ -4666,7 +4666,7 @@ impl From<AllergyIntoleranceCategory> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceCertainty](http://hl7.org/fhir/ValueSet/reaction-event-certainty)**. Statement about the degree of clinical certainty that a specific substance was the cause    of the manifestation in a reaction event.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCertainty {
     /** **confirmed**
@@ -4774,7 +4774,7 @@ impl From<AllergyIntoleranceCertainty> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceClinicalStatusCodes](http://hl7.org/fhir/ValueSet/allergyintolerance-clinical)**. Preferred value set for AllergyIntolerance Clinical Status.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceClinicalStatusCodes {
     /** **active**
@@ -4876,7 +4876,7 @@ impl From<AllergyIntoleranceClinicalStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceCriticality](http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality)**. Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceCriticality {
     /** **high**
@@ -4978,7 +4978,7 @@ impl From<AllergyIntoleranceCriticality> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceSeverity](http://hl7.org/fhir/ValueSet/reaction-event-severity)**. Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceSeverity {
     /** **mild**
@@ -5080,7 +5080,7 @@ impl From<AllergyIntoleranceSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceType](http://hl7.org/fhir/ValueSet/allergy-intolerance-type)**. Identification of the underlying physiological mechanism for a Reaction Risk.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceType {
     /** **allergy**
@@ -5176,7 +5176,7 @@ impl From<AllergyIntoleranceType> for CodeableConcept {
     }
 }
 #[doc = "**[AllergyIntoleranceVerificationStatusCodes](http://hl7.org/fhir/ValueSet/allergyintolerance-verification)**. Preferred value set for AllergyIntolerance Verification Status.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AllergyIntoleranceVerificationStatusCodes {
     /** **confirmed**
@@ -5284,7 +5284,7 @@ impl From<AllergyIntoleranceVerificationStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[AnimalSpecies](http://hl7.org/fhir/animal-species)**. This example value set defines a set of codes that can be used to indicate species of animal patients.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AnimalSpecies {
     /** **canislf**
 
@@ -5386,7 +5386,7 @@ impl From<AnimalSpecies> for CodeableConcept {
     }
 }
 #[doc = "**[AnimalTissueType](http://hl7.org/fhir/ValueSet/animal-tissue-type)**. A tissue type of an animal.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AnimalTissueType {
     /** **100000072091**
@@ -6602,7 +6602,7 @@ impl From<AnimalTissueType> for CodeableConcept {
     }
 }
 #[doc = "**[AppointmentStatus](http://hl7.org/fhir/ValueSet/appointmentstatus)**. The free/busy status of an appointment.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AppointmentStatus {
     /** **arrived**
@@ -6745,7 +6745,7 @@ impl From<AppointmentStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ArticleUrlType](http://hl7.org/fhir/ValueSet/article-url-type)**. Code the reason for different URLs, eg abstract and full-text.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ArticleUrlType {
     /** **abstract**
@@ -6923,7 +6923,7 @@ impl From<ArticleUrlType> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactContributionInstanceType](http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type)**. Artifact Contribution Instance Type\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ArtifactContributionInstanceType {
     /** **approved**
@@ -7026,7 +7026,7 @@ impl From<ArtifactContributionInstanceType> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactContributionType](http://hl7.org/fhir/ValueSet/artifact-contribution-type)**. Citation contribution.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ArtifactContributionType {
     /** **conceptualization**
@@ -7194,7 +7194,7 @@ impl From<ArtifactContributionType> for CodeableConcept {
     }
 }
 #[doc = "**[ArtifactRelationshipType](http://hl7.org/fhir/ValueSet/artifact-relationship-type)**. Artifact Relationship Type\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ArtifactRelationshipType {
     /** **amended-with**
@@ -7422,7 +7422,7 @@ impl From<ArtifactRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionDirectionType](http://hl7.org/fhir/ValueSet/assert-direction-codes)**. The type of direction to use for assertion.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AssertionDirectionType {
     /** **request**
@@ -7518,7 +7518,7 @@ impl From<AssertionDirectionType> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionOperatorType](http://hl7.org/fhir/ValueSet/assert-operator-codes)**. The type of operator to use for assertion.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AssertionOperatorType {
     /** **contains**
@@ -7668,7 +7668,7 @@ impl From<AssertionOperatorType> for CodeableConcept {
     }
 }
 #[doc = "**[AssertionResponseTypes](http://hl7.org/fhir/ValueSet/assert-response-code-types)**. The type of response code to use for assertion.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AssertionResponseTypes {
     /** **bad**
@@ -7824,7 +7824,7 @@ impl From<AssertionResponseTypes> for CodeableConcept {
     }
 }
 #[doc = "**[AttributeEstimateType](http://hl7.org/fhir/ValueSet/attribute-estimate-type)**. A statistic about a statistic, e.g.  Confidence interval or p-value\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AttributeEstimateType {
     /** **0000037**
@@ -7974,7 +7974,7 @@ impl From<AttributeEstimateType> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventAction](http://hl7.org/fhir/ValueSet/audit-event-action)**. Indicator for type of action performed during the event that generated the event.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AuditEventAction {
     /** **C**
@@ -8086,7 +8086,7 @@ impl From<AuditEventAction> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventAgentNetworkType](http://hl7.org/fhir/ValueSet/network-type)**. The type of network access point of this agent in the audit event.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AuditEventAgentNetworkType {
     /** **1**
@@ -8198,7 +8198,7 @@ impl From<AuditEventAgentNetworkType> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventEntityRole](http://hl7.org/fhir/ValueSet/object-role)**. Code representing the role the entity played in the audit event.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AuditEventEntityRole {
     /** **1**
@@ -8424,7 +8424,7 @@ impl From<AuditEventEntityRole> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventEntityType](http://terminology.hl7.org/CodeSystem/audit-entity-type)**. Code for the entity type involved in the audit event (derived from ATNA).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AuditEventEntityType {
     /** **1**
 
@@ -8534,7 +8534,7 @@ impl From<AuditEventEntityType> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventID](http://terminology.hl7.org/CodeSystem/audit-event-type)**. Event Types for Audit Events - defined by DICOM with some FHIR specific additions.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AuditEventID {
     /** **rest**
 
@@ -8626,7 +8626,7 @@ impl From<AuditEventID> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventOutcome](http://hl7.org/fhir/ValueSet/audit-event-outcome)**. Indicates whether the event succeeded or failed.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum AuditEventOutcome {
     /** **0**
@@ -8732,7 +8732,7 @@ impl From<AuditEventOutcome> for CodeableConcept {
     }
 }
 #[doc = "**[AuditEventSourceType](http://terminology.hl7.org/CodeSystem/security-source-type)**. The type of process where the audit event originated from.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum AuditEventSourceType {
     /** **1**
 
@@ -8872,7 +8872,7 @@ impl From<AuditEventSourceType> for CodeableConcept {
     }
 }
 #[doc = "**[BasicResourceTypes](http://terminology.hl7.org/CodeSystem/basic-resource-type)**. This value set defines codes for resources not yet supported by (or which will never be supported by) FHIR.  Many of the codes listed here will eventually be turned into official resources.  However, there is no guarantee that any particular resource will be created nor that the scope will be exactly as defined by the codes presented here.  Codes in this set will be deprecated if/when formal resources are defined that encompass these concepts.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum BasicResourceTypes {
     /** **account**
 
@@ -9054,7 +9054,7 @@ impl From<BasicResourceTypes> for CodeableConcept {
     }
 }
 #[doc = "**[BenefitCategoryCodes](http://terminology.hl7.org/CodeSystem/ex-benefitcategory)**. This value set includes a smattering of Benefit SubCategory codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum BenefitCategoryCodes {
     /** **1**
 
@@ -9308,7 +9308,7 @@ impl From<BenefitCategoryCodes> for CodeableConcept {
     }
 }
 #[doc = "**[BenefitCostApplicability](http://hl7.org/fhir/ValueSet/applicability)**. Whether the cost applies to in-network or out-of-network providers.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum BenefitCostApplicability {
     /** **in-network**
@@ -9408,7 +9408,7 @@ impl From<BenefitCostApplicability> for CodeableConcept {
     }
 }
 #[doc = "**[BenefitTermCodes](http://terminology.hl7.org/CodeSystem/benefit-term)**. This value set includes a smattering of Benefit Term codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum BenefitTermCodes {
     /** **annual**
 
@@ -9512,7 +9512,7 @@ impl From<BenefitTermCodes> for CodeableConcept {
     }
 }
 #[doc = "**[BenefitTypeCodes](http://terminology.hl7.org/CodeSystem/benefit-type)**. This value set includes a smattering of Benefit type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum BenefitTypeCodes {
     /** **benefit**
 
@@ -9670,7 +9670,7 @@ impl From<BenefitTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[BindingStrength](http://hl7.org/fhir/ValueSet/binding-strength)**. Indication of the degree of conformance expectations associated with a binding.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum BindingStrength {
     /** **example**
@@ -9776,7 +9776,7 @@ impl From<BindingStrength> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductCategory](http://hl7.org/fhir/ValueSet/product-category)**. Biologically Derived Product Category.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductCategory {
     /** **biologicalAgent**
@@ -9888,7 +9888,7 @@ impl From<BiologicallyDerivedProductCategory> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductStatus](http://hl7.org/fhir/ValueSet/product-status)**. Biologically Derived Product Status.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductStatus {
     /** **available**
@@ -9982,7 +9982,7 @@ impl From<BiologicallyDerivedProductStatus> for CodeableConcept {
     }
 }
 #[doc = "**[BiologicallyDerivedProductStorageScale](http://hl7.org/fhir/ValueSet/product-storage-scale)**. BiologicallyDerived Product Storage Scale.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum BiologicallyDerivedProductStorageScale {
     /** **celsius**
@@ -10084,7 +10084,7 @@ impl From<BiologicallyDerivedProductStorageScale> for CodeableConcept {
     }
 }
 #[doc = "**[BundleType](http://hl7.org/fhir/ValueSet/bundle-type)**. Indicates the purpose of a bundle - how it is intended to be used.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum BundleType {
     /** **batch**
@@ -10220,7 +10220,7 @@ impl From<BundleType> for CodeableConcept {
     }
 }
 #[doc = "**[CapabilityStatementKind](http://hl7.org/fhir/ValueSet/capability-statement-kind)**. How a capability statement is intended to be used.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CapabilityStatementKind {
     /** **capability**
@@ -10322,7 +10322,7 @@ impl From<CapabilityStatementKind> for CodeableConcept {
     }
 }
 #[doc = "**[CarePlanActivityStatus](http://hl7.org/fhir/ValueSet/care-plan-activity-status)**. Codes that reflect the current state of a care plan activity within its overall life cycle.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CarePlanActivityStatus {
     /** **cancelled**
@@ -10460,7 +10460,7 @@ impl From<CarePlanActivityStatus> for CodeableConcept {
     }
 }
 #[doc = "**[CareTeamStatus](http://hl7.org/fhir/ValueSet/care-team-status)**. Indicates the status of the care team.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CareTeamStatus {
     /** **active**
@@ -10572,7 +10572,7 @@ impl From<CareTeamStatus> for CodeableConcept {
     }
 }
 #[doc = "**[CatalogEntryRelationType](http://hl7.org/fhir/ValueSet/relation-type)**. The type of relations between entries.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CatalogEntryRelationType {
     /** **is-replaced-by**
@@ -10666,7 +10666,7 @@ impl From<CatalogEntryRelationType> for CodeableConcept {
     }
 }
 #[doc = "**[CatalogType](http://hl7.org/fhir/catalogType)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum CatalogType {
     /** **device**
 
@@ -10768,7 +10768,7 @@ impl From<CatalogType> for CodeableConcept {
     }
 }
 #[doc = "**[CharacteristicCombination](http://hl7.org/fhir/ValueSet/characteristic-combination)**. Logical grouping of characteristics.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CharacteristicCombination {
     /** **intersection**
@@ -10864,7 +10864,7 @@ impl From<CharacteristicCombination> for CodeableConcept {
     }
 }
 #[doc = "**[CharacteristicMethod](http://hl7.org/fhir/ValueSet/characteristic-method)**. The method used to determine the characteristic(s) of the variable.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CharacteristicMethod {
     /** **Default**
@@ -10954,7 +10954,7 @@ impl From<CharacteristicMethod> for CodeableConcept {
     }
 }
 #[doc = "**[ChargeItemCode](http://hl7.org/fhir/ValueSet/chargeitem-billingcodes)**. Example set of codes that can be used for billing purposes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ChargeItemCode {
     /** **1100**
@@ -11059,7 +11059,7 @@ impl From<ChargeItemCode> for CodeableConcept {
     }
 }
 #[doc = "**[ChargeItemStatus](http://hl7.org/fhir/ValueSet/chargeitem-status)**. Codes identifying the lifecycle stage of a ChargeItem.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ChargeItemStatus {
     /** **aborted**
@@ -11183,7 +11183,7 @@ impl From<ChargeItemStatus> for CodeableConcept {
     }
 }
 #[doc = "**[CitationArtifactClassifier](http://hl7.org/fhir/ValueSet/citation-artifact-classifier)**. Citation artifact classifier\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitationArtifactClassifier {
     /** **68059040**
@@ -11411,7 +11411,7 @@ impl From<CitationArtifactClassifier> for CodeableConcept {
     }
 }
 #[doc = "**[CitationClassificationType](http://hl7.org/fhir/ValueSet/citation-classification-type)**. Citation classification type\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitationClassificationType {
     /** **citation-source**
@@ -11513,7 +11513,7 @@ impl From<CitationClassificationType> for CodeableConcept {
     }
 }
 #[doc = "**[CitationStatusType](http://hl7.org/fhir/ValueSet/citation-status-type)**. Citation status type\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitationStatusType {
     /** **medline-completed**
@@ -11765,7 +11765,7 @@ impl From<CitationStatusType> for CodeableConcept {
     }
 }
 #[doc = "**[CitationSummaryStyle](http://hl7.org/fhir/ValueSet/citation-summary-style)**. The format for display of the citation.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitationSummaryStyle {
     /** **acs**
@@ -11933,7 +11933,7 @@ impl From<CitationSummaryStyle> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactAbstractType](http://hl7.org/fhir/ValueSet/cited-artifact-abstract-type)**. Used to express the reason and specific aspect for the variant abstract, such as language and specific language\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitedArtifactAbstractType {
     /** **autotranslated**
@@ -12083,7 +12083,7 @@ impl From<CitedArtifactAbstractType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactClassificationType](http://hl7.org/fhir/ValueSet/cited-artifact-classification-type)**. Cited Artifact Classification Type\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitedArtifactClassificationType {
     /** **chemical**
@@ -12234,7 +12234,7 @@ impl From<CitedArtifactClassificationType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactPartType](http://hl7.org/fhir/ValueSet/cited-artifact-part-type)**. To describe the reason for the variant citation, such as version number or subpart specification.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitedArtifactPartType {
     /** **article-set**
@@ -12372,7 +12372,7 @@ impl From<CitedArtifactPartType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedArtifactStatusType](http://hl7.org/fhir/ValueSet/cited-artifact-status-type)**. Cited Artifact Status Type\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitedArtifactStatusType {
     /** **accepted**
@@ -12546,7 +12546,7 @@ impl From<CitedArtifactStatusType> for CodeableConcept {
     }
 }
 #[doc = "**[CitedMedium](http://hl7.org/fhir/ValueSet/cited-medium)**. NLM codes Internet or Print.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CitedMedium {
     /** **internet**
@@ -12668,7 +12668,7 @@ impl From<CitedMedium> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimCareTeamRoleCodes](http://terminology.hl7.org/CodeSystem/claimcareteamrole)**. This value set includes sample Claim Care Team Role codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ClaimCareTeamRoleCodes {
     /** **assist**
 
@@ -12778,7 +12778,7 @@ impl From<ClaimCareTeamRoleCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimInformationCategoryCodes](http://terminology.hl7.org/CodeSystem/claiminformationcategory)**. This value set includes sample Information Category codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ClaimInformationCategoryCodes {
     /** **attachment**
 
@@ -12949,7 +12949,7 @@ impl From<ClaimInformationCategoryCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClaimTypeCodes](http://terminology.hl7.org/CodeSystem/claim-type)**. This value set includes Claim Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ClaimTypeCodes {
     /** **institutional**
 
@@ -13063,7 +13063,7 @@ impl From<ClaimTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ClinicalUseDefinitionCategory](http://hl7.org/fhir/ValueSet/clinical-use-definition-category)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ClinicalUseDefinitionCategory {
     /** **DriveAndMachines**
@@ -13166,7 +13166,7 @@ impl From<ClinicalUseDefinitionCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ClinicalUseDefinitionType](http://hl7.org/fhir/ValueSet/clinical-use-definition-type)**. Overall defining type of this clinical use definition.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ClinicalUseDefinitionType {
     /** **contraindication**
@@ -13280,7 +13280,7 @@ impl From<ClinicalUseDefinitionType> for CodeableConcept {
     }
 }
 #[doc = "**[CodeSearchSupport](http://hl7.org/fhir/ValueSet/code-search-support)**. The degree to which the server supports the code search parameter on ValueSet, if it is supported.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CodeSearchSupport {
     /** **all**
@@ -13374,7 +13374,7 @@ impl From<CodeSearchSupport> for CodeableConcept {
     }
 }
 #[doc = "**[CodeSystemContentMode](http://hl7.org/fhir/ValueSet/codesystem-content-mode)**. The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CodeSystemContentMode {
     /** **complete**
@@ -13488,7 +13488,7 @@ impl From<CodeSystemContentMode> for CodeableConcept {
     }
 }
 #[doc = "**[CodeSystemHierarchyMeaning](http://hl7.org/fhir/ValueSet/codesystem-hierarchy-meaning)**. The meaning of the hierarchy of concepts in a code system.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CodeSystemHierarchyMeaning {
     /** **classified-with**
@@ -13596,7 +13596,7 @@ impl From<CodeSystemHierarchyMeaning> for CodeableConcept {
     }
 }
 #[doc = "**[CombinedDoseForm](http://hl7.org/fhir/ValueSet/combined-dose-form)**. Dose forms for a product as a whole, considering all individual parts, but before any mixing\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CombinedDoseForm {
     /** **100000073366**
@@ -14140,7 +14140,7 @@ impl From<CombinedDoseForm> for CodeableConcept {
     }
 }
 #[doc = "**[CommonTags](http://hl7.org/fhir/ValueSet/common-tags)**. Common Tag Codes defined by FHIR project\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CommonTags {
     /** **actionable**
@@ -14228,7 +14228,7 @@ impl From<CommonTags> for CodeableConcept {
     }
 }
 #[doc = "**[CommunicationCategory](http://hl7.org/fhir/ValueSet/communication-category)**. Codes for general categories of communications such as alerts, instructions, etc.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CommunicationCategory {
     /** **alert**
@@ -14336,7 +14336,7 @@ impl From<CommunicationCategory> for CodeableConcept {
     }
 }
 #[doc = "**[CommunicationNotDoneReason](http://hl7.org/fhir/ValueSet/communication-not-done-reason)**. Codes for the reason why a communication did not happen.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CommunicationNotDoneReason {
     /** **family-objection**
@@ -14456,7 +14456,7 @@ impl From<CommunicationNotDoneReason> for CodeableConcept {
     }
 }
 #[doc = "**[CommunicationTopic](http://hl7.org/fhir/ValueSet/communication-topic)**. Codes describing the purpose or content of the communication.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CommunicationTopic {
     /** **appointment-reminder**
@@ -14574,7 +14574,7 @@ impl From<CommunicationTopic> for CodeableConcept {
     }
 }
 #[doc = "**[CompartmentType](http://hl7.org/fhir/ValueSet/compartment-type)**. Which type a compartment definition describes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CompartmentType {
     /** **Device**
@@ -14686,7 +14686,7 @@ impl From<CompartmentType> for CodeableConcept {
     }
 }
 #[doc = "**[CompositeMeasureScoring](http://hl7.org/fhir/ValueSet/composite-measure-scoring)**. The composite scoring method of the measure.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CompositeMeasureScoring {
     /** **all-or-nothing**
@@ -14794,7 +14794,7 @@ impl From<CompositeMeasureScoring> for CodeableConcept {
     }
 }
 #[doc = "**[CompositionAttestationMode](http://hl7.org/fhir/ValueSet/composition-attestation-mode)**. The way in which a person authenticated a composition.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CompositionAttestationMode {
     /** **legal**
@@ -14902,7 +14902,7 @@ impl From<CompositionAttestationMode> for CodeableConcept {
     }
 }
 #[doc = "**[CompositionStatus](http://hl7.org/fhir/ValueSet/composition-status)**. The workflow/clinical status of the composition.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CompositionStatus {
     /** **amended**
@@ -15008,7 +15008,7 @@ impl From<CompositionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapEquivalence](http://hl7.org/fhir/ValueSet/concept-map-equivalence)**. The degree of equivalence between concepts.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConceptMapEquivalence {
     /** **disjoint**
@@ -15152,7 +15152,7 @@ impl From<ConceptMapEquivalence> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptMapGroupUnmappedMode](http://hl7.org/fhir/ValueSet/conceptmap-unmapped-mode)**. Defines which action to take if there is no match in the group.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConceptMapGroupUnmappedMode {
     /** **fixed**
@@ -15254,7 +15254,7 @@ impl From<ConceptMapGroupUnmappedMode> for CodeableConcept {
     }
 }
 #[doc = "**[ConceptSubsumptionOutcome](http://hl7.org/fhir/concept-subsumption-outcome)**. Codes indicating the results of a subsumption check between codes\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ConceptSubsumptionOutcome {
     /** **equivalent**
 
@@ -15362,7 +15362,7 @@ impl From<ConceptSubsumptionOutcome> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionCategoryCodes](http://hl7.org/fhir/ValueSet/condition-category)**. Example value set for Condition Categories.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConditionCategoryCodes {
     /** **encounter-diagnosis**
@@ -15456,7 +15456,7 @@ impl From<ConditionCategoryCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionClinicalStatusCodes](http://hl7.org/fhir/ValueSet/condition-clinical)**. Preferred value set for Condition Clinical Status.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConditionClinicalStatusCodes {
     /** **active**
@@ -15574,7 +15574,7 @@ impl From<ConditionClinicalStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionVerificationStatus](http://hl7.org/fhir/ValueSet/condition-ver-status)**. The verification status to support or decline the clinical status of the condition or diagnosis.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConditionVerificationStatus {
     /** **confirmed**
@@ -15692,7 +15692,7 @@ impl From<ConditionVerificationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionalDeleteStatus](http://hl7.org/fhir/ValueSet/conditional-delete-status)**. A code that indicates how the server supports conditional delete.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConditionalDeleteStatus {
     /** **multiple**
@@ -15794,7 +15794,7 @@ impl From<ConditionalDeleteStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConditionalReadStatus](http://hl7.org/fhir/ValueSet/conditional-read-status)**. A code that indicates how the server supports conditional read.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConditionalReadStatus {
     /** **full-support**
@@ -15902,7 +15902,7 @@ impl From<ConditionalReadStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentActionCodes](http://terminology.hl7.org/CodeSystem/consentaction)**. This value set includes example Consent Action codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ConsentActionCodes {
     /** **access**
 
@@ -16018,7 +16018,7 @@ impl From<ConsentActionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentCategoryCodes](http://terminology.hl7.org/CodeSystem/consentcategorycodes)**. FHIR Specific Example codes for Consent Category\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ConsentCategoryCodes {
     /** **acd**
 
@@ -16158,7 +16158,7 @@ impl From<ConsentCategoryCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentDataMeaning](http://hl7.org/fhir/ValueSet/consent-data-meaning)**. How a resource reference is interpreted when testing consent restrictions.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConsentDataMeaning {
     /** **authoredby**
@@ -16264,7 +16264,7 @@ impl From<ConsentDataMeaning> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentProvisionType](http://hl7.org/fhir/ValueSet/consent-provision-type)**. How a rule statement is applied, such as adding additional consent or removing consent.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConsentProvisionType {
     /** **deny**
@@ -16360,7 +16360,7 @@ impl From<ConsentProvisionType> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentScopeCodes](http://terminology.hl7.org/CodeSystem/consentscope)**. This value set includes the current scopes for the Consent resources.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ConsentScopeCodes {
     /** **adr**
 
@@ -16470,7 +16470,7 @@ impl From<ConsentScopeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ConsentState](http://hl7.org/fhir/ValueSet/consent-state-codes)**. Indicates the state of the consent.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConsentState {
     /** **active**
@@ -16588,7 +16588,7 @@ impl From<ConsentState> for CodeableConcept {
     }
 }
 #[doc = "**[ConstraintSeverity](http://hl7.org/fhir/ValueSet/constraint-severity)**. SHALL applications comply with this constraint?\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ConstraintSeverity {
     /** **error**
@@ -16682,7 +16682,7 @@ impl From<ConstraintSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[ContactEntityType](http://terminology.hl7.org/CodeSystem/contactentity-type)**. This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContactEntityType {
     /** **ADMIN**
 
@@ -16804,7 +16804,7 @@ impl From<ContactEntityType> for CodeableConcept {
     }
 }
 #[doc = "**[ContactPointSystem](http://hl7.org/fhir/ValueSet/contact-point-system)**. Telecommunications form for contact point.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContactPointSystem {
     /** **email**
@@ -16928,7 +16928,7 @@ impl From<ContactPointSystem> for CodeableConcept {
     }
 }
 #[doc = "**[ContactPointUse](http://hl7.org/fhir/ValueSet/contact-point-use)**. Use of contact point.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContactPointUse {
     /** **home**
@@ -17040,7 +17040,7 @@ impl From<ContactPointUse> for CodeableConcept {
     }
 }
 #[doc = "**[ContainerCap](http://hl7.org/fhir/ValueSet/container-cap)**. Color of the container cap.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContainerCap {
     /** **black**
@@ -17194,7 +17194,7 @@ impl From<ContainerCap> for CodeableConcept {
     }
 }
 #[doc = "**[ContractActionCodes](http://hl7.org/fhir/contract-action)**. This value set includes sample Contract Action codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractActionCodes {
     /** **action-a**
 
@@ -17290,7 +17290,7 @@ impl From<ContractActionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContractActionStatus](http://hl7.org/fhir/contract-actionstatus)**. This CodeSystem contains FHIR-defined contract action status types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractActionStatus {
     /** **complete**
 
@@ -17380,7 +17380,7 @@ impl From<ContractActionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ContractActorRoleCodes](http://hl7.org/fhir/contract-actorrole)**. This value set includes sample Contract Actor Role codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractActorRoleCodes {
     /** **patient**
 
@@ -17476,7 +17476,7 @@ impl From<ContractActorRoleCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetAvailability](http://hl7.org/fhir/asset-availability)**. This CodeSystem contains FHIR-defined contract asset availability types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractAssetAvailability {
     /** **lease**
 
@@ -17566,7 +17566,7 @@ impl From<ContractAssetAvailability> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetContext](http://hl7.org/fhir/contract-assetcontext)**. This CodeSystem contains FHIR-defined contract asset context types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractAssetContext {
     /** **custodian**
 
@@ -17656,7 +17656,7 @@ impl From<ContractAssetContext> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetScope](http://hl7.org/fhir/contract-assetscope)**. This CodeSystem contains FHIR-defined contract asset scope types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractAssetScope {
     /** **thing**
 
@@ -17746,7 +17746,7 @@ impl From<ContractAssetScope> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetSubtype](http://hl7.org/fhir/contract-assetsubtype)**. This CodeSystem contains FHIR-defined contract asset type sub-types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractAssetSubtype {
     /** **participation**
 
@@ -17836,7 +17836,7 @@ impl From<ContractAssetSubtype> for CodeableConcept {
     }
 }
 #[doc = "**[ContractAssetType](http://hl7.org/fhir/contract-assettype)**. This CodeSystem contains FHIR-defined contract asset type types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractAssetType {
     /** **participation**
 
@@ -17926,7 +17926,7 @@ impl From<ContractAssetType> for CodeableConcept {
     }
 }
 #[doc = "**[ContractContentDerivative](http://hl7.org/fhir/contract-content-derivative)**. This is an example set of Content Derivative type codes, which represent the minimal content derived from the basal information source at a specific stage in its lifecycle, which is sufficient to manage that source information, for example, in a repository, registry, processes and workflows, for making access control decisions, and providing query responses.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractContentDerivative {
     /** **registration**
 
@@ -18034,7 +18034,7 @@ impl From<ContractContentDerivative> for CodeableConcept {
     }
 }
 #[doc = "**[ContractDecisionMode](http://hl7.org/fhir/contract-decision-mode)**. This CodeSystem contains FHIR-defined contract decision mode types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractDecisionMode {
     /** **policy**
 
@@ -18124,7 +18124,7 @@ impl From<ContractDecisionMode> for CodeableConcept {
     }
 }
 #[doc = "**[ContractDefinitionSubtype](http://hl7.org/fhir/contract-definition-subtype)**. This CodeSystem contains FHIR-defined contract definition subtypes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractDefinitionSubtype {
     /** **temp**
 
@@ -18214,7 +18214,7 @@ impl From<ContractDefinitionSubtype> for CodeableConcept {
     }
 }
 #[doc = "**[ContractDefinitionType](http://hl7.org/fhir/contract-definition-type)**. This CodeSystem contains FHIR-defined contract definition types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractDefinitionType {
     /** **temp**
 
@@ -18304,7 +18304,7 @@ impl From<ContractDefinitionType> for CodeableConcept {
     }
 }
 #[doc = "**[ContractExpirationType](http://hl7.org/fhir/contract-expiration-type)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractExpirationType {
     /** **breach**
 
@@ -18394,7 +18394,7 @@ impl From<ContractExpirationType> for CodeableConcept {
     }
 }
 #[doc = "**[ContractLegalState](http://hl7.org/fhir/contract-legalstate)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR at http://build.fhir.org/sc.html.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractLegalState {
     /** **amended**
 
@@ -18568,7 +18568,7 @@ impl From<ContractLegalState> for CodeableConcept {
     }
 }
 #[doc = "**[ContractPartyRole](http://hl7.org/fhir/contract-party-role)**. This CodeSystem contains FHIR-defined contract party role types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractPartyRole {
     /** **flunky**
 
@@ -18658,7 +18658,7 @@ impl From<ContractPartyRole> for CodeableConcept {
     }
 }
 #[doc = "**[ContractPublicationStatus](http://hl7.org/fhir/contract-publicationstatus)**. This CodeSystem contains FHIR-defined contract publication status types. Each definition includes usage notes explaining the precedence order in contract publication lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractPublicationStatus {
     /** **amended**
 
@@ -18832,7 +18832,7 @@ impl From<ContractPublicationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ContractScope](http://hl7.org/fhir/contract-scope)**. This CodeSystem contains FHIR-defined contract Expiration types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractScope {
     /** **policy**
 
@@ -18922,7 +18922,7 @@ impl From<ContractScope> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSecurityCategory](http://hl7.org/fhir/contract-security-category)**. This CodeSystem contains FHIR-defined contract security category types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractSecurityCategory {
     /** **policy**
 
@@ -19012,7 +19012,7 @@ impl From<ContractSecurityCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSecurityClassification](http://hl7.org/fhir/contract-security-classification)**. This CodeSystem contains FHIR-defined contract security classification types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractSecurityClassification {
     /** **policy**
 
@@ -19104,7 +19104,7 @@ impl From<ContractSecurityClassification> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSecurityControl](http://hl7.org/fhir/contract-security-control)**. This CodeSystem contains FHIR-defined contract security control types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractSecurityControl {
     /** **policy**
 
@@ -19194,7 +19194,7 @@ impl From<ContractSecurityControl> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSignerTypeCodes](http://hl7.org/fhir/contract-signer-type)**. This value set includes sample Contract Signer Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractSignerTypeCodes {
     /** **AFFL**
 
@@ -19566,7 +19566,7 @@ impl From<ContractSignerTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContractStatus](http://hl7.org/fhir/contract-status)**. This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR at http://build.fhir.org/sc.html.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractStatus {
     /** **amended**
 
@@ -19740,7 +19740,7 @@ impl From<ContractStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ContractSubtypeCodes](http://hl7.org/fhir/contract-subtype)**. This value set includes sample Contract Subtype codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractSubtypeCodes {
     /** **disclosure-ca**
 
@@ -19836,7 +19836,7 @@ impl From<ContractSubtypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContractTermSubtypeCodes](http://hl7.org/fhir/contract-term-subtype)**. This value set includes sample Contract Term SubType codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractTermSubtypeCodes {
     /** **condition**
 
@@ -19938,7 +19938,7 @@ impl From<ContractTermSubtypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContractTermTypeCodes](http://hl7.org/fhir/contract-term-type)**. This value set includes sample Contract Term Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractTermTypeCodes {
     /** **statutory**
 
@@ -20034,7 +20034,7 @@ impl From<ContractTermTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContractTypeCodes](http://hl7.org/fhir/contract-type)**. This value set includes sample Contract Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ContractTypeCodes {
     /** **consent**
 
@@ -20148,7 +20148,7 @@ impl From<ContractTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorRole](http://hl7.org/fhir/ValueSet/contributor-role)**. Used to code the format of the display string.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContributorRole {
     /** **author**
@@ -20272,7 +20272,7 @@ impl From<ContributorRole> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorSummarySource](http://hl7.org/fhir/ValueSet/contributor-summary-source)**. Used to code the producer or rule for creating the display string.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContributorSummarySource {
     /** **article-copy**
@@ -20380,7 +20380,7 @@ impl From<ContributorSummarySource> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorSummaryStyle](http://hl7.org/fhir/ValueSet/contributor-summary-style)**. Used to code the format of the display string.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContributorSummaryStyle {
     /** **a1full**
@@ -20560,7 +20560,7 @@ impl From<ContributorSummaryStyle> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorSummaryType](http://hl7.org/fhir/ValueSet/contributor-summary-type)**. Used to code author list statement, contributorship statement, and such.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContributorSummaryType {
     /** **acknowledgement-list**
@@ -20686,7 +20686,7 @@ impl From<ContributorSummaryType> for CodeableConcept {
     }
 }
 #[doc = "**[ContributorType](http://hl7.org/fhir/ValueSet/contributor-type)**. The type of contributor.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ContributorType {
     /** **author**
@@ -20792,7 +20792,7 @@ impl From<ContributorType> for CodeableConcept {
     }
 }
 #[doc = "**[CoverageClassCodes](http://terminology.hl7.org/CodeSystem/coverage-class)**. This value set includes Coverage Class codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum CoverageClassCodes {
     /** **class**
 
@@ -20944,7 +20944,7 @@ impl From<CoverageClassCodes> for CodeableConcept {
     }
 }
 #[doc = "**[CoverageCoPayTypeCodes](http://terminology.hl7.org/CodeSystem/coverage-copay-type)**. This codeset includes Coverage Copayment Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum CoverageCoPayTypeCodes {
     /** **copay**
 
@@ -21090,7 +21090,7 @@ impl From<CoverageCoPayTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[CoverageEligibilityResponseAuthSupportCodes](http://terminology.hl7.org/CodeSystem/coverageeligibilityresponse-ex-auth-support)**. This value set includes CoverageEligibilityResponse Auth Support codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum CoverageEligibilityResponseAuthSupportCodes {
     /** **accidentreport**
 
@@ -21225,7 +21225,7 @@ impl From<CoverageEligibilityResponseAuthSupportCodes> for CodeableConcept {
     }
 }
 #[doc = "**[CriteriaNotExistsBehavior](http://hl7.org/fhir/ValueSet/subscriptiontopic-cr-behavior)**. Behavior a server can exhibit when a criteria state does not exist (e.g., state prior to a create or after a delete).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum CriteriaNotExistsBehavior {
     /** **test-fails**
@@ -21321,7 +21321,7 @@ impl From<CriteriaNotExistsBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[DataAbsentReason](http://hl7.org/fhir/ValueSet/data-absent-reason)**. Used to specify why the normally expected content of the data element is missing.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DataAbsentReason {
     /** **as-text**
@@ -21493,7 +21493,7 @@ impl From<DataAbsentReason> for CodeableConcept {
     }
 }
 #[doc = "**[DataType](http://hl7.org/fhir/data-types)**. A version specific list of the data types defined by the FHIR specification for use as an element  type (any of the FHIR defined data types).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum DataType {
     /** **Address**
 
@@ -21961,7 +21961,7 @@ impl From<DataType> for CodeableConcept {
     }
 }
 #[doc = "**[DaysOfWeek](http://hl7.org/fhir/ValueSet/days-of-week)**. The days of the week.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DaysOfWeek {
     /** **fri**
@@ -22085,7 +22085,7 @@ impl From<DaysOfWeek> for CodeableConcept {
     }
 }
 #[doc = "**[DefinitionResourceType](http://hl7.org/fhir/ValueSet/definition-resource-types)**. A list of all the definition resource types defined in this version of the FHIR specification.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DefinitionResourceType {
     /** **ActivityDefinition**
@@ -22205,7 +22205,7 @@ impl From<DefinitionResourceType> for CodeableConcept {
     }
 }
 #[doc = "**[DefinitionStatus](http://hl7.org/fhir/ValueSet/definition-status)**. Codes identifying the lifecycle stage of a definition.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DefinitionStatus {
     /** **active**
@@ -22311,7 +22311,7 @@ impl From<DefinitionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DefinitionTopic](http://hl7.org/fhir/ValueSet/definition-topic)**. High-level categorization of the definition, used for searching, sorting, and filtering.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DefinitionTopic {
     /** **assessment**
@@ -22411,7 +22411,7 @@ impl From<DefinitionTopic> for CodeableConcept {
     }
 }
 #[doc = "**[DefinitionUseCodes](http://hl7.org/fhir/ValueSet/definition-use)**. Structure Definition Use Codes / Keywords\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DefinitionUseCodes {
     /** **archetype**
@@ -22529,7 +22529,7 @@ impl From<DefinitionUseCodes> for CodeableConcept {
     }
 }
 #[doc = "**[DetectedIssueSeverity](http://hl7.org/fhir/ValueSet/detectedissue-severity)**. Indicates the potential degree of impact of the identified issue on the patient.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DetectedIssueSeverity {
     /** **high**
@@ -22631,7 +22631,7 @@ impl From<DetectedIssueSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricCalibrationState](http://hl7.org/fhir/ValueSet/metric-calibration-state)**. Describes the state of a metric calibration.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceMetricCalibrationState {
     /** **calibrated**
@@ -22739,7 +22739,7 @@ impl From<DeviceMetricCalibrationState> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricCalibrationType](http://hl7.org/fhir/ValueSet/metric-calibration-type)**. Describes the type of a metric calibration.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceMetricCalibrationType {
     /** **gain**
@@ -22847,7 +22847,7 @@ impl From<DeviceMetricCalibrationType> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricCategory](http://hl7.org/fhir/ValueSet/metric-category)**. Describes the category of the metric.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceMetricCategory {
     /** **calculation**
@@ -22953,7 +22953,7 @@ impl From<DeviceMetricCategory> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricColor](http://hl7.org/fhir/ValueSet/metric-color)**. Describes the typical color of representation.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceMetricColor {
     /** **black**
@@ -23083,7 +23083,7 @@ impl From<DeviceMetricColor> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceMetricOperationalStatus](http://hl7.org/fhir/ValueSet/metric-operational-status)**. Describes the operational status of the DeviceMetric.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceMetricOperationalStatus {
     /** **entered-in-error**
@@ -23191,7 +23191,7 @@ impl From<DeviceMetricOperationalStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceNameType](http://hl7.org/fhir/ValueSet/device-nametype)**. The type of name the device is referred by.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceNameType {
     /** **manufacturer-name**
@@ -23309,7 +23309,7 @@ impl From<DeviceNameType> for CodeableConcept {
     }
 }
 #[doc = "**[DeviceUseStatementStatus](http://hl7.org/fhir/ValueSet/device-statement-status)**. A coded concept indicating the current status of the Device Usage.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DeviceUseStatementStatus {
     /** **active**
@@ -23429,7 +23429,7 @@ impl From<DeviceUseStatementStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DiagnosisRole](http://hl7.org/fhir/ValueSet/diagnosis-role)**. This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DiagnosisRole {
     /** **AD**
@@ -23553,7 +23553,7 @@ impl From<DiagnosisRole> for CodeableConcept {
     }
 }
 #[doc = "**[DiagnosticReportStatus](http://hl7.org/fhir/ValueSet/diagnostic-report-status)**. The status of the diagnostic report.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DiagnosticReportStatus {
     /** **amended**
@@ -23697,7 +23697,7 @@ impl From<DiagnosticReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[Diet](http://terminology.hl7.org/CodeSystem/diet)**. This codesystem defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum Diet {
     /** **dairy-free**
 
@@ -23823,7 +23823,7 @@ impl From<Diet> for CodeableConcept {
     }
 }
 #[doc = "**[DigitalMediaType](http://hl7.org/fhir/ValueSet/media-category)**. Codes for high level media types - whether the media is an image, video, or audio.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DigitalMediaType {
     /** **audio**
@@ -23923,7 +23923,7 @@ impl From<DigitalMediaType> for CodeableConcept {
     }
 }
 #[doc = "**[DischargeDisposition](http://terminology.hl7.org/CodeSystem/discharge-disposition)**. This codesystem defines a set of codes that can be used to where the patient left the hospital.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum DischargeDisposition {
     /** **aadvice**
 
@@ -24075,7 +24075,7 @@ impl From<DischargeDisposition> for CodeableConcept {
     }
 }
 #[doc = "**[DiscriminatorType](http://hl7.org/fhir/ValueSet/discriminator-type)**. How an element value is interpreted when discrimination is evaluated.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DiscriminatorType {
     /** **exists**
@@ -24187,7 +24187,7 @@ impl From<DiscriminatorType> for CodeableConcept {
     }
 }
 #[doc = "**[DocumentMode](http://hl7.org/fhir/ValueSet/document-mode)**. Whether the application produces or consumes documents.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DocumentMode {
     /** **consumer**
@@ -24281,7 +24281,7 @@ impl From<DocumentMode> for CodeableConcept {
     }
 }
 #[doc = "**[DocumentReferenceStatus](http://hl7.org/fhir/ValueSet/document-reference-status)**. The status of the document reference.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DocumentReferenceStatus {
     /** **current**
@@ -24383,7 +24383,7 @@ impl From<DocumentReferenceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[DocumentRelationshipType](http://hl7.org/fhir/ValueSet/document-relationship-type)**. The type of relationship between documents.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DocumentRelationshipType {
     /** **appends**
@@ -24491,7 +24491,7 @@ impl From<DocumentRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[DoseAndRateType](http://hl7.org/fhir/ValueSet/dose-rate-type)**. The kind of dose or rate specified.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum DoseAndRateType {
     /** **calculated**
@@ -24585,7 +24585,7 @@ impl From<DoseAndRateType> for CodeableConcept {
     }
 }
 #[doc = "**[EligibilityRequestPurpose](http://hl7.org/fhir/ValueSet/eligibilityrequest-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EligibilityRequestPurpose {
     /** **auth-requirements**
@@ -24693,7 +24693,7 @@ impl From<EligibilityRequestPurpose> for CodeableConcept {
     }
 }
 #[doc = "**[EligibilityResponsePurpose](http://hl7.org/fhir/ValueSet/eligibilityresponse-purpose)**. A code specifying the types of information being requested.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EligibilityResponsePurpose {
     /** **auth-requirements**
@@ -24801,7 +24801,7 @@ impl From<EligibilityResponsePurpose> for CodeableConcept {
     }
 }
 #[doc = "**[EnableWhenBehavior](http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior)**. Controls how multiple enableWhen values are interpreted -  whether all or any must be true.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EnableWhenBehavior {
     /** **all**
@@ -24897,7 +24897,7 @@ impl From<EnableWhenBehavior> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterLocationStatus](http://hl7.org/fhir/ValueSet/encounter-location-status)**. The status of the location.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EncounterLocationStatus {
     /** **active**
@@ -25009,7 +25009,7 @@ impl From<EncounterLocationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterStatus](http://hl7.org/fhir/ValueSet/encounter-status)**. Current state of the encounter.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EncounterStatus {
     /** **arrived**
@@ -25145,7 +25145,7 @@ impl From<EncounterStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EncounterType](http://terminology.hl7.org/CodeSystem/encounter-type)**. This example codesystem defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum EncounterType {
     /** **ADMS**
 
@@ -25255,7 +25255,7 @@ impl From<EncounterType> for CodeableConcept {
     }
 }
 #[doc = "**[EndpointConnectionType](http://terminology.hl7.org/CodeSystem/endpoint-connection-type)**. This is an example codesystem defined by the FHIR project, that could be used to represent possible connection type profile values.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum EndpointConnectionType {
     /** **dicom-qido-rs**
 
@@ -25426,7 +25426,7 @@ impl From<EndpointConnectionType> for CodeableConcept {
     }
 }
 #[doc = "**[EndpointPayloadType](http://terminology.hl7.org/CodeSystem/endpoint-payload-type)**. This is an example codesystem defined by the FHIR project, it represents global concepts for no content, or any unrestricted content.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum EndpointPayloadType {
     /** **any**
 
@@ -25524,7 +25524,7 @@ impl From<EndpointPayloadType> for CodeableConcept {
     }
 }
 #[doc = "**[EndpointStatus](http://hl7.org/fhir/ValueSet/endpoint-status)**. The status of the endpoint.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EndpointStatus {
     /** **active**
@@ -25642,7 +25642,7 @@ impl From<EndpointStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EnteralFormulaAdditiveTypeCode](http://terminology.hl7.org/CodeSystem/entformula-additive)**. EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum EnteralFormulaAdditiveTypeCode {
     /** **carbohydrate**
 
@@ -25758,7 +25758,7 @@ impl From<EnteralFormulaAdditiveTypeCode> for CodeableConcept {
     }
 }
 #[doc = "**[EpisodeOfCareStatus](http://hl7.org/fhir/ValueSet/episode-of-care-status)**. The status of the episode of care.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EpisodeOfCareStatus {
     /** **active**
@@ -25884,7 +25884,7 @@ impl From<EpisodeOfCareStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EpisodeOfCareType](http://terminology.hl7.org/CodeSystem/episodeofcare-type)**. This incomplete example codesystem defines a set of codes that can be used to express the usage type of an EpisodeOfCare record.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum EpisodeOfCareType {
     /** **cacp**
 
@@ -26000,7 +26000,7 @@ impl From<EpisodeOfCareType> for CodeableConcept {
     }
 }
 #[doc = "**[EventCapabilityMode](http://hl7.org/fhir/ValueSet/event-capability-mode)**. The mode of a message capability statement.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EventCapabilityMode {
     /** **receiver**
@@ -26096,7 +26096,7 @@ impl From<EventCapabilityMode> for CodeableConcept {
     }
 }
 #[doc = "**[EventResourceType](http://hl7.org/fhir/ValueSet/event-resource-types)**. A list of all the event resource types defined in this version of the FHIR specification.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EventResourceType {
     /** **ChargeItem**
@@ -26382,7 +26382,7 @@ impl From<EventResourceType> for CodeableConcept {
     }
 }
 #[doc = "**[EventStatus](http://hl7.org/fhir/ValueSet/event-status)**. Codes identifying the lifecycle stage of an event.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EventStatus {
     /** **completed**
@@ -26512,7 +26512,7 @@ impl From<EventStatus> for CodeableConcept {
     }
 }
 #[doc = "**[EventTiming](http://hl7.org/fhir/event-timing)**. Real world event relating to the schedule.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum EventTiming {
     /** **AFT**
 
@@ -26668,7 +26668,7 @@ impl From<EventTiming> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceCertaintyRating](http://hl7.org/fhir/ValueSet/certainty-rating)**. The assessment of quality, confidence, or certainty.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceCertaintyRating {
     /** **absent**
@@ -26846,7 +26846,7 @@ impl From<EvidenceCertaintyRating> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceCertaintyType](http://hl7.org/fhir/ValueSet/certainty-type)**. The aspect of quality, confidence, or certainty.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceCertaintyType {
     /** **DoseResponseGradient**
@@ -26982,7 +26982,7 @@ impl From<EvidenceCertaintyType> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceClassifier](http://hl7.org/fhir/ValueSet/evidence-classifier-code)**. Commonly used classifiers for evidence sets.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceClassifier {
     /** **AllocConcealNotStated**
@@ -27252,7 +27252,7 @@ impl From<EvidenceClassifier> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceDirectness](http://hl7.org/fhir/ValueSet/directness)**. The quality of how direct the match is.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceDirectness {
     /** **exact**
@@ -27358,7 +27358,7 @@ impl From<EvidenceDirectness> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceReportType](http://hl7.org/fhir/ValueSet/evidence-report-type)**. The kind of report, such as grouping of classifiers, search results, or human-compiled expression.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceReportType {
     /** **classification**
@@ -27464,7 +27464,7 @@ impl From<EvidenceReportType> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceVariableHandling](http://hl7.org/fhir/ValueSet/variable-handling)**. The handling of the variable in statistical analysis for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceVariableHandling {
     /** **continuous**
@@ -27570,7 +27570,7 @@ impl From<EvidenceVariableHandling> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceVariableRole](http://hl7.org/fhir/ValueSet/variable-role)**. The role that the assertion variable plays.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceVariableRole {
     /** **confounder**
@@ -27688,7 +27688,7 @@ impl From<EvidenceVariableRole> for CodeableConcept {
     }
 }
 #[doc = "**[EvidenceVariableType](http://hl7.org/fhir/ValueSet/variable-type)**. The possible types of variables for exposures or outcomes (E.g. Dichotomous, Continuous, Descriptive).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum EvidenceVariableType {
     /** **continuous**
@@ -27788,7 +27788,7 @@ impl From<EvidenceVariableType> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleClaimSubTypeCodes](http://terminology.hl7.org/CodeSystem/ex-claimsubtype)**. This value set includes sample Claim SubType codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleClaimSubTypeCodes {
     /** **emergency**
 
@@ -27886,7 +27886,7 @@ impl From<ExampleClaimSubTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleCoverageFinancialExceptionsCode](http://terminology.hl7.org/CodeSystem/ex-coverage-financial-exception)**. This codeset includes Example Coverage Financial Exceptions Code.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleCoverageFinancialExceptionsCode {
     /** **foster**
 
@@ -27985,7 +27985,7 @@ impl From<ExampleCoverageFinancialExceptionsCode> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleDiagnosisOnAdmissionCodes](http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission)**. This value set includes example Diagnosis on admission codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleDiagnosisOnAdmissionCodes {
     /** **n**
 
@@ -28096,7 +28096,7 @@ impl From<ExampleDiagnosisOnAdmissionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleDiagnosisRelatedGroupCodes](http://terminology.hl7.org/CodeSystem/ex-diagnosisrelatedgroup)**. This value set includes sample Diagnosis Related Group codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleDiagnosisRelatedGroupCodes {
     /** **100**
 
@@ -28207,7 +28207,7 @@ impl From<ExampleDiagnosisRelatedGroupCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleDiagnosisTypeCodes](http://terminology.hl7.org/CodeSystem/ex-diagnosistype)**. This value set includes example Diagnosis Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleDiagnosisTypeCodes {
     /** **admitting**
 
@@ -28365,7 +28365,7 @@ impl From<ExampleDiagnosisTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleMessageReasonCodes](http://terminology.hl7.org/CodeSystem/message-reasons-encounter)**. Example Message Reasons. These are the set of codes that might be used an updating an encounter using admin-update.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleMessageReasonCodes {
     /** **absent**
 
@@ -28488,7 +28488,7 @@ impl From<ExampleMessageReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleProcedureTypeCodes](http://terminology.hl7.org/CodeSystem/ex-procedure-type)**. This value set includes example Procedure Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleProcedureTypeCodes {
     /** **primary**
 
@@ -28586,7 +28586,7 @@ impl From<ExampleProcedureTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleProgramCodes](http://terminology.hl7.org/CodeSystem/ex-programcode)**. This value set includes sample Program reason codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleProgramCodes {
     /** **as**
 
@@ -28696,7 +28696,7 @@ impl From<ExampleProgramCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleProviderQualificationCodes](http://terminology.hl7.org/CodeSystem/ex-providerqualification)**. This value set includes sample Provider Qualification codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleProviderQualificationCodes {
     /** **311405**
 
@@ -28801,7 +28801,7 @@ impl From<ExampleProviderQualificationCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleRelatedClaimRelationshipCodes](http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship)**. This value set includes sample Related Claim Relationship codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleRelatedClaimRelationshipCodes {
     /** **associated**
 
@@ -28900,7 +28900,7 @@ impl From<ExampleRelatedClaimRelationshipCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleRevenueCenterCodes](http://terminology.hl7.org/CodeSystem/ex-revenue-center)**. This value set includes sample Revenue Center codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleRevenueCenterCodes {
     /** **0010**
 
@@ -29040,7 +29040,7 @@ impl From<ExampleRevenueCenterCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleScenarioActorType](http://hl7.org/fhir/ValueSet/examplescenario-actor-type)**. The type of actor - system or human.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ExampleScenarioActorType {
     /** **entity**
@@ -29136,7 +29136,7 @@ impl From<ExampleScenarioActorType> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleServicePlaceCodes](http://terminology.hl7.org/CodeSystem/ex-serviceplace)**. This value set includes a smattering of Service Place codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleServicePlaceCodes {
     /** **01**
 
@@ -29324,7 +29324,7 @@ impl From<ExampleServicePlaceCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleUseCodesForList](http://terminology.hl7.org/CodeSystem/list-example-use-codes)**. Example use codes for the List resource - typical kinds of use.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleUseCodesForList {
     /** **adverserxns**
 
@@ -29464,7 +29464,7 @@ impl From<ExampleUseCodesForList> for CodeableConcept {
     }
 }
 #[doc = "**[ExampleVisionPrescriptionProductCodes](http://terminology.hl7.org/CodeSystem/ex-visionprescriptionproduct)**. This value set includes a smattering of Prescription Product codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExampleVisionPrescriptionProductCodes {
     /** **contact**
 
@@ -29563,7 +29563,7 @@ impl From<ExampleVisionPrescriptionProductCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExceptionCodes](http://terminology.hl7.org/CodeSystem/claim-exception)**. This value set includes sample Exception codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExceptionCodes {
     /** **disabled**
 
@@ -29661,7 +29661,7 @@ impl From<ExceptionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ExplanationOfBenefitStatus](http://hl7.org/fhir/ValueSet/explanationofbenefit-status)**. A code specifying the state of the resource instance.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ExplanationOfBenefitStatus {
     /** **active**
@@ -29769,7 +29769,7 @@ impl From<ExplanationOfBenefitStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ExpressionLanguage](http://hl7.org/fhir/ValueSet/expression-language)**. The media type of the expression language.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ExpressionLanguage {
     /** **application/x-fhir-query**
@@ -29881,7 +29881,7 @@ impl From<ExpressionLanguage> for CodeableConcept {
     }
 }
 #[doc = "**[ExtensionContextType](http://hl7.org/fhir/ValueSet/extension-context-type)**. How an extension context is interpreted.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ExtensionContextType {
     /** **element**
@@ -29983,7 +29983,7 @@ impl From<ExtensionContextType> for CodeableConcept {
     }
 }
 #[doc = "**[ExtraActivityType](http://hl7.org/fhir/extra-activity-type)**. This value set includes coded concepts not well covered in any of the included valuesets.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ExtraActivityType {
     /** **aggregate**
 
@@ -30085,7 +30085,7 @@ impl From<ExtraActivityType> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceStatus](http://hl7.org/fhir/ValueSet/device-status)**. The availability status of the device.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FHIRDeviceStatus {
     /** **active**
@@ -30191,7 +30191,7 @@ impl From<FHIRDeviceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRDeviceStatusReason](http://hl7.org/fhir/ValueSet/device-status-reason)**. The availability status reason of the device.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FHIRDeviceStatusReason {
     /** **hw-discon**
@@ -30321,7 +30321,7 @@ impl From<FHIRDeviceStatusReason> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRPathTypes](http://hl7.org/fhir/ValueSet/fhirpath-types)**. All FHIRPath data types\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FHIRPathTypes {
     /** **http://hl7.org/fhirpath/System.Boolean**
@@ -30469,7 +30469,7 @@ impl From<FHIRPathTypes> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRSubstanceStatus](http://hl7.org/fhir/ValueSet/substance-status)**. A code to indicate if the substance is actively used.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FHIRSubstanceStatus {
     /** **active**
@@ -30569,7 +30569,7 @@ impl From<FHIRSubstanceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FHIRVersion](http://hl7.org/fhir/ValueSet/FHIR-version)**. All published FHIR Versions.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FHIRVersion {
     /** **0.0.80**
@@ -30813,7 +30813,7 @@ impl From<FHIRVersion> for CodeableConcept {
     }
 }
 #[doc = "**[FamilyHistoryAbsentReason](http://hl7.org/fhir/ValueSet/history-absent-reason)**. Codes describing the reason why a family member's history is not available.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FamilyHistoryAbsentReason {
     /** **deferred**
@@ -30921,7 +30921,7 @@ impl From<FamilyHistoryAbsentReason> for CodeableConcept {
     }
 }
 #[doc = "**[FamilyHistoryStatus](http://hl7.org/fhir/ValueSet/history-status)**. A code that identifies the status of the family history record.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FamilyHistoryStatus {
     /** **completed**
@@ -31027,7 +31027,7 @@ impl From<FamilyHistoryStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FeedingDeviceCodes](http://hl7.org/fhir/feeding-device)**. Materials used or needed to feed the patient. These values are provided as a suggestive example.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum FeedingDeviceCodes {
     /** **angled-utensil**
 
@@ -31243,7 +31243,7 @@ impl From<FeedingDeviceCodes> for CodeableConcept {
     }
 }
 #[doc = "**[FilterOperator](http://hl7.org/fhir/ValueSet/filter-operator)**. The kind of operation to perform as a part of a property based filter.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FilterOperator {
     /** **=**
@@ -31379,7 +31379,7 @@ impl From<FilterOperator> for CodeableConcept {
     }
 }
 #[doc = "**[FinancialResourceStatusCodes](http://hl7.org/fhir/fm-status)**. This value set includes Status codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum FinancialResourceStatusCodes {
     /** **active**
 
@@ -31487,7 +31487,7 @@ impl From<FinancialResourceStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[FlagCategory](http://hl7.org/fhir/ValueSet/flag-category)**. Example list of detail codes for flagged issues. (Not complete or necessarily appropriate.)\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FlagCategory {
     /** **admin**
@@ -31629,7 +31629,7 @@ impl From<FlagCategory> for CodeableConcept {
     }
 }
 #[doc = "**[FlagPriorityCodes](http://hl7.org/fhir/flag-priority-code)**. This value set is provided as an exemplar. The value set is driven by IHE Table B.8-4: Abnormal Flags, Alert Priority.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum FlagPriorityCodes {
     /** **PH**
 
@@ -31737,7 +31737,7 @@ impl From<FlagPriorityCodes> for CodeableConcept {
     }
 }
 #[doc = "**[FlagStatus](http://hl7.org/fhir/ValueSet/flag-status)**. Indicates whether this flag is active and needs to be displayed to a user, or whether it is no longer needed or was entered in error.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FlagStatus {
     /** **active**
@@ -31837,7 +31837,7 @@ impl From<FlagStatus> for CodeableConcept {
     }
 }
 #[doc = "**[FocusCharacteristicCode](http://hl7.org/fhir/ValueSet/focus-characteristic-code)**. Evidence focus characteristic code.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum FocusCharacteristicCode {
     /** **citation**
@@ -31969,7 +31969,7 @@ impl From<FocusCharacteristicCode> for CodeableConcept {
     }
 }
 #[doc = "**[GenderIdentity](http://hl7.org/fhir/gender-identity)**. This example code System defines a set of codes that can be used to indicate a patient's gender identity.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum GenderIdentity {
     /** **female**
 
@@ -32095,7 +32095,7 @@ impl From<GenderIdentity> for CodeableConcept {
     }
 }
 #[doc = "**[GenderStatus](http://hl7.org/fhir/animal-genderstatus)**. This example value set defines a set of codes that can be used to indicate the current state of the animal's reproductive organs.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum GenderStatus {
     /** **intact**
 
@@ -32197,7 +32197,7 @@ impl From<GenderStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GeneticObservationSecondaryFindings](http://hl7.org/fhir/ValueSet/secondary-finding)**. Codes to denote a guideline or policy statement.when a genetic test result is being shared as a secondary finding.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GeneticObservationSecondaryFindings {
     /** **acmg-version1**
@@ -32291,7 +32291,7 @@ impl From<GeneticObservationSecondaryFindings> for CodeableConcept {
     }
 }
 #[doc = "**[GoalAchievementStatus](http://hl7.org/fhir/ValueSet/goal-achievement)**. Describes the progression, or lack thereof, towards the goal against the target.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GoalAchievementStatus {
     /** **achieved**
@@ -32427,7 +32427,7 @@ impl From<GoalAchievementStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GoalCategory](http://terminology.hl7.org/CodeSystem/goal-category)**. Example codes for grouping goals to use for filtering or presentation.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum GoalCategory {
     /** **behavioral**
 
@@ -32543,7 +32543,7 @@ impl From<GoalCategory> for CodeableConcept {
     }
 }
 #[doc = "**[GoalLifecycleStatus](http://hl7.org/fhir/ValueSet/goal-status)**. Codes that reflect the current state of a goal and whether the goal is still being targeted.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GoalLifecycleStatus {
     /** **accepted**
@@ -32679,7 +32679,7 @@ impl From<GoalLifecycleStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GoalPriority](http://hl7.org/fhir/ValueSet/goal-priority)**. Indicates the level of importance associated with reaching or sustaining a goal.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GoalPriority {
     /** **high-priority**
@@ -32779,7 +32779,7 @@ impl From<GoalPriority> for CodeableConcept {
     }
 }
 #[doc = "**[GraphCompartmentRule](http://hl7.org/fhir/ValueSet/graph-compartment-rule)**. How a compartment must be linked.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GraphCompartmentRule {
     /** **custom**
@@ -32887,7 +32887,7 @@ impl From<GraphCompartmentRule> for CodeableConcept {
     }
 }
 #[doc = "**[GraphCompartmentUse](http://hl7.org/fhir/ValueSet/graph-compartment-use)**. Defines how a compartment rule is used.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GraphCompartmentUse {
     /** **condition**
@@ -32983,7 +32983,7 @@ impl From<GraphCompartmentUse> for CodeableConcept {
     }
 }
 #[doc = "**[GroupMeasure](http://hl7.org/fhir/ValueSet/group-measure)**. Possible group measure aggregates (E.g. Mean, Median).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GroupMeasure {
     /** **mean**
@@ -33101,7 +33101,7 @@ impl From<GroupMeasure> for CodeableConcept {
     }
 }
 #[doc = "**[GroupType](http://hl7.org/fhir/ValueSet/group-type)**. Types of resources that are part of group.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GroupType {
     /** **animal**
@@ -33219,7 +33219,7 @@ impl From<GroupType> for CodeableConcept {
     }
 }
 #[doc = "**[GuidanceResponseStatus](http://hl7.org/fhir/ValueSet/guidance-response-status)**. The status of a guidance response.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GuidanceResponseStatus {
     /** **data-requested**
@@ -33339,7 +33339,7 @@ impl From<GuidanceResponseStatus> for CodeableConcept {
     }
 }
 #[doc = "**[GuidePageGeneration](http://hl7.org/fhir/ValueSet/guide-page-generation)**. A code that indicates how the page is generated.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GuidePageGeneration {
     /** **generated**
@@ -33447,7 +33447,7 @@ impl From<GuidePageGeneration> for CodeableConcept {
     }
 }
 #[doc = "**[GuideParameterCode](http://hl7.org/fhir/ValueSet/guide-parameter-code)**. Code of parameter that is input to the guide.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum GuideParameterCode {
     /** **apply**
@@ -33589,7 +33589,7 @@ impl From<GuideParameterCode> for CodeableConcept {
     }
 }
 #[doc = "**[HTTPVerb](http://hl7.org/fhir/ValueSet/http-verb)**. HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum HTTPVerb {
     /** **DELETE**
@@ -33707,7 +33707,7 @@ impl From<HTTPVerb> for CodeableConcept {
     }
 }
 #[doc = "**[HandlingConditionSet](http://hl7.org/fhir/ValueSet/handling-condition)**. Set of handling instructions prior testing of the specimen.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum HandlingConditionSet {
     /** **frozen**
@@ -33807,7 +33807,7 @@ impl From<HandlingConditionSet> for CodeableConcept {
     }
 }
 #[doc = "**[HumanNameAssemblyOrder](http://terminology.hl7.org/CodeSystem/name-assembly-order)**. A code that represents the preferred display order of the components of a human name.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum HumanNameAssemblyOrder {
     /** **NL1**
 
@@ -33917,7 +33917,7 @@ impl From<HumanNameAssemblyOrder> for CodeableConcept {
     }
 }
 #[doc = "**[IdentifierUse](http://hl7.org/fhir/ValueSet/identifier-use)**. Identifies the purpose for this identifier, if known .\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IdentifierUse {
     /** **official**
@@ -34029,7 +34029,7 @@ impl From<IdentifierUse> for CodeableConcept {
     }
 }
 #[doc = "**[IdentityAssuranceLevel](http://hl7.org/fhir/ValueSet/identity-assuranceLevel)**. The level of confidence that this link represents the same actual person, based on NIST Authentication Levels.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IdentityAssuranceLevel {
     /** **level1**
@@ -34137,7 +34137,7 @@ impl From<IdentityAssuranceLevel> for CodeableConcept {
     }
 }
 #[doc = "**[ImagingStudyStatus](http://hl7.org/fhir/ValueSet/imagingstudy-status)**. The status of the ImagingStudy.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ImagingStudyStatus {
     /** **available**
@@ -34249,7 +34249,7 @@ impl From<ImagingStudyStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationEvaluationDoseStatusCodes](http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status)**. This code system supports describing the validity of a dose relative to a particular recommended schedule.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationEvaluationDoseStatusCodes {
     /** **notvalid**
 
@@ -34348,7 +34348,7 @@ impl From<ImmunizationEvaluationDoseStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationEvaluationDoseStatusReasonCodes](http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status-reason)**. This code system supports describing the reason why an administered dose has been assigned a particular status. Often, this reason describes why a dose is considered invalid.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationEvaluationDoseStatusReasonCodes {
     /** **advstorage**
 
@@ -34465,7 +34465,7 @@ impl From<ImmunizationEvaluationDoseStatusReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationEventFundingSource](http://terminology.hl7.org/CodeSystem/immunization-funding-source)**. This code system supports describing the source of the vaccine actually administered. This may be different than the patient eligbility (e.g. the patient may be eligibile for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationEventFundingSource {
     /** **private**
 
@@ -34564,7 +34564,7 @@ impl From<ImmunizationEventFundingSource> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationEventOrigin](http://terminology.hl7.org/CodeSystem/immunization-origin)**. This code system supports describing the source of the data when the report of the immunization event is not based on information from the person, entity or organization who administered the vaccine.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationEventOrigin {
     /** **jurisdiction**
 
@@ -34680,7 +34680,7 @@ impl From<ImmunizationEventOrigin> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationEventProgramEligibility](http://terminology.hl7.org/CodeSystem/immunization-program-eligibility)**. This code system supports describing the source of the patient's eligibility for a vaccination program.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationEventProgramEligibility {
     /** **ineligible**
 
@@ -34779,7 +34779,7 @@ impl From<ImmunizationEventProgramEligibility> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationEventSubpotentReason](http://terminology.hl7.org/CodeSystem/immunization-subpotent-reason)**. This code system supports describing the reason why a dose is considered to be subpotent.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationEventSubpotentReason {
     /** **coldchainbreak**
 
@@ -34884,7 +34884,7 @@ impl From<ImmunizationEventSubpotentReason> for CodeableConcept {
     }
 }
 #[doc = "**[ImmunizationRecommendationStatusCodes](http://terminology.hl7.org/CodeSystem/immunization-recommendation-status)**. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the status of the patient relative to a recommended dose. This value set is provided as a suggestive example.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ImmunizationRecommendationStatusCodes {
     /** **complete**
 
@@ -35001,7 +35001,7 @@ impl From<ImmunizationRecommendationStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[Indicator](http://hl7.org/fhir/ValueSet/cdshooks-indicator)**. This value set captures the set of indicator codes defined by the CDS Hooks specification.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum Indicator {
     /** **critical**
@@ -35101,7 +35101,7 @@ impl From<Indicator> for CodeableConcept {
     }
 }
 #[doc = "**[IngredientFunction](http://hl7.org/fhir/ValueSet/ingredient-function)**. A classification of the ingredient identifying its precise purpose(s) in the drug product (beyond e.g. active/inactive).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IngredientFunction {
     /** **AlkalizingAgent**
@@ -35195,7 +35195,7 @@ impl From<IngredientFunction> for CodeableConcept {
     }
 }
 #[doc = "**[IngredientManufacturerRole](http://hl7.org/fhir/ValueSet/ingredient-manufacturer-role)**. The way in which this manufacturer is associated with the ingredient. For example whether it is a possible one (others allowed), or an exclusive authorized one for this ingredient. Note that this is not the manufacturing process role\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IngredientManufacturerRole {
     /** **actual**
@@ -35297,7 +35297,7 @@ impl From<IngredientManufacturerRole> for CodeableConcept {
     }
 }
 #[doc = "**[IngredientRole](http://hl7.org/fhir/ValueSet/ingredient-role)**. A classification of the ingredient identifying its purpose within the product, e.g. active, inactive.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IngredientRole {
     /** **100000072072**
@@ -35433,7 +35433,7 @@ impl From<IngredientRole> for CodeableConcept {
     }
 }
 #[doc = "**[InteractionIncidence](http://hl7.org/fhir/ValueSet/interaction-incidence)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum InteractionIncidence {
     /** **Observed**
@@ -35529,7 +35529,7 @@ impl From<InteractionIncidence> for CodeableConcept {
     }
 }
 #[doc = "**[InteractionType](http://hl7.org/fhir/ValueSet/interaction-type)**. A categorisation for an interaction between two substances.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum InteractionType {
     /** **drug-drug**
@@ -35635,7 +35635,7 @@ impl From<InteractionType> for CodeableConcept {
     }
 }
 #[doc = "**[InvoicePriceComponentType](http://hl7.org/fhir/ValueSet/invoice-priceComponentType)**. Codes indicating the kind of the price component.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum InvoicePriceComponentType {
     /** **base**
@@ -35755,7 +35755,7 @@ impl From<InvoicePriceComponentType> for CodeableConcept {
     }
 }
 #[doc = "**[InvoiceStatus](http://hl7.org/fhir/ValueSet/invoice-status)**. Codes identifying the lifecycle stage of an Invoice.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum InvoiceStatus {
     /** **balanced**
@@ -35867,7 +35867,7 @@ impl From<InvoiceStatus> for CodeableConcept {
     }
 }
 #[doc = "**[IssueSeverity](http://hl7.org/fhir/ValueSet/issue-severity)**. How the issue affects the success of the action.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IssueSeverity {
     /** **error**
@@ -35973,7 +35973,7 @@ impl From<IssueSeverity> for CodeableConcept {
     }
 }
 #[doc = "**[IssueType](http://hl7.org/fhir/ValueSet/issue-type)**. A code that describes the type of issue.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum IssueType {
     /** **business-rule**
@@ -36241,7 +36241,7 @@ impl From<IssueType> for CodeableConcept {
     }
 }
 #[doc = "**[KnowledgeResourceType](http://hl7.org/fhir/ValueSet/knowledge-resource-types)**. A list of all the knowledge resource types defined in this version of the FHIR specification.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum KnowledgeResourceType {
     /** **ActivityDefinition**
@@ -36379,7 +36379,7 @@ impl From<KnowledgeResourceType> for CodeableConcept {
     }
 }
 #[doc = "**[LanguagePreferenceType](http://hl7.org/fhir/language-preference-type)**. This code system defines a defines the set of codes for describing the type or mode of the patient's preferred language.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum LanguagePreferenceType {
     /** **verbal**
 
@@ -36475,7 +36475,7 @@ impl From<LanguagePreferenceType> for CodeableConcept {
     }
 }
 #[doc = "**[LegalStatusOfSupply](http://hl7.org/fhir/ValueSet/legal-status-of-supply)**. The prescription supply types appropriate to a medicinal product\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum LegalStatusOfSupply {
     /** **100000072076**
@@ -36607,7 +36607,7 @@ impl From<LegalStatusOfSupply> for CodeableConcept {
     }
 }
 #[doc = "**[LibraryType](http://hl7.org/fhir/ValueSet/library-type)**. The type of knowledge asset this library contains.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum LibraryType {
     /** **asset-collection**
@@ -36713,7 +36713,7 @@ impl From<LibraryType> for CodeableConcept {
     }
 }
 #[doc = "**[LinkType](http://hl7.org/fhir/ValueSet/link-type)**. The type of link between this patient resource and another patient resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum LinkType {
     /** **refer**
@@ -36819,7 +36819,7 @@ impl From<LinkType> for CodeableConcept {
     }
 }
 #[doc = "**[LinkageType](http://hl7.org/fhir/ValueSet/linkage-type)**. Used to distinguish different roles a resource can play within a set of linked resources.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum LinkageType {
     /** **alternate**
@@ -36919,7 +36919,7 @@ impl From<LinkageType> for CodeableConcept {
     }
 }
 #[doc = "**[ListEmptyReasons](http://terminology.hl7.org/CodeSystem/list-empty-reason)**. General reasons for a list to be empty. Reasons are either related to a summary list (i.e. problem or medication list) or to a workflow related list (i.e. consultation list).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ListEmptyReasons {
     /** **closed**
 
@@ -37041,7 +37041,7 @@ impl From<ListEmptyReasons> for CodeableConcept {
     }
 }
 #[doc = "**[ListMode](http://hl7.org/fhir/ValueSet/list-mode)**. The processing mode that applies to this list.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ListMode {
     /** **changes**
@@ -37141,7 +37141,7 @@ impl From<ListMode> for CodeableConcept {
     }
 }
 #[doc = "**[ListOrderCodes](http://terminology.hl7.org/CodeSystem/list-order)**. Base values for the order of the items in a list resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ListOrderCodes {
     /** **alphabetic**
 
@@ -37273,7 +37273,7 @@ impl From<ListOrderCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ListStatus](http://hl7.org/fhir/ValueSet/list-status)**. The current state of the list.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ListStatus {
     /** **current**
@@ -37373,7 +37373,7 @@ impl From<ListStatus> for CodeableConcept {
     }
 }
 #[doc = "**[LocationMode](http://hl7.org/fhir/ValueSet/location-mode)**. Indicates whether a resource instance represents a specific location or a class of locations.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum LocationMode {
     /** **instance**
@@ -37467,7 +37467,7 @@ impl From<LocationMode> for CodeableConcept {
     }
 }
 #[doc = "**[LocationStatus](http://hl7.org/fhir/ValueSet/location-status)**. Indicates whether the location is still in use.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum LocationStatus {
     /** **active**
@@ -37567,7 +37567,7 @@ impl From<LocationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[LocationType](http://terminology.hl7.org/CodeSystem/location-physical-type)**. This example value set defines a set of codes that can be used to indicate the physical form of the Location.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum LocationType {
     /** **area**
 
@@ -37737,7 +37737,7 @@ impl From<LocationType> for CodeableConcept {
     }
 }
 #[doc = "**[ManufacturedDoseForm](http://hl7.org/fhir/ValueSet/manufactured-dose-form)**. Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ManufacturedDoseForm {
     /** **100000073362**
@@ -39027,7 +39027,7 @@ impl From<ManufacturedDoseForm> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureDataUsage](http://hl7.org/fhir/ValueSet/measure-data-usage)**. The intended usage for supplemental data elements in the measure.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureDataUsage {
     /** **risk-adjustment-factor**
@@ -39121,7 +39121,7 @@ impl From<MeasureDataUsage> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureGroupExample](http://hl7.org/fhir/ValueSet/measure-group-example)**. Example Measure Groups for the Measure Resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureGroupExample {
     /** **primary-rate**
@@ -39217,7 +39217,7 @@ impl From<MeasureGroupExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureImprovementNotation](http://hl7.org/fhir/ValueSet/measure-improvement-notation)**. Observation values that indicate what change in a measurement value or score is indicative of an improvement in the measured item or scored issue.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureImprovementNotation {
     /** **decrease**
@@ -39313,7 +39313,7 @@ impl From<MeasureImprovementNotation> for CodeableConcept {
     }
 }
 #[doc = "**[MeasurePopulationType](http://hl7.org/fhir/ValueSet/measure-population)**. The type of population.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasurePopulationType {
     /** **denominator**
@@ -39449,7 +39449,7 @@ impl From<MeasurePopulationType> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureReportStatus](http://hl7.org/fhir/ValueSet/measure-report-status)**. The status of the measure report.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureReportStatus {
     /** **complete**
@@ -39551,7 +39551,7 @@ impl From<MeasureReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureReportStratifierValueExample](http://hl7.org/fhir/ValueSet/measurereport-stratifier-value-example)**. Example Region Value Measure Groups for the Measure Resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureReportStratifierValueExample {
     /** **northeast**
@@ -39660,7 +39660,7 @@ impl From<MeasureReportStratifierValueExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureReportType](http://hl7.org/fhir/ValueSet/measure-report-type)**. The type of the measure report.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureReportType {
     /** **data-collection**
@@ -39766,7 +39766,7 @@ impl From<MeasureReportType> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureScoring](http://hl7.org/fhir/ValueSet/measure-scoring)**. The scoring type of the measure.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureScoring {
     /** **cohort**
@@ -39872,7 +39872,7 @@ impl From<MeasureScoring> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureStratifierExample](http://hl7.org/fhir/ValueSet/measure-stratifier-example)**. Identifier subgroups in a population for measuring purposes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureStratifierExample {
     /** **age**
@@ -39974,7 +39974,7 @@ impl From<MeasureStratifierExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureSupplementalDataExample](http://hl7.org/fhir/ValueSet/measure-supplemental-data-example)**. Identifier supplemental data in a population for measuring purposes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureSupplementalDataExample {
     /** **age**
@@ -40083,7 +40083,7 @@ impl From<MeasureSupplementalDataExample> for CodeableConcept {
     }
 }
 #[doc = "**[MeasureType](http://hl7.org/fhir/ValueSet/measure-type)**. The type of measure (includes codes from 2.16.840.1.113883.1.11.20368).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MeasureType {
     /** **composite**
@@ -40195,7 +40195,7 @@ impl From<MeasureType> for CodeableConcept {
     }
 }
 #[doc = "**[MediaSubType](http://terminology.hl7.org/CodeSystem/media-modality)**. Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum MediaSubType {
     /** **diagram**
 
@@ -40329,7 +40329,7 @@ impl From<MediaSubType> for CodeableConcept {
     }
 }
 #[doc = "**[MedicinalProductDomain](http://hl7.org/fhir/ValueSet/medicinal-product-domain)**. Applicable domain for this product (e.g. human, veterinary).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MedicinalProductDomain {
     /** **Human**
@@ -40431,7 +40431,7 @@ impl From<MedicinalProductDomain> for CodeableConcept {
     }
 }
 #[doc = "**[MedicinalProductPackageType](http://hl7.org/fhir/ValueSet/medicinal-product-package-type)**. Types of medicinal product packs\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MedicinalProductPackageType {
     /** **100000073490**
@@ -40587,7 +40587,7 @@ impl From<MedicinalProductPackageType> for CodeableConcept {
     }
 }
 #[doc = "**[MedicinalProductType](http://hl7.org/fhir/ValueSet/medicinal-product-type)**. Overall defining type of this Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MedicinalProductType {
     /** **InvestigationalProduct**
@@ -40683,7 +40683,7 @@ impl From<MedicinalProductType> for CodeableConcept {
     }
 }
 #[doc = "**[MessageEvent](http://hl7.org/fhir/message-events)**. One of the message events defined as part of this version of FHIR.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum MessageEvent {
     /// Custom code value.
     _Custom(String),
@@ -40767,7 +40767,7 @@ impl From<MessageEvent> for CodeableConcept {
     }
 }
 #[doc = "**[MessageSignificanceCategory](http://hl7.org/fhir/ValueSet/message-significance-category)**. The impact of the content of a message.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MessageSignificanceCategory {
     /** **consequence**
@@ -40869,7 +40869,7 @@ impl From<MessageSignificanceCategory> for CodeableConcept {
     }
 }
 #[doc = "**[MessageTransport](http://hl7.org/fhir/ValueSet/message-transport)**. The protocol used for message transport.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum MessageTransport {
     /** **ftp**
@@ -40969,7 +40969,7 @@ impl From<MessageTransport> for CodeableConcept {
     }
 }
 #[doc = "**[MissingToothReasonCodes](http://terminology.hl7.org/CodeSystem/missingtoothreason)**. This value set includes sample Missing Tooth Reason codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum MissingToothReasonCodes {
     /** **c**
 
@@ -41079,7 +41079,7 @@ impl From<MissingToothReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ModifierTypeCodes](http://terminology.hl7.org/CodeSystem/modifiers)**. This value set includes sample Modifier type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ModifierTypeCodes {
     /** **a**
 
@@ -41199,7 +41199,7 @@ impl From<ModifierTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[NameUse](http://hl7.org/fhir/ValueSet/name-use)**. The use of a human name.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum NameUse {
     /** **anonymous**
@@ -41323,7 +41323,7 @@ impl From<NameUse> for CodeableConcept {
     }
 }
 #[doc = "**[NamingSystemIdentifierType](http://hl7.org/fhir/ValueSet/namingsystem-identifier-type)**. Identifies the style of unique identifier used to identify a namespace.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum NamingSystemIdentifierType {
     /** **oid**
@@ -41431,7 +41431,7 @@ impl From<NamingSystemIdentifierType> for CodeableConcept {
     }
 }
 #[doc = "**[NamingSystemType](http://hl7.org/fhir/ValueSet/namingsystem-type)**. Identifies the purpose of the naming system.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum NamingSystemType {
     /** **codesystem**
@@ -41531,7 +41531,7 @@ impl From<NamingSystemType> for CodeableConcept {
     }
 }
 #[doc = "**[NarrativeStatus](http://hl7.org/fhir/ValueSet/narrative-status)**. The status of a resource narrative.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum NarrativeStatus {
     /** **additional**
@@ -41637,7 +41637,7 @@ impl From<NarrativeStatus> for CodeableConcept {
     }
 }
 #[doc = "**[NetworkTypeCodes](http://terminology.hl7.org/CodeSystem/benefit-network)**. This value set includes a smattering of Network type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum NetworkTypeCodes {
     /** **in**
 
@@ -41735,7 +41735,7 @@ impl From<NetworkTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[NoteType](http://hl7.org/fhir/ValueSet/note-type)**. The presentation types of notes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum NoteType {
     /** **display**
@@ -41835,7 +41835,7 @@ impl From<NoteType> for CodeableConcept {
     }
 }
 #[doc = "**[NutritionProductStatus](http://hl7.org/fhir/ValueSet/nutritionproduct-status)**. Codes identifying the lifecycle stage of a product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum NutritionProductStatus {
     /** **active**
@@ -41937,7 +41937,7 @@ impl From<NutritionProductStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationCategoryCodes](http://hl7.org/fhir/ValueSet/observation-category)**. Observation Category codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ObservationCategoryCodes {
     /** **activity**
@@ -42073,7 +42073,7 @@ impl From<ObservationCategoryCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationDataType](http://hl7.org/fhir/ValueSet/permitted-data-type)**. Permitted data type for observation value.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ObservationDataType {
     /** **CodeableConcept**
@@ -42221,7 +42221,7 @@ impl From<ObservationDataType> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationRangeCategory](http://hl7.org/fhir/ValueSet/observation-range-category)**. Codes identifying the category of observation range.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ObservationRangeCategory {
     /** **absolute**
@@ -42323,7 +42323,7 @@ impl From<ObservationRangeCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationReferenceRangeMeaningCodes](http://terminology.hl7.org/CodeSystem/referencerange-meaning)**. This value set defines a set of codes that can be used to indicate the meaning/use of a reference range.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ObservationReferenceRangeMeaningCodes {
     /** **endocrine**
 
@@ -42487,7 +42487,7 @@ impl From<ObservationReferenceRangeMeaningCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ObservationStatus](http://hl7.org/fhir/ValueSet/observation-status)**. Codes providing the status of an observation.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ObservationStatus {
     /** **amended**
@@ -42617,7 +42617,7 @@ impl From<ObservationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[OperationKind](http://hl7.org/fhir/ValueSet/operation-kind)**. Whether an operation is a normal operation or a query.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum OperationKind {
     /** **operation**
@@ -42711,7 +42711,7 @@ impl From<OperationKind> for CodeableConcept {
     }
 }
 #[doc = "**[OperationParameterUse](http://hl7.org/fhir/ValueSet/operation-parameter-use)**. Whether an operation parameter is an input or an output parameter.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum OperationParameterUse {
     /** **in**
@@ -42807,7 +42807,7 @@ impl From<OperationParameterUse> for CodeableConcept {
     }
 }
 #[doc = "**[OralSiteCodes](http://terminology.hl7.org/CodeSystem/ex-tooth)**. This value set includes a smattering of FDI oral site codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum OralSiteCodes {
     /** **0**
 
@@ -43137,7 +43137,7 @@ impl From<OralSiteCodes> for CodeableConcept {
     }
 }
 #[doc = "**[OrganizationAffiliationRole](http://hl7.org/fhir/organization-role)**. This example value set defines a set of codes that can be used to indicate the role of one Organization in relation to its affiliation with another.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum OrganizationAffiliationRole {
     /** **HIE/HIO**
 
@@ -43269,7 +43269,7 @@ impl From<OrganizationAffiliationRole> for CodeableConcept {
     }
 }
 #[doc = "**[OrganizationType](http://terminology.hl7.org/CodeSystem/organization-type)**. This example value set defines a set of codes that can be used to indicate a type of organization.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum OrganizationType {
     /** **bus**
 
@@ -43427,7 +43427,7 @@ impl From<OrganizationType> for CodeableConcept {
     }
 }
 #[doc = "**[PackageCharacteristic](http://hl7.org/fhir/ValueSet/package-characteristic)**. A characteristic of a package.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PackageCharacteristic {
     /** **CalendarPack**
@@ -43529,7 +43529,7 @@ impl From<PackageCharacteristic> for CodeableConcept {
     }
 }
 #[doc = "**[PackageMaterial](http://hl7.org/fhir/ValueSet/package-material)**. A material used in the construction of packages and their components.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PackageMaterial {
     /** **200000003200**
@@ -43869,7 +43869,7 @@ impl From<PackageMaterial> for CodeableConcept {
     }
 }
 #[doc = "**[PackageType](http://hl7.org/fhir/ValueSet/package-type)**. A high level categorisation of a package.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PackageType {
     /** **MedicinalProductPack**
@@ -43969,7 +43969,7 @@ impl From<PackageType> for CodeableConcept {
     }
 }
 #[doc = "**[PackagingType](http://hl7.org/fhir/ValueSet/packaging-type)**. A type of packaging.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PackagingType {
     /** **100000073490**
@@ -44663,7 +44663,7 @@ impl From<PackagingType> for CodeableConcept {
     }
 }
 #[doc = "**[ParticipantRequired](http://hl7.org/fhir/ValueSet/participantrequired)**. Is the Participant required to attend the appointment.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ParticipantRequired {
     /** **information-only**
@@ -44763,7 +44763,7 @@ impl From<ParticipantRequired> for CodeableConcept {
     }
 }
 #[doc = "**[ParticipantType](http://terminology.hl7.org/CodeSystem/participant-type)**. This codesystem defines a set of codes that can be used to indicate how an individual participates in an encounter.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ParticipantType {
     /** **emergency**
 
@@ -44861,7 +44861,7 @@ impl From<ParticipantType> for CodeableConcept {
     }
 }
 #[doc = "**[ParticipationStatus](http://hl7.org/fhir/ValueSet/participationstatus)**. The Participation status of an appointment.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ParticipationStatus {
     /** **accepted**
@@ -44967,7 +44967,7 @@ impl From<ParticipationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[PatientMedicineChangeTypes](http://hl7.org/fhir/ValueSet/list-item-flag)**. Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PatientMedicineChangeTypes {
     /** **01**
@@ -45085,7 +45085,7 @@ impl From<PatientMedicineChangeTypes> for CodeableConcept {
     }
 }
 #[doc = "**[PaymentAdjustmentReasonCodes](http://terminology.hl7.org/CodeSystem/payment-adjustment-reason)**. This value set includes smattering of Payment Adjustment Reason codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum PaymentAdjustmentReasonCodes {
     /** **a001**
 
@@ -45184,7 +45184,7 @@ impl From<PaymentAdjustmentReasonCodes> for CodeableConcept {
     }
 }
 #[doc = "**[PaymentStatusCodes](http://terminology.hl7.org/CodeSystem/paymentstatus)**. This value set includes a sample set of Payment Status codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum PaymentStatusCodes {
     /** **cleared**
 
@@ -45282,7 +45282,7 @@ impl From<PaymentStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[PaymentTypeCodes](http://terminology.hl7.org/CodeSystem/ex-paymenttype)**. This value set includes a smattering of Payment Type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum PaymentTypeCodes {
     /** **complete**
 
@@ -45380,7 +45380,7 @@ impl From<PaymentTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[PediatricUse](http://hl7.org/fhir/ValueSet/medicinal-product-pediatric-use)**. Suitability for age groups, in particular children.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PediatricUse {
     /** **Adolescents**
@@ -45548,7 +45548,7 @@ impl From<PediatricUse> for CodeableConcept {
     }
 }
 #[doc = "**[PlanDefinitionType](http://hl7.org/fhir/ValueSet/plan-definition-type)**. The type of PlanDefinition.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PlanDefinitionType {
     /** **clinical-protocol**
@@ -45654,7 +45654,7 @@ impl From<PlanDefinitionType> for CodeableConcept {
     }
 }
 #[doc = "**[PolicyCodes](http://terminology.hl7.org/CodeSystem/consentpolicycodes)**. FHIR Specific Example codes for Consent Policy\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum PolicyCodes {
     /** **at-elga**
 
@@ -45896,7 +45896,7 @@ impl From<PolicyCodes> for CodeableConcept {
     }
 }
 #[doc = "**[PriorityCodes](http://terminology.hl7.org/CodeSystem/processpriority)**. This value set includes the financial processing priority codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum PriorityCodes {
     /** **deferred**
 
@@ -46000,7 +46000,7 @@ impl From<PriorityCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ProcedureDeviceActionCodes](http://hl7.org/fhir/device-action)**. Example value set for Procedure Device Action code (what happened to a device during a procedure.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ProcedureDeviceActionCodes {
     /** **explanted**
 
@@ -46102,7 +46102,7 @@ impl From<ProcedureDeviceActionCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ProcedureProgressStatusCodes](http://hl7.org/fhir/procedure-progress-status-code)**. This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the procedure performance process.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ProcedureProgressStatusCodes {
     /** **anesthesia-induced**
 
@@ -46224,7 +46224,7 @@ impl From<ProcedureProgressStatusCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ProductConfidentiality](http://hl7.org/fhir/ValueSet/medicinal-product-confidentiality)**. Confidentiality rating, e.g. commercial sensitivity for a Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProductConfidentiality {
     /** **CommerciallySensitive**
@@ -46321,7 +46321,7 @@ impl From<ProductConfidentiality> for CodeableConcept {
     }
 }
 #[doc = "**[ProductContactType](http://hl7.org/fhir/ValueSet/medicinal-product-contact-type)**. Contact type for a Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProductContactType {
     /** **PVEnquiries**
@@ -46435,7 +46435,7 @@ impl From<ProductContactType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductCrossReferenceType](http://hl7.org/fhir/ValueSet/medicinal-product-cross-reference-type)**. Relationship to another Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProductCrossReferenceType {
     /** **ActualProduct**
@@ -46556,7 +46556,7 @@ impl From<ProductCrossReferenceType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductIntendedUse](http://hl7.org/fhir/ValueSet/product-intended-use)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProductIntendedUse {
     /** **Alleviation**
@@ -46668,7 +46668,7 @@ impl From<ProductIntendedUse> for CodeableConcept {
     }
 }
 #[doc = "**[ProductNamePartType](http://hl7.org/fhir/ValueSet/medicinal-product-name-part-type)**. Type of part of a name for a Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProductNamePartType {
     /** **ContainerPart**
@@ -46849,7 +46849,7 @@ impl From<ProductNamePartType> for CodeableConcept {
     }
 }
 #[doc = "**[ProductNameType](http://hl7.org/fhir/ValueSet/medicinal-product-name-type)**. Type of a name for a Medicinal Product.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProductNameType {
     /** **BAN**
@@ -46963,7 +46963,7 @@ impl From<ProductNameType> for CodeableConcept {
     }
 }
 #[doc = "**[PropertyRepresentation](http://hl7.org/fhir/ValueSet/property-representation)**. How a property is represented when serialized.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PropertyRepresentation {
     /** **cdaText**
@@ -47077,7 +47077,7 @@ impl From<PropertyRepresentation> for CodeableConcept {
     }
 }
 #[doc = "**[PropertyType](http://hl7.org/fhir/ValueSet/concept-property-type)**. The type of a property value.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PropertyType {
     /** **Coding**
@@ -47203,7 +47203,7 @@ impl From<PropertyType> for CodeableConcept {
     }
 }
 #[doc = "**[ProvenanceEntityRole](http://hl7.org/fhir/ValueSet/provenance-entity-role)**. How an entity was used in an activity.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProvenanceEntityRole {
     /** **derivation**
@@ -47317,7 +47317,7 @@ impl From<ProvenanceEntityRole> for CodeableConcept {
     }
 }
 #[doc = "**[ProvenanceParticipantRole](http://hl7.org/fhir/ValueSet/provenance-participant-role)**. The role that a provenance participant played\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProvenanceParticipantRole {
     /** **assembler**
@@ -47461,7 +47461,7 @@ impl From<ProvenanceParticipantRole> for CodeableConcept {
     }
 }
 #[doc = "**[ProvenanceParticipantType](http://hl7.org/fhir/ValueSet/provenance-participant-type)**. The type of participation that a provenance agent (participant) played\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ProvenanceParticipantType {
     /** **assembler**
@@ -47605,7 +47605,7 @@ impl From<ProvenanceParticipantType> for CodeableConcept {
     }
 }
 #[doc = "**[PublicationStatus](http://hl7.org/fhir/ValueSet/publication-status)**. The lifecycle status of an artifact.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PublicationStatus {
     /** **active**
@@ -47711,7 +47711,7 @@ impl From<PublicationStatus> for CodeableConcept {
     }
 }
 #[doc = "**[PublishedInType](http://hl7.org/fhir/ValueSet/published-in-type)**. The type of publication such as book, database, or journal.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum PublishedInType {
     /** **D001877**
@@ -47817,7 +47817,7 @@ impl From<PublishedInType> for CodeableConcept {
     }
 }
 #[doc = "**[QualityOfEvidenceRating](http://hl7.org/fhir/ValueSet/evidence-quality)**. A rating system that describes the quality of evidence such as the GRADE, DynaMed, or Oxford CEBM systems.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QualityOfEvidenceRating {
     /** **high**
@@ -47923,7 +47923,7 @@ impl From<QualityOfEvidenceRating> for CodeableConcept {
     }
 }
 #[doc = "**[QuantityComparator](http://hl7.org/fhir/ValueSet/quantity-comparator)**. How the Quantity should be understood and represented.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QuantityComparator {
     /** **<**
@@ -48029,7 +48029,7 @@ impl From<QuantityComparator> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireItemOperator](http://hl7.org/fhir/ValueSet/questionnaire-enable-operator)**. The criteria by which a question is enabled.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QuestionnaireItemOperator {
     /** **!=**
@@ -48155,7 +48155,7 @@ impl From<QuestionnaireItemOperator> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireItemType](http://hl7.org/fhir/ValueSet/item-type)**. Distinguishes groups from questions and display text and indicates data type for questions.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QuestionnaireItemType {
     /** **attachment**
@@ -48339,7 +48339,7 @@ impl From<QuestionnaireItemType> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireItemUIControlCodes](http://hl7.org/fhir/ValueSet/questionnaire-item-control)**. Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QuestionnaireItemUIControlCodes {
     /** **atable**
@@ -48573,7 +48573,7 @@ impl From<QuestionnaireItemUIControlCodes> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireResponseStatus](http://hl7.org/fhir/ValueSet/questionnaire-answers-status)**. Lifecycle status of the questionnaire response.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QuestionnaireResponseStatus {
     /** **amended**
@@ -48687,7 +48687,7 @@ impl From<QuestionnaireResponseStatus> for CodeableConcept {
     }
 }
 #[doc = "**[QuestionnaireTextCategories](http://hl7.org/fhir/ValueSet/questionnaire-display-category)**. Codes defining the purpose of a Questionnaire item of type 'text'.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum QuestionnaireTextCategories {
     /** **help**
@@ -48789,7 +48789,7 @@ impl From<QuestionnaireTextCategories> for CodeableConcept {
     }
 }
 #[doc = "**[ReasonMedicationGivenCodes](http://terminology.hl7.org/CodeSystem/reason-medication-given)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ReasonMedicationGivenCodes {
     /** **a**
 
@@ -48894,7 +48894,7 @@ impl From<ReasonMedicationGivenCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ReasonMedicationNotGivenCodes](http://hl7.org/fhir/reason-medication-not-given)**. This value set is provided as an example. The value set to instantiate this attribute should be drawn from a robust terminology code system that consists of or contains concepts to support the medication process.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ReasonMedicationNotGivenCodes {
     /** **a**
 
@@ -49002,7 +49002,7 @@ impl From<ReasonMedicationNotGivenCodes> for CodeableConcept {
     }
 }
 #[doc = "**[ReferenceHandlingPolicy](http://hl7.org/fhir/ValueSet/reference-handling-policy)**. A set of flags that defines how references are supported.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ReferenceHandlingPolicy {
     /** **enforced**
@@ -49116,7 +49116,7 @@ impl From<ReferenceHandlingPolicy> for CodeableConcept {
     }
 }
 #[doc = "**[ReferenceVersionRules](http://hl7.org/fhir/ValueSet/reference-version-rules)**. Whether a reference needs to be version specific or version independent, or whether either can be used.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ReferenceVersionRules {
     /** **either**
@@ -49218,7 +49218,7 @@ impl From<ReferenceVersionRules> for CodeableConcept {
     }
 }
 #[doc = "**[ReferralMethod](http://hl7.org/fhir/ValueSet/service-referral-method)**. The methods of referral can be used when referring to a specific HealthCareService resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ReferralMethod {
     /** **elec**
@@ -49332,7 +49332,7 @@ impl From<ReferralMethod> for CodeableConcept {
     }
 }
 #[doc = "**[RegulatedAuthorizationBasis](http://hl7.org/fhir/ValueSet/regulated-authorization-basis)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationBasis {
     /** **Bibliographical**
@@ -49476,7 +49476,7 @@ impl From<RegulatedAuthorizationBasis> for CodeableConcept {
     }
 }
 #[doc = "**[RegulatedAuthorizationCaseType](http://hl7.org/fhir/ValueSet/regulated-authorization-case-type)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationCaseType {
     /** **100000155699**
@@ -49693,7 +49693,7 @@ impl From<RegulatedAuthorizationCaseType> for CodeableConcept {
     }
 }
 #[doc = "**[RegulatedAuthorizationType](http://hl7.org/fhir/ValueSet/regulated-authorization-type)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RegulatedAuthorizationType {
     /** **MarketingAuth**
@@ -49795,7 +49795,7 @@ impl From<RegulatedAuthorizationType> for CodeableConcept {
     }
 }
 #[doc = "**[RejectionCriterion](http://hl7.org/fhir/ValueSet/rejection-criteria)**. Criterion for rejection of the specimen by laboratory.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RejectionCriterion {
     /** **broken**
@@ -49907,7 +49907,7 @@ impl From<RejectionCriterion> for CodeableConcept {
     }
 }
 #[doc = "**[RelatedArtifactType](http://hl7.org/fhir/ValueSet/related-artifact-type)**. The type of relationship to the related artifact.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RelatedArtifactType {
     /** **citation**
@@ -50039,7 +50039,7 @@ impl From<RelatedArtifactType> for CodeableConcept {
     }
 }
 #[doc = "**[RemittanceOutcome](http://hl7.org/fhir/ValueSet/remittance-outcome)**. The outcome of the processing.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RemittanceOutcome {
     /** **complete**
@@ -50145,7 +50145,7 @@ impl From<RemittanceOutcome> for CodeableConcept {
     }
 }
 #[doc = "**[ReportRelationshipType](http://hl7.org/fhir/ValueSet/report-relation-type)**. The type of relationship between reports.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ReportRelationshipType {
     /** **amendedWith**
@@ -50275,7 +50275,7 @@ impl From<ReportRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[ReportSectionType](http://hl7.org/fhir/ValueSet/evidence-report-section)**. Evidence Report Section Type.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ReportSectionType {
     /** **Assertion**
@@ -50533,7 +50533,7 @@ impl From<ReportSectionType> for CodeableConcept {
     }
 }
 #[doc = "**[RequestIntent](http://hl7.org/fhir/ValueSet/request-intent)**. Codes indicating the degree of authority/intentionality associated with a request.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RequestIntent {
     /** **directive**
@@ -50669,7 +50669,7 @@ impl From<RequestIntent> for CodeableConcept {
     }
 }
 #[doc = "**[RequestPriority](http://hl7.org/fhir/ValueSet/request-priority)**. Identifies the level of importance to be assigned to actioning the request.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RequestPriority {
     /** **asap**
@@ -50775,7 +50775,7 @@ impl From<RequestPriority> for CodeableConcept {
     }
 }
 #[doc = "**[RequestResourceType](http://hl7.org/fhir/ValueSet/request-resource-types)**. A list of all the request resource types defined in this version of the FHIR specification.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RequestResourceType {
     /** **Appointment**
@@ -50949,7 +50949,7 @@ impl From<RequestResourceType> for CodeableConcept {
     }
 }
 #[doc = "**[RequestStatus](http://hl7.org/fhir/ValueSet/request-status)**. Codes identifying the lifecycle stage of a request.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RequestStatus {
     /** **active**
@@ -51073,7 +51073,7 @@ impl From<RequestStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchElementType](http://hl7.org/fhir/ValueSet/research-element-type)**. The possible types of research elements (E.g. Population, Exposure, Outcome).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchElementType {
     /** **exposure**
@@ -51175,7 +51175,7 @@ impl From<ResearchElementType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyObjectiveType](http://hl7.org/fhir/ValueSet/research-study-objective-type)**. Codes for the kind of study objective.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchStudyObjectiveType {
     /** **exploratory**
@@ -51277,7 +51277,7 @@ impl From<ResearchStudyObjectiveType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyPhase](http://hl7.org/fhir/ValueSet/research-study-phase)**. Codes for the stage in the progression of a therapy from initial experimental use in humans in clinical trials to post-market evaluation.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchStudyPhase {
     /** **early-phase-1**
@@ -51407,7 +51407,7 @@ impl From<ResearchStudyPhase> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyPrimaryPurposeType](http://hl7.org/fhir/ValueSet/research-study-prim-purp-type)**. Codes for the main intent of the study.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchStudyPrimaryPurposeType {
     /** **basic-science**
@@ -51539,7 +51539,7 @@ impl From<ResearchStudyPrimaryPurposeType> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyReasonStopped](http://hl7.org/fhir/ValueSet/research-study-reason-stopped)**. Codes for why the study ended prematurely.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchStudyReasonStopped {
     /** **accrual-goal-met**
@@ -51655,7 +51655,7 @@ impl From<ResearchStudyReasonStopped> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchStudyStatus](http://hl7.org/fhir/ValueSet/research-study-status)**. Codes that convey the current status of the research study.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchStudyStatus {
     /** **active**
@@ -51812,7 +51812,7 @@ impl From<ResearchStudyStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ResearchSubjectStatus](http://hl7.org/fhir/ValueSet/research-subject-status)**. Indicates the progression of a study subject through a study.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResearchSubjectStatus {
     /** **candidate**
@@ -51976,7 +51976,7 @@ impl From<ResearchSubjectStatus> for CodeableConcept {
     }
 }
 #[doc = "**[ResourceSecurityCategory](http://hl7.org/fhir/resource-security-category)**. Codes indicating how resources behave from a security perspective\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ResourceSecurityCategory {
     /** **anonymous**
 
@@ -52090,7 +52090,7 @@ impl From<ResourceSecurityCategory> for CodeableConcept {
     }
 }
 #[doc = "**[ResourceType](http://hl7.org/fhir/resource-types)**. One of the resource types defined as part of this version of FHIR.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ResourceType {
     /** **Account**
 
@@ -53035,7 +53035,7 @@ impl From<ResourceType> for CodeableConcept {
     }
 }
 #[doc = "**[ResourceValidationMode](http://hl7.org/fhir/resource-validation-mode)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum ResourceValidationMode {
     /** **create**
 
@@ -53143,7 +53143,7 @@ impl From<ResourceValidationMode> for CodeableConcept {
     }
 }
 #[doc = "**[ResourceVersionPolicy](http://hl7.org/fhir/ValueSet/versioning-policy)**. How the system supports versioning for a resource.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResourceVersionPolicy {
     /** **no-version**
@@ -53243,7 +53243,7 @@ impl From<ResourceVersionPolicy> for CodeableConcept {
     }
 }
 #[doc = "**[ResponseType](http://hl7.org/fhir/ValueSet/response-code)**. The kind of response to a message.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ResponseType {
     /** **fatal-error**
@@ -53343,7 +53343,7 @@ impl From<ResponseType> for CodeableConcept {
     }
 }
 #[doc = "**[RestfulCapabilityMode](http://hl7.org/fhir/ValueSet/restful-capability-mode)**. The mode of a RESTful capability statement.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RestfulCapabilityMode {
     /** **client**
@@ -53439,7 +53439,7 @@ impl From<RestfulCapabilityMode> for CodeableConcept {
     }
 }
 #[doc = "**[RestfulSecurityService](http://hl7.org/fhir/ValueSet/restful-security-service)**. Types of security services used with FHIR.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum RestfulSecurityService {
     /** **Basic**
@@ -53559,7 +53559,7 @@ impl From<RestfulSecurityService> for CodeableConcept {
     }
 }
 #[doc = "**[RiskProbability](http://terminology.hl7.org/CodeSystem/risk-probability)**. Codes representing the likelihood of a particular outcome in a risk assessment.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum RiskProbability {
     /** **certain**
 
@@ -53675,7 +53675,7 @@ impl From<RiskProbability> for CodeableConcept {
     }
 }
 #[doc = "**[SPDXLicense](http://hl7.org/fhir/ValueSet/spdx-license)**. The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SPDXLicense {
     /** **0BSD**
@@ -55837,7 +55837,7 @@ impl From<SPDXLicense> for CodeableConcept {
     }
 }
 #[doc = "**[SearchComparator](http://hl7.org/fhir/ValueSet/search-comparator)**. What Search Comparator Codes are supported in search.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SearchComparator {
     /** **ap**
@@ -55973,7 +55973,7 @@ impl From<SearchComparator> for CodeableConcept {
     }
 }
 #[doc = "**[SearchEntryMode](http://hl7.org/fhir/ValueSet/search-entry-mode)**. Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SearchEntryMode {
     /** **include**
@@ -56073,7 +56073,7 @@ impl From<SearchEntryMode> for CodeableConcept {
     }
 }
 #[doc = "**[SearchModifierCode](http://hl7.org/fhir/ValueSet/search-modifier-code)**. A supported modifier for a search parameter.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SearchModifierCode {
     /** **above**
@@ -56227,7 +56227,7 @@ impl From<SearchModifierCode> for CodeableConcept {
     }
 }
 #[doc = "**[SearchParamType](http://hl7.org/fhir/ValueSet/search-param-type)**. Data types allowed to be used for search parameters.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SearchParamType {
     /** **composite**
@@ -56363,7 +56363,7 @@ impl From<SearchParamType> for CodeableConcept {
     }
 }
 #[doc = "**[SecurityRoleType](http://terminology.hl7.org/CodeSystem/extra-security-role-type)**. This CodeSystem contains Additional FHIR-defined Security Role types not defined elsewhere\n\nFHIR version: 4.3.0-cibuild."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SecurityRoleType {
     /** **authserver**
 
@@ -56480,7 +56480,7 @@ impl From<SecurityRoleType> for CodeableConcept {
     }
 }
 #[doc = "**[ServiceProvisionConditions](http://hl7.org/fhir/ValueSet/service-provision-conditions)**. The code(s) that detail the conditions under which the healthcare service is available/offered.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum ServiceProvisionConditions {
     /** **cost**
@@ -56582,7 +56582,7 @@ impl From<ServiceProvisionConditions> for CodeableConcept {
     }
 }
 #[doc = "**[SignatureTypeCodes](http://hl7.org/fhir/ValueSet/signature-type)**. The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SignatureTypeCodes {
     /** **1.2.840.10065.1.12.1.1**
@@ -56772,7 +56772,7 @@ impl From<SignatureTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[SlicingRules](http://hl7.org/fhir/ValueSet/resource-slicing-rules)**. How slices are interpreted when evaluating an instance.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SlicingRules {
     /** **closed**
@@ -56874,7 +56874,7 @@ impl From<SlicingRules> for CodeableConcept {
     }
 }
 #[doc = "**[SlotStatus](http://hl7.org/fhir/ValueSet/slotstatus)**. The free/busy status of the slot.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SlotStatus {
     /** **busy**
@@ -56986,7 +56986,7 @@ impl From<SlotStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SmartCapabilities](http://hl7.org/fhir/ValueSet/smart-capabilities)**. Codes that define what the server is capable of.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SmartCapabilities {
     /** **client-confidential-symmetric**
@@ -57152,7 +57152,7 @@ impl From<SmartCapabilities> for CodeableConcept {
     }
 }
 #[doc = "**[SortDirection](http://hl7.org/fhir/ValueSet/sort-direction)**. The possible sort directions, ascending or descending.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SortDirection {
     /** **ascending**
@@ -57246,7 +57246,7 @@ impl From<SortDirection> for CodeableConcept {
     }
 }
 #[doc = "**[SpecialArrangements](http://terminology.hl7.org/CodeSystem/encounter-special-arrangements)**. This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patient's visit.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SpecialArrangements {
     /** **add-bed**
 
@@ -57363,7 +57363,7 @@ impl From<SpecialArrangements> for CodeableConcept {
     }
 }
 #[doc = "**[SpecialMeasures](http://hl7.org/fhir/ValueSet/medicinal-product-special-measures)**. Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorisation studies.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SpecialMeasures {
     /** **Post-authorisationStudies**
@@ -57454,7 +57454,7 @@ impl From<SpecialMeasures> for CodeableConcept {
     }
 }
 #[doc = "**[SpecialValues](http://hl7.org/fhir/ValueSet/special-values)**. A set of generally useful codes defined so they can be included in value sets.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SpecialValues {
     /** **false**
@@ -57572,7 +57572,7 @@ impl From<SpecialValues> for CodeableConcept {
     }
 }
 #[doc = "**[SpecimenContainedPreference](http://hl7.org/fhir/ValueSet/specimen-contained-preference)**. Degree of preference of a type of conditioned specimen.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SpecimenContainedPreference {
     /** **alternate**
@@ -57668,7 +57668,7 @@ impl From<SpecimenContainedPreference> for CodeableConcept {
     }
 }
 #[doc = "**[SpecimenStatus](http://hl7.org/fhir/ValueSet/specimen-status)**. Codes providing the status/availability of a specimen.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SpecimenStatus {
     /** **available**
@@ -57774,7 +57774,7 @@ impl From<SpecimenStatus> for CodeableConcept {
     }
 }
 #[doc = "**[StandardsStatus](http://hl7.org/fhir/standards-status)**. Status codes indicating the 'standards' level of an artifact\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum StandardsStatus {
     /** **deprecated**
 
@@ -57896,7 +57896,7 @@ impl From<StandardsStatus> for CodeableConcept {
     }
 }
 #[doc = "**[StatisticModelCode](http://hl7.org/fhir/ValueSet/statistic-model-code)**. The role that the assertion variable plays.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StatisticModelCode {
     /** **adjusted**
@@ -58458,7 +58458,7 @@ impl From<StatisticModelCode> for CodeableConcept {
     }
 }
 #[doc = "**[StatisticType](http://hl7.org/fhir/ValueSet/statistic-type)**. The role that the assertion variable plays.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StatisticType {
     /** **0000100**
@@ -58672,7 +58672,7 @@ impl From<StatisticType> for CodeableConcept {
     }
 }
 #[doc = "**[StatisticsCode](http://hl7.org/fhir/observation-statistics)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum StatisticsCode {
     /** **20-percent**
 
@@ -58882,7 +58882,7 @@ impl From<StatisticsCode> for CodeableConcept {
     }
 }
 #[doc = "**[StrengthOfRecommendationRating](http://hl7.org/fhir/ValueSet/recommendation-strength)**. A rating system that describes the strength of the recommendation, such as the GRADE, DynaMed, or HGPS systems.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StrengthOfRecommendationRating {
     /** **strong**
@@ -58978,7 +58978,7 @@ impl From<StrengthOfRecommendationRating> for CodeableConcept {
     }
 }
 #[doc = "**[StructureDefinitionKind](http://hl7.org/fhir/ValueSet/structure-definition-kind)**. Defines the type of structure that a definition is describing.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureDefinitionKind {
     /** **complex-type**
@@ -59086,7 +59086,7 @@ impl From<StructureDefinitionKind> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapContextType](http://hl7.org/fhir/ValueSet/map-context-type)**. How to interpret the context.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapContextType {
     /** **type**
@@ -59180,7 +59180,7 @@ impl From<StructureMapContextType> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapGroupTypeMode](http://hl7.org/fhir/ValueSet/map-group-type-mode)**. If this is the default rule set to apply for the source type, or this combination of types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapGroupTypeMode {
     /** **none**
@@ -59280,7 +59280,7 @@ impl From<StructureMapGroupTypeMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapInputMode](http://hl7.org/fhir/ValueSet/map-input-mode)**. Mode for this instance of data.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapInputMode {
     /** **source**
@@ -59374,7 +59374,7 @@ impl From<StructureMapInputMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapModelMode](http://hl7.org/fhir/ValueSet/map-model-mode)**. How the referenced structure is used in this mapping.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapModelMode {
     /** **produced**
@@ -59480,7 +59480,7 @@ impl From<StructureMapModelMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapSourceListMode](http://hl7.org/fhir/ValueSet/map-source-list-mode)**. If field is a list, how to manage the source.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapSourceListMode {
     /** **first**
@@ -59592,7 +59592,7 @@ impl From<StructureMapSourceListMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapTargetListMode](http://hl7.org/fhir/ValueSet/map-target-list-mode)**. If field is a list, how to manage the production.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapTargetListMode {
     /** **collate**
@@ -59698,7 +59698,7 @@ impl From<StructureMapTargetListMode> for CodeableConcept {
     }
 }
 #[doc = "**[StructureMapTransform](http://hl7.org/fhir/ValueSet/map-transform)**. How data is copied/created.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StructureMapTransform {
     /** **append**
@@ -59882,7 +59882,7 @@ impl From<StructureMapTransform> for CodeableConcept {
     }
 }
 #[doc = "**[StudyType](http://hl7.org/fhir/ValueSet/study-type)**. The type of study the evidence was derived from.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum StudyType {
     /** **CCT**
@@ -60006,7 +60006,7 @@ impl From<StudyType> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriberRelationshipCodes](http://terminology.hl7.org/CodeSystem/subscriber-relationship)**. This value set includes codes for the relationship between the Subscriber and the Beneficiary (insured/covered party/patient).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SubscriberRelationshipCodes {
     /** **child**
 
@@ -60135,7 +60135,7 @@ impl From<SubscriberRelationshipCodes> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionChannelType](http://hl7.org/fhir/ValueSet/subscription-channel-type)**. The type of method used to execute a subscription.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubscriptionChannelType {
     /** **email**
@@ -60249,7 +60249,7 @@ impl From<SubscriptionChannelType> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionNotificationType](http://hl7.org/fhir/ValueSet/subscription-notification-type)**. The type of notification represented by the status message.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubscriptionNotificationType {
     /** **event-notification**
@@ -60363,7 +60363,7 @@ impl From<SubscriptionNotificationType> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionSearchModifer](http://terminology.hl7.org/CodeSystem/subscription-search-modifier)**. This codesystem defines a set of codes that can be used to filter Subscription triggers.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SubscriptionSearchModifer {
     /** **=**
 
@@ -60540,7 +60540,7 @@ impl From<SubscriptionSearchModifer> for CodeableConcept {
     }
 }
 #[doc = "**[SubscriptionStatus](http://hl7.org/fhir/ValueSet/subscription-status)**. The status of a subscription.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubscriptionStatus {
     /** **active**
@@ -60646,7 +60646,7 @@ impl From<SubscriptionStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceAmountType](http://hl7.org/fhir/ValueSet/substance-amount-type)**. The type of a numeric quantity measurement.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceAmountType {
     /** **Approximately**
@@ -60754,7 +60754,7 @@ impl From<SubstanceAmountType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceGrade](http://hl7.org/fhir/ValueSet/substance-grade)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceGrade {
     /** **BP**
@@ -60866,7 +60866,7 @@ impl From<SubstanceGrade> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceNameAuthority](http://hl7.org/fhir/ValueSet/substance-name-authority)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceNameAuthority {
     /** **BAN**
@@ -61040,7 +61040,7 @@ impl From<SubstanceNameAuthority> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceNameDomain](http://hl7.org/fhir/ValueSet/substance-name-domain)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceNameDomain {
     /** **ActiveIngredient**
@@ -61136,7 +61136,7 @@ impl From<SubstanceNameDomain> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceNameType](http://hl7.org/fhir/ValueSet/substance-name-type)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceNameType {
     /** **Brand**
@@ -61236,7 +61236,7 @@ impl From<SubstanceNameType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceOpticalActivity](http://hl7.org/fhir/ValueSet/substance-optical-activity)**. The optical rotation type of a substance.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceOpticalActivity {
     /** **+**
@@ -61332,7 +61332,7 @@ impl From<SubstanceOpticalActivity> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceRelationshipType](http://hl7.org/fhir/ValueSet/substance-relationship-type)**. The relationship between two substance types.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceRelationshipType {
     /** **ActiveMoiety**
@@ -61446,7 +61446,7 @@ impl From<SubstanceRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceRepresentationFormat](http://hl7.org/fhir/ValueSet/substance-representation-format)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceRepresentationFormat {
     /** **CDX**
@@ -61572,7 +61572,7 @@ impl From<SubstanceRepresentationFormat> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceRepresentationType](http://hl7.org/fhir/ValueSet/substance-representation-type)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceRepresentationType {
     /** **Brand**
@@ -61674,7 +61674,7 @@ impl From<SubstanceRepresentationType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialGenus](http://hl7.org/fhir/ValueSet/substance-source-material-genus)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialGenus {
     /** **Ginkgo**
@@ -61776,7 +61776,7 @@ impl From<SubstanceSourceMaterialGenus> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialPart](http://hl7.org/fhir/ValueSet/substance-source-material-part)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialPart {
     /** **Animal**
@@ -61878,7 +61878,7 @@ impl From<SubstanceSourceMaterialPart> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialSpecies](http://hl7.org/fhir/ValueSet/substance-source-material-species)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialSpecies {
     /** **GinkgoBiloba**
@@ -61975,7 +61975,7 @@ impl From<SubstanceSourceMaterialSpecies> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceSourceMaterialType](http://hl7.org/fhir/ValueSet/substance-source-material-type)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceSourceMaterialType {
     /** **Animal**
@@ -62077,7 +62077,7 @@ impl From<SubstanceSourceMaterialType> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceStereochemistry](http://hl7.org/fhir/ValueSet/substance-stereochemistry)**. The stereochemistry type of a substance.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceStereochemistry {
     /** **ConstitutionalIsomer**
@@ -62179,7 +62179,7 @@ impl From<SubstanceStereochemistry> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceStructureTechnique](http://hl7.org/fhir/ValueSet/substance-structure-technique)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceStructureTechnique {
     /** **HPLC**
@@ -62293,7 +62293,7 @@ impl From<SubstanceStructureTechnique> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceWeightMethod](http://hl7.org/fhir/ValueSet/substance-weight-method)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceWeightMethod {
     /** **Calculated**
@@ -62425,7 +62425,7 @@ impl From<SubstanceWeightMethod> for CodeableConcept {
     }
 }
 #[doc = "**[SubstanceWeightType](http://hl7.org/fhir/ValueSet/substance-weight-type)**.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SubstanceWeightType {
     /** **Average**
@@ -62527,7 +62527,7 @@ impl From<SubstanceWeightType> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyDeliveryStatus](http://hl7.org/fhir/ValueSet/supplydelivery-status)**. Status of the supply delivery.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SupplyDeliveryStatus {
     /** **abandoned**
@@ -62635,7 +62635,7 @@ impl From<SupplyDeliveryStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyItemType](http://terminology.hl7.org/CodeSystem/supply-item-type)**. This value sets refers to a specific supply item.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SupplyItemType {
     /** **device**
 
@@ -62733,7 +62733,7 @@ impl From<SupplyItemType> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyRequestReason](http://hl7.org/fhir/ValueSet/supplyrequest-reason)**. The reason why the supply item was requested.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SupplyRequestReason {
     /** **patient-care**
@@ -62827,7 +62827,7 @@ impl From<SupplyRequestReason> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyRequestStatus](http://hl7.org/fhir/ValueSet/supplyrequest-status)**. Status of the supply request.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SupplyRequestStatus {
     /** **active**
@@ -62951,7 +62951,7 @@ impl From<SupplyRequestStatus> for CodeableConcept {
     }
 }
 #[doc = "**[SupplyType](http://terminology.hl7.org/CodeSystem/supply-kind)**. This value sets refers to a Category of supply.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SupplyType {
     /** **central**
 
@@ -63047,7 +63047,7 @@ impl From<SupplyType> for CodeableConcept {
     }
 }
 #[doc = "**[SurfaceCodes](http://terminology.hl7.org/CodeSystem/FDI-surface)**. This value set includes a smattering of FDI tooth surface codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum SurfaceCodes {
     /** **B**
 
@@ -63197,7 +63197,7 @@ impl From<SurfaceCodes> for CodeableConcept {
     }
 }
 #[doc = "**[SynthesisType](http://hl7.org/fhir/ValueSet/synthesis-type)**. Types of combining results from a body of evidence (eg. summary data meta-analysis).\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum SynthesisType {
     /** **IPD-MA**
@@ -63321,7 +63321,7 @@ impl From<SynthesisType> for CodeableConcept {
     }
 }
 #[doc = "**[TargetSpecies](http://hl7.org/fhir/ValueSet/target-species)**. A species for which a medicinal product is intended.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TargetSpecies {
     /** **100000108874**
@@ -64603,7 +64603,7 @@ impl From<TargetSpecies> for CodeableConcept {
     }
 }
 #[doc = "**[TaskCode](http://hl7.org/fhir/ValueSet/task-code.html)**. Codes indicating the type of action that is expected to be performed\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TaskCode {
     /** **abort**
@@ -64727,7 +64727,7 @@ impl From<TaskCode> for CodeableConcept {
     }
 }
 #[doc = "**[TaskIntent](http://hl7.org/fhir/task-intent)**. Distinguishes whether the task is a proposal, plan or full order.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum TaskIntent {
     /** **unknown**
 
@@ -64817,7 +64817,7 @@ impl From<TaskIntent> for CodeableConcept {
     }
 }
 #[doc = "**[TaskStatus](http://hl7.org/fhir/ValueSet/task-status)**. The current status of the task.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TaskStatus {
     /** **accepted**
@@ -64971,7 +64971,7 @@ impl From<TaskStatus> for CodeableConcept {
     }
 }
 #[doc = "**[TemplateStatusCodeLifeCycle](urn:oid:2.16.840.1.113883.3.1937.98.11.8)**. Life cycle of the Status Code of a Template Design (Version)\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TemplateStatusCodeLifeCycle {
     /** **active**
@@ -65101,7 +65101,7 @@ impl From<TemplateStatusCodeLifeCycle> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportActionResult](http://hl7.org/fhir/ValueSet/report-action-result-codes)**. The results of executing an action.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TestReportActionResult {
     /** **error**
@@ -65215,7 +65215,7 @@ impl From<TestReportActionResult> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportParticipantType](http://hl7.org/fhir/ValueSet/report-participant-type)**. The type of participant.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TestReportParticipantType {
     /** **client**
@@ -65317,7 +65317,7 @@ impl From<TestReportParticipantType> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportResult](http://hl7.org/fhir/ValueSet/report-result-codes)**. The reported execution result.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TestReportResult {
     /** **fail**
@@ -65417,7 +65417,7 @@ impl From<TestReportResult> for CodeableConcept {
     }
 }
 #[doc = "**[TestReportStatus](http://hl7.org/fhir/ValueSet/report-status-codes)**. The current status of the test report.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TestReportStatus {
     /** **completed**
@@ -65529,7 +65529,7 @@ impl From<TestReportStatus> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptOperationCodes](http://terminology.hl7.org/CodeSystem/testscript-operation-codes)**. This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum TestScriptOperationCodes {
     /** **apply**
 
@@ -65886,7 +65886,7 @@ impl From<TestScriptOperationCodes> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptProfileDestinationTypes](http://terminology.hl7.org/CodeSystem/testscript-profile-destination-types)**. This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the destination within a TestScript.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum TestScriptProfileDestinationTypes {
     /** **FHIR-SDC-FormManager**
 
@@ -65997,7 +65997,7 @@ impl From<TestScriptProfileDestinationTypes> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptProfileOriginTypes](http://terminology.hl7.org/CodeSystem/testscript-profile-origin-types)**. This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the origin within a TestScript.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum TestScriptProfileOriginTypes {
     /** **FHIR-Client**
 
@@ -66096,7 +66096,7 @@ impl From<TestScriptProfileOriginTypes> for CodeableConcept {
     }
 }
 #[doc = "**[TestScriptRequestMethodCode](http://hl7.org/fhir/ValueSet/http-operations)**. The allowable request method or HTTP operation codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TestScriptRequestMethodCode {
     /** **delete**
@@ -66220,7 +66220,7 @@ impl From<TestScriptRequestMethodCode> for CodeableConcept {
     }
 }
 #[doc = "**[TherapyRelationshipType](http://hl7.org/fhir/ValueSet/therapy-relationship-type)**. Classification of relationship between a therapy and a contraindication or an indication.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TherapyRelationshipType {
     /** **contraindicated-except-with**
@@ -66370,7 +66370,7 @@ impl From<TherapyRelationshipType> for CodeableConcept {
     }
 }
 #[doc = "**[TitleType](http://hl7.org/fhir/ValueSet/title-type)**. Used to express the reason and specific aspect for the variant title, such as language and specific language.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TitleType {
     /** **acronym**
@@ -66530,7 +66530,7 @@ impl From<TitleType> for CodeableConcept {
     }
 }
 #[doc = "**[TriggerType](http://hl7.org/fhir/ValueSet/trigger-type)**. The type of trigger.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TriggerType {
     /** **data-access-ended**
@@ -66660,7 +66660,7 @@ impl From<TriggerType> for CodeableConcept {
     }
 }
 #[doc = "**[TypeDerivationRule](http://hl7.org/fhir/ValueSet/type-derivation-rule)**. How a type relates to its baseDefinition.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum TypeDerivationRule {
     /** **constraint**
@@ -66754,7 +66754,7 @@ impl From<TypeDerivationRule> for CodeableConcept {
     }
 }
 #[doc = "**[UDIEntryType](http://hl7.org/fhir/ValueSet/udi-entry-type)**. Codes to identify how UDI data was entered.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum UDIEntryType {
     /** **barcode**
@@ -66872,7 +66872,7 @@ impl From<UDIEntryType> for CodeableConcept {
     }
 }
 #[doc = "**[USCLSCodes](http://terminology.hl7.org/CodeSystem/ex-USCLS)**. This value set includes a smattering of USCLS codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum USCLSCodes {
     /** **1101**
 
@@ -67076,7 +67076,7 @@ impl From<USCLSCodes> for CodeableConcept {
     }
 }
 #[doc = "**[UndesirablEffectFrequency](http://hl7.org/fhir/ValueSet/undesirable-effect-frequency)**. A categorisation for a frequency of occurence of an undesirable effect.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum UndesirablEffectFrequency {
     /** **Common**
@@ -67178,7 +67178,7 @@ impl From<UndesirablEffectFrequency> for CodeableConcept {
     }
 }
 #[doc = "**[UnitOfPresentation](http://hl7.org/fhir/ValueSet/unit-of-presentation)**. The presentation type in which an administrable medicinal product is given to a patient.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum UnitOfPresentation {
     /** **200000002108**
@@ -67596,7 +67596,7 @@ impl From<UnitOfPresentation> for CodeableConcept {
     }
 }
 #[doc = "**[UnitTypeCodes](http://terminology.hl7.org/CodeSystem/benefit-unit)**. This value set includes a smattering of Unit type codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum UnitTypeCodes {
     /** **family**
 
@@ -67694,7 +67694,7 @@ impl From<UnitTypeCodes> for CodeableConcept {
     }
 }
 #[doc = "**[UsageContextType](http://hl7.org/fhir/ValueSet/usage-context-type)**. A code that specifies a type of context being specified by a usage context.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum UsageContextType {
     /** **age**
@@ -67830,7 +67830,7 @@ impl From<UsageContextType> for CodeableConcept {
     }
 }
 #[doc = "**[Use](http://hl7.org/fhir/ValueSet/claim-use)**. The purpose of the Claim: predetermination, preauthorization, claim.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum Use {
     /** **claim**
@@ -67930,7 +67930,7 @@ impl From<Use> for CodeableConcept {
     }
 }
 #[doc = "**[VisionBase](http://hl7.org/fhir/ValueSet/vision-base-codes)**. A coded concept listing the base codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum VisionBase {
     /** **down**
@@ -68036,7 +68036,7 @@ impl From<VisionBase> for CodeableConcept {
     }
 }
 #[doc = "**[VisionEyes](http://hl7.org/fhir/ValueSet/vision-eye-codes)**. A coded concept listing the eye codes.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum VisionEyes {
     /** **left**
@@ -68130,7 +68130,7 @@ impl From<VisionEyes> for CodeableConcept {
     }
 }
 #[doc = "**[W3cProvenanceActivityType](http://hl7.org/fhir/w3c-provenance-activity-type)**. This value set includes W3C PROV Data Model Activity concepts, which are treated as codes in this valueset.  Some adaptations were made to make these concepts suitable values for the Provenance.activity element. Coded concepts are from PROV-DM and the display names are their counterparts in PROV-N (human readable notation syntax specification).[code system OID: http://www.w3.org/TR/2013/REC-prov-dm-20130430/ and http://www.w3.org/TR/2013/REC-prov-n-20130430/]\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 pub enum W3cProvenanceActivityType {
     /** **Attribution**
 
@@ -68286,7 +68286,7 @@ impl From<W3cProvenanceActivityType> for CodeableConcept {
     }
 }
 #[doc = "**[WarningType](http://hl7.org/fhir/ValueSet/warning-type)**. Classification of warning type.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum WarningType {
     /** **P313**
@@ -68428,7 +68428,7 @@ impl From<WarningType> for CodeableConcept {
     }
 }
 #[doc = "**[XPathUsageType](http://hl7.org/fhir/ValueSet/search-xpath-usage)**. How a search parameter relates to the set of elements returned by evaluating its xpath query.\n\nFHIR version: 4.3.0."]
-#[derive(PartialEq, Eq, Clone)]
+#[derive(PartialEq, Eq, Clone, Hash)]
 #[derive(Copy)]
 pub enum XPathUsageType {
     /** **distance**

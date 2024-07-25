@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   medplum-r4:
     image: medplum/medplum-server:latest

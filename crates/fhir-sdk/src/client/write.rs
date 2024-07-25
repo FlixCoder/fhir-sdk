@@ -1,6 +1,7 @@
 //! Home of the ResourceWrite trait.
 
-use async_trait::async_trait;
+use std::future::Future;
+
 #[cfg(feature = "r4b")]
 use fhir_model::r4b;
 #[cfg(feature = "r5")]
@@ -13,19 +14,24 @@ use super::{error::Error, Client};
 
 /// A trait to write resources to the FHIR server, mutating the interior id and
 /// version_id so that the resource is up to date for future update requests.
-#[async_trait]
 pub trait ResourceWrite<Version>: Serialize + Send + Sync {
 	/// Update the current version of the resource on the server. Returns
 	/// whether the resource was created.
-	async fn update(&mut self, conditional: bool, client: &Client<Version>) -> Result<bool, Error>;
+	fn update(
+		&mut self,
+		conditional: bool,
+		client: &Client<Version>,
+	) -> impl Future<Output = Result<bool, Error>> + Send;
 	/// Create this resource on the server. Returns the resource ID.
-	async fn create(&mut self, client: &Client<Version>) -> Result<String, Error>;
+	fn create(
+		&mut self,
+		client: &Client<Version>,
+	) -> impl Future<Output = Result<String, Error>> + Send;
 	/// Delete this resource on the FHIR server.
-	async fn delete(self, client: &Client<Version>) -> Result<(), Error>;
+	fn delete(self, client: &Client<Version>) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 #[cfg(feature = "stu3")]
-#[async_trait]
 impl<R> ResourceWrite<super::FhirStu3> for R
 where
 	R: stu3::resources::NamedResource + stu3::resources::BaseResource + Serialize + Send + Sync,
@@ -71,7 +77,6 @@ where
 }
 
 #[cfg(feature = "r4b")]
-#[async_trait]
 impl<R> ResourceWrite<super::FhirR4B> for R
 where
 	R: r4b::resources::NamedResource + r4b::resources::BaseResource + Serialize + Send + Sync,
@@ -117,7 +122,6 @@ where
 }
 
 #[cfg(feature = "r5")]
-#[async_trait]
 impl<R> ResourceWrite<super::FhirR5> for R
 where
 	R: r5::resources::NamedResource + r5::resources::BaseResource + Serialize + Send + Sync,
@@ -164,26 +168,30 @@ where
 /// This trait sadly needs to be separate to [`ResourceWrite`],
 /// because we cannot both implement the generic trait as well as implementing
 /// it on a type that fhir-model could implement the required traits for.
-#[async_trait]
 pub trait AnyResourceWrite: Serialize + Send + Sync {
 	/// FHIR client version type.
 	type Version;
 
 	/// Update the current version of the resource on the server. Returns
 	/// whether the resource was created.
-	async fn update(
+	fn update(
 		&mut self,
 		conditional: bool,
 		client: &Client<Self::Version>,
-	) -> Result<bool, Error>;
+	) -> impl Future<Output = Result<bool, Error>> + Send;
 	/// Create this resource on the server. Returns the resource ID.
-	async fn create(&mut self, client: &Client<Self::Version>) -> Result<String, Error>;
+	fn create(
+		&mut self,
+		client: &Client<Self::Version>,
+	) -> impl Future<Output = Result<String, Error>> + Send;
 	/// Delete this resource on the FHIR server.
-	async fn delete(self, client: &Client<Self::Version>) -> Result<(), Error>;
+	fn delete(
+		self,
+		client: &Client<Self::Version>,
+	) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 #[cfg(feature = "stu3")]
-#[async_trait]
 impl AnyResourceWrite for stu3::resources::Resource {
 	type Version = super::FhirStu3;
 
@@ -239,7 +247,6 @@ impl AnyResourceWrite for stu3::resources::Resource {
 }
 
 #[cfg(feature = "r4b")]
-#[async_trait]
 impl AnyResourceWrite for r4b::resources::Resource {
 	type Version = super::FhirR4B;
 
@@ -295,7 +302,6 @@ impl AnyResourceWrite for r4b::resources::Resource {
 }
 
 #[cfg(feature = "r5")]
-#[async_trait]
 impl AnyResourceWrite for r5::resources::Resource {
 	type Version = super::FhirR5;
 

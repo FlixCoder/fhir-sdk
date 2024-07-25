@@ -33,10 +33,9 @@ fn extract_json_field(json_body: serde_json::Value, field: &str) -> Option<Strin
 	Some(code.to_owned())
 }
 
-async fn medplum_auth() -> Result<HeaderValue> {
+async fn medplum_auth(client: reqwest::Client) -> Result<HeaderValue> {
 	println!("Getting new authorization token from Medplum");
 
-	let client = reqwest::Client::builder().user_agent("fhir-sdk tests").build()?;
 	let my_challenge = "my_challenge";
 
 	let auth_url = "http://localhost:8080/auth/login";

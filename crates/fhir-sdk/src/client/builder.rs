@@ -1,20 +1,16 @@
 //! Builder implementation for the client.
 
-use std::{
-	future::Future,
-	marker::PhantomData,
-	sync::{Arc, Mutex},
-};
+use std::marker::PhantomData;
 
-use reqwest::{header::HeaderValue, Url};
+use reqwest::Url;
 
-use super::{AuthCallback, Client, Error, RequestSettings};
+use super::{auth::AuthCallback, Client, Error, LoginManager, RequestSettings};
 
 /// Default user agent of this client.
 const DEFAULT_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 
 /// Builder for the [Client]
-pub struct ClientBuilder<Version = super::DefaultVersion> {
+pub struct ClientBuilder<Version = super::DefaultVersion, ACB = ()> {
 	/// The FHIR server's base URL.
 	base_url: Option<Url>,
 	/// Reqwest Client
@@ -24,12 +20,12 @@ pub struct ClientBuilder<Version = super::DefaultVersion> {
 	/// Request settings.
 	request_settings: Option<RequestSettings>,
 	/// Auth callback.
-	auth_callback: Option<AuthCallback>,
+	auth_callback: Option<ACB>,
 	/// FHIR version.
 	version: PhantomData<Version>,
 }
 
-impl<V> Default for ClientBuilder<V> {
+impl<V, ACB> Default for ClientBuilder<V, ACB> {
 	fn default() -> Self {
 		Self {
 			base_url: None,
@@ -42,7 +38,7 @@ impl<V> Default for ClientBuilder<V> {
 	}
 }
 
-impl<V> ClientBuilder<V> {
+impl<V, ACB> ClientBuilder<V, ACB> {
 	/// The FHIR server's base URL.
 	#[must_use]
 	pub fn base_url(mut self, base_url: Url) -> Self {
@@ -75,22 +71,36 @@ impl<V> ClientBuilder<V> {
 	/// Set an authorization callback to be called every time the server returns
 	/// unauthorized. Should return the header value for the `Authorization`
 	/// header.
+	///
+	/// Valid login managers are:
+	/// - Async functions `async fn my_auth_callback(client: reqwest::Client) ->
+	///   Result<HeaderValue, MyError>`
+	/// - Async closures `|client: reqwest::Client| async move { ... }`
+	/// - Types that implement [LoginManager]
+	///
+	/// Calling this with unit type `()` will panic on auth_callback called.
+	/// `()` is allowed at compile time for convenience reasons (generics
+	/// stuff).
 	#[must_use]
-	pub fn auth_callback<F, O, E>(mut self, auth: F) -> Self
+	pub fn auth_callback<LM>(self, login_manager: LM) -> ClientBuilder<V, LM>
 	where
-		F: Fn() -> O + Send + Sync + Clone + 'static,
-		O: Future<Output = Result<HeaderValue, E>> + Send,
-		E: Into<Box<dyn std::error::Error + Send + Sync>>,
+		LM: LoginManager + 'static,
 	{
-		self.auth_callback = Some(Arc::new(move || {
-			let auth = auth.clone();
-			Box::pin(async move { (auth)().await.map_err(Into::into) })
-		}));
-		self
+		ClientBuilder {
+			base_url: self.base_url,
+			client: self.client,
+			user_agent: self.user_agent,
+			request_settings: self.request_settings,
+			auth_callback: Some(login_manager),
+			version: self.version,
+		}
 	}
 
 	/// Finalize building the client.
-	pub fn build(self) -> Result<Client<V>, Error> {
+	pub fn build(self) -> Result<Client<V>, Error>
+	where
+		ACB: LoginManager + 'static,
+	{
 		let Some(base_url) = self.base_url else {
 			return Err(Error::BuilderMissingField("base_url"));
 		};
@@ -111,14 +121,17 @@ impl<V> ClientBuilder<V> {
 		let data = super::ClientData {
 			base_url,
 			client,
-			request_settings: Mutex::new(request_settings),
-			auth_callback: Mutex::new(self.auth_callback),
+			request_settings: std::sync::Mutex::new(request_settings),
+			auth_callback: tokio::sync::Mutex::new(self.auth_callback.map(AuthCallback::new)),
 		};
 		Ok(Client::from(data))
 	}
 }
 
-impl<V> Clone for ClientBuilder<V> {
+impl<V, ACB> Clone for ClientBuilder<V, ACB>
+where
+	ACB: Clone,
+{
 	fn clone(&self) -> Self {
 		Self {
 			base_url: self.base_url.clone(),
@@ -131,13 +144,13 @@ impl<V> Clone for ClientBuilder<V> {
 	}
 }
 
-impl<V> std::fmt::Debug for ClientBuilder<V> {
+impl<V, ACB> std::fmt::Debug for ClientBuilder<V, ACB> {
 	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
 		f.debug_struct("ClientBuilder")
 			.field("base_url", &self.base_url)
 			.field("user_agent", &self.user_agent)
 			.field("request_settings", &self.request_settings)
-			.field("auth_callback", &self.auth_callback.as_ref().map(|_| "<fn>"))
+			.field("auth_callback", &self.auth_callback.as_ref().map(|_| "<login_manager>"))
 			.finish()
 	}
 }

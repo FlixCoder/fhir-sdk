@@ -2,6 +2,7 @@
 //!
 //! Does only work with one FHIR version at a time!
 
+mod auth;
 mod builder;
 mod error;
 mod misc;
@@ -15,19 +16,16 @@ mod search;
 pub mod stu3;
 mod write;
 
-use std::{
-	future::Future,
-	marker::PhantomData,
-	pin::Pin,
-	sync::{Arc, Mutex},
-};
+use std::{marker::PhantomData, sync::Arc};
 
 pub use reqwest::{
 	header::{self, HeaderMap, HeaderValue},
 	StatusCode, Url,
 };
 
+use self::auth::AuthCallback;
 pub use self::{
+	auth::LoginManager,
 	builder::ClientBuilder,
 	error::Error,
 	request::RequestSettings,
@@ -59,12 +57,6 @@ type DefaultVersion = FhirStu3;
 #[derive(Debug)]
 pub struct Client<Version = DefaultVersion>(Arc<ClientData>, PhantomData<Version>);
 
-/// Return type of the auth callback.
-type AuthCallbackReturn = Result<HeaderValue, Box<dyn std::error::Error + Send + Sync>>;
-/// Auth callback function type.
-type AuthCallback =
-	Arc<dyn Fn() -> Pin<Box<dyn Future<Output = AuthCallbackReturn> + Send>> + Send + Sync>;
-
 /// FHIR Rest Client data.
 struct ClientData {
 	/// The FHIR server's base URL.
@@ -72,9 +64,9 @@ struct ClientData {
 	/// HTTP request client.
 	client: reqwest::Client,
 	/// Request settings.
-	request_settings: Mutex<RequestSettings>,
+	request_settings: std::sync::Mutex<RequestSettings>,
 	/// Authorization callback method, returning the authorization header value.
-	auth_callback: Mutex<Option<AuthCallback>>,
+	auth_callback: tokio::sync::Mutex<Option<AuthCallback>>,
 }
 
 impl<V> From<ClientData> for Client<V> {
@@ -111,13 +103,6 @@ impl<V: Send + Sync> Client<V> {
 		*request_settings = settings;
 	}
 
-	/// Get the auth callback configured in this client.
-	#[must_use]
-	pub fn auth_callback(&self) -> Option<AuthCallback> {
-		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
-		self.0.auth_callback.lock().expect("mutex poisened").clone()
-	}
-
 	/// Convert to a different version.
 	fn convert_version<Version>(self) -> Client<Version> {
 		Client(self.0, PhantomData)
@@ -150,22 +135,33 @@ impl<V: Send + Sync> Client<V> {
 	) -> Result<reqwest::Response, Error> {
 		// Try running the request
 		let mut request_settings = self.request_settings();
-		let response = request_settings
+		let mut response = request_settings
 			.make_request(request.try_clone().ok_or(Error::RequestNotClone)?)
 			.await?;
 
 		// On authorization failure, retry after refreshing the authorization header.
 		if response.status() == StatusCode::UNAUTHORIZED {
-			if let Some(auth_callback) = self.auth_callback() {
-				tracing::info!("Hit unauthorized response, calling auth_callback");
-				let auth_value = (auth_callback)()
-					.await
-					.map_err(|err| Error::AuthCallback(format!("{err:#}")))?;
-				request_settings = request_settings.header(header::AUTHORIZATION, auth_value);
-				self.set_request_settings(request_settings.clone());
-				let response = request_settings.make_request(request).await?;
-				return Ok(response);
+			if let Ok(mut auth_callback) = self.0.auth_callback.try_lock() {
+				if let Some(auth_callback) = auth_callback.as_mut() {
+					tracing::info!("Hit unauthorized response, calling auth_callback");
+					let auth_value = auth_callback
+						.authenticate(self.0.client.clone())
+						.await
+						.map_err(|err| Error::AuthCallback(format!("{err:#}")))?;
+					request_settings = request_settings.header(header::AUTHORIZATION, auth_value);
+					self.set_request_settings(request_settings.clone());
+				} else {
+					// There is no auth callback, return without retrying.
+					return Ok(response);
+				}
+			} else {
+				// Auth callback was blocked, we assume there was a login in flight and update
+				// our request settings after it is done.
+				_ = self.0.auth_callback.lock().await;
+				request_settings = self.request_settings();
 			}
+			// Retry request with new request settings.
+			response = request_settings.make_request(request).await?;
 		}
 
 		Ok(response)

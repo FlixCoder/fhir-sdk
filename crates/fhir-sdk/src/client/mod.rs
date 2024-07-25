@@ -18,10 +18,7 @@ mod write;
 
 use std::{marker::PhantomData, sync::Arc};
 
-pub use reqwest::{
-	header::{self, HeaderMap, HeaderValue},
-	StatusCode, Url,
-};
+use reqwest::{header, StatusCode, Url};
 
 use self::auth::AuthCallback;
 pub use self::{

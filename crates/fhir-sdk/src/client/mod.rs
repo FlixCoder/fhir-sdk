@@ -95,12 +95,28 @@ impl<V: Send + Sync> Client<V> {
 		self.0.request_settings.lock().expect("mutex poisened").clone()
 	}
 
-	/// Set the request settings for this client.
+	/// Set the request settings for this client. Be warned that this can be
+	/// subject to race conditions. Prefer to use
+	/// [Self::patch_request_settings]. Basically same as
+	/// `client.patch_request_settings(|_| new_settings)`.
 	pub fn set_request_settings(&self, settings: RequestSettings) {
 		tracing::debug!("Setting new request settings");
 		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
 		let mut request_settings = self.0.request_settings.lock().expect("mutex poisened");
 		*request_settings = settings;
+	}
+
+	/// Patch the request settings atomically. Blocks all requests until the
+	/// change to request settings is finished.
+	pub fn patch_request_settings<F>(&self, mutator: F)
+	where
+		F: FnOnce(RequestSettings) -> RequestSettings,
+	{
+		tracing::debug!("Patching request settings");
+		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
+		let mut request_settings = self.0.request_settings.lock().expect("mutex poisened");
+		let patched = mutator(request_settings.clone());
+		*request_settings = patched;
 	}
 
 	/// Convert to a different version.
@@ -148,8 +164,9 @@ impl<V: Send + Sync> Client<V> {
 						.authenticate(self.0.client.clone())
 						.await
 						.map_err(|err| Error::AuthCallback(format!("{err:#}")))?;
-					request_settings = request_settings.header(header::AUTHORIZATION, auth_value);
-					self.set_request_settings(request_settings.clone());
+					self.patch_request_settings(move |settings| {
+						settings.header(header::AUTHORIZATION, auth_value)
+					});
 				} else {
 					// There is no auth callback, return without retrying.
 					return Ok(response);
@@ -158,9 +175,9 @@ impl<V: Send + Sync> Client<V> {
 				// Auth callback was blocked, we assume there was a login in flight and update
 				// our request settings after it is done.
 				_ = self.0.auth_callback.lock().await;
-				request_settings = self.request_settings();
 			}
 			// Retry request with new request settings.
+			request_settings = self.request_settings();
 			response = request_settings.make_request(request).await?;
 		}
 

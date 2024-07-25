@@ -1,5 +1,5 @@
 #![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
-#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout)]
+#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, clippy::indexing_slicing)]
 
 mod common;
 

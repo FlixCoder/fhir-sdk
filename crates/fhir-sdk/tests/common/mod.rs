@@ -1,11 +1,12 @@
 //! Common test functions.
 
-use once_cell::sync::Lazy;
+use std::sync::LazyLock;
+
 use tokio::{runtime::Runtime, sync::OnceCell};
 
 /// Test-global runtime to be stable across multiple tests using the same client
 /// and runtime.
-pub static RUNTIME: Lazy<Runtime> = Lazy::new(|| {
+pub static RUNTIME: LazyLock<Runtime> = LazyLock::new(|| {
 	tokio::runtime::Builder::new_multi_thread().enable_all().build().expect("creating runtime")
 });
 

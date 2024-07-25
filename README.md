@@ -41,7 +41,7 @@ This is a [FHIR](https://www.hl7.org/fhir/) library in its early stages. The mod
 ```rust
 use fhir_sdk::r5::resources::Patient;
 use fhir_sdk::client::{*, r5::*};
-use fhir_sdk::TryStreamExt;
+use fhir_sdk::{TryStreamExt, header};
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -147,7 +147,7 @@ async fn main() -> Result<(), Error> {
         // Register struct with state. Overwrites previous callback.
         .auth_callback(MyLogin { valid: std::time::Instant::now() })
         // Register async closure. Overwrites previous callback.
-        .auth_callback(|_client: HttpClient| async move { Ok(HeaderValue::from_static("hi")) })
+        .auth_callback(|_client: HttpClient| async move { eyre::Ok(HeaderValue::from_static("hi")) })
         .build()?;
 
     // Create a Patient resource using a builder.

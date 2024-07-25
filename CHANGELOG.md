@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased] - 2024-07-25
+
+### Bug Fixes
+
+- Atomically patch request settings to not overwrite unrelated changes.
+
+### Features
+
+- Add derive Hash to codes
+- **breaking**: Revamp auth_callback
+  - Introduce the `LoginManager` trait for more flexible authentication management.
+  - Allow mutable access in auth_callback.
+  - Improve internal request logic to not run multiple auth callbacks at the same time.
+
 ## [0.12.0] - 2024-05-26
 
 ### Features

@@ -191,6 +191,10 @@ async fn main() {
 }
 ```
 
+## Minimum supported Rust version
+
+Currently, I am always using the latest Rust version and do not put in any effort to keep the MSRV. Please open an issue in case you need a different policy, I might consider changing the policy.
+
 ## License
 
 Licensed under the MIT license. All contributors agree to license under this license.

@@ -47,14 +47,14 @@ impl Default for RequestSettings {
 impl RequestSettings {
 	/// Set the number of retries.
 	#[must_use]
-	pub fn retries(mut self, retries: usize) -> Self {
+	pub const fn retries(mut self, retries: usize) -> Self {
 		self.retries = retries;
 		self
 	}
 
 	/// Set to use fixed interval retrying.
 	#[must_use]
-	pub fn fixed_retry(mut self, interval: Duration) -> Self {
+	pub const fn fixed_retry(mut self, interval: Duration) -> Self {
 		self.exp_backoff = false;
 		self.retry_time = interval;
 		self.max_retry_time = None;
@@ -63,7 +63,7 @@ impl RequestSettings {
 
 	/// Set to use exponential backoff retrying.
 	#[must_use]
-	pub fn exp_backoff(mut self, start_time: Duration, max_time: Option<Duration>) -> Self {
+	pub const fn exp_backoff(mut self, start_time: Duration, max_time: Option<Duration>) -> Self {
 		self.exp_backoff = true;
 		self.retry_time = start_time;
 		self.max_retry_time = max_time;
@@ -72,7 +72,7 @@ impl RequestSettings {
 
 	/// Set the request timeout.
 	#[must_use]
-	pub fn timeout(mut self, timeout: Option<Duration>) -> Self {
+	pub const fn timeout(mut self, timeout: Option<Duration>) -> Self {
 		self.timeout = timeout;
 		self
 	}

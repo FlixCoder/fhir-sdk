@@ -243,7 +243,7 @@ fn resource_impls(names: &[Ident]) -> TokenStream {
 		impl Resource {
 			/// Get the resource type of the resource.
 			#[must_use]
-			pub fn resource_type(&self) -> ResourceType {
+			pub const fn resource_type(&self) -> ResourceType {
 				match self {
 					#(
 						Self::#names(_) => ResourceType::#names,

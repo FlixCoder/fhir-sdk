@@ -95,7 +95,7 @@ impl<'a> ParsedReference<'a> {
 	/// enough segments, but the segment was not an actual resource type. Take
 	/// care when parsing to `ResourceType`.
 	#[must_use]
-	pub fn resource_type(&self) -> Option<&'a str> {
+	pub const fn resource_type(&self) -> Option<&'a str> {
 		match self {
 			Self::Local { .. } => None,
 			Self::Relative { resource_type, .. } => Some(resource_type),
@@ -108,7 +108,7 @@ impl<'a> ParsedReference<'a> {
 	/// garbage, as the URL might have enough segments, but the segment was not
 	/// an actual id. Take care when using it.
 	#[must_use]
-	pub fn id(&self) -> Option<&'a str> {
+	pub const fn id(&self) -> Option<&'a str> {
 		match self {
 			Self::Local { id } => Some(id),
 			Self::Relative { id, .. } => Some(id),

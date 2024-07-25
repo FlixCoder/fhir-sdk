@@ -20,7 +20,7 @@ pub struct NumberSearch<'a> {
 impl<'a> NumberSearch<'a> {
 	/// Start with empty values and add values one at a time.
 	#[must_use]
-	pub fn new(name: &'a str) -> Self {
+	pub const fn new(name: &'a str) -> Self {
 		Self { name, values: Vec::new() }
 	}
 

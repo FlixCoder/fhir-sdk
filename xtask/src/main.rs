@@ -50,7 +50,7 @@ enum FhirServer {
 impl FhirServer {
 	/// Get the arguments for the docker command to use the appropriate compose
 	/// files.
-	fn compose_args(self) -> &'static [&'static str] {
+	const fn compose_args(self) -> &'static [&'static str] {
 		match self {
 			Self::Ci => &[
 				"-f",

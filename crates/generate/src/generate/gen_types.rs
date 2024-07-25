@@ -53,7 +53,7 @@ pub fn generate_type_struct(
 		impl #ident {
 			/// Get the resource type for this FHIR resource.
 			#[must_use]
-			pub fn resource_type() -> ResourceType {
+			pub const fn resource_type() -> ResourceType {
 				ResourceType::#ident
 			}
 		}

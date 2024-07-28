@@ -1,6 +1,4 @@
-//! REST Client Implementation.
-//!
-//! Does only work with one FHIR version at a time!
+//! FHIR REST Client Implementation.
 
 mod auth;
 mod builder;

@@ -16,5 +16,5 @@ pub use futures::stream::{Stream, StreamExt, TryStream, TryStreamExt};
 #[cfg(feature = "client")]
 pub use reqwest::{
 	header::{self, HeaderMap, HeaderValue},
-	Client as HttpClient, StatusCode, Url,
+	Body, Client as HttpClient, Request, RequestBuilder, Response, StatusCode, Url,
 };

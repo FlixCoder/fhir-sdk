@@ -54,6 +54,7 @@ uuid = { version = "1.4.1", features = ["v4"], optional = true }
 eyre = "0.6.8"
 tokio = { version = "1.27.0", features = ["full"] }
 tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+wiremock = "0.6.1"
 
 [package.metadata.docs.rs]
 features = ["r5", "builders", "client", "docs"]

@@ -70,7 +70,7 @@ impl<V> From<ClientData> for Client<V> {
 	}
 }
 
-impl<V: Send + Sync> Client<V> {
+impl<V> Client<V> {
 	/// Start building a new client with custom settings.
 	#[must_use]
 	pub fn builder() -> ClientBuilder<V> {
@@ -79,8 +79,21 @@ impl<V: Send + Sync> Client<V> {
 
 	/// Create a new client with default settings.
 	pub fn new(base_url: Url) -> Result<Self, Error> {
-		let client = Self::builder().base_url(base_url).build()?;
-		Ok(client.convert_version())
+		Self::builder().base_url(base_url).build()
+	}
+
+	/// Get the configured base URL.
+	#[must_use]
+	pub fn base_url(&self) -> &Url {
+		&self.0.base_url
+	}
+
+	/// Get the URL with the configured base URL and the given path segments.
+	fn url(&self, segments: &[&str]) -> Url {
+		let mut url = self.0.base_url.clone();
+		#[allow(clippy::expect_used)] // We made sure of it in the constructor.
+		url.path_segments_mut().expect("Base URL cannot be base").pop_if_empty().extend(segments);
+		url
 	}
 
 	/// Get the request settings configured in this client.
@@ -136,7 +149,9 @@ impl<V: Send + Sync> Client<V> {
 	pub fn r5(self) -> Client<FhirR5> {
 		self.convert_version()
 	}
+}
 
+impl<V: Send + Sync> Client<V> {
 	/// Run a request using the internal request settings, calling the auth
 	/// callback to retrieve a new Authorization header on `unauthtorized`
 	/// responses.
@@ -179,12 +194,16 @@ impl<V: Send + Sync> Client<V> {
 		Ok(response)
 	}
 
-	/// Get the URL with the configured base URL and the given path segments.
-	fn url(&self, segments: &[&str]) -> Url {
-		let mut url = self.0.base_url.clone();
-		#[allow(clippy::expect_used)] // We made sure of it in the constructor.
-		url.path_segments_mut().expect("Base URL cannot be base").pop_if_empty().extend(segments);
-		url
+	/// Send a custom HTTP request anywhere you want, but using this client's
+	/// internal HTTP machinery. The machinery includes automatic authentication
+	/// if configured (`auth_callback`) and automatic retrying of requests on
+	/// connection problems (as per `request_settings`).
+	pub async fn send_custom_request<F>(&self, make_request: F) -> Result<reqwest::Response, Error>
+	where
+		F: FnOnce(&reqwest::Client) -> reqwest::RequestBuilder + Send,
+	{
+		let request = (make_request)(&self.0.client);
+		self.run_request(request).await
 	}
 }
 
@@ -215,3 +234,6 @@ impl std::fmt::Debug for ClientData {
 			.finish()
 	}
 }
+
+#[cfg(test)]
+mod tests;

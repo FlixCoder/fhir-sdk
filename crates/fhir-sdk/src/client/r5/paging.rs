@@ -82,7 +82,7 @@ impl Stream for Paged {
 				};
 
 				// Parse the next page's URL or error out.
-				if let Some(next_url_string) = find_next_page_url(&bundle) {
+				if let Some(next_url_string) = find_page_url(&bundle, LinkRelationTypes::Next) {
 					let Ok(next_url) = Url::parse(next_url_string) else {
 						tracing::error!("Could not parse next page URL");
 						return Poll::Ready(Some(Err(Error::UrlParse(next_url_string.clone()))));
@@ -150,14 +150,9 @@ impl Stream for Paged {
 	}
 }
 
-/// Find the URL of the next page of the results returned in the Bundle.
-fn find_next_page_url(bundle: &Bundle) -> Option<&String> {
-	bundle
-		.link
-		.iter()
-		.flatten()
-		.find(|link| link.relation == LinkRelationTypes::Next)
-		.map(|link| &link.url)
+/// Find the URL of the page of the results returned in the Bundle.
+pub(crate) fn find_page_url(bundle: &Bundle, relation_type: LinkRelationTypes) -> Option<&String> {
+	bundle.link.iter().flatten().find(|link| link.relation == relation_type).map(|link| &link.url)
 }
 
 /// Query a resource from a given URL.

@@ -5,9 +5,19 @@ mod patch;
 mod search;
 mod transaction;
 
+pub use self::search::{
+	DateSearch, MissingSearch, NumberSearch, QuantitySearch, ReferenceSearch, StringSearch,
+	TokenSearch, UriSearch,
+};
+use self::{
+	paging::{find_page_url, Paged},
+	patch::{PatchViaFhir, PatchViaJson},
+	transaction::BatchTransaction,
+};
+use super::{misc, Client, Error, FhirR5, Page, PagedSearchMethod, SearchParameters};
 use fhir_model::{
 	r5::{
-		codes::{SearchEntryMode, SubscriptionPayloadContent},
+		codes::{LinkRelationTypes, SearchEntryMode, SubscriptionPayloadContent},
 		resources::{
 			BaseResource, Bundle, CapabilityStatement, NamedResource, Parameters,
 			ParametersParameter, ParametersParameterValue, Patient, Resource, ResourceType,
@@ -24,17 +34,6 @@ use reqwest::{
 	StatusCode, Url,
 };
 use serde::{de::DeserializeOwned, Serialize};
-
-pub use self::search::{
-	DateSearch, MissingSearch, NumberSearch, QuantitySearch, ReferenceSearch, StringSearch,
-	TokenSearch, UriSearch,
-};
-use self::{
-	paging::Paged,
-	patch::{PatchViaFhir, PatchViaJson},
-	transaction::BatchTransaction,
-};
-use super::{misc, Client, Error, FhirR5, SearchParameters};
 
 /// FHIR MIME-type this client uses.
 const MIME_TYPE: &str = JSON_MIME_TYPE;
@@ -269,6 +268,91 @@ impl Client<FhirR5> {
 				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
 		})
 		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
+	}
+
+	/// Search for FHIR resources of a given type with query parameters.
+	/// This simply ignores resources of the wrong type, e.g. an additional
+	/// OperationalOutcome.
+	/// Contrary to [search], this will return a [Page] instance,
+	/// allowing manual pagination.
+	///
+	/// # Examples
+	/// ```no_run
+	/// use fhir_model::r5::resources::Person;
+	/// use fhir_sdk::client::{Client, Page, PagedSearchMethod, RequestSettings, SearchParameters};
+	///
+	/// async fn do_search() {
+	///     let client = Client::builder()
+	///         .base_url("http://127.0.0.1:8100/fhir/".parse().unwrap())
+	///         .request_settings(RequestSettings::default())
+	///         .build()?;
+	///     let parameters = SearchParameters::empty();
+	///
+	///     let page: Page<Person> = client.search_paged(PagedSearchMethod::Parameters(parameters)).await?;
+	///
+	///     let person_resources: Vec<Person> = page.results;
+	///     match page.next_url {
+	///         Some(url) => {
+	///             let new_page: Page<Person> = client.search_paged(PagedSearchMethod::Url(url)).await?;
+	///         }
+	///         None => {
+	///             println!("No next page");
+	///         }
+	///     }
+	/// }
+	///
+	/// ```
+	///
+	pub async fn search_paged<R: NamedResource + TryFrom<Resource, Error = WrongResourceType>>(
+		&self,
+		query: PagedSearchMethod,
+	) -> Result<Page<R>, Error> {
+		let url = match query {
+			PagedSearchMethod::Parameters(parameters) => {
+				let mut url = self.url(&[R::TYPE.as_str()]);
+				url.query_pairs_mut().extend_pairs(parameters.into_queries()).finish();
+				url
+			}
+			PagedSearchMethod::Url(url) => url,
+		};
+
+		if url.origin() != self.0.base_url.origin() {
+			return Err(Error::DifferentOrigin(url.to_string()));
+		}
+
+		let bundle: Option<Bundle> = self.read_generic(url.clone()).await?;
+		match bundle {
+			Some(bundle) => {
+				let previous_url = find_page_url(&bundle, LinkRelationTypes::Previous)
+					.map(|url| Url::parse(url).map_err(|_| Error::UrlParse(url.to_owned())))
+					.transpose()?;
+				let next_url = find_page_url(&bundle, LinkRelationTypes::Next)
+					.map(|url| Url::parse(url).map_err(|_| Error::UrlParse(url.to_owned())))
+					.transpose()?;
+				let total = bundle.0.total;
+
+				// Build the result vector:
+				// 1. Flatten the results.
+				// 2. Filter out "supporting" entries (such as Include or OperationOutcome).
+				// 3. Convert to the expected resource type.
+				let results = bundle
+					.0
+					.entry
+					.into_iter()
+					.flatten()
+					.filter_map(|entry| {
+						match entry.search.as_ref().and_then(|search| search.mode.as_ref()) {
+							Some(SearchEntryMode::Match) | None => {
+								entry.resource.and_then(|res| R::try_from(res).ok())
+							}
+							_ => None,
+						}
+					})
+					.collect();
+				Ok(Page { results, previous_url, next_url, total })
+			}
+			None => Err(Error::ResourceNotFound(url.to_string())),
+		}
 	}
 
 	/// Start building a new batch request.

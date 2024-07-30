@@ -24,7 +24,7 @@ pub use self::{
 	builder::ClientBuilder,
 	error::Error,
 	request::RequestSettings,
-	search::SearchParameters,
+	search::{Page, PagedSearchMethod, SearchParameters},
 	write::{AnyResourceWrite, ResourceWrite},
 };
 

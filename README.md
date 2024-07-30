@@ -71,6 +71,20 @@ async fn main() -> Result<(), Error> {
         .try_collect()
         .await?;
 
+    // Or handle the pagination manually.
+    let parameters = SearchParameters::empty().and_raw("_count", "10");  // Set page size.
+    let page: Page<Patient> = client.search_paged(PagedSearchMethod::Parameters(parameters)).await?;
+
+    let patients: Vec<Patient> = page.results;
+    match page.next_url {
+        Some(url) => {
+            let new_page: Page<Patient> = client.search_paged(PagedSearchMethod::Url(url)).await?;
+        }
+        None => {
+            println!("No next page");
+        }
+    }
+
     Ok(())
 }
 ```

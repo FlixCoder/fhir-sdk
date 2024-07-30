@@ -1,5 +1,33 @@
 //! Search parameter handling.
 
+use crate::Url;
+
+/// Method to use for paged search.
+/// Use Parameters for the initial search, and Url to "follow" previous and next pages.
+pub enum PagedSearchMethod {
+	Parameters(SearchParameters),
+	Url(Url),
+}
+
+/// Single page of a result.
+///
+/// The URLs to previous and next pages are opaque and can be anything.
+/// The client only ensures it access to the same server.
+///
+/// See [search] for details and examples.
+pub struct Page<R> {
+	/// Results matching the search.
+	pub results: Vec<R>,
+	/// The URL to the previous page.
+	pub previous_url: Option<Url>,
+	/// The URL to the next page.
+	pub next_url: Option<Url>,
+	/// Total number of matches, as defined by the server.
+	/// This field is always optional and  behavior for this can be controlled with _total search parameter,
+	/// but the server can ignore it and
+	pub total: Option<u32>,
+}
+
 /// A collection of AND-joined search parameters.
 #[derive(Debug, Default, Clone)]
 pub struct SearchParameters {

@@ -8,6 +8,7 @@ use reqwest::Url;
 use serde::de::DeserializeOwned;
 
 use super::{Client, Error, FhirR4B};
+use crate::extensions::BundleExt;
 
 /// Results of a query that can be paged or given via URL only. The resources
 /// can be consumed via the `Stream`/`StreamExt` traits.
@@ -79,7 +80,7 @@ impl Stream for Paged {
 				};
 
 				// Parse the next page's URL or error out.
-				if let Some(next_url_string) = find_next_page_url(&bundle) {
+				if let Some(next_url_string) = bundle.next_page_url() {
 					let Ok(next_url) = Url::parse(next_url_string) else {
 						tracing::error!("Could not parse next page URL");
 						return Poll::Ready(Some(Err(Error::UrlParse(next_url_string.clone()))));
@@ -145,11 +146,6 @@ impl Stream for Paged {
 			(self.entries.len(), Some(self.entries.len()))
 		}
 	}
-}
-
-/// Find the URL of the next page of the results returned in the Bundle.
-fn find_next_page_url(bundle: &Bundle) -> Option<&String> {
-	bundle.link.iter().flatten().find(|link| link.relation == "next").map(|link| &link.url)
 }
 
 /// Query a resource from a given URL.

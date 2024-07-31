@@ -4,8 +4,11 @@ use crate::Url;
 
 /// Method to use for paged search.
 /// Use Parameters for the initial search, and Url to "follow" previous and next pages.
+#[derive(Debug, Clone)]
 pub enum PagedSearchMethod {
+	/// Search by given parameters, i.e., make the initial request.
 	Parameters(SearchParameters),
+	/// Search by given exact URL, i.e., make follow-up request.
 	Url(Url),
 }
 
@@ -15,6 +18,7 @@ pub enum PagedSearchMethod {
 /// The client only ensures it access to the same server.
 ///
 /// See [search] for details and examples.
+#[derive(Debug, Clone)]
 pub struct Page<R> {
 	/// Results matching the search.
 	pub results: Vec<R>,

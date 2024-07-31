@@ -6,6 +6,7 @@ mod common;
 use std::{env, str::FromStr};
 
 use eyre::Result;
+use fhir_sdk::client::{Page, PagedSearchMethod};
 use fhir_sdk::{
 	client::{
 		r5::{DateSearch, TokenSearch},
@@ -18,7 +19,7 @@ use fhir_sdk::{
 		},
 		reference_to,
 		resources::{
-			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
+			BaseResource, Bundle, Encounter, NamedResource, OperationOutcome, ParametersParameter,
 			ParametersParameterValue, Patient, Resource, ResourceType,
 		},
 		types::{HumanName, Identifier, Reference},
@@ -232,6 +233,61 @@ async fn search_inner() -> Result<()> {
 	assert_eq!(patients[0].birth_date, Some(date));
 
 	patient.delete(&client).await?;
+	Ok(())
+}
+
+#[test]
+fn search_paged() -> Result<()> {
+	common::RUNTIME.block_on(search_paged_inner())
+}
+
+async fn search_paged_inner() -> Result<()> {
+	let client = client().await?;
+
+	let num_records = 4;
+	let mut ids = Vec::with_capacity(num_records);
+	let date_str = "5123-05-05";
+	let date = Date::from_str(date_str).expect("parse Date");
+
+	for _ in 0..num_records {
+		let mut patient =
+			Patient::builder().active(false).birth_date(date.clone()).build().unwrap();
+		ids.push(patient.create(&client).await?);
+	}
+
+	let parameters = SearchParameters::empty()
+		.and_raw("_id", ids.join(","))
+		.and_raw("_sort", "_id")
+		.and_raw("_count", 2);
+
+	// Test the first page.
+	let page: Page<Patient> =
+		client.search_paged(PagedSearchMethod::Parameters(parameters)).await?;
+
+	assert!(page.next_url.is_some());
+	assert_eq!(page.results.len(), 2);
+
+	page.results.iter().zip(ids.iter()).for_each(|(patient, id)| {
+		assert_eq!(patient.id, Some(id.to_owned()));
+		assert_eq!(patient.active, Some(false));
+		assert_eq!(patient.birth_date, Some(date.to_owned()));
+	});
+
+	// Test the next page.
+	let page: Page<Patient> =
+		client.search_paged(PagedSearchMethod::Url(page.next_url.unwrap())).await?;
+	assert!(page.next_url.is_none());
+	assert_eq!(page.results.len(), 2);
+
+	page.results.iter().zip(ids.iter().skip(2)).for_each(|(patient, id)| {
+		assert_eq!(patient.id, Some(id.to_owned()));
+		assert_eq!(patient.active, Some(false));
+		assert_eq!(patient.birth_date, Some(date.to_owned()));
+	});
+
+	for id in ids.iter() {
+		client.delete(Patient::TYPE, id).await?;
+	}
 	Ok(())
 }
 

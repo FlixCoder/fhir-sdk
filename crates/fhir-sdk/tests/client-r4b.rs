@@ -13,7 +13,6 @@ use fhir_sdk::{
 	},
 	r4b::{
 		codes::{AdministrativeGender, EncounterStatus, IssueSeverity, SearchComparator},
-		reference_to,
 		resources::{
 			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
 			ParametersParameterValue, Patient, Resource, ResourceType,
@@ -100,7 +99,7 @@ async fn read_referenced_inner() -> Result<()> {
 	let mut patient = Patient::builder().build().unwrap();
 	patient.create(&client).await?;
 
-	let reference = reference_to(&patient).expect("creating reference");
+	let reference = Reference::relative_to(&patient).expect("creating reference");
 	let read = client.read_referenced(&reference).await?;
 	assert_eq!(read.as_base_resource().id(), patient.id());
 
@@ -373,7 +372,7 @@ async fn operation_encounter_everything_inner() -> Result<()> {
 				.build()
 				.unwrap(),
 		)
-		.subject(reference_to(&patient).expect("Patient reference"))
+		.subject(Reference::relative_to(&patient).expect("Patient reference"))
 		.build()
 		.unwrap();
 	encounter.create(&client).await?;

@@ -42,7 +42,16 @@ impl std::fmt::Display for DateFormatError {
 	}
 }
 
-impl std::error::Error for DateFormatError {}
+impl std::error::Error for DateFormatError {
+	fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
+		match self {
+			Self::TimeParsing(err) => Some(err),
+			Self::TimeComponentRange(err) => Some(err),
+			Self::IntParsing(err) => Some(err),
+			_ => None,
+		}
+	}
+}
 
 impl From<time::error::Parse> for DateFormatError {
 	fn from(value: time::error::Parse) -> Self {
@@ -75,7 +84,11 @@ impl std::fmt::Display for BuilderError {
 }
 
 #[cfg(feature = "builders")]
-impl std::error::Error for BuilderError {}
+impl std::error::Error for BuilderError {
+	fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
+		Some(&self.0)
+	}
+}
 
 #[cfg(feature = "builders")]
 impl From<UninitializedFieldError> for BuilderError {

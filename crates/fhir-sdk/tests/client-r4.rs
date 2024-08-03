@@ -15,7 +15,6 @@ use fhir_sdk::{
 		codes::{
 			AdministrativeGender, BundleType, EncounterStatus, IssueSeverity, SearchComparator,
 		},
-		reference_to,
 		resources::{
 			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
 		},
@@ -146,7 +145,7 @@ async fn read_referenced_inner() -> Result<()> {
 	let mut patient = Patient::builder().build().unwrap();
 	patient.create(&client).await?;
 
-	let reference = reference_to(&patient).expect("creating reference");
+	let reference = Reference::relative_to(&patient).expect("creating reference");
 	let read = client.read_referenced(&reference).await?;
 	assert_eq!(read.as_base_resource().id(), patient.id());
 

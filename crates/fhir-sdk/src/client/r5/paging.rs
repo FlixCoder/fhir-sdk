@@ -8,7 +8,6 @@ use reqwest::Url;
 use serde::de::DeserializeOwned;
 
 use super::{Client, Error, FhirR5};
-use crate::extensions::BundleExt;
 
 /// Results of a query that can be paged or given via URL only. The resources
 /// can be consumed via the `Stream`/`StreamExt` traits.

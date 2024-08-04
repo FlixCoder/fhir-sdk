@@ -8,7 +8,13 @@ use reqwest::{
 };
 use serde::{de::DeserializeOwned, Serialize};
 
-use super::{misc, paging::Paged, Client, Error, SearchParameters};
+use super::{
+	misc,
+	paging::Paged,
+	patch::{PatchViaFhir, PatchViaJson},
+	transaction::BatchTransaction,
+	Client, Error, SearchParameters,
+};
 use crate::{
 	extensions::{AnyResource, BundleEntryExt, GenericResource, ReferenceExt, SearchEntryModeExt},
 	version::FhirVersion,
@@ -255,5 +261,35 @@ where
 			entry.search_mode().map_or(true, SearchEntryModeExt::is_match)
 		})
 		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
+	}
+
+	/// Begin building a patch request for a FHIR resource on the server via the
+	/// `FHIRPath Patch` method.
+	pub fn patch_via_fhir<'a>(
+		&self,
+		resource_type: V::ResourceType,
+		id: &'a str,
+	) -> PatchViaFhir<'a, V> {
+		PatchViaFhir::new(self.clone(), resource_type, id)
+	}
+
+	/// Begin building a patch request for a FHIR resource on the server via the
+	/// [`JSON Patch`](https://datatracker.ietf.org/doc/html/rfc6902) method.
+	pub fn patch_via_json<'a>(
+		&self,
+		resource_type: V::ResourceType,
+		id: &'a str,
+	) -> PatchViaJson<'a, V> {
+		PatchViaJson::new(self.clone(), resource_type, id)
+	}
+
+	/// Start building a new batch request.
+	pub fn batch(&self) -> BatchTransaction<V> {
+		BatchTransaction::new(self.clone(), false)
+	}
+
+	/// Start building a new transaction request.
+	pub fn transaction(&self) -> BatchTransaction<V> {
+		BatchTransaction::new(self.clone(), true)
 	}
 }

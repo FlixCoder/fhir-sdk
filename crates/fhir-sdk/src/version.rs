@@ -10,7 +10,7 @@ use fhir_model::for_all_versions;
 use serde::{de::DeserializeOwned, Serialize};
 
 use crate::{
-	extensions::{BundleEntryExt, BundleExt, GenericResource, ReferenceExt},
+	extensions::{BundleEntryExt, BundleExt, GenericResource, ParametersExt, ReferenceExt},
 	utils::Sealed,
 };
 
@@ -109,6 +109,16 @@ pub trait FhirVersion: Sealed + Unpin + Send + Sync + 'static {
 		+ Unpin
 		+ Send
 		+ Sync;
+	/// `Parameters` resource.
+	type Parameters: ParametersExt
+		+ Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ Clone
+		+ PartialEq
+		+ Unpin
+		+ Send
+		+ Sync;
 
 	/// `Reference` type.
 	type Reference: ReferenceExt
@@ -156,6 +166,7 @@ macro_rules! impl_fhir_version {
 			type Bundle = $version::resources::Bundle;
 			type CapabilityStatement = $version::resources::CapabilityStatement;
 			type OperationOutcome = $version::resources::OperationOutcome;
+			type Parameters = $version::resources::Parameters;
 
 			type Reference = $version::types::Reference;
 

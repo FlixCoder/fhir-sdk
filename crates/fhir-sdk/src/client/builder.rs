@@ -5,12 +5,13 @@ use std::marker::PhantomData;
 use reqwest::Url;
 
 use super::{auth::AuthCallback, Client, Error, LoginManager, RequestSettings};
+use crate::version::{DefaultVersion, FhirVersion};
 
 /// Default user agent of this client.
 const DEFAULT_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 
 /// Builder for the [Client]
-pub struct ClientBuilder<Version = super::DefaultVersion, ACB = ()> {
+pub struct ClientBuilder<Version = DefaultVersion, ACB = ()> {
 	/// The FHIR server's base URL.
 	base_url: Option<Url>,
 	/// Reqwest Client
@@ -25,7 +26,10 @@ pub struct ClientBuilder<Version = super::DefaultVersion, ACB = ()> {
 	version: PhantomData<Version>,
 }
 
-impl<V, ACB> Default for ClientBuilder<V, ACB> {
+impl<V, ACB> Default for ClientBuilder<V, ACB>
+where
+	V: FhirVersion,
+{
 	fn default() -> Self {
 		Self {
 			base_url: None,
@@ -38,7 +42,10 @@ impl<V, ACB> Default for ClientBuilder<V, ACB> {
 	}
 }
 
-impl<V, ACB> ClientBuilder<V, ACB> {
+impl<V, ACB> ClientBuilder<V, ACB>
+where
+	V: FhirVersion,
+{
 	/// The FHIR server's base URL.
 	#[must_use]
 	pub fn base_url(mut self, base_url: Url) -> Self {

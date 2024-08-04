@@ -27,26 +27,7 @@ pub use self::{
 	search::SearchParameters,
 	write::{AnyResourceWrite, ResourceWrite},
 };
-
-/// FHIR client version to use: FHIR STU3.
-#[derive(Debug)]
-pub struct FhirStu3;
-/// FHIR client version to use: FHIR R4B.
-#[derive(Debug)]
-pub struct FhirR4B;
-/// FHIR client version to use: FHIR R5.
-#[derive(Debug)]
-pub struct FhirR5;
-
-#[cfg(feature = "r5")]
-/// Default client version.
-type DefaultVersion = FhirR5;
-#[cfg(all(not(feature = "r5"), feature = "r4b"))]
-/// Default client version.
-type DefaultVersion = FhirR4B;
-#[cfg(all(not(feature = "r5"), not(feature = "r4b"), feature = "stu3"))]
-/// Default client version.
-type DefaultVersion = FhirStu3;
+use crate::version::{DefaultVersion, FhirR4B, FhirR5, FhirStu3, FhirVersion};
 
 /// FHIR REST Client.
 #[derive(Debug)]
@@ -64,13 +45,13 @@ struct ClientData {
 	auth_callback: tokio::sync::Mutex<Option<AuthCallback>>,
 }
 
-impl<V> From<ClientData> for Client<V> {
+impl<V: FhirVersion> From<ClientData> for Client<V> {
 	fn from(data: ClientData) -> Self {
 		Self(Arc::new(data), PhantomData)
 	}
 }
 
-impl<V> Client<V> {
+impl<V: FhirVersion> Client<V> {
 	/// Start building a new client with custom settings.
 	#[must_use]
 	pub fn builder() -> ClientBuilder<V> {
@@ -149,9 +130,7 @@ impl<V> Client<V> {
 	pub fn r5(self) -> Client<FhirR5> {
 		self.convert_version()
 	}
-}
 
-impl<V: Send + Sync> Client<V> {
 	/// Run a request using the internal request settings, calling the auth
 	/// callback to retrieve a new Authorization header on `unauthtorized`
 	/// responses.
@@ -218,7 +197,7 @@ impl std::fmt::Debug for ClientData {
 		let auth_callback = match self.auth_callback.try_lock() {
 			Ok(inside) => {
 				if inside.is_some() {
-					"Some(<fn>)"
+					"Some(<login_manager>)"
 				} else {
 					"None"
 				}

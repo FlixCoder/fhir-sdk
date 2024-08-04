@@ -6,7 +6,7 @@ use fhir_model::for_all_versions;
 use reqwest::StatusCode;
 use serde::Serialize;
 
-use super::super::{error::Error, Client};
+use super::{Client, Error};
 use crate::{
 	extensions::{AnyResource, GenericResource},
 	version::{fhir_version, FhirVersion},
@@ -35,7 +35,7 @@ impl<R, V> ResourceWrite<V> for R
 where
 	R: AnyResource<V> + Serialize + Send + Sync,
 	V: FhirVersion,
-	Error: From<(StatusCode, V::OperationOutcome)>,
+	(StatusCode, V::OperationOutcome): Into<Error>,
 {
 	async fn update(&mut self, conditional: bool, client: &Client<V>) -> Result<bool, Error> {
 		let id = self.id().ok_or(Error::MissingId)?;

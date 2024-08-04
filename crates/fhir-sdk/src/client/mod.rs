@@ -26,7 +26,6 @@ pub use self::{
 use crate::version::{DefaultVersion, FhirR4B, FhirR5, FhirStu3, FhirVersion};
 
 /// FHIR REST Client.
-#[derive(Debug)]
 pub struct Client<Version = DefaultVersion>(Arc<ClientData>, PhantomData<Version>);
 
 /// FHIR Rest Client data.
@@ -207,6 +206,12 @@ impl std::fmt::Debug for ClientData {
 			.field("request_settings", &self.request_settings)
 			.field("auth_callback", &auth_callback)
 			.finish()
+	}
+}
+
+impl<V> std::fmt::Debug for Client<V> {
+	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+		f.debug_tuple("Client").field(&self.0).finish()
 	}
 }
 

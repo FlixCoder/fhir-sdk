@@ -1,15 +1,23 @@
 //! FHIR R5 client implementation.
 
-mod paging;
 mod patch;
 mod transaction;
 
+use fhir_model::r5::{
+	codes::SubscriptionPayloadContent,
+	resources::{
+		Bundle, Parameters, ParametersParameter, ParametersParameterValue, Patient, Resource,
+		ResourceType, SubscriptionStatus,
+	},
+};
+use reqwest::header;
+
 use self::{
-	paging::Paged,
 	patch::{PatchViaFhir, PatchViaJson},
 	transaction::BatchTransaction,
 };
 use super::{Client, Error, FhirR5};
+use crate::version::FhirVersion;
 
 impl Client<FhirR5> {
 	/// Begin building a patch request for a FHIR resource on the server via the
@@ -38,14 +46,14 @@ impl Client<FhirR5> {
 	/// resources for an `Encounter` record.
 	pub async fn operation_encounter_everything(&self, id: &str) -> Result<Bundle, Error> {
 		let url = self.url(&["Encounter", id, "$everything"]);
-		let request = self.0.client.get(url).header(header::ACCEPT, MIME_TYPE);
+		let request = self.0.client.get(url).header(header::ACCEPT, FhirR5::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r5(response).await)
+			Err(Error::from_response::<FhirR5>(response).await)
 		}
 	}
 
@@ -53,14 +61,14 @@ impl Client<FhirR5> {
 	/// resources for an `Patient` record.
 	pub async fn operation_patient_everything(&self, id: &str) -> Result<Bundle, Error> {
 		let url = self.url(&["Patient", id, "$everything"]);
-		let request = self.0.client.get(url).header(header::ACCEPT, MIME_TYPE);
+		let request = self.0.client.get(url).header(header::ACCEPT, FhirR5::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r5(response).await)
+			Err(Error::from_response::<FhirR5>(response).await)
 		}
 	}
 
@@ -105,8 +113,8 @@ impl Client<FhirR5> {
 			.0
 			.client
 			.post(url)
-			.header(header::ACCEPT, MIME_TYPE)
-			.header(header::CONTENT_TYPE, MIME_TYPE)
+			.header(header::ACCEPT, FhirR5::MIME_TYPE)
+			.header(header::CONTENT_TYPE, FhirR5::MIME_TYPE)
 			.json(&parameters);
 
 		let response = self.run_request(request).await?;
@@ -114,7 +122,7 @@ impl Client<FhirR5> {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r5(response).await)
+			Err(Error::from_response::<FhirR5>(response).await)
 		}
 	}
 
@@ -125,7 +133,7 @@ impl Client<FhirR5> {
 		id: &str,
 	) -> Result<SubscriptionStatus, Error> {
 		let url = self.url(&["Subscription", id, "$status"]);
-		let request = self.0.client.get(url.clone()).header(header::ACCEPT, MIME_TYPE);
+		let request = self.0.client.get(url.clone()).header(header::ACCEPT, FhirR5::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
@@ -140,7 +148,7 @@ impl Client<FhirR5> {
 				.ok_or_else(|| Error::ResourceNotFound(url.to_string()))?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r5(response).await)
+			Err(Error::from_response::<FhirR5>(response).await)
 		}
 	}
 
@@ -165,14 +173,15 @@ impl Client<FhirR5> {
 		}
 
 		let url = self.url(&["Subscription", id, "$events"]);
-		let request = self.0.client.get(url).query(&queries).header(header::ACCEPT, MIME_TYPE);
+		let request =
+			self.0.client.get(url).query(&queries).header(header::ACCEPT, FhirR5::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: Bundle = response.json().await?;
 			Ok(bundle)
 		} else {
-			Err(Error::from_response_r5(response).await)
+			Err(Error::from_response::<FhirR5>(response).await)
 		}
 	}
 }

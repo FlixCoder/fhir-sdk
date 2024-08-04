@@ -24,6 +24,7 @@ pub struct Paged<V: FhirVersion> {
 	entries: VecDeque<<V::Bundle as BundleExt>::Entry>,
 	/// Filter on Bundle entries, whether they should be included in the
 	/// results.
+	#[allow(clippy::type_complexity)] // Fine for now :D
 	filter: Box<dyn FnMut(&<V::Bundle as BundleExt>::Entry) -> bool + Send>,
 	/// Current future to retrieve a resource.
 	future_resource: Option<BoxFuture<'static, Result<V::Resource, Error>>>,

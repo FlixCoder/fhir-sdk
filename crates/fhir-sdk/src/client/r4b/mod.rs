@@ -1,15 +1,20 @@
 //! FHIR R4B client implementation.
 
-mod paging;
 mod patch;
 mod transaction;
 
+use fhir_model::r4b::resources::{
+	Bundle, Parameters, ParametersParameter, ParametersParameterValue, Patient, Resource,
+	ResourceType,
+};
+use reqwest::header;
+
 use self::{
-	paging::Paged,
 	patch::{PatchViaFhir, PatchViaJson},
 	transaction::BatchTransaction,
 };
 use super::{Client, Error, FhirR4B};
+use crate::version::FhirVersion;
 
 impl Client<FhirR4B> {
 	/// Begin building a patch request for a FHIR resource on the server via the
@@ -38,14 +43,14 @@ impl Client<FhirR4B> {
 	/// resources for an `Encounter` record.
 	pub async fn operation_encounter_everything(&self, id: &str) -> Result<Bundle, Error> {
 		let url = self.url(&["Encounter", id, "$everything"]);
-		let request = self.0.client.get(url).header(header::ACCEPT, MIME_TYPE);
+		let request = self.0.client.get(url).header(header::ACCEPT, FhirR4B::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r4b(response).await)
+			Err(Error::from_response::<FhirR4B>(response).await)
 		}
 	}
 
@@ -53,14 +58,14 @@ impl Client<FhirR4B> {
 	/// resources for an `Patient` record.
 	pub async fn operation_patient_everything(&self, id: &str) -> Result<Bundle, Error> {
 		let url = self.url(&["Patient", id, "$everything"]);
-		let request = self.0.client.get(url).header(header::ACCEPT, MIME_TYPE);
+		let request = self.0.client.get(url).header(header::ACCEPT, FhirR4B::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r4b(response).await)
+			Err(Error::from_response::<FhirR4B>(response).await)
 		}
 	}
 
@@ -105,8 +110,8 @@ impl Client<FhirR4B> {
 			.0
 			.client
 			.post(url)
-			.header(header::ACCEPT, MIME_TYPE)
-			.header(header::CONTENT_TYPE, MIME_TYPE)
+			.header(header::ACCEPT, FhirR4B::MIME_TYPE)
+			.header(header::CONTENT_TYPE, FhirR4B::MIME_TYPE)
 			.json(&parameters);
 
 		let response = self.run_request(request).await?;
@@ -114,7 +119,7 @@ impl Client<FhirR4B> {
 			let resource: Bundle = response.json().await?;
 			Ok(resource)
 		} else {
-			Err(Error::from_response_r4b(response).await)
+			Err(Error::from_response::<FhirR4B>(response).await)
 		}
 	}
 }

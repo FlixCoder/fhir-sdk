@@ -141,6 +141,7 @@ impl Sealed for FhirStu3 {}
 impl Sealed for FhirR4B {}
 impl Sealed for FhirR5 {}
 
+/// Implement `FhirVersion` for all supported versions.
 macro_rules! impl_fhir_version {
 	($version:ident) => {
 		use fhir_model::$version;

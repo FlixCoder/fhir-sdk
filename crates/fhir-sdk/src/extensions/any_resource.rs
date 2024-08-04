@@ -22,10 +22,6 @@ pub trait AnyResource<V: FhirVersion> {
 	fn set_version_id(&mut self, version_id: String);
 }
 
-/// Helper type to avoid trait implementation conflicts. Not a real FHIR
-/// version.
-struct GenericResource;
-
 /// Implement `AnyResource` for all fhir versions.
 macro_rules! impl_any_resource {
 	($version:ident) => {

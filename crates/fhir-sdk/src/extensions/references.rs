@@ -10,6 +10,7 @@ pub trait ReferenceExt {
 	fn r#type(&self) -> Option<&str>;
 }
 
+/// Implement `ReferenceExt` for all supported versions.
 macro_rules! impl_reference_ext {
 	($version:ident) => {
 		mod $version {

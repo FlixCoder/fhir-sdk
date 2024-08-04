@@ -6,7 +6,8 @@ use fhir_model::stu3::resources::{
 use reqwest::header::{self, HeaderValue};
 use serde::Serialize;
 
-use super::{Client, Error, FhirStu3, MIME_TYPE};
+use super::{Client, Error, FhirStu3};
+use crate::version::FhirVersion;
 
 /// Builder for a PATCH request via FHIRPath for a FHIR resource.
 #[derive(Debug, Clone)]
@@ -234,15 +235,15 @@ impl<'a> PatchViaFhir<'a> {
 			.0
 			.client
 			.patch(url)
-			.header(header::ACCEPT, MIME_TYPE)
-			.header(header::CONTENT_TYPE, HeaderValue::from_static(MIME_TYPE))
+			.header(header::ACCEPT, FhirStu3::MIME_TYPE)
+			.header(header::CONTENT_TYPE, HeaderValue::from_static(FhirStu3::MIME_TYPE))
 			.json(&parameters);
 
 		let response = self.client.run_request(request).await?;
 		if response.status().is_success() {
 			Ok(())
 		} else {
-			Err(Error::from_response_stu3(response).await)
+			Err(Error::from_response::<FhirStu3>(response).await)
 		}
 	}
 }
@@ -362,7 +363,7 @@ impl<'a> PatchViaJson<'a> {
 			.0
 			.client
 			.patch(url)
-			.header(header::ACCEPT, MIME_TYPE)
+			.header(header::ACCEPT, FhirStu3::MIME_TYPE)
 			.header(header::CONTENT_TYPE, HeaderValue::from_static("application/json-patch+json"))
 			.json(&self.operations);
 
@@ -370,7 +371,7 @@ impl<'a> PatchViaJson<'a> {
 		if response.status().is_success() {
 			Ok(())
 		} else {
-			Err(Error::from_response_stu3(response).await)
+			Err(Error::from_response::<FhirStu3>(response).await)
 		}
 	}
 }

@@ -8,6 +8,7 @@ pub trait SearchEntryModeExt {
 	fn is_match(&self) -> bool;
 }
 
+/// Implement `SearchEntryModeExt` for all versions.
 macro_rules! impl_search_entry_mode_ext {
 	($version:ident) => {
 		mod $version {

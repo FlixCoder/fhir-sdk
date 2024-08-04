@@ -237,7 +237,7 @@ where
 		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 
 		Paged::new(self.clone(), url, |entry| {
-			entry.search_mode().map_or(true, |search_mode| search_mode.is_match())
+			entry.search_mode().map_or(true, SearchEntryModeExt::is_match)
 		})
 	}
 
@@ -252,7 +252,7 @@ where
 		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 
 		Paged::new(self.clone(), url, |entry| {
-			entry.search_mode().map_or(true, |search_mode| search_mode.is_match())
+			entry.search_mode().map_or(true, SearchEntryModeExt::is_match)
 		})
 		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
 	}

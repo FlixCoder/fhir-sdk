@@ -11,6 +11,7 @@ use serde::{de::DeserializeOwned, Serialize};
 use super::{GenericResource, SearchEntryModeExt};
 
 /// Additional/generalized functionality on `Bundle`s.
+#[allow(dead_code)] // Future functionality.
 pub trait BundleExt {
 	/// Entry type.
 	type Entry: BundleEntryExt
@@ -31,6 +32,7 @@ pub trait BundleExt {
 	fn into_entries(self) -> impl Iterator<Item = Self::Entry>;
 }
 
+/// Implement `BundleExt` for all `Bundle` versions.
 macro_rules! impl_bundle_ext {
 	($version:ident) => {
 		mod $version {
@@ -57,11 +59,13 @@ macro_rules! impl_bundle_ext {
 	};
 }
 mod bundle_ext {
+	//! Module to avoid conflicts.
 	use super::*;
 	for_all_versions!(impl_bundle_ext);
 }
 
 /// Additional/generalized functionality on `BundleEntry`s.
+#[allow(dead_code)] // Future functionality.
 pub trait BundleEntryExt {
 	/// Generic resource enum for this version.
 	type Resource: GenericResource
@@ -99,6 +103,7 @@ pub trait BundleEntryExt {
 	fn into_parts(self) -> (Option<String>, Option<Self::Resource>);
 }
 
+/// Implement `BundleEntryExt` for all `BundleEntry` versions.
 macro_rules! impl_bundle_entry_ext {
 	($version:ident) => {
 		mod $version {
@@ -133,6 +138,7 @@ macro_rules! impl_bundle_entry_ext {
 	};
 }
 mod bundle_entry_ext {
+	//! Module to avoid conflicts.
 	use super::*;
 	for_all_versions!(impl_bundle_entry_ext);
 }

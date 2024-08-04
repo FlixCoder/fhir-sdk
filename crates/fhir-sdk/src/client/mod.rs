@@ -1,18 +1,13 @@
 //! FHIR REST Client Implementation.
 
+mod aliases;
 mod auth;
 mod builder;
 mod error;
 mod fhir;
 mod misc;
-#[cfg(feature = "r4b")]
-pub mod r4b;
-#[cfg(feature = "r5")]
-pub mod r5;
 mod request;
 mod search;
-#[cfg(feature = "stu3")]
-pub mod stu3;
 
 use std::{marker::PhantomData, sync::Arc};
 
@@ -20,8 +15,8 @@ use reqwest::{header, StatusCode, Url};
 
 use self::auth::AuthCallback;
 pub use self::{
-	auth::LoginManager, builder::ClientBuilder, error::Error, fhir::*, request::RequestSettings,
-	search::SearchParameters,
+	aliases::*, auth::LoginManager, builder::ClientBuilder, error::Error, fhir::*,
+	request::RequestSettings, search::SearchParameters,
 };
 use crate::version::{DefaultVersion, FhirR4B, FhirR5, FhirStu3, FhirVersion};
 

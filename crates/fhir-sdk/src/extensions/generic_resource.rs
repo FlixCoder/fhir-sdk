@@ -3,15 +3,21 @@
 use fhir_model::for_all_versions;
 
 /// Extended/shared functionality for generic resource enums.
+#[allow(dead_code)] // For future usage.
 pub trait GenericResource {
 	/// Get the resource type as str.
 	fn resource_type_str(&self) -> &str;
+	/// Get the ID of the resource.
+	fn id(&self) -> Option<&str>;
+	/// Set the version of the resource.
+	fn set_id(&mut self, id: String);
 	/// Get the version ID of the resource.
 	fn version_id(&self) -> Option<&str>;
 	/// Set the version ID of the resource.
 	fn set_version_id(&mut self, version_id: String);
 }
 
+/// Implement the generic resource trait for all versions.
 macro_rules! impl_generic_resource {
 	($version:ident) => {
 		mod $version {
@@ -23,6 +29,16 @@ macro_rules! impl_generic_resource {
 				#[inline]
 				fn resource_type_str(&self) -> &str {
 					self.resource_type().as_str()
+				}
+
+				#[inline]
+				fn id(&self) -> Option<&str> {
+					self.as_base_resource().id().as_deref()
+				}
+
+				#[inline]
+				fn set_id(&mut self, id: String) {
+					self.as_base_resource_mut().set_id(Some(id));
 				}
 
 				#[inline]

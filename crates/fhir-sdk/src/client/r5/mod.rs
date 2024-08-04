@@ -20,28 +20,6 @@ use super::{Client, Error, FhirR5};
 use crate::version::FhirVersion;
 
 impl Client<FhirR5> {
-	/// Begin building a patch request for a FHIR resource on the server via the
-	/// `FHIRPath Patch` method.
-	pub fn patch_via_fhir<'a>(&self, resource_type: ResourceType, id: &'a str) -> PatchViaFhir<'a> {
-		PatchViaFhir::new(self.clone(), resource_type, id)
-	}
-
-	/// Begin building a patch request for a FHIR resource on the server via the
-	/// [`JSON Patch`](https://datatracker.ietf.org/doc/html/rfc6902) method.
-	pub fn patch_via_json<'a>(&self, resource_type: ResourceType, id: &'a str) -> PatchViaJson<'a> {
-		PatchViaJson::new(self.clone(), resource_type, id)
-	}
-
-	/// Start building a new batch request.
-	pub fn batch(&self) -> BatchTransaction {
-		BatchTransaction::new(self.clone(), false)
-	}
-
-	/// Start building a new transaction request.
-	pub fn transaction(&self) -> BatchTransaction {
-		BatchTransaction::new(self.clone(), true)
-	}
-
 	/// Operation `$everything` on `Encounter`, returning a Bundle with all
 	/// resources for an `Encounter` record.
 	pub async fn operation_encounter_everything(&self, id: &str) -> Result<Bundle, Error> {

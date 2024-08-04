@@ -4,7 +4,8 @@ mod any_resource;
 mod bundle;
 mod codes;
 mod generic_resource;
+mod parameters;
 mod references;
 
 pub use self::any_resource::AnyResource;
-pub(crate) use self::{bundle::*, codes::*, generic_resource::*, references::*};
+pub(crate) use self::{bundle::*, codes::*, generic_resource::*, parameters::*, references::*};

@@ -7,10 +7,7 @@ use std::{env, str::FromStr};
 
 use eyre::Result;
 use fhir_sdk::{
-	client::{
-		stu3::{DateSearch, TokenSearch},
-		Client, ResourceWrite, SearchParameters,
-	},
+	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	stu3::{
 		codes::{
 			AdministrativeGender, BundleType, EncounterStatus, HTTPVerb, IssueSeverity,
@@ -213,7 +210,7 @@ async fn search_inner() -> Result<()> {
 		.search(
 			SearchParameters::empty()
 				.and_raw("_id", id)
-				.and(DateSearch {
+				.and(DateSearch::<FhirStu3> {
 					name: "birthdate",
 					comparator: Some(SearchComparator::Eq),
 					value: date_str,
@@ -327,7 +324,7 @@ async fn paging_inner() -> Result<()> {
 
 	println!("Starting search..");
 	let patients: Vec<Patient> = client
-		.search(SearchParameters::empty().and(DateSearch {
+		.search(SearchParameters::empty().and(DateSearch::<FhirStu3> {
 			name: "birthdate",
 			comparator: Some(SearchComparator::Eq),
 			value: date,

@@ -50,7 +50,7 @@ async fn mock_custom_request() -> MockServer {
 }
 
 #[tokio::test]
-async fn send_custom_request_features() -> eyre::Result<()> {
+async fn send_custom_request_features() -> anyhow::Result<()> {
 	let mocks = mock_custom_request().await;
 
 	let counter = Arc::new(AtomicUsize::new(0));
@@ -67,7 +67,7 @@ async fn send_custom_request_features() -> eyre::Result<()> {
 			let counter = counter_for_closure.clone();
 			async move {
 				counter.fetch_add(1, Ordering::Relaxed);
-				eyre::Ok(HeaderValue::from_static("Bearer <token>"))
+				anyhow::Ok(HeaderValue::from_static("Bearer <token>"))
 			}
 		})
 		.build()?;

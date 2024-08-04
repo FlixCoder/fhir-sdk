@@ -5,7 +5,7 @@ mod common;
 
 use std::{env, str::FromStr};
 
-use eyre::Result;
+use anyhow::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	stu3::{

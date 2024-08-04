@@ -5,7 +5,7 @@ mod common;
 
 use std::str::FromStr;
 
-use eyre::Result;
+use anyhow::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r4b::{
@@ -48,7 +48,7 @@ async fn medplum_auth(client: reqwest::Client) -> Result<HeaderValue> {
 		.await?
 		.error_for_status()?;
 	let login_code = extract_json_field(response.json().await?, "code")
-		.ok_or_else(|| eyre::eyre!("No code in login response"))?;
+		.ok_or_else(|| anyhow::format_err!("No code in login response"))?;
 
 	let token_url = "http://localhost:8080/oauth2/token";
 	let response = client
@@ -62,7 +62,7 @@ async fn medplum_auth(client: reqwest::Client) -> Result<HeaderValue> {
 		.await?
 		.error_for_status()?;
 	let access_token = extract_json_field(response.json().await?, "access_token")
-		.ok_or_else(|| eyre::eyre!("No access_token in login response"))?;
+		.ok_or_else(|| anyhow::format_err!("No access_token in login response"))?;
 
 	Ok(format!("Bearer {access_token}").parse()?)
 }
@@ -81,7 +81,7 @@ async fn client() -> Result<Client<FhirR4B>> {
 				)
 				.auth_callback(medplum_auth)
 				.build()?;
-			Ok::<_, eyre::Report>(client)
+			anyhow::Ok(client)
 		})
 		.await?;
 	Ok(client.clone())

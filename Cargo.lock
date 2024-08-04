@@ -438,8 +438,8 @@ dependencies = [
 name = "fhir-sdk"
 version = "0.13.0"
 dependencies = [
+ "anyhow",
  "async-trait",
- "eyre",
  "fhir-model 0.11.0",
  "futures",
  "reqwest",

@@ -5,7 +5,7 @@ mod common;
 
 use std::str::FromStr;
 
-use eyre::Result;
+use anyhow::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r4b::{
@@ -35,7 +35,7 @@ async fn client() -> Result<Client<FhirR4B>> {
 						.parse()?,
 				)
 				.build()?;
-			Ok::<_, eyre::Report>(client)
+			anyhow::Ok(client)
 		})
 		.await?;
 	Ok(client.clone())

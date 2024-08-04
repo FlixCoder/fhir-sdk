@@ -114,8 +114,8 @@ mod tests {
 
 	use super::*;
 
-	async fn auth_test_fn(_client: reqwest::Client) -> eyre::Result<HeaderValue> {
-		eyre::bail!("Test");
+	async fn auth_test_fn(_client: reqwest::Client) -> anyhow::Result<HeaderValue> {
+		anyhow::bail!("Test");
 	}
 
 	fn construct_test_fn() -> AuthCallback {
@@ -127,14 +127,14 @@ mod tests {
 	}
 
 	impl LoginManager for MyLoginManager {
-		type Error = eyre::Error;
+		type Error = anyhow::Error;
 
 		async fn authenticate(
 			&mut self,
 			_client: reqwest::Client,
 		) -> Result<HeaderValue, Self::Error> {
 			if self.fail_after == 0 {
-				eyre::bail!("test");
+				anyhow::bail!("test");
 			} else {
 				self.fail_after -= 1;
 				Ok(HeaderValue::from_static("whatever"))
@@ -149,7 +149,7 @@ mod tests {
 	fn construct_test_closure() -> AuthCallback {
 		AuthCallback::new(|client: reqwest::Client| async move {
 			let _response = client.get("invalid URL").send().await?;
-			eyre::Ok(HeaderValue::from_static("ignored"))
+			anyhow::Ok(HeaderValue::from_static("ignored"))
 		})
 	}
 }

@@ -9,7 +9,7 @@ use eyre::Result;
 use fhir_sdk::{
 	client::{
 		r4b::{DateSearch, TokenSearch},
-		Client, FhirR4B, ResourceWrite, SearchParameters,
+		Client, ResourceWrite, SearchParameters,
 	},
 	r4b::{
 		codes::{
@@ -20,6 +20,7 @@ use fhir_sdk::{
 		},
 		types::{Coding, HumanName, Reference},
 	},
+	version::FhirR4B,
 	Date,
 };
 use futures::TryStreamExt;

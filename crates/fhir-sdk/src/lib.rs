@@ -9,6 +9,9 @@
 
 #[cfg(feature = "client")]
 pub mod client;
+pub mod extensions;
+mod utils;
+pub mod version;
 
 pub use fhir_model::*;
 #[cfg(feature = "client")]

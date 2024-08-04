@@ -9,7 +9,7 @@ use eyre::Result;
 use fhir_sdk::{
 	client::{
 		stu3::{DateSearch, TokenSearch},
-		Client, FhirStu3, ResourceWrite, SearchParameters,
+		Client, ResourceWrite, SearchParameters,
 	},
 	stu3::{
 		codes::{
@@ -22,6 +22,7 @@ use fhir_sdk::{
 		},
 		types::{Coding, HumanName, Identifier, Reference},
 	},
+	version::FhirStu3,
 	Date,
 };
 use futures::TryStreamExt;

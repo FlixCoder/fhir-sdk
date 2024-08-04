@@ -113,12 +113,12 @@ impl Error {
 	pub(crate) async fn from_response<V>(response: reqwest::Response) -> Self
 	where
 		V: FhirVersion,
-		Self: From<(StatusCode, V::OperationOutcome)>,
+		(StatusCode, V::OperationOutcome): Into<Self>,
 	{
 		let status = response.status();
 		let body = response.text().await.unwrap_or_default();
 		if let Ok(outcome) = serde_json::from_str::<V::OperationOutcome>(&body) {
-			Self::from((status, outcome))
+			(status, outcome).into()
 		} else {
 			Self::Response(status, body)
 		}

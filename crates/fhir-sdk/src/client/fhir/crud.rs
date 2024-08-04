@@ -8,15 +8,15 @@ use reqwest::{
 };
 use serde::{de::DeserializeOwned, Serialize};
 
-use super::super::{misc, Client, Error, SearchParameters};
+use super::{misc, paging::Paged, Client, Error, SearchParameters};
 use crate::{
-	extensions::{AnyResource, GenericResource, ReferenceExt},
+	extensions::{AnyResource, BundleEntryExt, GenericResource, ReferenceExt, SearchEntryModeExt},
 	version::FhirVersion,
 };
 
 impl<V: FhirVersion> Client<V>
 where
-	Error: From<(StatusCode, V::OperationOutcome)>,
+	(StatusCode, V::OperationOutcome): Into<Error>,
 {
 	/// Get the server's capabilities. Fails if the respective FHIR version is
 	/// not supported at all.
@@ -237,11 +237,7 @@ where
 		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 
 		Paged::new(self.clone(), url, |entry| {
-			entry
-				.search
-				.as_ref()
-				.and_then(|search| search.mode.as_ref())
-				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
+			entry.search_mode().map_or(true, |search_mode| search_mode.is_match())
 		})
 	}
 
@@ -256,11 +252,7 @@ where
 		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
 
 		Paged::new(self.clone(), url, |entry| {
-			entry
-				.search
-				.as_ref()
-				.and_then(|search| search.mode.as_ref())
-				.map_or(true, |search_mode| *search_mode == SearchEntryMode::Match)
+			entry.search_mode().map_or(true, |search_mode| search_mode.is_match())
 		})
 		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
 	}

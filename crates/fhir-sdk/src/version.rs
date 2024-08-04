@@ -10,7 +10,7 @@ use fhir_model::for_all_versions;
 use serde::{de::DeserializeOwned, Serialize};
 
 use crate::{
-	extensions::{GenericResource, ReferenceExt},
+	extensions::{BundleEntryExt, BundleExt, GenericResource, ReferenceExt},
 	utils::Sealed,
 };
 
@@ -50,7 +50,7 @@ macro_rules! fhir_version {
 pub(crate) use fhir_version;
 
 /// FHIR version type "marker", but with additional information.
-pub trait FhirVersion: Sealed + Send + Sync {
+pub trait FhirVersion: Sealed + Unpin + Send + Sync + 'static {
 	/// FHIR version string.
 	const VERSION: &'static str;
 	/// JSON mime type used by this version.
@@ -67,20 +67,59 @@ pub trait FhirVersion: Sealed + Send + Sync {
 		+ Copy
 		+ PartialEq
 		+ Eq
+		+ Unpin
 		+ Send
 		+ Sync;
 	/// Generic `Resource` enum of this version.
-	type Resource: GenericResource + Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	type Resource: GenericResource
+		+ Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ Clone
+		+ PartialEq
+		+ Unpin
+		+ Send
+		+ Sync;
 
 	/// `Bundle` resource.
-	type Bundle: Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	type Bundle: BundleExt<Entry: BundleEntryExt<Resource = Self::Resource>>
+		+ Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ Clone
+		+ PartialEq
+		+ Unpin
+		+ Send
+		+ Sync;
 	/// `CapabilityStatement` resource.
-	type CapabilityStatement: Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	type CapabilityStatement: Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ Clone
+		+ PartialEq
+		+ Unpin
+		+ Send
+		+ Sync;
 	/// `OperationOutcome` resource.
-	type OperationOutcome: Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	type OperationOutcome: Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ Clone
+		+ PartialEq
+		+ Unpin
+		+ Send
+		+ Sync;
 
 	/// `Reference` type.
-	type Reference: ReferenceExt + Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	type Reference: ReferenceExt
+		+ Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ Clone
+		+ PartialEq
+		+ Unpin
+		+ Send
+		+ Sync;
 
 	/// `SearchComparator` type.
 	type SearchComparator: Serialize
@@ -93,6 +132,7 @@ pub trait FhirVersion: Sealed + Send + Sync {
 		+ Copy
 		+ PartialEq
 		+ Eq
+		+ Unpin
 		+ Send
 		+ Sync;
 }

@@ -48,8 +48,3 @@ pub trait SearchParameter {
 	/// Convert this search parameter into the query pair (key, value).
 	fn into_query(self) -> (String, String);
 }
-
-/// Escape a search parameter value.
-pub(crate) fn escape_value(value: &str) -> String {
-	value.replace('\\', "\\\\").replace('|', "\\|").replace('$', "\\$").replace(',', "\\,")
-}

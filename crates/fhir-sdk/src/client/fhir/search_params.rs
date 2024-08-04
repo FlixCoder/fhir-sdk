@@ -1,35 +1,38 @@
 //! Client search implementation.
 
-use fhir_model::stu3::{codes::SearchComparator, resources::ResourceType};
+use std::marker::PhantomData;
 
-use super::super::search::{escape_value, SearchParameter};
+use super::super::{misc::escape_search_value, search::SearchParameter};
+use crate::version::FhirVersion;
 
 /// Number search.
 ///
 /// Only implements most common functionality. Refer to adding raw queries when
 /// this does not suffice.
 #[derive(Debug, Clone)]
-pub struct NumberSearch<'a> {
+pub struct NumberSearch<'a, V> {
 	/// Name of the field.
 	name: &'a str,
 	/// Values encoded as string already (will be comma-separated for
 	/// OR-joining).
 	values: Vec<String>,
+	/// Use V.
+	_version: PhantomData<V>,
 }
 
-impl<'a> NumberSearch<'a> {
+impl<'a, V: FhirVersion> NumberSearch<'a, V> {
 	/// Start with empty values and add values one at a time.
 	#[must_use]
 	pub const fn new(name: &'a str) -> Self {
-		Self { name, values: Vec::new() }
+		Self { name, values: Vec::new(), _version: PhantomData }
 	}
 
 	/// Add a value to the number search.
 	#[must_use]
-	pub fn or(mut self, comparator: Option<SearchComparator>, value: impl ToString) -> Self {
-		let value = escape_value(&value.to_string());
+	pub fn or(mut self, comparator: Option<V::SearchComparator>, value: impl ToString) -> Self {
+		let value = escape_search_value(&value.to_string());
 		if let Some(comparator) = comparator {
-			self.values.push(format!("{}{value}", comparator.as_ref()));
+			self.values.push(format!("{comparator}{value}"));
 		} else {
 			self.values.push(value);
 		}
@@ -37,7 +40,7 @@ impl<'a> NumberSearch<'a> {
 	}
 }
 
-impl<'a> SearchParameter for NumberSearch<'a> {
+impl<'a, V> SearchParameter for NumberSearch<'a, V> {
 	fn into_query(self) -> (String, String) {
 		(self.name.to_owned(), self.values.join(","))
 	}
@@ -48,21 +51,24 @@ impl<'a> SearchParameter for NumberSearch<'a> {
 /// Only implements most common functionality. Refer to adding raw queries when
 /// this does not suffice.
 #[derive(Debug, Clone, Copy)]
-pub struct DateSearch<'a> {
+pub struct DateSearch<'a, V: FhirVersion> {
 	/// Name of the field.
 	pub name: &'a str,
 	/// Search comparator to compare the date.
-	pub comparator: Option<SearchComparator>,
+	pub comparator: Option<V::SearchComparator>,
 	/// Value to search for.
 	pub value: &'a str,
 }
 
-impl<'a> SearchParameter for DateSearch<'a> {
+impl<'a, V: FhirVersion> SearchParameter for DateSearch<'a, V> {
 	fn into_query(self) -> (String, String) {
 		if let Some(comparator) = self.comparator {
-			(self.name.to_owned(), format!("{}{}", comparator.as_ref(), escape_value(self.value)))
+			(
+				self.name.to_owned(),
+				format!("{}{}", comparator.as_ref(), escape_search_value(self.value)),
+			)
 		} else {
-			(self.name.to_owned(), escape_value(self.value))
+			(self.name.to_owned(), escape_search_value(self.value))
 		}
 	}
 }
@@ -104,7 +110,7 @@ impl<'a> SearchParameter for StringSearch<'a> {
 			Self::Contains { name, value } => (name, ":contains", value),
 			Self::Exact { name, value } => (name, ":exact", value),
 		};
-		(format!("{name}{modifier}"), escape_value(value))
+		(format!("{name}{modifier}"), escape_search_value(value))
 	}
 }
 
@@ -160,9 +166,13 @@ impl<'a> SearchParameter for TokenSearch<'a> {
 			Self::Standard { name, system, code, not } => {
 				let key = if not { format!("{name}:not") } else { name.to_owned() };
 				let value = if let Some(system) = system {
-					format!("{}|{}", escape_value(system), escape_value(code.unwrap_or_default()))
+					format!(
+						"{}|{}",
+						escape_search_value(system),
+						escape_search_value(code.unwrap_or_default())
+					)
 				} else {
-					escape_value(code.unwrap_or_default())
+					escape_search_value(code.unwrap_or_default())
 				};
 				(key, value)
 			}
@@ -170,19 +180,21 @@ impl<'a> SearchParameter for TokenSearch<'a> {
 				"identifier:of-type".to_owned(),
 				format!(
 					"{}|{}|{}",
-					escape_value(type_system.unwrap_or_default()),
-					escape_value(type_code.unwrap_or_default()),
-					escape_value(value.unwrap_or_default())
+					escape_search_value(type_system.unwrap_or_default()),
+					escape_search_value(type_code.unwrap_or_default()),
+					escape_search_value(value.unwrap_or_default())
 				),
 			),
 			Self::In { name, value_set, not } => {
 				if not {
-					(format!("{name}:not-in"), escape_value(value_set))
+					(format!("{name}:not-in"), escape_search_value(value_set))
 				} else {
-					(format!("{name}:in"), escape_value(value_set))
+					(format!("{name}:in"), escape_search_value(value_set))
 				}
 			}
-			Self::CodeText { name, text } => (format!("{name}:code-text"), escape_value(text)),
+			Self::CodeText { name, text } => {
+				(format!("{name}:code-text"), escape_search_value(text))
+			}
 		}
 	}
 }
@@ -193,13 +205,13 @@ impl<'a> SearchParameter for TokenSearch<'a> {
 /// Only implements most common functionality. Refer to adding raw queries when
 /// this does not suffice.
 #[derive(Debug, Clone, Copy)]
-pub enum ReferenceSearch<'a> {
+pub enum ReferenceSearch<'a, V: FhirVersion> {
 	/// Standard reference search by relative reference.
 	Standard {
 		/// Name of the field.
 		name: &'a str,
 		/// Resource type of the resource.
-		resource_type: ResourceType,
+		resource_type: V::ResourceType,
 		/// ID of the resource the reference should point to.
 		id: &'a str,
 		/// Historic version id to search for.
@@ -229,7 +241,7 @@ pub enum ReferenceSearch<'a> {
 		/// Name of the field.
 		name: &'a str,
 		/// Resource type of the reference.
-		resource_type: Option<ResourceType>,
+		resource_type: Option<V::ResourceType>,
 		/// Target resource field name.
 		target_name: &'a str,
 		/// (Raw) value of the target value. Might be any of the ways of search,
@@ -238,22 +250,22 @@ pub enum ReferenceSearch<'a> {
 	},
 }
 
-impl<'a> SearchParameter for ReferenceSearch<'a> {
+impl<'a, V: FhirVersion> SearchParameter for ReferenceSearch<'a, V> {
 	fn into_query(self) -> (String, String) {
 		match self {
 			Self::Standard { name, resource_type, id, version_id } => {
 				let value = if let Some(version_id) = version_id {
-					escape_value(&format!("{resource_type}/{id}/_history/{version_id}"))
+					escape_search_value(&format!("{resource_type}/{id}/_history/{version_id}"))
 				} else {
-					escape_value(&format!("{resource_type}/{id}"))
+					escape_search_value(&format!("{resource_type}/{id}"))
 				};
 				(name.to_owned(), value)
 			}
 			Self::Url { name, url, version_id } => {
 				let value = if let Some(version_id) = version_id {
-					format!("{}|{}", escape_value(url), escape_value(version_id))
+					format!("{}|{}", escape_search_value(url), escape_search_value(version_id))
 				} else {
-					escape_value(url)
+					escape_search_value(url)
 				};
 				(name.to_owned(), value)
 			}
@@ -261,8 +273,8 @@ impl<'a> SearchParameter for ReferenceSearch<'a> {
 				name.to_owned(),
 				format!(
 					"{}|{}",
-					escape_value(system.unwrap_or_default()),
-					escape_value(value.unwrap_or_default()),
+					escape_search_value(system.unwrap_or_default()),
+					escape_search_value(value.unwrap_or_default()),
 				),
 			),
 			Self::Chaining { name, resource_type, target_name, value } => {
@@ -282,11 +294,11 @@ impl<'a> SearchParameter for ReferenceSearch<'a> {
 /// Only implements most common functionality. Refer to adding raw queries when
 /// this does not suffice.
 #[derive(Debug, Clone, Copy)]
-pub struct QuantitySearch<'a> {
+pub struct QuantitySearch<'a, V: FhirVersion> {
 	/// Name of the field.
 	pub name: &'a str,
 	/// Search comparator to compare the date.
-	pub comparator: Option<SearchComparator>,
+	pub comparator: Option<V::SearchComparator>,
 	/// Value to search for.
 	pub value: &'a str,
 	/// Optional system.
@@ -295,19 +307,19 @@ pub struct QuantitySearch<'a> {
 	pub code: Option<&'a str>,
 }
 
-impl<'a> SearchParameter for QuantitySearch<'a> {
+impl<'a, V: FhirVersion> SearchParameter for QuantitySearch<'a, V> {
 	fn into_query(self) -> (String, String) {
 		let value = if let Some(comparator) = self.comparator {
-			format!("{}{}", comparator.as_ref(), escape_value(self.value))
+			format!("{comparator}{}", escape_search_value(self.value))
 		} else {
-			escape_value(self.value)
+			escape_search_value(self.value)
 		};
 
 		let query_value = if self.system.is_some() || self.code.is_some() {
 			format!(
 				"{value}|{}|{}",
-				escape_value(self.system.unwrap_or_default()),
-				escape_value(self.code.unwrap_or_default())
+				escape_search_value(self.system.unwrap_or_default()),
+				escape_search_value(self.code.unwrap_or_default())
 			)
 		} else {
 			value
@@ -355,7 +367,7 @@ impl<'a> SearchParameter for UriSearch<'a> {
 			Self::Below { name, uri } => (name, ":below", uri),
 			Self::Above { name, uri } => (name, ":above", uri),
 		};
-		(format!("{name}{modifier}"), escape_value(uri))
+		(format!("{name}{modifier}"), escape_search_value(uri))
 	}
 }
 
@@ -377,85 +389,115 @@ impl<'a> SearchParameter for MissingSearch<'a> {
 
 #[cfg(test)]
 mod tests {
+	use fhir_model::for_all_versions;
+
 	use super::*;
+	use crate::version::fhir_version;
 
-	#[test]
-	fn number() {
-		let number = NumberSearch::new("value-quantity")
-			.or(Some(SearchComparator::Lt), 60)
-			.or(Some(SearchComparator::Gt), 100);
-		assert_eq!(number.into_query(), ("value-quantity".to_owned(), "lt60,gt100".to_owned()));
+	macro_rules! make_tests {
+		($version:ident) => {
+			mod $version {
+				use $crate::$version::{codes::SearchComparator, resources::ResourceType};
+
+				use super::*;
+
+				#[test]
+				fn number() {
+					let number = NumberSearch::<fhir_version!($version)>::new("value-quantity")
+						.or(Some(SearchComparator::Lt), 60)
+						.or(Some(SearchComparator::Gt), 100);
+					assert_eq!(
+						number.into_query(),
+						("value-quantity".to_owned(), "lt60,gt100".to_owned())
+					);
+				}
+
+				#[test]
+				fn token() {
+					let token = TokenSearch::Standard {
+						name: "identifier",
+						system: None,
+						code: Some("code"),
+						not: true,
+					};
+					assert_eq!(
+						token.into_query(),
+						("identifier:not".to_owned(), "code".to_owned())
+					);
+
+					let token = TokenSearch::Standard {
+						name: "identifier",
+						system: Some(""),
+						code: Some("code"),
+						not: false,
+					};
+					assert_eq!(token.into_query(), ("identifier".to_owned(), "|code".to_owned()));
+
+					let token = TokenSearch::Standard {
+						name: "identifier",
+						system: Some("system"),
+						code: None,
+						not: false,
+					};
+					assert_eq!(token.into_query(), ("identifier".to_owned(), "system|".to_owned()));
+
+					let token = TokenSearch::OfType {
+						type_system: None,
+						type_code: None,
+						value: Some("value"),
+					};
+					assert_eq!(
+						token.into_query(),
+						("identifier:of-type".to_owned(), "||value".to_owned())
+					);
+				}
+
+				#[test]
+				fn reference() {
+					let reference: ReferenceSearch<'_, fhir_version!($version)> =
+						ReferenceSearch::Chaining {
+							name: "focus",
+							resource_type: Some(ResourceType::Encounter),
+							target_name: "status",
+							value: "in-progress",
+						};
+					assert_eq!(
+						reference.into_query(),
+						("focus:Encounter.status".to_owned(), "in-progress".to_owned())
+					);
+				}
+
+				#[test]
+				fn quantity() {
+					let quantity = QuantitySearch::<fhir_version!($version)> {
+						name: "test",
+						comparator: None,
+						value: "1.0",
+						system: None,
+						code: None,
+					};
+					assert_eq!(quantity.into_query(), ("test".to_owned(), "1.0".to_owned()));
+
+					let quantity = QuantitySearch::<fhir_version!($version)> {
+						name: "test",
+						comparator: None,
+						value: "1.0",
+						system: None,
+						code: Some("g"),
+					};
+					assert_eq!(quantity.into_query(), ("test".to_owned(), "1.0||g".to_owned()));
+				}
+
+				#[test]
+				fn missing() {
+					let missing = MissingSearch { name: "identifier", missing: true };
+					assert_eq!(
+						missing.into_query(),
+						("identifier:missing".to_owned(), "true".to_owned())
+					);
+				}
+			}
+		};
 	}
-
-	#[test]
-	fn token() {
-		let token = TokenSearch::Standard {
-			name: "identifier",
-			system: None,
-			code: Some("code"),
-			not: true,
-		};
-		assert_eq!(token.into_query(), ("identifier:not".to_owned(), "code".to_owned()));
-
-		let token = TokenSearch::Standard {
-			name: "identifier",
-			system: Some(""),
-			code: Some("code"),
-			not: false,
-		};
-		assert_eq!(token.into_query(), ("identifier".to_owned(), "|code".to_owned()));
-
-		let token = TokenSearch::Standard {
-			name: "identifier",
-			system: Some("system"),
-			code: None,
-			not: false,
-		};
-		assert_eq!(token.into_query(), ("identifier".to_owned(), "system|".to_owned()));
-
-		let token =
-			TokenSearch::OfType { type_system: None, type_code: None, value: Some("value") };
-		assert_eq!(token.into_query(), ("identifier:of-type".to_owned(), "||value".to_owned()));
-	}
-
-	#[test]
-	fn reference() {
-		let reference = ReferenceSearch::Chaining {
-			name: "focus",
-			resource_type: Some(ResourceType::Encounter),
-			target_name: "status",
-			value: "in-progress",
-		};
-		assert_eq!(
-			reference.into_query(),
-			("focus:Encounter.status".to_owned(), "in-progress".to_owned())
-		);
-	}
-
-	#[test]
-	fn quantity() {
-		let quantity = QuantitySearch {
-			name: "test",
-			comparator: None,
-			value: "1.0",
-			system: None,
-			code: None,
-		};
-		assert_eq!(quantity.into_query(), ("test".to_owned(), "1.0".to_owned()));
-
-		let quantity = QuantitySearch {
-			name: "test",
-			comparator: None,
-			value: "1.0",
-			system: None,
-			code: Some("g"),
-		};
-		assert_eq!(quantity.into_query(), ("test".to_owned(), "1.0||g".to_owned()));
-	}
-
-	#[test]
-	fn missing() {
-		let missing = MissingSearch { name: "identifier", missing: true };
-		assert_eq!(missing.into_query(), ("identifier:missing".to_owned(), "true".to_owned()));
-	}
+	for_all_versions!(make_tests);
 }

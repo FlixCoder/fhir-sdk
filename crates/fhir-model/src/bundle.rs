@@ -15,11 +15,11 @@ macro_rules! bundle_next_link_relation {
 	};
 }
 
-/// Implement `Bundle` functions for all FHIR versions.#
+/// Implement `Bundle` functions for all FHIR versions.
 macro_rules! impl_bundle {
 	($version:ident) => {
 		mod $version {
-			use crate::$version::resources::Bundle;
+			use $crate::$version::resources::Bundle;
 
 			impl Bundle {
 				/// Assuming the bundle is a search result, get the next page URL if
@@ -36,5 +36,4 @@ macro_rules! impl_bundle {
 		}
 	};
 }
-
 for_all_versions!(impl_bundle);

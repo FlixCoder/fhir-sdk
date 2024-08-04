@@ -205,5 +205,4 @@ macro_rules! impl_reference {
 		}
 	};
 }
-
 for_all_versions!(impl_reference);

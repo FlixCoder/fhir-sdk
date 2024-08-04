@@ -3,6 +3,7 @@
 mod auth;
 mod builder;
 mod error;
+mod fhir;
 mod misc;
 #[cfg(feature = "r4b")]
 pub mod r4b;
@@ -12,7 +13,6 @@ mod request;
 mod search;
 #[cfg(feature = "stu3")]
 pub mod stu3;
-mod write;
 
 use std::{marker::PhantomData, sync::Arc};
 
@@ -20,12 +20,8 @@ use reqwest::{header, StatusCode, Url};
 
 use self::auth::AuthCallback;
 pub use self::{
-	auth::LoginManager,
-	builder::ClientBuilder,
-	error::Error,
-	request::RequestSettings,
+	auth::LoginManager, builder::ClientBuilder, error::Error, fhir::*, request::RequestSettings,
 	search::SearchParameters,
-	write::{AnyResourceWrite, ResourceWrite},
 };
 use crate::version::{DefaultVersion, FhirR4B, FhirR5, FhirStu3, FhirVersion};
 

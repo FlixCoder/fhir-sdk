@@ -33,5 +33,4 @@ macro_rules! impl_codeable_concept {
 		}
 	};
 }
-
 for_all_versions!(impl_codeable_concept);

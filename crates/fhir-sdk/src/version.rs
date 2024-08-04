@@ -1,16 +1,27 @@
 //! Marker types for FHIR versions. Mainly for use in the client (but also
 //! extension traits).
 
-use crate::utils::Sealed;
+use std::{
+	fmt::{Debug, Display},
+	str::FromStr,
+};
+
+use fhir_model::for_all_versions;
+use serde::{de::DeserializeOwned, Serialize};
+
+use crate::{
+	extensions::{GenericResource, ReferenceExt},
+	utils::Sealed,
+};
 
 /// FHIR version STU3, "3.0".
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FhirStu3;
 /// FHIR version R4B, "4.3".
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FhirR4B;
 /// FHIR version R5, "5.0".
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FhirR5;
 
 #[cfg(feature = "r5")]
@@ -23,43 +34,92 @@ pub type DefaultVersion = FhirR4B;
 /// Default FHIR version (e.g. in client).
 pub type DefaultVersion = FhirStu3;
 
+/// Internal macro to convert the module version identifier to the FHIR version
+/// type.
+macro_rules! fhir_version {
+	(stu3) => {
+		$crate::version::FhirStu3
+	};
+	(r4b) => {
+		$crate::version::FhirR4B
+	};
+	(r5) => {
+		$crate::version::FhirR5
+	};
+}
+pub(crate) use fhir_version;
+
 /// FHIR version type "marker", but with additional information.
 pub trait FhirVersion: Sealed + Send + Sync {
 	/// FHIR version string.
 	const VERSION: &'static str;
 	/// JSON mime type used by this version.
 	const MIME_TYPE: &'static str;
+
+	/// `ResourceType` of this version.
+	type ResourceType: Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ FromStr
+		+ AsRef<str>
+		+ Display
+		+ Clone
+		+ Copy
+		+ PartialEq
+		+ Eq
+		+ Send
+		+ Sync;
+	/// Generic `Resource` enum of this version.
+	type Resource: GenericResource + Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+
+	/// `Bundle` resource.
+	type Bundle: Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	/// `CapabilityStatement` resource.
+	type CapabilityStatement: Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+	/// `OperationOutcome` resource.
+	type OperationOutcome: Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+
+	/// `Reference` type.
+	type Reference: ReferenceExt + Serialize + DeserializeOwned + Clone + PartialEq + Send + Sync;
+
+	/// `SearchComparator` type.
+	type SearchComparator: Serialize
+		+ DeserializeOwned
+		+ Debug
+		+ FromStr
+		+ AsRef<str>
+		+ Display
+		+ Clone
+		+ Copy
+		+ PartialEq
+		+ Eq
+		+ Send
+		+ Sync;
 }
 
 impl Sealed for FhirStu3 {}
-impl FhirVersion for FhirStu3 {
-	const VERSION: &'static str = fhir_model::stu3::VERSION;
-	const MIME_TYPE: &'static str = fhir_model::stu3::JSON_MIME_TYPE;
-}
-
 impl Sealed for FhirR4B {}
-impl FhirVersion for FhirR4B {
-	const VERSION: &'static str = fhir_model::r4b::VERSION;
-	const MIME_TYPE: &'static str = fhir_model::r4b::JSON_MIME_TYPE;
-}
-
 impl Sealed for FhirR5 {}
-impl FhirVersion for FhirR5 {
-	const VERSION: &'static str = fhir_model::r5::VERSION;
-	const MIME_TYPE: &'static str = fhir_model::r5::JSON_MIME_TYPE;
-}
 
-/// Internal macro to convert the module version identifier to the FHIR version
-/// type.
-macro_rules! fhir_version {
-	(stu3) => {
-		FhirStu3
-	};
-	(r4b) => {
-		FhirR4B
-	};
-	(r5) => {
-		FhirR5
+macro_rules! impl_fhir_version {
+	($version:ident) => {
+		use fhir_model::$version;
+
+		impl FhirVersion for fhir_version!($version) {
+			const VERSION: &'static str = $version::VERSION;
+			const MIME_TYPE: &'static str = $version::JSON_MIME_TYPE;
+
+			type ResourceType = $version::resources::ResourceType;
+			type Resource = $version::resources::Resource;
+
+			type Bundle = $version::resources::Bundle;
+			type CapabilityStatement = $version::resources::CapabilityStatement;
+			type OperationOutcome = $version::resources::OperationOutcome;
+
+			type Reference = $version::types::Reference;
+
+			type SearchComparator = $version::codes::SearchComparator;
+		}
 	};
 }
-pub(crate) use fhir_version;
+for_all_versions!(impl_fhir_version);

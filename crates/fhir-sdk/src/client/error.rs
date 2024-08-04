@@ -9,6 +9,8 @@ use fhir_model::stu3;
 use reqwest::StatusCode;
 use thiserror::Error;
 
+use crate::version::FhirVersion;
+
 /// FHIR REST Client Error.
 #[derive(Debug, Error)]
 pub enum Error {
@@ -64,6 +66,11 @@ pub enum Error {
 	#[error("Got error response ({0}): {1}")]
 	Response(StatusCode, String),
 
+	#[cfg(feature = "stu3")]
+	/// OperationOutcome.
+	#[error("OperationOutcome({0}): {1:?}")]
+	OperationOutcomeStu3(StatusCode, stu3::resources::OperationOutcome),
+
 	#[cfg(feature = "r4b")]
 	/// OperationOutcome.
 	#[error("OperationOutcome({0}): {1:?}")]
@@ -73,11 +80,6 @@ pub enum Error {
 	/// OperationOutcome.
 	#[error("OperationOutcome({0}): {1:?}")]
 	OperationOutcomeR5(StatusCode, r5::resources::OperationOutcome),
-
-	#[cfg(feature = "stu3")]
-	/// OperationOutcome.
-	#[error("OperationOutcome({0}): {1:?}")]
-	OperationOutcomeStu3(StatusCode, stu3::resources::OperationOutcome),
 
 	/// Resource was not found.
 	#[error("Resource `{0}` was not found")]
@@ -107,39 +109,39 @@ impl Error {
 		}
 	}
 
-	#[cfg(feature = "r4b")]
 	/// Extract the error from a response.
-	pub(crate) async fn from_response_r4b(response: reqwest::Response) -> Self {
+	pub(crate) async fn from_response<V>(response: reqwest::Response) -> Self
+	where
+		V: FhirVersion,
+		Self: From<(StatusCode, V::OperationOutcome)>,
+	{
 		let status = response.status();
 		let body = response.text().await.unwrap_or_default();
-		if let Ok(outcome) = serde_json::from_str(&body) {
-			Self::OperationOutcomeR4B(status, outcome)
+		if let Ok(outcome) = serde_json::from_str::<V::OperationOutcome>(&body) {
+			Self::from((status, outcome))
 		} else {
 			Self::Response(status, body)
 		}
 	}
+}
 
-	#[cfg(feature = "r5")]
-	/// Extract the error from a response.
-	pub(crate) async fn from_response_r5(response: reqwest::Response) -> Self {
-		let status = response.status();
-		let body = response.text().await.unwrap_or_default();
-		if let Ok(outcome) = serde_json::from_str(&body) {
-			Self::OperationOutcomeR5(status, outcome)
-		} else {
-			Self::Response(status, body)
-		}
+#[cfg(feature = "stu3")]
+impl From<(StatusCode, stu3::resources::OperationOutcome)> for Error {
+	fn from((status, outcome): (StatusCode, stu3::resources::OperationOutcome)) -> Self {
+		Self::OperationOutcomeStu3(status, outcome)
 	}
+}
 
-	#[cfg(feature = "stu3")]
-	/// Extract the error from a response.
-	pub(crate) async fn from_response_stu3(response: reqwest::Response) -> Self {
-		let status = response.status();
-		let body = response.text().await.unwrap_or_default();
-		if let Ok(outcome) = serde_json::from_str(&body) {
-			Self::OperationOutcomeStu3(status, outcome)
-		} else {
-			Self::Response(status, body)
-		}
+#[cfg(feature = "r4b")]
+impl From<(StatusCode, r4b::resources::OperationOutcome)> for Error {
+	fn from((status, outcome): (StatusCode, r4b::resources::OperationOutcome)) -> Self {
+		Self::OperationOutcomeR4B(status, outcome)
+	}
+}
+
+#[cfg(feature = "r5")]
+impl From<(StatusCode, r5::resources::OperationOutcome)> for Error {
+	fn from((status, outcome): (StatusCode, r5::resources::OperationOutcome)) -> Self {
+		Self::OperationOutcomeR5(status, outcome)
 	}
 }

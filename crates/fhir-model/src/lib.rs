@@ -13,6 +13,7 @@ pub mod r4b;
 #[cfg(feature = "r5")]
 pub mod r5;
 mod references;
+mod resource_type;
 #[cfg(feature = "stu3")]
 pub mod stu3;
 

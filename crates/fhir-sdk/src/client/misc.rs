@@ -47,6 +47,11 @@ pub fn parse_location(headers: &HeaderMap) -> Result<(String, Option<String>), E
 	}
 }
 
+/// Escape a search parameter value.
+pub fn escape_search_value(value: &str) -> String {
+	value.replace('\\', "\\\\").replace('|', "\\|").replace('$', "\\$").replace(',', "\\,")
+}
+
 #[cfg(test)]
 mod tests {
 	#![allow(clippy::expect_used)] // Allowed for tests

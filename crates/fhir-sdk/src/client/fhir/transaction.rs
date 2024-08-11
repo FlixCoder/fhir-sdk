@@ -54,10 +54,9 @@ where
 
 		let entry = BundleEntry::<V>::empty()
 			.with_full_url(uuid.clone())
-			.with_request(
-				BundleEntryRequest::<V>::make(resource.resource_type_str().to_owned())
-					.with_method_post(),
-			)
+			.with_request(BundleEntryRequest::<V>::make_post(
+				resource.resource_type_str().to_owned(),
+			))
 			.with_resource(resource);
 
 		self.entries.push(Some(entry));
@@ -78,7 +77,7 @@ where
 		let full_url = self.client.url(&[resource_type, resource_id]);
 		let url = format!("{resource_type}/{resource_id}");
 
-		let mut request = BundleEntryRequest::<V>::make(url).with_method_put();
+		let mut request = BundleEntryRequest::<V>::make_put(url);
 		if conditional {
 			let version_id = resource.version_id().ok_or(Error::MissingVersionId)?;
 			request = request.with_if_match(format!("W/\"{version_id}\""));
@@ -97,8 +96,8 @@ where
 	pub fn delete(&mut self, resource_type: V::ResourceType, id: &str) {
 		let url = format!("{resource_type}/{id}");
 
-		let entry = BundleEntry::<V>::empty()
-			.with_request(BundleEntryRequest::<V>::make(url).with_method_delete());
+		let entry =
+			BundleEntry::<V>::empty().with_request(BundleEntryRequest::<V>::make_delete(url));
 
 		self.entries.push(Some(entry));
 	}
@@ -107,8 +106,7 @@ where
 	pub fn read(&mut self, resource_type: V::ResourceType, id: &str) {
 		let url = format!("{resource_type}/{id}");
 
-		let entry = BundleEntry::<V>::empty()
-			.with_request(BundleEntryRequest::<V>::make(url).with_method_get());
+		let entry = BundleEntry::<V>::empty().with_request(BundleEntryRequest::<V>::make_get(url));
 
 		self.entries.push(Some(entry));
 	}

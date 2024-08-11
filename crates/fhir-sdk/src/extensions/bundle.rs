@@ -204,19 +204,21 @@ mod bundle_entry_ext {
 
 /// Additional/generalized functionality on `BundleEntryRequest`s.
 pub trait BundleEntryRequestExt {
-	/// Create new `BundleEntryRequest` with only url.
-	fn make(url: String) -> Self;
+	/// Create new `BundleEntryRequest` with only url, with the method set to
+	/// POST.
+	fn make_post(url: String) -> Self;
+	/// Create new `BundleEntryRequest` with only url, with the method set to
+	/// PUT.
+	fn make_put(url: String) -> Self;
+	/// Create new `BundleEntryRequest` with only url, with the method set to
+	/// GET.
+	fn make_get(url: String) -> Self;
+	/// Create new `BundleEntryRequest` with only url, with the method set to
+	/// DELETE.
+	fn make_delete(url: String) -> Self;
 	/// Use the current request and return it with the if_match set to the
 	/// value.
 	fn with_if_match(self, if_match: String) -> Self;
-	/// Use the current request and return it with the method set to POST.
-	fn with_method_post(self) -> Self;
-	/// Use the current request and return it with the method set to PUT.
-	fn with_method_put(self) -> Self;
-	/// Use the current request and return it with the method set to DELETE.
-	fn with_method_delete(self) -> Self;
-	/// Use the current request and return it with the method set to GET.
-	fn with_method_get(self) -> Self;
 }
 
 /// Implement `BundleEntryRequestExt` for all `BundleEntry` versions.
@@ -228,33 +230,28 @@ macro_rules! impl_bundle_entry_request_ext {
 			use super::*;
 
 			impl BundleEntryRequestExt for BundleEntryRequest {
-				fn make(url: String) -> Self {
+				fn make_post(url: String) -> Self {
 					#[allow(clippy::unwrap_used)] // Will always succeed.
-					Self::builder().url(url).build().unwrap()
+					Self::builder().url(url).method(HTTPVerb::Post).build().unwrap()
+				}
+
+				fn make_put(url: String) -> Self {
+					#[allow(clippy::unwrap_used)] // Will always succeed.
+					Self::builder().url(url).method(HTTPVerb::Put).build().unwrap()
+				}
+
+				fn make_get(url: String) -> Self {
+					#[allow(clippy::unwrap_used)] // Will always succeed.
+					Self::builder().url(url).method(HTTPVerb::Get).build().unwrap()
+				}
+
+				fn make_delete(url: String) -> Self {
+					#[allow(clippy::unwrap_used)] // Will always succeed.
+					Self::builder().url(url).method(HTTPVerb::Delete).build().unwrap()
 				}
 
 				fn with_if_match(mut self, if_match: String) -> Self {
 					self.if_match = Some(if_match);
-					self
-				}
-
-				fn with_method_post(mut self) -> Self {
-					self.method = HTTPVerb::Post;
-					self
-				}
-
-				fn with_method_put(mut self) -> Self {
-					self.method = HTTPVerb::Put;
-					self
-				}
-
-				fn with_method_delete(mut self) -> Self {
-					self.method = HTTPVerb::Delete;
-					self
-				}
-
-				fn with_method_get(mut self) -> Self {
-					self.method = HTTPVerb::Get;
 					self
 				}
 			}

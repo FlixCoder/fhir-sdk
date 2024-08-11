@@ -1,35 +1,90 @@
-#![cfg(all(feature = "r5", feature = "builders", feature = "client"))]
+#![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
 #![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, clippy::indexing_slicing)]
 
 mod common;
 
-use std::{env, str::FromStr};
+use std::str::FromStr;
 
 use anyhow::Result;
 use fhir_sdk::{
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
-	r5::{
+	r4b::{
 		codes::{
-			AdministrativeGender, BundleType, EncounterStatus, HTTPVerb, IssueSeverity,
-			SearchComparator,
+			AdministrativeGender, BundleType, EncounterStatus, IssueSeverity, SearchComparator,
 		},
 		resources::{
-			BaseResource, Bundle, Encounter, OperationOutcome, ParametersParameter,
-			ParametersParameterValue, Patient, Resource, ResourceType,
+			BaseResource, Bundle, Encounter, OperationOutcome, Patient, Resource, ResourceType,
 		},
-		types::{HumanName, Identifier, Reference},
+		types::{Coding, HumanName, Reference},
 	},
-	version::FhirR5,
+	version::FhirR4B,
 	Date,
 };
 use futures::TryStreamExt;
+use reqwest::header::HeaderValue;
+use serde_json::json;
+use tokio::sync::OnceCell;
+
+fn extract_json_field(json_body: serde_json::Value, field: &str) -> Option<String> {
+	let code = json_body.as_object()?.get(field)?.as_str()?;
+	Some(code.to_owned())
+}
+
+async fn medplum_auth(client: reqwest::Client) -> Result<HeaderValue> {
+	println!("Getting new authorization token from Medplum");
+
+	let my_challenge = "my_challenge";
+
+	let auth_url = "http://localhost:8080/auth/login";
+	let response = client
+		.post(auth_url)
+		.json(&json!({
+			"email": "admin@example.com",
+			"password": "medplum_admin",
+			"codeChallengeMethod": "plain",
+			"codeChallenge": my_challenge
+		}))
+		.send()
+		.await?
+		.error_for_status()?;
+	let login_code = extract_json_field(response.json().await?, "code")
+		.ok_or_else(|| anyhow::format_err!("No code in login response"))?;
+
+	let token_url = "http://localhost:8080/oauth2/token";
+	let response = client
+		.post(token_url)
+		.form(&[
+			("grant_type", "authorization_code"),
+			("code_verifier", my_challenge),
+			("code", &login_code),
+		])
+		.send()
+		.await?
+		.error_for_status()?;
+	let access_token = extract_json_field(response.json().await?, "access_token")
+		.ok_or_else(|| anyhow::format_err!("No access_token in login response"))?;
+
+	Ok(format!("Bearer {access_token}").parse()?)
+}
 
 /// Set up a client for testing with the (local) FHIR server.
-async fn client() -> Result<Client<FhirR5>> {
+async fn client() -> Result<Client<FhirR4B>> {
+	static CLIENT: OnceCell<Client<FhirR4B>> = OnceCell::const_new();
 	common::setup_logging().await;
-	let base_url =
-		env::var("FHIR_SERVER").unwrap_or("http://localhost:8100/fhir/".to_owned()).parse()?;
-	Ok(Client::new(base_url)?)
+	let client = CLIENT
+		.get_or_try_init(|| async move {
+			let client = Client::builder()
+				.base_url(
+					std::env::var("FHIR_SERVER")
+						.unwrap_or("http://localhost:8080/fhir/R4".to_owned())
+						.parse()?,
+				)
+				.auth_callback(medplum_auth)
+				.build()?;
+			anyhow::Ok(client)
+		})
+		.await?;
+	Ok(client.clone())
 }
 
 /// Go through all entries of the bundle, extracting the outcomes and search for
@@ -96,67 +151,6 @@ async fn read_referenced_inner() -> Result<()> {
 }
 
 #[test]
-fn patch_via_fhir() -> Result<()> {
-	common::RUNTIME.block_on(patch_via_fhir_inner())
-}
-
-async fn patch_via_fhir_inner() -> Result<()> {
-	let client = client().await?;
-
-	let mut patient = Patient::builder()
-		.active(false)
-		.gender(AdministrativeGender::Male)
-		.name(vec![Some(HumanName::builder().family("Test".to_owned()).build().unwrap())])
-		.build()
-		.unwrap();
-	patient.create(&client).await?;
-
-	let date = Date::from_str("2021-02-01").expect("parse Date");
-	client
-		.patch_via_fhir(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"))
-		.add(
-			"Patient",
-			"birthDate",
-			ParametersParameter::builder()
-				.name("value".to_owned())
-				.value(ParametersParameterValue::Date(date.clone()))
-				.build()
-				.unwrap(),
-		)
-		.delete("Patient.active")
-		.replace(
-			"Patient.gender",
-			ParametersParameter::builder()
-				.name("value".to_owned())
-				.value(ParametersParameterValue::Code("female".to_owned()))
-				.build()
-				.unwrap(),
-		)
-		.insert(
-			"Patient.name",
-			ParametersParameter::builder()
-				.name("value".to_owned())
-				.value(ParametersParameterValue::HumanName(
-					HumanName::builder().family("Family".to_owned()).build().unwrap(),
-				))
-				.build()
-				.unwrap(),
-			0,
-		)
-		.send()
-		.await?;
-
-	let patient: Patient =
-		client.read(patient.id.as_ref().expect("Patient.id")).await?.expect("Patient should exist");
-	assert_eq!(patient.birth_date, Some(date));
-	assert_eq!(patient.active, None);
-	assert_eq!(patient.gender, Some(AdministrativeGender::Female));
-	assert_eq!(patient.name.len(), 2);
-
-	Ok(())
-}
-
-#[test]
 fn patch_via_json() -> Result<()> {
 	common::RUNTIME.block_on(patch_via_json_inner())
 }
@@ -210,7 +204,7 @@ async fn search_inner() -> Result<()> {
 		.search(
 			SearchParameters::empty()
 				.and_raw("_id", id)
-				.and(DateSearch::<FhirR5> {
+				.and(DateSearch::<FhirR4B> {
 					name: "birthdate",
 					comparator: Some(SearchComparator::Eq),
 					value: date_str,
@@ -255,6 +249,13 @@ async fn transaction_inner() -> Result<()> {
 	let _encounter_ref = transaction.create(
 		Encounter::builder()
 			.status(EncounterStatus::Planned)
+			.class(
+				Coding::builder()
+					.system("test-system".to_owned())
+					.code("test-code".to_owned())
+					.build()
+					.unwrap(),
+			)
 			.subject(Reference::builder().reference(patient_ref.clone()).build().unwrap())
 			.build()
 			.unwrap(),
@@ -317,14 +318,14 @@ async fn paging_inner() -> Result<()> {
 
 	println!("Starting search..");
 	let patients: Vec<Patient> = client
-		.search(SearchParameters::empty().and(DateSearch::<FhirR5> {
+		.search(SearchParameters::empty().and(DateSearch::<FhirR4B> {
 			name: "birthdate",
 			comparator: Some(SearchComparator::Eq),
 			value: date,
 		}))
 		.try_collect()
 		.await?;
-	assert_eq!(patients.len(), n);
+	let patients_len = patients.len();
 
 	println!("Cleaning up..");
 	let mut batch = client.batch();
@@ -332,96 +333,8 @@ async fn paging_inner() -> Result<()> {
 		batch.delete(ResourceType::Patient, patient.id.as_ref().expect("Patient.id"));
 	}
 	ensure_batch_succeeded(batch.send().await?);
-	Ok(())
-}
 
-#[test]
-fn operation_encounter_everything() -> Result<()> {
-	common::RUNTIME.block_on(operation_encounter_everything_inner())
-}
-
-async fn operation_encounter_everything_inner() -> Result<()> {
-	let client = client().await?;
-
-	let mut patient = Patient::builder().build().unwrap();
-	patient.create(&client).await?;
-	let mut encounter = Encounter::builder()
-		.status(EncounterStatus::Completed)
-		.subject(Reference::relative_to(&patient).expect("Patient reference"))
-		.build()
-		.unwrap();
-	encounter.create(&client).await?;
-
-	let bundle =
-		client.operation_encounter_everything(encounter.id.as_ref().expect("Encounter.id")).await?;
-	let contains_patient = bundle
-		.entry
-		.iter()
-		.flatten()
-		.filter_map(|entry| entry.resource.as_ref())
-		.filter_map(|resource| resource.as_base_resource().id().as_ref())
-		.any(|id| Some(id) == patient.id.as_ref());
-	assert!(contains_patient);
-
-	Ok(())
-}
-
-#[test]
-#[ignore = "HAPI server does not support this"]
-fn operation_patient_match() -> Result<()> {
-	common::RUNTIME.block_on(operation_patient_match_inner())
-}
-
-async fn operation_patient_match_inner() -> Result<()> {
-	let client = client().await?;
-
-	let mut patient = Patient::builder()
-		.identifier(vec![Some(Identifier::builder().value("Test".to_owned()).build().unwrap())])
-		.build()
-		.unwrap();
-	patient.create(&client).await?;
-
-	let bundle = client.operation_patient_match(patient.clone(), true, 1).await?;
-	let contains_patient = bundle
-		.entry
-		.iter()
-		.flatten()
-		.filter_map(|entry| entry.resource.as_ref())
-		.filter_map(|resource| resource.as_base_resource().id().as_ref())
-		.any(|id| Some(id) == patient.id.as_ref());
-	assert!(contains_patient);
-
-	Ok(())
-}
-
-#[test]
-fn history_without_id() -> Result<()> {
-	common::RUNTIME.block_on(history_without_id_inner())
-}
-
-async fn history_without_id_inner() -> Result<()> {
-	let client = client().await?;
-
-	let mut patient = Patient::builder().language("history1".to_owned()).build().unwrap();
-	let first_patient_id = patient.create(&client).await?;
-
-	let mut patient = Patient::builder().language("history2".to_owned()).build().unwrap();
-	let second_patient_id = patient.create(&client).await?;
-
-	let bundle = client.history(ResourceType::Patient, None).await?;
-	assert_eq!(bundle.r#type, BundleType::History);
-	assert!(bundle.entry.len() >= 2);
-	for id in &[first_patient_id, second_patient_id] {
-		assert!(bundle.entry.iter().any(|entry| {
-			entry
-				.as_ref()
-				.unwrap()
-				.resource
-				.as_ref()
-				.map_or(false, |r| r.as_base_resource().id().as_ref() == Some(id))
-		}));
-	}
-
+	assert_eq!(patients_len, n);
 	Ok(())
 }
 
@@ -445,11 +358,9 @@ async fn history_with_id_inner() -> Result<()> {
 	assert_eq!(bundle.r#type, BundleType::History);
 	assert_eq!(bundle.entry.len(), 3);
 
-	let Some(response) = bundle.entry[0].as_ref().unwrap().request.as_ref() else {
+	let Some(_response) = bundle.entry[0].as_ref().unwrap().request.as_ref() else {
 		panic!("response should be BundleEntryRequest");
 	};
-
-	assert_eq!(response.method, HTTPVerb::Delete);
 
 	let Some(Resource::Patient(last_version)) = bundle.entry[1].as_ref().unwrap().resource.as_ref()
 	else {

@@ -89,7 +89,8 @@ macro_rules! impl_hapi_tests {
 					.any(|issue| {
 						matches!(issue.severity, IssueSeverity::Error | IssueSeverity::Fatal)
 					});
-				assert!(!batch_errors);
+				let bundle_json = serde_json::to_string_pretty(&bundle).expect("serialize Bundle");
+				assert!(!batch_errors, "Batch failed: {bundle_json}");
 			}
 
 			#[test]

@@ -158,10 +158,10 @@ run_task.cleanup_task = "docker-ci-down"
 description = """
 Runs all checks necessary for CI to pass.
 It is recommended to start docker once via "docker-ci-up" during development.
-Then run "formatting", "clippy" and "test" as needed.
+Then run "formatting", "test" and "clippy" as needed.
 Shut down docker via "docker-ci-down" when done.
 """
-dependencies = ["formatting", "clippy", "ci-tests"]
+dependencies = ["formatting", "ci-tests", "clippy"]
 
 
 [tasks.generate]

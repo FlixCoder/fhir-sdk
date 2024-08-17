@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   formatting:
-    name: Rustfmt
+    name: Formatting
     runs-on: ubuntu-latest
     
     steps:
@@ -45,10 +45,10 @@ jobs:
       - name: Caching
         uses: Swatinem/rust-cache@v2
 
-      - name: Clippy for all required feature sets
-        shell: bash
-        run: cargo make clippy
-
       - name: Run CI tests
         shell: bash
         run: cargo make ci-tests
+
+      - name: Clippy for all required feature sets
+        shell: bash
+        run: cargo make clippy

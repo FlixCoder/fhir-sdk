@@ -53,8 +53,9 @@ jobs:
 
   tests:
     strategy:
+      fail-fast: false
       matrix:
-        selected_features:
+        include:
           - name: "STU3"
             feat_arg: "--no-default-features --features stu3,client"
             compose_profiles: "hapi-stu3"
@@ -65,7 +66,7 @@ jobs:
             feat_arg: "--no-default-features --features r5,client"
             compose_profiles: "hapi-r5"
 
-    name: "Tests (${{ matrix.selected_features.name }})"
+    name: "Tests (${{ matrix.name }})"
     runs-on: ubuntu-latest
 
     steps:
@@ -82,11 +83,11 @@ jobs:
       - name: Caching
         uses: Swatinem/rust-cache@v2
 
-      - name: "Run tests for this feature set: ${{ matrix.selected_features.name }}"
+      - name: "Run tests for this feature set: ${{ matrix.name }}"
         shell: bash
         # Uses a light variant right now to save resources.. Locally, there is a better version.
         # Sadly, cannot use --all-features.
         run: |
-          cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.selected_features.compose_profiles}}" docker-ci-up
-          cargo make --makefile Makefile-light-ci.toml --env "FEATURE_SELECTION=${{ matrix.selected_features.feat_arg }}" test
-          cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.selected_features.compose_profiles}}" docker-ci-down
+          cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.compose_profiles}}" docker-ci-up
+          cargo make --makefile Makefile-light-ci.toml --env "FEATURE_SELECTION=${{ matrix.feat_arg }}" test
+          cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.compose_profiles}}" docker-ci-down

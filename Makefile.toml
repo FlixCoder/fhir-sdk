@@ -167,6 +167,7 @@ dependencies = ["formatting", "ci-tests", "clippy"]
 [tasks.generate]
 description = "Run the code generator for fhir-model to produce all FHIR code."
 install_crate = false
+condition = { files_modified = { input = ["./crates/generate/**/*"], output = ["./target/**/generate"] } }
 command = "cargo"
 args = ["run", "-p", "generate"]
 dependencies = ["install-rust-toolchain"]

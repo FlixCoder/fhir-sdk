@@ -39,9 +39,9 @@ struct ClientData {
 	/// version.
 	error_on_version_mismatch: bool,
 	/// Whether to error before we try to send a request to a different server
-	/// than is configured in the base URL. Does not apply to manual requests.
-	/// Mostly applies to search results and references to resources on other
-	/// server.
+	/// than is configured in the base URL. Also not applies to custom requests!
+	/// Reasoning is to avoid search results and references to resources on other
+	/// servers when this is not wanted.
 	error_on_origin_mismatch: bool,
 }
 
@@ -196,6 +196,12 @@ impl<V: FhirVersion> Client<V> {
 	/// internal HTTP machinery. The machinery includes automatic authentication
 	/// if configured (`auth_callback`) and automatic retrying of requests on
 	/// connection problems (as per `request_settings`).
+	///
+	/// Keep in mind that mismatching origins to the base URL are rejected if not explicitly allowed
+	/// via the flag in the builder ([ClientBuilder::allow_origin_mismatch]). Similarly, if the
+	/// server responds with a different major FHIR version than the client is configured for, the
+	/// response is rejected if not explicitly allowed via the flag in the builder
+	/// ([ClientBuilder::allow_version_mismatch]).
 	pub async fn send_custom_request<F>(&self, make_request: F) -> Result<reqwest::Response, Error>
 	where
 		F: FnOnce(&reqwest::Client) -> reqwest::RequestBuilder + Send,

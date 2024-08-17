@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/*", "xtask"]
+members = ["crates/*"]
 resolver = "2"
 
 [profile.dev.build-override]

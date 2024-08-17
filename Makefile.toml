@@ -1,0 +1,167 @@
+[config]
+skip_core_tasks = true
+default_to_workspace = false
+time_summary = true
+
+
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+
+[tasks.install-rust-nightly-rustfmt]
+private = true
+description = "Installs nightly Rust with rustfmt (hopefully)."
+toolchain = "nightly"
+install_crate = { rustup_component_name = "rustfmt", binary = "rustfmt", test_arg = "--version" }
+
+[tasks.install-rust-toolchain]
+private = true
+description = "Installs the used Rust toolchain with specified components."
+command = "rustup"
+args = ["show"]
+
+
+[tasks.format]
+description = "Formats all Rust code."
+install_crate = false
+command = "cargo"
+args = ["+nightly", "fmt"]
+dependencies = ["install-rust-nightly-rustfmt"]
+
+[tasks.formatting]
+description = "Checks all Rust code formatting."
+install_crate = false
+command = "cargo"
+args = ["+nightly", "fmt", "--", "--check"]
+dependencies = ["install-rust-nightly-rustfmt"]
+
+
+[tasks.clippy-default]
+install_crate = false
+command = "cargo"
+args = ["clippy", "--workspace", "--all-targets", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-stu3-no-builders]
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--no-default-features", "--features", "stu3", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-stu3-client]
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--no-default-features", "--features", "stu3,client", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-r4b-no-builders]
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--no-default-features", "--features", "r4b", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-r4b-client]
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--no-default-features", "--features", "r4b,client", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-r5-no-builders]
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--no-default-features", "--features", "r5", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-r5-client]
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--no-default-features", "--features", "r5,client", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy-all]
+install_crate = false
+command = "cargo"
+args = ["clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.clippy]
+description = "Runs clippy with all various feature sets."
+dependencies = [
+	"clippy-default",
+	"clippy-stu3-no-builders",
+	"clippy-stu3-client",
+	"clippy-r4b-no-builders",
+	"clippy-r4b-client",
+	"clippy-r5-no-builders",
+	"clippy-r5-client",
+	"clippy-all",
+]
+# Builders are implicitly enabled in the client.
+
+
+[tasks.test-all]
+description = "Runs all tests via cargo test."
+install_crate = false
+command = "cargo"
+args = ["test", "--workspace", "--all-features"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.test-nextest]
+description = "Runs all tests via nextest (installs nextest if necessary)."
+install_crate = true
+command = "cargo"
+args = ["nextest", "run", "--workspace", "--all-features"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.test-docs]
+description = "Runs all doc-tests (since nextest does not)."
+install_crate = false
+command = "cargo"
+args = ["test", "--workspace", "--doc"]
+dependencies = ["install-rust-toolchain"]
+
+[tasks.test]
+description = "Runs all tests."
+dependencies = ["test-nextest", "test-docs"]
+
+
+[tasks.docker]
+description = "Runs docker compose with your given arguments. Without profiles, it will do nothing."
+install_crate = false
+cwd = "./docker/"
+command = "docker"
+args = ["compose", "${@}"]
+
+[tasks.docker-ci-up]
+description = "Runs `docker compose up -d` for all services (ci profile)."
+install_crate = false
+cwd = "./docker/"
+command = "docker"
+args = ["compose", "up", "-d"]
+
+[tasks.docker-ci-down]
+description = "Runs `docker compose down -v` for all services (ci profile)."
+install_crate = false
+cwd = "./docker/"
+command = "docker"
+args = ["compose", "down", "-v"]
+
+
+[tasks.ci-tests]
+description = "Runs all tests with the necessary services via docker."
+run_task.fork = true
+run_task.name = ["docker-ci-up", "test", "docker-ci-down"]
+run_task.cleanup_task = "docker-ci-down"
+
+[tasks.ci]
+description = """
+Runs all checks necessary for CI to pass.
+It is recommended to start docker once via "docker-ci-up" during development.
+Then run "formatting", "clippy" and "test" as needed.
+Shut down docker via "docker-ci-down" when done.
+"""
+dependencies = ["formatting", "clippy", "ci-tests"]
+
+
+[tasks.default]
+alias = "ci"

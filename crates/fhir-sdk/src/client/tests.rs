@@ -7,6 +7,7 @@ use std::{
 
 use header::HeaderValue;
 use reqwest::Method;
+use serde_json::json;
 use wiremock::{matchers, Mock, MockServer, ResponseTemplate};
 
 use super::*;
@@ -70,6 +71,8 @@ async fn send_custom_request_features() -> anyhow::Result<()> {
 				anyhow::Ok(HeaderValue::from_static("Bearer <token>"))
 			}
 		})
+		.allow_origin_mismatch()
+		.allow_version_mismatch()
 		.build()?;
 
 	let url = format!("{}/my/custom/path", mocks.uri());
@@ -79,5 +82,75 @@ async fn send_custom_request_features() -> anyhow::Result<()> {
 	assert_eq!(counter.load(Ordering::SeqCst), 1);
 
 	mocks.verify().await;
+	Ok(())
+}
+
+
+async fn mock_version_mismatch() -> MockServer {
+	let server = MockServer::start().await;
+
+	Mock::given(matchers::method(Method::GET))
+		.and(matchers::path("/Patient/1"))
+		.respond_with(
+			ResponseTemplate::new(StatusCode::OK).set_body_raw(
+				serde_json::to_vec(&json!({
+					"resourceType": "Patient",
+					"id": "1",
+					"active": true
+				}))
+				.unwrap(),
+				"application/fhir+json; fhirVersion=1.0",
+			),
+		)
+		.named("FHIR version 1 response")
+		.mount(&server)
+		.await;
+
+	server
+}
+
+#[tokio::test]
+async fn check_major_fhir_version() -> anyhow::Result<()> {
+	let mocks = mock_version_mismatch().await;
+
+	let client = <Client>::builder().base_url(Url::parse(&mocks.uri())?).build()?;
+
+	// Avoid FHIR version specific types.. So sending custom request.
+	let url = format!("{}/Patient/1", mocks.uri());
+	let result = client.send_custom_request(|http| http.get(url)).await;
+	assert!(matches!(result, Err(Error::DifferentFhirVersion(_))));
+
+	// Allow different versions this time.
+	let client =
+		<Client>::builder().base_url(Url::parse(&mocks.uri())?).allow_version_mismatch().build()?;
+
+	// Avoid FHIR version specific types.. So sending custom request.
+	let url = format!("{}/Patient/1", mocks.uri());
+	let response = client.send_custom_request(|http| http.get(url)).await?;
+	assert_eq!(response.status(), StatusCode::OK);
+
+	Ok(())
+}
+
+#[tokio::test]
+async fn check_url_origin() -> anyhow::Result<()> {
+	let mocks = mock_version_mismatch().await;
+
+	let client = <Client>::builder().base_url("http://localhost/".parse()?).build()?;
+
+	let result = client.send_custom_request(|http| http.get("http://localhost:5555/")).await;
+	assert!(matches!(result, Err(Error::DifferentOrigin(_))));
+
+	// Allow different origins this time.
+	let client = <Client>::builder()
+		.base_url("http://localhost/".parse()?)
+		.allow_version_mismatch()
+		.allow_origin_mismatch()
+		.build()?;
+
+	let url = format!("{}/Patient/1", mocks.uri());
+	let response = client.send_custom_request(|http| http.get(url)).await?;
+	assert_eq!(response.status(), StatusCode::OK);
+
 	Ok(())
 }

@@ -6,6 +6,7 @@ time_summary = true
 
 [env]
 CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+RUST_BACKTRACE = 1
 
 
 [tasks.install-rust-nightly-rustfmt]

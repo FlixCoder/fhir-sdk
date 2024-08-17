@@ -27,9 +27,9 @@ pub struct ClientBuilder<Version = DefaultVersion, ACB = ()> {
 	/// version.
 	error_on_version_mismatch: bool,
 	/// Whether to error before we try to send a request to a different server
-	/// than is configured in the base URL. Does not apply to manual requests.
-	/// Mostly applies to search results and references to resources on other
-	/// server.
+	/// than is configured in the base URL. Also not applies to custom requests!
+	/// Reasoning is to avoid search results and references to resources on other
+	/// servers when this is not wanted.
 	error_on_origin_mismatch: bool,
 
 	/// FHIR version.
@@ -126,9 +126,9 @@ where
 	}
 
 	/// Disable errors blocking to send a request to a different server than is
-	/// configured in the base URL. Does not apply to manual requests.
-	/// Mostly applies to search results and references to resources on other
-	/// server.
+	/// configured in the base URL. Also not applies to custom requests!
+	/// Reasoning is to avoid search results and references to resources on other
+	/// servers when this is not wanted.
 	#[must_use]
 	pub const fn allow_origin_mismatch(mut self) -> Self {
 		self.error_on_origin_mismatch = false;

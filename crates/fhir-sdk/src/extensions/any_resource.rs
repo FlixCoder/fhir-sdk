@@ -6,6 +6,7 @@ use crate::version::{fhir_version, FhirVersion};
 
 /// Basic trait to combine all resources from all FHIR versions to one.
 /// Especially for use in the client to accept and handly any resource.
+/// Only implemented if "builders" feature is active.
 pub trait AnyResource<V: FhirVersion> {
 	/// ResourceType of this resource.
 	const TYPE: V::ResourceType;
@@ -64,4 +65,5 @@ macro_rules! impl_any_resource {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 for_all_versions!(impl_any_resource);

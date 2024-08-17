@@ -5,7 +5,8 @@ use std::fmt::Debug;
 use fhir_model::for_all_versions;
 use serde::{de::DeserializeOwned, Serialize};
 
-/// Trait for additional functionality of Parameters.
+/// Trait for additional functionality of Parameters. Only implemented if "builders" feature is
+/// active.
 pub trait ParametersExt {
 	/// Inner `ParametersParameter` type.
 	type Parameter: ParameterExt
@@ -42,13 +43,15 @@ macro_rules! impl_parameters_ext {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 mod helper_module_1 {
 	//! Helper module to avoid conflicts.
 	use super::*;
 	for_all_versions!(impl_parameters_ext);
 }
 
-/// Trait for additional functionality of `ParametersParameter`.
+/// Trait for additional functionality of `ParametersParameter`. Only implemented if "builders"
+/// feature is active.
 pub trait ParameterExt: Sized {
 	/// Inner `ParametersParameterValue` type.
 	type Value: ParameterValueExt
@@ -89,6 +92,7 @@ macro_rules! impl_parameters_parameter_ext {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 mod helper_module_2 {
 	//! Helper module to avoid conflicts.
 	use super::*;

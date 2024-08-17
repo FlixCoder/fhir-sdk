@@ -1,5 +1,6 @@
 //! Marker types for FHIR versions. Mainly for use in the client (but also
 //! extension traits).
+#![cfg_attr(not(feature = "builders"), allow(dead_code, unused_imports, unused_macros,))] // Many impls missing without builders.
 
 use std::{
 	fmt::{Debug, Display},
@@ -49,7 +50,8 @@ macro_rules! fhir_version {
 }
 pub(crate) use fhir_version;
 
-/// FHIR version type "marker", but with additional information.
+/// FHIR version type "marker", but with additional information. Only implemented if "builders"
+/// feature is activated.
 pub trait FhirVersion: Sealed + Unpin + Send + Sync + 'static {
 	/// FHIR version string.
 	const VERSION: &'static str;
@@ -174,4 +176,5 @@ macro_rules! impl_fhir_version {
 		}
 	};
 }
+#[cfg(feature = "builders")] // Depends on trait implementations that use the builders.
 for_all_versions!(impl_fhir_version);

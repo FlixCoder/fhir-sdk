@@ -10,8 +10,8 @@ use serde::{de::DeserializeOwned, Serialize};
 
 use super::{GenericResource, SearchEntryModeExt};
 
-/// Additional/generalized functionality on `Bundle`s.
-#[allow(dead_code)] // Future functionality.
+/// Additional/generalized functionality on `Bundle`s. Only implemented if "builders" feature is
+/// active.
 pub trait BundleExt {
 	/// Entry type.
 	type Entry: BundleEntryExt
@@ -76,14 +76,15 @@ macro_rules! impl_bundle_ext {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 mod bundle_ext {
 	//! Module to avoid conflicts.
 	use super::*;
 	for_all_versions!(impl_bundle_ext);
 }
 
-/// Additional/generalized functionality on `BundleEntry`s.
-#[allow(dead_code)] // Future functionality.
+/// Additional/generalized functionality on `BundleEntry`s. Only implemented if "builders" feature
+/// is active.
 pub trait BundleEntryExt {
 	/// Generic resource enum for this version.
 	type Resource: GenericResource
@@ -124,8 +125,10 @@ pub trait BundleEntryExt {
 	/// Get the search.mode field.
 	fn search_mode(&self) -> Option<&Self::SearchEntryMode>;
 	/// Get the full URL field.
+	#[allow(dead_code)] // For future use.
 	fn full_url(&self) -> Option<&String>;
 	/// Get the inner resource.
+	#[allow(dead_code)] // For future use.
 	fn resource(&self) -> Option<&Self::Resource>;
 
 	/// Consume the entry and turn it into its relevant parts.
@@ -196,13 +199,15 @@ macro_rules! impl_bundle_entry_ext {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 mod bundle_entry_ext {
 	//! Module to avoid conflicts.
 	use super::*;
 	for_all_versions!(impl_bundle_entry_ext);
 }
 
-/// Additional/generalized functionality on `BundleEntryRequest`s.
+/// Additional/generalized functionality on `BundleEntryRequest`s. Only implemented if "builders"
+/// feature is active.
 pub trait BundleEntryRequestExt {
 	/// Create new `BundleEntryRequest` with only url, with the method set to
 	/// POST.
@@ -258,6 +263,7 @@ macro_rules! impl_bundle_entry_request_ext {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 mod bundle_entry_request_ext {
 	//! Module to avoid conflicts.
 	use super::*;

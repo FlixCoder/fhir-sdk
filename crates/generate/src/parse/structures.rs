@@ -141,12 +141,9 @@ impl From<stu3::types::ElementDefinition> for Field {
 			Self::Choice(ChoiceField::from(element))
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
-		} else if element
-			.extension
-			.iter()
-			.any(|extension| {
-				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-			}) || element.content_reference.is_some()
+		} else if element.extension.iter().any(|extension| {
+			&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+		}) || element.content_reference.is_some()
 		{
 			Self::Object(ObjectField::from(element))
 		} else {
@@ -161,12 +158,9 @@ impl From<r4b::types::ElementDefinition> for Field {
 			Self::Choice(ChoiceField::from(element))
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
-		} else if element
-			.extension
-			.iter()
-			.any(|extension| {
-				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-			}) || element.content_reference.is_some()
+		} else if element.extension.iter().any(|extension| {
+			&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+		}) || element.content_reference.is_some()
 		{
 			Self::Object(ObjectField::from(element))
 		} else {
@@ -181,12 +175,9 @@ impl From<r5::types::ElementDefinition> for Field {
 			Self::Choice(ChoiceField::from(element))
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
-		} else if element
-			.extension
-			.iter()
-			.any(|extension| {
-				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
-			}) || element.content_reference.is_some()
+		} else if element.extension.iter().any(|extension| {
+			&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+		}) || element.content_reference.is_some()
 		{
 			Self::Object(ObjectField::from(element))
 		} else {

@@ -311,7 +311,7 @@ async fn paging_inner() -> Result<()> {
 		.build()
 		.unwrap();
 	let mut batch = client.batch();
-	for _ in 0..n {
+	for _ in 0 .. n {
 		batch.create(patient.clone());
 	}
 	ensure_batch_succeeded(batch.send().await?);

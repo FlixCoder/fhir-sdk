@@ -85,7 +85,7 @@ impl Serialize for Date {
 		match &self {
 			// Serialize YYYY
 			Date::Year(year) => {
-				if (1000..10000).contains(year) {
+				if (1000 .. 10000).contains(year) {
 					year.to_string().serialize(serializer)
 				} else {
 					Err(serde::ser::Error::custom("Year is not 4 digits long"))
@@ -93,7 +93,7 @@ impl Serialize for Date {
 			}
 			// Serialize YYYY-MM
 			Date::YearMonth(year, month) => {
-				if (1000..10000).contains(year) {
+				if (1000 .. 10000).contains(year) {
 					serializer.serialize_str(&format!("{year}-{:02}", *month as u8))
 				} else {
 					Err(serde::ser::Error::custom("Year is not 4 digits long"))

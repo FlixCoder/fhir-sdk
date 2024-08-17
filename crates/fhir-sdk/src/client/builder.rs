@@ -92,8 +92,8 @@ where
 	/// header.
 	///
 	/// Valid login managers are:
-	/// - Async functions `async fn my_auth_callback(client: reqwest::Client) ->
-	///   Result<HeaderValue, MyError>`
+	/// - Async functions `async fn my_auth_callback(client: reqwest::Client) -> Result<HeaderValue,
+	///   MyError>`
 	/// - Async closures `|client: reqwest::Client| async move { ... }`
 	/// - Types that implement [LoginManager]
 	///

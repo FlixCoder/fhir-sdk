@@ -38,8 +38,8 @@ impl AuthCallback {
 /// You can implement the functions as `async fn`, no need for `impl Future`.
 ///
 /// It is automatically implemented for async functions and closures:
-/// - Async functions `async fn my_auth_callback(client: reqwest::Client) ->
-///   Result<HeaderValue, MyError>`
+/// - Async functions `async fn my_auth_callback(client: reqwest::Client) -> Result<HeaderValue,
+///   MyError>`
 /// - Async closures `|client: reqwest::Client| async move { ... }`
 pub trait LoginManager: Send + Sync {
 	/// Error this login manager returns. Must be convertible to a `Box<dyn

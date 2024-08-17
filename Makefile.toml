@@ -137,14 +137,14 @@ description = "Runs `docker compose up -d` for all services (ci profile)."
 install_crate = false
 cwd = "./docker/"
 command = "docker"
-args = ["compose", "up", "-d"]
+args = ["compose", "--profile", "ci", "up", "-d"]
 
 [tasks.docker-ci-down]
 description = "Runs `docker compose down -v` for all services (ci profile)."
 install_crate = false
 cwd = "./docker/"
 command = "docker"
-args = ["compose", "down", "-v"]
+args = ["compose", "--profile", "ci", "down", "-v"]
 
 
 [tasks.ci-tests]

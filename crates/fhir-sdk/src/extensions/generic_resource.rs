@@ -2,14 +2,15 @@
 
 use fhir_model::for_all_versions;
 
-/// Extended/shared functionality for generic resource enums.
-#[allow(dead_code)] // For future usage.
+/// Extended/shared functionality for generic resource enums. Only implemented if "builders" feature
+/// is active.
 pub trait GenericResource {
 	/// Get the resource type as str.
 	fn resource_type_str(&self) -> &str;
 	/// Get the ID of the resource.
 	fn id(&self) -> Option<&str>;
 	/// Set the version of the resource.
+	#[allow(dead_code)] // For future use.
 	fn set_id(&mut self, id: String);
 	/// Get the version ID of the resource.
 	fn version_id(&self) -> Option<&str>;
@@ -65,4 +66,5 @@ macro_rules! impl_generic_resource {
 		}
 	};
 }
+#[cfg(feature = "builders")]
 for_all_versions!(impl_generic_resource);

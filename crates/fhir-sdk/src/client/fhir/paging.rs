@@ -163,11 +163,6 @@ async fn fetch_resource<V: FhirVersion, R: DeserializeOwned>(
 where
 	(StatusCode, V::OperationOutcome): Into<Error>,
 {
-	// Make sure we are not forwarded to any malicious server.
-	if url.origin() != client.0.base_url.origin() {
-		return Err(Error::DifferentOrigin(url.to_string()));
-	}
-
 	// Fetch a single resource from the given URL.
 	let resource = client.read_generic(url.clone()).await?;
 	resource.ok_or_else(|| Error::ResourceNotFound(url.to_string()))

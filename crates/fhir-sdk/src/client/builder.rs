@@ -22,6 +22,16 @@ pub struct ClientBuilder<Version = DefaultVersion, ACB = ()> {
 	request_settings: Option<RequestSettings>,
 	/// Auth callback.
 	auth_callback: Option<ACB>,
+
+	/// Whether to error if the server responds with a different major FHIR
+	/// version.
+	error_on_version_mismatch: bool,
+	/// Whether to error before we try to send a request to a different server
+	/// than is configured in the base URL. Does not apply to manual requests.
+	/// Mostly applies to search results and references to resources on other
+	/// server.
+	error_on_origin_mismatch: bool,
+
 	/// FHIR version.
 	version: PhantomData<Version>,
 }
@@ -37,6 +47,8 @@ where
 			user_agent: None,
 			request_settings: None,
 			auth_callback: None,
+			error_on_version_mismatch: true,
+			error_on_origin_mismatch: true,
 			version: PhantomData,
 		}
 	}
@@ -100,7 +112,27 @@ where
 			request_settings: self.request_settings,
 			auth_callback: Some(login_manager),
 			version: self.version,
+			error_on_version_mismatch: self.error_on_version_mismatch,
+			error_on_origin_mismatch: self.error_on_origin_mismatch,
 		}
+	}
+
+	/// Disable errors if the server responds with a different major FHIR
+	/// version.
+	#[must_use]
+	pub const fn allow_version_mismatch(mut self) -> Self {
+		self.error_on_version_mismatch = false;
+		self
+	}
+
+	/// Disable errors blocking to send a request to a different server than is
+	/// configured in the base URL. Does not apply to manual requests.
+	/// Mostly applies to search results and references to resources on other
+	/// server.
+	#[must_use]
+	pub const fn allow_origin_mismatch(mut self) -> Self {
+		self.error_on_origin_mismatch = false;
+		self
 	}
 
 	/// Finalize building the client.
@@ -130,6 +162,8 @@ where
 			client,
 			request_settings: std::sync::Mutex::new(request_settings),
 			auth_callback: tokio::sync::Mutex::new(self.auth_callback.map(AuthCallback::new)),
+			error_on_version_mismatch: self.error_on_version_mismatch,
+			error_on_origin_mismatch: self.error_on_origin_mismatch,
 		};
 		Ok(Client::from(data))
 	}
@@ -147,6 +181,8 @@ where
 			request_settings: self.request_settings.clone(),
 			auth_callback: self.auth_callback.clone(),
 			version: self.version,
+			error_on_version_mismatch: self.error_on_version_mismatch,
+			error_on_origin_mismatch: self.error_on_origin_mismatch,
 		}
 	}
 }

@@ -47,7 +47,7 @@ pub enum Error {
 	RequestNotClone,
 
 	/// Found URL with unexpected origin.
-	#[error("Found URL with unexpected origin: {0}")]
+	#[error("URLs with mismatching origins are disabled: {0}")]
 	DifferentOrigin(String),
 
 	/// Auth callback error.
@@ -65,6 +65,10 @@ pub enum Error {
 	/// HTTP error response.
 	#[error("Got error response ({0}): {1}")]
 	Response(StatusCode, String),
+
+	/// Mismatching FHIR version in response.
+	#[error("Server responded with mismatching major FHIR version: {0}")]
+	DifferentFhirVersion(String),
 
 	#[cfg(feature = "stu3")]
 	/// OperationOutcome.
@@ -84,6 +88,10 @@ pub enum Error {
 	/// Resource was not found.
 	#[error("Resource `{0}` was not found")]
 	ResourceNotFound(String),
+
+	/// Failed to parse header value due to non-ASCII value content.
+	#[error("Failed to parse header value: {0}")]
+	HeaderParsing(#[from] reqwest::header::ToStrError),
 
 	/// Error parsing ETag to version ID, i.e. missing ETag or wrong format.
 	#[error("Missing or wrong ETag in response: {0}")]

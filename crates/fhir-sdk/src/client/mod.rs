@@ -11,6 +11,7 @@ mod search;
 
 use std::{marker::PhantomData, sync::Arc};
 
+use misc::parse_major_fhir_version;
 use reqwest::{header, StatusCode, Url};
 
 use self::auth::AuthCallback;
@@ -33,6 +34,15 @@ struct ClientData {
 	request_settings: std::sync::Mutex<RequestSettings>,
 	/// Authorization callback method, returning the authorization header value.
 	auth_callback: tokio::sync::Mutex<Option<AuthCallback>>,
+
+	/// Whether to error if the server responds with a different major FHIR
+	/// version.
+	error_on_version_mismatch: bool,
+	/// Whether to error before we try to send a request to a different server
+	/// than is configured in the base URL. Does not apply to manual requests.
+	/// Mostly applies to search results and references to resources on other
+	/// server.
+	error_on_origin_mismatch: bool,
 }
 
 impl<V: FhirVersion> From<ClientData> for Client<V> {
@@ -128,6 +138,15 @@ impl<V: FhirVersion> Client<V> {
 		&self,
 		request: reqwest::RequestBuilder,
 	) -> Result<reqwest::Response, Error> {
+		// Check the URL origin if configured to ensure equality.
+		if self.0.error_on_origin_mismatch {
+			let request = request.try_clone().ok_or(Error::RequestNotClone)?.build()?;
+			// Make sure we are not forwarded to any malicious server.
+			if request.url().origin() != self.0.base_url.origin() {
+				return Err(Error::DifferentOrigin(request.url().to_string()));
+			}
+		}
+
 		// Try running the request
 		let mut request_settings = self.request_settings();
 		let mut response = request_settings
@@ -158,6 +177,16 @@ impl<V: FhirVersion> Client<V> {
 			// Retry request with new request settings.
 			request_settings = self.request_settings();
 			response = request_settings.make_request(request).await?;
+		}
+
+		// Test server FHIR version in response, if configured to do so.
+		if self.0.error_on_version_mismatch {
+			if let Some(version) = parse_major_fhir_version(response.headers())? {
+				let expected = V::VERSION.split_once('.').map_or(V::VERSION, |(major, _)| major);
+				if version != expected {
+					return Err(Error::DifferentFhirVersion(version.to_owned()));
+				}
+			}
 		}
 
 		Ok(response)

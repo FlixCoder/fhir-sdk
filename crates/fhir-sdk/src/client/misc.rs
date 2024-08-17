@@ -6,11 +6,8 @@ use super::Error;
 
 /// Parse an ETag to a version ID.
 pub fn parse_etag(headers: &HeaderMap) -> Result<String, Error> {
-	let etag = headers
-		.get(header::ETAG)
-		.ok_or_else(|| Error::EtagFailure("None".to_owned()))?
-		.to_str()
-		.map_err(|err| Error::EtagFailure(err.to_string()))?;
+	let etag =
+		headers.get(header::ETAG).ok_or_else(|| Error::EtagFailure("None".to_owned()))?.to_str()?;
 	if etag.starts_with("W/\"") && etag.ends_with('"') {
 		let end = etag.split_at(3).1;
 		let version_id = end.split_at(end.len() - 1).0;
@@ -31,8 +28,7 @@ pub fn parse_location(headers: &HeaderMap) -> Result<(String, Option<String>), E
 	let location = headers
 		.get(header::LOCATION)
 		.ok_or_else(|| Error::LocationFailure("None".to_owned()))?
-		.to_str()
-		.map_err(|err| Error::LocationFailure(err.to_string()))?;
+		.to_str()?;
 	let mut segments = location.rsplit('/');
 	let id_or_version_id =
 		segments.next().ok_or_else(|| Error::LocationFailure(location.to_owned()))?;
@@ -45,6 +41,20 @@ pub fn parse_location(headers: &HeaderMap) -> Result<(String, Option<String>), E
 	} else {
 		Ok((id_or_version_id.to_owned(), None))
 	}
+}
+
+/// Parse major FHIR version from Content-Type header, if it exists.
+pub fn parse_major_fhir_version(headers: &HeaderMap) -> Result<Option<&str>, Error> {
+	let Some(header) = headers.get(header::CONTENT_TYPE) else {
+		return Ok(None);
+	};
+	let header_str = header.to_str()?;
+	let version = header_str
+		.split(';')
+		.filter_map(|param| param.split_once('='))
+		.find_map(|(key, value)| (key.trim().to_lowercase() == "fhirversion").then_some(value))
+		.map(|version| version.split_once('.').unwrap_or((version, "")).0);
+	Ok(version)
 }
 
 /// Escape a search parameter value.
@@ -98,5 +108,17 @@ mod tests {
 		let (id, version_id) = parse_location(&headers).expect("parsing Location");
 		assert_eq!(id, "123");
 		assert_eq!(version_id.as_deref(), Some("1"));
+	}
+
+	#[test]
+	fn fhir_version_parsing() {
+		let mut headers = HeaderMap::new();
+
+		headers.insert(
+			header::CONTENT_TYPE,
+			HeaderValue::from_static("application/fhir+json; fhirVersion=4.0"),
+		);
+		let version = parse_major_fhir_version(&headers).expect("parsing FHIR version");
+		assert_eq!(version, Some("4"));
 	}
 }

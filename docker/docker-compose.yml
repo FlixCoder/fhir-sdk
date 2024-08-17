@@ -1,0 +1,100 @@
+volumes:
+  postgres-db:
+
+services:
+  postgres:
+    profiles: ["ci", "medplum-r4", "hapi-stu3", "hapi-r4b", "hapi-r5"]
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --lc-collate=C --lc-ctype=en_US.UTF-8
+    volumes:
+      - ./postgres/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+      - postgres-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -h localhost -p 5432"]
+      interval: 5s
+      timeout: 60s
+      retries: 10
+      start_period: 10s
+
+  redis:
+    profiles: ["ci", "medplum-r4"]
+    image: redis:6
+    command: redis-server --requirepass password
+
+  hapi-stu3:
+    profiles: ["ci", "hapi-stu3"]
+    image: hapiproject/hapi:latest
+    ports:
+      - "8110:8080"
+    environment:
+      hapi.fhir.server_address: "http://localhost:8110/fhir"
+      hapi.fhir.fhir_version: "DSTU3"
+      hapi.fhir.tester.home.fhir_version: "DSTU3"
+      spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_stu3"
+      spring.datasource.username: "fhir"
+      spring.datasource.password: "password"
+      spring.datasource.driverClassName: "org.postgresql.Driver"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  hapi-r4b:
+    profiles: ["ci", "hapi-r4b"]
+    image: hapiproject/hapi:latest
+    ports:
+      - "8090:8080"
+    environment:
+      hapi.fhir.server_address: "http://localhost:8090/fhir"
+      hapi.fhir.fhir_version: "R4B"
+      hapi.fhir.tester.home.fhir_version: "R4B"
+      hapi.fhir.subscription.resthook_enabled: "true"
+      spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_r4b"
+      spring.datasource.username: "fhir"
+      spring.datasource.password: "password"
+      spring.datasource.driverClassName: "org.postgresql.Driver"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
+      # For some reason needed to start the server?
+      hapi.fhir.subscription.email.from: "test@test.test"
+      hapi.fhir.subscription.email.host: "test.test"
+      spring.main.allow-bean-definition-overriding: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  hapi-r5:
+    profiles: ["ci", "hapi-r5"]
+    image: hapiproject/hapi:latest
+    ports:
+      - "8100:8080"
+    environment:
+      hapi.fhir.server_address: "http://localhost:8100/fhir"
+      hapi.fhir.fhir_version: "R5"
+      hapi.fhir.tester.home.fhir_version: "R5"
+      hapi.fhir.subscription.resthook_enabled: "true"
+      spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_r5"
+      spring.datasource.username: "fhir"
+      spring.datasource.password: "password"
+      spring.datasource.driverClassName: "org.postgresql.Driver"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
+      # For some reason needed to start the server?
+      hapi.fhir.subscription.email.from: "test@test.test"
+      hapi.fhir.subscription.email.host: "test.test"
+      spring.main.allow-bean-definition-overriding: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  medplum-r4:
+    profiles: ["ci", "medplum-r4"]
+    image: medplum/medplum-server:latest
+    volumes:
+      - ./medplum/config-r4.json:/usr/src/medplum/packages/server/medplum.config.json
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy

@@ -1,0 +1,54 @@
+name: Rust
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["*"]
+  pull_request:
+    branches: ["*"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  formatting:
+    name: Rustfmt
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install/update Rust
+        shell: bash
+        run: rustup toolchain install nightly --component rustfmt
+
+      - name: Formatting
+        shell: bash
+        run: cargo +nightly fmt -- --check
+
+  check:
+    name: Clippy and Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install/update Rust
+        shell: bash
+        run: rustup show # Uses rust-toolchain.toml file to install the correct version and components.
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-make,cargo-nextest
+
+      - name: Caching
+        uses: Swatinem/rust-cache@v2
+
+      - name: Clippy for all required feature sets
+        shell: bash
+        run: cargo make clippy
+
+      - name: Run CI tests
+        shell: bash
+        run: cargo make ci-tests

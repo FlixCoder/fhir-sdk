@@ -90,6 +90,7 @@ For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/ma
   g. **Stop docker environment for all FHIR versions**: `cargo make docker-ci-down`
   h. **Run docker env, run all tests, stop docker env**: `cargo make ci-tests`
   i. **Do all checks that are done in CI**: `cargo make ci`
+  j. **Run code generator**: `cargo make generate`
 
 ## Known Problems
 

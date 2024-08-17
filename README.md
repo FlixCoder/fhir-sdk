@@ -81,16 +81,16 @@ For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/ma
 
 1. Install [cargo-nextest](https://github.com/nextest-rs/nextest) and [cargo-make](https://github.com/sagiegurari/cargo-make): `cargo install cargo-nextest cargo-make`.
 2. From the workspace root directory, you can run the following tasks:
-  a. **Format code**: `cargo make format`
-  b. **Check formatting**: `cargo make formatting`
-  c. **Run clippy for all feature sets, failing on any warnings**: `cargo make clippy`
-  d. **Run docker environment for all FHIR versions**: `cargo make docker-ci-up`
-  e. **Run all tests via cargo test**: `cargo make test-all`
-  f. **Run all tests via cargo nextest**: `cargo make test`
-  g. **Stop docker environment for all FHIR versions**: `cargo make docker-ci-down`
-  h. **Run docker env, run all tests, stop docker env**: `cargo make ci-tests`
-  i. **Do all checks that are done in CI**: `cargo make ci`
-  j. **Run code generator**: `cargo make generate`
+    - **Format code**: `cargo make format`
+    - **Check formatting**: `cargo make formatting`
+    - **Run clippy for all feature sets, failing on any warnings**: `cargo make clippy`
+    - **Run docker environment for all FHIR versions**: `cargo make docker-ci-up`
+    - **Run all tests via cargo test**: `cargo make test-all`
+    - **Run all tests via cargo nextest**: `cargo make test`
+    - **Stop docker environment for all FHIR versions**: `cargo make docker-ci-down`
+    - **Run docker env, run all tests, stop docker env**: `cargo make ci-tests`
+    - **Do all checks that are done in CI**: `cargo make ci`
+    - **Run code generator**: `cargo make generate`
 
 ## Known Problems
 

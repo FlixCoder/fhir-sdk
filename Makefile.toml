@@ -163,5 +163,13 @@ Shut down docker via "docker-ci-down" when done.
 dependencies = ["formatting", "clippy", "ci-tests"]
 
 
+[tasks.generate]
+description = "Run the code generator for fhir-model to produce all FHIR code."
+install_crate = false
+command = "cargo"
+args = ["run", "-p", "generate"]
+dependencies = ["install-rust-toolchain"]
+
+
 [tasks.default]
 alias = "ci"

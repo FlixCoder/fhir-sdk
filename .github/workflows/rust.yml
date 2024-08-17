@@ -85,9 +85,11 @@ jobs:
 
       - name: "Run tests for this feature set: ${{ matrix.name }}"
         shell: bash
+        env:
+          NEXTEST_RETRIES: "1"
         # Uses a light variant right now to save resources.. Locally, there is a better version.
         # Sadly, cannot use --all-features.
         run: |
           cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.compose_profiles}}" docker-ci-up
-          cargo make --makefile Makefile-light-ci.toml --env "FEATURE_SELECTION=${{ matrix.feat_arg }}" test
+          cargo make --makefile Makefile-light-ci.toml --env "FEATURE_SELECTION=${{ matrix.feat_arg }}" --env NEXTEST_RETRIES=${{ env.NEXTEST_RETRIES }} test
           cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.compose_profiles}}" docker-ci-down

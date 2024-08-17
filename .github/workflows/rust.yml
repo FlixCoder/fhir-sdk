@@ -56,13 +56,13 @@ jobs:
       matrix:
         selected_features:
           - name: "STU3"
-            feat_arg: "--no-default-features --features stu3,client,docs"
+            feat_arg: "--no-default-features --features stu3,client"
             compose_profiles: "hapi-stu3"
           - name: "R4B"
-            feat_arg: "--no-default-features --features r4b,client,docs"
+            feat_arg: "--no-default-features --features r4b,client"
             compose_profiles: "hapi-r4b,medplum-r4"
           - name: "R5"
-            feat_arg: "--no-default-features --features r5,client,docs"
+            feat_arg: "--no-default-features --features r5,client"
             compose_profiles: "hapi-r5"
 
     name: "Tests (${{ matrix.selected_features.name }})"

@@ -27,8 +27,45 @@ jobs:
         shell: bash
         run: cargo +nightly fmt -- --check
 
-  check:
-    name: Clippy and Tests
+  lints:
+    name: Lints
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install/update Rust
+        shell: bash
+        run: rustup show # Uses rust-toolchain.toml file to install the correct version and components.
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-make
+
+      - name: Caching
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run clippy for all feature sets.
+        shell: bash
+        # Uses a light variant right now to save resources.. Locally, there is a better version.
+        # Sadly, cannot use --all-features.
+        run: cargo make --makefile Makefile-light-ci.toml clippy
+
+  tests:
+    strategy:
+      matrix:
+        selected_features:
+          - name: "STU3"
+            feat_arg: "--no-default-features --features stu3,client,docs"
+            compose_profiles: "hapi-stu3"
+          - name: "R4B"
+            feat_arg: "--no-default-features --features r4b,client,docs"
+            compose_profiles: "hapi-r4b,medplum-r4"
+          - name: "R5"
+            feat_arg: "--no-default-features --features r5,client,docs"
+            compose_profiles: "hapi-r5"
+
+    name: "Tests (${{ matrix.selected_features.name }})"
     runs-on: ubuntu-latest
 
     steps:
@@ -45,10 +82,11 @@ jobs:
       - name: Caching
         uses: Swatinem/rust-cache@v2
 
-      - name: Run CI tests
+      - name: "Run tests for this feature set: ${{ matrix.selected_features.name }}"
         shell: bash
-        run: cargo make ci-tests
-
-      - name: Clippy for all required feature sets
-        shell: bash
-        run: cargo make clippy
+        # Uses a light variant right now to save resources.. Locally, there is a better version.
+        # Sadly, cannot use --all-features.
+        run: |
+          cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.selected_features.compose_profiles}}" docker-ci-up
+          cargo make --makefile Makefile-light-ci.toml --env "FEATURE_SELECTION=${{ matrix.selected_features.feat_arg }}" test
+          cargo make --makefile Makefile-light-ci.toml --env "COMPOSE_PROFILES=${{ matrix.selected_features.compose_profiles}}" docker-ci-down

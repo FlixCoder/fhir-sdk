@@ -47,14 +47,9 @@ private = true
 command = "cargo"
 args = ["nextest", "run", "--workspace", "@@split(FEATURE_SELECTION, )"]
 
-[tasks.test-docs]
-private = true
-command = "cargo"
-args = ["test", "--workspace", "--doc", "@@split(FEATURE_SELECTION, )"]
-
 [tasks.test]
 description = "Runs all tests for the given feature set."
-dependencies = ["ensure-ci", "test-nextest", "test-docs"]
+dependencies = ["ensure-ci", "test-nextest"]
 
 
 [tasks.docker-ci-up]

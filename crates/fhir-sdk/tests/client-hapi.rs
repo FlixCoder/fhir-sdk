@@ -268,6 +268,8 @@ macro_rules! impl_hapi_tests {
 								not: false,
 							}),
 					)
+					.await?
+					.all_matches()
 					.try_collect()
 					.await?;
 				assert_eq!(patients.len(), 1);
@@ -369,6 +371,8 @@ macro_rules! impl_hapi_tests {
 						comparator: Some(SearchComparator::Eq),
 						value: date,
 					}))
+					.await?
+					.all_matches()
 					.try_collect()
 					.await?;
 				assert_eq!(patients.len(), n);
@@ -456,7 +460,7 @@ macro_rules! impl_hapi_tests {
 				let mut patient = Patient::builder().language("history2".to_owned()).build().unwrap();
 				let second_patient_id = patient.create(&client).await?;
 
-				let bundle = client.history(ResourceType::Patient, None).await?;
+				let bundle = client.history::<Patient>(None).await?.into_inner();
 				assert_eq!(bundle.r#type, BundleType::History);
 				assert!(bundle.entry.len() >= 2);
 				for id in &[first_patient_id, second_patient_id] {
@@ -489,7 +493,7 @@ macro_rules! impl_hapi_tests {
 
 				patient.clone().delete(&client).await?;
 
-				let bundle = client.history(ResourceType::Patient, patient.id.as_deref()).await?;
+				let bundle = client.history::<Patient>(patient.id.as_deref()).await?.into_inner();
 				assert_eq!(bundle.r#type, BundleType::History);
 				assert_eq!(bundle.entry.len(), 3);
 

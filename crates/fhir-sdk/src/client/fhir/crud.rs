@@ -1,7 +1,6 @@
 //! FHIR CRUD API interactions.
 
 use fhir_model::{ParsedReference, WrongResourceType};
-use futures::{Stream, TryStreamExt};
 use reqwest::{
 	header::{self, HeaderValue},
 	StatusCode, Url,
@@ -10,13 +9,13 @@ use serde::{de::DeserializeOwned, Serialize};
 
 use super::{
 	misc,
-	paging::Paged,
+	paging::Page,
 	patch::{PatchViaFhir, PatchViaJson},
 	transaction::BatchTransaction,
 	Client, Error, SearchParameters,
 };
 use crate::{
-	extensions::{AnyResource, BundleEntryExt, GenericResource, ReferenceExt, SearchEntryModeExt},
+	extensions::{AnyResource, GenericResource, ReferenceExt},
 	version::FhirVersion,
 };
 
@@ -109,32 +108,25 @@ where
 		Ok(resource)
 	}
 
-	// TODO: Refactor to improve:
-	// - Do we want generic resource type instead of argument?
-	// - We might need/want paging?
-	/// Retrieve the history of a resource type or a specific resource.
-	pub async fn history(
-		&self,
-		resource_type: V::ResourceType,
-		id: Option<&str>,
-	) -> Result<V::Bundle, Error> {
+	/// Retrieve the history of the specified resource type or a specific resource.
+	pub async fn history<R>(&self, id: Option<&str>) -> Result<Page<V, R>, Error>
+	where
+		R: AnyResource<V> + TryFrom<V::Resource, Error = WrongResourceType> + 'static,
+		for<'a> &'a R: TryFrom<&'a V::Resource>,
+	{
 		let url = {
 			if let Some(id) = id {
-				self.url(&[resource_type.as_ref(), id, "_history"])
+				self.url(&[R::TYPE_STR, id, "_history"])
 			} else {
-				self.url(&[resource_type.as_ref(), "_history"])
+				self.url(&[R::TYPE_STR, "_history"])
 			}
 		};
-		let request = self
-			.0
-			.client
-			.get(url)
-			.header(header::ACCEPT, V::MIME_TYPE)
-			.header(header::CONTENT_TYPE, V::MIME_TYPE);
+		let request = self.0.client.get(url).header(header::ACCEPT, V::MIME_TYPE);
+
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
-			let resource: V::Bundle = response.json().await?;
-			Ok(resource)
+			let bundle: V::Bundle = response.json().await?;
+			Ok(Page::new(self.clone(), bundle))
 		} else {
 			Err(Error::from_response::<V>(response).await)
 		}
@@ -234,33 +226,55 @@ where
 		}
 	}
 
-	/// Search for any FHIR resources given the query parameters.
-	pub fn search_all(
+	/// Search for FHIR resources of any type given the query parameters.
+	pub async fn search_all(
 		&self,
 		queries: SearchParameters,
-	) -> impl Stream<Item = Result<V::Resource, Error>> + Send + 'static {
-		let mut url = self.url(&[]);
-		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
+	) -> Result<Page<V, V::Resource>, Error> {
+		// TODO: Use POST for long queries?
 
-		Paged::new(self.clone(), url, |entry| {
-			entry.search_mode().map_or(true, SearchEntryModeExt::is_match)
-		})
+		let url = self.url(&[]);
+		let request = self
+			.0
+			.client
+			.get(url)
+			.query(&queries.into_queries())
+			.header(header::ACCEPT, V::MIME_TYPE);
+
+		let response = self.run_request(request).await?;
+		if response.status().is_success() {
+			let bundle: V::Bundle = response.json().await?;
+			Ok(Page::new(self.clone(), bundle))
+		} else {
+			Err(Error::from_response::<V>(response).await)
+		}
 	}
 
 	/// Search for FHIR resources of a given type given the query parameters.
 	/// This simply ignores resources of the wrong type, e.g. an additional
 	/// OperationOutcome.
-	pub fn search<R: AnyResource<V> + TryFrom<V::Resource, Error = WrongResourceType>>(
-		&self,
-		queries: SearchParameters,
-	) -> impl Stream<Item = Result<R, Error>> + Send + 'static {
-		let mut url = self.url(&[R::TYPE_STR]);
-		url.query_pairs_mut().extend_pairs(queries.into_queries()).finish();
+	pub async fn search<R>(&self, queries: SearchParameters) -> Result<Page<V, R>, Error>
+	where
+		R: AnyResource<V> + TryFrom<V::Resource, Error = WrongResourceType> + 'static,
+		for<'a> &'a R: TryFrom<&'a V::Resource>,
+	{
+		// TODO: Use POST for long queries?
 
-		Paged::new(self.clone(), url, |entry| {
-			entry.search_mode().map_or(true, SearchEntryModeExt::is_match)
-		})
-		.try_filter_map(|resource| async move { Ok(R::try_from(resource).ok()) })
+		let url = self.url(&[R::TYPE_STR]);
+		let request = self
+			.0
+			.client
+			.get(url)
+			.query(&queries.into_queries())
+			.header(header::ACCEPT, V::MIME_TYPE);
+
+		let response = self.run_request(request).await?;
+		if response.status().is_success() {
+			let bundle: V::Bundle = response.json().await?;
+			Ok(Page::new(self.clone(), bundle))
+		} else {
+			Err(Error::from_response::<V>(response).await)
+		}
 	}
 
 	/// Begin building a patch request for a FHIR resource on the server via the

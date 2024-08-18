@@ -26,10 +26,14 @@ pub trait BundleExt {
 
 	/// See [Bundle::next_page_url].
 	fn next_page_url(&self) -> Option<&String>;
+	/// Get the total number of entries from the `total` field, if it exists.
+	fn total(&self) -> Option<u32>;
 	/// Iterate over entries.
-	fn entries(&self) -> impl Iterator<Item = &Self::Entry>;
+	fn entries(&self) -> impl Iterator<Item = &Self::Entry> + Send;
+	/// Take ownership of the entries, removing them from the `Bundle`.
+	fn take_entries(&mut self) -> Vec<Option<Self::Entry>>;
 	/// Iterate over owned entries, consuming this Bundle.
-	fn into_entries(self) -> impl Iterator<Item = Self::Entry>;
+	fn into_entries(self) -> impl Iterator<Item = Self::Entry> + Send + 'static;
 
 	/// Create a new `Bundle` of type batch.
 	fn make_batch(entries: Vec<Option<Self::Entry>>) -> Self;
@@ -55,11 +59,19 @@ macro_rules! impl_bundle_ext {
 					Bundle::next_page_url(self)
 				}
 
-				fn entries(&self) -> impl Iterator<Item = &Self::Entry> {
+				fn total(&self) -> Option<u32> {
+					self.total
+				}
+
+				fn entries(&self) -> impl Iterator<Item = &Self::Entry> + Send {
 					self.0.entry.iter().flatten()
 				}
 
-				fn into_entries(self) -> impl Iterator<Item = Self::Entry> {
+				fn take_entries(&mut self) -> Vec<Option<Self::Entry>> {
+					std::mem::take(&mut self.0.entry)
+				}
+
+				fn into_entries(self) -> impl Iterator<Item = Self::Entry> + Send + 'static {
 					self.0.entry.into_iter().flatten()
 				}
 
@@ -125,14 +137,12 @@ pub trait BundleEntryExt {
 	/// Get the search.mode field.
 	fn search_mode(&self) -> Option<&Self::SearchEntryMode>;
 	/// Get the full URL field.
-	#[allow(dead_code)] // For future use.
 	fn full_url(&self) -> Option<&String>;
 	/// Get the inner resource.
-	#[allow(dead_code)] // For future use.
 	fn resource(&self) -> Option<&Self::Resource>;
 
-	/// Consume the entry and turn it into its relevant parts.
-	fn into_parts(self) -> (Option<String>, Option<Self::Resource>);
+	/// Consume the entry and turn it into its inner resource.
+	fn into_resource(self) -> Option<Self::Resource>;
 
 	/// Create a new empty `BundleEntry`.
 	fn empty() -> Self;
@@ -172,8 +182,8 @@ macro_rules! impl_bundle_entry_ext {
 					self.resource.as_ref()
 				}
 
-				fn into_parts(self) -> (Option<String>, Option<Self::Resource>) {
-					(self.full_url, self.resource)
+				fn into_resource(self) -> Option<Self::Resource> {
+					self.resource
 				}
 
 				fn empty() -> Self {

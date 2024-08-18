@@ -251,8 +251,6 @@ where
 	}
 
 	/// Search for FHIR resources of a given type given the query parameters.
-	/// This simply ignores resources of the wrong type, e.g. an additional
-	/// OperationOutcome.
 	pub async fn search<R>(&self, queries: SearchParameters) -> Result<Page<V, R>, Error>
 	where
 		R: AnyResource<V> + TryFrom<V::Resource, Error = WrongResourceType> + 'static,
@@ -269,6 +267,35 @@ where
 			.header(header::ACCEPT, V::MIME_TYPE);
 
 		let response = self.run_request(request).await?;
+		if response.status().is_success() {
+			let bundle: V::Bundle = response.json().await?;
+			Ok(Page::new(self.clone(), bundle))
+		} else {
+			Err(Error::from_response::<V>(response).await)
+		}
+	}
+
+	/// Search for FHIR resources via a custom request. This allows sending POST requests instead of
+	/// GET when necessary. You can construct the request yourself to any URL and send any data.
+	/// The endpoint is expected to send a FHIR-conform bundle.
+	///
+	/// You can specify the expected search entry type via the type parameter. This can be either
+	/// the generic resource or a specific resource.
+	///
+	/// Keep in mind that mismatching origins to the base URL are rejected if not explicitly allowed
+	/// via the flag in the builder ([ClientBuilder::allow_origin_mismatch]). Similarly, if the
+	/// server responds with a different major FHIR version than the client is configured for, the
+	/// response is rejected if not explicitly allowed via the flag in the builder
+	/// ([ClientBuilder::allow_version_mismatch]).
+	pub async fn search_custom<R>(
+		&self,
+		make_request: impl FnOnce(&reqwest::Client) -> reqwest::RequestBuilder + Send,
+	) -> Result<Page<V, R>, Error>
+	where
+		R: TryFrom<V::Resource> + Send + Sync + 'static,
+		for<'a> &'a R: TryFrom<&'a V::Resource>,
+	{
+		let response = self.send_custom_request(make_request).await?;
 		if response.status().is_success() {
 			let bundle: V::Bundle = response.json().await?;
 			Ok(Page::new(self.clone(), bundle))

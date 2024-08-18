@@ -7,7 +7,7 @@ use crate::version::{fhir_version, FhirVersion};
 /// Basic trait to combine all resources from all FHIR versions to one.
 /// Especially for use in the client to accept and handly any resource.
 /// Only implemented if "builders" feature is active.
-pub trait AnyResource<V: FhirVersion> {
+pub trait AnyResource<V: FhirVersion>: Send + Sync {
 	/// ResourceType of this resource.
 	const TYPE: V::ResourceType;
 	/// Resource type of the resource as `&str`. Must be valid for use in URLs.
@@ -30,7 +30,7 @@ macro_rules! impl_any_resource {
 
 		impl<R> AnyResource<fhir_version!($version)> for R
 		where
-			R: $version::resources::NamedResource + $version::resources::BaseResource,
+			R: $version::resources::NamedResource + $version::resources::BaseResource + Send + Sync,
 		{
 			const TYPE: $version::resources::ResourceType = R::TYPE;
 			const TYPE_STR: &'static str = R::TYPE.as_str();

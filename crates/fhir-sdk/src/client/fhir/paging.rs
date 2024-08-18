@@ -1,182 +1,188 @@
 //! FHIR paging functionality, e.g. for search results.
 
-use std::{collections::VecDeque, pin::Pin, task::Poll};
+use std::{any::type_name, fmt::Debug, marker::PhantomData};
 
-use futures::{future::BoxFuture, ready, FutureExt, Stream};
+use futures::{stream, Stream, StreamExt, TryStreamExt};
 use reqwest::{StatusCode, Url};
-use serde::de::DeserializeOwned;
 
 use super::{Client, Error};
 use crate::{
-	extensions::{BundleEntryExt, BundleExt},
+	extensions::{BundleEntryExt, BundleExt, SearchEntryModeExt},
 	version::FhirVersion,
 };
 
-/// Results of a query that can be paged or given via URL only. The resources
-/// can be consumed via the `Stream`/`StreamExt` traits.
-pub struct Paged<V: FhirVersion> {
-	/// The FHIR client to make further requests for the next pages.
+/// Type alias for the `BundleEntry` type for any version.
+type BundleEntry<V> = <<V as FhirVersion>::Bundle as BundleExt>::Entry;
+
+/// Wrapper around `Bundle`s that have multiple pages of results, e.g. search results, resource
+/// history, etc.
+pub struct Page<V: FhirVersion, R> {
+	/// The FHIR client to make further requests for the next pages and resources.
 	client: Client<V>,
-	/// The URL of the next page. This is opaque and can be anything the server
-	/// wants. The client ensures it accesses the same server only.
-	next_url: Option<Url>,
-	/// The current set of entries cached.
-	entries: VecDeque<<V::Bundle as BundleExt>::Entry>,
-	/// Filter on Bundle entries, whether they should be included in the
-	/// results.
-	#[allow(clippy::type_complexity)] // Fine for now :D
-	filter: Box<dyn FnMut(&<V::Bundle as BundleExt>::Entry) -> bool + Send>,
-	/// Current future to retrieve a resource.
-	future_resource: Option<BoxFuture<'static, Result<V::Resource, Error>>>,
-	/// Current future to retrieve the next page.
-	future_next_page: Option<BoxFuture<'static, Result<V::Bundle, Error>>>,
+	/// The inner Bundle result.
+	bundle: V::Bundle,
+
+	/// The resource type to return in matches.
+	_resource_type: PhantomData<R>,
 }
 
-impl<V: FhirVersion> Paged<V> {
-	/// Start up a new Paged stream.
-	pub(crate) fn new<FilterFn>(client: Client<V>, url: Url, filter: FilterFn) -> Self
-	where
-		FilterFn: FnMut(&<V::Bundle as BundleExt>::Entry) -> bool + Send + 'static,
-	{
-		let next_url = Some(url);
-		let filter = Box::new(filter);
+impl<V: FhirVersion, R> Page<V, R>
+where
+	(StatusCode, V::OperationOutcome): Into<Error>,
+	R: TryFrom<V::Resource> + Send + Sync + 'static,
+	for<'a> &'a R: TryFrom<&'a V::Resource>,
+{
+	/// Create a new `Page` result from a `Bundle` and client.
+	pub(crate) const fn new(client: Client<V>, bundle: V::Bundle) -> Self {
+		Self { client, bundle, _resource_type: PhantomData }
+	}
 
-		Self {
-			client,
-			next_url,
-			entries: VecDeque::new(),
-			filter,
-			future_resource: None,
-			future_next_page: None,
-		}
+	/// Get the next page URL, if there is one.
+	pub fn next_page_url(&self) -> Option<&String> {
+		self.bundle.next_page_url()
+	}
+
+	/// Fetch the next page and return it.
+	pub async fn next_page(&self) -> Option<Result<Self, Error>> {
+		let next_page_url = self.next_page_url()?;
+		let url = match Url::parse(next_page_url) {
+			Ok(url) => url,
+			Err(_err) => return Some(Err(Error::UrlParse(next_page_url.clone()))),
+		};
+
+		tracing::debug!("Fetching next page from URL: {next_page_url}");
+		let next_bundle = match self.client.read_generic::<V::Bundle>(url).await {
+			Ok(Some(bundle)) => bundle,
+			Ok(None) => return Some(Err(Error::ResourceNotFound(next_page_url.clone()))),
+			Err(err) => return Some(Err(err)),
+		};
+
+		Some(Ok(Self::new(self.client.clone(), next_bundle)))
+	}
+
+	/// Get the `total` field, indicating the total number of results.
+	pub fn total(&self) -> Option<u32> {
+		self.bundle.total()
+	}
+
+	/// Get access to the inner `Bundle`.
+	pub const fn bundle(&self) -> &V::Bundle {
+		&self.bundle
+	}
+
+	/// Consume the `Page` and return the inner `Bundle`.
+	pub fn into_inner(self) -> V::Bundle {
+		self.bundle
+	}
+
+	/// Consumes the raw inner entries, leaving the page empty. Returns the entries.
+	pub fn take_entries(&mut self) -> Vec<Option<BundleEntry<V>>> {
+		self.bundle.take_entries()
+	}
+
+	/// Get the entries of this page, ignoring entries whenever there is no `resource` in the entry.
+	pub fn entries(&self) -> impl Iterator<Item = &V::Resource> + Send {
+		self.bundle.entries().filter_map(|entry| entry.resource())
+	}
+
+	/// Get the matches of this page, ignoring entries whenever there is no `resource` in the entry
+	/// or resources of the wrong type.
+	pub fn matches(&self) -> impl Iterator<Item = &R> + Send {
+		self.bundle
+			.entries()
+			.filter(|entry| entry.search_mode().is_some_and(SearchEntryModeExt::is_match))
+			.filter_map(|entry| entry.resource())
+			.filter_map(|resource| resource.try_into().ok())
+	}
+
+	/// Get the entries of this page, where the `fullUrl` is automatically resolved whenever there
+	/// is no `resource` in the entry. Consumes the entries, leaving the page empty.
+	pub fn entries_owned(
+		&mut self,
+	) -> impl Stream<Item = Result<V::Resource, Error>> + Send + 'static {
+		let client = self.client.clone();
+		stream::iter(self.take_entries().into_iter().flatten())
+			.filter_map(move |entry| resolve_bundle_entry(entry, client.clone()))
+	}
+
+	/// Get the matches of this page, where the `fullUrl` is automatically resolved whenever there
+	/// is no `resource` in the entry. Consumes the entries, leaving the page empty. Ignores entries
+	/// of the wrong resource type and entries without resource or full URL.
+	pub fn matches_owned(&mut self) -> impl Stream<Item = Result<R, Error>> + Send + 'static {
+		let client = self.client.clone();
+		stream::iter(
+			self.take_entries()
+				.into_iter()
+				.flatten()
+				.filter(|entry| entry.search_mode().is_some_and(SearchEntryModeExt::is_match)),
+		)
+		.filter_map(move |entry| resolve_bundle_entry(entry, client.clone()))
+		.try_filter_map(|resource| std::future::ready(Ok(resource.try_into().ok())))
+	}
+
+	/// Start automatic paging through all entries across pages.
+	///
+	/// Hint: you can activate pre-fetching by [StreamExt::buffered].
+	pub fn all_entries(
+		mut self,
+	) -> impl Stream<Item = Result<V::Resource, Error>> + Send + 'static {
+		self.entries_owned()
+			.chain(
+				stream::once(async move { self.next_page().await })
+					.filter_map(std::future::ready)
+					.map_ok(Self::all_entries)
+					.try_flatten(),
+			)
+			.boxed() // Somehow gives error when using if not boxed?
+	}
+
+	/// Start automatic paging through all matches across pages.
+	///
+	/// Hint: you can activate pre-fetching by [StreamExt::buffered].
+	pub fn all_matches(mut self) -> impl Stream<Item = Result<R, Error>> + Send + 'static {
+		self.matches_owned()
+			.chain(
+				stream::once(async move { self.next_page().await })
+					.filter_map(std::future::ready)
+					.map_ok(Self::all_matches)
+					.try_flatten(),
+			)
+			.boxed() // Somehow gives error when using if not boxed?
 	}
 }
 
-impl<V: FhirVersion> Stream for Paged<V>
+/// Convert the bundle entry into a resource, resolving the `fullUrl` if there is no resource
+/// inside. Returns `None` if there is neither resource nor full URL.
+async fn resolve_bundle_entry<V: FhirVersion>(
+	entry: BundleEntry<V>,
+	client: Client<V>,
+) -> Option<Result<V::Resource, Error>>
 where
 	(StatusCode, V::OperationOutcome): Into<Error>,
 {
-	type Item = Result<V::Resource, Error>;
-
-	fn poll_next(
-		mut self: Pin<&mut Self>,
-		cx: &mut std::task::Context<'_>,
-	) -> Poll<Option<Self::Item>> {
-		let span = tracing::trace_span!("Paged::poll_next");
-		let _span_guard = span.enter();
-
-		// Check on single resource future first to output the next resource.
-		if let Some(future_resource) = self.future_resource.as_mut() {
-			let item = ready!(future_resource.as_mut().poll(cx));
-			self.future_resource = None;
-			tracing::trace!("Next `full_url` fetched resource ready");
-			return Poll::Ready(Some(item));
-		}
-
-		// Otherwise check on next page future to save the next batch of entries.
-		if let Some(future_next_page) = self.future_next_page.as_mut() {
-			if let Poll::Ready(next_page) = future_next_page.as_mut().poll(cx) {
-				self.future_next_page = None;
-				tracing::trace!("Next page fetched and ready");
-
-				// Get the Bundle or error out.
-				let bundle = match next_page {
-					Ok(bundle) => bundle,
-					Err(err) => return Poll::Ready(Some(Err(err))),
-				};
-
-				// Parse the next page's URL or error out.
-				if let Some(next_url_string) = bundle.next_page_url() {
-					let Ok(next_url) = Url::parse(next_url_string) else {
-						tracing::error!("Could not parse next page URL");
-						return Poll::Ready(Some(Err(Error::UrlParse(next_url_string.clone()))));
-					};
-					self.next_url = Some(next_url);
-				}
-
-				// Save the `BundleEntry`s.
-				self.entries.extend(bundle.into_entries());
-			}
-		}
-
-		// If there are not enough items in the queue, query the next page.
-		if self.entries.len() < 5 {
-			if let Some(next_page_url) = self.next_url.take() {
-				tracing::trace!("Less than 5 entries left, starting to fetch new page");
-				self.future_next_page =
-					Some(fetch_resource(self.client.clone(), next_page_url).boxed());
-				cx.waker().wake_by_ref();
-			}
-		}
-
-		// Then get the next item from the queue that matches the filter.
-		while let Some(entry) = self.entries.pop_front() {
-			if !(self.filter)(&entry) {
-				continue;
-			}
-
-			let (full_url, resource) = entry.into_parts();
-			if let Some(resource) = resource {
-				return Poll::Ready(Some(Ok(resource)));
-			} else if let Some(url) = full_url {
-				if let Ok(url) = Url::parse(&url) {
-					tracing::trace!("Next entry needs to be fetched, starting to fetch it");
-					self.future_resource = Some(fetch_resource(self.client.clone(), url).boxed());
-					cx.waker().wake_by_ref();
-					return Poll::Pending;
-				} else {
-					tracing::error!("Could not parse next entry URL");
-					return Poll::Ready(Some(Err(Error::UrlParse(url))));
-				}
-			}
-		}
-
-		// Else check if all resources were consumed or if we are waiting for new
-		// resources to arrive.
-		if self.future_next_page.is_some() {
-			tracing::trace!("Paged results waiting for next page fetch");
-			Poll::Pending
-		} else if self.next_url.is_some() {
-			tracing::trace!("Paged results waiting for next URL fetch");
-			cx.waker().wake_by_ref();
-			Poll::Pending
-		} else {
-			tracing::trace!("Paged results exhausted");
-			Poll::Ready(None)
-		}
+	if entry.resource().is_some() {
+		return entry.into_resource().map(Ok);
 	}
 
-	fn size_hint(&self) -> (usize, Option<usize>) {
-		if self.next_url.is_some() {
-			(self.entries.len(), None)
-		} else {
-			(self.entries.len(), Some(self.entries.len()))
-		}
-	}
+	let full_url = entry.full_url()?;
+	let url = match Url::parse(full_url) {
+		Ok(url) => url,
+		Err(_err) => return Some(Err(Error::UrlParse(full_url.clone()))),
+	};
+
+	let result = client
+		.read_generic::<V::Resource>(url)
+		.await
+		.and_then(|opt| opt.ok_or_else(|| Error::ResourceNotFound(full_url.clone())));
+	Some(result)
 }
 
-/// Query a resource from a given URL.
-async fn fetch_resource<V: FhirVersion, R: DeserializeOwned>(
-	client: Client<V>,
-	url: Url,
-) -> Result<R, Error>
-where
-	(StatusCode, V::OperationOutcome): Into<Error>,
-{
-	// Fetch a single resource from the given URL.
-	let resource = client.read_generic(url.clone()).await?;
-	resource.ok_or_else(|| Error::ResourceNotFound(url.to_string()))
-}
-
-impl<V: FhirVersion> std::fmt::Debug for Paged<V> {
+impl<V: FhirVersion, R> Debug for Page<V, R> {
 	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-		f.debug_struct("Paged")
+		f.debug_struct("Page")
 			.field("client", &self.client)
-			.field("next_url", &self.next_url)
-			.field("entries", &self.entries)
-			.field("filter", &"_")
-			.field("future_resource", &self.future_resource.as_ref().map(|_| "_"))
-			.field("future_next_page", &self.future_next_page.as_ref().map(|_| "_"))
+			.field("bundle", &self.bundle)
+			.field("_resource_type", &type_name::<R>())
 			.finish()
 	}
 }

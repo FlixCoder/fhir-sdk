@@ -216,6 +216,8 @@ async fn search_inner() -> Result<()> {
 					not: false,
 				}),
 		)
+		.await?
+		.all_matches()
 		.try_collect()
 		.await?;
 	assert_eq!(patients.len(), 1);
@@ -323,6 +325,8 @@ async fn paging_inner() -> Result<()> {
 			comparator: Some(SearchComparator::Eq),
 			value: date,
 		}))
+		.await?
+		.all_matches()
 		.try_collect()
 		.await?;
 	let patients_len = patients.len();
@@ -354,7 +358,7 @@ async fn history_with_id_inner() -> Result<()> {
 
 	patient.clone().delete(&client).await?;
 
-	let bundle = client.history(ResourceType::Patient, patient.id.as_deref()).await?;
+	let bundle = client.history::<Patient>(patient.id.as_deref()).await?.into_inner();
 	assert_eq!(bundle.r#type, BundleType::History);
 	assert_eq!(bundle.entry.len(), 3);
 

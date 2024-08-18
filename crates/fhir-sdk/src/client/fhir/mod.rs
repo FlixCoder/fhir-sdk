@@ -9,6 +9,7 @@ mod transaction;
 mod write;
 
 pub use self::{
+	paging::Page,
 	search_params::{
 		DateSearch, MissingSearch, NumberSearch, QuantitySearch, ReferenceSearch, StringSearch,
 		TokenSearch, UriSearch,

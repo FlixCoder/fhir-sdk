@@ -68,6 +68,8 @@ async fn main() -> Result<(), Error> {
             code: Some("false"),
             not: false,
         }))
+        .await?
+        .all_matches()
         .try_collect()
         .await?;
 
@@ -75,7 +77,7 @@ async fn main() -> Result<(), Error> {
 }
 ```
 
-For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/main/crates/fhir-sdk/tests/client-r5.rs) or below.
+For more examples, see the [tests](https://github.com/FlixCoder/fhir-sdk/blob/main/crates/fhir-sdk/tests/) or below.
 
 ## Development & Testing
 

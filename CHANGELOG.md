@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.0] - 2024-08-18
+
+### Bug Fixes
+
+- Fix feature specific build errors
+- Add source impls to errors
+
+### Features
+
+- [**breaking**] By default, clients reject different major FHIR versions and different URL origins. This can be allowed through flags in the `ClientBuilder`.
+- Allow sending custom HTTP requests
+- Add and implement AnyResource trait for all resources
+- Implement custom search request
+
+### Refactor
+
+- [**breaking**] Remove code duplication across FHIR versions
+  - This requires the FHIR version to be implement an internal trait.
+  - There are now generic search parameters across versions. Though there is aliases for the version specific parameters, so that hopefully nothing breaks.
+  - Some more generic requirements, should not be visible to the user mostly.
+- [**breaking**] Remodel the way paging works
+  - History and search requests return a `Page` now. It offers methods to either manually go through the pages and get the entries, or automatically page and return a `Stream` of all matches. It is possible to access the inner `Bundle` though, so `history` can be compatible to previous usage.
+  - Different parameters and generics on the bespoken methods.
+
+### Testing
+
+- Add first CI and switch to cargo-make
+
 ## [0.13.0] - 2024-07-28
 
 ### Bug Fixes

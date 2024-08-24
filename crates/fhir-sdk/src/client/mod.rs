@@ -12,6 +12,7 @@ mod search;
 use std::{marker::PhantomData, sync::Arc};
 
 use ::std::any::type_name;
+use ::uuid::Uuid;
 use misc::parse_major_fhir_version;
 use reqwest::{header, StatusCode, Url};
 
@@ -134,22 +135,42 @@ impl<V: FhirVersion> Client<V> {
 
 	/// Run a request using the internal request settings, calling the auth
 	/// callback to retrieve a new Authorization header on `unauthtorized`
-	/// responses.
+	/// responses. Also adds the `X-Correlation-Id` header if not already present.
+	#[tracing::instrument(level = "info", skip_all, fields(x_correlation_id))]
 	async fn run_request(
 		&self,
-		request: reqwest::RequestBuilder,
+		mut request: reqwest::RequestBuilder,
 	) -> Result<reqwest::Response, Error> {
+		let info_request = request.try_clone().ok_or(Error::RequestNotClone)?.build()?;
+
 		// Check the URL origin if configured to ensure equality.
 		if self.0.error_on_origin_mismatch {
-			let request = request.try_clone().ok_or(Error::RequestNotClone)?.build()?;
 			// Make sure we are not forwarded to any malicious server.
-			if request.url().origin() != self.0.base_url.origin() {
-				return Err(Error::DifferentOrigin(request.url().to_string()));
+			if info_request.url().origin() != self.0.base_url.origin() {
+				return Err(Error::DifferentOrigin(info_request.url().to_string()));
 			}
 		}
 
+		// Generate a new correlation ID for this request/transaction across login, if there was
+		// none.
+		let x_correlation_id = if let Some(value) = info_request.headers().get("X-Correlation-Id") {
+			value.to_str().ok().map(ToOwned::to_owned)
+		} else {
+			let id_str = Uuid::new_v4().to_string();
+			#[allow(clippy::expect_used)] // Will not fail.
+			let id_value = header::HeaderValue::from_str(&id_str).expect("UUIDs are valid header values");
+			request = request.header("X-Correlation-Id", id_value);
+			Some(id_str)
+		};
+		tracing::Span::current().record("x_correlation_id", x_correlation_id);
+
 		// Try running the request
 		let mut request_settings = self.request_settings();
+		tracing::info!(
+			"Sending {} request to {} (potentially with retries)",
+			info_request.method(),
+			info_request.url()
+		);
 		let mut response = request_settings
 			.make_request(request.try_clone().ok_or(Error::RequestNotClone)?)
 			.await?;
@@ -177,8 +198,11 @@ impl<V: FhirVersion> Client<V> {
 			}
 			// Retry request with new request settings.
 			request_settings = self.request_settings();
+			tracing::info!("Retrying request after authorization refresh");
 			response = request_settings.make_request(request).await?;
 		}
+
+		tracing::info!("Got response: {}", response.status());
 
 		// Test server FHIR version in response, if configured to do so.
 		if self.0.error_on_version_mismatch {

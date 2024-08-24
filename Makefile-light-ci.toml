@@ -14,6 +14,12 @@ script = [
 ]
 
 
+[tasks.clippy-default]
+private = false
+install_crate = false
+command = "cargo"
+args = ["clippy", "-p", "fhir-sdk", "--all-targets", "--", "-D", "warnings"]
+
 [tasks.clippy-r4b-r5-no-builders]
 private = true
 install_crate = false
@@ -45,7 +51,7 @@ dependencies = [
 [tasks.test-nextest]
 private = true
 command = "cargo"
-args = ["nextest", "run", "--workspace", "@@split(FEATURE_SELECTION, )"]
+args = ["nextest", "run", "--workspace", "--exclude", "generate", "@@split(FEATURE_SELECTION, )"]
 
 [tasks.test]
 description = "Runs all tests for the given feature set."

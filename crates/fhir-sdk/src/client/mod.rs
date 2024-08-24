@@ -11,6 +11,7 @@ mod search;
 
 use std::{marker::PhantomData, sync::Arc};
 
+use ::std::any::type_name;
 use misc::parse_major_fhir_version;
 use reqwest::{header, StatusCode, Url};
 
@@ -235,13 +236,15 @@ impl std::fmt::Debug for ClientData {
 			.field("client", &self.client)
 			.field("request_settings", &self.request_settings)
 			.field("auth_callback", &auth_callback)
+			.field("error_on_version_mismatch", &self.error_on_version_mismatch)
+			.field("error_on_origin_mismatch", &self.error_on_origin_mismatch)
 			.finish()
 	}
 }
 
 impl<V> std::fmt::Debug for Client<V> {
 	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-		f.debug_tuple("Client").field(&self.0).finish()
+		f.debug_struct("Client").field("data", &self.0).field("version", &type_name::<V>()).finish()
 	}
 }
 

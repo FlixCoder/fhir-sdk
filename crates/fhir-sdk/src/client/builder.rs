@@ -191,9 +191,13 @@ impl<V, ACB> std::fmt::Debug for ClientBuilder<V, ACB> {
 	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
 		f.debug_struct("ClientBuilder")
 			.field("base_url", &self.base_url)
+			.field("client", &self.client)
 			.field("user_agent", &self.user_agent)
 			.field("request_settings", &self.request_settings)
 			.field("auth_callback", &self.auth_callback.as_ref().map(|_| "<login_manager>"))
+			.field("error_on_version_mismatch", &self.error_on_version_mismatch)
+			.field("error_on_origin_mismatch", &self.error_on_origin_mismatch)
+			.field("version", &std::any::type_name::<V>())
 			.finish()
 	}
 }

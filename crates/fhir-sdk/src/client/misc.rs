@@ -1,6 +1,5 @@
 //! Miscellaneous helpers.
 
-use ::reqwest::{header::AsHeaderName, RequestBuilder};
 use ::uuid::Uuid;
 use reqwest::header::{self, HeaderMap, HeaderValue};
 
@@ -68,20 +67,6 @@ pub fn escape_search_value(value: &str) -> String {
 pub fn make_uuid_header_value() -> HeaderValue {
 	#[allow(clippy::expect_used)] // Will not fail.
 	HeaderValue::from_str(&Uuid::new_v4().to_string()).expect("UUIDs are valid header values")
-}
-
-/// Get a cloned header value from a request builder without cloning the whole request.
-pub fn extract_header<K>(
-	request_builder: RequestBuilder,
-	header: K,
-) -> Result<(RequestBuilder, Option<HeaderValue>), reqwest::Error>
-where
-	K: AsHeaderName,
-{
-	let (client, request_result) = request_builder.build_split();
-	let request = request_result?;
-	let value = request.headers().get(header).cloned();
-	Ok((RequestBuilder::from_parts(client, request), value))
 }
 
 #[cfg(test)]

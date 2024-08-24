@@ -141,7 +141,7 @@ impl<V: FhirVersion> Client<V> {
 		mut request: reqwest::RequestBuilder,
 	) -> Result<reqwest::Response, Error> {
 		let (client, info_request_result) = request.build_split();
-		let info_request = info_request_result?;
+		let mut info_request = info_request_result?;
 		let req_method = info_request.method().clone();
 		let req_url = info_request.url().clone();
 
@@ -156,13 +156,11 @@ impl<V: FhirVersion> Client<V> {
 		// Generate a new correlation ID for this request/transaction across login, if there was
 		// none.
 		let correlation_id = info_request
-			.headers()
-			.get("X-Correlation-Id")
-			.cloned()
-			.unwrap_or_else(make_uuid_header_value);
+			.headers_mut()
+			.entry("X-Correlation-Id")
+			.or_insert_with(make_uuid_header_value);
 		let x_correlation_id = correlation_id.to_str().ok().map(ToOwned::to_owned);
-		request = reqwest::RequestBuilder::from_parts(client, info_request)
-			.header("X-Correlation-Id", correlation_id);
+		request = reqwest::RequestBuilder::from_parts(client, info_request);
 		tracing::Span::current().record("x_correlation_id", x_correlation_id);
 
 		// Try running the request

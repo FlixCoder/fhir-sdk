@@ -15,7 +15,7 @@ use super::{
 	Client, Error, SearchParameters,
 };
 use crate::{
-	client::misc::{extract_header, make_uuid_header_value},
+	client::misc::make_uuid_header_value,
 	extensions::{AnyResource, GenericResource, ReferenceExt},
 	version::FhirVersion,
 };
@@ -313,12 +313,17 @@ where
 		R: TryFrom<V::Resource> + Send + Sync + 'static,
 		for<'a> &'a R: TryFrom<&'a V::Resource>,
 	{
-		let request = (make_request)(&self.0.client);
-		let (mut request, correlation_id) = extract_header(request, "X-Correlation-Id")?;
-		let correlation_id = correlation_id.unwrap_or_else(make_uuid_header_value);
-		request = request.header("X-Correlation-Id", correlation_id.clone());
+		let mut request_builder = (make_request)(&self.0.client);
+		let (client, request_result) = request_builder.build_split();
+		let mut request = request_result?;
+		let correlation_id = request
+			.headers_mut()
+			.entry("X-Correlation-Id")
+			.or_insert_with(make_uuid_header_value)
+			.clone();
+		request_builder = reqwest::RequestBuilder::from_parts(client, request);
 
-		let response = self.run_request(request).await?;
+		let response = self.run_request(request_builder).await?;
 		if response.status().is_success() {
 			let bundle: V::Bundle = response.json().await?;
 			Ok(Page::new(self.clone(), bundle, correlation_id))

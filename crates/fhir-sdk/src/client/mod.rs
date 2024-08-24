@@ -12,15 +12,14 @@ mod search;
 use std::{marker::PhantomData, sync::Arc};
 
 use ::std::any::type_name;
-use ::uuid::Uuid;
 use misc::parse_major_fhir_version;
 use reqwest::{header, StatusCode, Url};
 
-use self::auth::AuthCallback;
 pub use self::{
 	aliases::*, auth::LoginManager, builder::ClientBuilder, error::Error, fhir::*,
 	request::RequestSettings, search::SearchParameters,
 };
+use self::{auth::AuthCallback, misc::make_uuid_header_value};
 use crate::version::{DefaultVersion, FhirR4B, FhirR5, FhirStu3, FhirVersion};
 
 /// FHIR REST Client.
@@ -141,7 +140,10 @@ impl<V: FhirVersion> Client<V> {
 		&self,
 		mut request: reqwest::RequestBuilder,
 	) -> Result<reqwest::Response, Error> {
-		let info_request = request.try_clone().ok_or(Error::RequestNotClone)?.build()?;
+		let (client, info_request_result) = request.build_split();
+		let info_request = info_request_result?;
+		let req_method = info_request.method().clone();
+		let req_url = info_request.url().clone();
 
 		// Check the URL origin if configured to ensure equality.
 		if self.0.error_on_origin_mismatch {
@@ -153,24 +155,19 @@ impl<V: FhirVersion> Client<V> {
 
 		// Generate a new correlation ID for this request/transaction across login, if there was
 		// none.
-		let x_correlation_id = if let Some(value) = info_request.headers().get("X-Correlation-Id") {
-			value.to_str().ok().map(ToOwned::to_owned)
-		} else {
-			let id_str = Uuid::new_v4().to_string();
-			#[allow(clippy::expect_used)] // Will not fail.
-			let id_value = header::HeaderValue::from_str(&id_str).expect("UUIDs are valid header values");
-			request = request.header("X-Correlation-Id", id_value);
-			Some(id_str)
-		};
+		let correlation_id = info_request
+			.headers()
+			.get("X-Correlation-Id")
+			.cloned()
+			.unwrap_or_else(make_uuid_header_value);
+		let x_correlation_id = correlation_id.to_str().ok().map(ToOwned::to_owned);
+		request = reqwest::RequestBuilder::from_parts(client, info_request)
+			.header("X-Correlation-Id", correlation_id);
 		tracing::Span::current().record("x_correlation_id", x_correlation_id);
 
 		// Try running the request
 		let mut request_settings = self.request_settings();
-		tracing::info!(
-			"Sending {} request to {} (potentially with retries)",
-			info_request.method(),
-			info_request.url()
-		);
+		tracing::info!("Sending {req_method} request to {req_url} (potentially with retries)");
 		let mut response = request_settings
 			.make_request(request.try_clone().ok_or(Error::RequestNotClone)?)
 			.await?;

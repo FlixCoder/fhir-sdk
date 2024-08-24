@@ -2,14 +2,13 @@
 
 use std::time::Duration;
 
-use ::uuid::Uuid;
 use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 use tokio_retry::{
 	strategy::{ExponentialBackoff, FixedInterval},
 	RetryIf,
 };
 
-use super::error::Error;
+use super::{error::Error, misc::make_uuid_header_value};
 
 /// Settings for the HTTP Requests.
 ///
@@ -105,9 +104,7 @@ impl RequestSettings {
 		*request.headers_mut() = headers;
 
 		// Add `X-Request-Id` and `X-Correlation-Id` header if not already set.
-		#[allow(clippy::expect_used)] // Will not fail.
-		let id_value = HeaderValue::from_str(&Uuid::new_v4().to_string())
-			.expect("UUIDs are valid header values");
+		let id_value = make_uuid_header_value();
 		request.headers_mut().entry("X-Correlation-Id").or_insert_with(|| id_value.clone());
 		request.headers_mut().entry("X-Request-Id").or_insert(id_value);
 

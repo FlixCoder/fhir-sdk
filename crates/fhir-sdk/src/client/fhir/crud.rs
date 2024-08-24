@@ -15,6 +15,7 @@ use super::{
 	Client, Error, SearchParameters,
 };
 use crate::{
+	client::misc::{extract_header, make_uuid_header_value},
 	extensions::{AnyResource, GenericResource, ReferenceExt},
 	version::FhirVersion,
 };
@@ -42,8 +43,12 @@ where
 	pub(crate) async fn read_generic<R: DeserializeOwned>(
 		&self,
 		url: Url,
+		correlation_id: Option<HeaderValue>,
 	) -> Result<Option<R>, Error> {
-		let request = self.0.client.get(url).header(header::ACCEPT, V::MIME_TYPE);
+		let mut request = self.0.client.get(url).header(header::ACCEPT, V::MIME_TYPE);
+		if let Some(correlation_id) = correlation_id {
+			request = request.header("X-Correlation-Id", correlation_id);
+		}
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
@@ -62,7 +67,7 @@ where
 		id: &str,
 	) -> Result<Option<R>, Error> {
 		let url = self.url(&[R::TYPE_STR, id]);
-		self.read_generic(url).await
+		self.read_generic(url, None).await
 	}
 
 	/// Read a specific version of a specific FHIR resource.
@@ -72,7 +77,7 @@ where
 		version_id: &str,
 	) -> Result<Option<R>, Error> {
 		let url = self.url(&[R::TYPE_STR, id, "_history", version_id]);
-		self.read_generic(url).await
+		self.read_generic(url, None).await
 	}
 
 	/// Read the resource that is targeted in the reference.
@@ -93,7 +98,7 @@ where
 		};
 
 		let resource: V::Resource = self
-			.read_generic(url.clone())
+			.read_generic(url.clone(), None)
 			.await?
 			.ok_or_else(|| Error::ResourceNotFound(url.to_string()))?;
 		if let Some(resource_type) = reference.r#type() {
@@ -114,6 +119,8 @@ where
 		R: AnyResource<V> + TryFrom<V::Resource, Error = WrongResourceType> + 'static,
 		for<'a> &'a R: TryFrom<&'a V::Resource>,
 	{
+		let correlation_id = make_uuid_header_value();
+
 		let url = {
 			if let Some(id) = id {
 				self.url(&[R::TYPE_STR, id, "_history"])
@@ -121,12 +128,17 @@ where
 				self.url(&[R::TYPE_STR, "_history"])
 			}
 		};
-		let request = self.0.client.get(url).header(header::ACCEPT, V::MIME_TYPE);
+		let request = self
+			.0
+			.client
+			.get(url)
+			.header(header::ACCEPT, V::MIME_TYPE)
+			.header("X-Correlation-Id", correlation_id.clone());
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: V::Bundle = response.json().await?;
-			Ok(Page::new(self.clone(), bundle))
+			Ok(Page::new(self.clone(), bundle, correlation_id))
 		} else {
 			Err(Error::from_response::<V>(response).await)
 		}
@@ -233,18 +245,21 @@ where
 	) -> Result<Page<V, V::Resource>, Error> {
 		// TODO: Use POST for long queries?
 
+		let correlation_id = make_uuid_header_value();
+
 		let url = self.url(&[]);
 		let request = self
 			.0
 			.client
 			.get(url)
 			.query(&queries.into_queries())
-			.header(header::ACCEPT, V::MIME_TYPE);
+			.header(header::ACCEPT, V::MIME_TYPE)
+			.header("X-Correlation-Id", correlation_id.clone());
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: V::Bundle = response.json().await?;
-			Ok(Page::new(self.clone(), bundle))
+			Ok(Page::new(self.clone(), bundle, correlation_id))
 		} else {
 			Err(Error::from_response::<V>(response).await)
 		}
@@ -258,18 +273,21 @@ where
 	{
 		// TODO: Use POST for long queries?
 
+		let correlation_id = make_uuid_header_value();
+
 		let url = self.url(&[R::TYPE_STR]);
 		let request = self
 			.0
 			.client
 			.get(url)
 			.query(&queries.into_queries())
-			.header(header::ACCEPT, V::MIME_TYPE);
+			.header(header::ACCEPT, V::MIME_TYPE)
+			.header("X-Correlation-Id", correlation_id.clone());
 
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: V::Bundle = response.json().await?;
-			Ok(Page::new(self.clone(), bundle))
+			Ok(Page::new(self.clone(), bundle, correlation_id))
 		} else {
 			Err(Error::from_response::<V>(response).await)
 		}
@@ -295,10 +313,15 @@ where
 		R: TryFrom<V::Resource> + Send + Sync + 'static,
 		for<'a> &'a R: TryFrom<&'a V::Resource>,
 	{
-		let response = self.send_custom_request(make_request).await?;
+		let request = (make_request)(&self.0.client);
+		let (mut request, correlation_id) = extract_header(request, "X-Correlation-Id")?;
+		let correlation_id = correlation_id.unwrap_or_else(make_uuid_header_value);
+		request = request.header("X-Correlation-Id", correlation_id.clone());
+
+		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let bundle: V::Bundle = response.json().await?;
-			Ok(Page::new(self.clone(), bundle))
+			Ok(Page::new(self.clone(), bundle, correlation_id))
 		} else {
 			Err(Error::from_response::<V>(response).await)
 		}

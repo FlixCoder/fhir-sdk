@@ -3,7 +3,7 @@
 use std::{any::type_name, fmt::Debug, marker::PhantomData};
 
 use futures::{stream, Stream, StreamExt, TryStreamExt};
-use reqwest::{StatusCode, Url};
+use reqwest::{header::HeaderValue, StatusCode, Url};
 
 use super::{Client, Error};
 use crate::{
@@ -21,6 +21,8 @@ pub struct Page<V: FhirVersion, R> {
 	client: Client<V>,
 	/// The inner Bundle result.
 	bundle: V::Bundle,
+	/// The correlation ID to send when fetching all further pages.
+	correlation_id: HeaderValue,
 
 	/// The resource type to return in matches.
 	_resource_type: PhantomData<R>,
@@ -33,8 +35,12 @@ where
 	for<'a> &'a R: TryFrom<&'a V::Resource>,
 {
 	/// Create a new `Page` result from a `Bundle` and client.
-	pub(crate) const fn new(client: Client<V>, bundle: V::Bundle) -> Self {
-		Self { client, bundle, _resource_type: PhantomData }
+	pub(crate) const fn new(
+		client: Client<V>,
+		bundle: V::Bundle,
+		correlation_id: HeaderValue,
+	) -> Self {
+		Self { client, bundle, correlation_id, _resource_type: PhantomData }
 	}
 
 	/// Get the next page URL, if there is one.
@@ -51,13 +57,17 @@ where
 		};
 
 		tracing::debug!("Fetching next page from URL: {next_page_url}");
-		let next_bundle = match self.client.read_generic::<V::Bundle>(url).await {
+		let next_bundle = match self
+			.client
+			.read_generic::<V::Bundle>(url, Some(self.correlation_id.clone()))
+			.await
+		{
 			Ok(Some(bundle)) => bundle,
 			Ok(None) => return Some(Err(Error::ResourceNotFound(next_page_url.clone()))),
 			Err(err) => return Some(Err(err)),
 		};
 
-		Some(Ok(Self::new(self.client.clone(), next_bundle)))
+		Some(Ok(Self::new(self.client.clone(), next_bundle, self.correlation_id.clone())))
 	}
 
 	/// Get the `total` field, indicating the total number of results.
@@ -104,8 +114,10 @@ where
 		&mut self,
 	) -> impl Stream<Item = Result<V::Resource, Error>> + Send + 'static {
 		let client = self.client.clone();
-		stream::iter(self.take_entries().into_iter().flatten())
-			.filter_map(move |entry| resolve_bundle_entry(entry, client.clone()))
+		let correlation_id = self.correlation_id.clone();
+		stream::iter(self.take_entries().into_iter().flatten()).filter_map(move |entry| {
+			resolve_bundle_entry(entry, client.clone(), correlation_id.clone())
+		})
 	}
 
 	/// Get the matches of this page, where the `fullUrl` is automatically resolved whenever there
@@ -116,13 +128,16 @@ where
 	/// Consumes the entries, leaving the page empty.
 	pub fn matches_owned(&mut self) -> impl Stream<Item = Result<R, Error>> + Send + 'static {
 		let client = self.client.clone();
+		let correlation_id = self.correlation_id.clone();
 		stream::iter(
 			self.take_entries()
 				.into_iter()
 				.flatten()
 				.filter(|entry| entry.search_mode().is_some_and(SearchEntryModeExt::is_match)),
 		)
-		.filter_map(move |entry| resolve_bundle_entry(entry, client.clone()))
+		.filter_map(move |entry| {
+			resolve_bundle_entry(entry, client.clone(), correlation_id.clone())
+		})
 		.try_filter_map(|resource| std::future::ready(Ok(resource.try_into().ok())))
 	}
 
@@ -163,6 +178,7 @@ where
 async fn resolve_bundle_entry<V: FhirVersion>(
 	entry: BundleEntry<V>,
 	client: Client<V>,
+	correlation_id: HeaderValue,
 ) -> Option<Result<V::Resource, Error>>
 where
 	(StatusCode, V::OperationOutcome): Into<Error>,
@@ -184,7 +200,7 @@ where
 	};
 
 	let result = client
-		.read_generic::<V::Resource>(url)
+		.read_generic::<V::Resource>(url, Some(correlation_id))
 		.await
 		.and_then(|opt| opt.ok_or_else(|| Error::ResourceNotFound(full_url.clone())));
 	Some(result)
@@ -195,6 +211,7 @@ impl<V: FhirVersion, R> Clone for Page<V, R> {
 		Self {
 			client: self.client.clone(),
 			bundle: self.bundle.clone(),
+			correlation_id: self.correlation_id.clone(),
 			_resource_type: self._resource_type,
 		}
 	}

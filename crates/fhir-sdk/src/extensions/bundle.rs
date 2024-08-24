@@ -138,6 +138,8 @@ pub trait BundleEntryExt {
 	fn search_mode(&self) -> Option<&Self::SearchEntryMode>;
 	/// Get the full URL field.
 	fn full_url(&self) -> Option<&String>;
+	/// Get the request field.
+	fn request(&self) -> Option<&Self::Request>;
 	/// Get the inner resource.
 	fn resource(&self) -> Option<&Self::Resource>;
 
@@ -176,6 +178,10 @@ macro_rules! impl_bundle_entry_ext {
 
 				fn full_url(&self) -> Option<&String> {
 					self.full_url.as_ref()
+				}
+
+				fn request(&self) -> Option<&Self::Request> {
+					self.request.as_ref()
 				}
 
 				fn resource(&self) -> Option<&Self::Resource> {
@@ -219,6 +225,9 @@ mod bundle_entry_ext {
 /// Additional/generalized functionality on `BundleEntryRequest`s. Only implemented if "builders"
 /// feature is active.
 pub trait BundleEntryRequestExt {
+	/// Is this request a DELETE request (as per method)?
+	fn is_delete(&self) -> bool;
+
 	/// Create new `BundleEntryRequest` with only url, with the method set to
 	/// POST.
 	fn make_post(url: String) -> Self;
@@ -245,6 +254,10 @@ macro_rules! impl_bundle_entry_request_ext {
 			use super::*;
 
 			impl BundleEntryRequestExt for BundleEntryRequest {
+				fn is_delete(&self) -> bool {
+					self.method == HTTPVerb::Delete
+				}
+
 				fn make_post(url: String) -> Self {
 					#[allow(clippy::unwrap_used)] // Will always succeed.
 					Self::builder().url(url).method(HTTPVerb::Post).build().unwrap()

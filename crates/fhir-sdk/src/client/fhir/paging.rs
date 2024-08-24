@@ -7,7 +7,7 @@ use reqwest::{StatusCode, Url};
 
 use super::{Client, Error};
 use crate::{
-	extensions::{BundleEntryExt, BundleExt, SearchEntryModeExt},
+	extensions::{BundleEntryExt, BundleEntryRequestExt, BundleExt, SearchEntryModeExt},
 	version::FhirVersion,
 };
 
@@ -96,7 +96,10 @@ where
 	}
 
 	/// Get the entries of this page, where the `fullUrl` is automatically resolved whenever there
-	/// is no `resource` in the entry. Consumes the entries, leaving the page empty.
+	/// is no `resource` in the entry. Delete entries are ignored as well (e.g. in history
+	/// requests), you can access the raw entries with [Self::bundle] or [Self::take_entries] if you
+	/// need these.
+	/// Consumes the entries, leaving the page empty.
 	pub fn entries_owned(
 		&mut self,
 	) -> impl Stream<Item = Result<V::Resource, Error>> + Send + 'static {
@@ -106,8 +109,11 @@ where
 	}
 
 	/// Get the matches of this page, where the `fullUrl` is automatically resolved whenever there
-	/// is no `resource` in the entry. Consumes the entries, leaving the page empty. Ignores entries
-	/// of the wrong resource type and entries without resource or full URL.
+	/// is no `resource` in the entry. Delete entries are ignored as well (e.g. in history
+	/// requests), you can access the raw entries with [Self::bundle] or [Self::take_entries] if you
+	/// need these. Ignores entries of the wrong resource type and entries without resource or full
+	/// URL.
+	/// Consumes the entries, leaving the page empty.
 	pub fn matches_owned(&mut self) -> impl Stream<Item = Result<R, Error>> + Send + 'static {
 		let client = self.client.clone();
 		stream::iter(
@@ -152,7 +158,8 @@ where
 }
 
 /// Convert the bundle entry into a resource, resolving the `fullUrl` if there is no resource
-/// inside. Returns `None` if there is neither resource nor full URL.
+/// inside and it is not a `DELETE` request. Returns `None` if there is neither resource nor full
+/// URL or it is a `DELETE` request.
 async fn resolve_bundle_entry<V: FhirVersion>(
 	entry: BundleEntry<V>,
 	client: Client<V>,
@@ -162,6 +169,12 @@ where
 {
 	if entry.resource().is_some() {
 		return entry.into_resource().map(Ok);
+	}
+
+	if let Some(request) = entry.request() {
+		if request.is_delete() {
+			return None;
+		}
 	}
 
 	let full_url = entry.full_url()?;

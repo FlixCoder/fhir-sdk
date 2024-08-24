@@ -190,6 +190,16 @@ where
 	Some(result)
 }
 
+impl<V: FhirVersion, R> Clone for Page<V, R> {
+	fn clone(&self) -> Self {
+		Self {
+			client: self.client.clone(),
+			bundle: self.bundle.clone(),
+			_resource_type: self._resource_type,
+		}
+	}
+}
+
 impl<V: FhirVersion, R> Debug for Page<V, R> {
 	fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
 		f.debug_struct("Page")

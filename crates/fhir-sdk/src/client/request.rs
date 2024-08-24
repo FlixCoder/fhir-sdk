@@ -88,7 +88,7 @@ impl RequestSettings {
 	/// Make a HTTP request using the settings. Returns the response.
 	///
 	/// It is recommended to set the `X-Correlation-Id` header outside, for a whole transaction.
-	#[tracing::instrument(level = "debug", skip_all, fields(x_request_id, x_correlation_id))]
+	#[tracing::instrument(level = "debug", skip_all, fields(x_correlation_id, x_request_id))]
 	pub(crate) async fn make_request(
 		&self,
 		mut request: reqwest::RequestBuilder,
@@ -108,8 +108,8 @@ impl RequestSettings {
 		#[allow(clippy::expect_used)] // Will not fail.
 		let id_value = HeaderValue::from_str(&Uuid::new_v4().to_string())
 			.expect("UUIDs are valid header values");
-		request.headers_mut().entry("X-Request-Id").or_insert_with(|| id_value.clone());
-		request.headers_mut().entry("X-Correlation-Id").or_insert(id_value);
+		request.headers_mut().entry("X-Correlation-Id").or_insert_with(|| id_value.clone());
+		request.headers_mut().entry("X-Request-Id").or_insert(id_value);
 
 		// Construct the dynamic retry strategy iterator.
 		let strategy: Box<dyn Iterator<Item = Duration> + Send + Sync> = if self.exp_backoff {
@@ -124,12 +124,12 @@ impl RequestSettings {
 		};
 
 		// Fill in tracing spans to log the informational/correlational headers.
-		let x_request_id = request.headers().get("X-Request-Id").and_then(|v| v.to_str().ok());
 		let x_correlation_id =
 			request.headers().get("X-Correlation-Id").and_then(|v| v.to_str().ok());
+		let x_request_id = request.headers().get("X-Request-Id").and_then(|v| v.to_str().ok());
 		tracing::Span::current()
-			.record("x_request_id", x_request_id)
-			.record("x_correlation_id", x_correlation_id);
+			.record("x_correlation_id", x_correlation_id)
+			.record("x_request_id", x_request_id);
 
 		// Send the request, but retry on specific failures.
 		RetryIf::spawn(

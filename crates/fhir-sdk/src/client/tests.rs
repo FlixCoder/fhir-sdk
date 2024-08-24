@@ -5,12 +5,25 @@ use std::{
 	time::Duration,
 };
 
+use ::tokio::sync::OnceCell;
 use header::HeaderValue;
 use reqwest::Method;
 use serde_json::json;
 use wiremock::{matchers, Mock, MockServer, ResponseTemplate};
 
 use super::*;
+
+/// Set up logging for the tests.
+pub async fn setup_logging() {
+	static ONCE: OnceCell<()> = OnceCell::const_new();
+	ONCE.get_or_init(|| async {
+		tracing_subscriber::fmt::fmt()
+			.with_test_writer()
+			.with_env_filter("DEBUG,hyper=error,reqwest=info")
+			.init();
+	})
+	.await;
+}
 
 async fn mock_custom_request() -> MockServer {
 	let server = MockServer::start().await;
@@ -52,6 +65,7 @@ async fn mock_custom_request() -> MockServer {
 
 #[tokio::test]
 async fn send_custom_request_features() -> anyhow::Result<()> {
+	setup_logging().await;
 	let mocks = mock_custom_request().await;
 
 	let counter = Arc::new(AtomicUsize::new(0));
@@ -111,6 +125,7 @@ async fn mock_version_mismatch() -> MockServer {
 
 #[tokio::test]
 async fn check_major_fhir_version() -> anyhow::Result<()> {
+	setup_logging().await;
 	let mocks = mock_version_mismatch().await;
 
 	let client = <Client>::builder().base_url(Url::parse(&mocks.uri())?).build()?;
@@ -134,6 +149,7 @@ async fn check_major_fhir_version() -> anyhow::Result<()> {
 
 #[tokio::test]
 async fn check_url_origin() -> anyhow::Result<()> {
+	setup_logging().await;
 	let mocks = mock_version_mismatch().await;
 
 	let client = <Client>::builder().base_url("http://localhost/".parse()?).build()?;
@@ -152,5 +168,68 @@ async fn check_url_origin() -> anyhow::Result<()> {
 	let response = client.send_custom_request(|http| http.get(url)).await?;
 	assert_eq!(response.status(), StatusCode::OK);
 
+	Ok(())
+}
+
+
+async fn mock_x_correlation_id() -> MockServer {
+	let server = MockServer::start().await;
+
+	Mock::given(matchers::method(Method::GET))
+		.and(matchers::header("X-Correlation-Id", "custom-id"))
+		.respond_with(ResponseTemplate::new(StatusCode::UNAUTHORIZED))
+		.with_priority(1)
+		.named("Custom correlation ID failure retry")
+		.expect(1)
+		.up_to_n_times(1)
+		.mount(&server)
+		.await;
+
+	Mock::given(matchers::method(Method::GET))
+		.and(matchers::header("X-Correlation-Id", "custom-id"))
+		.respond_with(ResponseTemplate::new(StatusCode::OK))
+		.with_priority(2)
+		.named("Custom correlation ID success")
+		.expect(1)
+		.up_to_n_times(1)
+		.mount(&server)
+		.await;
+
+	Mock::given(matchers::method(Method::GET))
+		.and(matchers::header_exists("X-Correlation-Id"))
+		.respond_with(ResponseTemplate::new(StatusCode::OK))
+		.with_priority(100)
+		.named("Any correlation ID success")
+		.expect(1)
+		.up_to_n_times(1)
+		.mount(&server)
+		.await;
+
+	server
+}
+
+#[tokio::test]
+async fn use_correlation_id() -> anyhow::Result<()> {
+	setup_logging().await;
+	let mocks = mock_x_correlation_id().await;
+
+	let client = <Client>::builder()
+		.base_url(Url::parse(&mocks.uri())?)
+		.auth_callback(move |_http: reqwest::Client| {
+			std::future::ready(anyhow::Ok(HeaderValue::from_static("Bearer <mock>")))
+		})
+		.build()?;
+
+	let url = client.base_url();
+
+	let response = client
+		.send_custom_request(|http| http.get(url.clone()).header("X-Correlation-Id", "custom-id"))
+		.await?;
+	assert_eq!(response.status(), StatusCode::OK);
+
+	let response = client.send_custom_request(|http| http.get(url.clone())).await?;
+	assert_eq!(response.status(), StatusCode::OK);
+
+	mocks.verify().await;
 	Ok(())
 }

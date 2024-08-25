@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.1] - 2024-08-25
+
+### Bug Fixes
+
+- Do not resolve fullUrl if it is a DELETE request
+
+### Features
+
+- Set X-Correlation-Id and X-Request-Id headers and log them
+- Re-use the same correlation ID in paging
+
 ## [0.14.0] - 2024-08-18
 
 ### Bug Fixes

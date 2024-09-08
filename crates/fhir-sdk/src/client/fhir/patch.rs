@@ -37,7 +37,11 @@ where
 	(StatusCode, V::OperationOutcome): Into<Error>,
 {
 	/// Start building a new Patch request.
-	pub fn new(client: Client<V>, resource_type: V::ResourceType, id: &'a str) -> Self {
+	pub(crate) const fn new(
+		client: Client<V>,
+		resource_type: V::ResourceType,
+		id: &'a str,
+	) -> Self {
 		Self { client, resource_type, id, operations: Vec::new() }
 	}
 
@@ -250,7 +254,11 @@ where
 	(StatusCode, V::OperationOutcome): Into<Error>,
 {
 	/// Start building a new Patch request.
-	pub fn new(client: Client<V>, resource_type: V::ResourceType, id: &'a str) -> Self {
+	pub(crate) const fn new(
+		client: Client<V>,
+		resource_type: V::ResourceType,
+		id: &'a str,
+	) -> Self {
 		Self { client, resource_type, id, operations: Vec::new() }
 	}
 

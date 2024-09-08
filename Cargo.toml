@@ -19,6 +19,7 @@ unused_extern_crates = "warn"
 
 [workspace.lints.clippy]
 tabs_in_doc_comments = "allow"
+allow_attributes_without_reason = "warn"
 branches_sharing_code = "warn"
 cast_lossless = "warn"
 cast_possible_wrap = "warn"

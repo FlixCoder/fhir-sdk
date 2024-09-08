@@ -37,7 +37,7 @@ where
 {
 	/// Create new batch or transaction builder, given whether it is a
 	/// transaction.
-	pub fn new(client: Client<V>, is_transaction: bool) -> Self {
+	pub(crate) const fn new(client: Client<V>, is_transaction: bool) -> Self {
 		Self { client, is_transaction, entries: Vec::new() }
 	}
 

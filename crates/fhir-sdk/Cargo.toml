@@ -17,7 +17,7 @@ version = "0.14.1"
 workspace = true
 
 [features]
-default = ["r5", "builders", "client", "docs", "http2", "default-tls", "charset"]
+default = ["r5", "builders", "client", "docs", "dep-defaults"]
 client = [
 	"builders",
 	"dep:async-trait",
@@ -35,15 +35,21 @@ stu3 = ["fhir-model/stu3"]
 r4b = ["fhir-model/r4b"]
 r5 = ["fhir-model/r5"]
 docs = []
+
+dep-defaults = ["reqwest?/default"]
+
 http2 = ["reqwest?/http2"]
 default-tls = ["reqwest?/default-tls"]
 native-tls = ["reqwest?/native-tls"]
 native-tls-vendored = ["reqwest?/native-tls-vendored"]
 native-tls-alpn = ["reqwest?/native-tls-alpn"]
 rustls-tls = ["reqwest?/rustls-tls"]
+rustls-tls-manual-roots = ["reqwest?/rustls-tls-manual-roots"]
 rustls-tls-webpki-roots = ["reqwest?/rustls-tls-webpki-roots"]
 rustls-tls-native-roots = ["reqwest?/rustls-tls-native-roots"]
+blocking = ["reqwest?/blocking"]
 charset = ["reqwest?/charset"]
+cookies = ["reqwest?/cookies"]
 gzip = ["reqwest?/gzip"]
 brotli = ["reqwest?/brotli"]
 zstd = ["reqwest?/zstd"]
@@ -52,12 +58,13 @@ multipart = ["reqwest?/multipart"]
 stream = ["reqwest?/stream"]
 socks = ["reqwest?/socks"]
 hickory-dns = ["reqwest?/hickory-dns"]
+macos-system-configuration = ["reqwest?/macos-system-configuration"]
 
 [dependencies]
 async-trait = { version = "0.1.68", optional = true }
 fhir-model = { path = "../fhir-model", version = "0.12.0", default-features = false }
 futures = { version = "0.3.28", optional = true }
-reqwest = { version = "0.12.2", default-features = false, features = ["json", "http2", "charset"], optional = true }
+reqwest = { version = "0.12.2", default-features = false, features = ["json"], optional = true }
 serde = { version = "1.0.159" }
 serde_json = { version = "1.0.95", optional = true }
 thiserror = { version = "1.0.40", optional = true }
@@ -73,5 +80,5 @@ tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
 wiremock = "0.6.1"
 
 [package.metadata.docs.rs]
-features = ["r5", "builders", "client", "docs"]
+features = ["r5", "builders", "client", "docs", "dep-defaults"]
 no-default-features = true

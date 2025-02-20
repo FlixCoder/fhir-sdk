@@ -36,7 +36,9 @@ jobs:
 
       - name: Install/update Rust
         shell: bash
-        run: rustup show # Uses rust-toolchain.toml file to install the correct version and components.
+        run: |
+          rustup update
+          rustup show # Uses rust-toolchain.toml file to install the correct version and components.
 
       - uses: taiki-e/install-action@v2
         with:
@@ -74,7 +76,9 @@ jobs:
 
       - name: Install/update Rust
         shell: bash
-        run: rustup show # Uses rust-toolchain.toml file to install the correct version and components.
+        run: |
+          rustup update
+          rustup show # Uses rust-toolchain.toml file to install the correct version and components.
 
       - uses: taiki-e/install-action@v2
         with:

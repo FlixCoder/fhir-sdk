@@ -2,10 +2,10 @@
 
 use std::collections::HashSet;
 
-use assert_json_diff::{assert_json_matches, CompareMode, Config, NumericMode};
-use base64::{prelude::BASE64_STANDARD, Engine};
+use assert_json_diff::{CompareMode, Config, NumericMode, assert_json_matches};
+use base64::{Engine, prelude::BASE64_STANDARD};
 use serde_json::{Map, Value};
-use time::{format_description::well_known::Rfc3339, OffsetDateTime};
+use time::{OffsetDateTime, format_description::well_known::Rfc3339};
 
 /// Assert two JSON values to be similar under the FHIR perspective.
 pub fn assert_fhir_json_equal(a: &Value, b: &Value) {

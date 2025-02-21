@@ -19,7 +19,7 @@ pub mod stu3;
 
 use std::ops::{Deref, DerefMut};
 
-use base64::prelude::{Engine, BASE64_STANDARD};
+use base64::prelude::{BASE64_STANDARD, Engine};
 use serde::{Deserialize, Serialize};
 pub use time;
 

@@ -1,12 +1,13 @@
+//! Tests for the FHIR resources.
 #![cfg(feature = "builders")]
-#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout)]
+#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, reason = "Tests")]
 
 mod json_compare;
 
 use std::fs;
 
 use fhir_model::{
-	for_all_versions, BuilderError, Date, DateTime, ParsedReference, WrongResourceType,
+	BuilderError, Date, DateTime, ParsedReference, WrongResourceType, for_all_versions,
 };
 use serde_json::Value;
 

@@ -167,7 +167,7 @@ macro_rules! impl_reference {
 				/// resource is going to be in the `contained` field of the
 				/// referencing resource.
 				#[must_use]
-				#[allow(unused_variables)] // Unused for STU3.
+				#[allow(unused_variables, reason = "Unused for STU3")]
 				pub fn local(ty: ResourceType, id: &str) -> Self {
 					make_reference_inner!($version, Some(format!("#{id}")), Some(ty.to_string()))
 						.into()

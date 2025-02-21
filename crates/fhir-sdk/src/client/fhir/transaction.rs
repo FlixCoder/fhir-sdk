@@ -2,8 +2,8 @@
 //! response.
 
 use reqwest::{
-	header::{self, HeaderValue},
 	StatusCode,
+	header::{self, HeaderValue},
 };
 use uuid::Uuid;
 

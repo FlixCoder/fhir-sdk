@@ -110,7 +110,7 @@ where
 
 #[cfg(test)]
 mod tests {
-	#![allow(dead_code)] // Just check whether it compiles.
+	#![allow(dead_code, reason = "Just check whether it compiles")]
 
 	use super::*;
 
@@ -147,7 +147,7 @@ mod tests {
 	}
 
 	fn construct_test_closure() -> AuthCallback {
-		AuthCallback::new(|client: reqwest::Client| async move {
+		AuthCallback::new(async |client: reqwest::Client| {
 			let _response = client.get("invalid URL").send().await?;
 			anyhow::Ok(HeaderValue::from_static("ignored"))
 		})

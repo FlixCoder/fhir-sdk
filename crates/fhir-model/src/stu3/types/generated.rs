@@ -1,11 +1,11 @@
 //! Generated code! Take a look at the generator-crate for changing this file!
-#![allow(clippy::too_many_lines)]
+#![allow(clippy::too_many_lines, reason = "Generated code")]
 use ::core::num::NonZeroU32;
 use serde::{Serialize, Deserialize};
 #[cfg(feature = "builders")]
 use derive_builder::Builder;
 use super::super::codes;
-#[allow(unused_imports)]
+#[allow(unused_imports, reason = "Generated code; Integer64 is unused in R4B")]
 use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
 /** Base StructureDefinition for Address Type
 

@@ -142,7 +142,8 @@ impl From<stu3::types::ElementDefinition> for Field {
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
 		} else if element.extension.iter().any(|extension| {
-			&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+			&extension.url
+				== "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 		}) || element.content_reference.is_some()
 		{
 			Self::Object(ObjectField::from(element))
@@ -159,7 +160,8 @@ impl From<r4b::types::ElementDefinition> for Field {
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
 		} else if element.extension.iter().any(|extension| {
-			&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+			&extension.url
+				== "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 		}) || element.content_reference.is_some()
 		{
 			Self::Object(ObjectField::from(element))
@@ -176,7 +178,8 @@ impl From<r5::types::ElementDefinition> for Field {
 		} else if element.binding.is_some() {
 			Self::Code(CodeField::from(element))
 		} else if element.extension.iter().any(|extension| {
-			&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+			&extension.url
+				== "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 		}) || element.content_reference.is_some()
 		{
 			Self::Object(ObjectField::from(element))
@@ -354,13 +357,14 @@ impl From<stu3::types::ElementDefinition> for ObjectField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let r#type = element.r#type.into_iter().flatten().next().map(stu3_type_to_string);
 		let type_name = element
 			.extension
 			.into_iter()
 			.find(|extension| {
-				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+				&extension.url
+					== "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 			})
 			.and_then(|extension| extension.0.value)
 			.map(|value| match value {
@@ -405,13 +409,14 @@ impl From<r4b::types::ElementDefinition> for ObjectField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let r#type = element.r#type.into_iter().flatten().next().map(r4b_type_to_string);
 		let type_name = element
 			.extension
 			.into_iter()
 			.find(|extension| {
-				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+				&extension.url
+					== "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 			})
 			.and_then(|extension| extension.0.value)
 			.map(|value| match value {
@@ -456,13 +461,14 @@ impl From<r5::types::ElementDefinition> for ObjectField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let r#type = element.r#type.into_iter().flatten().next().map(r5_type_to_string);
 		let type_name = element
 			.extension
 			.into_iter()
 			.find(|extension| {
-				&extension.url == "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
+				&extension.url
+					== "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name"
 			})
 			.and_then(|extension| extension.0.value)
 			.map(|value| match value {
@@ -511,12 +517,12 @@ impl From<stu3::types::ElementDefinition> for StandardField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path)
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path)
 			|| element
 				.r#type
 				.first()
 				.and_then(Option::as_ref)
-				.map_or(false, |ty| &ty.code == "http://hl7.org/fhirpath/System.String");
+				.is_some_and(|ty| &ty.code == "http://hl7.org/fhirpath/System.String");
 		let r#type = element
 			.r#type
 			.into_iter()
@@ -558,12 +564,12 @@ impl From<r4b::types::ElementDefinition> for StandardField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path)
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path)
 			|| element
 				.r#type
 				.first()
 				.and_then(Option::as_ref)
-				.map_or(false, |ty| &ty.code == "http://hl7.org/fhirpath/System.String");
+				.is_some_and(|ty| &ty.code == "http://hl7.org/fhirpath/System.String");
 		let r#type = element
 			.r#type
 			.into_iter()
@@ -605,12 +611,12 @@ impl From<r5::types::ElementDefinition> for StandardField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path)
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path)
 			|| element
 				.r#type
 				.first()
 				.and_then(Option::as_ref)
-				.map_or(false, |ty| &ty.code == "http://hl7.org/fhirpath/System.String");
+				.is_some_and(|ty| &ty.code == "http://hl7.org/fhirpath/System.String");
 		let r#type = element
 			.r#type
 			.into_iter()
@@ -648,7 +654,7 @@ impl From<stu3::types::ElementDefinition> for CodeField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let r#type = element
 			.r#type
 			.into_iter()
@@ -713,7 +719,7 @@ impl From<r4b::types::ElementDefinition> for CodeField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let r#type = element
 			.r#type
 			.into_iter()
@@ -770,7 +776,7 @@ impl From<r5::types::ElementDefinition> for CodeField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let r#type = element
 			.r#type
 			.into_iter()
@@ -827,7 +833,7 @@ impl From<stu3::types::ElementDefinition> for ChoiceField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 
 		let mut types: Vec<String> =
 			element.r#type.into_iter().flatten().map(stu3_type_to_string).collect();
@@ -863,7 +869,7 @@ impl From<r4b::types::ElementDefinition> for ChoiceField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let types = element.r#type.into_iter().flatten().map(r4b_type_to_string).collect();
 		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
 		let is_summary = element.is_summary.unwrap_or(false);
@@ -895,7 +901,7 @@ impl From<r5::types::ElementDefinition> for ChoiceField {
 		let optional = min == 0;
 		let max = element.max.expect("ElementDefinition.max");
 		let is_array = &max != "1";
-		let is_base_field = element.base.map_or(false, |base| base.path != element.path);
+		let is_base_field = element.base.is_some_and(|base| base.path != element.path);
 		let types = element.r#type.into_iter().flatten().map(r5_type_to_string).collect();
 		let is_modifier = element.is_modifier.expect("ElementDefinition.isModifier");
 		let is_summary = element.is_summary.unwrap_or(false);

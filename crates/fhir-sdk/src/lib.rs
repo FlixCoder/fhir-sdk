@@ -18,6 +18,6 @@ pub use fhir_model::*;
 pub use futures::stream::{Stream, StreamExt, TryStream, TryStreamExt};
 #[cfg(feature = "client")]
 pub use reqwest::{
-	header::{self, HeaderMap, HeaderValue},
 	Body, Client as HttpClient, Request, RequestBuilder, Response, StatusCode, Url,
+	header::{self, HeaderMap, HeaderValue},
 };

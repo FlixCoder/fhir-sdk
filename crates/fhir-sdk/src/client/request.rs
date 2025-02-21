@@ -4,8 +4,8 @@ use std::time::Duration;
 
 use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 use tokio_retry::{
-	strategy::{ExponentialBackoff, FixedInterval},
 	RetryIf,
+	strategy::{ExponentialBackoff, FixedInterval},
 };
 
 use super::{error::Error, misc::make_uuid_header_value};
@@ -131,7 +131,7 @@ impl RequestSettings {
 		// Send the request, but retry on specific failures.
 		RetryIf::spawn(
 			strategy.take(self.retries),
-			|| async {
+			async || {
 				tracing::debug!("Sending {} request to {}", request.method(), request.url());
 				let request = request.try_clone().ok_or(Error::RequestNotClone)?;
 				let response = client.execute(request).await?;

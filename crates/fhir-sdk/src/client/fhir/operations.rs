@@ -4,7 +4,7 @@ use fhir_model::for_all_versions;
 use reqwest::header;
 
 use super::{Client, Error};
-use crate::version::{fhir_version, FhirVersion};
+use crate::version::{FhirVersion, fhir_version};
 
 /// Implement the operation "Encounter/<id>/$everything" for the appropriate
 /// versions.
@@ -109,7 +109,7 @@ macro_rules! impl_operation_patient_match {
 					only_certain: bool,
 					count: i32,
 				) -> Result<Bundle, Error> {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					let parameters = Parameters::builder()
 						.parameter(vec![
 							Some(

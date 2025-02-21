@@ -16,4 +16,4 @@ pub use self::{
 	},
 	write::{AnyResourceWrite, ResourceWrite},
 };
-use super::{misc, Client, Error, SearchParameters};
+use super::{Client, Error, SearchParameters, misc};

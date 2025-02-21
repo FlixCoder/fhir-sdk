@@ -12,7 +12,7 @@ use inflector::Inflector;
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
-use crate::model::{codes::Code, structures::Type, CodeSystemContentMode, StructureDefinitionKind};
+use crate::model::{CodeSystemContentMode, StructureDefinitionKind, codes::Code, structures::Type};
 
 /// Generate the Rust code for the FHIR codes.
 pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, HashMap<String, String>)> {
@@ -43,7 +43,7 @@ pub fn generate_codes(mut codes: Vec<Code>) -> Result<(TokenStream, HashMap<Stri
 	// Generate the code.
 	let gen_enum = quote! {
 		#![doc = #module_doc]
-		#![allow(clippy::too_many_lines)]
+		#![allow(clippy::too_many_lines, reason = "Generated code")]
 
 		use serde::{Serialize, Deserialize};
 		use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
@@ -71,14 +71,14 @@ pub fn generate_types(
 	// Generate the code.
 	Ok(quote! {
 		#![doc = #module_doc]
-		#![allow(clippy::too_many_lines)]
+		#![allow(clippy::too_many_lines, reason = "Generated code")]
 
 		use ::core::num::NonZeroU32;
 		use serde::{Serialize, Deserialize};
 		#[cfg(feature = "builders")]
 		use derive_builder::Builder;
 		use super::super::codes;
-		#[allow(unused_imports)] // Integer64 is unused in R4B.
+		#[allow(unused_imports, reason = "Generated code; Integer64 is unused in R4B")]
 		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64};
 
 		#(#types)*
@@ -141,7 +141,7 @@ pub fn generate_resources(
 	// Generate the code.
 	Ok(quote! {
 		#![doc = #module_doc]
-		#![allow(clippy::too_many_lines)]
+		#![allow(clippy::too_many_lines, reason = "Generated code")]
 
 		use ::core::num::NonZeroU32;
 		use serde::{Serialize, Deserialize};
@@ -149,7 +149,7 @@ pub fn generate_resources(
 		use derive_builder::Builder;
 		use super::super::codes;
 		use super::super::types::*;
-		#[allow(unused_imports)] // Integer64 is unused in R4B.
+		#[allow(unused_imports, reason = "Generated code; Integer64 is unused in R4B")]
 		use crate::{Base64Binary, Date, DateTime, Instant, Time, Integer64, error::WrongResourceType};
 
 		#(#resource_defs)*

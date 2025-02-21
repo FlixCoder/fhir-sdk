@@ -1,5 +1,12 @@
+//! Integration test using FHIR R4(B) with Medplum as FHIR server.
 #![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
-#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, clippy::indexing_slicing)]
+#![allow(
+	clippy::expect_used,
+	clippy::unwrap_used,
+	clippy::print_stdout,
+	clippy::indexing_slicing,
+	reason = "Tests"
+)]
 
 mod common;
 
@@ -7,6 +14,7 @@ use std::str::FromStr;
 
 use anyhow::Result;
 use fhir_sdk::{
+	Date,
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r4b::{
 		codes::{
@@ -18,7 +26,6 @@ use fhir_sdk::{
 		types::{Coding, HumanName, Reference},
 	},
 	version::FhirR4B,
-	Date,
 };
 use futures::TryStreamExt;
 use reqwest::header::HeaderValue;
@@ -72,7 +79,7 @@ async fn client() -> Result<Client<FhirR4B>> {
 	static CLIENT: OnceCell<Client<FhirR4B>> = OnceCell::const_new();
 	common::setup_logging().await;
 	let client = CLIENT
-		.get_or_try_init(|| async move {
+		.get_or_try_init(async || {
 			let client = Client::builder()
 				.base_url(
 					std::env::var("FHIR_SERVER")

@@ -94,7 +94,7 @@ fn from_str_impl(ident: &Ident, code: &Code) -> Result<TokenStream> {
 		impl ::core::str::FromStr for #ident {
 			type Err = String;
 
-			#[allow(clippy::match_single_binding)]
+			#[allow(clippy::match_single_binding, reason = "Generated code; unknown number of variants")]
 			fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
 				match s #convert_lowercase {
 					#(#branches)*

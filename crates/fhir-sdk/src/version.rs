@@ -1,6 +1,14 @@
 //! Marker types for FHIR versions. Mainly for use in the client (but also
 //! extension traits).
-#![cfg_attr(not(feature = "builders"), allow(dead_code, unused_imports, unused_macros,))] // Many impls missing without builders.
+#![cfg_attr(
+	not(feature = "builders"),
+	allow(
+		dead_code,
+		unused_imports,
+		unused_macros,
+		reason = "Many impls missing without builders"
+	)
+)]
 
 use std::{
 	fmt::{Debug, Display},
@@ -8,7 +16,7 @@ use std::{
 };
 
 use fhir_model::for_all_versions;
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{Serialize, de::DeserializeOwned};
 
 use crate::{
 	extensions::{BundleEntryExt, BundleExt, GenericResource, ParametersExt, ReferenceExt},

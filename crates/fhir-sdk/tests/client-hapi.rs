@@ -1,5 +1,12 @@
+//! Integration tests for all FHIR versions using the HAPI FHIR servers.
 #![cfg(all(feature = "builders", feature = "client"))]
-#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, clippy::indexing_slicing)]
+#![allow(
+	clippy::expect_used,
+	clippy::unwrap_used,
+	clippy::print_stdout,
+	clippy::indexing_slicing,
+	reason = "Tests"
+)]
 
 mod common;
 
@@ -7,8 +14,9 @@ use std::{env, str::FromStr};
 
 use anyhow::Result;
 use fhir_sdk::{
+	Date, TryStreamExt,
 	client::{Client, ResourceWrite, SearchParameters, TokenSearch},
-	for_all_versions, Date, TryStreamExt,
+	for_all_versions,
 };
 
 // Rustfmt gives up on this one :(

@@ -2,7 +2,7 @@
 
 use fhir_model::for_all_versions;
 
-use crate::version::{fhir_version, FhirVersion};
+use crate::version::{FhirVersion, fhir_version};
 
 /// Basic trait to combine all resources from all FHIR versions to one.
 /// Especially for use in the client to accept and handly any resource.
@@ -55,8 +55,10 @@ macro_rules! impl_any_resource {
 				if let Some(meta) = self.meta_mut() {
 					meta.version_id = Some(version_id);
 				} else {
-					// Meta does not require any field and will succeed building.
-					#[allow(clippy::unwrap_used)]
+					#[allow(
+						clippy::unwrap_used,
+						reason = "Meta does not require any field and will succeed building."
+					)]
 					self.set_meta(Some(
 						$version::types::Meta::builder().version_id(version_id).build().unwrap(),
 					));

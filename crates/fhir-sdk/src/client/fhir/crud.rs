@@ -2,17 +2,16 @@
 
 use fhir_model::{ParsedReference, WrongResourceType};
 use reqwest::{
-	header::{self, HeaderValue},
 	StatusCode, Url,
+	header::{self, HeaderValue},
 };
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{Serialize, de::DeserializeOwned};
 
 use super::{
-	misc,
+	Client, Error, SearchParameters, misc,
 	paging::Page,
 	patch::{PatchViaFhir, PatchViaJson},
 	transaction::BatchTransaction,
-	Client, Error, SearchParameters,
 };
 use crate::{
 	client::misc::make_uuid_header_value,

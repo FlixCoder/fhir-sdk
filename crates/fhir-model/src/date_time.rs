@@ -3,7 +3,7 @@
 use std::{cmp::Ordering, str::FromStr};
 
 use serde::{Deserialize, Serialize};
-use time::{error::Parse, format_description::well_known::Rfc3339, OffsetDateTime};
+use time::{OffsetDateTime, error::Parse, format_description::well_known::Rfc3339};
 
 use crate::error::DateFormatError;
 
@@ -57,7 +57,7 @@ mod serde_time {
 	}
 
 	/// Serialize time, using subseconds iff appropriate.
-	#[allow(clippy::trivially_copy_pass_by_ref)] // Parameter types are set by serde.
+	#[allow(clippy::trivially_copy_pass_by_ref, reason = "Parameter types are set by serde")]
 	pub fn serialize<S>(time: &time::Time, serializer: S) -> Result<S::Ok, S::Error>
 	where
 		S: serde::Serializer,

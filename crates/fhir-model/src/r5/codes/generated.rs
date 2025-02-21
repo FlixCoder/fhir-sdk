@@ -1,5 +1,5 @@
 //! Generated code! Take a look at the generator-crate for changing this file!
-#![allow(clippy::too_many_lines)]
+#![allow(clippy::too_many_lines, reason = "Generated code")]
 use serde::{Serialize, Deserialize};
 use super::super::types::{Coding, CodingInner, CodeableConcept, CodeableConceptInner};
 #[doc = "**[ACMECholCodesBlood](http://hl7.org/fhir/CodeSystem/example)**. This is an example code system that includes all the ACME codes for serum/plasma cholesterol from v2.36.\n\nFHIR version: 5.0.0."]
@@ -22,7 +22,10 @@ SChol (mmol/L). Serum Cholesterol, in mmol/L */
 }
 impl ::core::str::FromStr for ACMECholCodesBlood {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "chol" => Ok(Self::Chol),
@@ -184,7 +187,10 @@ Event Witness Signature. the signature of a witness to an event. (Example the wi
 }
 impl ::core::str::FromStr for ASTMSignatureTypeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "1.2.840.10065.1.12.1.1" => Ok(Self::N128401006511211),
@@ -315,7 +321,10 @@ Total. There is no aggregation on this balance */
 }
 impl ::core::str::FromStr for AccountAggregate {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "insurance" => Ok(Self::Insurance),
@@ -423,7 +432,10 @@ Current. This balance is the current balance */
 }
 impl ::core::str::FromStr for AccountBalanceTerm {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "120" => Ok(Self::N120),
@@ -545,7 +557,10 @@ Open. The account is open for charging transactions (account.status is active) *
 }
 impl ::core::str::FromStr for AccountBillingStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "billing" => Ok(Self::Billing),
@@ -651,7 +666,10 @@ Parent. */
 }
 impl ::core::str::FromStr for AccountRelationship {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "guarantor" => Ok(Self::Guarantor),
@@ -757,7 +775,10 @@ Unknown. The account status is unknown. */
 }
 impl ::core::str::FromStr for AccountStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -857,7 +878,10 @@ Single. The action may only be selected one time. */
 }
 impl ::core::str::FromStr for ActionCardinalityBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "multiple" => Ok(Self::Multiple),
@@ -981,7 +1005,10 @@ Send a message. The action indicates that a particular message should be sent to
 }
 impl ::core::str::FromStr for ActionCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "collect-information" => Ok(Self::CollectInformation),
@@ -1093,7 +1120,10 @@ Stop. The condition is a stop, or exit condition for the action. */
 }
 impl ::core::str::FromStr for ActionConditionKind {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "applicability" => Ok(Self::Applicability),
@@ -1195,7 +1225,10 @@ Visual Group. Any group marked with this behavior should be displayed as a visua
 }
 impl ::core::str::FromStr for ActionGroupingBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "logical-group" => Ok(Self::LogicalGroup),
@@ -1301,7 +1334,10 @@ Witness. The participant is a witness to the action being performed. */
 }
 impl ::core::str::FromStr for ActionParticipantFunction {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "author" => Ok(Self::Author),
@@ -1433,7 +1469,10 @@ RelatedPerson. The participant is a person related to the patient. */
 }
 impl ::core::str::FromStr for ActionParticipantType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "careteam" => Ok(Self::Careteam),
@@ -1545,7 +1584,10 @@ Yes. An action with this behavior is one of the most frequent action that is, or
 }
 impl ::core::str::FromStr for ActionPrecheckBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "no" => Ok(Self::No),
@@ -1653,7 +1695,10 @@ Risk assessment. The action should be performed based on a particular risk asses
 }
 impl ::core::str::FromStr for ActionReasonCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "care-gap" => Ok(Self::CareGap),
@@ -1781,7 +1826,10 @@ Concurrent With Start. The action must be performed concurrent with the start of
 }
 impl ::core::str::FromStr for ActionRelationshipType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "after" => Ok(Self::After),
@@ -1895,7 +1943,10 @@ Must Unless Documented. An action with this behavior must be included in the set
 }
 impl ::core::str::FromStr for ActionRequiredBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "could" => Ok(Self::Could),
@@ -2009,7 +2060,10 @@ One Or More. The end user must choose a minimum of one, and as many additional a
 }
 impl ::core::str::FromStr for ActionSelectionBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "all" => Ok(Self::All),
@@ -2145,7 +2199,10 @@ UI Suggested Binding. This value set is provided for user look up in a given con
 }
 impl ::core::str::FromStr for AdditionalBindingPurposeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "candidate" => Ok(Self::Candidate),
@@ -2253,7 +2310,10 @@ Requirement for Black Triangle Monitoring. Requirement for Black Triangle Monito
 }
 impl ::core::str::FromStr for AdditionalMonitoring {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "BlackTriangleMonitoring" => Ok(Self::BlackTriangleMonitoring),
@@ -2352,7 +2412,10 @@ Postal. Mailing addresses - PO Boxes and care-of addresses. */
 }
 impl ::core::str::FromStr for AddressType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "both" => Ok(Self::Both),
@@ -2460,7 +2523,10 @@ Work. An office address. First choice for business related contacts during busin
 }
 impl ::core::str::FromStr for AddressUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "billing" => Ok(Self::Billing),
@@ -3356,7 +3422,10 @@ Solution for injection. */
 }
 impl ::core::str::FromStr for AdministrableDoseForm {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000073362" => Ok(Self::N100000073362),
@@ -3867,7 +3936,10 @@ Vomited. The patient vomited part of the dose. */
 }
 impl ::core::str::FromStr for AdministrationSubPotentReason {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "adversestorage" => Ok(Self::Adversestorage),
@@ -3981,7 +4053,10 @@ Unknown. Unknown. */
 }
 impl ::core::str::FromStr for AdministrativeGender {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "female" => Ok(Self::Female),
@@ -4081,7 +4156,10 @@ Potential Adverse Event. A potential adverse event. */
 }
 impl ::core::str::FromStr for AdverseEventActuality {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "actual" => Ok(Self::Actual),
@@ -4181,7 +4259,10 @@ Referenced. The reference to a resource that has to be resolved externally to th
 }
 impl ::core::str::FromStr for AggregationMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "bundled" => Ok(Self::Bundled),
@@ -4287,7 +4368,10 @@ Medication. Substances administered to achieve a physiological effect. */
 }
 impl ::core::str::FromStr for AllergyIntoleranceCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "biologic" => Ok(Self::Biologic),
@@ -4391,7 +4475,10 @@ Unable to Assess Risk. Unable to assess the worst case result of a future exposu
 }
 impl ::core::str::FromStr for AllergyIntoleranceCriticality {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "high" => Ok(Self::High),
@@ -4493,7 +4580,10 @@ Severe. Causes severe physiological effects. */
 }
 impl ::core::str::FromStr for AllergyIntoleranceSeverity {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "mild" => Ok(Self::Mild),
@@ -4591,7 +4681,10 @@ Intolerance. A propensity for adverse reactions to a substance that is judged to
 }
 impl ::core::str::FromStr for AllergyIntoleranceType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "allergy" => Ok(Self::Allergy),
@@ -5435,7 +5528,10 @@ Skin and fat in natural proportions. */
 }
 impl ::core::str::FromStr for AnimalTissueType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000072091" => Ok(Self::N100000072091),
@@ -5936,7 +6032,10 @@ A specific time might or might not be pre-allocated. */
 }
 impl ::core::str::FromStr for AppointmentStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "arrived" => Ok(Self::Arrived),
@@ -6058,7 +6157,10 @@ Unresolved. The comment is unresolved */
 }
 impl ::core::str::FromStr for ArtifactAssessmentDisposition {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "not-persuasive" => Ok(Self::NotPersuasive),
@@ -6176,7 +6278,10 @@ Response. A response to a comment */
 }
 impl ::core::str::FromStr for ArtifactAssessmentInformationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "change-request" => Ok(Self::ChangeRequest),
@@ -6313,7 +6418,10 @@ Waiting for Input. The comment is waiting for input from a specific party before
 }
 impl ::core::str::FromStr for ArtifactAssessmentWorkflowStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "applied" => Ok(Self::Applied),
@@ -6430,7 +6538,10 @@ Reviewed. Reviewed */
 }
 impl ::core::str::FromStr for ArtifactContributionInstanceType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "approved" => Ok(Self::Approved),
@@ -6577,7 +6688,10 @@ Writing - review & editing. Writing - review & editing (see https://jats4r.org/c
 }
 impl ::core::str::FromStr for ArtifactContributionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "conceptualization" => Ok(Self::Conceptualization),
@@ -6749,7 +6863,10 @@ XML. The URL will reach content in XML format. */
 }
 impl ::core::str::FromStr for ArtifactUrlClassifier {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "abstract" => Ok(Self::Abstract),
@@ -6871,7 +6988,10 @@ response. The assertion is evaluated on the response. This is the default value.
 }
 impl ::core::str::FromStr for AssertionDirectionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "request" => Ok(Self::Request),
@@ -6975,7 +7095,10 @@ Stop. Stop execution of this TestScript. The overall status of this TestScript i
 }
 impl ::core::str::FromStr for AssertionManualCompletionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "fail" => Ok(Self::Fail),
@@ -7115,7 +7238,10 @@ notIn. Compare value not within a known set of values. */
 }
 impl ::core::str::FromStr for AssertionOperatorType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "contains" => Ok(Self::Contains),
@@ -7399,7 +7525,10 @@ Use Proxy. Response code is 305. */
 }
 impl ::core::str::FromStr for AssertionResponseTypes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "accepted" => Ok(Self::Accepted),
@@ -7591,7 +7720,10 @@ Update. Update data, such as revise patient information. */
 }
 impl ::core::str::FromStr for AuditEventAction {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "C" => Ok(Self::C),
@@ -7715,7 +7847,10 @@ Warning. Warning conditions. May indicate that an error will occur if action is 
 }
 impl ::core::str::FromStr for AuditEventSeverity {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alert" => Ok(Self::Alert),
@@ -7833,7 +7968,10 @@ Other. The patient has some other relationship, such as parent, to the subscribe
 }
 impl ::core::str::FromStr for BeneficiaryRelationshipCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "1" => Ok(Self::N1),
@@ -7941,7 +8079,10 @@ Required. To be conformant, the concept in this element SHALL be from the specif
 }
 impl ::core::str::FromStr for BindingStrength {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "example" => Ok(Self::Example),
@@ -8051,7 +8192,10 @@ Tissue. An ensemble of similar cells and their extracellular matrix from the sam
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "biologicalAgent" => Ok(Self::BiologicalAgent),
@@ -8179,7 +8323,10 @@ BONE, FEMUR|Frozen|Right|Radiation sterilization. BONE, FEMUR, Right, sterilized
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "e0398" => Ok(Self::E0398),
@@ -8314,7 +8461,10 @@ Unknown. The authoring system does not know which of the status values applies f
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductDispense {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "allocated" => Ok(Self::Allocated),
@@ -8431,7 +8581,10 @@ Unmatched. No specific matching has been carried out */
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductDispenseMatchStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "crossmatched" => Ok(Self::Crossmatched),
@@ -8544,7 +8697,10 @@ Xenogenic. The product is from a different species to the recipient */
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductDispenseOriginRelationship {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "allogeneic" => Ok(Self::Allogeneic),
@@ -8667,7 +8823,10 @@ Transport. Transfer of product from the supply department to the site of clinica
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductDispensePerformerFunction {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "antibody-identification" => Ok(Self::AntibodyIdentification),
@@ -8774,7 +8933,10 @@ Unavailable. Product is not currently available for use. */
 }
 impl ::core::str::FromStr for BiologicallyDerivedProductStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "available" => Ok(Self::Available),
@@ -8903,7 +9065,10 @@ Transaction Response. The bundle is a transaction response. Because the response
 }
 impl ::core::str::FromStr for BundleType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "batch" => Ok(Self::Batch),
@@ -9017,7 +9182,10 @@ Requirements. The CapabilityStatement instance represents a set of requirements 
 }
 impl ::core::str::FromStr for CapabilityStatementKind {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "capability" => Ok(Self::Capability),
@@ -9127,7 +9295,10 @@ Suspended. The care team is temporarily on hold or suspended and not participati
 }
 impl ::core::str::FromStr for CareTeamStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -9232,7 +9403,10 @@ Protocol List. Protocol List. */
 }
 impl ::core::str::FromStr for CatalogType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "device" => Ok(Self::Device),
@@ -9349,7 +9523,10 @@ Statistical. Combine characteristics statistically. Use method to specify the st
 }
 impl ::core::str::FromStr for CharacteristicCombination {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "all-of" => Ok(Self::AllOf),
@@ -9455,7 +9632,10 @@ Upper Normal Limit. The upper bound of the reference range. */
 }
 impl ::core::str::FromStr for CharacteristicOffset {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "LNL" => Ok(Self::Lnl),
@@ -9571,7 +9751,10 @@ Unknown. The authoring system does not know which of the status values currently
 }
 impl ::core::str::FromStr for ChargeItemStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "aborted" => Ok(Self::Aborted),
@@ -9791,7 +9974,10 @@ Webpage. Webpage */
 }
 impl ::core::str::FromStr for CitationArtifactClassifier {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "D000076942" => Ok(Self::D000076942),
@@ -9949,7 +10135,10 @@ MEDLINE Citation Owner. The party responsible for creating and validating the ME
 }
 impl ::core::str::FromStr for CitationClassificationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "citation-source" => Ok(Self::CitationSource),
@@ -10147,7 +10336,10 @@ PubMed Pubstatus of Revised. PubMed Pubstatus of Revised */
 }
 impl ::core::str::FromStr for CitationStatusType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "medline-completed" => Ok(Self::MedlineCompleted),
@@ -10347,7 +10539,10 @@ Vancouver style. Citation style used by International Committee of Medical Journ
 }
 impl ::core::str::FromStr for CitationSummaryStyle {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "acs" => Ok(Self::Acs),
@@ -10503,7 +10698,10 @@ Truncated. Truncated abstract */
 }
 impl ::core::str::FromStr for CitedArtifactAbstractType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "autotranslated" => Ok(Self::Autotranslated),
@@ -10653,7 +10851,10 @@ Supplemental MeSH for Protocol. Supplemental MeSH for Protocol */
 }
 impl ::core::str::FromStr for CitedArtifactClassificationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "chemical" => Ok(Self::Chemical),
@@ -10796,7 +10997,10 @@ tables. Denotes specific table or tables of an article or artifact. */
 }
 impl ::core::str::FromStr for CitedArtifactPartType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "article-set" => Ok(Self::ArticleSet),
@@ -10962,7 +11166,10 @@ Withdrawn. The content that was not published has been removed from consideratio
 }
 impl ::core::str::FromStr for CitedArtifactStatusType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "accepted" => Ok(Self::Accepted),
@@ -11102,7 +11309,10 @@ Print without issue. Print publication without any periodic release. */
 }
 impl ::core::str::FromStr for CitedMedium {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "internet" => Ok(Self::Internet),
@@ -11217,7 +11427,10 @@ Pending. The adjudication processing is not complete. This may be due to requiri
 }
 impl ::core::str::FromStr for ClaimAdjudicationDecisionCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "approved" => Ok(Self::Approved),
@@ -11329,7 +11542,10 @@ Benefit limits exceeded. The patient or subscriber benefit's have been exceeded.
 }
 impl ::core::str::FromStr for ClaimAdjudicationDecisionReasonCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "0001" => Ok(Self::N0001),
@@ -11438,7 +11654,10 @@ Queued. The Claim/Pre-authorization/Pre-determination has been received but proc
 }
 impl ::core::str::FromStr for ClaimProcessingCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complete" => Ok(Self::Complete),
@@ -11545,7 +11764,10 @@ Queued. The Claim/Pre-authorization/Pre-determination has been received but proc
 }
 impl ::core::str::FromStr for ClaimProcessingOutcomeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complete" => Ok(Self::Complete),
@@ -11648,7 +11870,10 @@ Pregnancy and Lactation. */
 }
 impl ::core::str::FromStr for ClinicalUseDefinitionCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "DriveAndMachines" => Ok(Self::DriveAndMachines),
@@ -11759,7 +11984,10 @@ Warning. A general warning or issue that is not specifically one of the other ty
 }
 impl ::core::str::FromStr for ClinicalUseDefinitionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "contraindication" => Ok(Self::Contraindication),
@@ -11865,7 +12093,10 @@ In Expansion. The search for code on ValueSet returns ValueSet resources where t
 }
 impl ::core::str::FromStr for CodeSearchSupport {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "in-compose" => Ok(Self::InCompose),
@@ -11973,7 +12204,10 @@ Supplement. The resource doesn't define any new concepts; it just provides addit
 }
 impl ::core::str::FromStr for CodeSystemContentMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complete" => Ok(Self::Complete),
@@ -12083,7 +12317,10 @@ Part Of. Child elements list the individual parts of a composite whole (e.g. bod
 }
 impl ::core::str::FromStr for CodeSystemHierarchyMeaning {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "classified-with" => Ok(Self::ClassifiedWith),
@@ -12768,7 +13005,10 @@ yellowgreen. */
 }
 impl ::core::str::FromStr for ColorCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s.to_lowercase().as_str() {
             "aliceblue" => Ok(Self::Aliceblue),
@@ -13455,7 +13695,10 @@ Lyophilisate and solvent for suspension for nasal spray or injection. */
 }
 impl ::core::str::FromStr for CombinedDoseForm {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000073366" => Ok(Self::N100000073366),
@@ -13715,7 +13958,10 @@ RelatedPerson. The compartment definition is for the related-person compartment.
 }
 impl ::core::str::FromStr for CompartmentType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Device" => Ok(Self::Device),
@@ -13825,7 +14071,10 @@ Professional. The person authenticated the content in their professional capacit
 }
 impl ::core::str::FromStr for CompositionAttestationMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "legal" => Ok(Self::Legal),
@@ -13961,7 +14210,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for CompositionStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -14085,7 +14337,10 @@ string. The attribute value is a string. */
 }
 impl ::core::str::FromStr for ConceptMapAttributeType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Coding" => Ok(Self::Coding),
@@ -14191,7 +14446,10 @@ Use Provided Source Code. Use the code as provided in the $translate request in 
 }
 impl ::core::str::FromStr for ConceptMapGroupUnmappedMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "fixed" => Ok(Self::Fixed),
@@ -14286,7 +14544,10 @@ Relationship Refinement. Property of type coding that indicates a specific refin
 }
 impl ::core::str::FromStr for ConceptMapProperties {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "relationshipRefinement" => Ok(Self::RelationshipRefinement),
@@ -14399,7 +14660,10 @@ string. The property value is a string. */
 }
 impl ::core::str::FromStr for ConceptMapPropertyType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Coding" => Ok(Self::Coding),
@@ -14517,7 +14781,10 @@ Source Is Narrower Than Target. The source concept is narrower in meaning than t
 }
 impl ::core::str::FromStr for ConceptMapRelationship {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "equivalent" => Ok(Self::Equivalent),
@@ -14663,7 +14930,10 @@ Synonym. This property contains an alternative code that may be used to identify
 }
 impl ::core::str::FromStr for ConceptProperties {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "child" => Ok(Self::Child),
@@ -14788,7 +15058,10 @@ Subsumes. A subsumes B if there is a subsumption relationship between A and B */
 }
 impl ::core::str::FromStr for ConceptSubsumptionOutcome {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "equivalent" => Ok(Self::Equivalent),
@@ -14887,7 +15160,10 @@ Specific. The observation is very specific for this condition, but not particula
 }
 impl ::core::str::FromStr for ConditionPreconditionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "sensitive" => Ok(Self::Sensitive),
@@ -14987,7 +15263,10 @@ Pre-admit. A pre-admit questionnaire. */
 }
 impl ::core::str::FromStr for ConditionQuestionnairePurpose {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "diff-diagnosis" => Ok(Self::DiffDiagnosis),
@@ -15089,7 +15368,10 @@ Single Deletes Supported. Conditional deletes are supported, but only single res
 }
 impl ::core::str::FromStr for ConditionalDeleteStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "multiple" => Ok(Self::Multiple),
@@ -15195,7 +15477,10 @@ Not Supported. No support for conditional reads. */
 }
 impl ::core::str::FromStr for ConditionalReadStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "full-support" => Ok(Self::FullSupport),
@@ -15303,7 +15588,10 @@ SHOULD-NOT. Support for the specified capability is strongly discouraged and sho
 }
 impl ::core::str::FromStr for ConformanceExpectation {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "MAY" => Ok(Self::May),
@@ -15411,7 +15699,10 @@ Related. The consent applies directly to the instance of the resource and instan
 }
 impl ::core::str::FromStr for ConsentDataMeaning {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "authoredby" => Ok(Self::Authoredby),
@@ -15509,7 +15800,10 @@ Permit. Consent is provided for actions meeting these rules. */
 }
 impl ::core::str::FromStr for ConsentProvisionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "deny" => Ok(Self::Deny),
@@ -15621,7 +15915,10 @@ Unknown. The resource is in an indeterminate state. */
 }
 impl ::core::str::FromStr for ConsentState {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -15723,7 +16020,10 @@ Warning. If the constraint is violated, the resource is conformant, but it is no
 }
 impl ::core::str::FromStr for ConstraintSeverity {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "error" => Ok(Self::Error),
@@ -15837,7 +16137,10 @@ URL. A contact that is not a phone, fax, pager or email address and is expressed
 }
 impl ::core::str::FromStr for ContactPointSystem {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "email" => Ok(Self::Email),
@@ -15953,7 +16256,10 @@ Work. An office contact point. First choice for business related contacts during
 }
 impl ::core::str::FromStr for ContactPointUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "home" => Ok(Self::Home),
@@ -16050,7 +16356,10 @@ Complete. To be completed */
 }
 impl ::core::str::FromStr for ContractActionStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complete" => Ok(Self::Complete),
@@ -16140,7 +16449,10 @@ Lease. To be completed */
 }
 impl ::core::str::FromStr for ContractAssetAvailability {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "lease" => Ok(Self::Lease),
@@ -16230,7 +16542,10 @@ Custodian. To be completed */
 }
 impl ::core::str::FromStr for ContractAssetContext {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "custodian" => Ok(Self::Custodian),
@@ -16320,7 +16635,10 @@ Thing. To be completed */
 }
 impl ::core::str::FromStr for ContractAssetScope {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "thing" => Ok(Self::Thing),
@@ -16410,7 +16728,10 @@ Participation. To be completed */
 }
 impl ::core::str::FromStr for ContractAssetSubtype {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "participation" => Ok(Self::Participation),
@@ -16500,7 +16821,10 @@ Participation. To be completed */
 }
 impl ::core::str::FromStr for ContractAssetType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "participation" => Ok(Self::Participation),
@@ -16590,7 +16914,10 @@ Policy. To be completed */
 }
 impl ::core::str::FromStr for ContractDecisionMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "policy" => Ok(Self::Policy),
@@ -16680,7 +17007,10 @@ Temporary Value. To be completed */
 }
 impl ::core::str::FromStr for ContractDefinitionSubtype {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "temp" => Ok(Self::Temp),
@@ -16770,7 +17100,10 @@ Temporary Value. To be completed */
 }
 impl ::core::str::FromStr for ContractDefinitionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "temp" => Ok(Self::Temp),
@@ -16860,7 +17193,10 @@ Breach. To be completed */
 }
 impl ::core::str::FromStr for ContractExpirationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "breach" => Ok(Self::Breach),
@@ -17006,7 +17342,10 @@ Terminated. Contract reaches its expiry date. It might or might not be renewed 
 }
 impl ::core::str::FromStr for ContractLegalState {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -17124,7 +17463,10 @@ FLunky. To be completed */
 }
 impl ::core::str::FromStr for ContractPartyRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "flunky" => Ok(Self::Flunky),
@@ -17270,7 +17612,10 @@ Terminated. Contract reaches its expiry date. It might or might not be renewed 
 }
 impl ::core::str::FromStr for ContractPublicationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -17388,7 +17733,10 @@ Policy. To be completed */
 }
 impl ::core::str::FromStr for ContractScope {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "policy" => Ok(Self::Policy),
@@ -17478,7 +17826,10 @@ Policy. To be completed */
 }
 impl ::core::str::FromStr for ContractSecurityCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "policy" => Ok(Self::Policy),
@@ -17568,7 +17919,10 @@ Policy. To be completed */
 }
 impl ::core::str::FromStr for ContractSecurityClassification {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "policy" => Ok(Self::Policy),
@@ -17660,7 +18014,10 @@ Policy. To be completed */
 }
 impl ::core::str::FromStr for ContractSecurityControl {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "policy" => Ok(Self::Policy),
@@ -17806,7 +18163,10 @@ Terminated. Contract reaches its expiry date. It might or might not be renewed 
 }
 impl ::core::str::FromStr for ContractStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -17947,7 +18307,10 @@ Reviewer. Entity that examines the content, formally or informally, and suggests
 }
 impl ::core::str::FromStr for ContributorRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "author" => Ok(Self::Author),
@@ -18059,7 +18422,10 @@ Publisher provided. Data copied by machine from publisher data. */
 }
 impl ::core::str::FromStr for ContributorSummarySource {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "article-copy" => Ok(Self::ArticleCopy),
@@ -18215,7 +18581,10 @@ Contributorship statement listed by person with initials. J.L. designed project;
 }
 impl ::core::str::FromStr for ContributorSummaryStyle {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "a1full" => Ok(Self::A1Full),
@@ -18359,7 +18728,10 @@ Funding statement. Statement of financial support for the creation of the cited 
 }
 impl ::core::str::FromStr for ContributorSummaryType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "acknowledgement-list" => Ok(Self::AcknowledgementList),
@@ -18473,7 +18845,10 @@ Reviewer. A reviewer of the content of the module. */
 }
 impl ::core::str::FromStr for ContributorType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "author" => Ok(Self::Author),
@@ -18571,7 +18946,10 @@ Test passes. The requested conditional statement will pass if a matching state d
 }
 impl ::core::str::FromStr for CriteriaNotExistsBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "test-fails" => Ok(Self::TestFails),
@@ -18672,7 +19050,10 @@ Service Expected. The date or period on or during which the services are expecte
 }
 impl ::core::str::FromStr for DatesEventTypeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "card-issued" => Ok(Self::CardIssued),
@@ -18789,7 +19170,10 @@ Wednesday. Wednesday. */
 }
 impl ::core::str::FromStr for DaysOfWeek {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "fri" => Ok(Self::Fri),
@@ -18917,7 +19301,10 @@ Systematic Assessment. Any method of routinely determining whether or not specif
 }
 impl ::core::str::FromStr for DefinitionMethod {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "mean" => Ok(Self::Mean),
@@ -19027,7 +19414,10 @@ Moderate. Indicates the issue may result in noticeable adverse consequences but 
 }
 impl ::core::str::FromStr for DetectedIssueSeverity {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "high" => Ok(Self::High),
@@ -19122,7 +19512,10 @@ Mitigated. Indicates the detected issue has been mitigated */
 }
 impl ::core::str::FromStr for DetectedIssueStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "mitigated" => Ok(Self::Mitigated),
@@ -19227,7 +19620,10 @@ Unknown. The association status of the device has not been determined. */
 }
 impl ::core::str::FromStr for DeviceAssociation {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "attached" => Ok(Self::Attached),
@@ -19333,7 +19729,10 @@ Serial Numbers. The corrective action was intended for an individual unit (or a 
 }
 impl ::core::str::FromStr for DeviceCorrectiveActionScope {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "lot-numbers" => Ok(Self::LotNumbers),
@@ -19435,7 +19834,10 @@ Replaces. The current device replaces the linked device. */
 }
 impl ::core::str::FromStr for DeviceDefinitionRelationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "gateway" => Ok(Self::Gateway),
@@ -19559,7 +19961,10 @@ Unknown. The authoring system does not know which of the status values applies f
 }
 impl ::core::str::FromStr for DeviceDispenseStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "cancelled" => Ok(Self::Cancelled),
@@ -19686,7 +20091,10 @@ Verbal order. The device not dispensed because there was a verbal order. */
 }
 impl ::core::str::FromStr for DeviceDispenseStatusReasonCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "contraindication" => Ok(Self::Contraindication),
@@ -19799,7 +20207,10 @@ Unspecified. The state of calibration of this metric is unspecified. */
 }
 impl ::core::str::FromStr for DeviceMetricCalibrationState {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "calibrated" => Ok(Self::Calibrated),
@@ -19907,7 +20318,10 @@ Unspecified. Metric calibration method has not been identified. */
 }
 impl ::core::str::FromStr for DeviceMetricCalibrationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "gain" => Ok(Self::Gain),
@@ -20015,7 +20429,10 @@ Unspecified. The category of this DeviceMetric is unspecified. */
 }
 impl ::core::str::FromStr for DeviceMetricCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "calculation" => Ok(Self::Calculation),
@@ -20121,7 +20538,10 @@ Standby. The DeviceMetric is operating, but will not generate any Observations. 
 }
 impl ::core::str::FromStr for DeviceMetricOperationalStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "entered-in-error" => Ok(Self::EnteredInError),
@@ -20225,7 +20645,10 @@ User Friendly name. The term that generically describes the device by a name as 
 }
 impl ::core::str::FromStr for DeviceNameType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "patient-reported-name" => Ok(Self::PatientReportedName),
@@ -20338,7 +20761,10 @@ Software Version. The label includes the software version. */
 }
 impl ::core::str::FromStr for DeviceProductionIdentifierInUDI {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "biological-source" => Ok(Self::BiologicalSource),
@@ -20446,7 +20872,10 @@ Master. EUDAMED's master UDI-DI identifier. */
 }
 impl ::core::str::FromStr for DeviceRegulatoryIdentifierType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "basic" => Ok(Self::Basic),
@@ -20550,7 +20979,10 @@ Sometimes. The device is sometimes used. */
 }
 impl ::core::str::FromStr for DeviceUsageAdherenceCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "always" => Ok(Self::Always),
@@ -20664,7 +21096,10 @@ Stolen. The device is stolen. */
 }
 impl ::core::str::FromStr for DeviceUsageAdherenceReason {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "broken" => Ok(Self::Broken),
@@ -20788,7 +21223,10 @@ Stopped. Actions implied by the statement have been permanently halted, before a
 }
 impl ::core::str::FromStr for DeviceUsageStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -20928,7 +21366,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for DiagnosticReportStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -21058,7 +21499,10 @@ Value. The slices have different values in the nominated element, as determined 
 }
 impl ::core::str::FromStr for DiscriminatorType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "exists" => Ok(Self::Exists),
@@ -21160,7 +21604,10 @@ Producer. The application produces documents of the specified type. */
 }
 impl ::core::str::FromStr for DocumentMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "consumer" => Ok(Self::Consumer),
@@ -21258,7 +21705,10 @@ Superseded. This reference has been superseded by another reference. */
 }
 impl ::core::str::FromStr for DocumentReferenceStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "current" => Ok(Self::Current),
@@ -21372,7 +21822,10 @@ Transforms. This document was generated by transforming the target document (e.g
 }
 impl ::core::str::FromStr for DocumentRelationshipType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "appends" => Ok(Self::Appends),
@@ -21493,7 +21946,10 @@ Proof of approval. indicates that the signer has approved the content of the sig
 }
 impl ::core::str::FromStr for ETSISignatureTypeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ProofOfCreation" => Ok(Self::ProofOfCreation),
@@ -21604,7 +22060,10 @@ Coverage Validation. A check that the specified coverages are in-force is reques
 }
 impl ::core::str::FromStr for EligibilityRequestPurpose {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "auth-requirements" => Ok(Self::AuthRequirements),
@@ -21712,7 +22171,10 @@ Coverage Validation. A check that the specified coverages are in-force is reques
 }
 impl ::core::str::FromStr for EligibilityResponsePurpose {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "auth-requirements" => Ok(Self::AuthRequirements),
@@ -21812,7 +22274,10 @@ Any. Enable the question when any of the enableWhen criteria are satisfied. */
 }
 impl ::core::str::FromStr for EnableWhenBehavior {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "all" => Ok(Self::All),
@@ -21909,7 +22374,10 @@ Working. */
 }
 impl ::core::str::FromStr for EncounterDiagnosisUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "final" => Ok(Self::Final),
@@ -22016,7 +22484,10 @@ Reserved. This location is held empty for this patient. */
 }
 impl ::core::str::FromStr for EncounterLocationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -22128,7 +22599,10 @@ Reason for Visit. */
 }
 impl ::core::str::FromStr for EncounterReasonUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "AD" => Ok(Self::Ad),
@@ -22256,7 +22730,10 @@ Unknown. The encounter status is unknown. Note that "unknown" is a value of last
 }
 impl ::core::str::FromStr for EncounterStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "cancelled" => Ok(Self::Cancelled),
@@ -22376,7 +22853,10 @@ Training. Training environment, it is not intended for production usage and typi
 }
 impl ::core::str::FromStr for EndpointEnvironment {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "dev" => Ok(Self::Dev),
@@ -22488,7 +22968,10 @@ Suspended. This endpoint is temporarily unavailable. */
 }
 impl ::core::str::FromStr for EndpointStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -22608,7 +23091,10 @@ Waitlist. This episode has been placed on a waitlist, pending the episode being 
 }
 impl ::core::str::FromStr for EpisodeOfCareStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -22714,7 +23200,10 @@ Sender. The application sends requests and receives responses. */
 }
 impl ::core::str::FromStr for EventCapabilityMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "receiver" => Ok(Self::Receiver),
@@ -22834,7 +23323,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for EventStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "completed" => Ok(Self::Completed),
@@ -22985,7 +23477,10 @@ After Sleep. Event occurs [offset] after subject goes to sleep. The exact time i
 }
 impl ::core::str::FromStr for EventTiming {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "AFT" => Ok(Self::Aft),
@@ -23158,7 +23653,10 @@ very serious concern. very serious concern. */
 }
 impl ::core::str::FromStr for EvidenceCertaintyRating {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "absent" => Ok(Self::Absent),
@@ -23308,7 +23806,10 @@ Risk of bias. methodologic concerns reducing internal validity. */
 }
 impl ::core::str::FromStr for EvidenceCertaintyType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "DoseResponseGradient" => Ok(Self::DoseResponseGradient),
@@ -23532,7 +24033,10 @@ Article about treatment. about therapeutic interventions. */
 }
 impl ::core::str::FromStr for EvidenceClassifier {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "AllocConcealNotStated" => Ok(Self::AllocConcealNotStated),
@@ -23694,7 +24198,10 @@ Structured Text. The report is a structured representation of text. */
 }
 impl ::core::str::FromStr for EvidenceReportType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "classification" => Ok(Self::Classification),
@@ -23812,7 +24319,10 @@ Start of Treatment. The time of initiation of the treatment */
 }
 impl ::core::str::FromStr for EvidenceVariableEvent {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "condition-detection" => Ok(Self::ConditionDetection),
@@ -23926,7 +24436,10 @@ polychotomous variable. A polychotomous variable is a categorical variable which
 }
 impl ::core::str::FromStr for EvidenceVariableHandling {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "continuous" => Ok(Self::Continuous),
@@ -24029,7 +24542,10 @@ C. C */
 }
 impl ::core::str::FromStr for ExampleMetadata {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "A" => Ok(Self::A),
@@ -24126,7 +24642,10 @@ System. A software application or other system */
 }
 impl ::core::str::FromStr for ExampleScenarioActorType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "person" => Ok(Self::Person),
@@ -24230,7 +24749,10 @@ Entered In Error. The resource instance was entered in error. */
 }
 impl ::core::str::FromStr for ExplanationOfBenefitStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -24334,7 +24856,10 @@ FHIRPath. The context is all elements that match the FHIRPath query found in the
 }
 impl ::core::str::FromStr for ExtensionContextType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "element" => Ok(Self::Element),
@@ -24437,7 +24962,10 @@ label. The means used to associate a set of security attributes with a specific 
 }
 impl ::core::str::FromStr for ExtraActivityType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "aggregate" => Ok(Self::Aggregate),
@@ -24650,7 +25178,10 @@ unknown. Authoring system does not know the status */
 }
 impl ::core::str::FromStr for FHIRCanonicalStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "abandoned" => Ok(Self::Abandoned),
@@ -24814,7 +25345,10 @@ Unknown. The operational status of the device has not been determined. */
 }
 impl ::core::str::FromStr for FHIRDeviceAssociationOperationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "defective" => Ok(Self::Defective),
@@ -24925,7 +25459,10 @@ Lost. The device is lost. */
 }
 impl ::core::str::FromStr for FHIRDeviceAvailabilityStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "available" => Ok(Self::Available),
@@ -25057,7 +25594,10 @@ Software. A device that may include a software component or consist exclusively 
 }
 impl ::core::str::FromStr for FHIRDeviceCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -25179,7 +25719,10 @@ Test. The device operates in a test mode that is not intended to be used for pro
 }
 impl ::core::str::FromStr for FHIRDeviceOperationMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "demo" => Ok(Self::Demo),
@@ -25301,7 +25844,10 @@ Risk Class. Class or catefory of risk. */
 }
 impl ::core::str::FromStr for FHIRDeviceSpecializationCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "communication" => Ok(Self::Communication),
@@ -25411,7 +25957,10 @@ Inactive. The device record is not current and is not appropriate for reference 
 }
 impl ::core::str::FromStr for FHIRDeviceStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -25511,7 +26060,10 @@ XML. XML content-type corresponding to the application/fhir+xml mime-type. */
 }
 impl ::core::str::FromStr for FHIRFormatType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "json" => Ok(Self::Json),
@@ -25763,7 +26315,10 @@ SubstanceSpecification. */
 }
 impl ::core::str::FromStr for FHIROldTypes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "BodySite" => Ok(Self::BodySite),
@@ -25961,7 +26516,10 @@ Time. */
 }
 impl ::core::str::FromStr for FHIRPathTypesCodeSystem {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "http://hl7.org/fhirpath/System.Boolean" => {
@@ -26153,7 +26711,10 @@ vread. Read the state of a specific version of the resource. */
 }
 impl ::core::str::FromStr for FHIRRestfulInteractions {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "batch" => Ok(Self::Batch),
@@ -26435,7 +26996,10 @@ All resources in use are [valid](validation.html) against the base specification
 }
 impl ::core::str::FromStr for FHIRSafetyCheckListEntries {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "check-clocks" => Ok(Self::CheckClocks),
@@ -26611,7 +27175,10 @@ Inactive. The substance is considered for reference, but not for use. */
 }
 impl ::core::str::FromStr for FHIRSubstanceStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -27626,7 +28193,10 @@ xhtml. xhtml Type definition */
 }
 impl ::core::str::FromStr for FHIRTypes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Account" => Ok(Self::Account),
@@ -28402,7 +28972,10 @@ pub enum FHIRVersion {
 }
 impl ::core::str::FromStr for FHIRVersion {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "0.0" => Ok(Self::N00),
@@ -28614,7 +29187,10 @@ Partial. Some health information is known and captured, but not complete - see n
 }
 impl ::core::str::FromStr for FamilyHistoryStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "completed" => Ok(Self::Completed),
@@ -28748,7 +29324,10 @@ Regular Expression. The specified property of the code  matches the regex specif
 }
 impl ::core::str::FromStr for FilterOperator {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "=" => Ok(Self::Equal),
@@ -28869,7 +29448,10 @@ Entered in Error. The instance was entered in error. */
 }
 impl ::core::str::FromStr for FinancialResourceStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -28972,7 +29554,10 @@ Inactive. The flag no longer needs to be displayed. */
 }
 impl ::core::str::FromStr for FlagStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -29092,7 +29677,10 @@ Study type. Type of research study, such as randomized trial or case-control stu
 }
 impl ::core::str::FromStr for FocusCharacteristicCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "citation" => Ok(Self::Citation),
@@ -29204,7 +29792,10 @@ Inactive. The service or product referred to by this FormularyItem is not in act
 }
 impl ::core::str::FromStr for FormularyItemStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -29312,7 +29903,10 @@ RNA change. Change that involves Ribonucleic Acid (RNA) sequences. */
 }
 impl ::core::str::FromStr for GenomicStudyChangeType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "AA" => Ok(Self::Aa),
@@ -29566,7 +30160,10 @@ WIG. */
 }
 impl ::core::str::FromStr for GenomicStudyDataFormat {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "bam" => Ok(Self::Bam),
@@ -30058,7 +30655,10 @@ Uni-directional Sanger sequencing. */
 }
 impl ::core::str::FromStr for GenomicStudyMethodType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alternative-splicing-detection" => Ok(Self::AlternativeSplicingDetection),
@@ -30372,7 +30972,10 @@ Unknown. The system does not know which of the status values currently applies f
 }
 impl ::core::str::FromStr for GenomicStudyStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "available" => Ok(Self::Available),
@@ -30512,7 +31115,10 @@ Structural variation detection. Detection of deletions, insertions, or rearrange
 }
 impl ::core::str::FromStr for GenomicStudyType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alt-splc" => Ok(Self::AltSplc),
@@ -30654,7 +31260,10 @@ Rejected. A proposed goal was rejected. */
 }
 impl ::core::str::FromStr for GoalLifecycleStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "accepted" => Ok(Self::Accepted),
@@ -30770,7 +31379,10 @@ Matching. The compartment must be the same - the record must be about the same p
 }
 impl ::core::str::FromStr for GraphCompartmentRule {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "custom" => Ok(Self::Custom),
@@ -30870,7 +31482,10 @@ Where. This compartment rule is a condition for whether the rule applies. */
 }
 impl ::core::str::FromStr for GraphCompartmentUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "requires" => Ok(Self::Requires),
@@ -30966,7 +31581,10 @@ Enumerated. The Group.characteristics are necessary but not sufficient to determ
 }
 impl ::core::str::FromStr for GroupMembershipBasis {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "definitional" => Ok(Self::Definitional),
@@ -31094,7 +31712,10 @@ Specimen. Group contains Specimen resources. */
 }
 impl ::core::str::FromStr for GroupType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "animal" => Ok(Self::Animal),
@@ -31220,7 +31841,10 @@ Opioid CDS. Clinical Decision Support for Opioid Prescribing. */
 }
 impl ::core::str::FromStr for GuidanceModuleCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "anc-cds" => Ok(Self::AncCds),
@@ -31338,7 +31962,10 @@ Success. The request was processed successfully. */
 }
 impl ::core::str::FromStr for GuidanceResponseStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "data-requested" => Ok(Self::DataRequested),
@@ -31450,7 +32077,10 @@ XML. Page is xml with templating.  Will use the template to create a file that i
 }
 impl ::core::str::FromStr for GuidePageGeneration {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "generated" => Ok(Self::Generated),
@@ -31583,7 +32213,10 @@ Broken Links Rule. The value of this string 0..1 parameter is either "warning" o
 }
 impl ::core::str::FromStr for GuideParameterCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "apply" => Ok(Self::Apply),
@@ -31710,7 +32343,10 @@ PUT. HTTP PUT Command. */
 }
 impl ::core::str::FromStr for HTTPVerb {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "DELETE" => Ok(Self::Delete),
@@ -31817,7 +32453,10 @@ PROC-3. Procedure 3 */
 }
 impl ::core::str::FromStr for ICD10ProcedureCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "123001" => Ok(Self::N123001),
@@ -31926,7 +32565,10 @@ Usual. The identifier recommended for display and use in real-world interactions
 }
 impl ::core::str::FromStr for IdentifierUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "official" => Ok(Self::Official),
@@ -32034,7 +32676,10 @@ Level 4. Very high confidence in the asserted identity's accuracy. */
 }
 impl ::core::str::FromStr for IdentityAssuranceLevel {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "level1" => Ok(Self::Level1),
@@ -32146,7 +32791,10 @@ POLYLINE. A series of connected line segments with ordered vertices denoted by (
 }
 impl ::core::str::FromStr for ImagingSelection2DGraphicType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "circle" => Ok(Self::Circle),
@@ -32264,7 +32912,10 @@ POLYLINE. a series of connected line segments with ordered vertices denoted by (
 }
 impl ::core::str::FromStr for ImagingSelection3DGraphicType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ellipse" => Ok(Self::Ellipse),
@@ -32372,7 +33023,10 @@ Unknown. The system does not know which of the status values currently applies f
 }
 impl ::core::str::FromStr for ImagingSelectionStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "available" => Ok(Self::Available),
@@ -32482,7 +33136,10 @@ Unknown. The system does not know which of the status values currently applies f
 }
 impl ::core::str::FromStr for ImagingStudyStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "available" => Ok(Self::Available),
@@ -32586,7 +33243,10 @@ Warning. The response is a warning and indicates that it contains urgent or high
 }
 impl ::core::str::FromStr for Indicator {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "critical" => Ok(Self::Critical),
@@ -32682,7 +33342,10 @@ Antioxidant. */
 }
 impl ::core::str::FromStr for IngredientFunction {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "AlkalizingAgent" => Ok(Self::AlkalizingAgent),
@@ -32780,7 +33443,10 @@ Manufacturer is known to make this ingredient in general. */
 }
 impl ::core::str::FromStr for IngredientManufacturerRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "actual" => Ok(Self::Actual),
@@ -32906,7 +33572,10 @@ bioenhancer. */
 }
 impl ::core::str::FromStr for IngredientRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000072072" => Ok(Self::N100000072072),
@@ -33014,7 +33683,10 @@ Theoretical. */
 }
 impl ::core::str::FromStr for InteractionIncidence {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Observed" => Ok(Self::Observed),
@@ -33118,7 +33790,10 @@ other interaction. */
 }
 impl ::core::str::FromStr for InteractionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "drug-drug" => Ok(Self::DrugDrug),
@@ -33216,7 +33891,10 @@ Snapshot. The inventory report is a current absolute snapshot, i.e. it represent
 }
 impl ::core::str::FromStr for InventoryCountType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "difference" => Ok(Self::Difference),
@@ -33320,7 +33998,10 @@ Trade Name. The official trade name of the item. */
 }
 impl ::core::str::FromStr for InventoryItemNameType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alias" => Ok(Self::Alias),
@@ -33428,7 +34109,10 @@ Unknown. The item status has not been determined. */
 }
 impl ::core::str::FromStr for InventoryItemStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -33534,7 +34218,10 @@ Requested. The inventory report has been requested but there is no data availabl
 }
 impl ::core::str::FromStr for InventoryReportStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -33646,7 +34333,10 @@ issued. the invoice has been finalized and sent to the recipient. */
 }
 impl ::core::str::FromStr for InvoiceStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "balanced" => Ok(Self::Balanced),
@@ -33758,7 +34448,10 @@ Warning. The issue is not important enough to cause the action to fail but may c
 }
 impl ::core::str::FromStr for IssueSeverity {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "error" => Ok(Self::Error),
@@ -33982,7 +34675,10 @@ Element value invalid. An element or header value is invalid. */
 }
 impl ::core::str::FromStr for IssueType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "business-rule" => Ok(Self::BusinessRule),
@@ -34142,7 +34838,10 @@ Self-pay. One or more persons and/or organizations are paying for the services r
 }
 impl ::core::str::FromStr for Kind {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "insurance" => Ok(Self::Insurance),
@@ -34246,7 +34945,10 @@ Structured. The knowledge is expressed in a structured way that is interpretable
 }
 impl ::core::str::FromStr for KnowledgeRepresentationLevel {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "executable" => Ok(Self::Executable),
@@ -34371,7 +35073,10 @@ Medicinal product subject to special and restricted medical prescription. */
 }
 impl ::core::str::FromStr for LegalStatusOfSupply {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000072076" => Ok(Self::N100000072076),
@@ -35139,7 +35844,10 @@ Points to the versioned resource from which this
 }
 impl ::core::str::FromStr for LinkRelationTypes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "P3Pv1" => Ok(Self::P3Pv1),
@@ -35477,7 +36185,10 @@ See also. The patient resource containing this link is in use and valid, but poi
 }
 impl ::core::str::FromStr for LinkType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "refer" => Ok(Self::Refer),
@@ -35579,7 +36290,10 @@ Source of Truth. The resource represents the "source of truth" (from the perspec
 }
 impl ::core::str::FromStr for LinkageType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alternate" => Ok(Self::Alternate),
@@ -35679,7 +36393,10 @@ Working List. This list is the master list, maintained in an ongoing fashion wit
 }
 impl ::core::str::FromStr for ListMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "changes" => Ok(Self::Changes),
@@ -35779,7 +36496,10 @@ Retired. The list is "old" and should no longer be considered accurate or releva
 }
 impl ::core::str::FromStr for ListStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "current" => Ok(Self::Current),
@@ -35891,7 +36611,10 @@ Wheelchair accessible. The location is accessible to thosre requiring wheelchair
 }
 impl ::core::str::FromStr for LocationCharacteristic {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "has-icu" => Ok(Self::HasIcu),
@@ -35995,7 +36718,10 @@ Kind. The Location represents a class of locations (e.g. Any Operating Theatre) 
 }
 impl ::core::str::FromStr for LocationMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "instance" => Ok(Self::Instance),
@@ -36093,7 +36819,10 @@ Suspended. The location is temporarily closed. */
 }
 impl ::core::str::FromStr for LocationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -36985,7 +37714,10 @@ Solution for injection. */
 }
 impl ::core::str::FromStr for ManufacturedDoseForm {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000073362" => Ok(Self::N100000073362),
@@ -37495,7 +38227,10 @@ Sum. The measure score is determined by adding together the observations derived
 }
 impl ::core::str::FromStr for MeasureAggregateMethod {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "average" => Ok(Self::Average),
@@ -37597,7 +38332,10 @@ Standardized Depression Screening Tool. A normalized and validated depression sc
 }
 impl ::core::str::FromStr for MeasureDefinitionExample {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "screening" => Ok(Self::Screening),
@@ -37697,7 +38435,10 @@ Secondary Rate. Secondary Measure Group */
 }
 impl ::core::str::FromStr for MeasureGroupExample {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "primary-rate" => Ok(Self::PrimaryRate),
@@ -37797,7 +38538,10 @@ Pending. The report is currently being generated. */
 }
 impl ::core::str::FromStr for MeasureReportStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complete" => Ok(Self::Complete),
@@ -37903,7 +38647,10 @@ Soutwest. Soutwest region stratification. */
 }
 impl ::core::str::FromStr for MeasureReportStratifierValueExample {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "northeast" => Ok(Self::Northeast),
@@ -38012,7 +38759,10 @@ Summary. A summary report that returns the number of members in each population 
 }
 impl ::core::str::FromStr for MeasureReportType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "data-exchange" => Ok(Self::DataExchange),
@@ -38114,7 +38864,10 @@ Region. Region Stratification. */
 }
 impl ::core::str::FromStr for MeasureStratifierExample {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "age" => Ok(Self::Age),
@@ -38220,7 +38973,10 @@ Payer. Payer Supplemental Data. */
 }
 impl ::core::str::FromStr for MeasureSupplementalDataExample {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "age" => Ok(Self::Age),
@@ -38325,7 +39081,10 @@ Outpatient. Includes dispenses for medications to be administered or consumed in
 }
 impl ::core::str::FromStr for MedDispenseAdminLocationCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "community" => Ok(Self::Community),
@@ -38444,7 +39203,10 @@ Unknown. The authoring system does not know which of the status values currently
 }
 impl ::core::str::FromStr for MedicationAdministrationStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "completed" => Ok(Self::Completed),
@@ -38550,7 +39312,10 @@ Band B. Tier B cost for this medication */
 }
 impl ::core::str::FromStr for MedicationCostCategoryCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "banda" => Ok(Self::Banda),
@@ -38674,7 +39439,10 @@ Unknown. The authoring system does not know which of the status values applies f
 }
 impl ::core::str::FromStr for MedicationDispenseStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "cancelled" => Ok(Self::Cancelled),
@@ -38860,7 +39628,10 @@ Washout. The patient was previously receiving a medication contraindicated with 
 }
 impl ::core::str::FromStr for MedicationDispenseStatusReasonCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "altchoice" => Ok(Self::Altchoice),
@@ -38999,7 +39770,10 @@ Sachets. A small packet that contains medication for individual use. */
 }
 impl ::core::str::FromStr for MedicationDoseAid {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "blisterpack" => Ok(Self::Blisterpack),
@@ -39095,7 +39869,10 @@ Trace. Very small amount. */
 }
 impl ::core::str::FromStr for MedicationIngredientStrengthCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "qs" => Ok(Self::Qs),
@@ -39203,7 +39980,10 @@ Registered Nurse. */
 }
 impl ::core::str::FromStr for MedicationIntendedPerformerRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "oncologynurse" => Ok(Self::Oncologynurse),
@@ -39310,7 +40090,10 @@ Inactive. The medication referred to by this MedicationKnowledge is not in activ
 }
 impl ::core::str::FromStr for MedicationKnowledgeStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -39432,7 +40215,10 @@ Reflex Order. The request represents an automatically generated supplemental aut
 }
 impl ::core::str::FromStr for MedicationRequestIntentCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "filler-order" => Ok(Self::FillerOrder),
@@ -39568,7 +40354,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for MedicationRequestStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -39714,7 +40503,10 @@ Unknown. Whether the medication is being taken or not is not currently known. */
 }
 impl ::core::str::FromStr for MedicationStatementAdherenceCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "not-taking" => Ok(Self::NotTaking),
@@ -39832,7 +40624,10 @@ Recorded. The action of recording the medication statement is finished. */
 }
 impl ::core::str::FromStr for MedicationStatementStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "draft" => Ok(Self::Draft),
@@ -39934,7 +40729,10 @@ Inactive. The medication record is not current and is not is appropriate for ref
 }
 impl ::core::str::FromStr for MedicationStatusCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -40034,7 +40832,10 @@ Veterinary use. Product intended for use with animals */
 }
 impl ::core::str::FromStr for MedicinalProductDomain {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Human" => Ok(Self::Human),
@@ -40172,7 +40973,10 @@ Pack. */
 }
 impl ::core::str::FromStr for MedicinalProductPackageType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000073490" => Ok(Self::N100000073490),
@@ -40288,7 +41092,10 @@ Medicinal Product. A standard medicinal product. */
 }
 impl ::core::str::FromStr for MedicinalProductType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "InvestigationalProduct" => Ok(Self::InvestigationalProduct),
@@ -40377,7 +41184,10 @@ pub enum MessageEvent {
 }
 impl ::core::str::FromStr for MessageEvent {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             _ => Ok(Self::_Custom(s.to_owned())),
@@ -40472,7 +41282,10 @@ Notification. The content is not necessarily intended to be current, and it can 
 }
 impl ::core::str::FromStr for MessageSignificanceCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "consequence" => Ok(Self::Consequence),
@@ -40574,7 +41387,10 @@ MLLP. The application sends or receives messages using HL7's Minimal Lower Level
 }
 impl ::core::str::FromStr for MessageTransport {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ftp" => Ok(Self::Ftp),
@@ -40678,7 +41494,10 @@ Successful completion only. initiator expects a response only if successful. */
 }
 impl ::core::str::FromStr for MessageheaderResponseRequest {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "always" => Ok(Self::Always),
@@ -40878,7 +41697,10 @@ Worker's Comp. Disclosures for workers' compensation. */
 }
 impl ::core::str::FromStr for NHINPurposeOfUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ABUSE" => Ok(Self::Abuse),
@@ -41042,7 +41864,10 @@ Usual. Known as/conventional/the one you normally use. */
 }
 impl ::core::str::FromStr for NameUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "anonymous" => Ok(Self::Anonymous),
@@ -41162,7 +41987,10 @@ V2CSMNemonic. A short string published by HL7 for use in the V2 family of stands
 }
 impl ::core::str::FromStr for NamingSystemIdentifierType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "iri-stem" => Ok(Self::IriStem),
@@ -41270,7 +42098,10 @@ Root. The naming system is used as the root for other identifiers and naming sys
 }
 impl ::core::str::FromStr for NamingSystemType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "codesystem" => Ok(Self::Codesystem),
@@ -41374,7 +42205,10 @@ Generated. The contents of the narrative are entirely generated from the core el
 }
 impl ::core::str::FromStr for NarrativeStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "additional" => Ok(Self::Additional),
@@ -41476,7 +42310,10 @@ Print (Operator). Print the note for the operator. */
 }
 impl ::core::str::FromStr for NoteType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "display" => Ok(Self::Display),
@@ -41576,7 +42413,10 @@ Inactive. The product is not expected or allowed to be used. */
 }
 impl ::core::str::FromStr for NutritionProductStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -41710,7 +42550,10 @@ time. A time during the day, in the format hh:mm:ss. */
 }
 impl ::core::str::FromStr for ObservationDataType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "CodeableConcept" => Ok(Self::CodeableConcept),
@@ -41826,7 +42669,10 @@ reference range. Reference (Normal) Range for Ordinal and Continuous Observation
 }
 impl ::core::str::FromStr for ObservationRangeCategory {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "absolute" => Ok(Self::Absolute),
@@ -41924,7 +42770,10 @@ Negative. The expected normal value for the observation is negative. */
 }
 impl ::core::str::FromStr for ObservationReferenceRangeNormalValue {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "absent" => Ok(Self::Absent),
@@ -42045,7 +42894,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for ObservationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -42151,7 +43003,10 @@ Query. This operation is a named query, invoked using the search mechanism. */
 }
 impl ::core::str::FromStr for OperationKind {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "operation" => Ok(Self::Operation),
@@ -42442,7 +43297,10 @@ Error: Multiple matches exist for the conditional update. */
 }
 impl ::core::str::FromStr for OperationOutcomeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "DELETE_MULTIPLE_MATCHES" => Ok(Self::DeleteMultipleMatches),
@@ -42639,7 +43497,10 @@ Type. This is a parameter that can be used at the type level. */
 }
 impl ::core::str::FromStr for OperationParameterScope {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "instance" => Ok(Self::Instance),
@@ -42737,7 +43598,10 @@ Out. This is an output parameter. */
 }
 impl ::core::str::FromStr for OperationParameterUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "in" => Ok(Self::In),
@@ -42858,7 +43722,10 @@ Supplier. An organization that provides medical supplies (e.g. medical devices, 
 }
 impl ::core::str::FromStr for OrganizationAffiliationRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "HIE/HIO" => Ok(Self::HieHio),
@@ -42965,7 +43832,10 @@ Sense orientation of referenceSeq. Sense orientation of reference sequence. */
 }
 impl ::core::str::FromStr for OrientationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "antisense" => Ok(Self::Antisense),
@@ -43223,7 +44093,10 @@ Linear Low Density PolyEthylene. */
 }
 impl ::core::str::FromStr for PackageMaterial {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "200000003200" => Ok(Self::N200000003200),
@@ -43403,7 +44276,10 @@ Shipping or transport container. */
 }
 impl ::core::str::FromStr for PackageType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "MedicinalProductPack" => Ok(Self::MedicinalProductPack),
@@ -43899,7 +44775,10 @@ Tablet tube. */
 }
 impl ::core::str::FromStr for PackagingType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000073490" => Ok(Self::N100000073490),
@@ -44201,7 +45080,10 @@ Tentative. The participant has  tentatively accepted the appointment. This could
 }
 impl ::core::str::FromStr for ParticipationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "accepted" => Ok(Self::Accepted),
@@ -44315,7 +45197,10 @@ Suspended. Administration of this medication item that the patient is currently 
 }
 impl ::core::str::FromStr for PatientMedicineChangeTypes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "01" => Ok(Self::N01),
@@ -44417,7 +45302,10 @@ Patient. The patient or a party issuing payment on behalf of the patient. */
 }
 impl ::core::str::FromStr for PaymentIssuerTypeCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "insurance" => Ok(Self::Insurance),
@@ -44519,7 +45407,10 @@ Periodic Payment. The payment is one of a set of previously agreed payments, for
 }
 impl ::core::str::FromStr for PaymentKindCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "deposit" => Ok(Self::Deposit),
@@ -44665,7 +45556,10 @@ Term newborn infants (0 – 27 days). Term newborn infants (0 – 27 days) */
 }
 impl ::core::str::FromStr for PediatricUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Adolescents" => Ok(Self::Adolescents),
@@ -44802,7 +45696,10 @@ Permit-unless-deny. The “Permit-unless-deny” combining algorithm is intended
 }
 impl ::core::str::FromStr for PermissionRuleCombining {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "deny-overrides" => Ok(Self::DenyOverrides),
@@ -44913,7 +45810,10 @@ Rejected. Permission not granted. */
 }
 impl ::core::str::FromStr for PermissionStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -45027,7 +45927,10 @@ tax. the amount is the tax component of the total price. */
 }
 impl ::core::str::FromStr for PriceComponentType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "base" => Ok(Self::Base),
@@ -45134,7 +46037,10 @@ Manipulated. The device remains in the patient, but its location, settings, or f
 }
 impl ::core::str::FromStr for ProcedureDeviceActionCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "explanted" => Ok(Self::Explanted),
@@ -45231,7 +46137,10 @@ Not Commercially Sensitive. Not Commercially Sensitive */
 }
 impl ::core::str::FromStr for ProductConfidentiality {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "CommerciallySensitive" => Ok(Self::CommerciallySensitive),
@@ -45340,7 +46249,10 @@ Qualified Person Responsible for Pharmacovigilance. Qualified Person Responsible
 }
 impl ::core::str::FromStr for ProductContactType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "PVEnquiries" => Ok(Self::Pvenquiries),
@@ -45458,7 +46370,10 @@ Link Actual to Virtual Product. Link Actual to Virtual Product */
 }
 impl ::core::str::FromStr for ProductCrossReferenceType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ActualProduct" => Ok(Self::ActualProduct),
@@ -45575,7 +46490,10 @@ Treatment. */
 }
 impl ::core::str::FromStr for ProductIntendedUse {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Alleviation" => Ok(Self::Alleviation),
@@ -45731,7 +46649,10 @@ Trademark or company name part. */
 }
 impl ::core::str::FromStr for ProductNamePartType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ContainerPart" => Ok(Self::ContainerPart),
@@ -45868,7 +46789,10 @@ Recommended International Non-Proprietary Name. */
 }
 impl ::core::str::FromStr for ProductNameType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "BAN" => Ok(Self::Ban),
@@ -45970,7 +46894,10 @@ Entered in Error. This electronic record should never have existed, though it is
 }
 impl ::core::str::FromStr for ProductStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -46076,7 +47003,10 @@ XML Text. This element is represented using the XML text attribute (primitives o
 }
 impl ::core::str::FromStr for PropertyRepresentation {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "cdaText" => Ok(Self::CdaText),
@@ -46198,7 +47128,10 @@ string. The property value is a string. */
 }
 impl ::core::str::FromStr for PropertyType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Coding" => Ok(Self::Coding),
@@ -46316,7 +47249,10 @@ Source. An entity that is used as input to the activity that produced the target
 }
 impl ::core::str::FromStr for ProvenanceEntityRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "instantiates" => Ok(Self::Instantiates),
@@ -46426,7 +47362,10 @@ Unknown. The authoring system does not know which of the status values currently
 }
 impl ::core::str::FromStr for PublicationStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -46532,7 +47471,10 @@ Dataset. Works consisting of organized collections of data, which have been stor
 }
 impl ::core::str::FromStr for PublishedInType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "D001877" => Ok(Self::D001877),
@@ -46642,7 +47584,10 @@ Sufficient to achieve this total quantity. The actual value is sufficient for th
 }
 impl ::core::str::FromStr for QuantityComparator {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "<" => Ok(Self::Less),
@@ -46747,7 +47692,10 @@ Options or 'type'. In addition to the values listed as answerOption or in the ex
 }
 impl ::core::str::FromStr for QuestionnaireAnswerConstraint {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "optionsOnly" => Ok(Self::OptionsOnly),
@@ -46847,7 +47795,10 @@ Protected. The item (and possibly its children) should not be selectable or edit
 }
 impl ::core::str::FromStr for QuestionnaireItemDisabledDisplay {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "hidden" => Ok(Self::Hidden),
@@ -46964,7 +47915,10 @@ Exists. True if the determination of 'whether an answer exists for the question'
 }
 impl ::core::str::FromStr for QuestionnaireItemOperator {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "!=" => Ok(Self::NotEqual),
@@ -47126,7 +48080,10 @@ Url. Question with a URL (website, FTP site, etc.) answer (valueUri). */
 }
 impl ::core::str::FromStr for QuestionnaireItemType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "attachment" => Ok(Self::Attachment),
@@ -47260,7 +48217,10 @@ Stopped. This QuestionnaireResponse has been partially filled out with answers b
 }
 impl ::core::str::FromStr for QuestionnaireResponseStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended" => Ok(Self::Amended),
@@ -47371,7 +48331,10 @@ Vomit. The patient was given the medication and immediately vomited it back. */
 }
 impl ::core::str::FromStr for ReasonMedicationNotGivenCodes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "a" => Ok(Self::A),
@@ -47482,7 +48445,10 @@ Resolves References. The server will attempt to resolve logical references to li
 }
 impl ::core::str::FromStr for ReferenceHandlingPolicy {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "enforced" => Ok(Self::Enforced),
@@ -47588,7 +48554,10 @@ Version Specific. The reference must be version specific. */
 }
 impl ::core::str::FromStr for ReferenceVersionRules {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "either" => Ok(Self::Either),
@@ -47718,7 +48687,10 @@ Well-established use application. */
 }
 impl ::core::str::FromStr for RegulatedAuthorizationBasis {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Bibliographical" => Ok(Self::Bibliographical),
@@ -47910,7 +48882,10 @@ Withdrawal. */
 }
 impl ::core::str::FromStr for RegulatedAuthorizationCaseType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000155699" => Ok(Self::N100000155699),
@@ -48051,7 +49026,10 @@ Pediatric Use Drug Authorization. */
 }
 impl ::core::str::FromStr for RegulatedAuthorizationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "MarketingAuth" => Ok(Self::MarketingAuth),
@@ -48285,7 +49263,10 @@ Transforms. This artifact was generated by transforming the target artifact (e.g
 }
 impl ::core::str::FromStr for RelatedArtifactType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended-with" => Ok(Self::AmendedWith),
@@ -48593,7 +49574,10 @@ Transforms. This artifact was generated by transforming the target artifact (e.g
 }
 impl ::core::str::FromStr for RelatedArtifactTypeExpanded {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amended-with" => Ok(Self::AmendedWith),
@@ -48765,7 +49749,10 @@ Partial. No errors have been detected and some of the adjudication has been perf
 }
 impl ::core::str::FromStr for RemittanceOutcome {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complete" => Ok(Self::Complete),
@@ -48885,7 +49872,10 @@ Transforms. This document was generated by transforming the target document (eg 
 }
 impl ::core::str::FromStr for ReportRelationshipType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "amendedWith" => Ok(Self::AmendedWith),
@@ -49095,7 +50085,10 @@ Warnings. Warnings. */
 }
 impl ::core::str::FromStr for ReportSectionType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Assertion" => Ok(Self::Assertion),
@@ -49277,7 +50270,10 @@ Reflex Order. The request represents an automatically generated supplemental aut
 }
 impl ::core::str::FromStr for RequestIntent {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "directive" => Ok(Self::Directive),
@@ -49393,7 +50389,10 @@ Urgent. The request should be actioned promptly - higher priority than routine. 
 }
 impl ::core::str::FromStr for RequestPriority {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "asap" => Ok(Self::Asap),
@@ -49511,7 +50510,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for RequestStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -49631,7 +50633,10 @@ Sham Comparator. */
 }
 impl ::core::str::FromStr for ResearchStudyArmType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active-comparator" => Ok(Self::ActiveComparator),
@@ -49743,7 +50748,10 @@ MPG Paragraph 23b. Research regulated by a specific German legal requirement (Me
 }
 impl ::core::str::FromStr for ResearchStudyClassifiers {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "fda-regulated-device" => Ok(Self::FdaRegulatedDevice),
@@ -49851,7 +50859,10 @@ Medication. */
 }
 impl ::core::str::FromStr for ResearchStudyFocusType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "device" => Ok(Self::Device),
@@ -49955,7 +50966,10 @@ Secondary. Question to be answered in the study that is of lesser importance tha
 }
 impl ::core::str::FromStr for ResearchStudyObjectiveType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "exploratory" => Ok(Self::Exploratory),
@@ -50069,7 +51083,10 @@ Nonprofit. */
 }
 impl ::core::str::FromStr for ResearchStudyPartyOrganizationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "academic" => Ok(Self::Academic),
@@ -50214,7 +51231,10 @@ sub-investigator. sub-investigator */
 }
 impl ::core::str::FromStr for ResearchStudyPartyRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "collaborator" => Ok(Self::Collaborator),
@@ -50354,7 +51374,10 @@ Phase 4. Studies of FDA-approved drugs to delineate additional information inclu
 }
 impl ::core::str::FromStr for ResearchStudyPhase {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "early-phase-1" => Ok(Self::EarlyPhase1),
@@ -50484,7 +51507,10 @@ Treatment. One or more interventions are being evaluated for treating a disease,
 }
 impl ::core::str::FromStr for ResearchStudyPrimaryPurposeType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "basic-science" => Ok(Self::BasicScience),
@@ -50600,7 +51626,10 @@ Temporarily closed per study design. The study prematurely ended temporarily per
 }
 impl ::core::str::FromStr for ResearchStudyReasonStopped {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "accrual-goal-met" => Ok(Self::AccrualGoalMet),
@@ -50768,7 +51797,10 @@ Withdrawn. Protocol was withdrawn by the lead organization. */
 }
 impl ::core::str::FromStr for ResearchStudyStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -50909,7 +51941,10 @@ Validate for Update. The server checks the content, and then checks that it woul
 }
 impl ::core::str::FromStr for ResourceValidationMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "create" => Ok(Self::Create),
@@ -51012,7 +52047,10 @@ VersionId tracked fully. Supports version-aware updates (server) or will be spec
 }
 impl ::core::str::FromStr for ResourceVersionPolicy {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "no-version" => Ok(Self::NoVersion),
@@ -51112,7 +52150,10 @@ Transient Error. Some internal unexpected error occurred - wait and try again. N
 }
 impl ::core::str::FromStr for ResponseType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "fatal-error" => Ok(Self::FatalError),
@@ -51208,7 +52249,10 @@ Server. The application acts as a server for this resource. */
 }
 impl ::core::str::FromStr for RestfulCapabilityMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "client" => Ok(Self::Client),
@@ -51320,7 +52364,10 @@ SMART-on-FHIR. OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit
 }
 impl ::core::str::FromStr for RestfulSecurityService {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Basic" => Ok(Self::Basic),
@@ -52800,7 +53847,10 @@ zlib/libpng License with Acknowledgement. zlib/libpng License with Acknowledgeme
 }
 impl ::core::str::FromStr for SPDXLicense {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "0BSD" => Ok(Self::N0Bsd),
@@ -53631,7 +54681,10 @@ Veterinarian. The specialty relating to non-human subjects. */
 }
 impl ::core::str::FromStr for SampleSecurityStructuralRoles {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "business-manager" => Ok(Self::BusinessManager),
@@ -53780,7 +54833,10 @@ Starts After. the value for the parameter in the resource starts after the provi
 }
 impl ::core::str::FromStr for SearchComparator {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ap" => Ok(Self::Ap),
@@ -53892,7 +54948,10 @@ Outcome. An OperationOutcome that provides additional information about the proc
 }
 impl ::core::str::FromStr for SearchEntryMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "include" => Ok(Self::Include),
@@ -54040,7 +55099,10 @@ Type. The search parameter only applies to the Resource Type specified as a modi
 }
 impl ::core::str::FromStr for SearchModifierCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "above" => Ok(Self::Above),
@@ -54188,7 +55250,10 @@ URI. A search parameter that searches on a URI (RFC 3986). */
 }
 impl ::core::str::FromStr for SearchParamType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "composite" => Ok(Self::Composite),
@@ -54300,7 +55365,10 @@ Phonetic. The search parameter is derived by a phonetic transform from the selec
 }
 impl ::core::str::FromStr for SearchProcessingModeType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "normal" => Ok(Self::Normal),
@@ -54402,7 +55470,10 @@ RNA Sequence. RNA Sequence. */
 }
 impl ::core::str::FromStr for SequenceType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "aa" => Ok(Self::Aa),
@@ -54506,7 +55577,10 @@ Video Conference. The service will be provided over a video-conference facility 
 }
 impl ::core::str::FromStr for ServiceMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "chat" => Ok(Self::Chat),
@@ -54612,7 +55686,10 @@ Device Settings. Describes setting details. */
 }
 impl ::core::str::FromStr for ServiceRequestOrderDetailParameterCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "body-elevation" => Ok(Self::BodyElevation),
@@ -54717,7 +55794,10 @@ Open at End. Additional content is allowed, but only at the end of the list. Not
 }
 impl ::core::str::FromStr for SlicingRules {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "closed" => Ok(Self::Closed),
@@ -54827,7 +55907,10 @@ Free. Indicates that the time interval is free for scheduling. */
 }
 impl ::core::str::FromStr for SlotStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "busy" => Ok(Self::Busy),
@@ -54927,7 +56010,10 @@ Descending. Sort by the value descending, so that lower values appear last. */
 }
 impl ::core::str::FromStr for SortDirection {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ascending" => Ok(Self::Ascending),
@@ -55017,7 +56103,10 @@ Requirement to conduct post-authorization studies. Requirement to conduct post-a
 }
 impl ::core::str::FromStr for SpecialMeasures {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Post-authorizationStudies" => Ok(Self::PostAuthorizationStudies),
@@ -55112,7 +56201,10 @@ Pooled. The specimen is pooled. */
 }
 impl ::core::str::FromStr for SpecimenCombined {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "grouped" => Ok(Self::Grouped),
@@ -55206,7 +56298,10 @@ Preferred. This type of contained specimen is preferred to collect this kind of 
 }
 impl ::core::str::FromStr for SpecimenContainedPreference {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alternate" => Ok(Self::Alternate),
@@ -55330,7 +56425,10 @@ Verifying Calibrator. Used for periodic calibration checks. */
 }
 impl ::core::str::FromStr for SpecimenRole {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "b" => Ok(Self::B),
@@ -55446,7 +56544,10 @@ Unsatisfactory. The specimen cannot be used because of a quality issue such as a
 }
 impl ::core::str::FromStr for SpecimenStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "available" => Ok(Self::Available),
@@ -55852,7 +56953,10 @@ Zero-cell adjustment with continuity correction. Zero-cell adjustment done by tr
 }
 impl ::core::str::FromStr for StatisticModelCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "adjusted" => Ok(Self::Adjusted),
@@ -56182,7 +57286,10 @@ Variance. The [variance](https://en.wikipedia.org/wiki/Variance) of N measuremen
 }
 impl ::core::str::FromStr for StatisticsCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "20-percent" => Ok(Self::N20Percent),
@@ -56336,7 +57443,10 @@ Validated. ***TODO*** */
 }
 impl ::core::str::FromStr for Status {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "attested" => Ok(Self::Attested),
@@ -56440,7 +57550,10 @@ Watson strand of starting sequence. Watson strand of starting sequence. */
 }
 impl ::core::str::FromStr for StrandType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "crick" => Ok(Self::Crick),
@@ -56542,7 +57655,10 @@ Resource. A 'resource' - a directed acyclic graph of elements that aggregrates o
 }
 impl ::core::str::FromStr for StructureDefinitionKind {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "complex-type" => Ok(Self::ComplexType),
@@ -56642,7 +57758,10 @@ Default for Type Combination. This group is a default mapping group for the spec
 }
 impl ::core::str::FromStr for StructureMapGroupTypeMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "type-and-types" => Ok(Self::TypeAndTypes),
@@ -56736,7 +57855,10 @@ Target Instance. Names an instance that is being populated. */
 }
 impl ::core::str::FromStr for StructureMapInputMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "source" => Ok(Self::Source),
@@ -56838,7 +57960,10 @@ Target Structure Definition. This structure describes an instance passed to the 
 }
 impl ::core::str::FromStr for StructureMapModelMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "produced" => Ok(Self::Produced),
@@ -56948,7 +58073,10 @@ Enforce only one. Only process this rule is there is only item. */
 }
 impl ::core::str::FromStr for StructureMapSourceListMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "first" => Ok(Self::First),
@@ -57056,7 +58184,10 @@ single. the target instance is shared with a number of target instances generate
 }
 impl ::core::str::FromStr for StructureMapTargetListMode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "first" => Ok(Self::First),
@@ -57214,7 +58345,10 @@ uuid. Generate a random UUID (in lowercase). No Parameters. */
 }
 impl ::core::str::FromStr for StructureMapTransform {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "append" => Ok(Self::Append),
@@ -57618,7 +58752,10 @@ Validation Goal. A study goal with the intent to determine the reliability and/o
 }
 impl ::core::str::FromStr for StudyDesign {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "SEVCO:01001" => Ok(Self::Sevco01001),
@@ -57852,7 +58989,10 @@ Snapshot. In contrast to the Incremental Update, the FHIR Parameters resource us
 }
 impl ::core::str::FromStr for SubmitDataUpdateType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "incremental" => Ok(Self::Incremental),
@@ -57960,7 +59100,10 @@ Query Status. The status was generated in response to a status query/request. */
 }
 impl ::core::str::FromStr for SubscriptionNotificationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "event-notification" => Ok(Self::EventNotification),
@@ -58066,7 +59209,10 @@ Id-only. Only the resource id is transacted in the notification payload. */
 }
 impl ::core::str::FromStr for SubscriptionPayloadContent {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "empty" => Ok(Self::Empty),
@@ -58177,7 +59323,10 @@ Requested. The client has requested the subscription, and the server has not yet
 }
 impl ::core::str::FromStr for SubscriptionStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -58286,7 +59435,10 @@ More Than. */
 }
 impl ::core::str::FromStr for SubstanceAmountType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Approximately" => Ok(Self::Approximately),
@@ -58386,7 +59538,10 @@ Salt of substance. */
 }
 impl ::core::str::FromStr for SubstanceForm {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "base" => Ok(Self::Base),
@@ -58492,7 +59647,10 @@ USP/NF United States Pharmacopeia (USP) and the National Formulary (NF). */
 }
 impl ::core::str::FromStr for SubstanceGrade {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "BP" => Ok(Self::Bp),
@@ -58644,7 +59802,10 @@ USP. */
 }
 impl ::core::str::FromStr for SubstanceNameAuthority {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "BAN" => Ok(Self::Ban),
@@ -58766,7 +59927,10 @@ Food Color Additive. */
 }
 impl ::core::str::FromStr for SubstanceNameDomain {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ActiveIngredient" => Ok(Self::ActiveIngredient),
@@ -58866,7 +60030,10 @@ systematic. */
 }
 impl ::core::str::FromStr for SubstanceNameType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Brand" => Ok(Self::Brand),
@@ -58962,7 +60129,10 @@ levorotary. */
 }
 impl ::core::str::FromStr for SubstanceOpticalActivity {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "+" => Ok(Self::Plus),
@@ -59070,7 +60240,10 @@ Starting material for. */
 }
 impl ::core::str::FromStr for SubstanceRelationshipType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ActiveMoiety" => Ok(Self::ActiveMoiety),
@@ -59192,7 +60365,10 @@ mmCIF. */
 }
 impl ::core::str::FromStr for SubstanceRepresentationFormat {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "CDX" => Ok(Self::Cdx),
@@ -59302,7 +60478,10 @@ systematic. */
 }
 impl ::core::str::FromStr for SubstanceRepresentationType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Brand" => Ok(Self::Brand),
@@ -59404,7 +60583,10 @@ Mycobacterium. */
 }
 impl ::core::str::FromStr for SubstanceSourceMaterialGenus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Ginkgo" => Ok(Self::Ginkgo),
@@ -59506,7 +60688,10 @@ plant. */
 }
 impl ::core::str::FromStr for SubstanceSourceMaterialPart {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Animal" => Ok(Self::Animal),
@@ -59604,7 +60789,10 @@ Olea europaea. */
 }
 impl ::core::str::FromStr for SubstanceSourceMaterialSpecies {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "GinkgoBiloba" => Ok(Self::GinkgoBiloba),
@@ -59705,7 +60893,10 @@ plant. */
 }
 impl ::core::str::FromStr for SubstanceSourceMaterialType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Animal" => Ok(Self::Animal),
@@ -59807,7 +60998,10 @@ stereoisomer. */
 }
 impl ::core::str::FromStr for SubstanceStereochemistry {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ConstitutionalIsomer" => Ok(Self::ConstitutionalIsomer),
@@ -59917,7 +61111,10 @@ X-ray. */
 }
 impl ::core::str::FromStr for SubstanceStructureTechnique {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "HPLC" => Ok(Self::Hplc),
@@ -60043,7 +61240,10 @@ viscosity. */
 }
 impl ::core::str::FromStr for SubstanceWeightMethod {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Calculated" => Ok(Self::Calculated),
@@ -60155,7 +61355,10 @@ weight average. */
 }
 impl ::core::str::FromStr for SubstanceWeightType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Average" => Ok(Self::Average),
@@ -60261,7 +61464,10 @@ In Progress. Supply has been requested, but not delivered. */
 }
 impl ::core::str::FromStr for SupplyDeliveryStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "abandoned" => Ok(Self::Abandoned),
@@ -60365,7 +61571,10 @@ Medication. Supply is a kind of medication. */
 }
 impl ::core::str::FromStr for SupplyDeliverySupplyItemType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "biologicallyderivedproduct" => Ok(Self::Biologicallyderivedproduct),
@@ -60483,7 +61692,10 @@ Unknown. The authoring/source system does not know which of the status values cu
 }
 impl ::core::str::FromStr for SupplyRequestStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -61379,7 +62591,10 @@ Female rabbit for reproduction. */
 }
 impl ::core::str::FromStr for TargetSpecies {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "100000108874" => Ok(Self::N100000108874),
@@ -61893,7 +63108,10 @@ Suspend the focal resource. Transition the focal resource from 'active' or 'in-p
 }
 impl ::core::str::FromStr for TaskCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "abort" => Ok(Self::Abort),
@@ -61996,7 +63214,10 @@ Unknown. The intent is not known.  When dealing with Task, it's not always known
 }
 impl ::core::str::FromStr for TaskIntent {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "unknown" => Ok(Self::Unknown),
@@ -62129,7 +63350,10 @@ Requested. The task is ready to be acted upon and action is sought. */
 }
 impl ::core::str::FromStr for TaskStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "accepted" => Ok(Self::Accepted),
@@ -62255,7 +63479,10 @@ Personnel-issue. Key personnel necessary for task completion are not present. */
 }
 impl ::core::str::FromStr for TaskStatusReason {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "environmental-issue" => Ok(Self::EnvironmentalIssue),
@@ -62379,7 +63606,10 @@ Terminated. A design is determined to be erroneous or not fit for the intended p
 }
 impl ::core::str::FromStr for TemplateStatusCodeLifeCycle {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "active" => Ok(Self::Active),
@@ -62497,7 +63727,10 @@ Warning. The action passed but with warnings. */
 }
 impl ::core::str::FromStr for TestReportActionResult {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "error" => Ok(Self::Error),
@@ -62603,7 +63836,10 @@ Test Engine. The test execution engine. */
 }
 impl ::core::str::FromStr for TestReportParticipantType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "client" => Ok(Self::Client),
@@ -62705,7 +63941,10 @@ Pending. One or more test operations is pending execution completion. */
 }
 impl ::core::str::FromStr for TestReportResult {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "fail" => Ok(Self::Fail),
@@ -62813,7 +64052,10 @@ Waiting. A test operation is waiting for an external client request. */
 }
 impl ::core::str::FromStr for TestReportStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "completed" => Ok(Self::Completed),
@@ -62933,7 +64175,10 @@ PUT. HTTP PUT operation. */
 }
 impl ::core::str::FromStr for TestScriptRequestMethodCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "delete" => Ok(Self::Delete),
@@ -63041,7 +64286,10 @@ Strict. All tests are expected to pass. Warnings are treated as a failure. */
 }
 impl ::core::str::FromStr for TestScriptScopeConformanceType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "optional" => Ok(Self::Optional),
@@ -63144,7 +64392,10 @@ Unit. The development or implementation phase. */
 }
 impl ::core::str::FromStr for TestScriptScopePhaseType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "integration" => Ok(Self::Integration),
@@ -63274,7 +64525,10 @@ Indicated to replace the other therapy not well tolerated by patient. Indicated 
 }
 impl ::core::str::FromStr for TherapyRelationshipType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "contraindicated-except-with" => Ok(Self::ContraindicatedExceptWith),
@@ -63395,7 +64649,10 @@ Continuous (frequency). Service is provided continuously between start time and 
 }
 impl ::core::str::FromStr for TimingAbbreviation {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "C" => Ok(Self::C),
@@ -63534,7 +64791,10 @@ Subtitle. Subtitle or secondary title. */
 }
 impl ::core::str::FromStr for TitleType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "acronym" => Ok(Self::Acronym),
@@ -63674,7 +64934,10 @@ Suspend the focal resource. Transition the focal resource from 'active' or 'in-p
 }
 impl ::core::str::FromStr for TransportCode {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "abort" => Ok(Self::Abort),
@@ -63777,7 +65040,10 @@ Unknown. The intent is not known.  When dealing with Transport, it's not always 
 }
 impl ::core::str::FromStr for TransportIntent {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "unknown" => Ok(Self::Unknown),
@@ -63886,7 +65152,10 @@ Planned. Planned transport that is not yet requested. */
 }
 impl ::core::str::FromStr for TransportStatus {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "abandoned" => Ok(Self::Abandoned),
@@ -64012,7 +65281,10 @@ Periodic. The trigger occurs at a specific time or periodically as described by 
 }
 impl ::core::str::FromStr for TriggerType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "data-access-ended" => Ok(Self::DataAccessEnded),
@@ -64122,7 +65394,10 @@ Repeat (per policy). Performance of the same test again with the same parameters
 }
 impl ::core::str::FromStr for TriggeredBytype {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "re-run" => Ok(Self::ReRun),
@@ -64220,7 +65495,10 @@ Specialization. This definition defines a new type that adds additional elements
 }
 impl ::core::str::FromStr for TypeDerivationRule {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "constraint" => Ok(Self::Constraint),
@@ -64334,7 +65612,10 @@ Unknown. The method of data capture has not been determined. */
 }
 impl ::core::str::FromStr for UDIEntryType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "barcode" => Ok(Self::Barcode),
@@ -64442,7 +65723,10 @@ Uncommon. */
 }
 impl ::core::str::FromStr for UndesirablEffectFrequency {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Common" => Ok(Self::Common),
@@ -64756,7 +66040,10 @@ Bag. */
 }
 impl ::core::str::FromStr for UnitOfPresentation {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "200000002108" => Ok(Self::N200000002108),
@@ -64974,7 +66261,10 @@ System Implementation. Documents the specific points of a single production syst
 }
 impl ::core::str::FromStr for UsageContextAgreementScope {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "community" => Ok(Self::Community),
@@ -65082,7 +66372,10 @@ Predetermination. The treatment is proposed and this represents a Pre-determinat
 }
 impl ::core::str::FromStr for Use {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "claim" => Ok(Self::Claim),
@@ -65190,7 +66483,10 @@ SemVer. Uses the semantic versioning scheme as defined in [semver.org](http://se
 }
 impl ::core::str::FromStr for VersionAlgorithm {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "alpha" => Ok(Self::Alpha),
@@ -65294,7 +66590,10 @@ Zoom web conferencing. the amount is the base price used for calculating the tot
 }
 impl ::core::str::FromStr for VirtualServiceType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "ms-teams" => Ok(Self::MsTeams),
@@ -65398,7 +66697,10 @@ Up. top. */
 }
 impl ::core::str::FromStr for VisionBase {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "down" => Ok(Self::Down),
@@ -65496,7 +66798,10 @@ Right Eye. Right Eye. */
 }
 impl ::core::str::FromStr for VisionEyes {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "left" => Ok(Self::Left),
@@ -65631,7 +66936,10 @@ used. the beginning of utilizing an entity by an activity. Before usage, the act
 }
 impl ::core::str::FromStr for W3cProvenanceActivityType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "Attribution" => Ok(Self::Attribution),
@@ -65778,7 +67086,10 @@ Wash contaminated clothing before reuse... Wash contaminated clothing before reu
 }
 impl ::core::str::FromStr for WarningType {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "P313" => Ok(Self::P313),
@@ -65900,7 +67211,10 @@ Third. Third week of the month. */
 }
 impl ::core::str::FromStr for WeekOfMonth {
     type Err = String;
-    #[allow(clippy::match_single_binding)]
+    #[allow(
+        clippy::match_single_binding,
+        reason = "Generated code; unknown number of variants"
+    )]
     fn from_str(s: &str) -> ::core::result::Result<Self, Self::Err> {
         match s {
             "first" => Ok(Self::First),

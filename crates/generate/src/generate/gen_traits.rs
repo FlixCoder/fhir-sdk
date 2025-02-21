@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-use anyhow::{anyhow, Result};
+use anyhow::{Result, anyhow};
 use proc_macro2::{Ident, TokenStream};
 use quote::{format_ident, quote};
 
@@ -12,8 +12,8 @@ use super::{
 	map_field_ident, map_type,
 };
 use crate::model::{
-	structures::{Field, Type},
 	StructureDefinitionKind,
+	structures::{Field, Type},
 };
 
 /// Generate the BaseResource trait and its implementations.
@@ -97,7 +97,7 @@ pub fn generate_domain_resource(
 		.iter()
 		.filter(|ty| !ty.r#abstract)
 		.filter(|ty| ty.kind == StructureDefinitionKind::Resource)
-		.filter(|ty| ty.base.as_ref().map_or(false, |base| base.ends_with("DomainResource")))
+		.filter(|ty| ty.base.as_ref().is_some_and(|base| base.ends_with("DomainResource")))
 		.inspect(|ty| filtered_resources.push(format_ident!("{}", ty.name)))
 		.map(|ty| make_trait_implementation(ty, &field_names, &field_types, &ident))
 		.collect();

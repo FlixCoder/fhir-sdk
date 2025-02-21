@@ -10,7 +10,7 @@ pub trait GenericResource {
 	/// Get the ID of the resource.
 	fn id(&self) -> Option<&str>;
 	/// Set the version of the resource.
-	#[allow(dead_code)] // For future use.
+	#[allow(dead_code, reason = "For future use")]
 	fn set_id(&mut self, id: String);
 	/// Get the version ID of the resource.
 	fn version_id(&self) -> Option<&str>;
@@ -55,8 +55,10 @@ macro_rules! impl_generic_resource {
 					if let Some(meta) = self.as_base_resource_mut().meta_mut() {
 						meta.version_id = Some(version_id);
 					} else {
-						// Meta does not require any field and will succeed building.
-						#[allow(clippy::unwrap_used)]
+						#[allow(
+							clippy::unwrap_used,
+							reason = "Meta does not require any field and will succeed building."
+						)]
 						self.as_base_resource_mut().set_meta(Some(
 							Meta::builder().version_id(version_id).build().unwrap(),
 						));

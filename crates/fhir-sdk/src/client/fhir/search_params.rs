@@ -40,7 +40,7 @@ impl<'a, V: FhirVersion> NumberSearch<'a, V> {
 	}
 }
 
-impl<'a, V> SearchParameter for NumberSearch<'a, V> {
+impl<V> SearchParameter for NumberSearch<'_, V> {
 	fn into_query(self) -> (String, String) {
 		(self.name.to_owned(), self.values.join(","))
 	}
@@ -60,7 +60,7 @@ pub struct DateSearch<'a, V: FhirVersion> {
 	pub value: &'a str,
 }
 
-impl<'a, V: FhirVersion> SearchParameter for DateSearch<'a, V> {
+impl<V: FhirVersion> SearchParameter for DateSearch<'_, V> {
 	fn into_query(self) -> (String, String) {
 		if let Some(comparator) = self.comparator {
 			(
@@ -103,7 +103,7 @@ pub enum StringSearch<'a> {
 	},
 }
 
-impl<'a> SearchParameter for StringSearch<'a> {
+impl SearchParameter for StringSearch<'_> {
 	fn into_query(self) -> (String, String) {
 		let (name, modifier, value) = match self {
 			Self::Standard { name, value } => (name, "", value),
@@ -160,7 +160,7 @@ pub enum TokenSearch<'a> {
 	},
 }
 
-impl<'a> SearchParameter for TokenSearch<'a> {
+impl SearchParameter for TokenSearch<'_> {
 	fn into_query(self) -> (String, String) {
 		match self {
 			Self::Standard { name, system, code, not } => {
@@ -250,7 +250,7 @@ pub enum ReferenceSearch<'a, V: FhirVersion> {
 	},
 }
 
-impl<'a, V: FhirVersion> SearchParameter for ReferenceSearch<'a, V> {
+impl<V: FhirVersion> SearchParameter for ReferenceSearch<'_, V> {
 	fn into_query(self) -> (String, String) {
 		match self {
 			Self::Standard { name, resource_type, id, version_id } => {
@@ -307,7 +307,7 @@ pub struct QuantitySearch<'a, V: FhirVersion> {
 	pub code: Option<&'a str>,
 }
 
-impl<'a, V: FhirVersion> SearchParameter for QuantitySearch<'a, V> {
+impl<V: FhirVersion> SearchParameter for QuantitySearch<'_, V> {
 	fn into_query(self) -> (String, String) {
 		let value = if let Some(comparator) = self.comparator {
 			format!("{comparator}{}", escape_search_value(self.value))
@@ -360,7 +360,7 @@ pub enum UriSearch<'a> {
 	},
 }
 
-impl<'a> SearchParameter for UriSearch<'a> {
+impl SearchParameter for UriSearch<'_> {
 	fn into_query(self) -> (String, String) {
 		let (name, modifier, uri) = match self {
 			Self::Standard { name, uri } => (name, "", uri),
@@ -381,7 +381,7 @@ pub struct MissingSearch<'a> {
 	pub missing: bool,
 }
 
-impl<'a> SearchParameter for MissingSearch<'a> {
+impl SearchParameter for MissingSearch<'_> {
 	fn into_query(self) -> (String, String) {
 		(format!("{}:missing", self.name), self.missing.to_string())
 	}

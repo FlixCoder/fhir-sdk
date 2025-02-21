@@ -65,13 +65,13 @@ pub fn escape_search_value(value: &str) -> String {
 
 /// Make a [HeaderValue] containing a new UUID.
 pub fn make_uuid_header_value() -> HeaderValue {
-	#[allow(clippy::expect_used)] // Will not fail.
+	#[allow(clippy::expect_used, reason = "UUIDs are valid header values")]
 	HeaderValue::from_str(&Uuid::new_v4().to_string()).expect("UUIDs are valid header values")
 }
 
 #[cfg(test)]
 mod tests {
-	#![allow(clippy::expect_used)] // Allowed for tests
+	#![allow(clippy::expect_used, reason = "Allowed for tests")]
 
 	use reqwest::header::HeaderValue;
 

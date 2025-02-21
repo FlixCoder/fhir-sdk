@@ -13,7 +13,7 @@ use std::{marker::PhantomData, sync::Arc};
 
 use ::std::any::type_name;
 use misc::parse_major_fhir_version;
-use reqwest::{header, StatusCode, Url};
+use reqwest::{StatusCode, Url, header};
 
 pub use self::{
 	aliases::*, auth::LoginManager, builder::ClientBuilder, error::Error, fhir::*,
@@ -73,7 +73,7 @@ impl<V: FhirVersion> Client<V> {
 	/// Get the URL with the configured base URL and the given path segments.
 	fn url(&self, segments: &[&str]) -> Url {
 		let mut url = self.0.base_url.clone();
-		#[allow(clippy::expect_used)] // We made sure of it in the constructor.
+		#[allow(clippy::expect_used, reason = "We made sure of it in the constructor")]
 		url.path_segments_mut().expect("Base URL cannot be base").pop_if_empty().extend(segments);
 		url
 	}
@@ -81,7 +81,7 @@ impl<V: FhirVersion> Client<V> {
 	/// Get the request settings configured in this client.
 	#[must_use]
 	pub fn request_settings(&self) -> RequestSettings {
-		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
+		#[allow(clippy::expect_used, reason = "only happens on panics, so we can panic again")]
 		self.0.request_settings.lock().expect("mutex poisened").clone()
 	}
 
@@ -91,7 +91,7 @@ impl<V: FhirVersion> Client<V> {
 	/// `client.patch_request_settings(|_| new_settings)`.
 	pub fn set_request_settings(&self, settings: RequestSettings) {
 		tracing::debug!("Setting new request settings");
-		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
+		#[allow(clippy::expect_used, reason = "only happens on panics, so we can panic again")]
 		let mut request_settings = self.0.request_settings.lock().expect("mutex poisened");
 		*request_settings = settings;
 	}
@@ -103,7 +103,7 @@ impl<V: FhirVersion> Client<V> {
 		F: FnOnce(RequestSettings) -> RequestSettings,
 	{
 		tracing::debug!("Patching request settings");
-		#[allow(clippy::expect_used)] // only happens on panics, so we can panic again.
+		#[allow(clippy::expect_used, reason = "only happens on panics, so we can panic again")]
 		let mut request_settings = self.0.request_settings.lock().expect("mutex poisened");
 		let patched = mutator(request_settings.clone());
 		*request_settings = patched;

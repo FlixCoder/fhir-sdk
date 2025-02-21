@@ -3,7 +3,7 @@
 use std::fmt::Debug;
 
 use fhir_model::for_all_versions;
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{Serialize, de::DeserializeOwned};
 
 /// Trait for additional functionality of Parameters. Only implemented if "builders" feature is
 /// active.
@@ -36,7 +36,7 @@ macro_rules! impl_parameters_ext {
 
 				#[inline]
 				fn make(parameters: Vec<Option<Self::Parameter>>) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().parameter(parameters).build().unwrap()
 				}
 			}
@@ -81,7 +81,7 @@ macro_rules! impl_parameters_parameter_ext {
 
 				#[inline]
 				fn make(name: String, value: Option<Self::Value>, part: Vec<Option<Self>>) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					if let Some(value) = value {
 						Self::builder().name(name).value(value).part(part).build().unwrap()
 					} else {

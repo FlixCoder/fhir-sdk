@@ -1,8 +1,8 @@
 //! Patch request building.
 
 use reqwest::{
-	header::{self, HeaderValue},
 	StatusCode,
+	header::{self, HeaderValue},
 };
 use serde::Serialize;
 
@@ -55,7 +55,7 @@ where
 		name: impl Into<String>,
 		value: ParametersParameter<V>,
 	) -> Self {
-		#[allow(clippy::unwrap_used)] // Will always succeed.
+		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
 			None,
@@ -93,7 +93,7 @@ where
 		value: ParametersParameter<V>,
 		index: i32,
 	) -> Self {
-		#[allow(clippy::unwrap_used)] // Will always succeed.
+		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
 			None,
@@ -125,7 +125,7 @@ where
 	/// `path` needs to be set according the FHIR defititions, e.g.
 	/// `Patient.active` to delete the `active` field on a `Patient` resource.
 	pub fn delete(mut self, path: impl Into<String>) -> Self {
-		#[allow(clippy::unwrap_used)] // Will always succeed.
+		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
 			None,
@@ -152,7 +152,7 @@ where
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
 	pub fn replace(mut self, path: impl Into<String>, value: ParametersParameter<V>) -> Self {
-		#[allow(clippy::unwrap_used)] // Will always succeed.
+		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
 			None,
@@ -180,7 +180,7 @@ where
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
 	pub fn r#move(mut self, path: impl Into<String>, source: i32, destination: i32) -> Self {
-		#[allow(clippy::unwrap_used)] // Will always succeed.
+		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
 			None,

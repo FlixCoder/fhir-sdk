@@ -1,6 +1,6 @@
 [workspace]
 members = ["crates/*"]
-resolver = "2"
+resolver = "3"
 
 [profile.dev.build-override]
 opt-level = 2
@@ -10,7 +10,7 @@ opt-level = 2
 opt-level = 2
 
 [workspace.lints.rust]
-dead_code = "warn"
+closure_returning_async_block = "warn"
 missing_debug_implementations = "warn"
 missing_docs = "warn"
 trivial_casts = "warn"

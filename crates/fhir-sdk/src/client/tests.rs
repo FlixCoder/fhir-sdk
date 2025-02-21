@@ -1,4 +1,4 @@
-#![allow(clippy::unwrap_used, clippy::indexing_slicing)]
+#![allow(clippy::unwrap_used, clippy::indexing_slicing, reason = "Tests")]
 
 use std::{
 	sync::atomic::{AtomicUsize, Ordering},

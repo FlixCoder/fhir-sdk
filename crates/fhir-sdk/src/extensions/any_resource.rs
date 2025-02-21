@@ -55,8 +55,10 @@ macro_rules! impl_any_resource {
 				if let Some(meta) = self.meta_mut() {
 					meta.version_id = Some(version_id);
 				} else {
-					// Meta does not require any field and will succeed building.
-					#[allow(clippy::unwrap_used)]
+					#[allow(
+						clippy::unwrap_used,
+						reason = "Meta does not require any field and will succeed building."
+					)]
 					self.set_meta(Some(
 						$version::types::Meta::builder().version_id(version_id).build().unwrap(),
 					));

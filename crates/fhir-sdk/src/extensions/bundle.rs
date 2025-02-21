@@ -76,12 +76,12 @@ macro_rules! impl_bundle_ext {
 				}
 
 				fn make_batch(entries: Vec<Option<Self::Entry>>) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().r#type(BundleType::Batch).entry(entries).build().unwrap()
 				}
 
 				fn make_transaction(entries: Vec<Option<Self::Entry>>) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().r#type(BundleType::Transaction).entry(entries).build().unwrap()
 				}
 			}
@@ -193,7 +193,7 @@ macro_rules! impl_bundle_entry_ext {
 				}
 
 				fn empty() -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().build().unwrap()
 				}
 
@@ -259,22 +259,22 @@ macro_rules! impl_bundle_entry_request_ext {
 				}
 
 				fn make_post(url: String) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().url(url).method(HTTPVerb::Post).build().unwrap()
 				}
 
 				fn make_put(url: String) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().url(url).method(HTTPVerb::Put).build().unwrap()
 				}
 
 				fn make_get(url: String) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().url(url).method(HTTPVerb::Get).build().unwrap()
 				}
 
 				fn make_delete(url: String) -> Self {
-					#[allow(clippy::unwrap_used)] // Will always succeed.
+					#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 					Self::builder().url(url).method(HTTPVerb::Delete).build().unwrap()
 				}
 

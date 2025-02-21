@@ -6,7 +6,6 @@ use tokio::{runtime::Runtime, sync::OnceCell};
 
 /// Test-global runtime to be stable across multiple tests using the same client
 /// and runtime.
-#[allow(clippy::incompatible_msrv)] // Just the test, don't want to block/wwarn production..
 pub static RUNTIME: LazyLock<Runtime> = LazyLock::new(|| {
 	tokio::runtime::Builder::new_multi_thread().enable_all().build().expect("creating runtime")
 });

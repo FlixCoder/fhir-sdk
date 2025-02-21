@@ -1,5 +1,12 @@
+//! Integration test using FHIR R4(B) with Medplum as FHIR server.
 #![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
-#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, clippy::indexing_slicing)]
+#![allow(
+	clippy::expect_used,
+	clippy::unwrap_used,
+	clippy::print_stdout,
+	clippy::indexing_slicing,
+	reason = "Tests"
+)]
 
 mod common;
 

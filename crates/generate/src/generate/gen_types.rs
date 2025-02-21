@@ -9,8 +9,8 @@ use quote::{format_ident, quote};
 
 use super::{comments::sanitize, map_field_ident, map_type};
 use crate::model::{
-	structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type},
 	StructureDefinitionKind,
+	structures::{ChoiceField, CodeField, Field, ObjectField, StandardField, Type},
 };
 
 /// Generate struct definition for a FHIR type.
@@ -391,9 +391,9 @@ pub fn code_field_type_name(
 	let contains_name = field
 		.code_name
 		.as_ref()
-		.map_or(false, |code_name| implemented_codes.values().any(|value| value == code_name));
+		.is_some_and(|code_name| implemented_codes.values().any(|value| value == code_name));
 	let contains_url =
-		field.code_url.as_ref().map_or(false, |code_url| implemented_codes.contains_key(code_url));
+		field.code_url.as_ref().is_some_and(|code_url| implemented_codes.contains_key(code_url));
 	if field.r#type.as_str() == "code" && (contains_name || contains_url) {
 		let type_name = field
 			.code_url

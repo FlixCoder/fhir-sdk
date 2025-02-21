@@ -4,7 +4,7 @@ use fhir_model::for_all_versions;
 use reqwest::header;
 
 use super::{Client, Error};
-use crate::version::{fhir_version, FhirVersion};
+use crate::version::{FhirVersion, fhir_version};
 
 /// Implement the operation "Encounter/<id>/$everything" for the appropriate
 /// versions.

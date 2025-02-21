@@ -1,6 +1,6 @@
 //! Generalized functionality for references.
 
-use fhir_model::{for_all_versions, ParsedReference};
+use fhir_model::{ParsedReference, for_all_versions};
 
 /// Additional functionality for `Reference`s.
 pub trait ReferenceExt {

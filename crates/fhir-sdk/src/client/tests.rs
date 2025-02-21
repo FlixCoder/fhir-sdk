@@ -9,7 +9,7 @@ use ::tokio::sync::OnceCell;
 use header::HeaderValue;
 use reqwest::Method;
 use serde_json::json;
-use wiremock::{matchers, Mock, MockServer, ResponseTemplate};
+use wiremock::{Mock, MockServer, ResponseTemplate, matchers};
 
 use super::*;
 

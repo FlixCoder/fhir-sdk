@@ -4,8 +4,8 @@ use std::time::Duration;
 
 use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 use tokio_retry::{
-	strategy::{ExponentialBackoff, FixedInterval},
 	RetryIf,
+	strategy::{ExponentialBackoff, FixedInterval},
 };
 
 use super::{error::Error, misc::make_uuid_header_value};

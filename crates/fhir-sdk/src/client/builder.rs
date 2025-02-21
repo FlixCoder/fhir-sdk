@@ -4,7 +4,7 @@ use std::marker::PhantomData;
 
 use reqwest::Url;
 
-use super::{auth::AuthCallback, Client, Error, LoginManager, RequestSettings};
+use super::{Client, Error, LoginManager, RequestSettings, auth::AuthCallback};
 use crate::version::{DefaultVersion, FhirVersion};
 
 /// Default user agent of this client.

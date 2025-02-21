@@ -1,8 +1,8 @@
 //! Patch request building.
 
 use reqwest::{
-	header::{self, HeaderValue},
 	StatusCode,
+	header::{self, HeaderValue},
 };
 use serde::Serialize;
 

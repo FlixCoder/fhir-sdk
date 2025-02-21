@@ -13,7 +13,7 @@ use std::{marker::PhantomData, sync::Arc};
 
 use ::std::any::type_name;
 use misc::parse_major_fhir_version;
-use reqwest::{header, StatusCode, Url};
+use reqwest::{StatusCode, Url, header};
 
 pub use self::{
 	aliases::*, auth::LoginManager, builder::ClientBuilder, error::Error, fhir::*,

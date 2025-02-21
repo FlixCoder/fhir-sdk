@@ -8,7 +8,7 @@ use std::{
 };
 
 use fhir_model::for_all_versions;
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{Serialize, de::DeserializeOwned};
 
 use crate::{
 	extensions::{BundleEntryExt, BundleExt, GenericResource, ParametersExt, ReferenceExt},

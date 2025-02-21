@@ -7,6 +7,7 @@ use std::str::FromStr;
 
 use anyhow::Result;
 use fhir_sdk::{
+	Date,
 	client::{Client, DateSearch, ResourceWrite, SearchParameters, TokenSearch},
 	r4b::{
 		codes::{
@@ -18,7 +19,6 @@ use fhir_sdk::{
 		types::{Coding, HumanName, Reference},
 	},
 	version::FhirR4B,
-	Date,
 };
 use futures::TryStreamExt;
 use reqwest::header::HeaderValue;

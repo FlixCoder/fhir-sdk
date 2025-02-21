@@ -2,8 +2,8 @@
 
 use std::{any::type_name, fmt::Debug, marker::PhantomData};
 
-use futures::{stream, Stream, StreamExt, TryStreamExt};
-use reqwest::{header::HeaderValue, StatusCode, Url};
+use futures::{Stream, StreamExt, TryStreamExt, stream};
+use reqwest::{StatusCode, Url, header::HeaderValue};
 
 use super::{Client, Error};
 use crate::{

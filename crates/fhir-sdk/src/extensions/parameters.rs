@@ -3,7 +3,7 @@
 use std::fmt::Debug;
 
 use fhir_model::for_all_versions;
-use serde::{de::DeserializeOwned, Serialize};
+use serde::{Serialize, de::DeserializeOwned};
 
 /// Trait for additional functionality of Parameters. Only implemented if "builders" feature is
 /// active.

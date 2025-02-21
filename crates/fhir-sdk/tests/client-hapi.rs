@@ -7,8 +7,9 @@ use std::{env, str::FromStr};
 
 use anyhow::Result;
 use fhir_sdk::{
+	Date, TryStreamExt,
 	client::{Client, ResourceWrite, SearchParameters, TokenSearch},
-	for_all_versions, Date, TryStreamExt,
+	for_all_versions,
 };
 
 // Rustfmt gives up on this one :(

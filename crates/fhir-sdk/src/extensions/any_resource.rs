@@ -2,7 +2,7 @@
 
 use fhir_model::for_all_versions;
 
-use crate::version::{fhir_version, FhirVersion};
+use crate::version::{FhirVersion, fhir_version};
 
 /// Basic trait to combine all resources from all FHIR versions to one.
 /// Especially for use in the client to accept and handly any resource.

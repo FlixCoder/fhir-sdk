@@ -9,7 +9,7 @@ use serde::Serialize;
 use super::{Client, Error};
 use crate::{
 	extensions::{AnyResource, GenericResource},
-	version::{fhir_version, FhirVersion},
+	version::{FhirVersion, fhir_version},
 };
 
 /// A trait to write resources to the FHIR server, mutating the interior id and

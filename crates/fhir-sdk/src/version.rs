@@ -1,6 +1,14 @@
 //! Marker types for FHIR versions. Mainly for use in the client (but also
 //! extension traits).
-#![cfg_attr(not(feature = "builders"), allow(dead_code, unused_imports, unused_macros,))] // Many impls missing without builders.
+#![cfg_attr(
+	not(feature = "builders"),
+	allow(
+		dead_code,
+		unused_imports,
+		unused_macros,
+		reason = "Many impls missing without builders"
+	)
+)]
 
 use std::{
 	fmt::{Debug, Display},

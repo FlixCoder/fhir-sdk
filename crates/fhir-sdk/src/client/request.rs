@@ -131,7 +131,7 @@ impl RequestSettings {
 		// Send the request, but retry on specific failures.
 		RetryIf::spawn(
 			strategy.take(self.retries),
-			|| async {
+			async || {
 				tracing::debug!("Sending {} request to {}", request.method(), request.url());
 				let request = request.try_clone().ok_or(Error::RequestNotClone)?;
 				let response = client.execute(request).await?;

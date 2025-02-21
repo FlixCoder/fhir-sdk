@@ -79,7 +79,7 @@ async fn client() -> Result<Client<FhirR4B>> {
 	static CLIENT: OnceCell<Client<FhirR4B>> = OnceCell::const_new();
 	common::setup_logging().await;
 	let client = CLIENT
-		.get_or_try_init(|| async move {
+		.get_or_try_init(async || {
 			let client = Client::builder()
 				.base_url(
 					std::env::var("FHIR_SERVER")

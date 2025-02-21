@@ -1,5 +1,13 @@
 //! Extension traits on resources.
-#![cfg_attr(not(feature = "builders"), allow(dead_code, unused_imports, unused_macros,))] // Many impls missing without builders.
+#![cfg_attr(
+	not(feature = "builders"),
+	allow(
+		dead_code,
+		unused_imports,
+		unused_macros,
+		reason = "Many impls missing without builders"
+	)
+)]
 
 mod any_resource;
 mod bundle;

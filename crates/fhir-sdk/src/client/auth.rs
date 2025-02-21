@@ -147,7 +147,7 @@ mod tests {
 	}
 
 	fn construct_test_closure() -> AuthCallback {
-		AuthCallback::new(|client: reqwest::Client| async move {
+		AuthCallback::new(async |client: reqwest::Client| {
 			let _response = client.get("invalid URL").send().await?;
 			anyhow::Ok(HeaderValue::from_static("ignored"))
 		})

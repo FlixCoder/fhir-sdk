@@ -1,6 +1,7 @@
 //! Integration tests for all FHIR versions using the HAPI FHIR servers.
 #![cfg(all(feature = "builders", feature = "client"))]
 #![allow(
+	clippy::tests_outside_test_module,
 	clippy::expect_used,
 	clippy::unwrap_used,
 	clippy::print_stdout,

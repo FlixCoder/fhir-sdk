@@ -109,6 +109,10 @@ impl RequestSettings {
 		request.headers_mut().entry("X-Request-Id").or_insert(id_value);
 
 		// Construct the dynamic retry strategy iterator.
+		#[expect(
+			clippy::cast_possible_truncation,
+			reason = "That high backoff is unrealistic and not an issue"
+		)]
 		let strategy: Box<dyn Iterator<Item = Duration> + Send + Sync> = if self.exp_backoff {
 			let mut exp_backoff =
 				ExponentialBackoff::from_millis(self.retry_time.as_millis() as u64);

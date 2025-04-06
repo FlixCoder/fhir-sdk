@@ -66,6 +66,7 @@ impl<V: FhirVersion> Client<V> {
 
 	/// Get the configured base URL.
 	#[must_use]
+	#[expect(clippy::missing_const_for_fn, reason = "False positive")]
 	pub fn base_url(&self) -> &Url {
 		&self.0.base_url
 	}

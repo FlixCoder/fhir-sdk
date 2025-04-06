@@ -48,7 +48,7 @@ where
 	/// Returns the temporary UUID to be used a reference that will be resolved
 	/// by the server for cross-referencing resources inside batch/transaction
 	/// requests.
-	pub fn create(&mut self, resource: impl Into<V::Resource>) -> String {
+	pub fn create<R: Into<V::Resource>>(&mut self, resource: R) -> String {
 		let resource = resource.into();
 		let uuid = format!("urn:uuid:{}", Uuid::new_v4());
 
@@ -66,9 +66,9 @@ where
 	/// Add update of a resource to the batch/transaction.
 	/// For advanced features like conditional creation, please use `with_raw`
 	/// for now.
-	pub fn update(
+	pub fn update<R: Into<V::Resource>>(
 		&mut self,
-		resource: impl Into<V::Resource>,
+		resource: R,
 		conditional: bool,
 	) -> Result<(), Error> {
 		let resource = resource.into();

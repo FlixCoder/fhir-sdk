@@ -49,12 +49,11 @@ where
 	/// and `name` need to be set according the FHIR defititions, e.g. path
 	/// `Patient` and name `birthDate`. The value must have the `name` field set
 	/// to `value` and then either set a `value[x]` or `part`.
-	pub fn add(
-		mut self,
-		path: impl Into<String>,
-		name: impl Into<String>,
-		value: ParametersParameter<V>,
-	) -> Self {
+	pub fn add<P, N>(mut self, path: P, name: N, value: ParametersParameter<V>) -> Self
+	where
+		P: Into<String>,
+		N: Into<String>,
+	{
 		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
@@ -87,9 +86,9 @@ where
 	/// `path` needs to be set according the FHIR defititions, e.g.
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
-	pub fn insert(
+	pub fn insert<P: Into<String>>(
 		mut self,
-		path: impl Into<String>,
+		path: P,
 		value: ParametersParameter<V>,
 		index: i32,
 	) -> Self {
@@ -124,7 +123,7 @@ where
 	/// Add a `delete` operation to the list of operations. Note that the
 	/// `path` needs to be set according the FHIR defititions, e.g.
 	/// `Patient.active` to delete the `active` field on a `Patient` resource.
-	pub fn delete(mut self, path: impl Into<String>) -> Self {
+	pub fn delete<P: Into<String>>(mut self, path: P) -> Self {
 		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
@@ -151,7 +150,7 @@ where
 	/// `path` needs to be set according the FHIR defititions, e.g.
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
-	pub fn replace(mut self, path: impl Into<String>, value: ParametersParameter<V>) -> Self {
+	pub fn replace<P: Into<String>>(mut self, path: P, value: ParametersParameter<V>) -> Self {
 		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
@@ -179,7 +178,7 @@ where
 	/// `path` needs to be set according the FHIR defititions, e.g.
 	/// `Patient.name`. The value must have the `name` field set to `value` and
 	/// then either set a `value[x]` or `part`.
-	pub fn r#move(mut self, path: impl Into<String>, source: i32, destination: i32) -> Self {
+	pub fn r#move<P: Into<String>>(mut self, path: P, source: i32, destination: i32) -> Self {
 		#[allow(clippy::unwrap_used, reason = "We know the builder succeeds")]
 		let parameter = ParametersParameter::<V>::make(
 			"operation".to_owned(),
@@ -266,7 +265,11 @@ where
 	/// in the correct format, e.g. `/birthDate`. The value needs to serialize
 	/// into the correct format for the respective FHIR datatype, this cannot be
 	/// checked in the client.
-	pub fn add(mut self, path: impl Into<String>, value: impl Serialize) -> Result<Self, Error> {
+	pub fn add<P, I>(mut self, path: P, value: I) -> Result<Self, Error>
+	where
+		P: Into<String>,
+		I: Serialize,
+	{
 		let mut operation = serde_json::Map::new();
 
 		operation.insert("op".to_owned(), "add".into());
@@ -279,7 +282,7 @@ where
 
 	/// Add a `remove` operation to the list of operations. The `path` needs to
 	/// be in the correct format, e.g. `/birthDate`.
-	pub fn remove(mut self, path: impl Into<String>) -> Self {
+	pub fn remove<P: Into<String>>(mut self, path: P) -> Self {
 		let mut operation = serde_json::Map::new();
 
 		operation.insert("op".to_owned(), "remove".into());
@@ -293,7 +296,11 @@ where
 	/// in the correct format, e.g. `/birthDate`. The value needs to serialize
 	/// into the correct format for the respective FHIR datatype, this cannot be
 	/// checked in the client.
-	pub fn test(mut self, path: impl Into<String>, value: impl Serialize) -> Result<Self, Error> {
+	pub fn test<P, I>(mut self, path: P, value: I) -> Result<Self, Error>
+	where
+		P: Into<String>,
+		I: Serialize,
+	{
 		let mut operation = serde_json::Map::new();
 
 		operation.insert("op".to_owned(), "test".into());
@@ -308,11 +315,11 @@ where
 	/// be in the correct format, e.g. `/birthDate`. The value needs to
 	/// serialize into the correct format for the respective FHIR datatype, this
 	/// cannot be checked in the client.
-	pub fn replace(
-		mut self,
-		path: impl Into<String>,
-		value: impl Serialize,
-	) -> Result<Self, Error> {
+	pub fn replace<P, I>(mut self, path: P, value: I) -> Result<Self, Error>
+	where
+		P: Into<String>,
+		I: Serialize,
+	{
 		let mut operation = serde_json::Map::new();
 
 		operation.insert("op".to_owned(), "replace".into());
@@ -325,7 +332,11 @@ where
 
 	/// Add a `move` operation to the list of operations. The `path`s needs to
 	/// be in the correct format, e.g. `/birthDate`.
-	pub fn r#move(mut self, from: impl Into<String>, path: impl Into<String>) -> Self {
+	pub fn r#move<PF, PT>(mut self, from: PF, path: PT) -> Self
+	where
+		PF: Into<String>,
+		PT: Into<String>,
+	{
 		let mut operation = serde_json::Map::new();
 
 		operation.insert("op".to_owned(), "move".into());
@@ -338,7 +349,11 @@ where
 
 	/// Add a `copy` operation to the list of operations. The `path`s needs to
 	/// be in the correct format, e.g. `/birthDate`.
-	pub fn copy(mut self, from: impl Into<String>, path: impl Into<String>) -> Self {
+	pub fn copy<PF, PT>(mut self, from: PF, path: PT) -> Self
+	where
+		PF: Into<String>,
+		PT: Into<String>,
+	{
 		let mut operation = serde_json::Map::new();
 
 		operation.insert("op".to_owned(), "copy".into());

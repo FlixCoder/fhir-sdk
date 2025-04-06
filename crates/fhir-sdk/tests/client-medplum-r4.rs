@@ -1,6 +1,7 @@
 //! Integration test using FHIR R4(B) with Medplum as FHIR server.
 #![cfg(all(feature = "r4b", feature = "builders", feature = "client"))]
 #![allow(
+	clippy::tests_outside_test_module,
 	clippy::expect_used,
 	clippy::unwrap_used,
 	clippy::print_stdout,
@@ -83,7 +84,7 @@ async fn client() -> Result<Client<FhirR4B>> {
 			let client = Client::builder()
 				.base_url(
 					std::env::var("FHIR_SERVER")
-						.unwrap_or("http://localhost:8080/fhir/R4".to_owned())
+						.unwrap_or_else(|_| "http://localhost:8080/fhir/R4".to_owned())
 						.parse()?,
 				)
 				.auth_callback(medplum_auth)
@@ -281,7 +282,9 @@ async fn transaction_inner() -> Result<()> {
 	let encounter_ref = create_encounter
 		.full_url
 		.as_ref()
-		.or(create_encounter.response.as_ref().and_then(|response| response.location.as_ref()))
+		.or_else(|| {
+			create_encounter.response.as_ref().and_then(|response| response.location.as_ref())
+		})
 		.expect("Encounter ID in response");
 	let Resource::Encounter(encounter) = client
 		.read_referenced(&Reference::builder().reference(encounter_ref.clone()).build().unwrap())

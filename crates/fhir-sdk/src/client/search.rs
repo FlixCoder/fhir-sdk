@@ -32,7 +32,11 @@ impl SearchParameters {
 	/// values. A value can consist of pipe-separated values for token search or
 	/// can be prepended by a comparator like `lt` for numbers.
 	#[must_use]
-	pub fn and_raw(mut self, key: impl Into<String>, value: impl ToString) -> Self {
+	pub fn and_raw<K, V>(mut self, key: K, value: V) -> Self
+	where
+		K: Into<String>,
+		V: ToString,
+	{
 		self.queries.push((key.into(), value.to_string()));
 		self
 	}

@@ -29,7 +29,7 @@ impl<'a, V: FhirVersion> NumberSearch<'a, V> {
 
 	/// Add a value to the number search.
 	#[must_use]
-	pub fn or(mut self, comparator: Option<V::SearchComparator>, value: impl ToString) -> Self {
+	pub fn or<T: ToString>(mut self, comparator: Option<V::SearchComparator>, value: T) -> Self {
 		let value = escape_search_value(&value.to_string());
 		if let Some(comparator) = comparator {
 			self.values.push(format!("{comparator}{value}"));

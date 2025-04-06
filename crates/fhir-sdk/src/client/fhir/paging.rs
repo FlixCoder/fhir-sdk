@@ -222,6 +222,7 @@ impl<V: FhirVersion, R> Debug for Page<V, R> {
 		f.debug_struct("Page")
 			.field("client", &self.client)
 			.field("bundle", &self.bundle)
+			.field("correlation_id", &self.correlation_id)
 			.field("_resource_type", &type_name::<R>())
 			.finish()
 	}

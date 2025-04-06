@@ -1,6 +1,12 @@
 //! Tests for the FHIR resources.
 #![cfg(feature = "builders")]
-#![allow(clippy::expect_used, clippy::unwrap_used, clippy::print_stdout, reason = "Tests")]
+#![allow(
+	clippy::tests_outside_test_module,
+	clippy::expect_used,
+	clippy::unwrap_used,
+	clippy::print_stdout,
+	reason = "Tests"
+)]
 
 mod json_compare;
 

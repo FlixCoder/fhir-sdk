@@ -161,7 +161,7 @@ where
 		let response = self.run_request(request).await?;
 		if response.status().is_success() {
 			let (id, version_id) = misc::parse_location(response.headers())?;
-			let version_id = version_id.or(misc::parse_etag(response.headers()).ok());
+			let version_id = version_id.or_else(|| misc::parse_etag(response.headers()).ok());
 			Ok((id, version_id))
 		} else {
 			Err(Error::from_response::<V>(response).await)
@@ -304,13 +304,11 @@ where
 	/// server responds with a different major FHIR version than the client is configured for, the
 	/// response is rejected if not explicitly allowed via the flag in the builder
 	/// ([ClientBuilder::allow_version_mismatch]).
-	pub async fn search_custom<R>(
-		&self,
-		make_request: impl FnOnce(&reqwest::Client) -> reqwest::RequestBuilder + Send,
-	) -> Result<Page<V, R>, Error>
+	pub async fn search_custom<R, F>(&self, make_request: F) -> Result<Page<V, R>, Error>
 	where
 		R: TryFrom<V::Resource> + Send + Sync + 'static,
 		for<'a> &'a R: TryFrom<&'a V::Resource>,
+		F: FnOnce(&reqwest::Client) -> reqwest::RequestBuilder + Send,
 	{
 		let mut request_builder = (make_request)(&self.0.client);
 		let (client, request_result) = request_builder.build_split();

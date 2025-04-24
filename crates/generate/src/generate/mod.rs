@@ -155,13 +155,26 @@ pub fn generate_resources(
 		#(#resource_defs)*
 
 		/// Generic resource holding any FHIR resources.
-		#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+		#[derive(Debug, Clone, PartialEq, Deserialize)]
 		#[serde(tag = "resourceType")]
 		pub enum Resource {
 			#(
 				#[doc = stringify!(#resource_names)]
 				#resource_names(#resource_names),
 			)*
+		}
+
+		impl serde::Serialize for Resource {
+			fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+			where
+				S: serde::Serializer,
+			{
+				match self {
+					#(
+						Resource::#resource_names(inner) => inner.serialize(serializer),
+					)*
+				}
+			}
 		}
 
 		/// Resource type field of the FHIR resources.

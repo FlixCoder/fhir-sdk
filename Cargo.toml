@@ -2,12 +2,26 @@
 members = ["crates/*"]
 resolver = "3"
 
+[workspace.package]
+edition = "2024"
+rust-version = "1.85"
+authors = ["Flix <felix.dommes@rwth-aachen.de>"]
+categories = ["data-structures", "parser-implementations", "web-programming"]
+description = "FHIR Software Development Kit. Library for interfacing with FHIR."
+documentation = "https://docs.rs/fhir-sdk"
+homepage = "https://github.com/FlixCoder/fhir-sdk"
+keywords = ["FHIR", "JSON", "types"]
+license = "MIT"
+repository = "https://github.com/FlixCoder/fhir-sdk"
+
+
 [profile.dev.build-override]
 opt-level = 2
 [profile.test.build-override]
 opt-level = 2
 [profile.release.build-override]
 opt-level = 2
+
 
 [workspace.lints.rust]
 closure_returning_async_block = "warn"

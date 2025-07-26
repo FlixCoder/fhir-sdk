@@ -1,18 +1,18 @@
 [package]
-authors = ["Flix <felix.dommes@rwth-aachen.de>"]
-categories = ["data-structures", "parser-implementations", "web-programming"]
-description = "FHIR SDK Models."
-documentation = "https://docs.rs/fhir-sdk"
-edition = "2024"
-exclude = ["/tests/*-examples-json"]
-homepage = "https://github.com/FlixCoder/fhir-sdk"
-keywords = ["FHIR", "JSON", "types"]
-license = "MIT"
 name = "fhir-model"
+version = "0.12.1"
+exclude = ["/tests/*-examples-json"]
 readme = "README.md"
-repository = "https://github.com/FlixCoder/fhir-sdk"
-rust-version = "1.85"
-version = "0.12.0"
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+categories.workspace = true
+description.workspace = true
+documentation.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
 
 [lints]
 workspace = true

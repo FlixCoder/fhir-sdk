@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.14.2] - 2025-07-26
+
+### Bug Fixes
+
+- Remove duplicate `resourceType` field in serialized generic `Resource` by @SHA888.
+
+### Miscellaneous
+
+- Allow using RusTLS instead of OpenSSL by @drakon64.
+- Make all `reqwest` features configurable.
+- Switch to Rust edition 2024.
+
 ## [0.14.1] - 2024-08-25
 
 ### Bug Fixes

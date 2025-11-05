@@ -4,7 +4,7 @@ volumes:
 services:
   postgres:
     profiles: ["ci", "medplum-r4", "hapi-stu3", "hapi-r4b", "hapi-r5"]
-    image: postgres:15
+    image: postgres:16
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -21,8 +21,14 @@ services:
 
   redis:
     profiles: ["ci", "medplum-r4"]
-    image: redis:6
+    image: redis:7
     command: redis-server --requirepass password
+    healthcheck:
+      test: ['CMD', 'redis-cli', '-a', 'password', 'ping']
+      interval: 5s
+      timeout: 60s
+      retries: 10
+      start_period: 10s
 
   hapi-stu3:
     profiles: ["ci", "hapi-stu3"]
@@ -32,12 +38,14 @@ services:
     environment:
       hapi.fhir.server_address: "http://localhost:8110/fhir"
       hapi.fhir.fhir_version: "DSTU3"
+      hapi.fhir.tester.home.name: "Local Tester"
+      hapi.fhir.tester.home.server_address: "http://localhost:8110/fhir"
       hapi.fhir.tester.home.fhir_version: "DSTU3"
       spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_stu3"
       spring.datasource.username: "fhir"
       spring.datasource.password: "password"
       spring.datasource.driverClassName: "org.postgresql.Driver"
-      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect"
     depends_on:
       postgres:
         condition: service_healthy
@@ -50,17 +58,17 @@ services:
     environment:
       hapi.fhir.server_address: "http://localhost:8090/fhir"
       hapi.fhir.fhir_version: "R4B"
+      hapi.fhir.tester.home.name: "Local Tester"
+      hapi.fhir.tester.home.server_address: "http://localhost:8090/fhir"
       hapi.fhir.tester.home.fhir_version: "R4B"
       hapi.fhir.subscription.resthook_enabled: "true"
+      hapi.fhir.subscription.email.from: "test@test.test"
+      hapi.fhir.subscription.email.host: "test.test"
       spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_r4b"
       spring.datasource.username: "fhir"
       spring.datasource.password: "password"
       spring.datasource.driverClassName: "org.postgresql.Driver"
-      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
-      # For some reason needed to start the server?
-      hapi.fhir.subscription.email.from: "test@test.test"
-      hapi.fhir.subscription.email.host: "test.test"
-      spring.main.allow-bean-definition-overriding: "true"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect"
     depends_on:
       postgres:
         condition: service_healthy
@@ -73,17 +81,17 @@ services:
     environment:
       hapi.fhir.server_address: "http://localhost:8100/fhir"
       hapi.fhir.fhir_version: "R5"
+      hapi.fhir.tester.home.name: "Local Tester"
+      hapi.fhir.tester.home.server_address: "http://localhost:8100/fhir"
       hapi.fhir.tester.home.fhir_version: "R5"
       hapi.fhir.subscription.resthook_enabled: "true"
+      hapi.fhir.subscription.email.from: "test@test.test"
+      hapi.fhir.subscription.email.host: "test.test"
       spring.datasource.url: "jdbc:postgresql://postgres:5432/hapi_r5"
       spring.datasource.username: "fhir"
       spring.datasource.password: "password"
       spring.datasource.driverClassName: "org.postgresql.Driver"
-      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgres94Dialect"
-      # For some reason needed to start the server?
-      hapi.fhir.subscription.email.from: "test@test.test"
-      hapi.fhir.subscription.email.host: "test.test"
-      spring.main.allow-bean-definition-overriding: "true"
+      spring.jpa.properties.hibernate.dialect: "ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect"
     depends_on:
       postgres:
         condition: service_healthy
@@ -95,6 +103,23 @@ services:
       - ./medplum/config-r4.json:/usr/src/medplum/packages/server/medplum.config.json
     ports:
       - "8080:8080"
+    entrypoint: >
+      sh -c "node --require ./packages/server/dist/otel/instrumentation.js packages/server/dist/index.js file:packages/server/medplum.config.json"
     depends_on:
       postgres:
         condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test:
+        # We use Node's fetch for healthcheck because this image doesn't have a curl or wget installed
+        [
+          'CMD',
+          'node',
+          '-e',
+          'fetch("http://localhost:8080/healthcheck").then(r => r.json()).then(console.log).catch(() => { process.exit(1); })',
+        ]
+      interval: 5s
+      timeout: 60s
+      retries: 10
+      start_period: 10s

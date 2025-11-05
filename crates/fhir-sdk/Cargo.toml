@@ -1,6 +1,6 @@
 [package]
 name = "fhir-sdk"
-version = "0.14.2"
+version = "0.14.3"
 readme = "README.md"
 edition.workspace = true
 rust-version.workspace = true
@@ -39,6 +39,7 @@ docs = []
 dep-defaults = ["reqwest?/default"]
 
 http2 = ["reqwest?/http2"]
+http3 = ["reqwest?/http3"]
 default-tls = ["reqwest?/default-tls"]
 native-tls = ["reqwest?/native-tls"]
 native-tls-vendored = ["reqwest?/native-tls-vendored"]
@@ -58,13 +59,13 @@ multipart = ["reqwest?/multipart"]
 stream = ["reqwest?/stream"]
 socks = ["reqwest?/socks"]
 hickory-dns = ["reqwest?/hickory-dns"]
-macos-system-configuration = ["reqwest?/macos-system-configuration"]
+system-proxy = ["reqwest?/system-proxy"]
 
 [dependencies]
 async-trait = { version = "0.1.86", optional = true }
-fhir-model = { path = "../fhir-model", version = "0.12.0", default-features = false }
+fhir-model = { path = "../fhir-model", version = "0.12.1", default-features = false }
 futures = { version = "0.3.28", optional = true }
-reqwest = { version = "0.12.2", default-features = false, features = ["json"], optional = true }
+reqwest = { version = "0.12.24", default-features = false, features = ["json"], optional = true }
 serde = { version = "1.0.159" }
 serde_json = { version = "1.0.95", optional = true }
 thiserror = { version = "2.0.11", optional = true }
@@ -74,10 +75,10 @@ tracing = { version = "0.1.4", optional = true }
 uuid = { version = "1.4.1", features = ["v4"], optional = true }
 
 [dev-dependencies]
-anyhow = "1.0.96"
-tokio = { version = "1.43.1", features = ["full"] }
+anyhow = "1.0.100"
+tokio = { version = "1.48.0", features = ["full"] }
 tracing-subscriber = { version = "0.3.20", features = ["env-filter"] }
-wiremock = "0.6.2"
+wiremock = "0.6.5"
 
 [package.metadata.docs.rs]
 features = ["r5", "builders", "client", "docs", "dep-defaults"]

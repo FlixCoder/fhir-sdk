@@ -103,8 +103,7 @@ services:
       - ./medplum/config-r4.json:/usr/src/medplum/packages/server/medplum.config.json
     ports:
       - "8080:8080"
-    entrypoint: >
-      sh -c "node --require ./packages/server/dist/otel/instrumentation.js packages/server/dist/index.js file:packages/server/medplum.config.json"
+    entrypoint: "node --require ./packages/server/dist/otel/instrumentation.js packages/server/dist/index.js file:packages/server/medplum.config.json"
     depends_on:
       postgres:
         condition: service_healthy

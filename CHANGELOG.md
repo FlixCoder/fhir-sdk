@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.15.1] - 2026-01-03
+
+- Re-enabled reqwest forms.
+
 ## [0.15.0] - 2026-01-03
 
 - Updated reqwest to 0.13.

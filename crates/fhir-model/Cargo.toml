@@ -28,7 +28,7 @@ r5 = []
 base64 = "0.22.0"
 derive_builder = { version = "0.20.0", optional = true }
 serde = { version = "1.0.158", features = ["derive"] }
-time = { version = "0.3.27", features = [
+time = { version = "0.3.45", features = [
     "formatting",
     "parsing",
     "macros",

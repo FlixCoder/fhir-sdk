@@ -4,8 +4,8 @@ resolver = "3"
 
 [workspace.package]
 edition = "2024"
-rust-version = "1.85"
-authors = ["Flix <felix.dommes@rwth-aachen.de>"]
+rust-version = "1.90"
+authors = ["Flix <flix@flixco.de>"]
 categories = ["data-structures", "parser-implementations", "web-programming"]
 description = "FHIR Software Development Kit. Library for interfacing with FHIR."
 documentation = "https://docs.rs/fhir-sdk"

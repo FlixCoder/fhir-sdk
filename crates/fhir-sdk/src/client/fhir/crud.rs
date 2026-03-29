@@ -100,13 +100,13 @@ where
 			.read_generic(url.clone(), None)
 			.await?
 			.ok_or_else(|| Error::ResourceNotFound(url.to_string()))?;
-		if let Some(resource_type) = reference.r#type() {
-			if resource.resource_type_str() != resource_type {
-				return Err(Error::WrongResourceType(
-					resource.resource_type_str().to_owned(),
-					resource_type.to_owned(),
-				));
-			}
+		if let Some(resource_type) = reference.r#type()
+			&& resource.resource_type_str() != resource_type
+		{
+			return Err(Error::WrongResourceType(
+				resource.resource_type_str().to_owned(),
+				resource_type.to_owned(),
+			));
 		}
 
 		Ok(resource)

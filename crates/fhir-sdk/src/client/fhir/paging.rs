@@ -187,10 +187,10 @@ where
 		return entry.into_resource().map(Ok);
 	}
 
-	if let Some(request) = entry.request() {
-		if request.is_delete() {
-			return None;
-		}
+	if let Some(request) = entry.request()
+		&& request.is_delete()
+	{
+		return None;
 	}
 
 	let full_url = entry.full_url()?;

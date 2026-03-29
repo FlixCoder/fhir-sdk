@@ -200,12 +200,12 @@ impl<V: FhirVersion> Client<V> {
 		tracing::info!("Got response: {}", response.status());
 
 		// Test server FHIR version in response, if configured to do so.
-		if self.0.error_on_version_mismatch {
-			if let Some(version) = parse_major_fhir_version(response.headers())? {
-				let expected = V::VERSION.split_once('.').map_or(V::VERSION, |(major, _)| major);
-				if version != expected {
-					return Err(Error::DifferentFhirVersion(version.to_owned()));
-				}
+		if self.0.error_on_version_mismatch
+			&& let Some(version) = parse_major_fhir_version(response.headers())?
+		{
+			let expected = V::VERSION.split_once('.').map_or(V::VERSION, |(major, _)| major);
+			if version != expected {
+				return Err(Error::DifferentFhirVersion(version.to_owned()));
 			}
 		}
 
